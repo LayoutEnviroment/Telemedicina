@@ -1,9 +1,6 @@
 ﻿Imports CapaDeNegocio
 
 Public Class ObtenerDiagnostico
-    Private Sub TxtSintoma_Click(sender As Object, e As EventArgs) Handles TxtSintoma.Click
-        TxtSintoma.ForeColor = Color.Black
-    End Sub
 
     Private Sub TxtSintoma_TextChanged(sender As Object, e As EventArgs) Handles TxtSintoma.TextChanged
 
@@ -39,7 +36,7 @@ Public Class ObtenerDiagnostico
         SintomaPaciente.DoDragDrop(SintomaPaciente.SelectedItems.ToString, DragDropEffects.Copy)
     End Sub
 
-    Private Sub ObtenerDiagnostico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+    Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles BtnBuscar.Click
+        SintomaPaciente.Items.ToString()
     End Sub
 End Class

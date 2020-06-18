@@ -33,18 +33,21 @@ Partial Class ObtenerDiagnostico
         '
         'TxtSintoma
         '
-        Me.TxtSintoma.ForeColor = System.Drawing.SystemColors.ScrollBar
-        Me.TxtSintoma.Location = New System.Drawing.Point(434, 162)
+        Me.TxtSintoma.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.TxtSintoma.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.TxtSintoma.ForeColor = System.Drawing.SystemColors.MenuText
+        Me.TxtSintoma.Location = New System.Drawing.Point(292, 128)
         Me.TxtSintoma.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TxtSintoma.Name = "TxtSintoma"
-        Me.TxtSintoma.Size = New System.Drawing.Size(252, 26)
-        Me.TxtSintoma.TabIndex = 2
+        Me.TxtSintoma.Size = New System.Drawing.Size(281, 26)
+        Me.TxtSintoma.TabIndex = 0
         Me.TxtSintoma.Text = "Ej: Fiebre"
+        Me.TxtSintoma.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'LblSintomas
         '
         Me.LblSintomas.AutoSize = True
-        Me.LblSintomas.Location = New System.Drawing.Point(470, 118)
+        Me.LblSintomas.Location = New System.Drawing.Point(328, 84)
         Me.LblSintomas.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblSintomas.Name = "LblSintomas"
         Me.LblSintomas.Size = New System.Drawing.Size(187, 20)
@@ -54,7 +57,7 @@ Partial Class ObtenerDiagnostico
         'LblSaludo
         '
         Me.LblSaludo.AutoSize = True
-        Me.LblSaludo.Location = New System.Drawing.Point(488, 82)
+        Me.LblSaludo.Location = New System.Drawing.Point(346, 48)
         Me.LblSaludo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblSaludo.Name = "LblSaludo"
         Me.LblSaludo.Size = New System.Drawing.Size(151, 20)
@@ -64,32 +67,34 @@ Partial Class ObtenerDiagnostico
         'SintomaPaciente
         '
         Me.SintomaPaciente.AllowDrop = True
+        Me.SintomaPaciente.GridLines = True
         Me.SintomaPaciente.HideSelection = False
-        Me.SintomaPaciente.Location = New System.Drawing.Point(693, 285)
+        Me.SintomaPaciente.Location = New System.Drawing.Point(481, 222)
         Me.SintomaPaciente.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.SintomaPaciente.Name = "SintomaPaciente"
-        Me.SintomaPaciente.Size = New System.Drawing.Size(288, 366)
+        Me.SintomaPaciente.Size = New System.Drawing.Size(151, 285)
         Me.SintomaPaciente.TabIndex = 4
         Me.SintomaPaciente.UseCompatibleStateImageBehavior = False
+        Me.SintomaPaciente.View = System.Windows.Forms.View.List
         '
         'SintomaSistema
         '
         Me.SintomaSistema.AllowDrop = True
         Me.SintomaSistema.AllowUserToDeleteRows = False
         Me.SintomaSistema.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.SintomaSistema.Location = New System.Drawing.Point(158, 285)
+        Me.SintomaSistema.Location = New System.Drawing.Point(121, 222)
         Me.SintomaSistema.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.SintomaSistema.Name = "SintomaSistema"
         Me.SintomaSistema.ReadOnly = True
-        Me.SintomaSistema.Size = New System.Drawing.Size(276, 463)
+        Me.SintomaSistema.Size = New System.Drawing.Size(179, 366)
         Me.SintomaSistema.TabIndex = 5
         '
         'BtnBuscar
         '
-        Me.BtnBuscar.Location = New System.Drawing.Point(693, 683)
+        Me.BtnBuscar.Location = New System.Drawing.Point(472, 538)
         Me.BtnBuscar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnBuscar.Name = "BtnBuscar"
-        Me.BtnBuscar.Size = New System.Drawing.Size(276, 65)
+        Me.BtnBuscar.Size = New System.Drawing.Size(169, 50)
         Me.BtnBuscar.TabIndex = 6
         Me.BtnBuscar.Text = "Realizar Diagnostico"
         Me.BtnBuscar.UseVisualStyleBackColor = True
@@ -98,7 +103,7 @@ Partial Class ObtenerDiagnostico
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1176, 797)
+        Me.ClientSize = New System.Drawing.Size(831, 670)
         Me.Controls.Add(Me.BtnBuscar)
         Me.Controls.Add(Me.SintomaSistema)
         Me.Controls.Add(Me.SintomaPaciente)
