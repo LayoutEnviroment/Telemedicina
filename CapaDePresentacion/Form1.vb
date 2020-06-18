@@ -1,4 +1,6 @@
-﻿Public Class ObtenerDiagnostico
+﻿Imports CapaDeNegocio
+
+Public Class ObtenerDiagnostico
     Private Sub TxtSintoma_Click(sender As Object, e As EventArgs) Handles TxtSintoma.Click
         TxtSintoma.ForeColor = Color.Black
     End Sub
@@ -7,7 +9,7 @@
 
         Try
             Dim Table As New DataTable
-            'Table.Load(ControladorSintoma.ListarSintoma(TxtSintoma.Text))
+            Table.Load(ControladorSintoma.ListarSintoma(TxtSintoma.Text))
             SintomaSistema.DataSource = Table
         Catch ex As Exception
             MsgBox(ex.ToString())
@@ -37,5 +39,7 @@
         SintomaPaciente.DoDragDrop(SintomaPaciente.SelectedItems.ToString, DragDropEffects.Copy)
     End Sub
 
+    Private Sub ObtenerDiagnostico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
 End Class
