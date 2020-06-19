@@ -1,13 +1,12 @@
-﻿Public Class ObtenerDiagnostico
-    Private Sub TxtSintoma_Click(sender As Object, e As EventArgs) Handles TxtSintoma.Click
-        TxtSintoma.ForeColor = Color.Black
-    End Sub
+﻿Imports CapaDeNegocio
+
+Public Class ObtenerDiagnostico
 
     Private Sub TxtSintoma_TextChanged(sender As Object, e As EventArgs) Handles TxtSintoma.TextChanged
 
         Try
             Dim Table As New DataTable
-            'Table.Load(ControladorSintoma.ListarSintoma(TxtSintoma.Text))
+            Table.Load(ControladorSintoma.ListarSintoma(TxtSintoma.Text))
             SintomaSistema.DataSource = Table
         Catch ex As Exception
             MsgBox(ex.ToString())
@@ -37,5 +36,15 @@
         SintomaPaciente.DoDragDrop(SintomaPaciente.SelectedItems.ToString, DragDropEffects.Copy)
     End Sub
 
+    Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles BtnBuscar.Click
+        SintomaPaciente.Items.ToString()
+    End Sub
 
+    Private Sub SintomaPaciente_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SintomaPaciente.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub SintomaSistema_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles SintomaSistema.CellContentClick
+
+    End Sub
 End Class

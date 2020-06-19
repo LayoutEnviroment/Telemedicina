@@ -2,18 +2,16 @@
     Inherits ModeloBaseDeDatos
 
     Public IdSintoma As String
-    Public Prioridad As String
-    Public Descripcion As String
     Public Nombre As String
 
     Public Function Listar()
         Command.CommandText = "SELECT
-                                name
+                                nombre
                                FROM
                                 sintoma
                                WHERE
-                                sintoma.name LIKE " + Me.Nombre + "%"
-        Command.ExecuteNonQuery()
+                                sintoma.nombre LIKE '" + Me.Nombre + "%'"
+        Reader = Command.ExecuteReader()
         Return Reader
     End Function
 End Class
