@@ -39,4 +39,12 @@ Public Class ObtenerDiagnostico
     Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles BtnBuscar.Click
         SintomaPaciente.Items.ToString()
     End Sub
+
+    Private Sub SintomaPaciente_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SintomaPaciente.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub SintomaSistema_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles SintomaSistema.CellContentClick
+
+    End Sub
 End Class

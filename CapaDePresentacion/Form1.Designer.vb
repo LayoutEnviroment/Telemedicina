@@ -69,7 +69,7 @@ Partial Class ObtenerDiagnostico
         Me.SintomaPaciente.AllowDrop = True
         Me.SintomaPaciente.GridLines = True
         Me.SintomaPaciente.HideSelection = False
-        Me.SintomaPaciente.Location = New System.Drawing.Point(481, 222)
+        Me.SintomaPaciente.Location = New System.Drawing.Point(472, 234)
         Me.SintomaPaciente.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.SintomaPaciente.Name = "SintomaPaciente"
         Me.SintomaPaciente.Size = New System.Drawing.Size(151, 285)
