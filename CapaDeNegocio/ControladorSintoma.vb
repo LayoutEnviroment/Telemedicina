@@ -6,7 +6,7 @@ Public Module ControladorSintoma
         Dim s As New ModeloSintoma With {
             .Nombre = Sintoma
         }
-        'asdfkljasdfljhañdsfjh
+
         Return s.Listar()
     End Function
 End Module
