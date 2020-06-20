@@ -18,8 +18,10 @@ Public Class VentanaPrincipal2
     End Sub
 
     Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles BtnBuscar.Click
-        MsgBox(Lst.Items.Count)
-        MsgBox(Lst.Groups.ToString)
+        Dim BuscarPor(Lst.Items.Count) As String
+        For x = 0 To Lst.Items.Count - 1
+            ControladorSintoma.ObtenerId(BuscarPor)
+        Next
 
     End Sub
 End Class

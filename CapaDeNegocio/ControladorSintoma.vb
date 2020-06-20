@@ -9,4 +9,13 @@ Public Module ControladorSintoma
 
         Return s.Listar()
     End Function
+
+    Public Function ObtenerId(Sintoma As String)
+        Dim s As New ModeloSintoma With {
+            .Nombre = Sintoma
+        }
+
+        Return s.ObtenerId()
+    End Function
 End Module
+

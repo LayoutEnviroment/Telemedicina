@@ -14,4 +14,14 @@
         Reader = Command.ExecuteReader()
         Return Reader
     End Function
+
+    Public Function ObtenerId()
+        Command.CommandText = "
+            SELECT
+                id
+            FROM
+                sintoma
+            
+"
+    End Function
 End Class

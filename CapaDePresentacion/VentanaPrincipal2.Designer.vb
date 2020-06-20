@@ -22,6 +22,7 @@ Partial Class VentanaPrincipal2
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim ListViewGroup1 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
         Me.LblSaludo = New System.Windows.Forms.Label()
         Me.LblSintomas = New System.Windows.Forms.Label()
         Me.TxtSintoma = New System.Windows.Forms.TextBox()
@@ -107,6 +108,9 @@ Partial Class VentanaPrincipal2
         '
         'Lst
         '
+        ListViewGroup1.Header = "ListViewGroup"
+        ListViewGroup1.Name = "ListViewGroup1"
+        Me.Lst.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup1})
         Me.Lst.HideSelection = False
         Me.Lst.Location = New System.Drawing.Point(524, 279)
         Me.Lst.Name = "Lst"
