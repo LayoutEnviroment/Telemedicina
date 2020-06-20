@@ -90,6 +90,7 @@ Partial Class FormEnfermedad
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(657, 450)
+        Me.ControlBox = False
         Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.LblInforSeleccion)
         Me.Controls.Add(Me.EnfermedadesCargadas)

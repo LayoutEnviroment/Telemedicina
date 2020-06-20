@@ -1,4 +1,7 @@
-﻿Public Class FormABMSintoma
+﻿Imports CapaDeNegocio
+
+
+Public Class FormABMSintoma
     Private Sub txtIdSintoma_TextChanged(sender As Object, e As EventArgs) Handles txtIdSintoma.TextChanged
 
     End Sub

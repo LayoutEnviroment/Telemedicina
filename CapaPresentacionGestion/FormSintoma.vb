@@ -1,4 +1,7 @@
-﻿Public Class FormSintoma
+﻿Imports CapaDeNegocio
+
+
+Public Class FormSintoma
     Private Sub btnInsertar_Click(sender As Object, e As EventArgs) Handles btnInsertar.Click
         Me.Hide()
         FormABMSintoma.Show()

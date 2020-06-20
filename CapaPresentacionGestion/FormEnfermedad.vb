@@ -1,4 +1,7 @@
-﻿Public Class FormEnfermedad
+﻿Imports CapaDeNegocio
+
+
+Public Class FormEnfermedad
     Private Sub btnInsertar_Click(sender As Object, e As EventArgs) Handles btnInsertar.Click
         Me.Hide()
         FormABMEnfermedad.Show()

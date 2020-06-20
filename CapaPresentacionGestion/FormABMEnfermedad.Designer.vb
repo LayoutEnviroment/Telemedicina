@@ -103,6 +103,7 @@ Partial Class FormABMEnfermedad
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(401, 375)
+        Me.ControlBox = False
         Me.Controls.Add(Me.lblDescripcion)
         Me.Controls.Add(Me.txtDescripcionEnfermedad)
         Me.Controls.Add(Me.lblNombre)

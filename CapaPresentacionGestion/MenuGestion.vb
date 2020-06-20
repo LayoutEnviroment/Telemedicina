@@ -1,4 +1,6 @@
-﻿Public Class MenuGestion
+﻿Imports CapaDeNegocio
+
+Public Class MenuGestion
     Private Sub btnEnfermedad_Click(sender As Object, e As EventArgs) Handles btnEnfermedad.Click
         Me.Hide()
         FormEnfermedad.Show()

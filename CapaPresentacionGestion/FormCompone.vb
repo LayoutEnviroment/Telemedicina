@@ -1,4 +1,7 @@
-﻿Public Class FormCompone
+﻿Imports CapaDeNegocio
+
+
+Public Class FormCompone
     Private Sub CmbEnfermedad_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbEnfermedad.SelectedIndexChanged
 
     End Sub

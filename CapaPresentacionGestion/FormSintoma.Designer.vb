@@ -80,6 +80,7 @@ Partial Class FormSintoma
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(549, 511)
+        Me.ControlBox = False
         Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.SintomasCargados)
         Me.Controls.Add(Me.btnEliminar)
