@@ -73,11 +73,35 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="FormABMEnfermedad.Designer.vb">
+      <DependentUpon>FormABMEnfermedad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMEnfermedad.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="FormABMSintoma.Designer.vb">
+      <DependentUpon>FormABMSintoma.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMSintoma.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCompone.Designer.vb">
+      <DependentUpon>FormCompone.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCompone.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEnfermedad.Designer.vb">
+      <DependentUpon>FormEnfermedad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormEnfermedad.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuGestion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuGestion.Designer.vb">
+      <DependentUpon>MenuGestion.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -95,13 +119,37 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="FormSintoma.Designer.vb">
+      <DependentUpon>FormSintoma.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormSintoma.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormABMEnfermedad.resx">
+      <DependentUpon>FormABMEnfermedad.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMSintoma.resx">
+      <DependentUpon>FormABMSintoma.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCompone.resx">
+      <DependentUpon>FormCompone.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEnfermedad.resx">
+      <DependentUpon>FormEnfermedad.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuGestion.resx">
+      <DependentUpon>MenuGestion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSintoma.resx">
+      <DependentUpon>FormSintoma.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
