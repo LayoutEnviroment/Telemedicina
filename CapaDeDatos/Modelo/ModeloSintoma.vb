@@ -14,4 +14,9 @@
         Reader = Command.ExecuteReader()
         Return Reader
     End Function
+
+    Public Sub Insertar()
+        Command.CommandText = "INSERT INTO sintoma VALUES('" + Me.Nombre + "')"
+        Command.ExecuteNonQuery()
+    End Sub
 End Class

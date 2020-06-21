@@ -9,4 +9,12 @@ Public Module ControladorSintoma
 
         Return s.Listar()
     End Function
+
+    Public Sub CrearSintoma(nombre As String)
+        Dim s As New ModeloSintoma
+
+        s.Nombre = nombre
+        s.Insertar()
+
+    End Sub
 End Module

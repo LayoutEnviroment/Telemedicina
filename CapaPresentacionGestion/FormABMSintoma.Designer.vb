@@ -50,6 +50,7 @@ Partial Class FormABMSintoma
         '
         'txtIdSintoma
         '
+        Me.txtIdSintoma.Enabled = False
         Me.txtIdSintoma.Location = New System.Drawing.Point(111, 77)
         Me.txtIdSintoma.Name = "txtIdSintoma"
         Me.txtIdSintoma.Size = New System.Drawing.Size(254, 22)
