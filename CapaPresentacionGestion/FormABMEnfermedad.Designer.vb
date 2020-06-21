@@ -59,6 +59,7 @@ Partial Class FormABMEnfermedad
         '
         'txtIdEnfermedad
         '
+        Me.txtIdEnfermedad.Enabled = False
         Me.txtIdEnfermedad.Location = New System.Drawing.Point(127, 87)
         Me.txtIdEnfermedad.Name = "txtIdEnfermedad"
         Me.txtIdEnfermedad.Size = New System.Drawing.Size(254, 22)

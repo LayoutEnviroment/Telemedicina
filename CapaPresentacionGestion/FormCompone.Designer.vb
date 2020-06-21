@@ -27,6 +27,7 @@ Partial Class FormCompone
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.btnAceptar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
+        Me.btnVolver = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -74,12 +75,22 @@ Partial Class FormCompone
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
         '
+        'btnVolver
+        '
+        Me.btnVolver.Location = New System.Drawing.Point(635, 379)
+        Me.btnVolver.Name = "btnVolver"
+        Me.btnVolver.Size = New System.Drawing.Size(122, 38)
+        Me.btnVolver.TabIndex = 5
+        Me.btnVolver.Text = "Volver"
+        Me.btnVolver.UseVisualStyleBackColor = True
+        '
         'FormCompone
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.ControlBox = False
+        Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.btnAceptar)
         Me.Controls.Add(Me.DataGridView1)
@@ -98,4 +109,5 @@ Partial Class FormCompone
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents btnAceptar As Button
     Friend WithEvents btnCancelar As Button
+    Friend WithEvents btnVolver As Button
 End Class

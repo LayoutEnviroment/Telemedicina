@@ -18,4 +18,9 @@ Public Class FormCompone
         Me.Hide()
         MenuGestion.Show()
     End Sub
+
+    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+        Me.Hide()
+        MenuGestion.Show()
+    End Sub
 End Class
