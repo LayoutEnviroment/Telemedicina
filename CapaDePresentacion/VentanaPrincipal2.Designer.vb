@@ -31,7 +31,9 @@ Partial Class VentanaPrincipal2
         Me.BtnAgregar = New System.Windows.Forms.Button()
         Me.TxtSintomaPaciente = New System.Windows.Forms.TextBox()
         Me.Lst = New System.Windows.Forms.ListView()
+        Me.DgvOpciones = New System.Windows.Forms.DataGridView()
         CType(Me.SintomaSistema, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DgvOpciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LblSaludo
@@ -59,7 +61,7 @@ Partial Class VentanaPrincipal2
         Me.TxtSintoma.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.TxtSintoma.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.TxtSintoma.ForeColor = System.Drawing.SystemColors.MenuText
-        Me.TxtSintoma.Location = New System.Drawing.Point(287, 125)
+        Me.TxtSintoma.Location = New System.Drawing.Point(199, 116)
         Me.TxtSintoma.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TxtSintoma.Name = "TxtSintoma"
         Me.TxtSintoma.Size = New System.Drawing.Size(281, 26)
@@ -72,7 +74,7 @@ Partial Class VentanaPrincipal2
         Me.SintomaSistema.AllowDrop = True
         Me.SintomaSistema.AllowUserToDeleteRows = False
         Me.SintomaSistema.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.SintomaSistema.Location = New System.Drawing.Point(112, 209)
+        Me.SintomaSistema.Location = New System.Drawing.Point(24, 200)
         Me.SintomaSistema.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.SintomaSistema.Name = "SintomaSistema"
         Me.SintomaSistema.ReadOnly = True
@@ -81,7 +83,7 @@ Partial Class VentanaPrincipal2
         '
         'BtnBuscar
         '
-        Me.BtnBuscar.Location = New System.Drawing.Point(524, 513)
+        Me.BtnBuscar.Location = New System.Drawing.Point(341, 504)
         Me.BtnBuscar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnBuscar.Name = "BtnBuscar"
         Me.BtnBuscar.Size = New System.Drawing.Size(169, 50)
@@ -91,7 +93,7 @@ Partial Class VentanaPrincipal2
         '
         'BtnAgregar
         '
-        Me.BtnAgregar.Location = New System.Drawing.Point(369, 337)
+        Me.BtnAgregar.Location = New System.Drawing.Point(228, 332)
         Me.BtnAgregar.Name = "BtnAgregar"
         Me.BtnAgregar.Size = New System.Drawing.Size(85, 42)
         Me.BtnAgregar.TabIndex = 9
@@ -100,7 +102,7 @@ Partial Class VentanaPrincipal2
         '
         'TxtSintomaPaciente
         '
-        Me.TxtSintomaPaciente.Location = New System.Drawing.Point(524, 209)
+        Me.TxtSintomaPaciente.Location = New System.Drawing.Point(341, 200)
         Me.TxtSintomaPaciente.Multiline = True
         Me.TxtSintomaPaciente.Name = "TxtSintomaPaciente"
         Me.TxtSintomaPaciente.Size = New System.Drawing.Size(169, 26)
@@ -112,18 +114,28 @@ Partial Class VentanaPrincipal2
         ListViewGroup1.Name = "ListViewGroup1"
         Me.Lst.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup1})
         Me.Lst.HideSelection = False
-        Me.Lst.Location = New System.Drawing.Point(524, 279)
+        Me.Lst.Location = New System.Drawing.Point(341, 270)
         Me.Lst.Name = "Lst"
         Me.Lst.Size = New System.Drawing.Size(169, 200)
         Me.Lst.TabIndex = 11
         Me.Lst.UseCompatibleStateImageBehavior = False
         Me.Lst.View = System.Windows.Forms.View.List
         '
+        'DgvOpciones
+        '
+        Me.DgvOpciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvOpciones.Location = New System.Drawing.Point(585, 190)
+        Me.DgvOpciones.Name = "DgvOpciones"
+        Me.DgvOpciones.RowTemplate.Height = 28
+        Me.DgvOpciones.Size = New System.Drawing.Size(310, 364)
+        Me.DgvOpciones.TabIndex = 12
+        '
         'VentanaPrincipal2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(830, 589)
+        Me.ClientSize = New System.Drawing.Size(936, 589)
+        Me.Controls.Add(Me.DgvOpciones)
         Me.Controls.Add(Me.Lst)
         Me.Controls.Add(Me.TxtSintomaPaciente)
         Me.Controls.Add(Me.BtnAgregar)
@@ -135,6 +147,7 @@ Partial Class VentanaPrincipal2
         Me.Name = "VentanaPrincipal2"
         Me.Text = "VentanaPrincipal2"
         CType(Me.SintomaSistema, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DgvOpciones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -148,4 +161,5 @@ Partial Class VentanaPrincipal2
     Friend WithEvents BtnAgregar As Button
     Friend WithEvents TxtSintomaPaciente As TextBox
     Friend WithEvents Lst As ListView
+    Friend WithEvents DgvOpciones As DataGridView
 End Class

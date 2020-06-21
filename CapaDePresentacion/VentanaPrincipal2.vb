@@ -18,10 +18,14 @@ Public Class VentanaPrincipal2
     End Sub
 
     Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles BtnBuscar.Click
-        Dim BuscarPor(Lst.Items.Count) As String
+        Dim Sintomas As New List(Of String)
         For x = 0 To Lst.Items.Count - 1
-            ControladorSintoma.ObtenerId(BuscarPor)
+            Sintomas.Add(Lst.Items(x).Text)
+            Console.WriteLine(Lst.Items(x).Text)
         Next
 
+        Dim Tabla As New DataTable
+        Tabla.Load(ControladorCompone.EnfermedadesPosibles(Sintomas))
+        DgvOpciones.DataSource = Tabla
     End Sub
 End Class
