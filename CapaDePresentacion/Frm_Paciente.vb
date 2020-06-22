@@ -1,6 +1,6 @@
 ﻿Imports CapaDeNegocio
 
-Public Class VentanaPrincipal2
+Public Class Frm_Paciente
     Private Sub TxtSintoma_TextChanged(sender As Object, e As EventArgs) Handles TxtSintoma.TextChanged
 
         Try
@@ -45,6 +45,6 @@ Public Class VentanaPrincipal2
 ⠀⠀⠀⠀⠀⠀⣀⣀⣈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇
 ⠀⠀⠀⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 
-")
+", MsgBoxStyle.Information)
     End Sub
 End Class

@@ -87,10 +87,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="VentanaPrincipal2.Designer.vb">
-      <DependentUpon>VentanaPrincipal2.vb</DependentUpon>
+    <Compile Include="Frm_Paciente.Designer.vb">
+      <DependentUpon>Frm_Paciente.vb</DependentUpon>
     </Compile>
-    <Compile Include="VentanaPrincipal2.vb">
+    <Compile Include="Frm_Paciente.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -101,8 +101,8 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="VentanaPrincipal2.resx">
-      <DependentUpon>VentanaPrincipal2.vb</DependentUpon>
+    <EmbeddedResource Include="Frm_Paciente.resx">
+      <DependentUpon>Frm_Paciente.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
