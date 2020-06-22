@@ -29,6 +29,8 @@ Partial Class Login
         Me.LblContra = New System.Windows.Forms.Label()
         Me.TxtUsuario = New System.Windows.Forms.TextBox()
         Me.TxtPassword = New System.Windows.Forms.TextBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LblBienvenida
@@ -92,11 +94,22 @@ Partial Class Login
         Me.TxtPassword.Size = New System.Drawing.Size(309, 26)
         Me.TxtPassword.TabIndex = 6
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Login.My.Resources.Resources.Username
+        Me.PictureBox1.Location = New System.Drawing.Point(190, 125)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(69, 34)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 7
+        Me.PictureBox1.TabStop = False
+        '
         'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(578, 570)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.TxtPassword)
         Me.Controls.Add(Me.TxtUsuario)
         Me.Controls.Add(Me.LblContra)
@@ -106,6 +119,7 @@ Partial Class Login
         Me.Controls.Add(Me.LblBienvenida)
         Me.Name = "Login"
         Me.Text = "Form1"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -118,4 +132,5 @@ Partial Class Login
     Friend WithEvents LblContra As Label
     Friend WithEvents TxtUsuario As TextBox
     Friend WithEvents TxtPassword As TextBox
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

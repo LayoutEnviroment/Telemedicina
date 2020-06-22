@@ -13,7 +13,6 @@ Public Class VentanaPrincipal2
     End Sub
 
     Private Sub BtnAgregar_Click(sender As Object, e As EventArgs) Handles BtnAgregar.Click
-        TxtSintomaPaciente.AppendText(SintomaSistema.CurrentCell.Value.ToString)
         Lst.Items.Add(SintomaSistema.CurrentCell.Value.ToString)
     End Sub
 
@@ -21,7 +20,7 @@ Public Class VentanaPrincipal2
         Dim Sintomas As New List(Of String)
         For x = 0 To Lst.Items.Count - 1
             Sintomas.Add(Lst.Items(x).Text)
-            Console.WriteLine(Lst.Items(x).Text)
+
         Next
 
         Dim Tabla As New DataTable

@@ -29,9 +29,9 @@ Partial Class VentanaPrincipal2
         Me.SintomaSistema = New System.Windows.Forms.DataGridView()
         Me.BtnBuscar = New System.Windows.Forms.Button()
         Me.BtnAgregar = New System.Windows.Forms.Button()
-        Me.TxtSintomaPaciente = New System.Windows.Forms.TextBox()
         Me.Lst = New System.Windows.Forms.ListView()
         Me.DgvOpciones = New System.Windows.Forms.DataGridView()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         CType(Me.SintomaSistema, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvOpciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -39,7 +39,7 @@ Partial Class VentanaPrincipal2
         'LblSaludo
         '
         Me.LblSaludo.AutoSize = True
-        Me.LblSaludo.Location = New System.Drawing.Point(341, 45)
+        Me.LblSaludo.Location = New System.Drawing.Point(20, 39)
         Me.LblSaludo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblSaludo.Name = "LblSaludo"
         Me.LblSaludo.Size = New System.Drawing.Size(151, 20)
@@ -49,7 +49,7 @@ Partial Class VentanaPrincipal2
         'LblSintomas
         '
         Me.LblSintomas.AutoSize = True
-        Me.LblSintomas.Location = New System.Drawing.Point(323, 81)
+        Me.LblSintomas.Location = New System.Drawing.Point(20, 74)
         Me.LblSintomas.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblSintomas.Name = "LblSintomas"
         Me.LblSintomas.Size = New System.Drawing.Size(187, 20)
@@ -61,7 +61,7 @@ Partial Class VentanaPrincipal2
         Me.TxtSintoma.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.TxtSintoma.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.TxtSintoma.ForeColor = System.Drawing.SystemColors.MenuText
-        Me.TxtSintoma.Location = New System.Drawing.Point(199, 116)
+        Me.TxtSintoma.Location = New System.Drawing.Point(24, 132)
         Me.TxtSintoma.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TxtSintoma.Name = "TxtSintoma"
         Me.TxtSintoma.Size = New System.Drawing.Size(281, 26)
@@ -100,23 +100,15 @@ Partial Class VentanaPrincipal2
         Me.BtnAgregar.Text = "Agregar"
         Me.BtnAgregar.UseVisualStyleBackColor = True
         '
-        'TxtSintomaPaciente
-        '
-        Me.TxtSintomaPaciente.Location = New System.Drawing.Point(341, 200)
-        Me.TxtSintomaPaciente.Multiline = True
-        Me.TxtSintomaPaciente.Name = "TxtSintomaPaciente"
-        Me.TxtSintomaPaciente.Size = New System.Drawing.Size(169, 26)
-        Me.TxtSintomaPaciente.TabIndex = 10
-        '
         'Lst
         '
         ListViewGroup1.Header = "ListViewGroup"
         ListViewGroup1.Name = "ListViewGroup1"
         Me.Lst.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup1})
         Me.Lst.HideSelection = False
-        Me.Lst.Location = New System.Drawing.Point(341, 270)
+        Me.Lst.Location = New System.Drawing.Point(341, 200)
         Me.Lst.Name = "Lst"
-        Me.Lst.Size = New System.Drawing.Size(169, 200)
+        Me.Lst.Size = New System.Drawing.Size(169, 270)
         Me.Lst.TabIndex = 11
         Me.Lst.UseCompatibleStateImageBehavior = False
         Me.Lst.View = System.Windows.Forms.View.List
@@ -130,14 +122,22 @@ Partial Class VentanaPrincipal2
         Me.DgvOpciones.Size = New System.Drawing.Size(310, 364)
         Me.DgvOpciones.TabIndex = 12
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(407, 55)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(283, 28)
+        Me.ComboBox1.TabIndex = 13
+        '
         'VentanaPrincipal2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(936, 589)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.DgvOpciones)
         Me.Controls.Add(Me.Lst)
-        Me.Controls.Add(Me.TxtSintomaPaciente)
         Me.Controls.Add(Me.BtnAgregar)
         Me.Controls.Add(Me.BtnBuscar)
         Me.Controls.Add(Me.SintomaSistema)
@@ -159,7 +159,7 @@ Partial Class VentanaPrincipal2
     Friend WithEvents SintomaSistema As DataGridView
     Friend WithEvents BtnBuscar As Button
     Friend WithEvents BtnAgregar As Button
-    Friend WithEvents TxtSintomaPaciente As TextBox
     Friend WithEvents Lst As ListView
     Friend WithEvents DgvOpciones As DataGridView
+    Friend WithEvents ComboBox1 As ComboBox
 End Class
