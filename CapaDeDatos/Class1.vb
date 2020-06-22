@@ -2,9 +2,9 @@
 
 Public MustInherit Class ModeloBaseDeDatos
 
-    Public Driver As String = "Mysql ODBC 8.0 Unicode Driver"
+    Public Driver As String = "MySQL ODBC 8.0 Unicode Driver"
     Public Uid As String = "root"
-    Public Pwd As String = "root"
+    Public Pwd As String = "EGUfabre924960"
     Public Port As String = "3306"
     Public DatabaseName As String = "primera_entrega"
     Public Host As String = "localhost"

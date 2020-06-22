@@ -41,6 +41,7 @@ Partial Class FormABMSintoma
         '
         'btnCancelar
         '
+        Me.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnCancelar.Location = New System.Drawing.Point(246, 203)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(119, 40)
@@ -83,8 +84,10 @@ Partial Class FormABMSintoma
         '
         'FormABMSintoma
         '
+        Me.AcceptButton = Me.btnAceptar
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.btnCancelar
         Me.ClientSize = New System.Drawing.Size(420, 306)
         Me.ControlBox = False
         Me.Controls.Add(Me.lblNombre)

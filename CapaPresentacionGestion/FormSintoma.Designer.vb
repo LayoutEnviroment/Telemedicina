@@ -63,7 +63,7 @@ Partial Class FormSintoma
         Me.SintomasCargados.Location = New System.Drawing.Point(196, 83)
         Me.SintomasCargados.Name = "SintomasCargados"
         Me.SintomasCargados.RowTemplate.Height = 24
-        Me.SintomasCargados.Size = New System.Drawing.Size(311, 399)
+        Me.SintomasCargados.Size = New System.Drawing.Size(240, 399)
         Me.SintomasCargados.TabIndex = 3
         '
         'btnVolver
