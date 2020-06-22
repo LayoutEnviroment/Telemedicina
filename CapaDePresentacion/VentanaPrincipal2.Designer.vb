@@ -22,7 +22,7 @@ Partial Class VentanaPrincipal2
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ListViewGroup1 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup2 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
         Me.LblSaludo = New System.Windows.Forms.Label()
         Me.LblSintomas = New System.Windows.Forms.Label()
         Me.TxtSintoma = New System.Windows.Forms.TextBox()
@@ -32,6 +32,7 @@ Partial Class VentanaPrincipal2
         Me.Lst = New System.Windows.Forms.ListView()
         Me.DgvOpciones = New System.Windows.Forms.DataGridView()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.SintomaSistema, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvOpciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -74,7 +75,7 @@ Partial Class VentanaPrincipal2
         Me.SintomaSistema.AllowDrop = True
         Me.SintomaSistema.AllowUserToDeleteRows = False
         Me.SintomaSistema.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.SintomaSistema.Location = New System.Drawing.Point(24, 200)
+        Me.SintomaSistema.Location = New System.Drawing.Point(28, 200)
         Me.SintomaSistema.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.SintomaSistema.Name = "SintomaSistema"
         Me.SintomaSistema.ReadOnly = True
@@ -83,7 +84,7 @@ Partial Class VentanaPrincipal2
         '
         'BtnBuscar
         '
-        Me.BtnBuscar.Location = New System.Drawing.Point(341, 504)
+        Me.BtnBuscar.Location = New System.Drawing.Point(341, 516)
         Me.BtnBuscar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnBuscar.Name = "BtnBuscar"
         Me.BtnBuscar.Size = New System.Drawing.Size(169, 50)
@@ -102,13 +103,13 @@ Partial Class VentanaPrincipal2
         '
         'Lst
         '
-        ListViewGroup1.Header = "ListViewGroup"
-        ListViewGroup1.Name = "ListViewGroup1"
-        Me.Lst.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup1})
+        ListViewGroup2.Header = "ListViewGroup"
+        ListViewGroup2.Name = "ListViewGroup1"
+        Me.Lst.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup2})
         Me.Lst.HideSelection = False
         Me.Lst.Location = New System.Drawing.Point(341, 200)
         Me.Lst.Name = "Lst"
-        Me.Lst.Size = New System.Drawing.Size(169, 270)
+        Me.Lst.Size = New System.Drawing.Size(169, 291)
         Me.Lst.TabIndex = 11
         Me.Lst.UseCompatibleStateImageBehavior = False
         Me.Lst.View = System.Windows.Forms.View.List
@@ -130,11 +131,21 @@ Partial Class VentanaPrincipal2
         Me.ComboBox1.Size = New System.Drawing.Size(283, 28)
         Me.ComboBox1.TabIndex = 13
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(389, 109)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(151, 49)
+        Me.Button1.TabIndex = 14
+        Me.Button1.Text = "Tocame"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'VentanaPrincipal2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(936, 589)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.DgvOpciones)
         Me.Controls.Add(Me.Lst)
@@ -162,4 +173,5 @@ Partial Class VentanaPrincipal2
     Friend WithEvents Lst As ListView
     Friend WithEvents DgvOpciones As DataGridView
     Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Button1 As Button
 End Class
