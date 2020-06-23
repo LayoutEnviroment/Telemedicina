@@ -24,11 +24,12 @@ Partial Class FormCompone
     Private Sub InitializeComponent()
         Me.CmbEnfermedad = New System.Windows.Forms.ComboBox()
         Me.LblSeleccionEnfermedad = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgvSintoma = New System.Windows.Forms.DataGridView()
         Me.btnAceptar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.btnVolver = New System.Windows.Forms.Button()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.cbx = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        CType(Me.dgvSintoma, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CmbEnfermedad
@@ -48,14 +49,17 @@ Partial Class FormCompone
         Me.LblSeleccionEnfermedad.TabIndex = 1
         Me.LblSeleccionEnfermedad.Text = "Seleccione enfermedad"
         '
-        'DataGridView1
+        'dgvSintoma
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(248, 81)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(292, 336)
-        Me.DataGridView1.TabIndex = 2
+        Me.dgvSintoma.AllowUserToAddRows = False
+        Me.dgvSintoma.AllowUserToDeleteRows = False
+        Me.dgvSintoma.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvSintoma.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cbx})
+        Me.dgvSintoma.Location = New System.Drawing.Point(248, 81)
+        Me.dgvSintoma.Name = "dgvSintoma"
+        Me.dgvSintoma.RowTemplate.Height = 24
+        Me.dgvSintoma.Size = New System.Drawing.Size(357, 336)
+        Me.dgvSintoma.TabIndex = 2
         '
         'btnAceptar
         '
@@ -84,6 +88,11 @@ Partial Class FormCompone
         Me.btnVolver.Text = "Volver"
         Me.btnVolver.UseVisualStyleBackColor = True
         '
+        'cbx
+        '
+        Me.cbx.HeaderText = "Sel."
+        Me.cbx.Name = "cbx"
+        '
         'FormCompone
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -93,12 +102,12 @@ Partial Class FormCompone
         Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.btnAceptar)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgvSintoma)
         Me.Controls.Add(Me.LblSeleccionEnfermedad)
         Me.Controls.Add(Me.CmbEnfermedad)
         Me.Name = "FormCompone"
         Me.Text = "FormCompone"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvSintoma, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -106,8 +115,9 @@ Partial Class FormCompone
 
     Friend WithEvents CmbEnfermedad As ComboBox
     Friend WithEvents LblSeleccionEnfermedad As Label
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgvSintoma As DataGridView
     Friend WithEvents btnAceptar As Button
     Friend WithEvents btnCancelar As Button
     Friend WithEvents btnVolver As Button
+    Friend WithEvents cbx As DataGridViewCheckBoxColumn
 End Class

@@ -2,7 +2,7 @@
 
 
 Public Class FormABMSintoma
-    Public opcionFormulario As String = "INSERTAR"
+    Public opcionFormulario As String
 
     Private Sub txtIdSintoma_TextChanged(sender As Object, e As EventArgs) Handles txtIdSintoma.TextChanged
 
@@ -16,10 +16,8 @@ Public Class FormABMSintoma
         If opcionFormulario = "INSERTAR" Then
             Try
                 ControladorSintoma.CrearSintoma(txtNombreSintoma.Text.Trim)
-
             Catch ex As Exception
                 MsgBox(ex.ToString())
-
             End Try
 
             Me.Close()

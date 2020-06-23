@@ -30,6 +30,7 @@ Partial Class FormABMEnfermedad
         Me.btnAceptar = New System.Windows.Forms.Button()
         Me.lblDescripcion = New System.Windows.Forms.Label()
         Me.txtDescripcionEnfermedad = New System.Windows.Forms.TextBox()
+        Me.cmbPrioridad = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'lblNombre
@@ -67,7 +68,7 @@ Partial Class FormABMEnfermedad
         '
         'btnCancelar
         '
-        Me.btnCancelar.Location = New System.Drawing.Point(232, 245)
+        Me.btnCancelar.Location = New System.Drawing.Point(222, 293)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(119, 40)
         Me.btnCancelar.TabIndex = 7
@@ -76,7 +77,7 @@ Partial Class FormABMEnfermedad
         '
         'btnAceptar
         '
-        Me.btnAceptar.Location = New System.Drawing.Point(73, 245)
+        Me.btnAceptar.Location = New System.Drawing.Point(69, 293)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(119, 40)
         Me.btnAceptar.TabIndex = 6
@@ -99,12 +100,22 @@ Partial Class FormABMEnfermedad
         Me.txtDescripcionEnfermedad.Size = New System.Drawing.Size(253, 22)
         Me.txtDescripcionEnfermedad.TabIndex = 12
         '
+        'cmbPrioridad
+        '
+        Me.cmbPrioridad.FormattingEnabled = True
+        Me.cmbPrioridad.Items.AddRange(New Object() {"LOW", "MEDIUM", "HIGH"})
+        Me.cmbPrioridad.Location = New System.Drawing.Point(260, 215)
+        Me.cmbPrioridad.Name = "cmbPrioridad"
+        Me.cmbPrioridad.Size = New System.Drawing.Size(121, 24)
+        Me.cmbPrioridad.TabIndex = 14
+        '
         'FormABMEnfermedad
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(401, 375)
         Me.ControlBox = False
+        Me.Controls.Add(Me.cmbPrioridad)
         Me.Controls.Add(Me.lblDescripcion)
         Me.Controls.Add(Me.txtDescripcionEnfermedad)
         Me.Controls.Add(Me.lblNombre)
@@ -128,4 +139,5 @@ Partial Class FormABMEnfermedad
     Friend WithEvents btnAceptar As Button
     Friend WithEvents lblDescripcion As Label
     Friend WithEvents txtDescripcionEnfermedad As TextBox
+    Friend WithEvents cmbPrioridad As ComboBox
 End Class

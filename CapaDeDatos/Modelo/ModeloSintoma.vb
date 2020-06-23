@@ -15,6 +15,12 @@
         Reader = Command.ExecuteReader()
         Return Reader
     End Function
+    Public Function ListarNombreSintoma()
+        Command.CommandText = "SELECT nombre as Sintoma FROM sintoma"
+        Reader = Command.ExecuteReader()
+        Return Reader
+
+    End Function
 
     Public Function ListarTodo()
         Command.CommandText = "SELECT
