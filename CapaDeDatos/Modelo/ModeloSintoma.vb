@@ -11,7 +11,7 @@
                                FROM
                                 sintoma
                                WHERE
-                                sintoma.nombre LIKE '" + Me.Nombre + "%'"
+                                sintoma.nombre LIKE '%" + Me.Nombre + "%'"
         Reader = Command.ExecuteReader()
         Return Reader
     End Function
