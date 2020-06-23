@@ -22,20 +22,19 @@ Partial Class Frm_Paciente
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim ListViewGroup1 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Sintoma"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer)), Nothing)
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim ListViewGroup5 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
         Me.LblSaludo = New System.Windows.Forms.Label()
         Me.LblSintomas = New System.Windows.Forms.Label()
         Me.TxtSintoma = New System.Windows.Forms.TextBox()
-        Me.SintomaSistema = New System.Windows.Forms.DataGridView()
+        Me.DgvSintomaSistema = New System.Windows.Forms.DataGridView()
         Me.BtnBuscar = New System.Windows.Forms.Button()
         Me.BtnAgregar = New System.Windows.Forms.Button()
         Me.Lst = New System.Windows.Forms.ListView()
         Me.DgvOpciones = New System.Windows.Forms.DataGridView()
         Me.Button1 = New System.Windows.Forms.Button()
-        CType(Me.SintomaSistema, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DgvSintomaSistema, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvOpciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -66,52 +65,53 @@ Partial Class Frm_Paciente
         Me.TxtSintoma.ForeColor = System.Drawing.SystemColors.MenuText
         Me.TxtSintoma.Location = New System.Drawing.Point(24, 120)
         Me.TxtSintoma.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TxtSintoma.MaxLength = 30
         Me.TxtSintoma.Name = "TxtSintoma"
         Me.TxtSintoma.Size = New System.Drawing.Size(281, 26)
         Me.TxtSintoma.TabIndex = 3
         Me.TxtSintoma.Text = "Tengo fiebre, tengo tos..."
         '
-        'SintomaSistema
+        'DgvSintomaSistema
         '
-        Me.SintomaSistema.AllowDrop = True
-        Me.SintomaSistema.AllowUserToAddRows = False
-        Me.SintomaSistema.AllowUserToDeleteRows = False
-        Me.SintomaSistema.AllowUserToResizeColumns = False
-        Me.SintomaSistema.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SintomaSistema.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.SintomaSistema.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.DgvSintomaSistema.AllowDrop = True
+        Me.DgvSintomaSistema.AllowUserToAddRows = False
+        Me.DgvSintomaSistema.AllowUserToDeleteRows = False
+        Me.DgvSintomaSistema.AllowUserToResizeColumns = False
+        Me.DgvSintomaSistema.AllowUserToResizeRows = False
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvSintomaSistema.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle9
+        Me.DgvSintomaSistema.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SintomaSistema.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.SintomaSistema.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.SintomaSistema.BackgroundColor = System.Drawing.Color.White
-        Me.SintomaSistema.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.SintomaSistema.ColumnHeadersVisible = False
-        Me.SintomaSistema.Cursor = System.Windows.Forms.Cursors.Hand
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.SintomaSistema.DefaultCellStyle = DataGridViewCellStyle2
-        Me.SintomaSistema.Location = New System.Drawing.Point(24, 147)
-        Me.SintomaSistema.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.SintomaSistema.Name = "SintomaSistema"
-        Me.SintomaSistema.ReadOnly = True
-        Me.SintomaSistema.RowHeadersVisible = False
-        Me.SintomaSistema.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
-        Me.SintomaSistema.Size = New System.Drawing.Size(281, 366)
-        Me.SintomaSistema.TabIndex = 6
+        Me.DgvSintomaSistema.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DgvSintomaSistema.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.DgvSintomaSistema.BackgroundColor = System.Drawing.Color.White
+        Me.DgvSintomaSistema.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvSintomaSistema.ColumnHeadersVisible = False
+        Me.DgvSintomaSistema.Cursor = System.Windows.Forms.Cursors.Hand
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DgvSintomaSistema.DefaultCellStyle = DataGridViewCellStyle10
+        Me.DgvSintomaSistema.Location = New System.Drawing.Point(24, 147)
+        Me.DgvSintomaSistema.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.DgvSintomaSistema.Name = "DgvSintomaSistema"
+        Me.DgvSintomaSistema.ReadOnly = True
+        Me.DgvSintomaSistema.RowHeadersVisible = False
+        Me.DgvSintomaSistema.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
+        Me.DgvSintomaSistema.Size = New System.Drawing.Size(281, 366)
+        Me.DgvSintomaSistema.TabIndex = 6
         '
         'BtnBuscar
         '
-        Me.BtnBuscar.Location = New System.Drawing.Point(341, 516)
+        Me.BtnBuscar.Location = New System.Drawing.Point(615, 279)
         Me.BtnBuscar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnBuscar.Name = "BtnBuscar"
         Me.BtnBuscar.Size = New System.Drawing.Size(169, 50)
@@ -130,14 +130,11 @@ Partial Class Frm_Paciente
         '
         'Lst
         '
-        ListViewGroup1.Header = "ListViewGroup"
-        ListViewGroup1.Name = "ListViewGroup1"
-        Me.Lst.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup1})
+        ListViewGroup5.Header = "ListViewGroup"
+        ListViewGroup5.Name = "ListViewGroup1"
+        Me.Lst.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup5})
         Me.Lst.HideSelection = False
-        ListViewItem1.Checked = True
-        ListViewItem1.StateImageIndex = 1
-        Me.Lst.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1})
-        Me.Lst.Location = New System.Drawing.Point(364, 189)
+        Me.Lst.Location = New System.Drawing.Point(488, 112)
         Me.Lst.Name = "Lst"
         Me.Lst.Size = New System.Drawing.Size(395, 141)
         Me.Lst.TabIndex = 11
@@ -146,20 +143,26 @@ Partial Class Frm_Paciente
         '
         'DgvOpciones
         '
+        Me.DgvOpciones.AllowUserToAddRows = False
+        Me.DgvOpciones.AllowUserToDeleteRows = False
+        Me.DgvOpciones.BackgroundColor = System.Drawing.Color.White
         Me.DgvOpciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvOpciones.Location = New System.Drawing.Point(571, 516)
+        Me.DgvOpciones.Location = New System.Drawing.Point(488, 358)
         Me.DgvOpciones.Name = "DgvOpciones"
+        Me.DgvOpciones.ReadOnly = True
+        Me.DgvOpciones.RowHeadersVisible = False
+        Me.DgvOpciones.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.DgvOpciones.RowTemplate.Height = 28
-        Me.DgvOpciones.Size = New System.Drawing.Size(310, 92)
+        Me.DgvOpciones.Size = New System.Drawing.Size(395, 155)
         Me.DgvOpciones.TabIndex = 12
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(707, 120)
+        Me.Button1.Location = New System.Drawing.Point(441, 39)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(151, 49)
         Me.Button1.TabIndex = 14
-        Me.Button1.Text = "Tocame"
+        Me.Button1.Text = "Inicie un chat ahora!"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Frm_Paciente
@@ -173,13 +176,13 @@ Partial Class Frm_Paciente
         Me.Controls.Add(Me.Lst)
         Me.Controls.Add(Me.BtnAgregar)
         Me.Controls.Add(Me.BtnBuscar)
-        Me.Controls.Add(Me.SintomaSistema)
+        Me.Controls.Add(Me.DgvSintomaSistema)
         Me.Controls.Add(Me.LblSaludo)
         Me.Controls.Add(Me.LblSintomas)
         Me.Controls.Add(Me.TxtSintoma)
         Me.Name = "Frm_Paciente"
-        Me.Text = "VentanaPrincipal2"
-        CType(Me.SintomaSistema, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Text = "Paciente"
+        CType(Me.DgvSintomaSistema, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DgvOpciones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -189,7 +192,7 @@ Partial Class Frm_Paciente
     Friend WithEvents LblSaludo As Label
     Friend WithEvents LblSintomas As Label
     Friend WithEvents TxtSintoma As TextBox
-    Friend WithEvents SintomaSistema As DataGridView
+    Friend WithEvents DgvSintomaSistema As DataGridView
     Friend WithEvents BtnBuscar As Button
     Friend WithEvents BtnAgregar As Button
     Friend WithEvents Lst As ListView
