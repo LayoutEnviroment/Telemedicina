@@ -43,4 +43,33 @@
         Return Reader
     End Function
 
+    Public Sub Insertar()
+        Try
+            For Each Nombre In IdSintomas
+                'MsgBox("Variables:" + IdEnfermedad + "," + IdSintomas.Item(0).ToString)
+                Command.CommandText = "
+            INSERT INTO
+                compone(id_sintoma_compone, id_enfermedad_compone)
+            VALUES
+                ((SELECT
+                    id_sintoma
+                  FROM
+                    sintoma
+                  WHERE
+                    nombre = '" + Nombre + "'),
+                  (SELECT
+                    id_enfermedad
+                  FROM
+                    enfermedad
+                  WHERE
+                    nombre = '" + IdEnfermedad + "'))
+
+"
+                Command.ExecuteNonQuery()
+            Next
+        Catch ex As Exception
+            MsgBox("Cortaste toda la loz")
+        End Try
+
+    End Sub
 End Class

@@ -16,6 +16,11 @@ Public Module ControladorSintoma
         Return s.ListarTodo()
     End Function
 
+    Public Function ListarNombre()
+        Dim s As New ModeloSintoma
+        Return s.ListarNombreSintoma()
+
+    End Function
 
     Public Sub CrearSintoma(nombre As String)
         Dim s As New ModeloSintoma

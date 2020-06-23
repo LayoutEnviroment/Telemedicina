@@ -14,18 +14,13 @@ Public Class FormSintoma
         FormABMSintoma.txtIdSintoma.Text = SintomasCargados.Item("ID", SintomasCargados.CurrentCell.RowIndex).Value.ToString
         FormABMSintoma.txtNombreSintoma.Text = SintomasCargados.Item("Nombre", SintomasCargados.CurrentCell.RowIndex).Value.ToString
         FormABMSintoma.ShowDialog()
-        'MsgBox(SintomasCargados.Item("ID", SintomasCargados.CurrentCell.RowIndex).Value)
-
-
-
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         FormABMSintoma.opcionFormulario = "ELIMINAR"
         FormABMSintoma.txtIdSintoma.Text = SintomasCargados.Item("ID", SintomasCargados.CurrentCell.RowIndex).Value.ToString
         FormABMSintoma.txtNombreSintoma.Text = SintomasCargados.Item("Nombre", SintomasCargados.CurrentCell.RowIndex).Value.ToString
-        Me.Hide()
-        FormABMSintoma.Show()
+        FormABMSintoma.ShowDialog()
     End Sub
 
     Private Sub SintomasCargados_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles SintomasCargados.CellContentClick
