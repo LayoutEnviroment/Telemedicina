@@ -6,16 +6,12 @@
 
     Public Function EnfermedadesPosibles()
         Dim values = String.Join(",", IdSintomas.Select(Function(f) String.Format("'{0}'", f)).ToArray())
-        Dim Nombre As String = String.Format("({0})", values)
-        MsgBox(IdSintomas.ToString)
-        MsgBox(values)
-        MsgBox(Nombre)
+        Dim NuevoNombre As String = "Sintomas en comun"
+
         Command.CommandText = "         
             SELECT
-                c.id_enfermedad_compone,
                 e.nombre AS Enfermedad,
-                group_concat(s.Nombre SEPARATOR ',') AS Sintomas,
-                COUNT(*)
+                COUNT(*) AS  '" + NuevoNombre + "'
             FROM
                 compone c
                 JOIN
