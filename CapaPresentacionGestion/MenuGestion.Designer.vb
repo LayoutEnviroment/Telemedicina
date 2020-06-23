@@ -22,53 +22,64 @@ Partial Class MenuGestion
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.btnEnfermedad = New System.Windows.Forms.Button()
-        Me.btnSintoma = New System.Windows.Forms.Button()
-        Me.btnCompone = New System.Windows.Forms.Button()
+        Me.BtnEnfermedad = New System.Windows.Forms.Button()
+        Me.BtnSintoma = New System.Windows.Forms.Button()
+        Me.BtnCompone = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'btnEnfermedad
+        'BtnEnfermedad
         '
-        Me.btnEnfermedad.Location = New System.Drawing.Point(49, 116)
-        Me.btnEnfermedad.Name = "btnEnfermedad"
-        Me.btnEnfermedad.Size = New System.Drawing.Size(222, 41)
-        Me.btnEnfermedad.TabIndex = 0
-        Me.btnEnfermedad.Text = "Gestionar Enfermedad"
-        Me.btnEnfermedad.UseVisualStyleBackColor = True
+        Me.BtnEnfermedad.BackColor = System.Drawing.Color.White
+        Me.BtnEnfermedad.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEnfermedad.Location = New System.Drawing.Point(61, 56)
+        Me.BtnEnfermedad.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnEnfermedad.Name = "BtnEnfermedad"
+        Me.BtnEnfermedad.Size = New System.Drawing.Size(250, 51)
+        Me.BtnEnfermedad.TabIndex = 0
+        Me.BtnEnfermedad.Text = "Gestionar Enfermedad"
+        Me.BtnEnfermedad.UseVisualStyleBackColor = False
         '
-        'btnSintoma
+        'BtnSintoma
         '
-        Me.btnSintoma.Location = New System.Drawing.Point(49, 173)
-        Me.btnSintoma.Name = "btnSintoma"
-        Me.btnSintoma.Size = New System.Drawing.Size(222, 41)
-        Me.btnSintoma.TabIndex = 1
-        Me.btnSintoma.Text = "Gestionar Síntoma"
-        Me.btnSintoma.UseVisualStyleBackColor = True
+        Me.BtnSintoma.BackColor = System.Drawing.Color.White
+        Me.BtnSintoma.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSintoma.Location = New System.Drawing.Point(61, 160)
+        Me.BtnSintoma.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnSintoma.Name = "BtnSintoma"
+        Me.BtnSintoma.Size = New System.Drawing.Size(250, 51)
+        Me.BtnSintoma.TabIndex = 1
+        Me.BtnSintoma.Text = "Gestionar Síntoma"
+        Me.BtnSintoma.UseVisualStyleBackColor = False
         '
-        'btnCompone
+        'BtnCompone
         '
-        Me.btnCompone.Location = New System.Drawing.Point(49, 232)
-        Me.btnCompone.Name = "btnCompone"
-        Me.btnCompone.Size = New System.Drawing.Size(222, 52)
-        Me.btnCompone.TabIndex = 2
-        Me.btnCompone.Text = "Gestionar Sintoma de Enfermedad"
-        Me.btnCompone.UseVisualStyleBackColor = True
+        Me.BtnCompone.BackColor = System.Drawing.Color.White
+        Me.BtnCompone.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCompone.Location = New System.Drawing.Point(61, 247)
+        Me.BtnCompone.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnCompone.Name = "BtnCompone"
+        Me.BtnCompone.Size = New System.Drawing.Size(250, 92)
+        Me.BtnCompone.TabIndex = 2
+        Me.BtnCompone.Text = "Gestionar Sintoma de Enfermedad"
+        Me.BtnCompone.UseVisualStyleBackColor = False
         '
         'MenuGestion
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(334, 397)
-        Me.Controls.Add(Me.btnCompone)
-        Me.Controls.Add(Me.btnSintoma)
-        Me.Controls.Add(Me.btnEnfermedad)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(245, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(376, 385)
+        Me.Controls.Add(Me.BtnCompone)
+        Me.Controls.Add(Me.BtnSintoma)
+        Me.Controls.Add(Me.BtnEnfermedad)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "MenuGestion"
         Me.Text = "Menu"
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents btnEnfermedad As Button
-    Friend WithEvents btnSintoma As Button
-    Friend WithEvents btnCompone As Button
+    Friend WithEvents BtnEnfermedad As Button
+    Friend WithEvents BtnSintoma As Button
+    Friend WithEvents BtnCompone As Button
 End Class

@@ -22,93 +22,110 @@ Partial Class FormEnfermedad
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.btnInsertar = New System.Windows.Forms.Button()
-        Me.btnModificar = New System.Windows.Forms.Button()
-        Me.btnEliminar = New System.Windows.Forms.Button()
-        Me.EnfermedadesCargadas = New System.Windows.Forms.DataGridView()
+        Me.BtnInsertar = New System.Windows.Forms.Button()
+        Me.BtnModificar = New System.Windows.Forms.Button()
+        Me.BtnEliminar = New System.Windows.Forms.Button()
+        Me.DgvEnfermedadesCargadas = New System.Windows.Forms.DataGridView()
         Me.LblInforSeleccion = New System.Windows.Forms.Label()
-        Me.btnVolver = New System.Windows.Forms.Button()
-        CType(Me.EnfermedadesCargadas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.BtnVolver = New System.Windows.Forms.Button()
+        CType(Me.DgvEnfermedadesCargadas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'btnInsertar
+        'BtnInsertar
         '
-        Me.btnInsertar.Location = New System.Drawing.Point(46, 105)
-        Me.btnInsertar.Name = "btnInsertar"
-        Me.btnInsertar.Size = New System.Drawing.Size(143, 37)
-        Me.btnInsertar.TabIndex = 0
-        Me.btnInsertar.Text = "Insertar"
-        Me.btnInsertar.UseVisualStyleBackColor = True
+        Me.BtnInsertar.BackColor = System.Drawing.Color.White
+        Me.BtnInsertar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnInsertar.Location = New System.Drawing.Point(36, 109)
+        Me.BtnInsertar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnInsertar.Name = "BtnInsertar"
+        Me.BtnInsertar.Size = New System.Drawing.Size(161, 46)
+        Me.BtnInsertar.TabIndex = 0
+        Me.BtnInsertar.Text = "Insertar"
+        Me.BtnInsertar.UseVisualStyleBackColor = False
         '
-        'btnModificar
+        'BtnModificar
         '
-        Me.btnModificar.Location = New System.Drawing.Point(46, 162)
-        Me.btnModificar.Name = "btnModificar"
-        Me.btnModificar.Size = New System.Drawing.Size(143, 37)
-        Me.btnModificar.TabIndex = 1
-        Me.btnModificar.Text = "Modificar"
-        Me.btnModificar.UseVisualStyleBackColor = True
+        Me.BtnModificar.BackColor = System.Drawing.Color.White
+        Me.BtnModificar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnModificar.Location = New System.Drawing.Point(36, 194)
+        Me.BtnModificar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnModificar.Name = "BtnModificar"
+        Me.BtnModificar.Size = New System.Drawing.Size(161, 46)
+        Me.BtnModificar.TabIndex = 1
+        Me.BtnModificar.Text = "Modificar"
+        Me.BtnModificar.UseVisualStyleBackColor = False
         '
-        'btnEliminar
+        'BtnEliminar
         '
-        Me.btnEliminar.Location = New System.Drawing.Point(46, 226)
-        Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.Size = New System.Drawing.Size(143, 37)
-        Me.btnEliminar.TabIndex = 2
-        Me.btnEliminar.Text = "Eliminar"
-        Me.btnEliminar.UseVisualStyleBackColor = True
+        Me.BtnEliminar.BackColor = System.Drawing.Color.White
+        Me.BtnEliminar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEliminar.Location = New System.Drawing.Point(36, 278)
+        Me.BtnEliminar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnEliminar.Name = "BtnEliminar"
+        Me.BtnEliminar.Size = New System.Drawing.Size(161, 46)
+        Me.BtnEliminar.TabIndex = 2
+        Me.BtnEliminar.Text = "Eliminar"
+        Me.BtnEliminar.UseVisualStyleBackColor = False
         '
-        'EnfermedadesCargadas
+        'DgvEnfermedadesCargadas
         '
-        Me.EnfermedadesCargadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.EnfermedadesCargadas.Location = New System.Drawing.Point(236, 87)
-        Me.EnfermedadesCargadas.Name = "EnfermedadesCargadas"
-        Me.EnfermedadesCargadas.RowTemplate.Height = 24
-        Me.EnfermedadesCargadas.Size = New System.Drawing.Size(355, 332)
-        Me.EnfermedadesCargadas.TabIndex = 3
+        Me.DgvEnfermedadesCargadas.BackgroundColor = System.Drawing.Color.White
+        Me.DgvEnfermedadesCargadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvEnfermedadesCargadas.Location = New System.Drawing.Point(266, 109)
+        Me.DgvEnfermedadesCargadas.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.DgvEnfermedadesCargadas.Name = "DgvEnfermedadesCargadas"
+        Me.DgvEnfermedadesCargadas.RowTemplate.Height = 24
+        Me.DgvEnfermedadesCargadas.Size = New System.Drawing.Size(399, 415)
+        Me.DgvEnfermedadesCargadas.TabIndex = 3
         '
         'LblInforSeleccion
         '
         Me.LblInforSeleccion.AutoSize = True
-        Me.LblInforSeleccion.Location = New System.Drawing.Point(233, 34)
+        Me.LblInforSeleccion.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblInforSeleccion.Location = New System.Drawing.Point(230, 39)
         Me.LblInforSeleccion.Name = "LblInforSeleccion"
-        Me.LblInforSeleccion.Size = New System.Drawing.Size(349, 17)
+        Me.LblInforSeleccion.Size = New System.Drawing.Size(485, 28)
         Me.LblInforSeleccion.TabIndex = 4
         Me.LblInforSeleccion.Text = "Seleccione una enfermedad para Modificar / Eliminar :"
         '
-        'btnVolver
+        'BtnVolver
         '
-        Me.btnVolver.Location = New System.Drawing.Point(46, 382)
-        Me.btnVolver.Name = "btnVolver"
-        Me.btnVolver.Size = New System.Drawing.Size(138, 37)
-        Me.btnVolver.TabIndex = 5
-        Me.btnVolver.Text = "Volver"
-        Me.btnVolver.UseVisualStyleBackColor = True
+        Me.BtnVolver.BackColor = System.Drawing.Color.White
+        Me.BtnVolver.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnVolver.Location = New System.Drawing.Point(36, 478)
+        Me.BtnVolver.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnVolver.Name = "BtnVolver"
+        Me.BtnVolver.Size = New System.Drawing.Size(161, 46)
+        Me.BtnVolver.TabIndex = 5
+        Me.BtnVolver.Text = "Volver"
+        Me.BtnVolver.UseVisualStyleBackColor = False
         '
         'FormEnfermedad
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(657, 450)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(245, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(739, 562)
         Me.ControlBox = False
-        Me.Controls.Add(Me.btnVolver)
+        Me.Controls.Add(Me.BtnVolver)
         Me.Controls.Add(Me.LblInforSeleccion)
-        Me.Controls.Add(Me.EnfermedadesCargadas)
-        Me.Controls.Add(Me.btnEliminar)
-        Me.Controls.Add(Me.btnModificar)
-        Me.Controls.Add(Me.btnInsertar)
+        Me.Controls.Add(Me.DgvEnfermedadesCargadas)
+        Me.Controls.Add(Me.BtnEliminar)
+        Me.Controls.Add(Me.BtnModificar)
+        Me.Controls.Add(Me.BtnInsertar)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FormEnfermedad"
         Me.Text = "FormEnfermedad"
-        CType(Me.EnfermedadesCargadas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DgvEnfermedadesCargadas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents btnInsertar As Button
-    Friend WithEvents btnModificar As Button
-    Friend WithEvents btnEliminar As Button
-    Friend WithEvents EnfermedadesCargadas As DataGridView
+    Friend WithEvents BtnInsertar As Button
+    Friend WithEvents BtnModificar As Button
+    Friend WithEvents BtnEliminar As Button
+    Friend WithEvents DgvEnfermedadesCargadas As DataGridView
     Friend WithEvents LblInforSeleccion As Label
-    Friend WithEvents btnVolver As Button
+    Friend WithEvents BtnVolver As Button
 End Class

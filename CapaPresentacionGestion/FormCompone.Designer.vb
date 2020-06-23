@@ -24,90 +24,118 @@ Partial Class FormCompone
     Private Sub InitializeComponent()
         Me.CmbEnfermedad = New System.Windows.Forms.ComboBox()
         Me.LblSeleccionEnfermedad = New System.Windows.Forms.Label()
-        Me.dgvSintoma = New System.Windows.Forms.DataGridView()
-        Me.btnAceptar = New System.Windows.Forms.Button()
-        Me.btnCancelar = New System.Windows.Forms.Button()
-        Me.btnVolver = New System.Windows.Forms.Button()
+        Me.DgvSintoma = New System.Windows.Forms.DataGridView()
         Me.cbx = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        CType(Me.dgvSintoma, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.BtnAceptar = New System.Windows.Forms.Button()
+        Me.BtnCancelar = New System.Windows.Forms.Button()
+        Me.BtnVolver = New System.Windows.Forms.Button()
+        Me.LblTitulo = New System.Windows.Forms.Label()
+        CType(Me.DgvSintoma, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CmbEnfermedad
         '
+        Me.CmbEnfermedad.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmbEnfermedad.FormattingEnabled = True
-        Me.CmbEnfermedad.Location = New System.Drawing.Point(44, 81)
+        Me.CmbEnfermedad.Location = New System.Drawing.Point(42, 101)
+        Me.CmbEnfermedad.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.CmbEnfermedad.Name = "CmbEnfermedad"
-        Me.CmbEnfermedad.Size = New System.Drawing.Size(154, 24)
+        Me.CmbEnfermedad.Size = New System.Drawing.Size(173, 36)
         Me.CmbEnfermedad.TabIndex = 0
         '
         'LblSeleccionEnfermedad
         '
         Me.LblSeleccionEnfermedad.AutoSize = True
-        Me.LblSeleccionEnfermedad.Location = New System.Drawing.Point(41, 38)
+        Me.LblSeleccionEnfermedad.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblSeleccionEnfermedad.Location = New System.Drawing.Point(12, 48)
         Me.LblSeleccionEnfermedad.Name = "LblSeleccionEnfermedad"
-        Me.LblSeleccionEnfermedad.Size = New System.Drawing.Size(157, 17)
+        Me.LblSeleccionEnfermedad.Size = New System.Drawing.Size(241, 30)
         Me.LblSeleccionEnfermedad.TabIndex = 1
         Me.LblSeleccionEnfermedad.Text = "Seleccione enfermedad"
         '
-        'dgvSintoma
+        'DgvSintoma
         '
-        Me.dgvSintoma.AllowUserToAddRows = False
-        Me.dgvSintoma.AllowUserToDeleteRows = False
-        Me.dgvSintoma.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvSintoma.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cbx})
-        Me.dgvSintoma.Location = New System.Drawing.Point(248, 81)
-        Me.dgvSintoma.Name = "dgvSintoma"
-        Me.dgvSintoma.RowTemplate.Height = 24
-        Me.dgvSintoma.Size = New System.Drawing.Size(357, 336)
-        Me.dgvSintoma.TabIndex = 2
-        '
-        'btnAceptar
-        '
-        Me.btnAceptar.Location = New System.Drawing.Point(635, 135)
-        Me.btnAceptar.Name = "btnAceptar"
-        Me.btnAceptar.Size = New System.Drawing.Size(122, 38)
-        Me.btnAceptar.TabIndex = 3
-        Me.btnAceptar.Text = "Aceptar"
-        Me.btnAceptar.UseVisualStyleBackColor = True
-        '
-        'btnCancelar
-        '
-        Me.btnCancelar.Location = New System.Drawing.Point(635, 199)
-        Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(122, 38)
-        Me.btnCancelar.TabIndex = 4
-        Me.btnCancelar.Text = "Cancelar"
-        Me.btnCancelar.UseVisualStyleBackColor = True
-        '
-        'btnVolver
-        '
-        Me.btnVolver.Location = New System.Drawing.Point(635, 379)
-        Me.btnVolver.Name = "btnVolver"
-        Me.btnVolver.Size = New System.Drawing.Size(122, 38)
-        Me.btnVolver.TabIndex = 5
-        Me.btnVolver.Text = "Volver"
-        Me.btnVolver.UseVisualStyleBackColor = True
+        Me.DgvSintoma.AllowUserToAddRows = False
+        Me.DgvSintoma.AllowUserToDeleteRows = False
+        Me.DgvSintoma.BackgroundColor = System.Drawing.Color.White
+        Me.DgvSintoma.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvSintoma.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cbx})
+        Me.DgvSintoma.Location = New System.Drawing.Point(279, 101)
+        Me.DgvSintoma.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.DgvSintoma.Name = "DgvSintoma"
+        Me.DgvSintoma.RowTemplate.Height = 24
+        Me.DgvSintoma.Size = New System.Drawing.Size(402, 420)
+        Me.DgvSintoma.TabIndex = 2
         '
         'cbx
         '
         Me.cbx.HeaderText = "Sel."
         Me.cbx.Name = "cbx"
         '
+        'BtnAceptar
+        '
+        Me.BtnAceptar.BackColor = System.Drawing.Color.White
+        Me.BtnAceptar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnAceptar.Location = New System.Drawing.Point(714, 101)
+        Me.BtnAceptar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnAceptar.Name = "BtnAceptar"
+        Me.BtnAceptar.Size = New System.Drawing.Size(137, 48)
+        Me.BtnAceptar.TabIndex = 3
+        Me.BtnAceptar.Text = "Aceptar"
+        Me.BtnAceptar.UseVisualStyleBackColor = False
+        '
+        'BtnCancelar
+        '
+        Me.BtnCancelar.BackColor = System.Drawing.Color.White
+        Me.BtnCancelar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCancelar.Location = New System.Drawing.Point(714, 181)
+        Me.BtnCancelar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnCancelar.Name = "BtnCancelar"
+        Me.BtnCancelar.Size = New System.Drawing.Size(137, 48)
+        Me.BtnCancelar.TabIndex = 4
+        Me.BtnCancelar.Text = "Cancelar"
+        Me.BtnCancelar.UseVisualStyleBackColor = False
+        '
+        'BtnVolver
+        '
+        Me.BtnVolver.BackColor = System.Drawing.Color.White
+        Me.BtnVolver.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnVolver.Location = New System.Drawing.Point(714, 474)
+        Me.BtnVolver.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnVolver.Name = "BtnVolver"
+        Me.BtnVolver.Size = New System.Drawing.Size(137, 48)
+        Me.BtnVolver.TabIndex = 5
+        Me.BtnVolver.Text = "Volver"
+        Me.BtnVolver.UseVisualStyleBackColor = False
+        '
+        'LblTitulo
+        '
+        Me.LblTitulo.AutoSize = True
+        Me.LblTitulo.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblTitulo.Location = New System.Drawing.Point(375, 48)
+        Me.LblTitulo.Name = "LblTitulo"
+        Me.LblTitulo.Size = New System.Drawing.Size(210, 30)
+        Me.LblTitulo.TabIndex = 6
+        Me.LblTitulo.Text = "Seleccione Sintomas"
+        '
         'FormCompone
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(245, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(900, 562)
         Me.ControlBox = False
-        Me.Controls.Add(Me.btnVolver)
-        Me.Controls.Add(Me.btnCancelar)
-        Me.Controls.Add(Me.btnAceptar)
-        Me.Controls.Add(Me.dgvSintoma)
+        Me.Controls.Add(Me.LblTitulo)
+        Me.Controls.Add(Me.BtnVolver)
+        Me.Controls.Add(Me.BtnCancelar)
+        Me.Controls.Add(Me.BtnAceptar)
+        Me.Controls.Add(Me.DgvSintoma)
         Me.Controls.Add(Me.LblSeleccionEnfermedad)
         Me.Controls.Add(Me.CmbEnfermedad)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FormCompone"
         Me.Text = "FormCompone"
-        CType(Me.dgvSintoma, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DgvSintoma, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -115,9 +143,10 @@ Partial Class FormCompone
 
     Friend WithEvents CmbEnfermedad As ComboBox
     Friend WithEvents LblSeleccionEnfermedad As Label
-    Friend WithEvents dgvSintoma As DataGridView
-    Friend WithEvents btnAceptar As Button
-    Friend WithEvents btnCancelar As Button
-    Friend WithEvents btnVolver As Button
+    Friend WithEvents DgvSintoma As DataGridView
+    Friend WithEvents BtnAceptar As Button
+    Friend WithEvents BtnCancelar As Button
+    Friend WithEvents BtnVolver As Button
     Friend WithEvents cbx As DataGridViewCheckBoxColumn
+    Friend WithEvents LblTitulo As Label
 End Class

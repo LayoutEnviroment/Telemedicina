@@ -15,13 +15,13 @@
             FROM
                 compone c
                 JOIN
-                sintoma s ON c.id_sintoma_compone = s.id_sintoma
+                sintoma s ON c.id_sintoma = s.id
                 JOIN
-                enfermedad e ON c.id_enfermedad_compone = e.id_enfermedad
+                enfermedad e ON c.id_enfermedad = e.id
             WHERE
-                c.id_sintoma_compone IN (
+                c.id_sintoma IN (
                     SELECT 
-                        id_sintoma
+                        id
                     FROM
                         sintoma
                     WHERE
@@ -30,37 +30,37 @@
                         )
                 )
             GROUP BY
-                c.id_enfermedad_compone
-                ORDER BY
-            COUNT(*) DESC,
-                e.nombre"
-
+                c.id_enfermedad
+            ORDER BY
+                COUNT(*) DESC,
+                e.nombre
+        "
         Reader = Command.ExecuteReader()
         Return Reader
+
     End Function
 
     Public Sub Insertar()
         Try
             For Each Nombre In IdSintomas
-                'MsgBox("Variables:" + IdEnfermedad + "," + IdSintomas.Item(0).ToString)
                 Command.CommandText = "
-            INSERT INTO
-                compone(id_sintoma_compone, id_enfermedad_compone)
-            VALUES
-                ((SELECT
-                    id_sintoma
-                  FROM
-                    sintoma
-                  WHERE
-                    nombre = '" + Nombre + "'),
-                  (SELECT
-                    id_enfermedad
-                  FROM
-                    enfermedad
-                  WHERE
-                    nombre = '" + IdEnfermedad + "'))
+                    INSERT INTO
+                        compone(id_sintoma, id_enfermedad)
+                    VALUES
+                        ((SELECT
+                            id
+                        FROM
+                            sintoma
+                        WHERE
+                            nombre = '" + Nombre + "'),
+                        (SELECT
+                            id
+                        FROM
+                            enfermedad
+                        WHERE
+                            nombre = '" + IdEnfermedad + "'))
 
-"
+                "
                 Command.ExecuteNonQuery()
             Next
         Catch ex As Exception

@@ -22,122 +22,154 @@ Partial Class FormABMEnfermedad
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.lblNombre = New System.Windows.Forms.Label()
-        Me.lblId = New System.Windows.Forms.Label()
-        Me.txtNombreEnfermedad = New System.Windows.Forms.TextBox()
-        Me.txtIdEnfermedad = New System.Windows.Forms.TextBox()
-        Me.btnCancelar = New System.Windows.Forms.Button()
-        Me.btnAceptar = New System.Windows.Forms.Button()
-        Me.lblDescripcion = New System.Windows.Forms.Label()
-        Me.txtDescripcionEnfermedad = New System.Windows.Forms.TextBox()
-        Me.cmbPrioridad = New System.Windows.Forms.ComboBox()
+        Me.LblNombre = New System.Windows.Forms.Label()
+        Me.LblId = New System.Windows.Forms.Label()
+        Me.TxtNombreEnfermedad = New System.Windows.Forms.TextBox()
+        Me.TxtIdEnfermedad = New System.Windows.Forms.TextBox()
+        Me.BtnCancelar = New System.Windows.Forms.Button()
+        Me.BtnAceptar = New System.Windows.Forms.Button()
+        Me.LblDescripcion = New System.Windows.Forms.Label()
+        Me.TxtDescripcionEnfermedad = New System.Windows.Forms.TextBox()
+        Me.CmbPrioridad = New System.Windows.Forms.ComboBox()
+        Me.LblPrioridad = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
-        'lblNombre
+        'LblNombre
         '
-        Me.lblNombre.AutoSize = True
-        Me.lblNombre.Location = New System.Drawing.Point(34, 127)
-        Me.lblNombre.Name = "lblNombre"
-        Me.lblNombre.Size = New System.Drawing.Size(62, 17)
-        Me.lblNombre.TabIndex = 11
-        Me.lblNombre.Text = "Nombre:"
+        Me.LblNombre.AutoSize = True
+        Me.LblNombre.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblNombre.Location = New System.Drawing.Point(38, 105)
+        Me.LblNombre.Name = "LblNombre"
+        Me.LblNombre.Size = New System.Drawing.Size(92, 30)
+        Me.LblNombre.TabIndex = 11
+        Me.LblNombre.Text = "Nombre"
         '
-        'lblId
+        'LblId
         '
-        Me.lblId.AutoSize = True
-        Me.lblId.Location = New System.Drawing.Point(34, 87)
-        Me.lblId.Name = "lblId"
-        Me.lblId.Size = New System.Drawing.Size(25, 17)
-        Me.lblId.TabIndex = 10
-        Me.lblId.Text = "ID:"
+        Me.LblId.AutoSize = True
+        Me.LblId.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblId.Location = New System.Drawing.Point(38, 15)
+        Me.LblId.Name = "LblId"
+        Me.LblId.Size = New System.Drawing.Size(35, 30)
+        Me.LblId.TabIndex = 10
+        Me.LblId.Text = "ID"
         '
-        'txtNombreEnfermedad
+        'TxtNombreEnfermedad
         '
-        Me.txtNombreEnfermedad.Location = New System.Drawing.Point(128, 127)
-        Me.txtNombreEnfermedad.Name = "txtNombreEnfermedad"
-        Me.txtNombreEnfermedad.Size = New System.Drawing.Size(253, 22)
-        Me.txtNombreEnfermedad.TabIndex = 9
+        Me.TxtNombreEnfermedad.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtNombreEnfermedad.Location = New System.Drawing.Point(112, 139)
+        Me.TxtNombreEnfermedad.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.TxtNombreEnfermedad.Name = "TxtNombreEnfermedad"
+        Me.TxtNombreEnfermedad.Size = New System.Drawing.Size(284, 34)
+        Me.TxtNombreEnfermedad.TabIndex = 9
         '
-        'txtIdEnfermedad
+        'TxtIdEnfermedad
         '
-        Me.txtIdEnfermedad.Enabled = False
-        Me.txtIdEnfermedad.Location = New System.Drawing.Point(127, 87)
-        Me.txtIdEnfermedad.Name = "txtIdEnfermedad"
-        Me.txtIdEnfermedad.Size = New System.Drawing.Size(254, 22)
-        Me.txtIdEnfermedad.TabIndex = 8
+        Me.TxtIdEnfermedad.Enabled = False
+        Me.TxtIdEnfermedad.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtIdEnfermedad.Location = New System.Drawing.Point(112, 52)
+        Me.TxtIdEnfermedad.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.TxtIdEnfermedad.Name = "TxtIdEnfermedad"
+        Me.TxtIdEnfermedad.Size = New System.Drawing.Size(285, 34)
+        Me.TxtIdEnfermedad.TabIndex = 8
         '
-        'btnCancelar
+        'BtnCancelar
         '
-        Me.btnCancelar.Location = New System.Drawing.Point(222, 293)
-        Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(119, 40)
-        Me.btnCancelar.TabIndex = 7
-        Me.btnCancelar.Text = "Cancelar"
-        Me.btnCancelar.UseVisualStyleBackColor = True
+        Me.BtnCancelar.BackColor = System.Drawing.Color.White
+        Me.BtnCancelar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCancelar.Location = New System.Drawing.Point(250, 360)
+        Me.BtnCancelar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnCancelar.Name = "BtnCancelar"
+        Me.BtnCancelar.Size = New System.Drawing.Size(134, 50)
+        Me.BtnCancelar.TabIndex = 7
+        Me.BtnCancelar.Text = "Cancelar"
+        Me.BtnCancelar.UseVisualStyleBackColor = False
         '
-        'btnAceptar
+        'BtnAceptar
         '
-        Me.btnAceptar.Location = New System.Drawing.Point(69, 293)
-        Me.btnAceptar.Name = "btnAceptar"
-        Me.btnAceptar.Size = New System.Drawing.Size(119, 40)
-        Me.btnAceptar.TabIndex = 6
-        Me.btnAceptar.Text = "Aceptar"
-        Me.btnAceptar.UseVisualStyleBackColor = True
+        Me.BtnAceptar.BackColor = System.Drawing.Color.White
+        Me.BtnAceptar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnAceptar.Location = New System.Drawing.Point(70, 354)
+        Me.BtnAceptar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnAceptar.Name = "BtnAceptar"
+        Me.BtnAceptar.Size = New System.Drawing.Size(142, 62)
+        Me.BtnAceptar.TabIndex = 6
+        Me.BtnAceptar.Text = "Aceptar"
+        Me.BtnAceptar.UseVisualStyleBackColor = False
         '
-        'lblDescripcion
+        'LblDescripcion
         '
-        Me.lblDescripcion.AutoSize = True
-        Me.lblDescripcion.Location = New System.Drawing.Point(34, 165)
-        Me.lblDescripcion.Name = "lblDescripcion"
-        Me.lblDescripcion.Size = New System.Drawing.Size(86, 17)
-        Me.lblDescripcion.TabIndex = 13
-        Me.lblDescripcion.Text = "Descripcion:"
+        Me.LblDescripcion.AutoSize = True
+        Me.LblDescripcion.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblDescripcion.Location = New System.Drawing.Point(38, 186)
+        Me.LblDescripcion.Name = "LblDescripcion"
+        Me.LblDescripcion.Size = New System.Drawing.Size(125, 30)
+        Me.LblDescripcion.TabIndex = 13
+        Me.LblDescripcion.Text = "Descripcion"
         '
-        'txtDescripcionEnfermedad
+        'TxtDescripcionEnfermedad
         '
-        Me.txtDescripcionEnfermedad.Location = New System.Drawing.Point(128, 165)
-        Me.txtDescripcionEnfermedad.Name = "txtDescripcionEnfermedad"
-        Me.txtDescripcionEnfermedad.Size = New System.Drawing.Size(253, 22)
-        Me.txtDescripcionEnfermedad.TabIndex = 12
+        Me.TxtDescripcionEnfermedad.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtDescripcionEnfermedad.Location = New System.Drawing.Point(112, 220)
+        Me.TxtDescripcionEnfermedad.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.TxtDescripcionEnfermedad.Name = "TxtDescripcionEnfermedad"
+        Me.TxtDescripcionEnfermedad.Size = New System.Drawing.Size(284, 34)
+        Me.TxtDescripcionEnfermedad.TabIndex = 12
         '
-        'cmbPrioridad
+        'CmbPrioridad
         '
-        Me.cmbPrioridad.FormattingEnabled = True
-        Me.cmbPrioridad.Items.AddRange(New Object() {"LOW", "MEDIUM", "HIGH"})
-        Me.cmbPrioridad.Location = New System.Drawing.Point(260, 215)
-        Me.cmbPrioridad.Name = "cmbPrioridad"
-        Me.cmbPrioridad.Size = New System.Drawing.Size(121, 24)
-        Me.cmbPrioridad.TabIndex = 14
+        Me.CmbPrioridad.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmbPrioridad.FormattingEnabled = True
+        Me.CmbPrioridad.Items.AddRange(New Object() {"BAJA", "MEDIA", "ALTA"})
+        Me.CmbPrioridad.Location = New System.Drawing.Point(261, 289)
+        Me.CmbPrioridad.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.CmbPrioridad.Name = "CmbPrioridad"
+        Me.CmbPrioridad.Size = New System.Drawing.Size(136, 36)
+        Me.CmbPrioridad.TabIndex = 14
+        '
+        'LblPrioridad
+        '
+        Me.LblPrioridad.AutoSize = True
+        Me.LblPrioridad.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblPrioridad.Location = New System.Drawing.Point(38, 277)
+        Me.LblPrioridad.Name = "LblPrioridad"
+        Me.LblPrioridad.Size = New System.Drawing.Size(102, 30)
+        Me.LblPrioridad.TabIndex = 15
+        Me.LblPrioridad.Text = "Prioridad"
         '
         'FormABMEnfermedad
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(401, 375)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(245, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(451, 469)
         Me.ControlBox = False
-        Me.Controls.Add(Me.cmbPrioridad)
-        Me.Controls.Add(Me.lblDescripcion)
-        Me.Controls.Add(Me.txtDescripcionEnfermedad)
-        Me.Controls.Add(Me.lblNombre)
-        Me.Controls.Add(Me.lblId)
-        Me.Controls.Add(Me.txtNombreEnfermedad)
-        Me.Controls.Add(Me.txtIdEnfermedad)
-        Me.Controls.Add(Me.btnCancelar)
-        Me.Controls.Add(Me.btnAceptar)
+        Me.Controls.Add(Me.LblPrioridad)
+        Me.Controls.Add(Me.CmbPrioridad)
+        Me.Controls.Add(Me.LblDescripcion)
+        Me.Controls.Add(Me.TxtDescripcionEnfermedad)
+        Me.Controls.Add(Me.LblNombre)
+        Me.Controls.Add(Me.LblId)
+        Me.Controls.Add(Me.TxtNombreEnfermedad)
+        Me.Controls.Add(Me.TxtIdEnfermedad)
+        Me.Controls.Add(Me.BtnCancelar)
+        Me.Controls.Add(Me.BtnAceptar)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FormABMEnfermedad"
-        Me.Text = "FormABMEnfermedad"
+        Me.Text = "Enfermedad"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents lblNombre As Label
-    Friend WithEvents lblId As Label
-    Friend WithEvents txtNombreEnfermedad As TextBox
-    Friend WithEvents txtIdEnfermedad As TextBox
-    Friend WithEvents btnCancelar As Button
-    Friend WithEvents btnAceptar As Button
-    Friend WithEvents lblDescripcion As Label
-    Friend WithEvents txtDescripcionEnfermedad As TextBox
-    Friend WithEvents cmbPrioridad As ComboBox
+    Friend WithEvents LblNombre As Label
+    Friend WithEvents LblId As Label
+    Friend WithEvents TxtNombreEnfermedad As TextBox
+    Friend WithEvents TxtIdEnfermedad As TextBox
+    Friend WithEvents BtnCancelar As Button
+    Friend WithEvents BtnAceptar As Button
+    Friend WithEvents LblDescripcion As Label
+    Friend WithEvents TxtDescripcionEnfermedad As TextBox
+    Friend WithEvents CmbPrioridad As ComboBox
+    Friend WithEvents LblPrioridad As Label
 End Class

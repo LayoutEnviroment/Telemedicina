@@ -11,11 +11,12 @@ Public Module ControladorCompone
     End Function
 
     Public Sub Insertar(Sintomas As List(Of String), Enfermedad As String)
-        Dim c As New ModeloCompone
-        c.IdSintomas = Sintomas
-        c.IdEnfermedad = Enfermedad
-        c.Insertar()
-        'MsgBox("Llegue")
+        Dim c As New ModeloCompone With {
+            .IdSintomas = Sintomas,
+            .IdEnfermedad = Enfermedad
+        }
 
+        c.Insertar()
     End Sub
+
 End Module

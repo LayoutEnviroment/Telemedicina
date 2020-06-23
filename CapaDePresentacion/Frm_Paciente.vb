@@ -4,7 +4,6 @@ Public Class Frm_Paciente
     'Esto vendra de la base de datos
     Dim Usuario As String = "Usuario"
     Private Sub TxtSintoma_TextChanged(sender As Object, e As EventArgs) Handles TxtSintoma.TextChanged
-
         Try
             Dim Table As New DataTable
             Table.Load(ControladorSintoma.ListarSintoma(TxtSintoma.Text))

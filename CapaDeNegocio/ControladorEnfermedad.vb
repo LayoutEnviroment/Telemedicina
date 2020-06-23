@@ -7,36 +7,38 @@ Public Module ControladorEnfermedad
 
         Return e.Listar()
     End Function
+
     Public Function ListarNombre()
         Dim e As New ModeloEnfermedad
-        Return e.ListarNombreEnfermedad()
 
+        Return e.ListarNombreEnfermedad()
     End Function
 
     Public Sub CrearEnfermedad(nombre As String, descripcion As String, prioridad As String)
-        Dim e As New ModeloEnfermedad
+        Dim e As New ModeloEnfermedad With {
+            .Nombre = nombre,
+            .Descripcion = descripcion,
+            .Prioridad = prioridad
+        }
 
-        e.Nombre = nombre
-        e.Descripcion = descripcion
-        e.Prioridad = prioridad
         e.Insertar()
-
     End Sub
 
     Public Sub CambiarNombreDeEnfermedad(idEnfermedad As String, nombre As String, descripcion As String, prioridad As String)
-        Dim e As New ModeloEnfermedad
-
-        e.IdEnfermedad = idEnfermedad
-        e.Nombre = nombre
-        e.Descripcion = descripcion
-        e.Prioridad = prioridad
+        Dim e As New ModeloEnfermedad With {
+            .IdEnfermedad = idEnfermedad,
+            .Nombre = nombre,
+            .Descripcion = descripcion,
+            .Prioridad = prioridad
+        }
 
         e.Modificar()
     End Sub
 
     Public Sub EliminarEnfermedad(id As String)
-        Dim e As New ModeloEnfermedad
-        e.IdEnfermedad = id
+        Dim e As New ModeloEnfermedad With {
+            .IdEnfermedad = id
+        }
 
         e.Eliminar()
     End Sub

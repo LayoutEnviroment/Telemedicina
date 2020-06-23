@@ -6,31 +6,30 @@ Public Class FormCompone
 
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSintoma.CellContentClick
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvSintoma.CellContentClick
 
     End Sub
 
-    Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
+    Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
 
         Dim Sintomas As New List(Of String)
-        For x = 0 To dgvSintoma.Rows.Count() - 1
+        For x = 0 To DgvSintoma.Rows.Count() - 1
             Dim check As Boolean
-            check = dgvSintoma.Rows(x).Cells(0).Value
+            check = DgvSintoma.Rows(x).Cells(0).Value
             If check Then
-                'MsgBox(dgvSintoma.Item("Sintoma", x).Value.ToString)
-                Sintomas.Add(dgvSintoma.Item("Sintoma", x).Value.ToString)
+                Sintomas.Add(DgvSintoma.Item("Sintoma", x).Value.ToString)
             End If
         Next
         ControladorCompone.Insertar(Sintomas, CmbEnfermedad.Text)
 
     End Sub
 
-    Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+    Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
         Me.Hide()
         MenuGestion.Show()
     End Sub
 
-    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
         Me.Hide()
         MenuGestion.Show()
     End Sub
@@ -45,10 +44,14 @@ Public Class FormCompone
 
             Dim tablaSintoma As New DataTable
             tablaSintoma.Load(ControladorSintoma.ListarNombre)
-            dgvSintoma.DataSource = tablaSintoma
+            DgvSintoma.DataSource = tablaSintoma
         Catch ex As Exception
             MsgBox("Saca el cutuchillo de ahi carajo")
         End Try
 
+    End Sub
+
+    Private Sub FormCompone_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        FormSintoma.CargarSintomas()
     End Sub
 End Class

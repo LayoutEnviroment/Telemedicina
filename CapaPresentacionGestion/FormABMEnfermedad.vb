@@ -3,27 +3,29 @@
 Public Class FormABMEnfermedad
     Public opcionFormulario As String
 
-    Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
+    Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
         If opcionFormulario = "INSERTAR" Then
             Try
                 FormEnfermedad.Show()
-                ControladorEnfermedad.CrearEnfermedad(txtNombreEnfermedad.Text.Trim, txtDescripcionEnfermedad.Text, cmbPrioridad.Text)
+                ControladorEnfermedad.CrearEnfermedad(TxtNombreEnfermedad.Text.Trim, TxtDescripcionEnfermedad.Text, CmbPrioridad.Text)
             Catch ex As Exception
                 MsgBox(ex.ToString())
 
             End Try
-
             Me.Close()
+
         ElseIf opcionFormulario = "MODIFICAR" Then
             Try
-                ControladorEnfermedad.CambiarNombreDeEnfermedad(txtIdEnfermedad.Text, txtNombreEnfermedad.Text, txtDescripcionEnfermedad.Text, cmbPrioridad.Text)
+                ControladorEnfermedad.CambiarNombreDeEnfermedad(TxtIdEnfermedad.Text, TxtNombreEnfermedad.Text, TxtDescripcionEnfermedad.Text, CmbPrioridad.Text)
             Catch ex As Exception
                 MsgBox(ex.ToString)
             End Try
             FormEnfermedad.Show()
+
         ElseIf opcionFormulario = "ELIMINAR" Then
             Try
-                ControladorEnfermedad.EliminarEnfermedad(txtIdEnfermedad.Text)
+                FormEnfermedad.Show()
+                ControladorEnfermedad.EliminarEnfermedad(TxtIdEnfermedad.Text)
             Catch ex As Exception
 
             End Try
@@ -33,7 +35,7 @@ Public Class FormABMEnfermedad
 
     End Sub
 
-    Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+    Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
         Try
             Me.Hide()
             FormEnfermedad.Show()
@@ -43,4 +45,7 @@ Public Class FormABMEnfermedad
 
     End Sub
 
+    Private Sub FormABMEnfermedad_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        FormEnfermedad.CargarEnfermedad()
+    End Sub
 End Class

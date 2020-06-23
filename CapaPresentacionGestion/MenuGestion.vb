@@ -1,18 +1,22 @@
 ﻿Imports CapaDeNegocio
 
 Public Class MenuGestion
-    Private Sub btnEnfermedad_Click(sender As Object, e As EventArgs) Handles btnEnfermedad.Click
+    Private Sub BtnEnfermedad_Click(sender As Object, e As EventArgs) Handles BtnEnfermedad.Click
         Me.Hide()
         FormEnfermedad.Show()
     End Sub
 
-    Private Sub btnSintoma_Click(sender As Object, e As EventArgs) Handles btnSintoma.Click
+    Private Sub BtnSintoma_Click(sender As Object, e As EventArgs) Handles BtnSintoma.Click
         Me.Hide()
         FormSintoma.Show()
     End Sub
 
-    Private Sub btnCompone_Click(sender As Object, e As EventArgs) Handles btnCompone.Click
+    Private Sub BtnCompone_Click(sender As Object, e As EventArgs) Handles BtnCompone.Click
         Me.Hide()
         FormCompone.Show()
+    End Sub
+
+    Private Sub MenuGestion_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Login.Close()
     End Sub
 End Class

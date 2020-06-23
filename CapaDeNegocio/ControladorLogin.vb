@@ -2,11 +2,8 @@
 
 Public Module ControladorLogin
 
-    Public Function Login(Credenciales() As String)
-        Dim DB As ModeloBaseDeDatos
-        DB.Uid = Credenciales(1)
-        DB.Pwd = Credenciales(2)
+    'Public Sub PermitirIngreso(usuario As String, pass As String)
 
-        Return DB.Connect
-    End Function
+
+    'End Sub
 End Module

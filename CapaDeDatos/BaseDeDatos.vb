@@ -2,11 +2,11 @@
 
 Public MustInherit Class ModeloBaseDeDatos
 
-    Public Driver As String = "MySQL ODBC 8.0 Unicode Driver"
-    Public Uid As String = "root"
-    Public Pwd As String = "EGUfabre924960"
+    Public Driver As String = "Mysql ODBC 8.0 Unicode Driver"
+    Public Uid As String = "gestor"
+    Public Pwd As String = "gestor"
     Public Port As String = "3306"
-    Public DatabaseName As String = "primera_entrega"
+    Public DatabaseName As String = "probando"
     Public Host As String = "localhost"
 
     Public Connect As New OdbcConnection(
@@ -17,6 +17,7 @@ Public MustInherit Class ModeloBaseDeDatos
         ";DATABASE=" + Me.DatabaseName +
         ";SERVER=" + Me.Host
     )
+
 
     Public Command As New OdbcCommand
     Public Reader As OdbcDataReader

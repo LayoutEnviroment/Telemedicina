@@ -22,9 +22,9 @@ Partial Class Frm_Paciente
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim ListViewGroup5 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim ListViewGroup1 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
         Me.LblSaludo = New System.Windows.Forms.Label()
         Me.LblSintomas = New System.Windows.Forms.Label()
         Me.TxtSintoma = New System.Windows.Forms.TextBox()
@@ -78,11 +78,11 @@ Partial Class Frm_Paciente
         Me.DgvSintomaSistema.AllowUserToDeleteRows = False
         Me.DgvSintomaSistema.AllowUserToResizeColumns = False
         Me.DgvSintomaSistema.AllowUserToResizeRows = False
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DgvSintomaSistema.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvSintomaSistema.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DgvSintomaSistema.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -92,14 +92,14 @@ Partial Class Frm_Paciente
         Me.DgvSintomaSistema.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvSintomaSistema.ColumnHeadersVisible = False
         Me.DgvSintomaSistema.Cursor = System.Windows.Forms.Cursors.Hand
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DgvSintomaSistema.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DgvSintomaSistema.DefaultCellStyle = DataGridViewCellStyle2
         Me.DgvSintomaSistema.Location = New System.Drawing.Point(24, 147)
         Me.DgvSintomaSistema.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DgvSintomaSistema.Name = "DgvSintomaSistema"
@@ -111,28 +111,34 @@ Partial Class Frm_Paciente
         '
         'BtnBuscar
         '
-        Me.BtnBuscar.Location = New System.Drawing.Point(615, 279)
+        Me.BtnBuscar.BackColor = System.Drawing.Color.White
+        Me.BtnBuscar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBuscar.ForeColor = System.Drawing.Color.Black
+        Me.BtnBuscar.Location = New System.Drawing.Point(578, 279)
         Me.BtnBuscar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnBuscar.Name = "BtnBuscar"
-        Me.BtnBuscar.Size = New System.Drawing.Size(169, 50)
+        Me.BtnBuscar.Size = New System.Drawing.Size(206, 50)
         Me.BtnBuscar.TabIndex = 8
         Me.BtnBuscar.Text = "Realizar Diagnostico"
-        Me.BtnBuscar.UseVisualStyleBackColor = True
+        Me.BtnBuscar.UseVisualStyleBackColor = False
         '
         'BtnAgregar
         '
-        Me.BtnAgregar.Location = New System.Drawing.Point(351, 112)
+        Me.BtnAgregar.BackColor = System.Drawing.Color.White
+        Me.BtnAgregar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnAgregar.ForeColor = System.Drawing.Color.Black
+        Me.BtnAgregar.Location = New System.Drawing.Point(343, 147)
         Me.BtnAgregar.Name = "BtnAgregar"
-        Me.BtnAgregar.Size = New System.Drawing.Size(85, 42)
+        Me.BtnAgregar.Size = New System.Drawing.Size(102, 58)
         Me.BtnAgregar.TabIndex = 9
         Me.BtnAgregar.Text = "Agregar"
-        Me.BtnAgregar.UseVisualStyleBackColor = True
+        Me.BtnAgregar.UseVisualStyleBackColor = False
         '
         'Lst
         '
-        ListViewGroup5.Header = "ListViewGroup"
-        ListViewGroup5.Name = "ListViewGroup1"
-        Me.Lst.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup5})
+        ListViewGroup1.Header = "ListViewGroup"
+        ListViewGroup1.Name = "ListViewGroup1"
+        Me.Lst.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup1})
         Me.Lst.HideSelection = False
         Me.Lst.Location = New System.Drawing.Point(488, 112)
         Me.Lst.Name = "Lst"
@@ -158,12 +164,15 @@ Partial Class Frm_Paciente
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(441, 39)
+        Me.Button1.BackColor = System.Drawing.Color.White
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.Black
+        Me.Button1.Location = New System.Drawing.Point(599, 22)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(151, 49)
         Me.Button1.TabIndex = 14
         Me.Button1.Text = "Inicie un chat ahora!"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'Frm_Paciente
         '

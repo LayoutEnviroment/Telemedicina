@@ -3,47 +3,47 @@
 
 Public Class FormSintoma
 
-    Private Sub btnInsertar_Click(sender As Object, e As EventArgs) Handles btnInsertar.Click
+    Private Sub BtnInsertar_Click(sender As Object, e As EventArgs) Handles BtnInsertar.Click
         FormABMSintoma.opcionFormulario = "INSERTAR"
         FormABMSintoma.ShowDialog()
 
     End Sub
 
-    Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+    Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles BtnModificar.Click
         FormABMSintoma.opcionFormulario = "MODIFICAR"
-        FormABMSintoma.txtIdSintoma.Text = SintomasCargados.Item("ID", SintomasCargados.CurrentCell.RowIndex).Value.ToString
-        FormABMSintoma.txtNombreSintoma.Text = SintomasCargados.Item("Nombre", SintomasCargados.CurrentCell.RowIndex).Value.ToString
-        FormABMSintoma.ShowDialog()
+        CargarTxt()
     End Sub
 
-    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
         FormABMSintoma.opcionFormulario = "ELIMINAR"
-        FormABMSintoma.txtIdSintoma.Text = SintomasCargados.Item("ID", SintomasCargados.CurrentCell.RowIndex).Value.ToString
-        FormABMSintoma.txtNombreSintoma.Text = SintomasCargados.Item("Nombre", SintomasCargados.CurrentCell.RowIndex).Value.ToString
-        FormABMSintoma.ShowDialog()
+        CargarTxt()
     End Sub
 
-    Private Sub SintomasCargados_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles SintomasCargados.CellContentClick
-
-    End Sub
-
-    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
         Me.Hide()
         MenuGestion.Show()
     End Sub
 
-
     Private Sub FormSintoma_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CargarSintomas()
+    End Sub
 
+    Public Sub CargarSintomas()
         Try
-
-            Dim Table As New DataTable
-            Table.Load(ControladorSintoma.ListarSintoma)
-            SintomasCargados.DataSource = Table
+            Dim TableSintoma As New DataTable
+            TableSintoma.Load(ControladorSintoma.ListarSintoma)
+            DgvSintomasCargados.DataSource = TableSintoma
 
         Catch ex As Exception
             MsgBox(ex.ToString)
+
         End Try
+    End Sub
+
+    Public Sub CargarTxt()
+        FormABMSintoma.TxtIdSintoma.Text = DgvSintomasCargados.Item("ID", DgvSintomasCargados.CurrentCell.RowIndex).Value.ToString
+        FormABMSintoma.TxtNombreSintoma.Text = DgvSintomasCargados.Item("Nombre", DgvSintomasCargados.CurrentCell.RowIndex).Value.ToString
+        FormABMSintoma.ShowDialog()
     End Sub
 
 End Class

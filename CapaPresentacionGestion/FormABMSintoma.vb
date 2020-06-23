@@ -4,18 +4,11 @@
 Public Class FormABMSintoma
     Public opcionFormulario As String
 
-    Private Sub txtIdSintoma_TextChanged(sender As Object, e As EventArgs) Handles txtIdSintoma.TextChanged
-
-    End Sub
-
-    Private Sub txtNombreSintoma_TextChanged(sender As Object, e As EventArgs) Handles txtNombreSintoma.TextChanged
-
-    End Sub
-
-    Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
+    Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
         If opcionFormulario = "INSERTAR" Then
             Try
-                ControladorSintoma.CrearSintoma(txtNombreSintoma.Text.Trim)
+                ControladorSintoma.CrearSintoma(TxtNombreSintoma.Text.Trim)
+                FormSintoma.CargarSintomas()
             Catch ex As Exception
                 MsgBox(ex.ToString())
             End Try
@@ -23,13 +16,14 @@ Public Class FormABMSintoma
             Me.Close()
         ElseIf opcionFormulario = "MODIFICAR" Then
             Try
-                ControladorSintoma.CambiarNombreDeSintoma(txtIdSintoma.Text, txtNombreSintoma.Text)
+                ControladorSintoma.CambiarNombreDeSintoma(TxtIdSintoma.Text, TxtNombreSintoma.Text)
+                FormSintoma.DgvSintomasCargados.Refresh()
             Catch ex As Exception
                 MsgBox(ex.ToString)
             End Try
         ElseIf opcionFormulario = "ELIMINAR" Then
             Try
-                ControladorSintoma.EliminarSintoma(txtIdSintoma.Text)
+                ControladorSintoma.EliminarSintoma(TxtIdSintoma.Text)
             Catch ex As Exception
 
             End Try
@@ -37,10 +31,14 @@ Public Class FormABMSintoma
         Me.Close()
     End Sub
 
-    Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
-        txtIdSintoma.Text = ""
-        txtNombreSintoma.Text = ""
+    Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
+        TxtIdSintoma.Text = ""
+        TxtNombreSintoma.Text = ""
         Me.Hide()
         FormSintoma.Show()
+    End Sub
+
+    Private Sub FormABMSintoma_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        FormSintoma.CargarSintomas()
     End Sub
 End Class

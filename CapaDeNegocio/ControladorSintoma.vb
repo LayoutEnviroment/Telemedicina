@@ -23,25 +23,26 @@ Public Module ControladorSintoma
     End Function
 
     Public Sub CrearSintoma(nombre As String)
-        Dim s As New ModeloSintoma
+        Dim s As New ModeloSintoma With {
+            .Nombre = nombre
+        }
 
-        s.Nombre = nombre
         s.Insertar()
-
     End Sub
 
     Public Sub CambiarNombreDeSintoma(idSintoma As String, nombre As String)
-        Dim s As New ModeloSintoma
-
-        s.IdSintoma = idSintoma
-        s.Nombre = nombre
-
+        Dim s As New ModeloSintoma With {
+            .IdSintoma = idSintoma,
+            .Nombre = nombre
+        }
         s.Modificar()
+
     End Sub
 
     Public Sub EliminarSintoma(id As String)
-        Dim s As New ModeloSintoma
-        s.IdSintoma = id
+        Dim s As New ModeloSintoma With {
+            .IdSintoma = id
+        }
 
         s.Eliminar()
     End Sub
