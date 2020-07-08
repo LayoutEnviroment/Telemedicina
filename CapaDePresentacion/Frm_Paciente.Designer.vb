@@ -34,6 +34,7 @@ Partial Class Frm_Paciente
         Me.Lst = New System.Windows.Forms.ListView()
         Me.DgvOpciones = New System.Windows.Forms.DataGridView()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.CmbTest = New System.Windows.Forms.ComboBox()
         CType(Me.DgvSintomaSistema, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvOpciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -41,20 +42,18 @@ Partial Class Frm_Paciente
         'LblSaludo
         '
         Me.LblSaludo.AutoSize = True
-        Me.LblSaludo.Location = New System.Drawing.Point(20, 39)
-        Me.LblSaludo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblSaludo.Location = New System.Drawing.Point(13, 25)
         Me.LblSaludo.Name = "LblSaludo"
-        Me.LblSaludo.Size = New System.Drawing.Size(151, 20)
+        Me.LblSaludo.Size = New System.Drawing.Size(103, 13)
         Me.LblSaludo.TabIndex = 2
         Me.LblSaludo.Text = "Buen día, username"
         '
         'LblSintomas
         '
         Me.LblSintomas.AutoSize = True
-        Me.LblSintomas.Location = New System.Drawing.Point(20, 74)
-        Me.LblSintomas.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblSintomas.Location = New System.Drawing.Point(13, 48)
         Me.LblSintomas.Name = "LblSintomas"
-        Me.LblSintomas.Size = New System.Drawing.Size(187, 20)
+        Me.LblSintomas.Size = New System.Drawing.Size(125, 13)
         Me.LblSintomas.TabIndex = 4
         Me.LblSintomas.Text = "Cuentenos, ¿que siente?"
         '
@@ -63,11 +62,10 @@ Partial Class Frm_Paciente
         Me.TxtSintoma.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.TxtSintoma.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.TxtSintoma.ForeColor = System.Drawing.SystemColors.MenuText
-        Me.TxtSintoma.Location = New System.Drawing.Point(24, 120)
-        Me.TxtSintoma.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TxtSintoma.Location = New System.Drawing.Point(16, 78)
         Me.TxtSintoma.MaxLength = 30
         Me.TxtSintoma.Name = "TxtSintoma"
-        Me.TxtSintoma.Size = New System.Drawing.Size(281, 26)
+        Me.TxtSintoma.Size = New System.Drawing.Size(189, 20)
         Me.TxtSintoma.TabIndex = 3
         Me.TxtSintoma.Text = "Tengo fiebre, tengo tos..."
         '
@@ -100,13 +98,12 @@ Partial Class Frm_Paciente
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DgvSintomaSistema.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DgvSintomaSistema.Location = New System.Drawing.Point(24, 147)
-        Me.DgvSintomaSistema.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.DgvSintomaSistema.Location = New System.Drawing.Point(16, 96)
         Me.DgvSintomaSistema.Name = "DgvSintomaSistema"
         Me.DgvSintomaSistema.ReadOnly = True
         Me.DgvSintomaSistema.RowHeadersVisible = False
         Me.DgvSintomaSistema.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
-        Me.DgvSintomaSistema.Size = New System.Drawing.Size(281, 366)
+        Me.DgvSintomaSistema.Size = New System.Drawing.Size(187, 238)
         Me.DgvSintomaSistema.TabIndex = 6
         '
         'BtnBuscar
@@ -114,10 +111,9 @@ Partial Class Frm_Paciente
         Me.BtnBuscar.BackColor = System.Drawing.Color.White
         Me.BtnBuscar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnBuscar.ForeColor = System.Drawing.Color.Black
-        Me.BtnBuscar.Location = New System.Drawing.Point(578, 279)
-        Me.BtnBuscar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.BtnBuscar.Location = New System.Drawing.Point(385, 181)
         Me.BtnBuscar.Name = "BtnBuscar"
-        Me.BtnBuscar.Size = New System.Drawing.Size(206, 50)
+        Me.BtnBuscar.Size = New System.Drawing.Size(137, 32)
         Me.BtnBuscar.TabIndex = 8
         Me.BtnBuscar.Text = "Realizar Diagnostico"
         Me.BtnBuscar.UseVisualStyleBackColor = False
@@ -127,9 +123,10 @@ Partial Class Frm_Paciente
         Me.BtnAgregar.BackColor = System.Drawing.Color.White
         Me.BtnAgregar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnAgregar.ForeColor = System.Drawing.Color.Black
-        Me.BtnAgregar.Location = New System.Drawing.Point(343, 147)
+        Me.BtnAgregar.Location = New System.Drawing.Point(229, 96)
+        Me.BtnAgregar.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnAgregar.Name = "BtnAgregar"
-        Me.BtnAgregar.Size = New System.Drawing.Size(102, 58)
+        Me.BtnAgregar.Size = New System.Drawing.Size(68, 38)
         Me.BtnAgregar.TabIndex = 9
         Me.BtnAgregar.Text = "Agregar"
         Me.BtnAgregar.UseVisualStyleBackColor = False
@@ -140,9 +137,10 @@ Partial Class Frm_Paciente
         ListViewGroup1.Name = "ListViewGroup1"
         Me.Lst.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup1})
         Me.Lst.HideSelection = False
-        Me.Lst.Location = New System.Drawing.Point(488, 112)
+        Me.Lst.Location = New System.Drawing.Point(325, 73)
+        Me.Lst.Margin = New System.Windows.Forms.Padding(2)
         Me.Lst.Name = "Lst"
-        Me.Lst.Size = New System.Drawing.Size(395, 141)
+        Me.Lst.Size = New System.Drawing.Size(265, 93)
         Me.Lst.TabIndex = 11
         Me.Lst.UseCompatibleStateImageBehavior = False
         Me.Lst.View = System.Windows.Forms.View.SmallIcon
@@ -153,13 +151,14 @@ Partial Class Frm_Paciente
         Me.DgvOpciones.AllowUserToDeleteRows = False
         Me.DgvOpciones.BackgroundColor = System.Drawing.Color.White
         Me.DgvOpciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvOpciones.Location = New System.Drawing.Point(488, 358)
+        Me.DgvOpciones.Location = New System.Drawing.Point(325, 233)
+        Me.DgvOpciones.Margin = New System.Windows.Forms.Padding(2)
         Me.DgvOpciones.Name = "DgvOpciones"
         Me.DgvOpciones.ReadOnly = True
         Me.DgvOpciones.RowHeadersVisible = False
         Me.DgvOpciones.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.DgvOpciones.RowTemplate.Height = 28
-        Me.DgvOpciones.Size = New System.Drawing.Size(395, 155)
+        Me.DgvOpciones.Size = New System.Drawing.Size(263, 101)
         Me.DgvOpciones.TabIndex = 12
         '
         'Button1
@@ -167,19 +166,29 @@ Partial Class Frm_Paciente
         Me.Button1.BackColor = System.Drawing.Color.White
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Black
-        Me.Button1.Location = New System.Drawing.Point(599, 22)
+        Me.Button1.Location = New System.Drawing.Point(399, 14)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(151, 49)
+        Me.Button1.Size = New System.Drawing.Size(101, 32)
         Me.Button1.TabIndex = 14
         Me.Button1.Text = "Inicie un chat ahora!"
         Me.Button1.UseVisualStyleBackColor = False
         '
+        'CmbTest
+        '
+        Me.CmbTest.FormattingEnabled = True
+        Me.CmbTest.Location = New System.Drawing.Point(144, 25)
+        Me.CmbTest.Name = "CmbTest"
+        Me.CmbTest.Size = New System.Drawing.Size(225, 21)
+        Me.CmbTest.TabIndex = 15
+        '
         'Frm_Paciente
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(245, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(936, 589)
+        Me.ClientSize = New System.Drawing.Size(624, 383)
+        Me.Controls.Add(Me.CmbTest)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DgvOpciones)
         Me.Controls.Add(Me.Lst)
@@ -189,6 +198,7 @@ Partial Class Frm_Paciente
         Me.Controls.Add(Me.LblSaludo)
         Me.Controls.Add(Me.LblSintomas)
         Me.Controls.Add(Me.TxtSintoma)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Frm_Paciente"
         Me.Text = "Paciente"
         CType(Me.DgvSintomaSistema, System.ComponentModel.ISupportInitialize).EndInit()
@@ -207,4 +217,5 @@ Partial Class Frm_Paciente
     Friend WithEvents Lst As ListView
     Friend WithEvents DgvOpciones As DataGridView
     Friend WithEvents Button1 As Button
+    Friend WithEvents CmbTest As ComboBox
 End Class

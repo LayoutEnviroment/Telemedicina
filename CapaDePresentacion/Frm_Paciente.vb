@@ -14,7 +14,12 @@ Public Class Frm_Paciente
     End Sub
 
     Private Sub BtnAgregar_Click(sender As Object, e As EventArgs) Handles BtnAgregar.Click
-        Lst.Items.Add(DgvSintomaSistema.CurrentCell.Value.ToString)
+        Try
+            Lst.Items.Add(DgvSintomaSistema.CurrentCell.Value.ToString)
+        Catch ex As Exception
+            MsgBox("Por favor seleccione un sintoma")
+        End Try
+
     End Sub
 
     Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles BtnBuscar.Click
@@ -51,5 +56,11 @@ Public Class Frm_Paciente
 
     Private Sub Frm_Paciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LblSaludo.Text = "Bienvenido, " + Usuario + ""
+    End Sub
+
+    Private Sub CmbTest_TextChanged(sender As Object, e As EventArgs) Handles CmbTest.TextChanged
+        Dim TablaCmb As New DataTable
+        TablaCmb.Load(ControladorSintoma.ListarSintoma(CmbTest.Text))
+        CmbTest.DataSource = TablaCmb
     End Sub
 End Class
