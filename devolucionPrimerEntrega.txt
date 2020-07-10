@@ -1,0 +1,4 @@
+- Diagnostico tiene que devolver enfermedades que se asocien a TODOS los sintomas
+- No poner cosas visuales en capa de datos
+- El try va en capa logica o visual
+- Los formularios son gratis
