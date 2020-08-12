@@ -6,35 +6,42 @@
 
     Public Function EnfermedadesPosibles()
         Dim values = String.Join(",", IdSintomas.Select(Function(f) String.Format("'{0}'", f)).ToArray())
-        Dim NuevoNombre As String = "Sintomas en comun"
 
-        Command.CommandText = "         
-            SELECT
-                e.nombre AS Enfermedad,
-                COUNT(*) AS  '" + NuevoNombre + "'
-            FROM
-                compone c
-                JOIN
-                sintoma s ON c.id_sintoma = s.id
-                JOIN
-                enfermedad e ON c.id_enfermedad = e.id
-            WHERE
-                c.id_sintoma IN (
-                    SELECT 
-                        id
-                    FROM
-                        sintoma
-                    WHERE
-                        nombre IN(
-                            " + values + "
-                        )
-                )
-            GROUP BY
-                c.id_enfermedad
-            ORDER BY
-                COUNT(*) DESC,
+        Command.CommandText = "
+            SELECT 
                 e.nombre
+            FROM 
+                enfermedad e JOIN compone c ON e.id = c.id_enfermedad
+            GROUP BY 
+                id_enfermedad
+            HAVING
         "
+
+        For Each sintoma In IdSintomas
+            Command.CommandText += "
+                    SUM(id_sintoma = (SELECT
+                                        id
+                                     FROM
+                                        sintoma
+                                     WHERE 
+                                        nombre = '" + sintoma + "')
+                        ) > 0 
+                    AND         
+                "
+
+        Next
+        Command.CommandText += "
+                    SUM(id_sintoma NOT IN(SELECT
+                                            id
+                                        FROM
+                                            sintoma
+                                        WHERE
+                                            nombre IN(
+                                                " + values + ")
+                                        )
+                        ) = 0; 
+        "
+
         Reader = Command.ExecuteReader()
         Return Reader
 
@@ -68,4 +75,5 @@
         End Try
 
     End Sub
+
 End Class

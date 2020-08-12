@@ -36,8 +36,6 @@
                 id AS ID, nombre AS Nombre
             FROM
                 sintoma
-            WHERE
-                activo = 1
         "
 
         Reader = Command.ExecuteReader

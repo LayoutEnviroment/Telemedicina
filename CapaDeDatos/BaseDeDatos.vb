@@ -6,7 +6,7 @@ Public MustInherit Class ModeloBaseDeDatos
     Public Uid As String = "root"
     Public Pwd As String = ""
     Public Port As String = "3306"
-    Public DatabaseName As String = "segunda_entrega"
+    Public DatabaseName As String = "bd_led"
     Public Host As String = "localhost"
 
     Public Connect As New OdbcConnection(
