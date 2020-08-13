@@ -38,12 +38,14 @@ Public Class Frm_Paciente
         Dim LectorEnfermedad As IDataReader
         Try
             LectorEnfermedad = ControladorCompone.EnfermedadesPosibles(ListaSintomas)
+            CargarTextBoxes(LectorEnfermedad)
         Catch ex As Exception
+            MsgBox("Hubo un error buscando la enfermedad")
         End Try
-        MostrarResultado(LectorEnfermedad)
 
     End Sub
-    Private Sub MostrarResultado(Lector As IDataReader)
+
+    Private Sub CargarTextBoxes(Lector As IDataReader)
         Try
             While Lector.Read
                 TxtEnfermedad.Text = Lector(0)
@@ -58,9 +60,15 @@ Public Class Frm_Paciente
     End Sub
 
     Private Sub MostrarResultado()
-        If ListaSintomas.Count > 0 Then
-            MsgBox("No encontramos una enfermedad adecuada para esos sintomas, de todas maneras puede iniciar un chat con un Medico", MsgBoxStyle.Information)
-            PanelChat.Visible = True
+        If TxtEnfermedad.Text = "" Then
+            MsgBox("No se encontró un resultado con los sintomas ingresados", MsgBoxStyle.Information)
+        Else
+            Try
+                ControladorDiagnostico.Nuevo(ListaSintomas, TxtEnfermedad.Text)
+                PanelChat.Visible = True
+            Catch ex As Exception
+                MsgBox("No existe ninguna enfermedad relacionada a esos sintomas", MsgBoxStyle.Information)
+            End Try
         End If
 
     End Sub

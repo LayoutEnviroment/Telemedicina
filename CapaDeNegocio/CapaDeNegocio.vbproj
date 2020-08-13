@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControladorCompone.vb" />
+    <Compile Include="ControladorDiagnostico.vb" />
     <Compile Include="ControladorEnfermedad.vb" />
     <Compile Include="ControladorLogin.vb" />
     <Compile Include="ControladorSintoma.vb" />
