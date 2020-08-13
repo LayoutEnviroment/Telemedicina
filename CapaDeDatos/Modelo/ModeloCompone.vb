@@ -9,7 +9,7 @@
 
         Command.CommandText = "
             SELECT 
-                e.nombre
+                e.nombre, e.prioridad, e.descripcion
             FROM 
                 enfermedad e JOIN compone c ON e.id = c.id_enfermedad
             GROUP BY 
