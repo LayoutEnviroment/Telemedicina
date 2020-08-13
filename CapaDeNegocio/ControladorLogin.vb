@@ -2,8 +2,12 @@
 
 Public Module ControladorLogin
 
-    'Public Sub PermitirIngreso(usuario As String, pass As String)
+    Public Sub ExistePersona(usuario As String, contra As String)
+        Dim l As New ModeloLogin With {
+            .NombreUsuario = usuario,
+            .ContraUsuario = contra
+        }
 
-
-    'End Sub
+        l.VerificarPersona()
+    End Sub
 End Module

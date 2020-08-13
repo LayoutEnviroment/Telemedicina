@@ -72,10 +72,16 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Frm_Login.Designer.vb">
-      <DependentUpon>Frm_Login.vb</DependentUpon>
+    <Compile Include="Frm_Chat.Designer.vb">
+      <DependentUpon>Frm_Chat.vb</DependentUpon>
     </Compile>
-    <Compile Include="Frm_Login.vb">
+    <Compile Include="Frm_Chat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm1.Designer.vb">
+      <DependentUpon>LoginForm1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -101,8 +107,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Frm_Login.resx">
-      <DependentUpon>Frm_Login.vb</DependentUpon>
+    <EmbeddedResource Include="Frm_Chat.resx">
+      <DependentUpon>Frm_Chat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm1.resx">
+      <DependentUpon>LoginForm1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -131,6 +140,9 @@
       <Project>{997a5a6d-c7fc-4e6c-ad76-1e16b593760b}</Project>
       <Name>CapaDeNegocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CuidarteIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
