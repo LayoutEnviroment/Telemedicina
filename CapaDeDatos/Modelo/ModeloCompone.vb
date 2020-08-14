@@ -1,6 +1,10 @@
 ﻿Public Class ModeloCompone
     Inherits ModeloBaseDeDatos
 
+    Public Sub New(user As String, pass As String)
+        MyBase.New(user, pass)
+    End Sub
+
     Public IdSintomas As New List(Of String)
     Public IdEnfermedad As String
 

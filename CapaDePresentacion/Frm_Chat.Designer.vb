@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Frm_Chat
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Frm_Chat
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.RtbConversacion = New System.Windows.Forms.RichTextBox()
@@ -31,6 +31,7 @@ Partial Class Frm_Chat
         '
         'RtbConversacion
         '
+        Me.RtbConversacion.Enabled = False
         Me.RtbConversacion.Location = New System.Drawing.Point(187, 78)
         Me.RtbConversacion.Name = "RtbConversacion"
         Me.RtbConversacion.Size = New System.Drawing.Size(424, 214)
@@ -56,6 +57,8 @@ Partial Class Frm_Chat
         '
         'TmrMensajesNuevos
         '
+        Me.TmrMensajesNuevos.Enabled = True
+        Me.TmrMensajesNuevos.Interval = 1000
         '
         'Frm_Chat
         '

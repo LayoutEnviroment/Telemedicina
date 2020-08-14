@@ -2,12 +2,9 @@
 
 Public Module ControladorLogin
 
-    Public Sub ExistePersona(usuario As String, contra As String)
-        Dim l As New ModeloLogin With {
-            .NombreUsuario = usuario,
-            .ContraUsuario = contra
-        }
-
-        l.VerificarPersona()
-    End Sub
+    Public Function Autentificar(usuario As String, contra As String)
+        'MsgBox("Logica Mando: " + usuario + ", " + contra)
+        Dim l As New ModeloLogin(usuario, contra)
+        Return l.ObtenerRol()
+    End Function
 End Module

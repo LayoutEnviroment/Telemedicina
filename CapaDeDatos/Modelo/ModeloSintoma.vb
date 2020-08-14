@@ -1,6 +1,10 @@
 ﻿Public Class ModeloSintoma
     Inherits ModeloBaseDeDatos
 
+    Public Sub New(user As String, pass As String)
+        MyBase.New(user, pass)
+    End Sub
+
     Public IdSintoma As String
     Public Nombre As String
     Public Activo As String

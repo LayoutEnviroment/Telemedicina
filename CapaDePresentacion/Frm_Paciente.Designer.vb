@@ -29,15 +29,17 @@ Partial Class Frm_Paciente
         Me.BtnDiagnostico = New System.Windows.Forms.Button()
         Me.LvSintomas = New System.Windows.Forms.ListView()
         Me.PanelChat = New System.Windows.Forms.Panel()
-        Me.BtnIniciarChat = New System.Windows.Forms.Button()
-        Me.LblIniciarChat = New System.Windows.Forms.Label()
-        Me.LblEnfermedad = New System.Windows.Forms.Label()
-        Me.LblPrioridad = New System.Windows.Forms.Label()
-        Me.LblDescripcion = New System.Windows.Forms.Label()
-        Me.TxtPrioridad = New System.Windows.Forms.TextBox()
-        Me.TxtDescripcion = New System.Windows.Forms.TextBox()
-        Me.TxtEnfermedad = New System.Windows.Forms.TextBox()
         Me.BtnVolver = New System.Windows.Forms.Button()
+        Me.TxtEnfermedad = New System.Windows.Forms.TextBox()
+        Me.TxtDescripcion = New System.Windows.Forms.TextBox()
+        Me.TxtPrioridad = New System.Windows.Forms.TextBox()
+        Me.LblDescripcion = New System.Windows.Forms.Label()
+        Me.LblPrioridad = New System.Windows.Forms.Label()
+        Me.LblEnfermedad = New System.Windows.Forms.Label()
+        Me.LblIniciarChat = New System.Windows.Forms.Label()
+        Me.BtnIniciarChat = New System.Windows.Forms.Button()
+        Me.TxtIdDiagnostico = New System.Windows.Forms.TextBox()
+        Me.LblId = New System.Windows.Forms.Label()
         Me.PanelChat.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -105,6 +107,8 @@ Partial Class Frm_Paciente
         '
         'PanelChat
         '
+        Me.PanelChat.Controls.Add(Me.LblId)
+        Me.PanelChat.Controls.Add(Me.TxtIdDiagnostico)
         Me.PanelChat.Controls.Add(Me.BtnVolver)
         Me.PanelChat.Controls.Add(Me.TxtEnfermedad)
         Me.PanelChat.Controls.Add(Me.TxtDescripcion)
@@ -120,14 +124,70 @@ Partial Class Frm_Paciente
         Me.PanelChat.TabIndex = 21
         Me.PanelChat.Visible = False
         '
-        'BtnIniciarChat
+        'BtnVolver
         '
-        Me.BtnIniciarChat.Location = New System.Drawing.Point(591, 193)
-        Me.BtnIniciarChat.Name = "BtnIniciarChat"
-        Me.BtnIniciarChat.Size = New System.Drawing.Size(154, 47)
-        Me.BtnIniciarChat.TabIndex = 0
-        Me.BtnIniciarChat.Text = "Iniciar Chat"
-        Me.BtnIniciarChat.UseVisualStyleBackColor = True
+        Me.BtnVolver.Location = New System.Drawing.Point(591, 253)
+        Me.BtnVolver.Name = "BtnVolver"
+        Me.BtnVolver.Size = New System.Drawing.Size(153, 45)
+        Me.BtnVolver.TabIndex = 8
+        Me.BtnVolver.Text = "Volver"
+        Me.BtnVolver.UseVisualStyleBackColor = True
+        '
+        'TxtEnfermedad
+        '
+        Me.TxtEnfermedad.Enabled = False
+        Me.TxtEnfermedad.Location = New System.Drawing.Point(29, 64)
+        Me.TxtEnfermedad.Name = "TxtEnfermedad"
+        Me.TxtEnfermedad.Size = New System.Drawing.Size(196, 20)
+        Me.TxtEnfermedad.TabIndex = 7
+        '
+        'TxtDescripcion
+        '
+        Me.TxtDescripcion.Enabled = False
+        Me.TxtDescripcion.Location = New System.Drawing.Point(35, 237)
+        Me.TxtDescripcion.Multiline = True
+        Me.TxtDescripcion.Name = "TxtDescripcion"
+        Me.TxtDescripcion.Size = New System.Drawing.Size(279, 21)
+        Me.TxtDescripcion.TabIndex = 6
+        '
+        'TxtPrioridad
+        '
+        Me.TxtPrioridad.Enabled = False
+        Me.TxtPrioridad.ForeColor = System.Drawing.Color.White
+        Me.TxtPrioridad.Location = New System.Drawing.Point(29, 142)
+        Me.TxtPrioridad.Name = "TxtPrioridad"
+        Me.TxtPrioridad.Size = New System.Drawing.Size(285, 20)
+        Me.TxtPrioridad.TabIndex = 5
+        '
+        'LblDescripcion
+        '
+        Me.LblDescripcion.AutoSize = True
+        Me.LblDescripcion.ForeColor = System.Drawing.Color.White
+        Me.LblDescripcion.Location = New System.Drawing.Point(42, 210)
+        Me.LblDescripcion.Name = "LblDescripcion"
+        Me.LblDescripcion.Size = New System.Drawing.Size(63, 13)
+        Me.LblDescripcion.TabIndex = 4
+        Me.LblDescripcion.Text = "Descripcion"
+        '
+        'LblPrioridad
+        '
+        Me.LblPrioridad.AutoSize = True
+        Me.LblPrioridad.ForeColor = System.Drawing.Color.White
+        Me.LblPrioridad.Location = New System.Drawing.Point(42, 126)
+        Me.LblPrioridad.Name = "LblPrioridad"
+        Me.LblPrioridad.Size = New System.Drawing.Size(51, 13)
+        Me.LblPrioridad.TabIndex = 3
+        Me.LblPrioridad.Text = "Prioridad:"
+        '
+        'LblEnfermedad
+        '
+        Me.LblEnfermedad.AutoSize = True
+        Me.LblEnfermedad.ForeColor = System.Drawing.Color.White
+        Me.LblEnfermedad.Location = New System.Drawing.Point(15, 48)
+        Me.LblEnfermedad.Name = "LblEnfermedad"
+        Me.LblEnfermedad.Size = New System.Drawing.Size(230, 13)
+        Me.LblEnfermedad.TabIndex = 2
+        Me.LblEnfermedad.Text = "Lo mas probable es que usted pueda padecer: "
         '
         'LblIniciarChat
         '
@@ -139,70 +199,32 @@ Partial Class Frm_Paciente
         Me.LblIniciarChat.TabIndex = 1
         Me.LblIniciarChat.Text = "Si desea conversar con un profesional, haga click aqui"
         '
-        'LblEnfermedad
+        'BtnIniciarChat
         '
-        Me.LblEnfermedad.AutoSize = True
-        Me.LblEnfermedad.ForeColor = System.Drawing.Color.White
-        Me.LblEnfermedad.Location = New System.Drawing.Point(88, 46)
-        Me.LblEnfermedad.Name = "LblEnfermedad"
-        Me.LblEnfermedad.Size = New System.Drawing.Size(230, 13)
-        Me.LblEnfermedad.TabIndex = 2
-        Me.LblEnfermedad.Text = "Lo mas probable es que usted pueda padecer: "
+        Me.BtnIniciarChat.Location = New System.Drawing.Point(591, 193)
+        Me.BtnIniciarChat.Name = "BtnIniciarChat"
+        Me.BtnIniciarChat.Size = New System.Drawing.Size(154, 47)
+        Me.BtnIniciarChat.TabIndex = 0
+        Me.BtnIniciarChat.Text = "Iniciar Chat"
+        Me.BtnIniciarChat.UseVisualStyleBackColor = True
         '
-        'LblPrioridad
+        'TxtIdDiagnostico
         '
-        Me.LblPrioridad.AutoSize = True
-        Me.LblPrioridad.ForeColor = System.Drawing.Color.White
-        Me.LblPrioridad.Location = New System.Drawing.Point(53, 126)
-        Me.LblPrioridad.Name = "LblPrioridad"
-        Me.LblPrioridad.Size = New System.Drawing.Size(51, 13)
-        Me.LblPrioridad.TabIndex = 3
-        Me.LblPrioridad.Text = "Prioridad:"
+        Me.TxtIdDiagnostico.Enabled = False
+        Me.TxtIdDiagnostico.Location = New System.Drawing.Point(242, 63)
+        Me.TxtIdDiagnostico.Name = "TxtIdDiagnostico"
+        Me.TxtIdDiagnostico.Size = New System.Drawing.Size(72, 20)
+        Me.TxtIdDiagnostico.TabIndex = 9
         '
-        'LblDescripcion
+        'LblId
         '
-        Me.LblDescripcion.AutoSize = True
-        Me.LblDescripcion.ForeColor = System.Drawing.Color.White
-        Me.LblDescripcion.Location = New System.Drawing.Point(56, 205)
-        Me.LblDescripcion.Name = "LblDescripcion"
-        Me.LblDescripcion.Size = New System.Drawing.Size(63, 13)
-        Me.LblDescripcion.TabIndex = 4
-        Me.LblDescripcion.Text = "Descripcion"
-        '
-        'TxtPrioridad
-        '
-        Me.TxtPrioridad.Enabled = False
-        Me.TxtPrioridad.ForeColor = System.Drawing.Color.White
-        Me.TxtPrioridad.Location = New System.Drawing.Point(58, 150)
-        Me.TxtPrioridad.Name = "TxtPrioridad"
-        Me.TxtPrioridad.Size = New System.Drawing.Size(285, 20)
-        Me.TxtPrioridad.TabIndex = 5
-        '
-        'TxtDescripcion
-        '
-        Me.TxtDescripcion.Enabled = False
-        Me.TxtDescripcion.Location = New System.Drawing.Point(63, 245)
-        Me.TxtDescripcion.Multiline = True
-        Me.TxtDescripcion.Name = "TxtDescripcion"
-        Me.TxtDescripcion.Size = New System.Drawing.Size(279, 21)
-        Me.TxtDescripcion.TabIndex = 6
-        '
-        'TxtEnfermedad
-        '
-        Me.TxtEnfermedad.Enabled = False
-        Me.TxtEnfermedad.Location = New System.Drawing.Point(58, 64)
-        Me.TxtEnfermedad.Name = "TxtEnfermedad"
-        Me.TxtEnfermedad.Size = New System.Drawing.Size(284, 20)
-        Me.TxtEnfermedad.TabIndex = 7
-        '
-        'BtnVolver
-        '
-        Me.BtnVolver.Location = New System.Drawing.Point(591, 253)
-        Me.BtnVolver.Name = "BtnVolver"
-        Me.BtnVolver.Size = New System.Drawing.Size(153, 45)
-        Me.BtnVolver.TabIndex = 8
-        Me.BtnVolver.Text = "Volver"
-        Me.BtnVolver.UseVisualStyleBackColor = True
+        Me.LblId.AutoSize = True
+        Me.LblId.ForeColor = System.Drawing.Color.White
+        Me.LblId.Location = New System.Drawing.Point(262, 47)
+        Me.LblId.Name = "LblId"
+        Me.LblId.Size = New System.Drawing.Size(21, 13)
+        Me.LblId.TabIndex = 10
+        Me.LblId.Text = "ID:"
         '
         'Frm_Paciente
         '
@@ -243,4 +265,6 @@ Partial Class Frm_Paciente
     Friend WithEvents LblIniciarChat As Label
     Friend WithEvents BtnIniciarChat As Button
     Friend WithEvents BtnVolver As Button
+    Friend WithEvents LblId As Label
+    Friend WithEvents TxtIdDiagnostico As TextBox
 End Class

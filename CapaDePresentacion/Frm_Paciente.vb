@@ -65,11 +65,25 @@ Public Class Frm_Paciente
         Else
             Try
                 ControladorDiagnostico.Nuevo(ListaSintomas, TxtEnfermedad.Text)
-                PanelChat.Visible = True
+                TraerIdDiagnostico()
             Catch ex As Exception
                 MsgBox("No existe ninguna enfermedad relacionada a esos sintomas", MsgBoxStyle.Information)
             End Try
         End If
+
+    End Sub
+
+    Public Sub TraerIdDiagnostico()
+        Dim Id As IDataReader
+        Try
+            Id = ControladorDiagnostico.ObtenerID()
+            While Id.Read
+                TxtIdDiagnostico.Text = Id(0)
+            End While
+            PanelChat.Visible = True
+        Catch ex As Exception
+            MsgBox("No encontramos su diagnostico D:")
+        End Try
 
     End Sub
 
@@ -95,6 +109,7 @@ Public Class Frm_Paciente
     End Sub
 
     Private Sub BtnIniciarChat_Click(sender As Object, e As EventArgs) Handles BtnIniciarChat.Click
-
+        Me.Hide()
+        Frm_Chat.Show()
     End Sub
 End Class

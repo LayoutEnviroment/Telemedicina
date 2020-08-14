@@ -1,29 +1,31 @@
 ﻿Imports System.Data.Odbc
 
 Public MustInherit Class ModeloBaseDeDatos
+    Public Driver As String = "Mysql ODBC 8.0 Unicode Driver"
+    Public Uid As String
+    Public Pwd As String
+    Public Port As String = "3306"
+    Public DatabaseName As String = "bd_led"
+    Public Host As String = "localhost"
 
+    Public Connect As New OdbcConnection()
     Public Command As New OdbcCommand
     Public Reader As OdbcDataReader
 
-    Public Sub New(user As String, pass As String)
-        Dim Driver As String = "Mysql ODBC 8.0 Unicode Driver"
-        Dim Uid As String = user
-        Dim Pwd As String = pass
-        Dim Port As String = "3306"
-        Dim DatabaseName As String = "bd_led"
-        Dim Host As String = "localhost"
+    Public Sub New(usuario As String, contra As String)
+        'MsgBox("Datos recibo: " + usuario + ", " + contra)
+        Uid = usuario
+        Pwd = contra
+        Me.Connect.ConnectionString =
+        "DRIVER=" + Me.Driver +
+        ";UID=" + Me.Uid +
+        ";PWD=" + Me.Pwd +
+        ";PORT=" + Me.Port +
+        ";DATABASE=" + Me.DatabaseName +
+        ";SERVER=" + Me.Host
 
-        Dim Connect As New OdbcConnection(
-        "DRIVER=" + Driver +
-        ";UID=" + Uid +
-        ";PWD=" + Pwd +
-        ";PORT=" + Port +
-        ";DATABASE=" + DatabaseName +
-        ";SERVER=" + Host
-    )
-
-        Connect.Open()
-        Command.Connection = Connect
+        Me.Connect.Open()
+        Me.Command.Connection = Me.Connect
     End Sub
 
 

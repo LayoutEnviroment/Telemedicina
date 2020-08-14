@@ -1,6 +1,10 @@
 ﻿Public Class ModeloDiagnostico
     Inherits ModeloBaseDeDatos
 
+    Public Sub New(user As String, pass As String)
+        MyBase.New(user, pass)
+    End Sub
+
     Public IdSintomas As List(Of String)
     Public IdEnfermedad As String
 
@@ -52,20 +56,31 @@
 
                 Command.CommandText = "COMMIT"
                 Command.ExecuteNonQuery()
-                MsgBox("Commit")
+
             Catch ex As Exception
                 Command.CommandText = "ROLLBACK"
                 Command.ExecuteNonQuery()
-                MsgBox(ex.ToString)
+                Command.CommandText = "UNLOCK TABLES"
+                Command.ExecuteNonQuery()
             End Try
-
         Catch ex As Exception
-            MsgBox("Error en transcaccion")
         End Try
-        Command.CommandText = "UNLOCK TABLES"
-        Command.ExecuteNonQuery()
 
     End Sub
 
+    Public Function ObtenerId()
+        Command.CommandText = "
+            SELECT
+                MAX(id)
+            FROM
+                diagnostico
+            "
+        Reader = Command.ExecuteReader()
+        Command.CommandText = "
+                UNLOCK TABLES
+            "
+        Return Reader
+
+    End Function
 
 End Class
