@@ -10,11 +10,11 @@ Public Class FrmLogin
                 Me.Hide()
                 Frm_Paciente.Show()
             Else
-                MsgBox("Usuario Invalido")
+                MsgBox("Usuario invalido")
             End If
 
         Catch ex As Exception
-            MsgBox("Usuario Invalido")
+            MsgBox(ex.ToString)
         End Try
 
     End Sub

@@ -34,8 +34,8 @@ Partial Class MenuMedico
         Me.BtnSalir = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DgvEnEspera = New System.Windows.Forms.DataGridView()
-        Me.TmrBuscarChats = New System.Windows.Forms.Timer(Me.components)
         Me.TmrBuscarMensajesNuevos = New System.Windows.Forms.Timer(Me.components)
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvEnEspera, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -134,18 +134,24 @@ Partial Class MenuMedico
         Me.DgvEnEspera.Size = New System.Drawing.Size(182, 200)
         Me.DgvEnEspera.TabIndex = 9
         '
-        'TmrBuscarChats
+        'Button1
         '
-        Me.TmrBuscarChats.Enabled = True
+        Me.Button1.Location = New System.Drawing.Point(688, 147)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(153, 23)
+        Me.Button1.TabIndex = 10
+        Me.Button1.Text = "BucarSolicitudes"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'MenuMedico
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 12.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(900, 531)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DgvEnEspera)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.BtnSalir)
@@ -175,6 +181,6 @@ Partial Class MenuMedico
     Friend WithEvents BtnSalir As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents DgvEnEspera As DataGridView
-    Friend WithEvents TmrBuscarChats As Timer
     Friend WithEvents TmrBuscarMensajesNuevos As Timer
+    Friend WithEvents Button1 As Button
 End Class

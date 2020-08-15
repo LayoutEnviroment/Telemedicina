@@ -13,10 +13,14 @@ Public Class Frm_Paciente
 
     Private Sub CargarSintoma()
         Dim LectorSintomas As IDataReader
-        LectorSintomas = ControladorSintoma.ListarNombre()
-        While LectorSintomas.Read
-            CmbSintomas.Items.Add(LectorSintomas(0))
-        End While
+        Try
+            LectorSintomas = ControladorSintoma.ListarNombre()
+            While LectorSintomas.Read
+                CmbSintomas.Items.Add(LectorSintomas(0))
+            End While
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
 
     End Sub
 
@@ -109,7 +113,7 @@ Public Class Frm_Paciente
     End Sub
 
     Private Sub BtnIniciarChat_Click(sender As Object, e As EventArgs) Handles BtnIniciarChat.Click
-        ControladorChat.EnviarSolicitud(TxtIdDiagnostico.Text)
+        ControladorChatPaciente.EnviarSolicitud(TxtIdDiagnostico.Text)
         Me.Hide()
         Frm_Chat.Show()
     End Sub

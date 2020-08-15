@@ -23,6 +23,7 @@
     End Function
 
     Public Function ListarNombreSintoma()
+        MsgBox("Me ejecute")
         Command.CommandText = "
             SELECT 
                 nombre AS Sintoma 
