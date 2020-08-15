@@ -172,12 +172,16 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="Resources\proxima-nova-soft.otf" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaDeNegocio\CapaDeNegocio.vbproj">
       <Project>{997a5a6d-c7fc-4e6c-ad76-1e16b593760b}</Project>
       <Name>CapaDeNegocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Proxima_Nova.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

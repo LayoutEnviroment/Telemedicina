@@ -2,8 +2,9 @@
 
 Public Module ControladorLogin
 
-    'Public Sub PermitirIngreso(usuario As String, pass As String)
-
-
-    'End Sub
+    Public Function Autentificar(usuario As String, contra As String)
+        'MsgBox("Logica Mando: " + usuario + ", " + contra)
+        Dim l As New ModeloLogin(usuario, contra)
+        Return l.ObtenerRol()
+    End Function
 End Module

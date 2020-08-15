@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Frm_Paciente
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,179 +20,230 @@ Partial Class Frm_Paciente
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim ListViewGroup1 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
         Me.LblSaludo = New System.Windows.Forms.Label()
         Me.LblSintomas = New System.Windows.Forms.Label()
-        Me.TxtSintoma = New System.Windows.Forms.TextBox()
-        Me.DgvSintomaSistema = New System.Windows.Forms.DataGridView()
-        Me.BtnBuscar = New System.Windows.Forms.Button()
-        Me.BtnAgregar = New System.Windows.Forms.Button()
-        Me.Lst = New System.Windows.Forms.ListView()
-        Me.DgvOpciones = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
-        CType(Me.DgvSintomaSistema, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DgvOpciones, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.CmbSintomas = New System.Windows.Forms.ComboBox()
+        Me.Sintomas = New System.Windows.Forms.Label()
+        Me.BtnDiagnostico = New System.Windows.Forms.Button()
+        Me.LvSintomas = New System.Windows.Forms.ListView()
+        Me.PanelChat = New System.Windows.Forms.Panel()
+        Me.BtnVolver = New System.Windows.Forms.Button()
+        Me.TxtEnfermedad = New System.Windows.Forms.TextBox()
+        Me.TxtDescripcion = New System.Windows.Forms.TextBox()
+        Me.TxtPrioridad = New System.Windows.Forms.TextBox()
+        Me.LblDescripcion = New System.Windows.Forms.Label()
+        Me.LblPrioridad = New System.Windows.Forms.Label()
+        Me.LblEnfermedad = New System.Windows.Forms.Label()
+        Me.LblIniciarChat = New System.Windows.Forms.Label()
+        Me.BtnIniciarChat = New System.Windows.Forms.Button()
+        Me.TxtIdDiagnostico = New System.Windows.Forms.TextBox()
+        Me.LblId = New System.Windows.Forms.Label()
+        Me.PanelChat.SuspendLayout()
         Me.SuspendLayout()
         '
         'LblSaludo
         '
         Me.LblSaludo.AutoSize = True
-        Me.LblSaludo.Location = New System.Drawing.Point(20, 39)
-        Me.LblSaludo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblSaludo.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(183, Byte), Integer))
+        Me.LblSaludo.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.25!)
+        Me.LblSaludo.ForeColor = System.Drawing.Color.White
+        Me.LblSaludo.Location = New System.Drawing.Point(247, 112)
         Me.LblSaludo.Name = "LblSaludo"
-        Me.LblSaludo.Size = New System.Drawing.Size(151, 20)
+        Me.LblSaludo.Size = New System.Drawing.Size(240, 29)
         Me.LblSaludo.TabIndex = 2
         Me.LblSaludo.Text = "Buen día, username"
         '
         'LblSintomas
         '
         Me.LblSintomas.AutoSize = True
-        Me.LblSintomas.Location = New System.Drawing.Point(20, 74)
-        Me.LblSintomas.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblSintomas.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(183, Byte), Integer))
+        Me.LblSintomas.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.25!)
+        Me.LblSintomas.ForeColor = System.Drawing.Color.White
+        Me.LblSintomas.Location = New System.Drawing.Point(247, 157)
         Me.LblSintomas.Name = "LblSintomas"
-        Me.LblSintomas.Size = New System.Drawing.Size(187, 20)
+        Me.LblSintomas.Size = New System.Drawing.Size(294, 29)
         Me.LblSintomas.TabIndex = 4
         Me.LblSintomas.Text = "Cuentenos, ¿que siente?"
         '
-        'TxtSintoma
+        'CmbSintomas
         '
-        Me.TxtSintoma.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.TxtSintoma.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.TxtSintoma.ForeColor = System.Drawing.SystemColors.MenuText
-        Me.TxtSintoma.Location = New System.Drawing.Point(24, 120)
-        Me.TxtSintoma.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.TxtSintoma.MaxLength = 30
-        Me.TxtSintoma.Name = "TxtSintoma"
-        Me.TxtSintoma.Size = New System.Drawing.Size(281, 26)
-        Me.TxtSintoma.TabIndex = 3
-        Me.TxtSintoma.Text = "Tengo fiebre, tengo tos..."
+        Me.CmbSintomas.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.CmbSintomas.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.CmbSintomas.FormattingEnabled = True
+        Me.CmbSintomas.Location = New System.Drawing.Point(340, 224)
+        Me.CmbSintomas.Name = "CmbSintomas"
+        Me.CmbSintomas.Size = New System.Drawing.Size(343, 21)
+        Me.CmbSintomas.TabIndex = 15
         '
-        'DgvSintomaSistema
+        'Sintomas
         '
-        Me.DgvSintomaSistema.AllowDrop = True
-        Me.DgvSintomaSistema.AllowUserToAddRows = False
-        Me.DgvSintomaSistema.AllowUserToDeleteRows = False
-        Me.DgvSintomaSistema.AllowUserToResizeColumns = False
-        Me.DgvSintomaSistema.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DgvSintomaSistema.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.DgvSintomaSistema.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DgvSintomaSistema.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DgvSintomaSistema.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.DgvSintomaSistema.BackgroundColor = System.Drawing.Color.White
-        Me.DgvSintomaSistema.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvSintomaSistema.ColumnHeadersVisible = False
-        Me.DgvSintomaSistema.Cursor = System.Windows.Forms.Cursors.Hand
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DgvSintomaSistema.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DgvSintomaSistema.Location = New System.Drawing.Point(24, 147)
-        Me.DgvSintomaSistema.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.DgvSintomaSistema.Name = "DgvSintomaSistema"
-        Me.DgvSintomaSistema.ReadOnly = True
-        Me.DgvSintomaSistema.RowHeadersVisible = False
-        Me.DgvSintomaSistema.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
-        Me.DgvSintomaSistema.Size = New System.Drawing.Size(281, 366)
-        Me.DgvSintomaSistema.TabIndex = 6
+        Me.Sintomas.AutoSize = True
+        Me.Sintomas.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.25!)
+        Me.Sintomas.ForeColor = System.Drawing.Color.White
+        Me.Sintomas.Location = New System.Drawing.Point(202, 327)
+        Me.Sintomas.Name = "Sintomas"
+        Me.Sintomas.Size = New System.Drawing.Size(0, 22)
+        Me.Sintomas.TabIndex = 16
         '
-        'BtnBuscar
+        'BtnDiagnostico
         '
-        Me.BtnBuscar.BackColor = System.Drawing.Color.White
-        Me.BtnBuscar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnBuscar.ForeColor = System.Drawing.Color.Black
-        Me.BtnBuscar.Location = New System.Drawing.Point(578, 279)
-        Me.BtnBuscar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.BtnBuscar.Name = "BtnBuscar"
-        Me.BtnBuscar.Size = New System.Drawing.Size(206, 50)
-        Me.BtnBuscar.TabIndex = 8
-        Me.BtnBuscar.Text = "Realizar Diagnostico"
-        Me.BtnBuscar.UseVisualStyleBackColor = False
+        Me.BtnDiagnostico.Location = New System.Drawing.Point(422, 423)
+        Me.BtnDiagnostico.Name = "BtnDiagnostico"
+        Me.BtnDiagnostico.Size = New System.Drawing.Size(177, 39)
+        Me.BtnDiagnostico.TabIndex = 18
+        Me.BtnDiagnostico.Text = "Realizar Diagnostico"
+        Me.BtnDiagnostico.UseVisualStyleBackColor = True
         '
-        'BtnAgregar
+        'LvSintomas
         '
-        Me.BtnAgregar.BackColor = System.Drawing.Color.White
-        Me.BtnAgregar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAgregar.ForeColor = System.Drawing.Color.Black
-        Me.BtnAgregar.Location = New System.Drawing.Point(343, 147)
-        Me.BtnAgregar.Name = "BtnAgregar"
-        Me.BtnAgregar.Size = New System.Drawing.Size(102, 58)
-        Me.BtnAgregar.TabIndex = 9
-        Me.BtnAgregar.Text = "Agregar"
-        Me.BtnAgregar.UseVisualStyleBackColor = False
+        Me.LvSintomas.HideSelection = False
+        Me.LvSintomas.Location = New System.Drawing.Point(307, 268)
+        Me.LvSintomas.Name = "LvSintomas"
+        Me.LvSintomas.Size = New System.Drawing.Size(401, 125)
+        Me.LvSintomas.TabIndex = 20
+        Me.LvSintomas.UseCompatibleStateImageBehavior = False
         '
-        'Lst
+        'PanelChat
         '
-        ListViewGroup1.Header = "ListViewGroup"
-        ListViewGroup1.Name = "ListViewGroup1"
-        Me.Lst.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup1})
-        Me.Lst.HideSelection = False
-        Me.Lst.Location = New System.Drawing.Point(488, 112)
-        Me.Lst.Name = "Lst"
-        Me.Lst.Size = New System.Drawing.Size(395, 141)
-        Me.Lst.TabIndex = 11
-        Me.Lst.UseCompatibleStateImageBehavior = False
-        Me.Lst.View = System.Windows.Forms.View.SmallIcon
+        Me.PanelChat.Controls.Add(Me.LblId)
+        Me.PanelChat.Controls.Add(Me.TxtIdDiagnostico)
+        Me.PanelChat.Controls.Add(Me.BtnVolver)
+        Me.PanelChat.Controls.Add(Me.TxtEnfermedad)
+        Me.PanelChat.Controls.Add(Me.TxtDescripcion)
+        Me.PanelChat.Controls.Add(Me.TxtPrioridad)
+        Me.PanelChat.Controls.Add(Me.LblDescripcion)
+        Me.PanelChat.Controls.Add(Me.LblPrioridad)
+        Me.PanelChat.Controls.Add(Me.LblEnfermedad)
+        Me.PanelChat.Controls.Add(Me.LblIniciarChat)
+        Me.PanelChat.Controls.Add(Me.BtnIniciarChat)
+        Me.PanelChat.Location = New System.Drawing.Point(98, 31)
+        Me.PanelChat.Name = "PanelChat"
+        Me.PanelChat.Size = New System.Drawing.Size(816, 459)
+        Me.PanelChat.TabIndex = 21
+        Me.PanelChat.Visible = False
         '
-        'DgvOpciones
+        'BtnVolver
         '
-        Me.DgvOpciones.AllowUserToAddRows = False
-        Me.DgvOpciones.AllowUserToDeleteRows = False
-        Me.DgvOpciones.BackgroundColor = System.Drawing.Color.White
-        Me.DgvOpciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvOpciones.Location = New System.Drawing.Point(488, 358)
-        Me.DgvOpciones.Name = "DgvOpciones"
-        Me.DgvOpciones.ReadOnly = True
-        Me.DgvOpciones.RowHeadersVisible = False
-        Me.DgvOpciones.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
-        Me.DgvOpciones.RowTemplate.Height = 28
-        Me.DgvOpciones.Size = New System.Drawing.Size(395, 155)
-        Me.DgvOpciones.TabIndex = 12
+        Me.BtnVolver.Location = New System.Drawing.Point(591, 253)
+        Me.BtnVolver.Name = "BtnVolver"
+        Me.BtnVolver.Size = New System.Drawing.Size(153, 45)
+        Me.BtnVolver.TabIndex = 8
+        Me.BtnVolver.Text = "Volver"
+        Me.BtnVolver.UseVisualStyleBackColor = True
         '
-        'Button1
+        'TxtEnfermedad
         '
-        Me.Button1.BackColor = System.Drawing.Color.White
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Black
-        Me.Button1.Location = New System.Drawing.Point(599, 22)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(151, 49)
-        Me.Button1.TabIndex = 14
-        Me.Button1.Text = "Inicie un chat ahora!"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.TxtEnfermedad.Enabled = False
+        Me.TxtEnfermedad.Location = New System.Drawing.Point(29, 64)
+        Me.TxtEnfermedad.Name = "TxtEnfermedad"
+        Me.TxtEnfermedad.Size = New System.Drawing.Size(196, 20)
+        Me.TxtEnfermedad.TabIndex = 7
+        '
+        'TxtDescripcion
+        '
+        Me.TxtDescripcion.Enabled = False
+        Me.TxtDescripcion.Location = New System.Drawing.Point(35, 237)
+        Me.TxtDescripcion.Multiline = True
+        Me.TxtDescripcion.Name = "TxtDescripcion"
+        Me.TxtDescripcion.Size = New System.Drawing.Size(279, 21)
+        Me.TxtDescripcion.TabIndex = 6
+        '
+        'TxtPrioridad
+        '
+        Me.TxtPrioridad.Enabled = False
+        Me.TxtPrioridad.ForeColor = System.Drawing.Color.White
+        Me.TxtPrioridad.Location = New System.Drawing.Point(29, 142)
+        Me.TxtPrioridad.Name = "TxtPrioridad"
+        Me.TxtPrioridad.Size = New System.Drawing.Size(285, 20)
+        Me.TxtPrioridad.TabIndex = 5
+        '
+        'LblDescripcion
+        '
+        Me.LblDescripcion.AutoSize = True
+        Me.LblDescripcion.ForeColor = System.Drawing.Color.White
+        Me.LblDescripcion.Location = New System.Drawing.Point(42, 210)
+        Me.LblDescripcion.Name = "LblDescripcion"
+        Me.LblDescripcion.Size = New System.Drawing.Size(63, 13)
+        Me.LblDescripcion.TabIndex = 4
+        Me.LblDescripcion.Text = "Descripcion"
+        '
+        'LblPrioridad
+        '
+        Me.LblPrioridad.AutoSize = True
+        Me.LblPrioridad.ForeColor = System.Drawing.Color.White
+        Me.LblPrioridad.Location = New System.Drawing.Point(42, 126)
+        Me.LblPrioridad.Name = "LblPrioridad"
+        Me.LblPrioridad.Size = New System.Drawing.Size(51, 13)
+        Me.LblPrioridad.TabIndex = 3
+        Me.LblPrioridad.Text = "Prioridad:"
+        '
+        'LblEnfermedad
+        '
+        Me.LblEnfermedad.AutoSize = True
+        Me.LblEnfermedad.ForeColor = System.Drawing.Color.White
+        Me.LblEnfermedad.Location = New System.Drawing.Point(15, 48)
+        Me.LblEnfermedad.Name = "LblEnfermedad"
+        Me.LblEnfermedad.Size = New System.Drawing.Size(230, 13)
+        Me.LblEnfermedad.TabIndex = 2
+        Me.LblEnfermedad.Text = "Lo mas probable es que usted pueda padecer: "
+        '
+        'LblIniciarChat
+        '
+        Me.LblIniciarChat.AutoSize = True
+        Me.LblIniciarChat.ForeColor = System.Drawing.Color.White
+        Me.LblIniciarChat.Location = New System.Drawing.Point(538, 142)
+        Me.LblIniciarChat.Name = "LblIniciarChat"
+        Me.LblIniciarChat.Size = New System.Drawing.Size(266, 13)
+        Me.LblIniciarChat.TabIndex = 1
+        Me.LblIniciarChat.Text = "Si desea conversar con un profesional, haga click aqui"
+        '
+        'BtnIniciarChat
+        '
+        Me.BtnIniciarChat.Location = New System.Drawing.Point(591, 193)
+        Me.BtnIniciarChat.Name = "BtnIniciarChat"
+        Me.BtnIniciarChat.Size = New System.Drawing.Size(154, 47)
+        Me.BtnIniciarChat.TabIndex = 0
+        Me.BtnIniciarChat.Text = "Iniciar Chat"
+        Me.BtnIniciarChat.UseVisualStyleBackColor = True
+        '
+        'TxtIdDiagnostico
+        '
+        Me.TxtIdDiagnostico.Enabled = False
+        Me.TxtIdDiagnostico.Location = New System.Drawing.Point(242, 63)
+        Me.TxtIdDiagnostico.Name = "TxtIdDiagnostico"
+        Me.TxtIdDiagnostico.Size = New System.Drawing.Size(72, 20)
+        Me.TxtIdDiagnostico.TabIndex = 9
+        '
+        'LblId
+        '
+        Me.LblId.AutoSize = True
+        Me.LblId.ForeColor = System.Drawing.Color.White
+        Me.LblId.Location = New System.Drawing.Point(262, 47)
+        Me.LblId.Name = "LblId"
+        Me.LblId.Size = New System.Drawing.Size(21, 13)
+        Me.LblId.TabIndex = 10
+        Me.LblId.Text = "ID:"
         '
         'Frm_Paciente
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(245, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(936, 589)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.DgvOpciones)
-        Me.Controls.Add(Me.Lst)
-        Me.Controls.Add(Me.BtnAgregar)
-        Me.Controls.Add(Me.BtnBuscar)
-        Me.Controls.Add(Me.DgvSintomaSistema)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(183, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(1010, 528)
+        Me.Controls.Add(Me.PanelChat)
+        Me.Controls.Add(Me.LvSintomas)
+        Me.Controls.Add(Me.BtnDiagnostico)
+        Me.Controls.Add(Me.Sintomas)
+        Me.Controls.Add(Me.CmbSintomas)
         Me.Controls.Add(Me.LblSaludo)
         Me.Controls.Add(Me.LblSintomas)
-        Me.Controls.Add(Me.TxtSintoma)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Frm_Paciente"
         Me.Text = "Paciente"
-        CType(Me.DgvSintomaSistema, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DgvOpciones, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelChat.ResumeLayout(False)
+        Me.PanelChat.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -200,11 +251,20 @@ Partial Class Frm_Paciente
 
     Friend WithEvents LblSaludo As Label
     Friend WithEvents LblSintomas As Label
-    Friend WithEvents TxtSintoma As TextBox
-    Friend WithEvents DgvSintomaSistema As DataGridView
-    Friend WithEvents BtnBuscar As Button
-    Friend WithEvents BtnAgregar As Button
-    Friend WithEvents Lst As ListView
-    Friend WithEvents DgvOpciones As DataGridView
-    Friend WithEvents Button1 As Button
+    Friend WithEvents CmbSintomas As ComboBox
+    Friend WithEvents Sintomas As Label
+    Friend WithEvents BtnDiagnostico As Button
+    Friend WithEvents LvSintomas As ListView
+    Friend WithEvents PanelChat As Panel
+    Friend WithEvents TxtEnfermedad As TextBox
+    Friend WithEvents TxtDescripcion As TextBox
+    Friend WithEvents TxtPrioridad As TextBox
+    Friend WithEvents LblDescripcion As Label
+    Friend WithEvents LblPrioridad As Label
+    Friend WithEvents LblEnfermedad As Label
+    Friend WithEvents LblIniciarChat As Label
+    Friend WithEvents BtnIniciarChat As Button
+    Friend WithEvents BtnVolver As Button
+    Friend WithEvents LblId As Label
+    Friend WithEvents TxtIdDiagnostico As TextBox
 End Class
