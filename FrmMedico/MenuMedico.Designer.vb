@@ -36,6 +36,7 @@ Partial Class MenuMedico
         Me.DgvEnEspera = New System.Windows.Forms.DataGridView()
         Me.TmrBuscarChats = New System.Windows.Forms.Timer(Me.components)
         Me.TmrBuscarMensajesNuevos = New System.Windows.Forms.Timer(Me.components)
+        Me.BtnHabilitarTimer = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvEnEspera, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -60,10 +61,10 @@ Partial Class MenuMedico
         '
         'WebBrowser1
         '
-        Me.WebBrowser1.Location = New System.Drawing.Point(688, 223)
+        Me.WebBrowser1.Location = New System.Drawing.Point(486, 441)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(22, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(198, 200)
+        Me.WebBrowser1.Size = New System.Drawing.Size(198, 87)
         Me.WebBrowser1.TabIndex = 2
         '
         'btnEnviar
@@ -78,20 +79,22 @@ Partial Class MenuMedico
         '
         'BtnFinalizarChat
         '
+        Me.BtnFinalizarChat.Enabled = False
         Me.BtnFinalizarChat.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnFinalizarChat.Location = New System.Drawing.Point(688, 429)
+        Me.BtnFinalizarChat.Location = New System.Drawing.Point(645, 413)
         Me.BtnFinalizarChat.Name = "BtnFinalizarChat"
-        Me.BtnFinalizarChat.Size = New System.Drawing.Size(198, 26)
+        Me.BtnFinalizarChat.Size = New System.Drawing.Size(241, 26)
         Me.BtnFinalizarChat.TabIndex = 6
         Me.BtnFinalizarChat.Text = "Finalizar Chat"
         Me.BtnFinalizarChat.UseVisualStyleBackColor = True
         '
         'BtnIniciarChat
         '
+        Me.BtnIniciarChat.Enabled = False
         Me.BtnIniciarChat.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnIniciarChat.Location = New System.Drawing.Point(688, 193)
+        Me.BtnIniciarChat.Location = New System.Drawing.Point(645, 177)
         Me.BtnIniciarChat.Name = "BtnIniciarChat"
-        Me.BtnIniciarChat.Size = New System.Drawing.Size(198, 24)
+        Me.BtnIniciarChat.Size = New System.Drawing.Size(241, 24)
         Me.BtnIniciarChat.TabIndex = 1
         Me.BtnIniciarChat.Text = "Iniciar Chat"
         Me.BtnIniciarChat.UseVisualStyleBackColor = True
@@ -119,7 +122,7 @@ Partial Class MenuMedico
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(448, 133)
+        Me.DataGridView1.Location = New System.Drawing.Point(395, 133)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.Size = New System.Drawing.Size(218, 261)
@@ -127,16 +130,30 @@ Partial Class MenuMedico
         '
         'DgvEnEspera
         '
-        Me.DgvEnEspera.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvEnEspera.Location = New System.Drawing.Point(688, 223)
+        Me.DgvEnEspera.AllowUserToAddRows = False
+        Me.DgvEnEspera.AllowUserToDeleteRows = False
+        Me.DgvEnEspera.AllowUserToOrderColumns = True
+        Me.DgvEnEspera.AllowUserToResizeColumns = False
+        Me.DgvEnEspera.AllowUserToResizeRows = False
+        Me.DgvEnEspera.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.DgvEnEspera.GridColor = System.Drawing.SystemColors.ButtonShadow
+        Me.DgvEnEspera.Location = New System.Drawing.Point(645, 207)
+        Me.DgvEnEspera.MultiSelect = False
         Me.DgvEnEspera.Name = "DgvEnEspera"
+        Me.DgvEnEspera.RowHeadersVisible = False
         Me.DgvEnEspera.RowTemplate.Height = 24
-        Me.DgvEnEspera.Size = New System.Drawing.Size(182, 200)
+        Me.DgvEnEspera.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DgvEnEspera.Size = New System.Drawing.Size(241, 200)
         Me.DgvEnEspera.TabIndex = 9
         '
-        'TmrBuscarChats
+        'BtnHabilitarTimer
         '
-        Me.TmrBuscarChats.Enabled = True
+        Me.BtnHabilitarTimer.Location = New System.Drawing.Point(645, 133)
+        Me.BtnHabilitarTimer.Name = "BtnHabilitarTimer"
+        Me.BtnHabilitarTimer.Size = New System.Drawing.Size(241, 23)
+        Me.BtnHabilitarTimer.TabIndex = 10
+        Me.BtnHabilitarTimer.Text = "Refrescar"
+        Me.BtnHabilitarTimer.UseVisualStyleBackColor = True
         '
         'MenuMedico
         '
@@ -146,6 +163,7 @@ Partial Class MenuMedico
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(900, 531)
         Me.ControlBox = False
+        Me.Controls.Add(Me.BtnHabilitarTimer)
         Me.Controls.Add(Me.DgvEnEspera)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.BtnSalir)
@@ -177,4 +195,5 @@ Partial Class MenuMedico
     Friend WithEvents DgvEnEspera As DataGridView
     Friend WithEvents TmrBuscarChats As Timer
     Friend WithEvents TmrBuscarMensajesNuevos As Timer
+    Friend WithEvents BtnHabilitarTimer As Button
 End Class

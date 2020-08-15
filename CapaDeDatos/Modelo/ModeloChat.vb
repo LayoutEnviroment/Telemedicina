@@ -24,7 +24,9 @@
     Public Function BuscarSolicitud()
         Command.CommandText = "
             SELECT 
-                DISTINCT(a.id_diagnostico), a.ci_persona_paciente, e.prioridad 
+                DISTINCT(a.id_diagnostico) AS Diagnostico, 
+                a.ci_persona_paciente AS Paciente, 
+                e.prioridad AS Prioridad
             FROM 
                 atiende a 
                 JOIN 
@@ -42,7 +44,8 @@
                 AND 
                 status = 'Esperando' 
             ORDER BY 
-                a.fecha_hora desc;
+                FIELD(Prioridad, 'ALTA','MEDIA','BAJA'),
+                a.fecha_hora ASC;
         "
         Reader = Command.ExecuteReader()
         Return Reader
