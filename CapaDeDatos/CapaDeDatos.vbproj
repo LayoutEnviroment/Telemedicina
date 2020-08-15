@@ -70,6 +70,7 @@
     <Compile Include="Modelo\ModeloDiagnostico.vb" />
     <Compile Include="Modelo\ModeloEnfermedad.vb" />
     <Compile Include="Modelo\ModeloLogin.vb" />
+    <Compile Include="Modelo\ModeloPaciente.vb" />
     <Compile Include="Modelo\ModeloSintoma.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

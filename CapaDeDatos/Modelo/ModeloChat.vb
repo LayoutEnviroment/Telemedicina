@@ -22,16 +22,22 @@
 
     Public Function BuscarMensajesNuevos()
         Command.CommandText = "
-            SELECT
-                conversacion
+            SELECT 
+                a.conversacion, p.nombre 
             FROM 
-                atiende
-            WHERE
+                atiende a 
+                JOIN 
+                medico m ON a.ci_persona_medico = m.ci_persona 
+                JOIN 
+                persona p ON p.ci = m.ci_persona 
+            WHERE 
                 id_diagnostico = " + Me.IdDiagnostico + "
                 AND
                 destinatario = " + Me.Pwd + "
                 AND
                 leido = 0
+            LIMIT
+                1
         "
         Dim resultado As New DataTable
         resultado.Load(Me.Command.ExecuteReader())

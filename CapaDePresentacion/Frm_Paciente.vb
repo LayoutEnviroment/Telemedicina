@@ -2,11 +2,11 @@
 
 Public Class Frm_Paciente
     'Esto vendra de la base de datos
-    Dim Usuario As String = "Usuario"
     Dim ListaSintomas As New List(Of String)
 
     Private Sub Frm_Paciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LblSaludo.Text = "Bienvenido, " + Usuario + ""
+
+        LblSaludo.Text = "Bienvenido, " + ControladorPaciente.ObtenerNombre() + ""
         CargarSintoma()
 
     End Sub

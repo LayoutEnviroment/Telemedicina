@@ -24,7 +24,7 @@ Public Class Frm_Chat
     End Sub
 
     Public Sub AgregarChat()
-        RtbConversacion.Text += Environment.NewLine + "YO:" + Environment.NewLine + RtbMensaje.Text
+        RtbConversacion.Text += "YO:" + Environment.NewLine + RtbMensaje.Text
         RtbMensaje.Clear()
 
     End Sub
@@ -32,10 +32,10 @@ Public Class Frm_Chat
     Public Sub AgregarChat(tabla As DataTable)
         If tabla.Rows.Count > 0 Then
             For Each fila As DataRow In tabla.Rows
-                RtbConversacion.Text += Environment.NewLine + fila(0).ToString
+                RtbConversacion.Text += Environment.NewLine + fila(1).ToString + ": " + fila(0).ToString
             Next
-        End If
-    End Sub
+        End If\
 
+    End Sub
 
 End Class
