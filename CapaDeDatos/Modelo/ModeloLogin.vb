@@ -15,7 +15,7 @@
             FROM
                 roles
             WHERE
-                username = '" + Me.Uid + "'
+                ci_persona = '" + Me.Pwd + "'
         "
         Return Command.ExecuteScalar.ToString
     End Function

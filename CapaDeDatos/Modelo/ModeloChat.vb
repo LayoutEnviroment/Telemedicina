@@ -10,48 +10,6 @@
     Public Mensaje As String
     Public Destinatario As String
 
-    Public Sub EnviarSolicitud()
-        Command.CommandText = "
-            INSERT INTO
-                Atiende(ci_persona_paciente, id_diagnostico)
-            VALUES
-                (" + Me.Pwd + ", " + Me.IdDiagnostico + ")
-        "
-        Command.ExecuteNonQuery()
-
-    End Sub
-
-    Public Function BuscarSolicitud()
-        Command.CommandText = "
-            SELECT 
-                DISTINCT(a.id_diagnostico) AS Diagnostico, 
-                a.ci_persona_paciente AS Paciente, 
-                e.prioridad AS Prioridad
-            FROM 
-                atiende a 
-                JOIN 
-                diagnostico d 
-                    ON a.id_diagnostico = d.id 
-                JOIN 
-                genera g 
-                    ON g.id_diagnostico = d.id 
-                JOIN compone c 
-                    ON c.id_enfermedad = g.id_enfermedad_compone 
-                JOIN enfermedad e 
-                    ON e.id = c.id_enfermedad 
-            WHERE 
-                leido = 0 
-                AND 
-                status = 'Esperando' 
-            ORDER BY 
-                FIELD(Prioridad, 'ALTA','MEDIA','BAJA'),
-                a.fecha_hora ASC;
-        "
-        Reader = Command.ExecuteReader()
-        Return Reader
-
-    End Function
-
     Public Sub EnviarMensaje()
         MsgBox(IdMedico + ", " + IdDiagnostico + ", " + Mensaje + ", " + Destinatario)
         Command.CommandText = "
@@ -96,15 +54,16 @@
             SET 
                 leido = 1
             WHERE
-                id = (SELECT
-                        MAX(id)
-                     FROM
-                        atiende
-                     WHERE
-                        destinatario = " + Me.Pwd + "
-                     )
+                destinatario = " + Me.Pwd + "
         "
         Command.ExecuteNonQuery()
+        '(SELECT
+        '                MAX(id)
+        '             FROM
+        '                atiende
+        '             WHERE
+        '                destinatario = " + Me.Pwd + "
+        '             )
         Me.Connect.Close()
         Return resultado
 

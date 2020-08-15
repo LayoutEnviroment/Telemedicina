@@ -65,6 +65,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControladorChat.vb" />
+    <Compile Include="ControladorChatMedico.vb" />
+    <Compile Include="ControladorChatPaciente.vb" />
     <Compile Include="ControladorCompone.vb" />
     <Compile Include="ControladorDiagnostico.vb" />
     <Compile Include="ControladorEnfermedad.vb" />
