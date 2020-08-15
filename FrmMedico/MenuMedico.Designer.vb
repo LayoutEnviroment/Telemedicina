@@ -22,9 +22,10 @@ Partial Class MenuMedico
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MenuMedico))
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
+        Me.RTxtClhat = New System.Windows.Forms.RichTextBox()
+        Me.RTxtMensaje = New System.Windows.Forms.RichTextBox()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.btnEnviar = New System.Windows.Forms.Button()
         Me.BtnFinalizarChat = New System.Windows.Forms.Button()
@@ -32,26 +33,27 @@ Partial Class MenuMedico
         Me.BtnCerrarSesion = New System.Windows.Forms.Button()
         Me.BtnSalir = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.TmrMedico = New System.Windows.Forms.Timer(Me.components)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'RichTextBox1
+        'RTxtClhat
         '
-        Me.RichTextBox1.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox1.Location = New System.Drawing.Point(29, 133)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(349, 302)
-        Me.RichTextBox1.TabIndex = 0
-        Me.RichTextBox1.Text = ""
+        Me.RTxtClhat.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RTxtClhat.Location = New System.Drawing.Point(29, 133)
+        Me.RTxtClhat.Name = "RTxtClhat"
+        Me.RTxtClhat.Size = New System.Drawing.Size(349, 302)
+        Me.RTxtClhat.TabIndex = 0
+        Me.RTxtClhat.Text = ""
         '
-        'RichTextBox2
+        'RTxtMensaje
         '
-        Me.RichTextBox2.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox2.Location = New System.Drawing.Point(29, 441)
-        Me.RichTextBox2.Name = "RichTextBox2"
-        Me.RichTextBox2.Size = New System.Drawing.Size(316, 34)
-        Me.RichTextBox2.TabIndex = 3
-        Me.RichTextBox2.Text = ""
+        Me.RTxtMensaje.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RTxtMensaje.Location = New System.Drawing.Point(29, 441)
+        Me.RTxtMensaje.Name = "RTxtMensaje"
+        Me.RTxtMensaje.Size = New System.Drawing.Size(316, 34)
+        Me.RTxtMensaje.TabIndex = 3
+        Me.RTxtMensaje.Text = ""
         '
         'WebBrowser1
         '
@@ -113,12 +115,16 @@ Partial Class MenuMedico
         '
         'DataGridView1
         '
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(443, 133)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.Size = New System.Drawing.Size(218, 261)
         Me.DataGridView1.TabIndex = 5
+        '
+        'TmrMedico
+        '
         '
         'MenuMedico
         '
@@ -135,8 +141,8 @@ Partial Class MenuMedico
         Me.Controls.Add(Me.BtnFinalizarChat)
         Me.Controls.Add(Me.btnEnviar)
         Me.Controls.Add(Me.WebBrowser1)
-        Me.Controls.Add(Me.RichTextBox2)
-        Me.Controls.Add(Me.RichTextBox1)
+        Me.Controls.Add(Me.RTxtMensaje)
+        Me.Controls.Add(Me.RTxtClhat)
         Me.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "MenuMedico"
         Me.Text = "Menu Medico"
@@ -145,8 +151,8 @@ Partial Class MenuMedico
 
     End Sub
 
-    Friend WithEvents RichTextBox1 As RichTextBox
-    Friend WithEvents RichTextBox2 As RichTextBox
+    Friend WithEvents RTxtClhat As RichTextBox
+    Friend WithEvents RTxtMensaje As RichTextBox
     Friend WithEvents WebBrowser1 As WebBrowser
     Friend WithEvents btnEnviar As Button
     Friend WithEvents BtnFinalizarChat As Button
@@ -154,4 +160,5 @@ Partial Class MenuMedico
     Friend WithEvents BtnCerrarSesion As Button
     Friend WithEvents BtnSalir As Button
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents TmrMedico As Timer
 End Class
