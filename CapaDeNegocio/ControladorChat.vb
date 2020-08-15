@@ -2,6 +2,19 @@
 
 Public Module ControladorChat
 
+    Public Sub EnviarSolicitud(id As String)
+        Dim c As New ModeloChat(ControladorSesion.User, ControladorSesion.Pass) With {
+            .IdDiagnostico = id
+        }
+        c.EnviarSolicitud()
+    End Sub
+
+    Public Function BuscarSolicitud()
+        Dim c As New ModeloChat(ControladorSesion.User, ControladorSesion.Pass)
+        Return c.BuscarSolicitud
+
+    End Function
+
     Public Sub EnviarMensaje(id As String, mensaje As String)
         Dim c As New ModeloChat(ControladorSesion.User, ControladorSesion.Pass) With {
             .IdDiagnostico = id,

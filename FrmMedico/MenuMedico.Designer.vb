@@ -22,6 +22,7 @@ Partial Class MenuMedico
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MenuMedico))
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
@@ -32,7 +33,11 @@ Partial Class MenuMedico
         Me.BtnCerrarSesion = New System.Windows.Forms.Button()
         Me.BtnSalir = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DgvEnEspera = New System.Windows.Forms.DataGridView()
+        Me.TmrBuscarChats = New System.Windows.Forms.Timer(Me.components)
+        Me.TmrBuscarMensajesNuevos = New System.Windows.Forms.Timer(Me.components)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DgvEnEspera, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RichTextBox1
@@ -114,20 +119,34 @@ Partial Class MenuMedico
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(443, 133)
+        Me.DataGridView1.Location = New System.Drawing.Point(448, 133)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.Size = New System.Drawing.Size(218, 261)
         Me.DataGridView1.TabIndex = 5
         '
+        'DgvEnEspera
+        '
+        Me.DgvEnEspera.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvEnEspera.Location = New System.Drawing.Point(688, 223)
+        Me.DgvEnEspera.Name = "DgvEnEspera"
+        Me.DgvEnEspera.RowTemplate.Height = 24
+        Me.DgvEnEspera.Size = New System.Drawing.Size(182, 200)
+        Me.DgvEnEspera.TabIndex = 9
+        '
+        'TmrBuscarChats
+        '
+        Me.TmrBuscarChats.Enabled = True
+        '
         'MenuMedico
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(900, 531)
         Me.ControlBox = False
+        Me.Controls.Add(Me.DgvEnEspera)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.BtnSalir)
         Me.Controls.Add(Me.BtnCerrarSesion)
@@ -141,6 +160,7 @@ Partial Class MenuMedico
         Me.Name = "MenuMedico"
         Me.Text = "Menu Medico"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DgvEnEspera, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -154,4 +174,7 @@ Partial Class MenuMedico
     Friend WithEvents BtnCerrarSesion As Button
     Friend WithEvents BtnSalir As Button
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DgvEnEspera As DataGridView
+    Friend WithEvents TmrBuscarChats As Timer
+    Friend WithEvents TmrBuscarMensajesNuevos As Timer
 End Class

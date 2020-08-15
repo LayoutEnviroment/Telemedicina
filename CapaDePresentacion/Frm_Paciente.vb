@@ -1,7 +1,7 @@
 ﻿Imports CapaDeNegocio
 
 Public Class Frm_Paciente
-    'Esto vendra de la base de datos
+
     Dim ListaSintomas As New List(Of String)
 
     Private Sub Frm_Paciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -109,6 +109,7 @@ Public Class Frm_Paciente
     End Sub
 
     Private Sub BtnIniciarChat_Click(sender As Object, e As EventArgs) Handles BtnIniciarChat.Click
+        ControladorChat.EnviarSolicitud(TxtIdDiagnostico.Text)
         Me.Hide()
         Frm_Chat.Show()
     End Sub

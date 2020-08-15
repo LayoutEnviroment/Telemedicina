@@ -2,6 +2,9 @@
 
 Public Class Frm_Chat
 
+    Dim IdMedico As String
+    Dim Destinatario As String
+
     Private Sub TmrMensajesNuevos_Tick(sender As Object, e As EventArgs) Handles TmrMensajesNuevos.Tick
         Dim Tabla As New DataTable
         Try
@@ -32,9 +35,12 @@ Public Class Frm_Chat
     Public Sub AgregarChat(tabla As DataTable)
         If tabla.Rows.Count > 0 Then
             For Each fila As DataRow In tabla.Rows
-                RtbConversacion.Text += Environment.NewLine + fila(1).ToString + ": " + fila(0).ToString
+                IdMedico = fila(0).ToString
+                Destinatario = fila(2).ToString
+                RtbConversacion.Text += Environment.NewLine + fila(3).ToString + ": " + fila(1).ToString
+
             Next
-        End If\
+        End If
 
     End Sub
 
