@@ -2,13 +2,6 @@
 
 
 Public Class FormCompone
-    Private Sub CmbEnfermedad_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbEnfermedad.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvSintoma.CellContentClick
-
-    End Sub
 
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
 

@@ -16,7 +16,4 @@ Public Class MenuGestion
         FormCompone.Show()
     End Sub
 
-    Private Sub MenuGestion_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-        Login.Close()
-    End Sub
 End Class

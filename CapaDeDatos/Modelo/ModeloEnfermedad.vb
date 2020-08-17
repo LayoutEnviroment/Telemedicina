@@ -1,6 +1,10 @@
 ﻿Public Class ModeloEnfermedad
     Inherits ModeloBaseDeDatos
 
+    Public Sub New(user As String, pass As String)
+        MyBase.New(user, pass)
+    End Sub
+
     Public IdEnfermedad As String
     Public Nombre As String
     Public Descripcion As String

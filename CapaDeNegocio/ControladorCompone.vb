@@ -3,7 +3,7 @@
 Public Module ControladorCompone
 
     Public Function EnfermedadesPosibles(Sintomas As List(Of String))
-        Dim c As New ModeloCompone With {
+        Dim c As New ModeloCompone(ControladorSesion.User, ControladorSesion.Pass) With {
             .IdSintomas = Sintomas
         }
 
@@ -11,7 +11,7 @@ Public Module ControladorCompone
     End Function
 
     Public Sub Insertar(Sintomas As List(Of String), Enfermedad As String)
-        Dim c As New ModeloCompone With {
+        Dim c As New ModeloCompone(ControladorSesion.User, ControladorSesion.Pass) With {
             .IdSintomas = Sintomas,
             .IdEnfermedad = Enfermedad
         }
