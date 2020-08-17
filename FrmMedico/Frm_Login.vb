@@ -3,7 +3,7 @@ Public Class Frm_Login
 
     Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnAceptar.Click
         Try
-            If Autentificar(TxtUser.Text, TxtPass.Text) = 2 Then
+            If Autentificar(TxtUser.Text, TxtPass.Text) <> "" Then
                 SetearSesion(TxtUser.Text, TxtPass.Text)
                 Me.Hide()
                 Frm_Menu.Show()
