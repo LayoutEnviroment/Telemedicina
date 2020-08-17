@@ -1,6 +1,6 @@
 ﻿Imports CapaDeNegocio
 
-Public Class Frm_Paciente
+Public Class Frm_Menu
 
     Dim ListaSintomas As New List(Of String)
 

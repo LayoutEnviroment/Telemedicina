@@ -31,7 +31,7 @@ Partial Class Frm_Chat
         '
         'RtbConversacion
         '
-        Me.RtbConversacion.Location = New System.Drawing.Point(187, 79)
+        Me.RtbConversacion.Location = New System.Drawing.Point(193, 48)
         Me.RtbConversacion.Name = "RtbConversacion"
         Me.RtbConversacion.ReadOnly = True
         Me.RtbConversacion.Size = New System.Drawing.Size(424, 214)
@@ -40,7 +40,7 @@ Partial Class Frm_Chat
         '
         'RtbMensaje
         '
-        Me.RtbMensaje.Location = New System.Drawing.Point(187, 317)
+        Me.RtbMensaje.Location = New System.Drawing.Point(193, 286)
         Me.RtbMensaje.Name = "RtbMensaje"
         Me.RtbMensaje.Size = New System.Drawing.Size(360, 60)
         Me.RtbMensaje.TabIndex = 1
@@ -49,7 +49,7 @@ Partial Class Frm_Chat
         'BtnEnviar
         '
         Me.BtnEnviar.Enabled = False
-        Me.BtnEnviar.Location = New System.Drawing.Point(554, 317)
+        Me.BtnEnviar.Location = New System.Drawing.Point(560, 286)
         Me.BtnEnviar.Name = "BtnEnviar"
         Me.BtnEnviar.Size = New System.Drawing.Size(57, 60)
         Me.BtnEnviar.TabIndex = 2
@@ -71,7 +71,7 @@ Partial Class Frm_Chat
         Me.Controls.Add(Me.RtbMensaje)
         Me.Controls.Add(Me.RtbConversacion)
         Me.Name = "Frm_Chat"
-        Me.Text = "Frm_Chat"
+        Me.Text = "Chat"
         Me.ResumeLayout(False)
 
     End Sub

@@ -146,8 +146,6 @@
                                 WHERE
                                     destinatario = " + Me.Pwd + "
                                 )
-                AND
-                    destinatario = " + Me.Pwd + "
                 "
         Command.ExecuteNonQuery()
         Me.Connect.Close()
@@ -158,7 +156,7 @@
             INSERT INTO
                 atiende(ci_persona_medico, ci_persona_paciente, id_diagnostico, mensaje, leido, destinatario, status)
             VALUES
-                (" + Me.IdMedico + ", " + Me.Destinatario + ", " + Me.IdDiagnostico + ", 'La conexion a sido terminada por el medico', 0, " + Me.Destinatario + ", 'Finalizado' )
+                (" + Me.IdMedico + ", " + Me.Destinatario + ", " + Me.IdDiagnostico + ", 'medico desconectado', 0, " + Me.Destinatario + ", 'Finalizado' )
             
         "
         Command.ExecuteNonQuery()

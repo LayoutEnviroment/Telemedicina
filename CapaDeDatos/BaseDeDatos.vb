@@ -13,7 +13,6 @@ Public MustInherit Class ModeloBaseDeDatos
     Public Reader As OdbcDataReader
 
     Public Sub New(usuario As String, contra As String)
-        'MsgBox("Datos recibo: " + usuario + ", " + contra)
         Uid = usuario
         Pwd = contra
         Me.Connect.ConnectionString =

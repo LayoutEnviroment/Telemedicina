@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 <Global.System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1726")> _
-Partial Class FrmLogin
+Partial Class Frm_Login
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -19,7 +19,7 @@ Partial Class FrmLogin
     Friend WithEvents PasswordLabel As System.Windows.Forms.Label
     Friend WithEvents TxtUser As System.Windows.Forms.TextBox
     Friend WithEvents TxtPass As System.Windows.Forms.TextBox
-    Friend WithEvents BtnIngresar As System.Windows.Forms.Button
+    Friend WithEvents BtnAceptar As System.Windows.Forms.Button
 
     'Requerido por el Diseñador de Windows Forms
     Private components As System.ComponentModel.IContainer
@@ -29,18 +29,19 @@ Partial Class FrmLogin
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Login))
         Me.LogoPictureBox = New System.Windows.Forms.PictureBox()
         Me.UsernameLabel = New System.Windows.Forms.Label()
         Me.PasswordLabel = New System.Windows.Forms.Label()
         Me.TxtUser = New System.Windows.Forms.TextBox()
         Me.TxtPass = New System.Windows.Forms.TextBox()
-        Me.BtnIngresar = New System.Windows.Forms.Button()
+        Me.BtnAceptar = New System.Windows.Forms.Button()
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LogoPictureBox
         '
-        Me.LogoPictureBox.Image = Global.CapaDePresentacion.My.Resources.Resources.CuidarteIcon
+        Me.LogoPictureBox.Image = CType(resources.GetObject("LogoPictureBox.Image"), System.Drawing.Image)
         Me.LogoPictureBox.Location = New System.Drawing.Point(0, 0)
         Me.LogoPictureBox.Name = "LogoPictureBox"
         Me.LogoPictureBox.Size = New System.Drawing.Size(165, 193)
@@ -80,21 +81,21 @@ Partial Class FrmLogin
         Me.TxtPass.Size = New System.Drawing.Size(220, 20)
         Me.TxtPass.TabIndex = 3
         '
-        'BtnIngresar
+        'BtnAceptar
         '
-        Me.BtnIngresar.Location = New System.Drawing.Point(214, 158)
-        Me.BtnIngresar.Name = "BtnIngresar"
-        Me.BtnIngresar.Size = New System.Drawing.Size(152, 23)
-        Me.BtnIngresar.TabIndex = 4
-        Me.BtnIngresar.Text = "Ingresar"
+        Me.BtnAceptar.Location = New System.Drawing.Point(200, 161)
+        Me.BtnAceptar.Name = "BtnAceptar"
+        Me.BtnAceptar.Size = New System.Drawing.Size(144, 23)
+        Me.BtnAceptar.TabIndex = 4
+        Me.BtnAceptar.Text = "Ingresar"
         '
-        'FrmLogin
+        'Frm_Login
         '
-        Me.AcceptButton = Me.BtnIngresar
+        Me.AcceptButton = Me.BtnAceptar
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(447, 193)
-        Me.Controls.Add(Me.BtnIngresar)
+        Me.ClientSize = New System.Drawing.Size(401, 192)
+        Me.Controls.Add(Me.BtnAceptar)
         Me.Controls.Add(Me.TxtPass)
         Me.Controls.Add(Me.TxtUser)
         Me.Controls.Add(Me.PasswordLabel)
@@ -103,7 +104,7 @@ Partial Class FrmLogin
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "FrmLogin"
+        Me.Name = "Frm_Login"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Bienvenido!"

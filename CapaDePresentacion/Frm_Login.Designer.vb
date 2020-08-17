@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 <Global.System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1726")> _
-Partial Class LoginForm1
+Partial Class FrmLogin
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -19,7 +19,7 @@ Partial Class LoginForm1
     Friend WithEvents PasswordLabel As System.Windows.Forms.Label
     Friend WithEvents TxtUser As System.Windows.Forms.TextBox
     Friend WithEvents TxtPass As System.Windows.Forms.TextBox
-    Friend WithEvents BtnAceptar As System.Windows.Forms.Button
+    Friend WithEvents BtnIngresar As System.Windows.Forms.Button
 
     'Requerido por el Diseñador de Windows Forms
     Private components As System.ComponentModel.IContainer
@@ -29,19 +29,18 @@ Partial Class LoginForm1
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(LoginForm1))
         Me.LogoPictureBox = New System.Windows.Forms.PictureBox()
         Me.UsernameLabel = New System.Windows.Forms.Label()
         Me.PasswordLabel = New System.Windows.Forms.Label()
         Me.TxtUser = New System.Windows.Forms.TextBox()
         Me.TxtPass = New System.Windows.Forms.TextBox()
-        Me.BtnAceptar = New System.Windows.Forms.Button()
+        Me.BtnIngresar = New System.Windows.Forms.Button()
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LogoPictureBox
         '
-        Me.LogoPictureBox.Image = CType(resources.GetObject("LogoPictureBox.Image"), System.Drawing.Image)
+        Me.LogoPictureBox.Image = Global.CapaDePresentacion.My.Resources.Resources.CuidarteIcon
         Me.LogoPictureBox.Location = New System.Drawing.Point(0, 0)
         Me.LogoPictureBox.Name = "LogoPictureBox"
         Me.LogoPictureBox.Size = New System.Drawing.Size(165, 193)
@@ -81,21 +80,22 @@ Partial Class LoginForm1
         Me.TxtPass.Size = New System.Drawing.Size(220, 20)
         Me.TxtPass.TabIndex = 3
         '
-        'BtnAceptar
+        'BtnIngresar
         '
-        Me.BtnAceptar.Location = New System.Drawing.Point(200, 161)
-        Me.BtnAceptar.Name = "BtnAceptar"
-        Me.BtnAceptar.Size = New System.Drawing.Size(144, 23)
-        Me.BtnAceptar.TabIndex = 4
-        Me.BtnAceptar.Text = "Ingresar"
+        Me.BtnIngresar.Location = New System.Drawing.Point(214, 158)
+        Me.BtnIngresar.Name = "BtnIngresar"
+        Me.BtnIngresar.Size = New System.Drawing.Size(152, 23)
+        Me.BtnIngresar.TabIndex = 4
+        Me.BtnIngresar.Text = "Ingresar"
         '
-        'LoginForm1
+        'FrmLogin
         '
-        Me.AcceptButton = Me.BtnAceptar
+        Me.AcceptButton = Me.BtnIngresar
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(401, 192)
-        Me.Controls.Add(Me.BtnAceptar)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(183, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(447, 193)
+        Me.Controls.Add(Me.BtnIngresar)
         Me.Controls.Add(Me.TxtPass)
         Me.Controls.Add(Me.TxtUser)
         Me.Controls.Add(Me.PasswordLabel)
@@ -104,10 +104,10 @@ Partial Class LoginForm1
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "LoginForm1"
+        Me.Name = "FrmLogin"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "LoginForm1"
+        Me.Text = "Bienvenido!"
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

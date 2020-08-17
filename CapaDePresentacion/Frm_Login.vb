@@ -8,7 +8,7 @@ Public Class FrmLogin
             If Autentificar(TxtUser.Text, TxtPass.Text) = 1 Then
                 SetearSesion(TxtUser.Text, TxtPass.Text)
                 Me.Hide()
-                Frm_Paciente.Show()
+                Frm_Menu.Show()
             Else
                 MsgBox("Usuario invalido")
             End If

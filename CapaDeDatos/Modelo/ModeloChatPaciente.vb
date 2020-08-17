@@ -94,7 +94,7 @@
             INSERT INTO
                 atiende(ci_persona_medico, ci_persona_paciente, id_diagnostico, mensaje, leido, destinatario, status)
             VALUES
-                (" + Me.Destinatario + ", " + Me.Pwd + ", " + Me.IdDiagnostico + ", 'Conexion finalizada por paciente', 0," + Me.Destinatario + ", 'Finalizado')
+                (" + Me.Destinatario + ", " + Me.Pwd + ", " + Me.IdDiagnostico + ", 'paciente desconectado', 0," + Me.Destinatario + ", 'Finalizado')
         "
         Command.ExecuteNonQuery()
     End Sub

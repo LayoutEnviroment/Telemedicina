@@ -1,12 +1,12 @@
 Imports CapaDeNegocio
-Public Class LoginForm1
+Public Class Frm_Login
 
     Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnAceptar.Click
         Try
             If Autentificar(TxtUser.Text, TxtPass.Text) = 2 Then
                 SetearSesion(TxtUser.Text, TxtPass.Text)
                 Me.Hide()
-                MenuMedico.Show()
+                Frm_Menu.Show()
             Else
                 MsgBox("Usuario Invalido")
             End If

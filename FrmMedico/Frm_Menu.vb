@@ -1,6 +1,6 @@
 ﻿Imports CapaDeNegocio
 
-Public Class MenuMedico
+Public Class Frm_Menu
 
     Dim IdDiagnostico As String
     Dim CiPaciente As String
@@ -88,11 +88,11 @@ Public Class MenuMedico
                     If fila(5).ToString = "Iniciado" Then
                         RtbConversacion.Text += fila(1).ToString + ": " + Environment.NewLine + fila(2).ToString + Environment.NewLine
                     ElseIf fila(5).ToString = "Finalizado" Then
-                        RtbConversacion.Text += "Conversacion finalizada por el paciente"
-                        HacerCosas()
+                        Threading.Thread.Sleep(1000)
+                        Me.HacerCosas()
                     End If
-
                 Next
+
             End If
         Catch ex As Exception
             MsgBox("Error en la conexion del chat" + ex.ToString)
@@ -117,23 +117,32 @@ Public Class MenuMedico
     End Sub
 
     Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles BtnSalir.Click
-        LoginForm1.Close()
-    End Sub
-
-    Private Sub BtnFinalizarChat_Click(sender As Object, e As EventArgs) Handles BtnFinalizarChat.Click
-        HacerCosas()
-
-
+        Me.Close()
+        Frm_Login.Close()
     End Sub
 
     Private Sub HacerCosas()
-        RtbConversacion.Text += "Ha finalizado la conversacion"
         RealizarCambios(False)
-        Threading.Thread.Sleep(1000)
-        'ControladorChatMedico.MarcarComoFinalizado(IdDiagnostico)
-        ControladorChatMedico.FinalizarChat(IdDiagnostico, CiPaciente)
         BtnBuscarSolicitudes.PerformClick()
         RtbConversacion.Clear()
         RtbMensaje.Clear()
+    End Sub
+
+    Private Sub MenuMedico_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Try
+            ControladorChatMedico.FinalizarChat(IdDiagnostico, CiPaciente)
+        Catch ex As Exception
+            MsgBox("Error en la actualizacion del estado del chat")
+        End Try
+        HacerCosas()
+    End Sub
+
+    Private Sub BtnFinalizarChat_Click(sender As Object, e As EventArgs) Handles BtnFinalizarChat.Click
+        Try
+            ControladorChatMedico.FinalizarChat(IdDiagnostico, CiPaciente)
+        Catch ex As Exception
+            MsgBox("Error en la actualizacion del estado del chat")
+        End Try
+        HacerCosas()
     End Sub
 End Class

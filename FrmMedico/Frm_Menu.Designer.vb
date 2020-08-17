@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class MenuMedico
+Partial Class Frm_Menu
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,7 +23,7 @@ Partial Class MenuMedico
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MenuMedico))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Menu))
         Me.RtbConversacion = New System.Windows.Forms.RichTextBox()
         Me.RtbMensaje = New System.Windows.Forms.RichTextBox()
         Me.BtnEnviar = New System.Windows.Forms.Button()
@@ -149,7 +149,7 @@ Partial Class MenuMedico
         Me.BtnBuscarSolicitudes.Text = "Refrescar"
         Me.BtnBuscarSolicitudes.UseVisualStyleBackColor = True
         '
-        'MenuMedico
+        'Frm_Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -168,7 +168,7 @@ Partial Class MenuMedico
         Me.Controls.Add(Me.RtbMensaje)
         Me.Controls.Add(Me.RtbConversacion)
         Me.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Name = "MenuMedico"
+        Me.Name = "Frm_Menu"
         Me.Text = "Menu Medico"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DgvEnEspera, System.ComponentModel.ISupportInitialize).EndInit()
