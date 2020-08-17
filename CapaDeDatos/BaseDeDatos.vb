@@ -27,5 +27,4 @@ Public MustInherit Class ModeloBaseDeDatos
         Me.Command.Connection = Me.Connect
     End Sub
 
-
 End Class

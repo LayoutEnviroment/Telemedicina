@@ -52,9 +52,8 @@
     End Function
 
     Public Sub Insertar()
-        Try
-            For Each Nombre In IdSintomas
-                Command.CommandText = "
+        For Each Nombre In IdSintomas
+            Command.CommandText = "
                     INSERT INTO
                         compone(id_sintoma, id_enfermedad)
                     VALUES
@@ -72,11 +71,8 @@
                             nombre = '" + IdEnfermedad + "'))
 
                 "
-                Command.ExecuteNonQuery()
-            Next
-        Catch ex As Exception
-            MsgBox("Cortaste toda la loz")
-        End Try
+            Command.ExecuteNonQuery()
+        Next
 
     End Sub
 

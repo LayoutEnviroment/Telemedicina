@@ -23,7 +23,6 @@
     End Function
 
     Public Function ListarNombreSintoma()
-        MsgBox("Me ejecute")
         Command.CommandText = "
             SELECT 
                 nombre AS Sintoma 
@@ -47,6 +46,7 @@
         Return Reader
 
     End Function
+
     Public Sub Insertar()
         Command.CommandText = "
             INSERT INTO 
@@ -57,6 +57,7 @@
         Command.ExecuteNonQuery()
 
     End Sub
+
     Public Sub Modificar()
         Command.CommandText = "
             UPDATE 
