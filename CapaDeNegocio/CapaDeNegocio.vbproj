@@ -64,7 +64,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControladorChat.vb" />
     <Compile Include="ControladorChatMedico.vb" />
     <Compile Include="ControladorChatPaciente.vb" />
     <Compile Include="ControladorCompone.vb" />

@@ -14,18 +14,27 @@ Public Class FrmLogin
             End If
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("Usuario Invalido")
         End Try
 
     End Sub
 
-    Private Function AutenticarPaciente(usuario As String, contra As String)
-        'MsgBox("Visual envio: " + usuario + "," + contra)
-        Return ControladorLogin.Autentificar(usuario, contra)
-    End Function
+    Private Sub AutenticarPaciente(usuario As String, contra As String)
+        Try
+            ControladorLogin.Autentificar(usuario, contra)
+        Catch ex As Exception
+            MsgBox("Usuario Invalido")
+        End Try
+
+    End Sub
 
     Private Sub SetearSesion(usuario As String, contra As String)
-        ControladorSesion.User = usuario
-        ControladorSesion.Pass = contra
+        Try
+            ControladorSesion.User = usuario
+            ControladorSesion.Pass = contra
+        Catch ex As Exception
+            MsgBox("Usuario Invalido")
+        End Try
+
     End Sub
 End Class

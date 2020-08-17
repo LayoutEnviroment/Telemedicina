@@ -29,6 +29,8 @@ Partial Class Frm_Paciente
         Me.BtnDiagnostico = New System.Windows.Forms.Button()
         Me.LvSintomas = New System.Windows.Forms.ListView()
         Me.PanelChat = New System.Windows.Forms.Panel()
+        Me.LblId = New System.Windows.Forms.Label()
+        Me.TxtIdDiagnostico = New System.Windows.Forms.TextBox()
         Me.BtnVolver = New System.Windows.Forms.Button()
         Me.TxtEnfermedad = New System.Windows.Forms.TextBox()
         Me.TxtDescripcion = New System.Windows.Forms.TextBox()
@@ -38,8 +40,6 @@ Partial Class Frm_Paciente
         Me.LblEnfermedad = New System.Windows.Forms.Label()
         Me.LblIniciarChat = New System.Windows.Forms.Label()
         Me.BtnIniciarChat = New System.Windows.Forms.Button()
-        Me.TxtIdDiagnostico = New System.Windows.Forms.TextBox()
-        Me.LblId = New System.Windows.Forms.Label()
         Me.PanelChat.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -124,6 +124,24 @@ Partial Class Frm_Paciente
         Me.PanelChat.TabIndex = 21
         Me.PanelChat.Visible = False
         '
+        'LblId
+        '
+        Me.LblId.AutoSize = True
+        Me.LblId.ForeColor = System.Drawing.Color.White
+        Me.LblId.Location = New System.Drawing.Point(262, 47)
+        Me.LblId.Name = "LblId"
+        Me.LblId.Size = New System.Drawing.Size(21, 13)
+        Me.LblId.TabIndex = 10
+        Me.LblId.Text = "ID:"
+        '
+        'TxtIdDiagnostico
+        '
+        Me.TxtIdDiagnostico.Enabled = False
+        Me.TxtIdDiagnostico.Location = New System.Drawing.Point(242, 63)
+        Me.TxtIdDiagnostico.Name = "TxtIdDiagnostico"
+        Me.TxtIdDiagnostico.Size = New System.Drawing.Size(72, 20)
+        Me.TxtIdDiagnostico.TabIndex = 9
+        '
         'BtnVolver
         '
         Me.BtnVolver.Location = New System.Drawing.Point(591, 253)
@@ -207,24 +225,6 @@ Partial Class Frm_Paciente
         Me.BtnIniciarChat.TabIndex = 0
         Me.BtnIniciarChat.Text = "Iniciar Chat"
         Me.BtnIniciarChat.UseVisualStyleBackColor = True
-        '
-        'TxtIdDiagnostico
-        '
-        Me.TxtIdDiagnostico.Enabled = False
-        Me.TxtIdDiagnostico.Location = New System.Drawing.Point(242, 63)
-        Me.TxtIdDiagnostico.Name = "TxtIdDiagnostico"
-        Me.TxtIdDiagnostico.Size = New System.Drawing.Size(72, 20)
-        Me.TxtIdDiagnostico.TabIndex = 9
-        '
-        'LblId
-        '
-        Me.LblId.AutoSize = True
-        Me.LblId.ForeColor = System.Drawing.Color.White
-        Me.LblId.Location = New System.Drawing.Point(262, 47)
-        Me.LblId.Name = "LblId"
-        Me.LblId.Size = New System.Drawing.Size(21, 13)
-        Me.LblId.TabIndex = 10
-        Me.LblId.Text = "ID:"
         '
         'Frm_Paciente
         '

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class MenuMedico
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,62 +20,52 @@ Partial Class MenuMedico
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MenuMedico))
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
-        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
-        Me.btnEnviar = New System.Windows.Forms.Button()
+        Me.RtbConversacion = New System.Windows.Forms.RichTextBox()
+        Me.RtbMensaje = New System.Windows.Forms.RichTextBox()
+        Me.BtnEnviar = New System.Windows.Forms.Button()
         Me.BtnFinalizarChat = New System.Windows.Forms.Button()
         Me.BtnIniciarChat = New System.Windows.Forms.Button()
         Me.BtnCerrarSesion = New System.Windows.Forms.Button()
         Me.BtnSalir = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DgvEnEspera = New System.Windows.Forms.DataGridView()
-        Me.TmrBuscarChats = New System.Windows.Forms.Timer(Me.components)
         Me.TmrBuscarMensajesNuevos = New System.Windows.Forms.Timer(Me.components)
-        Me.BtnHabilitarTimer = New System.Windows.Forms.Button()
+        Me.BtnBuscarSolicitudes = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvEnEspera, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'RichTextBox1
+        'RtbConversacion
         '
-        Me.RichTextBox1.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox1.Location = New System.Drawing.Point(29, 133)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(349, 302)
-        Me.RichTextBox1.TabIndex = 0
-        Me.RichTextBox1.Text = ""
+        Me.RtbConversacion.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RtbConversacion.Location = New System.Drawing.Point(29, 133)
+        Me.RtbConversacion.Name = "RtbConversacion"
+        Me.RtbConversacion.Size = New System.Drawing.Size(349, 302)
+        Me.RtbConversacion.TabIndex = 0
+        Me.RtbConversacion.Text = ""
         '
-        'RichTextBox2
+        'RtbMensaje
         '
-        Me.RichTextBox2.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox2.Location = New System.Drawing.Point(29, 441)
-        Me.RichTextBox2.Name = "RichTextBox2"
-        Me.RichTextBox2.Size = New System.Drawing.Size(316, 34)
-        Me.RichTextBox2.TabIndex = 3
-        Me.RichTextBox2.Text = ""
+        Me.RtbMensaje.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RtbMensaje.Location = New System.Drawing.Point(29, 441)
+        Me.RtbMensaje.Name = "RtbMensaje"
+        Me.RtbMensaje.Size = New System.Drawing.Size(244, 47)
+        Me.RtbMensaje.TabIndex = 3
+        Me.RtbMensaje.Text = ""
         '
-        'WebBrowser1
+        'BtnEnviar
         '
-        Me.WebBrowser1.Location = New System.Drawing.Point(486, 441)
-        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(22, 20)
-        Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(198, 87)
-        Me.WebBrowser1.TabIndex = 2
-        '
-        'btnEnviar
-        '
-        Me.btnEnviar.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEnviar.Location = New System.Drawing.Point(352, 441)
-        Me.btnEnviar.Name = "btnEnviar"
-        Me.btnEnviar.Size = New System.Drawing.Size(128, 34)
-        Me.btnEnviar.TabIndex = 4
-        Me.btnEnviar.Text = "Enviar"
-        Me.btnEnviar.UseVisualStyleBackColor = True
+        Me.BtnEnviar.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEnviar.Location = New System.Drawing.Point(290, 441)
+        Me.BtnEnviar.Name = "BtnEnviar"
+        Me.BtnEnviar.Size = New System.Drawing.Size(88, 47)
+        Me.BtnEnviar.TabIndex = 4
+        Me.BtnEnviar.Text = "Enviar"
+        Me.BtnEnviar.UseVisualStyleBackColor = True
         '
         'BtnFinalizarChat
         '
@@ -90,7 +80,6 @@ Partial Class MenuMedico
         '
         'BtnIniciarChat
         '
-        Me.BtnIniciarChat.Enabled = False
         Me.BtnIniciarChat.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnIniciarChat.Location = New System.Drawing.Point(645, 177)
         Me.BtnIniciarChat.Name = "BtnIniciarChat"
@@ -122,10 +111,10 @@ Partial Class MenuMedico
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(395, 133)
+        Me.DataGridView1.Location = New System.Drawing.Point(398, 133)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(218, 261)
+        Me.DataGridView1.Size = New System.Drawing.Size(218, 355)
         Me.DataGridView1.TabIndex = 5
         '
         'DgvEnEspera
@@ -140,20 +129,25 @@ Partial Class MenuMedico
         Me.DgvEnEspera.Location = New System.Drawing.Point(645, 207)
         Me.DgvEnEspera.MultiSelect = False
         Me.DgvEnEspera.Name = "DgvEnEspera"
+        Me.DgvEnEspera.ReadOnly = True
         Me.DgvEnEspera.RowHeadersVisible = False
         Me.DgvEnEspera.RowTemplate.Height = 24
         Me.DgvEnEspera.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvEnEspera.Size = New System.Drawing.Size(241, 200)
         Me.DgvEnEspera.TabIndex = 9
         '
-        'BtnHabilitarTimer
+        'TmrBuscarMensajesNuevos
         '
-        Me.BtnHabilitarTimer.Location = New System.Drawing.Point(645, 133)
-        Me.BtnHabilitarTimer.Name = "BtnHabilitarTimer"
-        Me.BtnHabilitarTimer.Size = New System.Drawing.Size(241, 23)
-        Me.BtnHabilitarTimer.TabIndex = 10
-        Me.BtnHabilitarTimer.Text = "Refrescar"
-        Me.BtnHabilitarTimer.UseVisualStyleBackColor = True
+        Me.TmrBuscarMensajesNuevos.Enabled = True
+        '
+        'BtnBuscarSolicitudes
+        '
+        Me.BtnBuscarSolicitudes.Location = New System.Drawing.Point(645, 148)
+        Me.BtnBuscarSolicitudes.Name = "BtnBuscarSolicitudes"
+        Me.BtnBuscarSolicitudes.Size = New System.Drawing.Size(241, 23)
+        Me.BtnBuscarSolicitudes.TabIndex = 10
+        Me.BtnBuscarSolicitudes.Text = "Refrescar"
+        Me.BtnBuscarSolicitudes.UseVisualStyleBackColor = True
         '
         'MenuMedico
         '
@@ -163,17 +157,16 @@ Partial Class MenuMedico
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(900, 531)
         Me.ControlBox = False
-        Me.Controls.Add(Me.BtnHabilitarTimer)
+        Me.Controls.Add(Me.BtnBuscarSolicitudes)
         Me.Controls.Add(Me.DgvEnEspera)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.BtnSalir)
         Me.Controls.Add(Me.BtnCerrarSesion)
         Me.Controls.Add(Me.BtnIniciarChat)
         Me.Controls.Add(Me.BtnFinalizarChat)
-        Me.Controls.Add(Me.btnEnviar)
-        Me.Controls.Add(Me.WebBrowser1)
-        Me.Controls.Add(Me.RichTextBox2)
-        Me.Controls.Add(Me.RichTextBox1)
+        Me.Controls.Add(Me.BtnEnviar)
+        Me.Controls.Add(Me.RtbMensaje)
+        Me.Controls.Add(Me.RtbConversacion)
         Me.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "MenuMedico"
         Me.Text = "Menu Medico"
@@ -183,17 +176,15 @@ Partial Class MenuMedico
 
     End Sub
 
-    Friend WithEvents RichTextBox1 As RichTextBox
-    Friend WithEvents RichTextBox2 As RichTextBox
-    Friend WithEvents WebBrowser1 As WebBrowser
-    Friend WithEvents btnEnviar As Button
+    Friend WithEvents RtbConversacion As RichTextBox
+    Friend WithEvents RtbMensaje As RichTextBox
+    Friend WithEvents BtnEnviar As Button
     Friend WithEvents BtnFinalizarChat As Button
     Friend WithEvents BtnIniciarChat As Button
     Friend WithEvents BtnCerrarSesion As Button
     Friend WithEvents BtnSalir As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents DgvEnEspera As DataGridView
-    Friend WithEvents TmrBuscarChats As Timer
     Friend WithEvents TmrBuscarMensajesNuevos As Timer
-    Friend WithEvents BtnHabilitarTimer As Button
+    Friend WithEvents BtnBuscarSolicitudes As Button
 End Class

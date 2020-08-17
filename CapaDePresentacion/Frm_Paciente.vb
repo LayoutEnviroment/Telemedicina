@@ -6,7 +6,11 @@ Public Class Frm_Paciente
 
     Private Sub Frm_Paciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        LblSaludo.Text = "Bienvenido, " + ControladorPaciente.ObtenerNombre() + ""
+        Try
+            LblSaludo.Text = "Bienvenido, " + ControladorPaciente.ObtenerNombre() + ""
+        Catch ex As Exception
+            LblSaludo.Text = "Bienvenido!"
+        End Try
         CargarSintoma()
 
     End Sub
@@ -19,7 +23,7 @@ Public Class Frm_Paciente
                 CmbSintomas.Items.Add(LectorSintomas(0))
             End While
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("No pudimos cargar los sintomas, intente reiniciar la aplicacion", MsgBoxStyle.Critical)
         End Try
 
     End Sub
@@ -55,11 +59,11 @@ Public Class Frm_Paciente
                 TxtEnfermedad.Text = Lector(0)
                 TxtPrioridad.Text = Lector(1)
                 TxtDescripcion.Text = Lector(2)
+                MostrarResultado()
             End While
         Catch ex As Exception
             MsgBox("Debe ingresar algún sintoma, entre mas preciso sea, mejor")
         End Try
-        MostrarResultado()
 
     End Sub
 
@@ -113,8 +117,17 @@ Public Class Frm_Paciente
     End Sub
 
     Private Sub BtnIniciarChat_Click(sender As Object, e As EventArgs) Handles BtnIniciarChat.Click
-        ControladorChatPaciente.EnviarSolicitud(TxtIdDiagnostico.Text)
-        Me.Hide()
-        Frm_Chat.Show()
+        Try
+            ControladorChatPaciente.EnviarSolicitud(TxtIdDiagnostico.Text)
+            Me.Hide()
+            Frm_Chat.Show()
+        Catch ex As Exception
+            MsgBox("No pudimos ponerlo en cola de espera")
+        End Try
+
+    End Sub
+
+    Private Sub Frm_Paciente_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        FrmLogin.Close()
     End Sub
 End Class

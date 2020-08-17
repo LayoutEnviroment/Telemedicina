@@ -19,4 +19,5 @@
         "
         Return Command.ExecuteScalar.ToString
     End Function
+
 End Class

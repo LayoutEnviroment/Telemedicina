@@ -4,21 +4,47 @@ Public Class Frm_Chat
 
     Dim IdMedico As String
     Dim Destinatario As String
+    Dim IdDiagnostico As String
+
+    Private Sub Frm_Chat_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        RtbConversacion.Text += "Un médico se pondrá en contacto con usted en la brevedad" + Environment.NewLine
+        IdDiagnostico = Frm_Paciente.TxtIdDiagnostico.Text
+    End Sub
 
     Private Sub TmrMensajesNuevos_Tick(sender As Object, e As EventArgs) Handles TmrMensajesNuevos.Tick
-        Dim Tabla As New DataTable
+        Dim TablaMensaje As New DataTable
         Try
-            Tabla = ControladorChat.BuscarMensajesNuevos(Frm_Paciente.TxtIdDiagnostico.Text)
-            AgregarChat(Tabla)
+            TablaMensaje = ControladorChatPaciente.BuscarMensajesNuevos(IdDiagnostico)
+            AgregarChat(TablaMensaje)
 
         Catch ex As Exception
             MsgBox("Error buscando mensajes" + ex.ToString)
         End Try
+
+    End Sub
+
+    Public Sub AgregarChat(mensajes As DataTable)
+        If mensajes.Rows.Count > 0 Then
+            ControladorChatPaciente.MarcarComoLeido()
+            BtnEnviar.Enabled = True
+
+            For Each mensaje As DataRow In mensajes.Rows
+                MsgBox(mensaje(5).ToString)
+                If mensaje(5).ToString = "Iniciado" Then
+                    IdMedico = mensaje(0).ToString
+                    RtbConversacion.Text += mensaje(4).ToString + ": " + Environment.NewLine + mensaje(2).ToString + Environment.NewLine
+                ElseIf mensaje(5).ToString = "Finalizado" Then
+                    RtbConversacion.Text += "SISTEMA : " + mensaje(2).ToString
+                    Threading.Thread.Sleep(2000)
+                    Me.Close()
+                End If
+            Next
+        End If
     End Sub
 
     Private Sub BtnEnviar_Click(sender As Object, e As EventArgs) Handles BtnEnviar.Click
         Try
-            ControladorChat.EnviarMensaje(Frm_Paciente.TxtIdDiagnostico.Text, RtbMensaje.Text)
+            ControladorChatPaciente.EnviarMensaje(IdDiagnostico, RtbMensaje.Text, IdMedico)
             AgregarChat()
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -27,21 +53,31 @@ Public Class Frm_Chat
     End Sub
 
     Public Sub AgregarChat()
-        RtbConversacion.Text += "YO:" + Environment.NewLine + RtbMensaje.Text
+        RtbConversacion.Text += "YO: " + Environment.NewLine + RtbMensaje.Text + Environment.NewLine
         RtbMensaje.Clear()
 
     End Sub
 
-    Public Sub AgregarChat(tabla As DataTable)
-        If tabla.Rows.Count > 0 Then
-            For Each fila As DataRow In tabla.Rows
-                IdMedico = fila(0).ToString
-                Destinatario = fila(2).ToString
-                RtbConversacion.Text += Environment.NewLine + fila(3).ToString + ": " + fila(1).ToString
+    Private Sub Frm_Chat_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
-            Next
+        If DialogResult.Cancel Then
+            MsgBox("Porque?")
+            Try
+                ControladorChatPaciente.MarcarComoFinalizado(IdDiagnostico)
+                ControladorChatPaciente.FinalizarChat(IdDiagnostico, IdMedico)
+            Catch ex As Exception
+                MsgBox("No se pudo finalizar correctamente " + ex.ToString)
+            End Try
         End If
 
+
+        Frm_Paciente.Show()
+        Frm_Paciente.PanelChat.Hide()
     End Sub
 
+    Private Sub RtbMensaje_TextChanged(sender As Object, e As EventArgs) Handles RtbMensaje.TextChanged
+        If RtbMensaje.Text = "" Then
+            BtnEnviar.Enabled = False
+        End If
+    End Sub
 End Class

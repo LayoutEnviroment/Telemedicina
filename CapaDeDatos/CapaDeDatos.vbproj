@@ -65,7 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDeDatos.vb" />
-    <Compile Include="Modelo\ModeloChat.vb" />
     <Compile Include="Modelo\ModeloChatPaciente.vb" />
     <Compile Include="Modelo\ModeloChatMedico.vb" />
     <Compile Include="Modelo\ModeloCompone.vb" />
