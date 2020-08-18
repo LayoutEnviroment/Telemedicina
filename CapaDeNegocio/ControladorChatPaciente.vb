@@ -27,8 +27,10 @@ Public Module ControladorChatPaciente
         Return c.BuscarMensajesNuevos
     End Function
 
-    Public Sub MarcarComoLeido()
-        Dim c As New ModeloChatPaciente(ControladorSesion.User, ControladorSesion.Pass)
+    Public Sub MarcarComoLeido(id As String)
+        Dim c As New ModeloChatPaciente(ControladorSesion.User, ControladorSesion.Pass) With {
+            .IdDiagnostico = id
+        }
 
         c.MarcarComoLeido()
     End Sub

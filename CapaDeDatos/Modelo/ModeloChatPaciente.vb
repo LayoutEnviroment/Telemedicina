@@ -74,20 +74,14 @@
             SET 
                 leido = 1
             WHERE
-                id_diagnostico = (
-                                SELECT
-                                    MAX(id_diagnostico)
-                                FROM
-                                    atiende
-                                WHERE
-                                    destinatario = " + Me.Pwd + "
-                                )
+                id_diagnostico = " + Me.IdDiagnostico + "
                 AND
                     destinatario = " + Me.Pwd + "
                 "
         Command.ExecuteNonQuery()
         Me.Connect.Close()
     End Sub
+
 
     Public Sub FinalizarChat()
         Command.CommandText = "
