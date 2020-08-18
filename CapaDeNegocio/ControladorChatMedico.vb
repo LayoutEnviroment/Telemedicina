@@ -53,8 +53,10 @@ Public Module ControladorChatMedico
         c.FinalizarChat()
     End Sub
 
-    Public Sub MarcarComoLeido()
-        Dim c As New ModeloChatMedico(ControladorSesion.User, ControladorSesion.Pass)
+    Public Sub MarcarComoLeido(id As String)
+        Dim c As New ModeloChatMedico(ControladorSesion.User, ControladorSesion.Pass) With {
+            .IdDiagnostico = id
+        }
 
         c.MarcarComoLeido()
     End Sub

@@ -5,12 +5,14 @@ Public Class Frm_Menu
     Dim ListaSintomas As New List(Of String)
 
     Private Sub Frm_Paciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         Try
             LblSaludo.Text = "Bienvenido, " + ControladorPaciente.ObtenerNombre() + ""
+
         Catch ex As Exception
             LblSaludo.Text = "Bienvenido!"
+
         End Try
+
         CargarSintoma()
 
     End Sub
@@ -22,8 +24,10 @@ Public Class Frm_Menu
             While LectorSintomas.Read
                 CmbSintomas.Items.Add(LectorSintomas(0))
             End While
+
         Catch ex As Exception
             MsgBox("No pudimos cargar los sintomas, intente reiniciar la aplicacion", MsgBoxStyle.Critical)
+
         End Try
 
     End Sub
@@ -47,8 +51,10 @@ Public Class Frm_Menu
         Try
             LectorEnfermedad = ControladorCompone.EnfermedadesPosibles(ListaSintomas)
             CargarTextBoxes(LectorEnfermedad)
+
         Catch ex As Exception
             MsgBox("Hubo un error buscando la enfermedad")
+
         End Try
 
     End Sub
@@ -61,8 +67,10 @@ Public Class Frm_Menu
                 TxtDescripcion.Text = Lector(2)
                 MostrarResultado()
             End While
+
         Catch ex As Exception
             MsgBox("Debe ingresar algún sintoma, entre mas preciso sea, mejor")
+
         End Try
 
     End Sub
@@ -70,13 +78,17 @@ Public Class Frm_Menu
     Private Sub MostrarResultado()
         If TxtEnfermedad.Text = "" Then
             MsgBox("No se encontró un resultado con los sintomas ingresados", MsgBoxStyle.Information)
+
         Else
             Try
                 ControladorDiagnostico.Nuevo(ListaSintomas, TxtEnfermedad.Text)
                 TraerIdDiagnostico()
+
             Catch ex As Exception
                 MsgBox("No existe ninguna enfermedad relacionada a esos sintomas", MsgBoxStyle.Information)
+
             End Try
+
         End If
 
     End Sub
@@ -89,8 +101,10 @@ Public Class Frm_Menu
                 TxtIdDiagnostico.Text = Id(0)
             End While
             PanelChat.Visible = True
+
         Catch ex As Exception
             MsgBox("No encontramos su diagnostico D:")
+
         End Try
 
     End Sub
@@ -121,13 +135,16 @@ Public Class Frm_Menu
             ControladorChatPaciente.EnviarSolicitud(TxtIdDiagnostico.Text)
             Me.Hide()
             Frm_Chat.Show()
+
         Catch ex As Exception
             MsgBox("No pudimos ponerlo en cola de espera")
+
         End Try
 
     End Sub
 
     Private Sub Frm_Paciente_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         FrmLogin.Close()
+
     End Sub
 End Class

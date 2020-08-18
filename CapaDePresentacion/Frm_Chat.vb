@@ -21,25 +21,22 @@ Public Class Frm_Chat
 
         Catch ex As Exception
             MsgBox("Error buscando mensajes", MsgBoxStyle.Critical)
+
         End Try
 
     End Sub
 
     Public Sub AgregarChat(mensajes As DataTable)
         If mensajes.Rows.Count > 0 Then
-
             ControladorChatPaciente.MarcarComoLeido(IdDiagnostico)
             BtnEnviar.Enabled = True
 
             For Each mensaje As DataRow In mensajes.Rows
-
                 If mensaje(5).ToString = "Iniciado" Then
-
                     IdMedico = mensaje(0).ToString
                     RtbConversacion.Text += mensaje(4).ToString + ": " + Environment.NewLine + mensaje(2).ToString + Environment.NewLine
 
                 ElseIf mensaje(5).ToString = "Finalizado" Then
-
                     RtbConversacion.Text += "SISTEMA : " + mensaje(2).ToString
                     Threading.Thread.Sleep(2000)
                     Me.Close()
@@ -72,20 +69,20 @@ Public Class Frm_Chat
 
     Private Sub RtbMensaje_TextChanged(sender As Object, e As EventArgs) Handles RtbMensaje.TextChanged
         If RtbMensaje.Text = "" Then
-
             BtnEnviar.Enabled = False
+
         End If
 
     End Sub
 
     Private Sub Frm_Chat_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Try
-
             ControladorChatPaciente.MarcarComoFinalizado(IdDiagnostico)
             ControladorChatPaciente.FinalizarChat(IdDiagnostico, IdMedico)
-        Catch ex As Exception
 
+        Catch ex As Exception
             MsgBox("No se pudo finalizar correctamente ", MsgBoxStyle.Critical)
+
         End Try
 
         Frm_Menu.Show()
