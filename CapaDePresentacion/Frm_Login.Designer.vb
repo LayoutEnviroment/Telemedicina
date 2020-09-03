@@ -82,6 +82,7 @@ Partial Class FrmLogin
         '
         'BtnIngresar
         '
+        Me.BtnIngresar.Enabled = False
         Me.BtnIngresar.Location = New System.Drawing.Point(214, 158)
         Me.BtnIngresar.Name = "BtnIngresar"
         Me.BtnIngresar.Size = New System.Drawing.Size(152, 23)

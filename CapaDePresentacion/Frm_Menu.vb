@@ -21,6 +21,7 @@ Public Class Frm_Menu
         Dim LectorSintomas As IDataReader
         Try
             LectorSintomas = ControladorSintoma.ListarNombre()
+
             While LectorSintomas.Read
                 CmbSintomas.Items.Add(LectorSintomas(0))
             End While
@@ -53,7 +54,7 @@ Public Class Frm_Menu
             CargarTextBoxes(LectorEnfermedad)
 
         Catch ex As Exception
-            MsgBox("Hubo un error buscando la enfermedad")
+            MsgBox("Hubo un error buscando la enfermedad" + ex.ToString)
 
         End Try
 
@@ -69,7 +70,7 @@ Public Class Frm_Menu
             End While
 
         Catch ex As Exception
-            MsgBox("Debe ingresar algún sintoma, entre mas preciso sea, mejor")
+            MsgBox("Debe ingresar algún sintoma, entre mas preciso sea, mejor" + ex.ToString)
 
         End Try
 
@@ -103,7 +104,7 @@ Public Class Frm_Menu
             PanelChat.Visible = True
 
         Catch ex As Exception
-            MsgBox("No encontramos su diagnostico D:")
+            MsgBox("No encontramos su diagnostico D:" + ex.ToString)
 
         End Try
 

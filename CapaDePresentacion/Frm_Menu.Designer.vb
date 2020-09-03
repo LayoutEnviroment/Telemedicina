@@ -226,7 +226,7 @@ Partial Class Frm_Menu
         Me.BtnIniciarChat.Text = "Iniciar Chat"
         Me.BtnIniciarChat.UseVisualStyleBackColor = True
         '
-        'Frm_Paciente
+        'Frm_Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -240,7 +240,7 @@ Partial Class Frm_Menu
         Me.Controls.Add(Me.LblSaludo)
         Me.Controls.Add(Me.LblSintomas)
         Me.Margin = New System.Windows.Forms.Padding(2)
-        Me.Name = "Frm_Paciente"
+        Me.Name = "Frm_Menu"
         Me.Text = "Paciente"
         Me.PanelChat.ResumeLayout(False)
         Me.PanelChat.PerformLayout()
