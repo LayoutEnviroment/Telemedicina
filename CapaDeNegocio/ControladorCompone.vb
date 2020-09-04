@@ -10,6 +10,14 @@ Public Module ControladorCompone
         Return c.EnfermedadesPosibles()
     End Function
 
+    Public Function EnfermedadesPorAproximacion(Sintomas As List(Of String))
+        Dim c As New ModeloCompone(ControladorSesion.User, ControladorSesion.Pass) With {
+            .IdSintomas = Sintomas
+        }
+
+        Return c.EnfermedadesPorAproximacion()
+    End Function
+
     Public Sub Insertar(Sintomas As List(Of String), Enfermedad As String)
         Dim c As New ModeloCompone(ControladorSesion.User, ControladorSesion.Pass) With {
             .IdSintomas = Sintomas,

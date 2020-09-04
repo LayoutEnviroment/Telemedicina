@@ -42,4 +42,31 @@ Public Module ControladorEnfermedad
 
         e.Eliminar()
     End Sub
+
+    Public Function ObtenerId(nombre As String)
+        Dim e As New ModeloEnfermedad(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Nombre = nombre
+        }
+
+        Return e.ObtenerId()
+    End Function
+
+    Public Function ObtenerPrioridad(id As String)
+        Dim e As New ModeloEnfermedad(ControladorSesion.User, ControladorSesion.Pass) With {
+            .IdEnfermedad = id
+        }
+
+        Return e.ObtenerPrioridad()
+
+    End Function
+
+    Public Function ObtenerDescripcion(id As String)
+        Dim e As New ModeloEnfermedad(ControladorSesion.User, ControladorSesion.Pass) With {
+            .IdEnfermedad = id
+        }
+
+        Return e.ObtenerDescripcion()
+
+    End Function
+
 End Module

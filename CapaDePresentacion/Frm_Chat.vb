@@ -6,12 +6,12 @@ Public Class Frm_Chat
     Dim Destinatario As String
     Dim IdDiagnostico As String
 
-    Private Sub Frm_Chat_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    'Private Sub Frm_Chat_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        RtbConversacion.Text += "Un médico se pondrá en contacto con usted en la brevedad" + Environment.NewLine
-        IdDiagnostico = Frm_Menu.TxtIdDiagnostico.Text
+    '    RtbConversacion.Text += "Un médico se pondrá en contacto con usted en la brevedad" + Environment.NewLine
+    '    IdDiagnostico = Frm_Menu.TxtIdDiagnostico.Text
 
-    End Sub
+    'End Sub
 
     Private Sub TmrMensajesNuevos_Tick(sender As Object, e As EventArgs) Handles TmrMensajesNuevos.Tick
         Dim TablaMensaje As New DataTable
@@ -86,7 +86,7 @@ Public Class Frm_Chat
         End Try
 
         Frm_Menu.Show()
-        Frm_Menu.PanelChat.Hide()
+        Frm_Iniciar_Chat.Hide()
 
     End Sub
 

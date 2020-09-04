@@ -90,5 +90,46 @@
 
     End Sub
 
+    Public Function ObtenerId()
+        Command.CommandText = "
+            SELECT
+                id
+            FROM
+                enfermedad
+            WHERE
+                nombre = '" + Me.Nombre + "'
+        "
+
+        Return Command.ExecuteScalar.ToString()
+
+    End Function
+
+    Public Function ObtenerPrioridad()
+        Command.CommandText = "
+            SELECT
+                prioridad
+            FROM
+                enfermedad
+            WHERE
+                id = " + Me.IdEnfermedad + "
+        "
+
+        Return Command.ExecuteScalar.ToString()
+
+    End Function
+
+    Public Function ObtenerDescripcion()
+        Command.CommandText = "
+            SELECT
+                descripcion
+            FROM
+                enfermedad
+            WHERE
+                id = " + Me.IdEnfermedad + "
+        "
+
+        Return Command.ExecuteScalar.ToString()
+
+    End Function
 End Class
 

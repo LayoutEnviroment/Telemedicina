@@ -78,6 +78,18 @@
     <Compile Include="Frm_Chat.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Frm_Historial.Designer.vb">
+      <DependentUpon>Frm_Historial.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Historial.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Iniciar_Chat.Designer.vb">
+      <DependentUpon>Frm_Iniciar_Chat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Iniciar_Chat.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Frm_Login.Designer.vb">
       <DependentUpon>Frm_Login.vb</DependentUpon>
     </Compile>
@@ -109,6 +121,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Frm_Chat.resx">
       <DependentUpon>Frm_Chat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Historial.resx">
+      <DependentUpon>Frm_Historial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Iniciar_Chat.resx">
+      <DependentUpon>Frm_Iniciar_Chat.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Login.resx">
       <DependentUpon>Frm_Login.vb</DependentUpon>

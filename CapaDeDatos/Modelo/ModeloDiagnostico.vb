@@ -26,10 +26,10 @@
                         CURDATE())
                 "
                 Command.ExecuteNonQuery()
-
-                Dim values = String.Join(",", IdSintomas.Select(Function(f) String.Format("'{0}'", f)).ToArray())
-                For Each sintoma In IdSintomas
-                    Command.CommandText = "
+                Try
+                    Dim values = String.Join(",", IdSintomas.Select(Function(f) String.Format("'{0}'", f)).ToArray())
+                    For Each sintoma In IdSintomas
+                        Command.CommandText = "
                         INSERT INTO
                             genera(id_diagnostico, id_sintoma_compone, id_enfermedad_compone)
                         VALUES
@@ -43,27 +43,31 @@
                                 sintoma
                               WHERE
                                 nombre = '" + sintoma + "'),
-                             (SELECT
-                                id
-                              FROM
-                                enfermedad
-                              WHERE
-                                nombre = '" + Me.IdEnfermedad + "')
+                             " + Me.IdEnfermedad + "
                             )
                     "
-                    Command.ExecuteNonQuery()
-                Next
+                        Command.ExecuteNonQuery()
+                    Next
 
-                Command.CommandText = "COMMIT"
-                Command.ExecuteNonQuery()
+                    Command.CommandText = "COMMIT"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "UNLOCK TABLES"
+                    Command.ExecuteNonQuery()
+
+                Catch ex As Exception
+                    MsgBox("Error en insert genera")
+                    MsgBox(ex.ToString)
+                End Try
 
             Catch ex As Exception
+                MsgBox("Error en diagnostcio")
                 Command.CommandText = "ROLLBACK"
                 Command.ExecuteNonQuery()
                 Command.CommandText = "UNLOCK TABLES"
                 Command.ExecuteNonQuery()
             End Try
         Catch ex As Exception
+            MsgBox("Error en transaccion")
         End Try
 
     End Sub
@@ -75,11 +79,8 @@
             FROM
                 diagnostico
             "
-        Reader = Command.ExecuteReader()
-        Command.CommandText = "
-                UNLOCK TABLES
-            "
-        Return Reader
+
+        Return Command.ExecuteScalar.ToString()
 
     End Function
 
