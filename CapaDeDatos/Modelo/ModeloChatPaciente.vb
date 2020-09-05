@@ -60,10 +60,12 @@
             LIMIT
                 1
         "
+
         Dim Resultado As New DataTable
         Resultado.Load(Me.Command.ExecuteReader)
         Me.Connect.Close()
         Return Resultado
+
 
     End Function
 
@@ -78,6 +80,7 @@
                 AND
                     destinatario = " + Me.Pwd + "
                 "
+
         Command.ExecuteNonQuery()
         Me.Connect.Close()
     End Sub

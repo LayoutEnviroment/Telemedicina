@@ -66,10 +66,9 @@ Public Class Frm_Iniciar_Chat
 
     End Sub
 
-
-
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
         Me.Close()
         Frm_Menu.Show()
     End Sub
+
 End Class

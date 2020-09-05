@@ -4,48 +4,43 @@ Public Class Frm_Chat
 
     Dim IdMedico As String
     Dim Destinatario As String
-    Dim IdDiagnostico As String
+    Dim IdDiagnostico As String = Frm_Iniciar_Chat.TxtIdDiagnostico.Text
 
-    'Private Sub Frm_Chat_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Frm_Chat_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        RtbConversacion.Text += "Un médico se pondrá en contacto con usted en la brevedad" + Environment.NewLine
 
-    '    RtbConversacion.Text += "Un médico se pondrá en contacto con usted en la brevedad" + Environment.NewLine
-    '    IdDiagnostico = Frm_Menu.TxtIdDiagnostico.Text
-
-    'End Sub
+    End Sub
 
     Private Sub TmrMensajesNuevos_Tick(sender As Object, e As EventArgs) Handles TmrMensajesNuevos.Tick
-        Dim TablaMensaje As New DataTable
+        Dim MensajeNuevo As New DataTable
+
         Try
-            TablaMensaje = ControladorChatPaciente.BuscarMensajesNuevos(IdDiagnostico)
-            AgregarChat(TablaMensaje)
+            MensajeNuevo = ControladorChatPaciente.BuscarMensajesNuevos(IdDiagnostico)
+            If MensajeNuevo.Rows.Count > 0 Then
+                AgregarChat(MensajeNuevo)
+            End If
 
         Catch ex As Exception
-            MsgBox("Error buscando mensajes", MsgBoxStyle.Critical)
+            MsgBox(ex.ToString)
+            'MsgBox("Error buscando mensajes", MsgBoxStyle.ApplicationModal)
 
         End Try
 
     End Sub
 
-    Public Sub AgregarChat(mensajes As DataTable)
-        If mensajes.Rows.Count > 0 Then
-            ControladorChatPaciente.MarcarComoLeido(IdDiagnostico)
-            BtnEnviar.Enabled = True
+    Public Sub AgregarChat(mensaje As DataTable)
+        ControladorChatPaciente.MarcarComoLeido(IdDiagnostico)
 
-            For Each mensaje As DataRow In mensajes.Rows
-                If mensaje(5).ToString = "Iniciado" Then
-                    IdMedico = mensaje(0).ToString
-                    RtbConversacion.Text += mensaje(4).ToString + ": " + Environment.NewLine + mensaje(2).ToString + Environment.NewLine
+        For Each fila As DataRow In mensaje.Rows
+            If fila(5).ToString = "Finalizado" Then
 
-                ElseIf mensaje(5).ToString = "Finalizado" Then
-                    RtbConversacion.Text += "SISTEMA : " + mensaje(2).ToString
-                    Threading.Thread.Sleep(2000)
-                    Me.Close()
+            Else
+                RtbConversacion.Text += fila(4).ToString + " : " + fila(2).ToString + Environment.NewLine
+                IdMedico = fila(0).ToString
+                BtnEnviar.Enabled = True
+            End If
 
-                End If
-
-            Next
-
-        End If
+        Next
 
     End Sub
 
@@ -62,7 +57,7 @@ Public Class Frm_Chat
     End Sub
 
     Public Sub AgregarChat()
-        RtbConversacion.Text += "YO: " + Environment.NewLine + RtbMensaje.Text + Environment.NewLine
+        RtbConversacion.Text += "YO: " + RtbMensaje.Text + Environment.NewLine
         RtbMensaje.Clear()
 
     End Sub
@@ -70,23 +65,30 @@ Public Class Frm_Chat
     Private Sub RtbMensaje_TextChanged(sender As Object, e As EventArgs) Handles RtbMensaje.TextChanged
         If RtbMensaje.Text = "" Then
             BtnEnviar.Enabled = False
-
+        Else
+            BtnEnviar.Enabled = True
         End If
 
     End Sub
 
     Private Sub Frm_Chat_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        Try
-            ControladorChatPaciente.MarcarComoFinalizado(IdDiagnostico)
-            ControladorChatPaciente.FinalizarChat(IdDiagnostico, IdMedico)
+        Select Case MsgBox("¿Seguro quiere salir del chat?", MsgBoxStyle.YesNo)
+            Case MsgBoxResult.Yes
+                Try
+                    ControladorChatPaciente.MarcarComoFinalizado(IdDiagnostico)
+                    Frm_Menu.Show()
+                    Frm_Iniciar_Chat.Hide()
 
-        Catch ex As Exception
-            MsgBox("No se pudo finalizar correctamente ", MsgBoxStyle.Critical)
+                Catch ex As Exception
+                    MsgBox("El chat no se pudo guardar correctamente")
 
-        End Try
+                End Try
 
-        Frm_Menu.Show()
-        Frm_Iniciar_Chat.Hide()
+            Case MsgBoxResult.No
+                e.Cancel = True
+        End Select
+
+
 
     End Sub
 

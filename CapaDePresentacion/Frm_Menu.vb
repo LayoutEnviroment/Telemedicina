@@ -53,42 +53,6 @@ Public Class Frm_Menu
 
     End Sub
 
-    'Private Sub CargarTextBoxes(Lector As IDataReader)
-    '    Try
-    '        While Lector.Read
-    '            TxtEnfermedad.Text = Lector(0)
-    '            TxtPrioridad.Text = Lector(1)
-    '            TxtDescripcion.Text = Lector(2)
-    '            MostrarResultado()
-    '        End While
-
-    '    Catch ex As Exception
-    '        MsgBox("Debe ingresar algún sintoma, entre mas preciso sea, mejor" + ex.ToString)
-
-    '    End Try
-
-    'End Sub
-
-    'Private Sub MostrarResultado()
-    '    If TxtEnfermedad.Text = "" Then
-    '        MsgBox("No se encontró un resultado con los sintomas ingresados", MsgBoxStyle.Information)
-
-    '    Else
-    '        Try
-    '            ControladorDiagnostico.Nuevo(ListaSintomas, TxtEnfermedad.Text)
-    '            TraerIdDiagnostico()
-
-    '        Catch ex As Exception
-    '            MsgBox("No existe ninguna enfermedad relacionada a esos sintomas", MsgBoxStyle.Information)
-
-    '        End Try
-
-    '    End If
-
-    'End Sub
-
-
-
     Private Sub LvSintomas_DoubleClick(sender As Object, e As EventArgs) Handles LvSintomas.DoubleClick
         LvSintomas.Items.RemoveAt(LvSintomas.SelectedIndices(0))
         ActualizarLista()
@@ -103,14 +67,6 @@ Public Class Frm_Menu
 
     End Sub
 
-    'Private Sub BtnVolver_Click(sender As Object, e As EventArgs)
-    '    PanelChat.Visible = False
-    '    LvSintomas.Clear()
-    '    ActualizarLista()
-
-    'End Sub
-
-
     Private Sub Frm_Paciente_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         FrmLogin.Close()
 
@@ -119,5 +75,6 @@ Public Class Frm_Menu
     Private Sub BtnConsultaHistorial_Click(sender As Object, e As EventArgs) Handles BtnConsultaHistorial.Click
         Frm_Historial.Show()
         Me.Hide()
+
     End Sub
 End Class
