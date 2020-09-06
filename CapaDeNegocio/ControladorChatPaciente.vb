@@ -50,5 +50,6 @@ Public Module ControladorChatPaciente
         }
 
         c.MarcarComoFinalizado()
+
     End Sub
 End Module

@@ -27,6 +27,7 @@ Partial Class Frm_Chat
         Me.RtbMensaje = New System.Windows.Forms.RichTextBox()
         Me.BtnEnviar = New System.Windows.Forms.Button()
         Me.TmrMensajesNuevos = New System.Windows.Forms.Timer(Me.components)
+        Me.BbtnSalir = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'RtbConversacion
@@ -61,12 +62,22 @@ Partial Class Frm_Chat
         Me.TmrMensajesNuevos.Enabled = True
         Me.TmrMensajesNuevos.Interval = 1000
         '
+        'BbtnSalir
+        '
+        Me.BbtnSalir.Location = New System.Drawing.Point(13, 13)
+        Me.BbtnSalir.Name = "BbtnSalir"
+        Me.BbtnSalir.Size = New System.Drawing.Size(75, 23)
+        Me.BbtnSalir.TabIndex = 3
+        Me.BbtnSalir.Text = "Salir"
+        Me.BbtnSalir.UseVisualStyleBackColor = True
+        '
         'Frm_Chat
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(183, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(802, 482)
+        Me.Controls.Add(Me.BbtnSalir)
         Me.Controls.Add(Me.BtnEnviar)
         Me.Controls.Add(Me.RtbMensaje)
         Me.Controls.Add(Me.RtbConversacion)
@@ -80,4 +91,5 @@ Partial Class Frm_Chat
     Friend WithEvents RtbMensaje As RichTextBox
     Friend WithEvents BtnEnviar As Button
     Friend WithEvents TmrMensajesNuevos As Timer
+    Friend WithEvents BbtnSalir As Button
 End Class

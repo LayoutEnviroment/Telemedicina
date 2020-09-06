@@ -33,6 +33,10 @@ Public Class Frm_Chat
 
         For Each fila As DataRow In mensaje.Rows
             If fila(5).ToString = "Finalizado" Then
+                MsgBox("El doctor a finalizado el chat, el chat se cerrará automaticamente en 3 segundos...", MsgBoxStyle.OkOnly)
+                Threading.Thread.Sleep(3000)
+                Me.Hide()
+                Frm_Menu.Show()
 
             Else
                 RtbConversacion.Text += fila(4).ToString + " : " + fila(2).ToString + Environment.NewLine
@@ -71,25 +75,24 @@ Public Class Frm_Chat
 
     End Sub
 
-    Private Sub Frm_Chat_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+    Private Sub BbtnSalir_Click(sender As Object, e As EventArgs) Handles BbtnSalir.Click
         Select Case MsgBox("¿Seguro quiere salir del chat?", MsgBoxStyle.YesNo)
             Case MsgBoxResult.Yes
                 Try
+                    ControladorChatPaciente.FinalizarChat(IdDiagnostico, IdMedico)
                     ControladorChatPaciente.MarcarComoFinalizado(IdDiagnostico)
+                    RtbConversacion.Text = ""
+                    RtbMensaje.Text = ""
                     Frm_Menu.Show()
-                    Frm_Iniciar_Chat.Hide()
+                    Me.Hide()
 
                 Catch ex As Exception
-                    MsgBox("El chat no se pudo guardar correctamente")
+                    MsgBox("El chat no se pudo guardar correctamente" + ex.ToString)
 
                 End Try
 
             Case MsgBoxResult.No
-                e.Cancel = True
+
         End Select
-
-
-
     End Sub
-
 End Class
