@@ -3,44 +3,44 @@
 Public Class Frm_Iniciar_Chat
 
     Public Sub Frm_Iniciar_Chat_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        DiagnosticarEnfermedad()
+        'DiagnosticarEnfermedad()
     End Sub
 
-    Public Sub DiagnosticarEnfermedad()
-        Try
-            TxtEnfermedad.Text = ControladorCompone.EnfermedadesPosibles(Frm_Menu.ListaSintomas)
-        Catch ex As Exception
-            Try
-                TxtEnfermedad.Text = ControladorCompone.EnfermedadesPorAproximacion(Frm_Menu.ListaSintomas)
-            Catch ex1 As Exception
-                MsgBox("No se pudo encontrar una enfermedad")
-            End Try
+    'Public Sub DiagnosticarEnfermedad()
+    '    Try
+    '        TxtEnfermedad.Text = ControladorCompone.EnfermedadesPosibles(Frm_Menu.ListaSintomas)
+    '    Catch ex As Exception
+    '        Try
+    '            TxtEnfermedad.Text = ControladorCompone.EnfermedadesPorAproximacion(Frm_Menu.ListaSintomas)
+    '        Catch ex1 As Exception
+    '            MsgBox("No se pudo encontrar una enfermedad")
+    '        End Try
 
-        End Try
-        ObtenerIdEnfermedadDiagnosticada()
+    '    End Try
+    '    ObtenerIdEnfermedadDiagnosticada()
 
-    End Sub
+    'End Sub
 
-    Public Sub ObtenerIdEnfermedadDiagnosticada()
-        Dim IdEnfermedad As String
-        Try
-            IdEnfermedad = ControladorEnfermedad.ObtenerId(TxtEnfermedad.Text)
-            RealizarDiagnostico(IdEnfermedad)
-        Catch ex As Exception
-            MsgBox("No se pudo hallar el identificador de la enfermedad")
-        End Try
+    'Public Sub ObtenerIdEnfermedadDiagnosticada()
+    '    Dim IdEnfermedad As String
+    '    Try
+    '        IdEnfermedad = ControladorEnfermedad.ObtenerId(TxtEnfermedad.Text)
+    '        RealizarDiagnostico(IdEnfermedad)
+    '    Catch ex As Exception
+    '        MsgBox("No se pudo hallar el identificador de la enfermedad")
+    '    End Try
 
-    End Sub
+    'End Sub
 
-    Public Sub RealizarDiagnostico(idEnfermedad As String)
-        Try
-            ControladorDiagnostico.Nuevo(Frm_Menu.ListaSintomas, idEnfermedad)
-            CargarTextBoxes(idEnfermedad)
-        Catch ex As Exception
-            MsgBox("No se pudo realizar un diagnostico")
-        End Try
+    'Public Sub RealizarDiagnostico(idEnfermedad As String)
+    '    Try
+    '        ControladorDiagnostico.Nuevo(Frm_Menu.ListaSintomas, idEnfermedad)
+    '        CargarTextBoxes(idEnfermedad)
+    '    Catch ex As Exception
+    '        MsgBox("No se pudo realizar un diagnostico")
+    '    End Try
 
-    End Sub
+    'End Sub
 
     Public Sub CargarTextBoxes(idEnfermedad As String)
         Try

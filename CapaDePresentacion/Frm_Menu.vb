@@ -3,6 +3,7 @@
 Public Class Frm_Menu
 
     Public ListaSintomas As New List(Of String)
+    Dim NombreEnfermedad As String
 
     Private Sub Frm_Paciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
@@ -48,6 +49,37 @@ Public Class Frm_Menu
     End Sub
 
     Private Sub BtnDiagnostico_Click(sender As Object, e As EventArgs) Handles BtnDiagnostico.Click
+
+        Try
+            NombreEnfermedad = ControladorCompone.EnfermedadesPosibles(ListaSintomas)
+        Catch ex As Exception
+            Try
+                NombreEnfermedad = ControladorCompone.EnfermedadesPorAproximacion(ListaSintomas)
+            Catch ex1 As Exception
+                MsgBox("No se pudo encontrar una enfermedad")
+            End Try
+
+        End Try
+        ObtenerIdEnfermedadDiagnosticada()
+
+    End Sub
+
+    Public Sub ObtenerIdEnfermedadDiagnosticada()
+        Dim IdEnfermedad As String
+        Try
+            IdEnfermedad = ControladorEnfermedad.ObtenerId(NombreEnfermedad)
+            RealizarDiagnostico(IdEnfermedad)
+        Catch ex As Exception
+            MsgBox("No se pudo hallar el identificador de la enfermedad")
+        End Try
+    End Sub
+
+    Public Sub RealizarDiagnostico(idEnfermedad As String)
+        Try
+            ControladorDiagnostico.Nuevo(ListaSintomas, idEnfermedad)
+        Catch ex As Exception
+            MsgBox("No se pudo realizar un diagnostico")
+        End Try
         Frm_Iniciar_Chat.Show()
         Me.Hide()
 
