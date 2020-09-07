@@ -46,4 +46,7 @@ Public Class FormSintoma
         FormABMSintoma.ShowDialog()
     End Sub
 
+    Private Sub DgvSintomasCargados_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvSintomasCargados.CellContentClick
+
+    End Sub
 End Class

@@ -84,4 +84,23 @@
 
     End Function
 
+    Public Function TodosLosDiagnosticos()
+        MsgBox(Me.Pwd)
+        Command.CommandText = "
+            SELECT
+                d.Id,
+                d.Fecha
+            FROM
+                diagnostico d 
+                    JOIN
+                        atiende a 
+                            ON  
+                                d.id = a.id_diagnostico
+            WHERE
+                a.ci_persona_paciente = " + Me.Pwd + "
+        "
+
+        Reader = Command.ExecuteReader()
+        Return Reader
+    End Function
 End Class

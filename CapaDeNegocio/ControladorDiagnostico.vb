@@ -15,4 +15,10 @@ Public Module ControladorDiagnostico
 
         Return d.ObtenerId()
     End Function
+
+    Public Function TodosLosDiagnosticos()
+        Dim d As New ModeloDiagnostico(ControladorSesion.User, ControladorSesion.Pass)
+
+        Return d.TodosLosDiagnosticos()
+    End Function
 End Module

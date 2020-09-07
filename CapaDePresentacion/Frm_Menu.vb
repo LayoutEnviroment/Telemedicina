@@ -73,7 +73,7 @@ Public Class Frm_Menu
     End Sub
 
     Private Sub BtnConsultaHistorial_Click(sender As Object, e As EventArgs) Handles BtnConsultaHistorial.Click
-        Frm_Historial.Show()
+        Consultas.Show()
         Me.Hide()
 
     End Sub

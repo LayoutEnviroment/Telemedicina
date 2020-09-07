@@ -29,7 +29,6 @@ Partial Class Frm_Menu
         Me.BtnDiagnostico = New System.Windows.Forms.Button()
         Me.LvSintomas = New System.Windows.Forms.ListView()
         Me.BtnConsultaHistorial = New System.Windows.Forms.Button()
-        Me.BtnHistorialConversaciones = New System.Windows.Forms.Button()
         Me.BtnDatosPriopios = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
@@ -105,18 +104,9 @@ Partial Class Frm_Menu
         Me.BtnConsultaHistorial.Text = "Historial Diagnosticos"
         Me.BtnConsultaHistorial.UseVisualStyleBackColor = True
         '
-        'BtnHistorialConversaciones
-        '
-        Me.BtnHistorialConversaciones.Location = New System.Drawing.Point(34, 79)
-        Me.BtnHistorialConversaciones.Name = "BtnHistorialConversaciones"
-        Me.BtnHistorialConversaciones.Size = New System.Drawing.Size(136, 23)
-        Me.BtnHistorialConversaciones.TabIndex = 22
-        Me.BtnHistorialConversaciones.Text = "Historial Conversaciones"
-        Me.BtnHistorialConversaciones.UseVisualStyleBackColor = True
-        '
         'BtnDatosPriopios
         '
-        Me.BtnDatosPriopios.Location = New System.Drawing.Point(34, 108)
+        Me.BtnDatosPriopios.Location = New System.Drawing.Point(34, 107)
         Me.BtnDatosPriopios.Name = "BtnDatosPriopios"
         Me.BtnDatosPriopios.Size = New System.Drawing.Size(136, 23)
         Me.BtnDatosPriopios.TabIndex = 23
@@ -130,7 +120,6 @@ Partial Class Frm_Menu
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(183, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1010, 528)
         Me.Controls.Add(Me.BtnDatosPriopios)
-        Me.Controls.Add(Me.BtnHistorialConversaciones)
         Me.Controls.Add(Me.BtnConsultaHistorial)
         Me.Controls.Add(Me.LvSintomas)
         Me.Controls.Add(Me.BtnDiagnostico)
@@ -153,6 +142,5 @@ Partial Class Frm_Menu
     Friend WithEvents BtnDiagnostico As Button
     Friend WithEvents LvSintomas As ListView
     Friend WithEvents BtnConsultaHistorial As Button
-    Friend WithEvents BtnHistorialConversaciones As Button
     Friend WithEvents BtnDatosPriopios As Button
 End Class
