@@ -54,7 +54,8 @@ Public Class Frm_Chat
             AgregarChat()
 
         Catch ex As Exception
-            MsgBox("No se pudo enviar el mensaje ", MsgBoxStyle.Critical)
+            MsgBox(ex.ToString)
+            'MsgBox("No se pudo enviar el mensaje ", MsgBoxStyle.Critical)
 
         End Try
 

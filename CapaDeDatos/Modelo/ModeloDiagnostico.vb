@@ -61,7 +61,7 @@
                 End Try
 
             Catch ex As Exception
-                MsgBox("Error en diagnostcio")
+                MsgBox("Error en diagnostcio" + ex.ToString)
                 Command.CommandText = "ROLLBACK"
                 Command.ExecuteNonQuery()
                 Command.CommandText = "UNLOCK TABLES"
@@ -79,6 +79,8 @@
                 MAX(id)
             FROM
                 diagnostico
+            WHERE
+                pertenece = " + Me.Pwd + "
             "
 
         Return Command.ExecuteScalar.ToString()

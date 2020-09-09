@@ -5,7 +5,7 @@
         MyBase.New(user, pass)
     End Sub
 
-    Public IdEnfermedad As String
+    Public Id As String
     Public Nombre As String
     Public Descripcion As String
     Public Prioridad As String
@@ -72,7 +72,7 @@
             SET 
                 nombre = '" + Me.Nombre + "',descripcion = '" + Me.Descripcion + "',prioridad ='" + Me.Prioridad + "' 
             WHERE 
-                id = " + Me.IdEnfermedad + "
+                id = " + Me.Id + "
         "
         Command.ExecuteNonQuery()
 
@@ -84,7 +84,7 @@
                 enfermedad 
             SET 
                 activo = 0 
-            WHERE id = " + Me.IdEnfermedad + "
+            WHERE id = " + Me.Id + "
         "
         Command.ExecuteNonQuery()
 
@@ -104,6 +104,23 @@
 
     End Function
 
+    Public Function ObtenerIdConDiagnostico()
+        Command.CommandText = "
+            SELECT
+                MAX(DISTINCT(g.id_enfermedad_compone))
+            FROM
+                genera g
+                    JOIN
+                        diagnostico d
+                            ON
+                                g.id_diagnostico = d.id
+            WHERE
+                d.pertenece = " + Me.Pwd + "
+        "
+        Return Command.ExecuteScalar.ToString()
+
+    End Function
+
     Public Function ObtenerPrioridad()
         Command.CommandText = "
             SELECT
@@ -111,7 +128,7 @@
             FROM
                 enfermedad
             WHERE
-                id = " + Me.IdEnfermedad + "
+                id = " + Me.Id + "
         "
 
         Return Command.ExecuteScalar.ToString()
@@ -125,10 +142,28 @@
             FROM
                 enfermedad
             WHERE
-                id = " + Me.IdEnfermedad + "
+                id = " + Me.Id + "
         "
 
         Return Command.ExecuteScalar.ToString()
+
+    End Function
+
+
+    Public Function ObtenerTodo()
+        Command.CommandText = "
+            SELECT
+                nombre,
+                prioridad,
+                descripcion
+            FROM
+                enfermedad
+            WHERE
+                id = " + Me.Id + "
+        "
+
+        Reader = Command.ExecuteReader()
+        Return Reader
 
     End Function
 End Class

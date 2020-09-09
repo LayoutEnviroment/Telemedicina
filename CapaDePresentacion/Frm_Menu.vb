@@ -66,19 +66,25 @@ Public Class Frm_Menu
 
     Public Sub ObtenerIdEnfermedadDiagnosticada()
         Dim IdEnfermedad As String
-        Try
-            IdEnfermedad = ControladorEnfermedad.ObtenerId(NombreEnfermedad)
-            RealizarDiagnostico(IdEnfermedad)
-        Catch ex As Exception
-            MsgBox("No se pudo hallar el identificador de la enfermedad")
-        End Try
+        MsgBox(NombreEnfermedad)
+        If NombreEnfermedad <> "" Then
+            Try
+                IdEnfermedad = ControladorEnfermedad.ObtenerId(NombreEnfermedad)
+                RealizarDiagnostico(IdEnfermedad)
+
+            Catch ex As Exception
+                MsgBox("No se pudo hallar el identificador de la enfermedad")
+
+            End Try
+        End If
+
     End Sub
 
     Public Sub RealizarDiagnostico(idEnfermedad As String)
         Try
             ControladorDiagnostico.Nuevo(ListaSintomas, idEnfermedad)
         Catch ex As Exception
-            MsgBox("No se pudo realizar un diagnostico")
+            MsgBox("No se pudo realizar un diagnostico" + ex.ToString)
         End Try
         Frm_Iniciar_Chat.Show()
         Me.Hide()
