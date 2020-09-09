@@ -46,8 +46,43 @@
                         ) = 0; 
         "
 
-        Reader = Command.ExecuteReader()
-        Return Reader
+        Return Command.ExecuteScalar.ToString()
+
+    End Function
+
+    Public Function EnfermedadesPorAproximacion()
+        Dim values = String.Join(",", IdSintomas.Select(Function(f) String.Format("'{0}'", f)).ToArray())
+        Dim NuevoNombre As String = "Sintomas en comun"
+
+        Command.CommandText = "         
+            SELECT
+                e.nombre AS Enfermedad,
+                COUNT(*) AS  '" + NuevoNombre + "'
+            FROM
+                compone c
+                JOIN
+                sintoma s ON c.id_sintoma = s.id
+                JOIN
+                enfermedad e ON c.id_enfermedad = e.id
+            WHERE
+                c.id_sintoma IN (
+                    SELECT 
+                        id
+                    FROM
+                        sintoma
+                    WHERE
+                        nombre IN(
+                            " + values + "
+                        )
+                )
+            GROUP BY
+                c.id_enfermedad
+            ORDER BY
+                COUNT(*) DESC,
+                e.nombre
+        "
+
+        Return Command.ExecuteScalar.ToString
 
     End Function
 

@@ -26,9 +26,22 @@ Public Class Frm_Login
         ControladorSesion.Pass = contra
     End Sub
 
-    Private Sub Cancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Me.Close()
+    Private Sub TxtUser_TextChanged(sender As Object, e As EventArgs) Handles TxtUser.TextChanged
+        If TxtUser.Text <> "" And TxtPass.Text <> "" Then
+            BtnIngresar.Enabled = True
+        Else
+            BtnIngresar.Enabled = False
+        End If
+
     End Sub
 
+    Private Sub TxtPass_TextChanged(sender As Object, e As EventArgs) Handles TxtPass.TextChanged
+        If TxtUser.Text <> "" And TxtPass.Text <> "" Then
+            BtnIngresar.Enabled = True
+        Else
+            BtnIngresar.Enabled = False
+        End If
+
+    End Sub
 
 End Class

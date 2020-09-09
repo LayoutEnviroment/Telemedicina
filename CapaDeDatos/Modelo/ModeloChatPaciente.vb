@@ -60,10 +60,12 @@
             LIMIT
                 1
         "
+
         Dim Resultado As New DataTable
         Resultado.Load(Me.Command.ExecuteReader)
         Me.Connect.Close()
         Return Resultado
+
 
     End Function
 
@@ -78,6 +80,7 @@
                 AND
                     destinatario = " + Me.Pwd + "
                 "
+
         Command.ExecuteNonQuery()
         Me.Connect.Close()
     End Sub
@@ -88,7 +91,7 @@
             INSERT INTO
                 atiende(ci_persona_medico, ci_persona_paciente, id_diagnostico, mensaje, leido, destinatario, status)
             VALUES
-                (" + Me.Destinatario + ", " + Me.Pwd + ", " + Me.IdDiagnostico + ", 'paciente desconectado', 0," + Me.Destinatario + ", 'Finalizado')
+                (" + Me.Destinatario + ", " + Me.Pwd + ", " + Me.IdDiagnostico + ", 'El paciente terminó la conexión', 0," + Me.Destinatario + ", 'Finalizado')
         "
         Command.ExecuteNonQuery()
     End Sub
@@ -98,10 +101,12 @@
             UPDATE
                 atiende
             SET
-                status = 'Finalizado'
+                Status = 'Finalizado'
             WHERE
-                id_diagnostico = " + Me.IdDiagnostico + "
-        "
+                Id_Diagnostico = " + Me.IdDiagnostico + "
+            "
+
         Command.ExecuteNonQuery()
     End Sub
+
 End Class

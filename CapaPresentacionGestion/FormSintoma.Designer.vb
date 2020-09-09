@@ -34,10 +34,10 @@ Partial Class FormSintoma
         '
         Me.BtnInsertar.BackColor = System.Drawing.Color.White
         Me.BtnInsertar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnInsertar.Location = New System.Drawing.Point(42, 89)
-        Me.BtnInsertar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnInsertar.Location = New System.Drawing.Point(28, 58)
+        Me.BtnInsertar.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.BtnInsertar.Name = "BtnInsertar"
-        Me.BtnInsertar.Size = New System.Drawing.Size(134, 45)
+        Me.BtnInsertar.Size = New System.Drawing.Size(89, 29)
         Me.BtnInsertar.TabIndex = 0
         Me.BtnInsertar.Text = "Insertar"
         Me.BtnInsertar.UseVisualStyleBackColor = False
@@ -46,10 +46,10 @@ Partial Class FormSintoma
         '
         Me.BtnModificar.BackColor = System.Drawing.Color.White
         Me.BtnModificar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnModificar.Location = New System.Drawing.Point(42, 163)
-        Me.BtnModificar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnModificar.Location = New System.Drawing.Point(28, 106)
+        Me.BtnModificar.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.BtnModificar.Name = "BtnModificar"
-        Me.BtnModificar.Size = New System.Drawing.Size(134, 45)
+        Me.BtnModificar.Size = New System.Drawing.Size(89, 29)
         Me.BtnModificar.TabIndex = 1
         Me.BtnModificar.Text = "Modificar"
         Me.BtnModificar.UseVisualStyleBackColor = False
@@ -58,10 +58,10 @@ Partial Class FormSintoma
         '
         Me.BtnEliminar.BackColor = System.Drawing.Color.White
         Me.BtnEliminar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnEliminar.Location = New System.Drawing.Point(42, 236)
-        Me.BtnEliminar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnEliminar.Location = New System.Drawing.Point(28, 153)
+        Me.BtnEliminar.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.BtnEliminar.Name = "BtnEliminar"
-        Me.BtnEliminar.Size = New System.Drawing.Size(134, 45)
+        Me.BtnEliminar.Size = New System.Drawing.Size(89, 29)
         Me.BtnEliminar.TabIndex = 2
         Me.BtnEliminar.Text = "Eliminar"
         Me.BtnEliminar.UseVisualStyleBackColor = False
@@ -70,38 +70,38 @@ Partial Class FormSintoma
         '
         Me.DgvSintomasCargados.BackgroundColor = System.Drawing.Color.White
         Me.DgvSintomasCargados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvSintomasCargados.Location = New System.Drawing.Point(252, 89)
-        Me.DgvSintomasCargados.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.DgvSintomasCargados.Location = New System.Drawing.Point(168, 58)
+        Me.DgvSintomasCargados.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.DgvSintomasCargados.Name = "DgvSintomasCargados"
         Me.DgvSintomasCargados.RowTemplate.Height = 24
-        Me.DgvSintomasCargados.Size = New System.Drawing.Size(270, 499)
+        Me.DgvSintomasCargados.Size = New System.Drawing.Size(180, 324)
         Me.DgvSintomasCargados.TabIndex = 3
         '
         'BtnVolver
         '
         Me.BtnVolver.BackColor = System.Drawing.Color.White
         Me.BtnVolver.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnVolver.Location = New System.Drawing.Point(32, 542)
-        Me.BtnVolver.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnVolver.Location = New System.Drawing.Point(21, 352)
+        Me.BtnVolver.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.BtnVolver.Name = "BtnVolver"
-        Me.BtnVolver.Size = New System.Drawing.Size(134, 46)
+        Me.BtnVolver.Size = New System.Drawing.Size(89, 30)
         Me.BtnVolver.TabIndex = 4
         Me.BtnVolver.Text = "Volver"
         Me.BtnVolver.UseVisualStyleBackColor = False
         '
         'FormSintoma
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(245, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(618, 639)
+        Me.ClientSize = New System.Drawing.Size(412, 415)
         Me.ControlBox = False
         Me.Controls.Add(Me.BtnVolver)
         Me.Controls.Add(Me.DgvSintomasCargados)
         Me.Controls.Add(Me.BtnEliminar)
         Me.Controls.Add(Me.BtnModificar)
         Me.Controls.Add(Me.BtnInsertar)
-        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.Name = "FormSintoma"
         Me.Text = "Gestor de Sintomas"
         CType(Me.DgvSintomasCargados, System.ComponentModel.ISupportInitialize).EndInit()

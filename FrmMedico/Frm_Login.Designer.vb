@@ -19,7 +19,7 @@ Partial Class Frm_Login
     Friend WithEvents PasswordLabel As System.Windows.Forms.Label
     Friend WithEvents TxtUser As System.Windows.Forms.TextBox
     Friend WithEvents TxtPass As System.Windows.Forms.TextBox
-    Friend WithEvents BtnAceptar As System.Windows.Forms.Button
+    Friend WithEvents BtnIngresar As System.Windows.Forms.Button
 
     'Requerido por el Diseñador de Windows Forms
     Private components As System.ComponentModel.IContainer
@@ -35,7 +35,7 @@ Partial Class Frm_Login
         Me.PasswordLabel = New System.Windows.Forms.Label()
         Me.TxtUser = New System.Windows.Forms.TextBox()
         Me.TxtPass = New System.Windows.Forms.TextBox()
-        Me.BtnAceptar = New System.Windows.Forms.Button()
+        Me.BtnIngresar = New System.Windows.Forms.Button()
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -81,21 +81,20 @@ Partial Class Frm_Login
         Me.TxtPass.Size = New System.Drawing.Size(220, 20)
         Me.TxtPass.TabIndex = 3
         '
-        'BtnAceptar
+        'BtnIngresar
         '
-        Me.BtnAceptar.Location = New System.Drawing.Point(200, 161)
-        Me.BtnAceptar.Name = "BtnAceptar"
-        Me.BtnAceptar.Size = New System.Drawing.Size(144, 23)
-        Me.BtnAceptar.TabIndex = 4
-        Me.BtnAceptar.Text = "Ingresar"
+        Me.BtnIngresar.Location = New System.Drawing.Point(200, 161)
+        Me.BtnIngresar.Name = "BtnIngresar"
+        Me.BtnIngresar.Size = New System.Drawing.Size(144, 23)
+        Me.BtnIngresar.TabIndex = 4
+        Me.BtnIngresar.Text = "Ingresar"
         '
         'Frm_Login
         '
-        Me.AcceptButton = Me.BtnAceptar
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(401, 192)
-        Me.Controls.Add(Me.BtnAceptar)
+        Me.Controls.Add(Me.BtnIngresar)
         Me.Controls.Add(Me.TxtPass)
         Me.Controls.Add(Me.TxtUser)
         Me.Controls.Add(Me.PasswordLabel)

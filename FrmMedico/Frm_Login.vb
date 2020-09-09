@@ -1,9 +1,9 @@
 Imports CapaDeNegocio
 Public Class Frm_Login
 
-    Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnAceptar.Click
+    Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnIngresar.Click
         Try
-            If Autentificar(TxtUser.Text, TxtPass.Text) <> "" Then
+            If Autentificar(TxtUser.Text, TxtPass.Text) = 2 Then
                 SetearSesion(TxtUser.Text, TxtPass.Text)
                 Me.Hide()
                 Frm_Menu.Show()
@@ -31,8 +31,21 @@ Public Class Frm_Login
 
     End Sub
 
-    Private Sub Cancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Me.Close()
+    Private Sub TxtUser_TextChanged(sender As Object, e As EventArgs) Handles TxtUser.TextChanged
+        If TxtUser.Text <> "" And TxtPass.Text <> "" Then
+            BtnIngresar.Enabled = True
+        Else
+            BtnIngresar.Enabled = False
+        End If
+
+    End Sub
+
+    Private Sub TxtPass_TextChanged(sender As Object, e As EventArgs) Handles TxtPass.TextChanged
+        If TxtUser.Text <> "" And TxtPass.Text <> "" Then
+            BtnIngresar.Enabled = True
+        Else
+            BtnIngresar.Enabled = False
+        End If
 
     End Sub
 
