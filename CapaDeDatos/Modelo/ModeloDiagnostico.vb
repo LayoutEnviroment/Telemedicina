@@ -87,33 +87,15 @@
 
     End Function
 
-    Public Function TodosLosDiagnosticos()
-        MsgBox(Me.Pwd)
+    Public Function TodosMisDiagnosticos()
         Command.CommandText = "
             SELECT
-                DISTINCT(d.Id),
-                d.Fecha,
-                e.Nombre
+                Id,
+                Fecha
             FROM
-                diagnostico d 
-                    JOIN
-                        atiende a 
-                            ON  
-                                d.id = a.id_diagnostico
-                    JOIN
-                        genera g
-                            ON  
-                                d.id = g.id_diagnostico
-                    JOIN
-                        compone c
-                            ON
-                                c.id_enfermedad = g.id_enfermedad_compone
-                    JOIN
-                        enfermedad e
-                            ON
-                                e.id = c.id_enfermedad
+                diagnostico
             WHERE
-                d.pertenece = " + Me.Pwd + "
+                pertenece = " + Me.Pwd + "
         "
 
         Reader = Command.ExecuteReader()
@@ -227,4 +209,21 @@
 
     End Function
 
+    Public Function ExsitenMensajes()
+        Command.CommandText = "
+            SELECT 1 >= (
+                SELECT 
+                    count(a.id_diagnostico) 
+                FROM 
+                    diagnostico d 
+                        JOIN 
+                            atiende a 
+                                ON 
+                                    d.id = a.id_diagnostico 
+                WHERE 
+                    d.id = " + Me.Id + ")
+            "
+
+        Return Command.ExecuteScalar.ToString
+    End Function
 End Class

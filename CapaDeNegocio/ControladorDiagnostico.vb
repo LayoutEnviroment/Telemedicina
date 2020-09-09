@@ -16,10 +16,10 @@ Public Module ControladorDiagnostico
         Return d.ObtenerId()
     End Function
 
-    Public Function TodosLosDiagnosticos()
+    Public Function TodosMisDiagnosticos()
         Dim d As New ModeloDiagnostico(ControladorSesion.User, ControladorSesion.Pass)
 
-        Return d.TodosLosDiagnosticos()
+        Return d.TodosMisDiagnosticos()
     End Function
 
     Public Function SintomasEnfermedadDiagnosticada(id As String)
@@ -44,5 +44,13 @@ Public Module ControladorDiagnostico
         }
 
         Return d.MedicoDiagnostico()
+    End Function
+
+    Public Function ExistenMensajes(id As String)
+        Dim d As New ModeloDiagnostico(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Id = id
+        }
+
+        Return d.ExistenMensajes()
     End Function
 End Module

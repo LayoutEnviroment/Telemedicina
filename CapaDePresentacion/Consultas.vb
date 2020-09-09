@@ -5,7 +5,7 @@ Public Class Consultas
     Private Sub Consultas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim Diagnosticos As New DataTable
         Try
-            Diagnosticos.Load(ControladorDiagnostico.TodosLosDiagnosticos())
+            Diagnosticos.Load(ControladorDiagnostico.TodosMisDiagnosticos())
             DgvDiagnosticos.DataSource = Diagnosticos
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -18,8 +18,8 @@ Public Class Consultas
 
         CargarEnfermedad(IdDiagnostico)
         CargarSintomas(IdDiagnostico)
-        CargarMedico(IdDiagnostico)
-        CargarConversacion(IdDiagnostico)
+        'CargarMedico(IdDiagnostico)
+        ExistenMensajes(IdDiagnostico)
 
     End Sub
 
@@ -35,7 +35,7 @@ Public Class Consultas
             End While
 
         Catch ex As Exception
-            MsgBox("No se pudo obtener la enfermedad para este diagnostico")
+            MsgBox("No se pudo obtener la enfermedad para este diagnostico" + ex.ToString)
 
         End Try
 
@@ -54,6 +54,23 @@ Public Class Consultas
 
     End Sub
 
+    'Esta sub rutina obtiene TRUE o FALSE para saber si existen mensajes a este diagnostico
+    Private Sub ExistenMensajes(idDiagnostico As String)
+
+        Try
+            Dim Existen As String = ControladorDiagnostico.ExistenMensajes(idDiagnostico)
+            If Existen = 1 Then
+                CargarMedico(idDiagnostico)
+                CargarMensajes(idDiagnostico)
+            Else
+                RtbChat.Text = "No existio una conversacion para este diagnostico"
+            End If
+
+        Catch ex As Exception
+            MsgBox("Error en el existen mensajes" + ex.ToString)
+        End Try
+    End Sub
+
     Private Sub CargarMedico(id As String)
         Try
             Dim Medico As IDataReader
@@ -69,17 +86,15 @@ Public Class Consultas
 
     End Sub
 
-    Private Sub CargarConversacion(idDiagnostico As String)
+    Public Sub CargarMensajes(idDiagnostico As String)
         Try
-
+            ControladorChatPaciente.ObtenerMensajesDelDiagnostico(idDiagnostico)
         Catch ex As Exception
 
         End Try
     End Sub
 
+    Private Sub RtbDescripcion_TextChanged(sender As Object, e As EventArgs) Handles RtbDescripcion.TextChanged
 
-
-
-
-
+    End Sub
 End Class

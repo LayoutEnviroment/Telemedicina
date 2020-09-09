@@ -52,4 +52,12 @@ Public Module ControladorChatPaciente
         c.MarcarComoFinalizado()
 
     End Sub
+
+    Public Function ObtenerMensajesDelDiagnostico(id As String)
+        Dim c As New ModeloChatPaciente(ControladorSesion.User, ControladorSesion.Pass) With {
+            .IdDiagnostico = id
+        }
+
+        Return c.ObtenerMensajesDelDiagnostico()
+    End Function
 End Module

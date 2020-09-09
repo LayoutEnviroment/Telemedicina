@@ -109,4 +109,20 @@
         Command.ExecuteNonQuery()
     End Sub
 
+    Public Function ObtenerMensajesDelDiagnostico()
+        Command.CommandText = "
+             SELECT 
+                fecha_hora, 
+                mensaje, 
+                destinatario 
+            FROM 
+                atiende 
+            WHERE 
+                id_diagnostico = " + Me.IdDiagnostico + " 
+        "
+
+        Reader = Command.ExecuteReader()
+        Return Reader
+    End Function
+
 End Class
