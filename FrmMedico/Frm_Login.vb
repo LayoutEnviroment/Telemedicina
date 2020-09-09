@@ -14,7 +14,7 @@ Public Class Frm_Login
             End If
 
         Catch ex As Exception
-            MsgBox("Usuario Invalido")
+            MsgBox("Usuario Invalido" + ex.ToString)
 
         End Try
 
