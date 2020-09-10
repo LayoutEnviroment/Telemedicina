@@ -59,7 +59,7 @@ Public Class Consultas
 
         Try
             Dim Existen As String = ControladorDiagnostico.ExistenMensajes(idDiagnostico)
-            If Existen = 1 Then
+            If Existen = 0 Then
                 CargarMedico(idDiagnostico)
                 CargarMensajes(idDiagnostico)
             Else
@@ -87,8 +87,12 @@ Public Class Consultas
     End Sub
 
     Public Sub CargarMensajes(idDiagnostico As String)
+        Dim Lector As IDataReader
         Try
-            ControladorChatPaciente.ObtenerMensajesDelDiagnostico(idDiagnostico)
+            Lector = ControladorChatPaciente.ObtenerMensajesDelDiagnostico(idDiagnostico)
+            While Lector.Read
+                RtbChat.Text += Lector(1).ToString + Environment.NewLine
+            End While
         Catch ex As Exception
 
         End Try

@@ -209,19 +209,15 @@
 
     End Function
 
-    Public Function ExsitenMensajes()
+    Public Function ExistenMensajes()
         Command.CommandText = "
-            SELECT 1 >= (
+            SELECT 0 = (
                 SELECT 
-                    count(a.id_diagnostico) 
+                    count(id_diagnostico) 
                 FROM 
-                    diagnostico d 
-                        JOIN 
-                            atiende a 
-                                ON 
-                                    d.id = a.id_diagnostico 
+                    atiende
                 WHERE 
-                    d.id = " + Me.Id + ")
+                    id_diagnostico = " + Me.Id + ")
             "
 
         Return Command.ExecuteScalar.ToString
