@@ -7,7 +7,7 @@ Public Class Frm_Chat
     Dim IdDiagnostico As String = Frm_Iniciar_Chat.TxtIdDiagnostico.Text
 
     Private Sub Frm_Chat_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        RtbConversacion.Text += "Un médico se pondrá en contacto con usted en la brevedad" + Environment.NewLine
+        WbbConversacion.DocumentText += "<p style='background-color:MediumSeaGreen'; padding=100px; margin=100px> Un médico se pondrá en contacto con usted en la brevedad </p>"
 
     End Sub
 
@@ -39,7 +39,7 @@ Public Class Frm_Chat
                 Frm_Menu.Show()
 
             Else
-                RtbConversacion.Text += fila(4).ToString + " : " + fila(2).ToString + Environment.NewLine
+                WbbConversacion.DocumentText += "<p style ='background-color:Tomato'; align = 'left' > " + fila(4).ToString + " : " + fila(2).ToString + "</p>"
                 IdMedico = fila(0).ToString
                 BtnEnviar.Enabled = True
             End If
@@ -50,7 +50,7 @@ Public Class Frm_Chat
 
     Private Sub BtnEnviar_Click(sender As Object, e As EventArgs) Handles BtnEnviar.Click
         Try
-            ControladorChatPaciente.EnviarMensaje(IdDiagnostico, RtbMensaje.Text, IdMedico)
+            ControladorChatPaciente.EnviarMensaje(IdDiagnostico, TxtMensaje.Text, IdMedico)
             AgregarChat()
 
         Catch ex As Exception
@@ -62,8 +62,9 @@ Public Class Frm_Chat
     End Sub
 
     Public Sub AgregarChat()
-        RtbConversacion.Text += "YO: " + RtbMensaje.Text + Environment.NewLine
         RtbMensaje.Clear()
+        WbbConversacion.DocumentText += "<p align = 'right'; style='line-height:6';padding=50px ><span style='background-color:MediumSeaGreen'>" + TxtMensaje.Text + " </span></p>"
+
 
     End Sub
 
