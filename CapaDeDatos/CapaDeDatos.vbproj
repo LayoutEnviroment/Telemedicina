@@ -65,8 +65,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDeDatos.vb" />
+    <Compile Include="Modelo\ModeloChatPaciente.vb" />
+    <Compile Include="Modelo\ModeloChatMedico.vb" />
     <Compile Include="Modelo\ModeloCompone.vb" />
+    <Compile Include="Modelo\ModeloDiagnostico.vb" />
     <Compile Include="Modelo\ModeloEnfermedad.vb" />
+    <Compile Include="Modelo\ModeloLogin.vb" />
+    <Compile Include="Modelo\ModeloPaciente.vb" />
     <Compile Include="Modelo\ModeloSintoma.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

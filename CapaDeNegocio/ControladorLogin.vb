@@ -2,8 +2,11 @@
 
 Public Module ControladorLogin
 
-    'Public Sub PermitirIngreso(usuario As String, pass As String)
+    Public Function Autentificar(usuario As String, contra As String)
+        Dim l As New ModeloLogin(usuario, contra)
 
+        Return l.ObtenerRol()
 
-    'End Sub
+    End Function
+
 End Module

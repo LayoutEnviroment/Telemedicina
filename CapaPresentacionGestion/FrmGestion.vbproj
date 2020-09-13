@@ -97,10 +97,10 @@
     <Compile Include="FormEnfermedad.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.vb">
-      <DependentUpon>Login.vb</DependentUpon>
+    <Compile Include="Frm_Login.Designer.vb">
+      <DependentUpon>Frm_Login.vb</DependentUpon>
     </Compile>
-    <Compile Include="Login.vb">
+    <Compile Include="Frm_Login.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MenuGestion.vb">
@@ -145,8 +145,8 @@
     <EmbeddedResource Include="FormEnfermedad.resx">
       <DependentUpon>FormEnfermedad.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.vb</DependentUpon>
+    <EmbeddedResource Include="Frm_Login.resx">
+      <DependentUpon>Frm_Login.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuGestion.resx">
       <DependentUpon>MenuGestion.vb</DependentUpon>
@@ -172,12 +172,16 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="Resources\proxima-nova-soft.otf" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaDeNegocio\CapaDeNegocio.vbproj">
       <Project>{997a5a6d-c7fc-4e6c-ad76-1e16b593760b}</Project>
       <Name>CapaDeNegocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Proxima_Nova.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

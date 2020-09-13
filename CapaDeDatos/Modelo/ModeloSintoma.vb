@@ -1,6 +1,10 @@
 ﻿Public Class ModeloSintoma
     Inherits ModeloBaseDeDatos
 
+    Public Sub New(user As String, pass As String)
+        MyBase.New(user, pass)
+    End Sub
+
     Public IdSintoma As String
     Public Nombre As String
     Public Activo As String
@@ -36,14 +40,13 @@
                 id AS ID, nombre AS Nombre
             FROM
                 sintoma
-            WHERE
-                activo = 1
         "
 
         Reader = Command.ExecuteReader
         Return Reader
 
     End Function
+
     Public Sub Insertar()
         Command.CommandText = "
             INSERT INTO 
@@ -54,6 +57,7 @@
         Command.ExecuteNonQuery()
 
     End Sub
+
     Public Sub Modificar()
         Command.CommandText = "
             UPDATE 
