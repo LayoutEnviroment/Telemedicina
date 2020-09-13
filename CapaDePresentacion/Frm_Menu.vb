@@ -116,4 +116,9 @@ Public Class Frm_Menu
         Me.Hide()
 
     End Sub
+
+    Private Sub BtnDatosPriopios_Click(sender As Object, e As EventArgs) Handles BtnDatosPriopios.Click
+        Frm_Cambiar_Datos_Propios.Show()
+        Me.Hide()
+    End Sub
 End Class
