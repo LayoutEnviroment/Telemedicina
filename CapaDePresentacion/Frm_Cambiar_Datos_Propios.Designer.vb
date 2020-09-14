@@ -34,10 +34,18 @@ Partial Class Frm_Cambiar_Datos_Propios
         Me.TxtNombre = New System.Windows.Forms.TextBox()
         Me.TxtApellido = New System.Windows.Forms.TextBox()
         Me.TxtCorreo = New System.Windows.Forms.TextBox()
-        Me.TxtSexo = New System.Windows.Forms.TextBox()
         Me.LstEnfermedadesCronicas = New System.Windows.Forms.ListView()
         Me.LstMedicaciones = New System.Windows.Forms.ListView()
-        Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
+        Me.DttFechaNacimiento = New System.Windows.Forms.DateTimePicker()
+        Me.TxtAgregarEnfermedad = New System.Windows.Forms.TextBox()
+        Me.TxtAgregarMedicacion = New System.Windows.Forms.TextBox()
+        Me.BtnEliminarEnfermedad = New System.Windows.Forms.Button()
+        Me.BtnEliminarMedicacion = New System.Windows.Forms.Button()
+        Me.RdbMasculino = New System.Windows.Forms.RadioButton()
+        Me.RdbMujer = New System.Windows.Forms.RadioButton()
+        Me.BtnAceptar = New System.Windows.Forms.Button()
+        Me.BtnAgregarEnfermedad = New System.Windows.Forms.Button()
+        Me.AgregarMedicacion = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'LblCedula
@@ -79,7 +87,7 @@ Partial Class Frm_Cambiar_Datos_Propios
         'LblSexo
         '
         Me.LblSexo.AutoSize = True
-        Me.LblSexo.Location = New System.Drawing.Point(218, 38)
+        Me.LblSexo.Location = New System.Drawing.Point(414, 38)
         Me.LblSexo.Name = "LblSexo"
         Me.LblSexo.Size = New System.Drawing.Size(31, 13)
         Me.LblSexo.TabIndex = 5
@@ -88,7 +96,7 @@ Partial Class Frm_Cambiar_Datos_Propios
         'LblFechaDeNacimiento
         '
         Me.LblFechaDeNacimiento.AutoSize = True
-        Me.LblFechaDeNacimiento.Location = New System.Drawing.Point(179, 142)
+        Me.LblFechaDeNacimiento.Location = New System.Drawing.Point(595, 38)
         Me.LblFechaDeNacimiento.Name = "LblFechaDeNacimiento"
         Me.LblFechaDeNacimiento.Size = New System.Drawing.Size(110, 13)
         Me.LblFechaDeNacimiento.TabIndex = 6
@@ -97,7 +105,7 @@ Partial Class Frm_Cambiar_Datos_Propios
         'LblEnfermedadesCronicas
         '
         Me.LblEnfermedadesCronicas.AutoSize = True
-        Me.LblEnfermedadesCronicas.Location = New System.Drawing.Point(402, 38)
+        Me.LblEnfermedadesCronicas.Location = New System.Drawing.Point(351, 193)
         Me.LblEnfermedadesCronicas.Name = "LblEnfermedadesCronicas"
         Me.LblEnfermedadesCronicas.Size = New System.Drawing.Size(119, 13)
         Me.LblEnfermedadesCronicas.TabIndex = 7
@@ -106,7 +114,7 @@ Partial Class Frm_Cambiar_Datos_Propios
         'LblMedicaciones
         '
         Me.LblMedicaciones.AutoSize = True
-        Me.LblMedicaciones.Location = New System.Drawing.Point(637, 38)
+        Me.LblMedicaciones.Location = New System.Drawing.Point(632, 193)
         Me.LblMedicaciones.Name = "LblMedicaciones"
         Me.LblMedicaciones.Size = New System.Drawing.Size(73, 13)
         Me.LblMedicaciones.TabIndex = 8
@@ -141,40 +149,122 @@ Partial Class Frm_Cambiar_Datos_Propios
         Me.TxtCorreo.Size = New System.Drawing.Size(236, 20)
         Me.TxtCorreo.TabIndex = 12
         '
-        'TxtSexo
-        '
-        Me.TxtSexo.Location = New System.Drawing.Point(182, 68)
-        Me.TxtSexo.Name = "TxtSexo"
-        Me.TxtSexo.Size = New System.Drawing.Size(100, 20)
-        Me.TxtSexo.TabIndex = 13
-        '
         'LstEnfermedadesCronicas
         '
+        Me.LstEnfermedadesCronicas.FullRowSelect = True
         Me.LstEnfermedadesCronicas.HideSelection = False
-        Me.LstEnfermedadesCronicas.Location = New System.Drawing.Point(379, 68)
+        Me.LstEnfermedadesCronicas.Location = New System.Drawing.Point(332, 223)
+        Me.LstEnfermedadesCronicas.MultiSelect = False
         Me.LstEnfermedadesCronicas.Name = "LstEnfermedadesCronicas"
         Me.LstEnfermedadesCronicas.Size = New System.Drawing.Size(158, 195)
         Me.LstEnfermedadesCronicas.TabIndex = 14
         Me.LstEnfermedadesCronicas.UseCompatibleStateImageBehavior = False
+        Me.LstEnfermedadesCronicas.View = System.Windows.Forms.View.List
         '
         'LstMedicaciones
         '
         Me.LstMedicaciones.HideSelection = False
-        Me.LstMedicaciones.Location = New System.Drawing.Point(596, 68)
+        Me.LstMedicaciones.Location = New System.Drawing.Point(591, 223)
+        Me.LstMedicaciones.MultiSelect = False
         Me.LstMedicaciones.Name = "LstMedicaciones"
         Me.LstMedicaciones.Size = New System.Drawing.Size(158, 195)
         Me.LstMedicaciones.TabIndex = 15
         Me.LstMedicaciones.UseCompatibleStateImageBehavior = False
+        Me.LstMedicaciones.View = System.Windows.Forms.View.List
         '
-        'MonthCalendar1
+        'DttFechaNacimiento
         '
-        Me.MonthCalendar1.FirstDayOfWeek = System.Windows.Forms.Day.Monday
-        Me.MonthCalendar1.Location = New System.Drawing.Point(434, 323)
-        Me.MonthCalendar1.MaxSelectionCount = 1
-        Me.MonthCalendar1.Name = "MonthCalendar1"
-        Me.MonthCalendar1.ShowToday = False
-        Me.MonthCalendar1.ShowTodayCircle = False
-        Me.MonthCalendar1.TabIndex = 16
+        Me.DttFechaNacimiento.CalendarTrailingForeColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.DttFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DttFechaNacimiento.Location = New System.Drawing.Point(598, 65)
+        Me.DttFechaNacimiento.Name = "DttFechaNacimiento"
+        Me.DttFechaNacimiento.Size = New System.Drawing.Size(200, 20)
+        Me.DttFechaNacimiento.TabIndex = 17
+        '
+        'TxtAgregarEnfermedad
+        '
+        Me.TxtAgregarEnfermedad.Location = New System.Drawing.Point(332, 444)
+        Me.TxtAgregarEnfermedad.Name = "TxtAgregarEnfermedad"
+        Me.TxtAgregarEnfermedad.Size = New System.Drawing.Size(158, 20)
+        Me.TxtAgregarEnfermedad.TabIndex = 18
+        '
+        'TxtAgregarMedicacion
+        '
+        Me.TxtAgregarMedicacion.Location = New System.Drawing.Point(591, 444)
+        Me.TxtAgregarMedicacion.Name = "TxtAgregarMedicacion"
+        Me.TxtAgregarMedicacion.Size = New System.Drawing.Size(158, 20)
+        Me.TxtAgregarMedicacion.TabIndex = 19
+        '
+        'BtnEliminarEnfermedad
+        '
+        Me.BtnEliminarEnfermedad.Enabled = False
+        Me.BtnEliminarEnfermedad.Location = New System.Drawing.Point(496, 221)
+        Me.BtnEliminarEnfermedad.Name = "BtnEliminarEnfermedad"
+        Me.BtnEliminarEnfermedad.Size = New System.Drawing.Size(31, 25)
+        Me.BtnEliminarEnfermedad.TabIndex = 20
+        Me.BtnEliminarEnfermedad.Text = "X"
+        Me.BtnEliminarEnfermedad.UseVisualStyleBackColor = True
+        '
+        'BtnEliminarMedicacion
+        '
+        Me.BtnEliminarMedicacion.Enabled = False
+        Me.BtnEliminarMedicacion.Location = New System.Drawing.Point(755, 221)
+        Me.BtnEliminarMedicacion.Name = "BtnEliminarMedicacion"
+        Me.BtnEliminarMedicacion.Size = New System.Drawing.Size(31, 25)
+        Me.BtnEliminarMedicacion.TabIndex = 21
+        Me.BtnEliminarMedicacion.Text = "X"
+        Me.BtnEliminarMedicacion.UseVisualStyleBackColor = True
+        '
+        'RdbMasculino
+        '
+        Me.RdbMasculino.AutoSize = True
+        Me.RdbMasculino.Location = New System.Drawing.Point(367, 65)
+        Me.RdbMasculino.Name = "RdbMasculino"
+        Me.RdbMasculino.Size = New System.Drawing.Size(62, 17)
+        Me.RdbMasculino.TabIndex = 22
+        Me.RdbMasculino.TabStop = True
+        Me.RdbMasculino.Text = "Hombre"
+        Me.RdbMasculino.UseVisualStyleBackColor = True
+        '
+        'RdbMujer
+        '
+        Me.RdbMujer.AutoSize = True
+        Me.RdbMujer.Location = New System.Drawing.Point(446, 65)
+        Me.RdbMujer.Name = "RdbMujer"
+        Me.RdbMujer.Size = New System.Drawing.Size(51, 17)
+        Me.RdbMujer.TabIndex = 23
+        Me.RdbMujer.TabStop = True
+        Me.RdbMujer.Text = "Mujer"
+        Me.RdbMujer.UseVisualStyleBackColor = True
+        '
+        'BtnAceptar
+        '
+        Me.BtnAceptar.Location = New System.Drawing.Point(66, 442)
+        Me.BtnAceptar.Name = "BtnAceptar"
+        Me.BtnAceptar.Size = New System.Drawing.Size(75, 23)
+        Me.BtnAceptar.TabIndex = 24
+        Me.BtnAceptar.Text = "Aceptar"
+        Me.BtnAceptar.UseVisualStyleBackColor = True
+        '
+        'BtnAgregarEnfermedad
+        '
+        Me.BtnAgregarEnfermedad.Enabled = False
+        Me.BtnAgregarEnfermedad.Location = New System.Drawing.Point(497, 442)
+        Me.BtnAgregarEnfermedad.Name = "BtnAgregarEnfermedad"
+        Me.BtnAgregarEnfermedad.Size = New System.Drawing.Size(41, 23)
+        Me.BtnAgregarEnfermedad.TabIndex = 25
+        Me.BtnAgregarEnfermedad.Text = "Add"
+        Me.BtnAgregarEnfermedad.UseVisualStyleBackColor = True
+        '
+        'AgregarMedicacion
+        '
+        Me.AgregarMedicacion.Enabled = False
+        Me.AgregarMedicacion.Location = New System.Drawing.Point(755, 444)
+        Me.AgregarMedicacion.Name = "AgregarMedicacion"
+        Me.AgregarMedicacion.Size = New System.Drawing.Size(41, 23)
+        Me.AgregarMedicacion.TabIndex = 26
+        Me.AgregarMedicacion.Text = "Add"
+        Me.AgregarMedicacion.UseVisualStyleBackColor = True
         '
         'Frm_Cambiar_Datos_Propios
         '
@@ -182,10 +272,18 @@ Partial Class Frm_Cambiar_Datos_Propios
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(183, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(914, 507)
-        Me.Controls.Add(Me.MonthCalendar1)
+        Me.Controls.Add(Me.AgregarMedicacion)
+        Me.Controls.Add(Me.BtnAgregarEnfermedad)
+        Me.Controls.Add(Me.BtnAceptar)
+        Me.Controls.Add(Me.RdbMujer)
+        Me.Controls.Add(Me.RdbMasculino)
+        Me.Controls.Add(Me.BtnEliminarMedicacion)
+        Me.Controls.Add(Me.BtnEliminarEnfermedad)
+        Me.Controls.Add(Me.TxtAgregarMedicacion)
+        Me.Controls.Add(Me.TxtAgregarEnfermedad)
+        Me.Controls.Add(Me.DttFechaNacimiento)
         Me.Controls.Add(Me.LstMedicaciones)
         Me.Controls.Add(Me.LstEnfermedadesCronicas)
-        Me.Controls.Add(Me.TxtSexo)
         Me.Controls.Add(Me.TxtCorreo)
         Me.Controls.Add(Me.TxtApellido)
         Me.Controls.Add(Me.TxtNombre)
@@ -218,8 +316,16 @@ Partial Class Frm_Cambiar_Datos_Propios
     Friend WithEvents TxtNombre As TextBox
     Friend WithEvents TxtApellido As TextBox
     Friend WithEvents TxtCorreo As TextBox
-    Friend WithEvents TxtSexo As TextBox
     Friend WithEvents LstEnfermedadesCronicas As ListView
     Friend WithEvents LstMedicaciones As ListView
-    Friend WithEvents MonthCalendar1 As MonthCalendar
+    Friend WithEvents DttFechaNacimiento As DateTimePicker
+    Friend WithEvents TxtAgregarEnfermedad As TextBox
+    Friend WithEvents TxtAgregarMedicacion As TextBox
+    Friend WithEvents BtnEliminarEnfermedad As Button
+    Friend WithEvents BtnEliminarMedicacion As Button
+    Friend WithEvents RdbMasculino As RadioButton
+    Friend WithEvents RdbMujer As RadioButton
+    Friend WithEvents BtnAceptar As Button
+    Friend WithEvents BtnAgregarEnfermedad As Button
+    Friend WithEvents AgregarMedicacion As Button
 End Class

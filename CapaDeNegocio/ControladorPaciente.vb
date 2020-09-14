@@ -26,4 +26,11 @@ Public Module ControladorPaciente
         Return p.ObtenerEnfermedades()
     End Function
 
+    Public Sub CambiarDatos(nombre As String, apellido As String, correo As String, sexo As String)
+        Dim p As New ModeloPaciente(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Sexo = sexo
+        }
+
+        p.CambiarDatos(nombre, apellido, correo)
+    End Sub
 End Module
