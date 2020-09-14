@@ -72,6 +72,7 @@
     <Compile Include="ControladorLogin.vb" />
     <Compile Include="ControladorPaciente.vb" />
     <Compile Include="ControladorSintoma.vb" />
+    <Compile Include="ControladorUsuario.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
