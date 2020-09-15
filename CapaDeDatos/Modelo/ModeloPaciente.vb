@@ -5,11 +5,13 @@
         MyBase.New(user, pass)
     End Sub
 
-    Public Enfermedades As List(Of String)
-    Public Medicaciones As List(Of String)
+    Public Nombre As String
+    Public Apellido As String
+    Public Mail As String
     Public Sexo As String
     Public FechaNacimiento As String
-
+    Public Enfermedades As List(Of String)
+    Public Medicaciones As List(Of String)
 
     Public Function ObtenerNombre()
         Command.CommandText = "
@@ -74,7 +76,7 @@
         Return Reader
     End Function
 
-    Public Sub CambiarDatos(nombre As String, apellido As String, correo As String)
+    Public Sub CambiarDatos()
         Try
             Command.CommandText = "SET AUTOCOMMIT = OFF"
             Command.ExecuteNonQuery()
@@ -86,14 +88,14 @@
                     UPDATE
                         persona
                     SET
-                        nombre = " + nombre + ",
-                        apellido = " + apellido + "
-                        mail = " + correo + "
+                        nombre = '" + Me.Nombre + "',
+                        apellido = '" + Me.Apellido + "',
+                        mail = '" + Me.Mail + "'
                     WHERE
                         ci = " + Me.Pwd + "
                 "
                 Command.ExecuteNonQuery()
-
+                MsgBox("Hice Update a persona")
                 Try
                     Command.CommandText = "
                         UPDATE
@@ -105,7 +107,7 @@
                             ci_persona = " + Me.Pwd + "
                     "
                     Command.ExecuteNonQuery()
-
+                    MsgBox("Hice Update a paciente")
                     Try
                         Command.CommandText = "
                             DELETE FROM
@@ -114,7 +116,7 @@
                                 ci_persona_paciente = " + Me.Pwd + "
                         "
                         Command.ExecuteNonQuery()
-
+                        MsgBox("Borre las enfermedades")
                         Try
                             Command.CommandText = "
                             DELETE FROM
@@ -123,7 +125,7 @@
                                 ci_persona_paciente = " + Me.Pwd + "
                         "
                             Command.ExecuteNonQuery()
-
+                            MsgBox("Borre las medicaciones")
                             Try
                                 Dim values = String.Join(",", Enfermedades.Select(Function(f) String.Format("'{0}'", f)).ToArray())
                                 For Each enfermedad In Enfermedades
@@ -135,7 +137,7 @@
                                     "
                                     Command.ExecuteNonQuery()
                                 Next
-
+                                MsgBox("Ingrese las enfermedades")
                                 Try
                                     Dim valores = String.Join(",", Medicaciones.Select(Function(f) String.Format("'{0}'", f)).ToArray())
                                     For Each medicacion In Medicaciones
@@ -147,27 +149,31 @@
                                     "
                                         Command.ExecuteNonQuery()
                                     Next
+                                    MsgBox("Ingrese las medicaciones")
+                                    Command.CommandText = "COMMIT"
+                                    Command.ExecuteNonQuery()
                                 Catch ex As Exception
-
+                                    MsgBox("Error en insertar medicaciones" + ex.ToString)
                                 End Try
                             Catch ex As Exception
-
+                                MsgBox("Error en insertar enfermedades" + ex.ToString)
                             End Try
-
                         Catch ex As Exception
-
+                            MsgBox("Error en borrar medicaciones" + ex.ToString)
                         End Try
                     Catch ex As Exception
-
+                        MsgBox("Error en insertar enfermedades" + ex.ToString)
                     End Try
                 Catch ex As Exception
-
+                    MsgBox("Error en actualizar paciente" + ex.ToString)
                 End Try
             Catch ex As Exception
-
+                MsgBox("Error en actualizar personas" + ex.ToString)
             End Try
         Catch ex As Exception
-
+            MsgBox("Error en iniciar transaccion" + ex.ToString)
+            Command.CommandText = "ROLLBACK"
+            Command.ExecuteNonQuery()
         End Try
     End Sub
 End Class

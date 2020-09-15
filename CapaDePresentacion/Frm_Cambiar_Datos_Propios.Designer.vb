@@ -36,7 +36,6 @@ Partial Class Frm_Cambiar_Datos_Propios
         Me.TxtCorreo = New System.Windows.Forms.TextBox()
         Me.LstEnfermedadesCronicas = New System.Windows.Forms.ListView()
         Me.LstMedicaciones = New System.Windows.Forms.ListView()
-        Me.DttFechaNacimiento = New System.Windows.Forms.DateTimePicker()
         Me.TxtAgregarEnfermedad = New System.Windows.Forms.TextBox()
         Me.TxtAgregarMedicacion = New System.Windows.Forms.TextBox()
         Me.BtnEliminarEnfermedad = New System.Windows.Forms.Button()
@@ -46,6 +45,7 @@ Partial Class Frm_Cambiar_Datos_Propios
         Me.BtnAceptar = New System.Windows.Forms.Button()
         Me.BtnAgregarEnfermedad = New System.Windows.Forms.Button()
         Me.AgregarMedicacion = New System.Windows.Forms.Button()
+        Me.DttFecha = New System.Windows.Forms.DateTimePicker()
         Me.SuspendLayout()
         '
         'LblCedula
@@ -172,15 +172,6 @@ Partial Class Frm_Cambiar_Datos_Propios
         Me.LstMedicaciones.UseCompatibleStateImageBehavior = False
         Me.LstMedicaciones.View = System.Windows.Forms.View.List
         '
-        'DttFechaNacimiento
-        '
-        Me.DttFechaNacimiento.CalendarTrailingForeColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.DttFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DttFechaNacimiento.Location = New System.Drawing.Point(598, 65)
-        Me.DttFechaNacimiento.Name = "DttFechaNacimiento"
-        Me.DttFechaNacimiento.Size = New System.Drawing.Size(200, 20)
-        Me.DttFechaNacimiento.TabIndex = 17
-        '
         'TxtAgregarEnfermedad
         '
         Me.TxtAgregarEnfermedad.Location = New System.Drawing.Point(332, 444)
@@ -266,12 +257,21 @@ Partial Class Frm_Cambiar_Datos_Propios
         Me.AgregarMedicacion.Text = "Add"
         Me.AgregarMedicacion.UseVisualStyleBackColor = True
         '
+        'DttFecha
+        '
+        Me.DttFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DttFecha.Location = New System.Drawing.Point(607, 65)
+        Me.DttFecha.Name = "DttFecha"
+        Me.DttFecha.Size = New System.Drawing.Size(98, 20)
+        Me.DttFecha.TabIndex = 27
+        '
         'Frm_Cambiar_Datos_Propios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(183, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(914, 507)
+        Me.Controls.Add(Me.DttFecha)
         Me.Controls.Add(Me.AgregarMedicacion)
         Me.Controls.Add(Me.BtnAgregarEnfermedad)
         Me.Controls.Add(Me.BtnAceptar)
@@ -281,7 +281,6 @@ Partial Class Frm_Cambiar_Datos_Propios
         Me.Controls.Add(Me.BtnEliminarEnfermedad)
         Me.Controls.Add(Me.TxtAgregarMedicacion)
         Me.Controls.Add(Me.TxtAgregarEnfermedad)
-        Me.Controls.Add(Me.DttFechaNacimiento)
         Me.Controls.Add(Me.LstMedicaciones)
         Me.Controls.Add(Me.LstEnfermedadesCronicas)
         Me.Controls.Add(Me.TxtCorreo)
@@ -318,7 +317,6 @@ Partial Class Frm_Cambiar_Datos_Propios
     Friend WithEvents TxtCorreo As TextBox
     Friend WithEvents LstEnfermedadesCronicas As ListView
     Friend WithEvents LstMedicaciones As ListView
-    Friend WithEvents DttFechaNacimiento As DateTimePicker
     Friend WithEvents TxtAgregarEnfermedad As TextBox
     Friend WithEvents TxtAgregarMedicacion As TextBox
     Friend WithEvents BtnEliminarEnfermedad As Button
@@ -328,4 +326,5 @@ Partial Class Frm_Cambiar_Datos_Propios
     Friend WithEvents BtnAceptar As Button
     Friend WithEvents BtnAgregarEnfermedad As Button
     Friend WithEvents AgregarMedicacion As Button
+    Friend WithEvents DttFecha As DateTimePicker
 End Class
