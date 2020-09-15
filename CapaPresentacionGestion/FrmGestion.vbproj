@@ -73,6 +73,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AltaUsuario.Designer.vb">
+      <DependentUpon>AltaUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AltaUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormABMEnfermedad.Designer.vb">
       <DependentUpon>FormABMEnfermedad.vb</DependentUpon>
     </Compile>
@@ -133,6 +139,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AltaUsuario.resx">
+      <DependentUpon>AltaUsuario.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormABMEnfermedad.resx">
       <DependentUpon>FormABMEnfermedad.vb</DependentUpon>
     </EmbeddedResource>
