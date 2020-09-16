@@ -96,14 +96,14 @@ Public Class Frm_Cambiar_Datos_Propios
 
     Private Sub TxtAgregarMedicacion_TextChanged(sender As Object, e As EventArgs) Handles TxtAgregarMedicacion.TextChanged
         If TxtAgregarMedicacion.Text <> " " Then
-            BtnEliminarMedicacion.Enabled = True
+            BtnAgregarMedicacion.Enabled = True
         Else
-            BtnEliminarMedicacion.Enabled = False
+            BtnAgregarMedicacion.Enabled = False
 
         End If
     End Sub
 
-    Private Sub AgregarMedicacion_Click(sender As Object, e As EventArgs) Handles AgregarMedicacion.Click
+    Private Sub AgregarMedicacion_Click(sender As Object, e As EventArgs) Handles BtnAgregarMedicacion.Click
         LstMedicaciones.Items.Add(TxtAgregarMedicacion.Text)
     End Sub
 
@@ -128,7 +128,8 @@ Public Class Frm_Cambiar_Datos_Propios
     End Sub
 
     Public Sub AsignarListas()
-
+        Enfermedades.Clear()
+        Medicaciones.Clear()
         For x = 0 To LstEnfermedadesCronicas.Items.Count() - 1
             Try
                 Enfermedades.Add(LstEnfermedadesCronicas.Items(x).Text)
@@ -164,6 +165,63 @@ Public Class Frm_Cambiar_Datos_Propios
     End Sub
 
     Private Sub DttFecha_ValueChanged(sender As Object, e As EventArgs) Handles DttFecha.ValueChanged
+        Dim Aceptar As String
+        If DateDiff(DateInterval.Year, DttFecha.Value, Date.Now) >= 18 Then
+            Aceptar = "Si"
+        Else
+            Aceptar = ""
+        End If
+        HabilitarAceptar(Aceptar)
+    End Sub
+
+    Private Sub TxtNombre_TextChanged(sender As Object, e As EventArgs) Handles TxtNombre.TextChanged
+        HabilitarAceptar(TxtNombre.Text)
+    End Sub
+
+    Private Sub TxtApellido_TextChanged(sender As Object, e As EventArgs) Handles TxtApellido.TextChanged
+        HabilitarAceptar(TxtApellido.Text)
+    End Sub
+
+    Private Sub TxtCorreo_TextChanged(sender As Object, e As EventArgs) Handles TxtCorreo.TextChanged
+        HabilitarAceptar(TxtCorreo.Text)
+    End Sub
+
+    Public Sub HabilitarAceptar(contenido As String)
+        If contenido <> "" Then
+            BtnAceptar.Enabled = True
+        Else
+            BtnAceptar.Enabled = False
+        End If
+    End Sub
+
+    Private Sub LstEnfermedadesCronicas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstEnfermedadesCronicas.SelectedIndexChanged
+        If LstEnfermedadesCronicas.SelectedItems.Count > 0 Then
+            BtnEliminarEnfermedad.Enabled = True
+        Else
+            BtnEliminarEnfermedad.Enabled = False
+        End If
 
     End Sub
+
+    Private Sub BtnEliminarEnfermedad_Click(sender As Object, e As EventArgs) Handles BtnEliminarEnfermedad.Click
+        LstEnfermedadesCronicas.Items.Remove(LstEnfermedadesCronicas.SelectedItems(0))
+        AsignarListas()
+
+    End Sub
+
+    Private Sub LstMedicaciones_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstMedicaciones.SelectedIndexChanged
+        If LstMedicaciones.SelectedItems.Count > 0 Then
+            BtnEliminarEnfermedad.Enabled = True
+        Else
+            BtnEliminarEnfermedad.Enabled = False
+        End If
+
+    End Sub
+
+    Private Sub BtnEliminarMedicacion_Click(sender As Object, e As EventArgs) Handles BtnEliminarMedicacion.Click
+        LstMedicaciones.Items.Remove(LstMedicaciones.SelectedItems(0))
+        AsignarListas()
+
+    End Sub
+
 End Class
