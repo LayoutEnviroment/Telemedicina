@@ -134,7 +134,7 @@
     Public Function SintomasEnfermedadDiagnosticada()
         Command.CommandText = "
             SELECT 
-                s.nombre
+                DISTINCT(s.nombre)
             FROM
                 sintoma s
                     JOIN
