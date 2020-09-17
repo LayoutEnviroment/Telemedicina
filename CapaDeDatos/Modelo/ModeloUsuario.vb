@@ -27,7 +27,7 @@
                           VALUES('" + Me.CI + "','" + Me.Nombre + "','" + Me.Apellido + "','" + Me.Mail + "','1')"
                 Command.ExecuteNonQuery()
 
-                Command.CommandText = "INSERT INTO administrativo (ci)
+                Command.CommandText = "INSERT INTO administrativo (ci_persona)
                           VALUES('" + Me.CI + "')"
                 Command.ExecuteNonQuery()
 
@@ -37,6 +37,7 @@
 
                 Return 1
             Catch ex As Exception
+                MsgBox(ex.ToString)
                 Command.CommandText = "ROLLBACK"
                 Command.ExecuteNonQuery()
 
