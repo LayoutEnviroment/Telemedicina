@@ -5,6 +5,7 @@
         MyBase.New(user, pass)
     End Sub
 
+    Public TipoDeUsuario As Boolean
     Public Nombre As String
     Public Apellido As String
     Public CI As String
@@ -14,7 +15,7 @@
     Public EnfermedadCronica As List(Of String)
     Public Medicacion As List(Of String)
 
-    Public Function NuevoAdministrativo()
+    Public Function NuevaPersona()
         Try
             Command.CommandText = "SET AUTOCOMMIT = OFF"
             Command.ExecuteNonQuery()
@@ -27,6 +28,9 @@
                           VALUES('" + Me.CI + "','" + Me.Nombre + "','" + Me.Apellido + "','" + Me.Mail + "','1')"
                 Command.ExecuteNonQuery()
 
+                If Me.TipoDeUsuario(3) Then
+
+                End If
                 Command.CommandText = "INSERT INTO administrativo (ci_persona)
                           VALUES('" + Me.CI + "')"
                 Command.ExecuteNonQuery()
@@ -93,7 +97,7 @@
         End Try
     End Function
 
-    Public Function NuevoPaciente()
+    Public Function NuevoAdministrativo()
 
     End Function
 

@@ -2,32 +2,35 @@
 
 Public Module ControladorUsuario
 
-    Public Function CrearAdministrativo(Nombre As String, Apellido As String, CI As String, Mail As String)
+    Public Function CrearPersona(Nombre As String, Apellido As String, CI As String, Mail As String)
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
             .Nombre = Nombre,
             .Apellido = Apellido,
             .CI = CI,
             .Mail = Mail
         }
-        Return u.NuevoAdministrativo()
+        Return u.NuevaPersona()
 
 
     End Function
 
-    Public Function CrearMedico(Nombre As String, Apellido As String, CI As String, Mail As String)
+    Public Function CrearAdministrativo(Nombre As String, Tipo)
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
-            .Nombre = Nombre,
-            .Apellido = Apellido,
-            .CI = CI,
-            .Mail = Mail
+           .Nombre = Nombre
+           }
+        Return u.NuevoAdministrativo()
+
+    End Function
+    Public Function CrearMedico(Nombre As String)
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Nombre = Nombre
         }
         Return u.NuevoMedico()
     End Function
 
-    Public Function CrearPaciente(CI As String, FechaNacimiento As String, Sexo As String, Medicacion As List(Of String), EnfermedadCronica As List(Of String))
+    Public Function CrearPaciente(FechaNacimiento As String, Sexo As String, Medicacion As List(Of String), EnfermedadCronica As List(Of String))
 
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
-            .CI = CI,
             .FechaNacimiento = FechaNacimiento,
             .Sexo = Sexo,
             .Medicacion = Medicacion,

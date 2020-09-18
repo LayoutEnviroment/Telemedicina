@@ -5,6 +5,7 @@ Public Class AltaUsuario
     Dim FechaNacimiento As String
     Dim EnfermedadesCronicas As New List(Of String)
     Dim Medicamentos As New List(Of String)
+    Dim Sexo As String
 
     Private Sub AltaUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -25,16 +26,6 @@ Public Class AltaUsuario
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
         ControladorUsuario.CrearPersona(TxtNombre.Text.Trim, TxtApellido.Text.Trim, TxtCI.Text.Trim, TxtMail.Text.Trim)
 
-        FechaNacimiento = DtpFechaNacimiento.Value.Year.ToString() + "-" + DtpFechaNacimiento.Value.Month.ToString() + "-" + DtpFechaNacimiento.Value.Day.ToString()
-
-        For x = 0 To LstEnfermedadCronica.Items.Count - 1
-            EnfermedadesCronicas.Add(LstEnfermedadCronica.Items(x).ToString)
-        Next
-
-        For y = 0 To LstMedicacion.Items.Count - 1
-            Medicamentos.Add(LstMedicacion.Items(y).ToString)
-        Next
-
         If ChbAdministrador.Checked Then
             TipoUsuario(1) = True
         End If
@@ -45,7 +36,26 @@ Public Class AltaUsuario
 
         If ChbPaciente.Checked Then
             TipoUsuario(3) = True
-            ControladorUsuario.CrearPaciente(LstEnfermedadCronica.)
+            FechaNacimiento = DtpFechaNacimiento.Value.Year.ToString() + "-" + DtpFechaNacimiento.Value.Month.ToString() + "-" + DtpFechaNacimiento.Value.Day.ToString()
+
+            For x = 0 To LstEnfermedadCronica.Items.Count - 1
+                EnfermedadesCronicas.Add(LstEnfermedadCronica.Items(x).ToString)
+            Next
+
+            For y = 0 To LstMedicacion.Items.Count - 1
+                Medicamentos.Add(LstMedicacion.Items(y).ToString)
+            Next
+
+            If RdbF.Checked() Then
+                Sexo = "F"
+
+            End If
+            If RdbM.Checked() Then
+                Sexo = "M"
+
+            End If
+
+            ControladorUsuario.CrearPaciente(FechaNacimiento, Sexo, Medicamentos, EnfermedadesCronicas)
 
         End If
 
