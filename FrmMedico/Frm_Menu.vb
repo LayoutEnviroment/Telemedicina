@@ -19,7 +19,7 @@ Public Class Frm_Menu
             MsgBox("Error al setear las credenciales" + ex.ToString)
 
         End Try
-
+        TmrBuscarChats.Start()
     End Sub
 
     Private Sub GuardarMisDatos(lector As IDataReader)
@@ -31,21 +31,6 @@ Public Class Frm_Menu
 
     End Sub
 
-    Private Sub BtnBuscarSolicitudes_Click(sender As Object, e As EventArgs) Handles BtnBuscarSolicitudes.Click
-        Dim TablaChats As New DataTable
-
-        Try
-            TablaChats.Load(ControladorChatMedico.BuscarSolicitud())
-            DgvEnEspera.DataSource = TablaChats
-
-        Catch ex As Exception
-            MsgBox("Error al buscar solicitudes")
-
-        End Try
-
-    End Sub
-
-
     Private Sub BtnIniciarChat_Click(sender As Object, e As EventArgs) Handles BtnIniciarChat.Click
         IdDiagnostico = DgvEnEspera.Item(0, DgvEnEspera.CurrentCell.RowIndex).Value
         CiPaciente = DgvEnEspera.Item(1, DgvEnEspera.CurrentCell.RowIndex).Value
@@ -54,7 +39,8 @@ Public Class Frm_Menu
             ControladorChatMedico.AceptarSolicitud(IdDiagnostico, CiPaciente, Nombre, Apellido)
             RtbConversacion.Text += "Chat iniciado con el paciente " + CiPaciente + Environment.NewLine
             EmpezarChat(IdDiagnostico, CiPaciente)
-
+            TraerInformacionPaciente(CiPaciente)
+            TmrBuscarChats.Stop()
         Catch ex As Exception
             MsgBox("Error al aceptar la solicitud")
 
@@ -70,14 +56,78 @@ Public Class Frm_Menu
 
     End Sub
 
+    Private Sub TraerInformacionPaciente(CedulaPaciente As String)
+        Dim LectorDatos, LectorEnfermedades, LectorMedicaciones As IDataReader
+        Try
+            LectorDatos = ControladorPaciente.ObtenerTodo(CedulaPaciente)
+            LectorEnfermedades = ControladorPaciente.ObtenerEnfermedades(CedulaPaciente)
+            LectorMedicaciones = ControladorPaciente.ObtenerMedicaciones(CedulaPaciente)
+            CargarLabelsPaciente(LectorDatos)
+            CargarListaEnfermedades(LectorEnfermedades)
+            CargarListaMedicaciones(LectorMedicaciones)
+            MostrarDatosPaciente(True)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub CargarLabelsPaciente(Lector As IDataReader)
+        While Lector.Read
+            LblNombrePaciente.Text = Lector(0).ToString + " " + Lector(1).ToString
+            If Lector(2).ToString = 0 Then
+                LblSexoPaciente.Text = "Hombre"
+            Else
+                LblSexoPaciente.Text = "Mujer"
+            End If
+            LblEdadPaciente.Text = ObtenerEdadPaciente(Lector(3).ToString)
+
+        End While
+    End Sub
+
+    Private Function ObtenerEdadPaciente(FechaNacimiento As Date)
+        Return DateDiff(DateInterval.Year, FechaNacimiento, Date.Now)
+
+    End Function
+
+    Private Sub CargarListaEnfermedades(Enfermedades As IDataReader)
+        While Enfermedades.Read
+            LstEnfermedades.Items.Add(Enfermedades(0).ToString)
+        End While
+    End Sub
+
+    Private Sub CargarListaMedicaciones(Medicaciones As IDataReader)
+        While Medicaciones.Read
+            LstMedicaciones.Items.Add(Medicaciones(0).ToString)
+        End While
+    End Sub
+
+    Private Sub MostrarDatosPaciente(estado As Boolean)
+        LblNombrePaciente.Visible = estado
+        LblEdadPaciente.Visible = estado
+        LblSexoPaciente.Visible = estado
+        LstEnfermedades.Visible = estado
+        LstMedicaciones.Visible = estado
+    End Sub
+
     Public Sub RealizarCambios(estado As Boolean)
         BtnEnviar.Enabled = estado
         BtnFinalizarChat.Enabled = estado
         RtbMensaje.Enabled = estado
         BtnIniciarChat.Enabled = Not estado
-        BtnBuscarSolicitudes.Enabled = Not estado
         DgvEnEspera.Enabled = Not estado
+        LstEnfermedades.Clear()
+        LstMedicaciones.Clear()
+    End Sub
 
+    Private Sub TmrBuscarChats_Tick(sender As Object, e As EventArgs) Handles TmrBuscarChats.Tick
+        Dim Tabla As New DataTable
+
+        Try
+            Tabla.Load(ControladorChatMedico.BuscarSolicitud())
+            DgvEnEspera.DataSource = Tabla
+        Catch ex As Exception
+            MsgBox("No se pudieron encontrar solicitudes")
+        End Try
     End Sub
 
     Private Sub TmrBuscarMensajesNuevos_Tick_1(sender As Object, e As EventArgs) Handles TmrBuscarMensajesNuevos.Tick
@@ -146,7 +196,7 @@ Public Class Frm_Menu
 
     Private Sub CambiosEnForm()
         RealizarCambios(False)
-        BtnBuscarSolicitudes.PerformClick()
+        TmrBuscarChats.Start()
         RtbConversacion.Clear()
         RtbMensaje.Clear()
 

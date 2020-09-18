@@ -5,6 +5,7 @@
         MyBase.New(user, pass)
     End Sub
 
+    Public Cedula As String
     Public Nombre As String
     Public Apellido As String
     Public Mail As String
@@ -48,6 +49,27 @@
 
     End Function
 
+    Public Function ObtenerPersonaSexoNacimineto(cedula As String)
+        Command.CommandText = "
+            SELECT
+                p.nombre,
+                p.apellido,
+                pa.sexo,
+                pa.fecha_nac
+            FROM
+                persona p
+                    JOIN
+                        paciente pa
+                            ON 
+                                p.ci = pa.ci_persona
+            WHERE
+                p.ci = " + cedula + "
+            "
+        Reader = Command.ExecuteReader()
+        Return Reader
+
+    End Function
+
     Public Function ObtenerMedicaciones()
         Command.CommandText = "
             SELECT
@@ -62,6 +84,20 @@
         Return Reader
     End Function
 
+    Public Function ObtenerMedicaciones(Cedula As String)
+        Command.CommandText = "
+            SELECT
+                medicacion
+            FROM
+                medicaciones
+            WHERE
+                ci_persona_paciente = " + Cedula + "
+        "
+
+        Reader = Command.ExecuteReader()
+        Return Reader
+    End Function
+
     Public Function ObtenerEnfermedades()
         Command.CommandText = "
             SELECT
@@ -70,6 +106,20 @@
                 enfermedades_cronicas
             WHERE
                 ci_persona_paciente = " + Me.Pwd + "
+        "
+
+        Reader = Command.ExecuteReader()
+        Return Reader
+    End Function
+
+    Public Function ObtenerEnfermedades(Cedula As String)
+        Command.CommandText = "
+            SELECT
+                enfermedad
+            FROM
+                enfermedades_cronicas
+            WHERE
+                ci_persona_paciente = " + Cedula + "
         "
 
         Reader = Command.ExecuteReader()
@@ -178,4 +228,13 @@
             Command.ExecuteNonQuery()
         End Try
     End Sub
+
+    Public Function ObtenerDatosPersonales()
+        Command.CommandText = "
+            SELECT
+                Nombre,
+                Apellido,
+
+        "
+    End Function
 End Class
