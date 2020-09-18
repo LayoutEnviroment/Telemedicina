@@ -31,6 +31,22 @@
                           VALUES('" + Me.CI + "')"
                 Command.ExecuteNonQuery()
 
+                Command.CommandText = "INSERT INTO roles (ci_persona, rol)
+                          VALUES('" + Me.CI + "',3)"
+                Command.ExecuteNonQuery()
+
+                Command.CommandText = "CREATE USER '" + Me.Mail + "'@'localhost' identified by '" + Me.CI + "'"
+                Command.ExecuteNonQuery()
+
+                Command.CommandText = "GRANT
+                                        ALL
+                                        ON
+                                             bd_led.*
+                                        TO
+                                       '" + Me.Mail + "'@'localhost'
+                                        FLUSH PRIVILEGES"
+                Command.ExecuteNonQuery()
+
                 Command.CommandText = "COMMIT"
                 Command.ExecuteNonQuery()
 

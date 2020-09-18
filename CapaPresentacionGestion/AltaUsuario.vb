@@ -1,12 +1,18 @@
 ﻿Imports CapaDeNegocio
 Public Class AltaUsuario
+
+    Dim TipoUsuario As Boolean()
+    Dim FechaNacimiento As String
+    Dim EnfermedadesCronicas As New List(Of String)
+    Dim Medicamentos As New List(Of String)
+
     Private Sub AltaUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 
     Private Sub ChbPaciente_CheckedChanged(sender As Object, e As EventArgs) Handles ChbPaciente.CheckedChanged
 
-        If ChbPaciente.CheckState = 1 Then
+        If ChbPaciente.Checked Then
             MuestraCampoPaciente()
         Else
             OcultaCampoPaciente()
@@ -17,8 +23,31 @@ Public Class AltaUsuario
     End Sub
 
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
+        ControladorUsuario.CrearPersona(TxtNombre.Text.Trim, TxtApellido.Text.Trim, TxtCI.Text.Trim, TxtMail.Text.Trim)
 
-        ControladorUsuario.CrearAdministrativo(TxtNombre.Text.Trim, TxtApellido.Text.Trim, TxtCI.Text.Trim, TxtMail.Text.Trim)
+        FechaNacimiento = DtpFechaNacimiento.Value.Year.ToString() + "-" + DtpFechaNacimiento.Value.Month.ToString() + "-" + DtpFechaNacimiento.Value.Day.ToString()
+
+        For x = 0 To LstEnfermedadCronica.Items.Count - 1
+            EnfermedadesCronicas.Add(LstEnfermedadCronica.Items(x).ToString)
+        Next
+
+        For y = 0 To LstMedicacion.Items.Count - 1
+            Medicamentos.Add(LstMedicacion.Items(y).ToString)
+        Next
+
+        If ChbAdministrador.Checked Then
+            TipoUsuario(1) = True
+        End If
+
+        If ChbMedico.Checked Then
+            TipoUsuario(2) = True
+        End If
+
+        If ChbPaciente.Checked Then
+            TipoUsuario(3) = True
+            ControladorUsuario.CrearPaciente(LstEnfermedadCronica.)
+
+        End If
 
 
 
@@ -62,7 +91,7 @@ Public Class AltaUsuario
         TxtMail.Text = ""
         TxtEnfermedadCronica.Text = ""
         TxtMedicacion.Text = ""
-        DtFechaNacimiento.Checked = False
+        DtpFechaNacimiento.Checked = False
         LstEnfermedadCronica.Items.Clear()
         LstMedicacion.Items.Clear()
         RdbF.Checked = False
@@ -80,7 +109,7 @@ Public Class AltaUsuario
         LstMedicacion.Visible = True
         RdbF.Visible = True
         RdbM.Visible = True
-        DtFechaNacimiento.Visible = True
+        DtpFechaNacimiento.Visible = True
         LblFechaNacimiento.Visible = True
         LblEnfermedadCronica.Visible = True
         LblMedicacion.Visible = True
@@ -94,7 +123,7 @@ Public Class AltaUsuario
         LstMedicacion.Visible = False
         RdbF.Visible = False
         RdbM.Visible = False
-        DtFechaNacimiento.Visible = False
+        DtpFechaNacimiento.Visible = False
         LblFechaNacimiento.Visible = False
         LblEnfermedadCronica.Visible = False
         LblMedicacion.Visible = False
