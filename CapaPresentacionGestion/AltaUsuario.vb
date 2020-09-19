@@ -1,7 +1,9 @@
 ﻿Imports CapaDeNegocio
 Public Class AltaUsuario
 
-    Dim TipoUsuario As Boolean()
+    Dim UsuarioPaciente As Boolean
+    Dim UsuarioMedico As Boolean
+    Dim UsuarioAdministrador As Boolean
     Dim FechaNacimiento As String
     Dim EnfermedadesCronicas As New List(Of String)
     Dim Medicamentos As New List(Of String)
@@ -27,15 +29,17 @@ Public Class AltaUsuario
         ControladorUsuario.CrearPersona(TxtNombre.Text.Trim, TxtApellido.Text.Trim, TxtCI.Text.Trim, TxtMail.Text.Trim)
 
         If ChbAdministrador.Checked Then
-            TipoUsuario(1) = True
+            UsuarioAdministrador = True
+            ControladorUsuario.CrearAdministrativo(TxtCI.Text.Trim, UsuarioAdministrador)
         End If
 
         If ChbMedico.Checked Then
-            TipoUsuario(2) = True
+            UsuarioMedico = True
+            ControladorUsuario.CrearMedico(TxtCI.Text.Trim, UsuarioMedico)
         End If
 
         If ChbPaciente.Checked Then
-            TipoUsuario(3) = True
+            UsuarioPaciente = True
             FechaNacimiento = DtpFechaNacimiento.Value.Year.ToString() + "-" + DtpFechaNacimiento.Value.Month.ToString() + "-" + DtpFechaNacimiento.Value.Day.ToString()
 
             For x = 0 To LstEnfermedadCronica.Items.Count - 1
@@ -55,7 +59,7 @@ Public Class AltaUsuario
 
             End If
 
-            ControladorUsuario.CrearPaciente(FechaNacimiento, Sexo, Medicamentos, EnfermedadesCronicas)
+            ControladorUsuario.CrearPaciente(FechaNacimiento, Sexo, Medicamentos, EnfermedadesCronicas, UsuarioPaciente)
 
         End If
 
@@ -124,6 +128,8 @@ Public Class AltaUsuario
         LblEnfermedadCronica.Visible = True
         LblMedicacion.Visible = True
         LblSexo.Visible = True
+        BtnAgregarEnfermedad.Visible = True
+        BtnAgregarMedicacion.Visible = True
     End Sub
 
     Private Sub OcultaCampoPaciente()
@@ -138,5 +144,7 @@ Public Class AltaUsuario
         LblEnfermedadCronica.Visible = False
         LblMedicacion.Visible = False
         LblSexo.Visible = False
+        BtnAgregarEnfermedad.Visible = False
+        BtnAgregarMedicacion.Visible = False
     End Sub
 End Class
