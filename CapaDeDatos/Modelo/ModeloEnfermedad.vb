@@ -106,16 +106,18 @@
 
     Public Function ObtenerIdConDiagnostico()
         Command.CommandText = "
-            SELECT
-                MAX(DISTINCT(g.id_enfermedad_compone))
-            FROM
-                genera g
-                    JOIN
-                        diagnostico d
-                            ON
-                                g.id_diagnostico = d.id
-            WHERE
-                d.pertenece = " + Me.Pwd + "
+            SELECT 
+                g.id_enfermedad_compone 
+            FROM 
+                genera g 
+                    JOIN 
+                        diagnostico d 
+                            ON g.id_diagnostico = d.id 
+            WHERE 
+                d.pertenece = " + Me.Pwd + " 
+            ORDER BY 
+                g.id_diagnostico DESC 
+            LIMIT 1
         "
         Return Command.ExecuteScalar.ToString()
 
