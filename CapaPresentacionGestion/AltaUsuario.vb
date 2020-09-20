@@ -1,9 +1,9 @@
 ﻿Imports CapaDeNegocio
 Public Class AltaUsuario
 
-    Dim UsuarioPaciente As Boolean
-    Dim UsuarioMedico As Boolean
-    Dim UsuarioAdministrador As Boolean
+    Dim UsuarioPaciente As String
+    Dim UsuarioMedico As String
+    Dim UsuarioAdministrador As String
     Dim FechaNacimiento As String
     Dim EnfermedadesCronicas As New List(Of String)
     Dim Medicamentos As New List(Of String)
@@ -29,17 +29,18 @@ Public Class AltaUsuario
         ControladorUsuario.CrearPersona(TxtNombre.Text.Trim, TxtApellido.Text.Trim, TxtCI.Text.Trim, TxtMail.Text.Trim)
 
         If ChbAdministrador.Checked Then
-            UsuarioAdministrador = True
+            UsuarioAdministrador = 3
             ControladorUsuario.CrearAdministrativo(TxtCI.Text.Trim, UsuarioAdministrador)
+            MsgBox("Pase parametros administrador")
         End If
 
         If ChbMedico.Checked Then
-            UsuarioMedico = True
+            UsuarioMedico = 2
             ControladorUsuario.CrearMedico(TxtCI.Text.Trim, UsuarioMedico)
         End If
 
         If ChbPaciente.Checked Then
-            UsuarioPaciente = True
+            UsuarioPaciente = 1
             FechaNacimiento = DtpFechaNacimiento.Value.Year.ToString() + "-" + DtpFechaNacimiento.Value.Month.ToString() + "-" + DtpFechaNacimiento.Value.Day.ToString()
 
             For x = 0 To LstEnfermedadCronica.Items.Count - 1

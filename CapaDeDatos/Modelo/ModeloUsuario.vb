@@ -5,9 +5,9 @@
         MyBase.New(user, pass)
     End Sub
 
-    Public RolDeMedico As Boolean
-    Public RolDePaciente As Boolean
-    Public RolDeAdministrador As Boolean
+    Public RolDeMedico As String
+    Public RolDePaciente As String
+    Public RolDeAdministrador As String
     Public Nombre As String
     Public Apellido As String
     Public CI As String
@@ -30,9 +30,8 @@
                           VALUES('" + Me.CI + "','" + Me.Nombre + "','" + Me.Apellido + "','" + Me.Mail + "','1')"
                 Command.ExecuteNonQuery()
 
-                If Me.RolDeAdministrador = True Then
-
-
+                If Me.RolDeAdministrador = 3 Then
+                    MsgBox("entre al if administrador")
                     Command.CommandText = "INSERT INTO administrativo (ci_persona)
                           VALUES('" + Me.CI + "')"
                     Command.ExecuteNonQuery()
@@ -53,7 +52,7 @@
                                         FLUSH PRIVILEGES"
                     Command.ExecuteNonQuery()
                 End If
-                If Me.RolDeMedico = True Then
+                If Me.RolDeMedico = 2 Then
                     Command.CommandText = "INSERT INTO medico (ci_persona)
                           VALUES('" + Me.CI + "')"
                     Command.ExecuteNonQuery()
@@ -75,7 +74,7 @@
                     Command.ExecuteNonQuery()
                 End If
 
-                If Me.RolDePaciente = True Then
+                If Me.RolDePaciente = 1 Then
                     Command.CommandText = "INSERT INTO paciente (ci_persona, sexo, fecha_nac, activo)
                           VALUES('" + Me.CI + "','" + Me.Sexo + "','" + Me.FechaNacimiento + "',1)"
                     Command.ExecuteNonQuery()

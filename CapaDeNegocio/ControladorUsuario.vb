@@ -14,15 +14,15 @@ Public Module ControladorUsuario
 
     End Function
 
-    Public Function CrearAdministrativo(Nombre As String, UsuarioAdministrador As Boolean)
+    Public Function CrearAdministrativo(Nombre As String, UsuarioAdministrador As String)
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
            .Nombre = Nombre,
            .RolDeAdministrador = UsuarioAdministrador
            }
         Return u.NuevaPersona()
-
+        MsgBox("llegue al controlador de usuario")
     End Function
-    Public Function CrearMedico(Nombre As String, UsuarioMedico As Boolean)
+    Public Function CrearMedico(Nombre As String, UsuarioMedico As String)
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
             .Nombre = Nombre,
             .RolDeMedico = UsuarioMedico
@@ -30,7 +30,7 @@ Public Module ControladorUsuario
         Return u.NuevaPersona()
     End Function
 
-    Public Function CrearPaciente(FechaNacimiento As String, Sexo As String, Medicacion As List(Of String), EnfermedadCronica As List(Of String), UsuarioPaciente As Boolean)
+    Public Function CrearPaciente(FechaNacimiento As String, Sexo As String, Medicacion As List(Of String), EnfermedadCronica As List(Of String), UsuarioPaciente As String)
 
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
             .FechaNacimiento = FechaNacimiento,
