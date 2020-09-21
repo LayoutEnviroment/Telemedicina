@@ -5,6 +5,7 @@
         MyBase.New(user, pass)
     End Sub
 
+    Public ListadoSintomas As List(Of String)
     Public IdSintoma As String
     Public Nombre As String
     Public Activo As String
@@ -83,4 +84,19 @@
         Command.ExecuteNonQuery()
 
     End Sub
+
+    Public Sub GuardarPadecimientos()
+        For Each sintoma In ListadoSintomas
+            Command.CommandText = "
+            INSERT INTO
+                padece(ci_persona_paciente, id_sintoma)
+            VALUES(" + Me.Pwd + ", 
+                (SELECT id FROM sintoma WHERE nombre = '" + sintoma + "')
+                    )
+        "
+            Command.ExecuteNonQuery()
+        Next
+
+    End Sub
+
 End Class

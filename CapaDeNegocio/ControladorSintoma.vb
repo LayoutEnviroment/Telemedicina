@@ -31,7 +31,7 @@ Public Module ControladorSintoma
     End Sub
 
     Public Sub CambiarNombreDeSintoma(idSintoma As String, nombre As String)
-        Dim s As New ModeloSintoma(ControladorSesion.Pass, ControladorSesion.Pass) With {
+        Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass) With {
             .IdSintoma = idSintoma,
             .Nombre = nombre
         }
@@ -40,11 +40,20 @@ Public Module ControladorSintoma
     End Sub
 
     Public Sub EliminarSintoma(id As String)
-        Dim s As New ModeloSintoma(ControladorSesion.Pass, ControladorSesion.Pass) With {
+        Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass) With {
             .IdSintoma = id
         }
 
         s.Eliminar()
     End Sub
+
+    Public Sub GuardarSintomasPadecidos(ListaSintoma As List(Of String))
+        Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass) With {
+            .ListadoSintomas = ListaSintoma
+        }
+
+        s.GuardarPadecimientos()
+    End Sub
+
 End Module
 
