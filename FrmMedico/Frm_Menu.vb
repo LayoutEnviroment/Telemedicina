@@ -79,7 +79,7 @@ Public Class Frm_Menu
             Else
                 LblSexoPaciente.Text = "Mujer"
             End If
-            LblEdadPaciente.Text = ObtenerEdadPaciente(Lector(3).ToString)
+            LblEdadPaciente.Text = ObtenerEdadPaciente(Lector(3).ToString) + " Años"
 
         End While
     End Sub
