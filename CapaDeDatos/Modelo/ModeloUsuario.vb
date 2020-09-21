@@ -5,9 +5,8 @@
         MyBase.New(user, pass)
     End Sub
 
-    Public RolDeMedico As String
-    Public RolDePaciente As String
-    Public RolDeAdministrador As String
+
+    Public TipoDeUsuario(3) As Boolean
     Public Nombre As String
     Public Apellido As String
     Public CI As String
@@ -30,7 +29,11 @@
                           VALUES('" + Me.CI + "','" + Me.Nombre + "','" + Me.Apellido + "','" + Me.Mail + "','1')"
                 Command.ExecuteNonQuery()
 
-                If Me.RolDeAdministrador = 3 Then
+                Command.CommandText = "CREATE USER '" + Me.Mail + "'@'localhost' identified by '" + Me.CI + "'"
+                Command.ExecuteNonQuery()
+                MsgBox("cree user")
+
+                If Me.TipoDeUsuario(3) = True Then
                     MsgBox("entre al if administrador")
                     Command.CommandText = "INSERT INTO administrativo (ci_persona)
                           VALUES('" + Me.CI + "')"
@@ -39,20 +42,20 @@
                     Command.CommandText = "INSERT INTO roles (ci_persona, rol)
                           VALUES('" + Me.CI + "',3)"
                     Command.ExecuteNonQuery()
-
-                    Command.CommandText = "CREATE USER '" + Me.Mail + "'@'localhost' identified by '" + Me.CI + "'"
-                    Command.ExecuteNonQuery()
+                    MsgBox("cree roles")
 
                     Command.CommandText = "GRANT
                                         ALL
                                         ON
-                                             bd_led.*
+                                             *.*
                                         TO
-                                       '" + Me.Mail + "'@'localhost'
-                                        FLUSH PRIVILEGES"
+                                       '" + Me.Mail + "'@'localhost' WITH GRANT OPTION"
+                    Command.ExecuteNonQuery()
+                    MsgBox("le di privilegios")
+                    Command.CommandText = "FLUSH PRIVILEGES"
                     Command.ExecuteNonQuery()
                 End If
-                If Me.RolDeMedico = 2 Then
+                If Me.TipoDeUsuario(2) = True Then
                     Command.CommandText = "INSERT INTO medico (ci_persona)
                           VALUES('" + Me.CI + "')"
                     Command.ExecuteNonQuery()
@@ -61,20 +64,19 @@
                           VALUES('" + Me.CI + "',2)"
                     Command.ExecuteNonQuery()
 
-                    Command.CommandText = "CREATE USER '" + Me.Mail + "'@'localhost' identified by '" + Me.CI + "'"
-                    Command.ExecuteNonQuery()
-
                     Command.CommandText = "GRANT
                                         ALL
                                         ON
-                                             bd_led.*
+                                             *.*
                                         TO
-                                       '" + Me.Mail + "'@'localhost'
-                                        FLUSH PRIVILEGES"
+                                       '" + Me.Mail + "'@'localhost'"
+                    Command.ExecuteNonQuery()
+
+                    Command.CommandText = "FLUSH PRIVILEGES"
                     Command.ExecuteNonQuery()
                 End If
 
-                If Me.RolDePaciente = 1 Then
+                If Me.TipoDeUsuario(1) = True Then
                     Command.CommandText = "INSERT INTO paciente (ci_persona, sexo, fecha_nac, activo)
                           VALUES('" + Me.CI + "','" + Me.Sexo + "','" + Me.FechaNacimiento + "',1)"
                     Command.ExecuteNonQuery()
@@ -97,16 +99,21 @@
                           VALUES('" + Me.CI + "',1)"
                     Command.ExecuteNonQuery()
 
-                    Command.CommandText = "CREATE USER '" + Me.Mail + "'@'localhost' identified by '" + Me.CI + "'"
-                    Command.ExecuteNonQuery()
-
                     Command.CommandText = "GRANT
                                         ALL
                                         ON
-                                             bd_led.*
+                                             *.*
                                         TO
-                                       '" + Me.Mail + "'@'localhost'
-                                        FLUSH PRIVILEGES"
+                                       '" + Me.Mail + "'@'localhost'"
+                    Command.ExecuteNonQuery()
+
+                    Command.CommandText = "FLUSH PRIVILEGES"
+                    Command.ExecuteNonQuery()
+                Else
+
+                    Command.CommandText = "ROLLBACK"
+                    Command.ExecuteNonQuery()
+
                 End If
                 Command.CommandText = "COMMIT"
                     Command.ExecuteNonQuery()

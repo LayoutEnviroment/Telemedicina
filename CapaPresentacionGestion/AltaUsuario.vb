@@ -1,9 +1,7 @@
 ﻿Imports CapaDeNegocio
 Public Class AltaUsuario
 
-    Dim UsuarioPaciente As String
-    Dim UsuarioMedico As String
-    Dim UsuarioAdministrador As String
+    Dim TipoUsuario(3) As Boolean
     Dim FechaNacimiento As String
     Dim EnfermedadesCronicas As New List(Of String)
     Dim Medicamentos As New List(Of String)
@@ -26,21 +24,24 @@ Public Class AltaUsuario
     End Sub
 
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
-        ControladorUsuario.CrearPersona(TxtNombre.Text.Trim, TxtApellido.Text.Trim, TxtCI.Text.Trim, TxtMail.Text.Trim)
 
         If ChbAdministrador.Checked Then
-            UsuarioAdministrador = 3
-            ControladorUsuario.CrearAdministrativo(TxtCI.Text.Trim, UsuarioAdministrador)
+            TipoUsuario(3) = True
+
             MsgBox("Pase parametros administrador")
+        Else
+            TipoUsuario(3) = False
         End If
 
         If ChbMedico.Checked Then
-            UsuarioMedico = 2
-            ControladorUsuario.CrearMedico(TxtCI.Text.Trim, UsuarioMedico)
+            TipoUsuario(2) = True
+        Else
+            TipoUsuario(2) = False
+
         End If
 
         If ChbPaciente.Checked Then
-            UsuarioPaciente = 1
+            TipoUsuario(1) = True
             FechaNacimiento = DtpFechaNacimiento.Value.Year.ToString() + "-" + DtpFechaNacimiento.Value.Month.ToString() + "-" + DtpFechaNacimiento.Value.Day.ToString()
 
             For x = 0 To LstEnfermedadCronica.Items.Count - 1
@@ -52,18 +53,18 @@ Public Class AltaUsuario
             Next
 
             If RdbF.Checked() Then
-                Sexo = "F"
+                Sexo = "0"
 
             End If
             If RdbM.Checked() Then
-                Sexo = "M"
+                Sexo = "1"
 
             End If
-
-            ControladorUsuario.CrearPaciente(FechaNacimiento, Sexo, Medicamentos, EnfermedadesCronicas, UsuarioPaciente)
-
+        Else
+            TipoUsuario(1) = False
         End If
 
+        ControladorUsuario.CrearPersona(TxtNombre.Text.Trim, TxtApellido.Text.Trim, TxtCI.Text.Trim, TxtMail.Text.Trim, TipoUsuario, FechaNacimiento, Sexo, EnfermedadesCronicas, Medicamentos)
 
 
     End Sub

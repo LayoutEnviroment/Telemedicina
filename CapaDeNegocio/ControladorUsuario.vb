@@ -2,43 +2,21 @@
 
 Public Module ControladorUsuario
 
-    Public Function CrearPersona(Nombre As String, Apellido As String, CI As String, Mail As String)
+    Public Function CrearPersona(Nombre As String, Apellido As String, CI As String, Mail As String, TipoUsuario() As Boolean, FechaNacimiento As String, Sexo As String, EnfermedadesCronicas As List(Of String), Medicamentos As List(Of String))
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
             .Nombre = Nombre,
             .Apellido = Apellido,
             .CI = CI,
-            .Mail = Mail
-        }
-        Return u.NuevaPersona()
-
-
-    End Function
-
-    Public Function CrearAdministrativo(Nombre As String, UsuarioAdministrador As String)
-        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
-           .Nombre = Nombre,
-           .RolDeAdministrador = UsuarioAdministrador
-           }
-        Return u.NuevaPersona()
-        MsgBox("llegue al controlador de usuario")
-    End Function
-    Public Function CrearMedico(Nombre As String, UsuarioMedico As String)
-        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
-            .Nombre = Nombre,
-            .RolDeMedico = UsuarioMedico
-        }
-        Return u.NuevaPersona()
-    End Function
-
-    Public Function CrearPaciente(FechaNacimiento As String, Sexo As String, Medicacion As List(Of String), EnfermedadCronica As List(Of String), UsuarioPaciente As String)
-
-        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Mail = Mail,
             .FechaNacimiento = FechaNacimiento,
             .Sexo = Sexo,
-            .Medicacion = Medicacion,
-            .EnfermedadCronica = EnfermedadCronica,
-            .RolDePaciente = UsuarioPaciente
+            .Medicacion = Medicamentos,
+            .EnfermedadCronica = EnfermedadesCronicas,
+            .TipoDeUsuario = TipoUsuario
         }
         Return u.NuevaPersona()
+
+
     End Function
+
 End Module
