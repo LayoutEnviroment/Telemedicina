@@ -45,4 +45,10 @@ Public Module ControladorPaciente
 
         p.CambiarDatos()
     End Sub
+
+    Public Function ObtenerCIPaciente()
+        Dim p As New ModeloPaciente(ControladorSesion.User, ControladorSesion.Pass)
+
+        Return p.ObtenerCI()
+    End Function
 End Module

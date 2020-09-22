@@ -27,16 +27,19 @@ Partial Class MenuGestion
         Me.BtnCompone = New System.Windows.Forms.Button()
         Me.MenuGestor = New System.Windows.Forms.MenuStrip()
         Me.UsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SintomaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModificarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SintomaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModificarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportarCSVToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SintomaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.EnfermedadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PacienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MedicoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AdministrativoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuGestor.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -89,13 +92,6 @@ Partial Class MenuGestion
         Me.UsuarioToolStripMenuItem.Size = New System.Drawing.Size(71, 24)
         Me.UsuarioToolStripMenuItem.Text = "Usuario"
         '
-        'SintomaToolStripMenuItem
-        '
-        Me.SintomaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem1, Me.ModificarToolStripMenuItem1, Me.EliminarToolStripMenuItem1})
-        Me.SintomaToolStripMenuItem.Name = "SintomaToolStripMenuItem"
-        Me.SintomaToolStripMenuItem.Size = New System.Drawing.Size(76, 24)
-        Me.SintomaToolStripMenuItem.Text = "Sintoma"
-        '
         'NuevoToolStripMenuItem
         '
         Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
@@ -104,6 +100,7 @@ Partial Class MenuGestion
         '
         'ModificarToolStripMenuItem
         '
+        Me.ModificarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PacienteToolStripMenuItem, Me.MedicoToolStripMenuItem, Me.AdministrativoToolStripMenuItem})
         Me.ModificarToolStripMenuItem.Name = "ModificarToolStripMenuItem"
         Me.ModificarToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
         Me.ModificarToolStripMenuItem.Text = "Modificar"
@@ -114,22 +111,29 @@ Partial Class MenuGestion
         Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
         Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
+        'SintomaToolStripMenuItem
+        '
+        Me.SintomaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem1, Me.ModificarToolStripMenuItem1, Me.EliminarToolStripMenuItem1})
+        Me.SintomaToolStripMenuItem.Name = "SintomaToolStripMenuItem"
+        Me.SintomaToolStripMenuItem.Size = New System.Drawing.Size(76, 24)
+        Me.SintomaToolStripMenuItem.Text = "Sintoma"
+        '
         'NuevoToolStripMenuItem1
         '
         Me.NuevoToolStripMenuItem1.Name = "NuevoToolStripMenuItem1"
-        Me.NuevoToolStripMenuItem1.Size = New System.Drawing.Size(216, 26)
+        Me.NuevoToolStripMenuItem1.Size = New System.Drawing.Size(148, 26)
         Me.NuevoToolStripMenuItem1.Text = "Nuevo"
         '
         'ModificarToolStripMenuItem1
         '
         Me.ModificarToolStripMenuItem1.Name = "ModificarToolStripMenuItem1"
-        Me.ModificarToolStripMenuItem1.Size = New System.Drawing.Size(216, 26)
+        Me.ModificarToolStripMenuItem1.Size = New System.Drawing.Size(148, 26)
         Me.ModificarToolStripMenuItem1.Text = "Modificar"
         '
         'EliminarToolStripMenuItem1
         '
         Me.EliminarToolStripMenuItem1.Name = "EliminarToolStripMenuItem1"
-        Me.EliminarToolStripMenuItem1.Size = New System.Drawing.Size(216, 26)
+        Me.EliminarToolStripMenuItem1.Size = New System.Drawing.Size(148, 26)
         Me.EliminarToolStripMenuItem1.Text = "Eliminar"
         '
         'ImportarCSVToolStripMenuItem
@@ -142,14 +146,32 @@ Partial Class MenuGestion
         'SintomaToolStripMenuItem1
         '
         Me.SintomaToolStripMenuItem1.Name = "SintomaToolStripMenuItem1"
-        Me.SintomaToolStripMenuItem1.Size = New System.Drawing.Size(216, 26)
+        Me.SintomaToolStripMenuItem1.Size = New System.Drawing.Size(165, 26)
         Me.SintomaToolStripMenuItem1.Text = "Sintoma"
         '
         'EnfermedadToolStripMenuItem
         '
         Me.EnfermedadToolStripMenuItem.Name = "EnfermedadToolStripMenuItem"
-        Me.EnfermedadToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+        Me.EnfermedadToolStripMenuItem.Size = New System.Drawing.Size(165, 26)
         Me.EnfermedadToolStripMenuItem.Text = "Enfermedad"
+        '
+        'PacienteToolStripMenuItem
+        '
+        Me.PacienteToolStripMenuItem.Name = "PacienteToolStripMenuItem"
+        Me.PacienteToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+        Me.PacienteToolStripMenuItem.Text = "Paciente"
+        '
+        'MedicoToolStripMenuItem
+        '
+        Me.MedicoToolStripMenuItem.Name = "MedicoToolStripMenuItem"
+        Me.MedicoToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+        Me.MedicoToolStripMenuItem.Text = "Medico"
+        '
+        'AdministrativoToolStripMenuItem
+        '
+        Me.AdministrativoToolStripMenuItem.Name = "AdministrativoToolStripMenuItem"
+        Me.AdministrativoToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+        Me.AdministrativoToolStripMenuItem.Text = "Administrativo"
         '
         'MenuGestion
         '
@@ -186,4 +208,7 @@ Partial Class MenuGestion
     Friend WithEvents ImportarCSVToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SintomaToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents EnfermedadToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PacienteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MedicoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AdministrativoToolStripMenuItem As ToolStripMenuItem
 End Class

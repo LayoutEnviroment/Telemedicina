@@ -24,7 +24,6 @@ Partial Class ModificarUsuarioPaciente
     Private Sub InitializeComponent()
         Me.LblNombre = New System.Windows.Forms.Label()
         Me.LblApellido = New System.Windows.Forms.Label()
-        Me.LblCI = New System.Windows.Forms.Label()
         Me.LblMail = New System.Windows.Forms.Label()
         Me.LblFechaNacimiento = New System.Windows.Forms.Label()
         Me.LblSexo = New System.Windows.Forms.Label()
@@ -40,7 +39,6 @@ Partial Class ModificarUsuarioPaciente
         Me.RdbM = New System.Windows.Forms.RadioButton()
         Me.DtpFechaNacimiento = New System.Windows.Forms.DateTimePicker()
         Me.TxtMail = New System.Windows.Forms.TextBox()
-        Me.TxtCI = New System.Windows.Forms.TextBox()
         Me.TxtApellido = New System.Windows.Forms.TextBox()
         Me.TxtNombre = New System.Windows.Forms.TextBox()
         Me.BtnVolver = New System.Windows.Forms.Button()
@@ -48,6 +46,8 @@ Partial Class ModificarUsuarioPaciente
         Me.BtnAceptar = New System.Windows.Forms.Button()
         Me.BtnEliminarEnfermedad = New System.Windows.Forms.Button()
         Me.BtnEliminarMedicacion = New System.Windows.Forms.Button()
+        Me.LblSeleccionarCI = New System.Windows.Forms.Label()
+        Me.CmbSeleccionarCI = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'LblNombre
@@ -68,19 +68,10 @@ Partial Class ModificarUsuarioPaciente
         Me.LblApellido.TabIndex = 1
         Me.LblApellido.Text = "Apellido"
         '
-        'LblCI
-        '
-        Me.LblCI.AutoSize = True
-        Me.LblCI.Location = New System.Drawing.Point(103, 142)
-        Me.LblCI.Name = "LblCI"
-        Me.LblCI.Size = New System.Drawing.Size(20, 17)
-        Me.LblCI.TabIndex = 2
-        Me.LblCI.Text = "CI"
-        '
         'LblMail
         '
         Me.LblMail.AutoSize = True
-        Me.LblMail.Location = New System.Drawing.Point(242, 142)
+        Me.LblMail.Location = New System.Drawing.Point(176, 139)
         Me.LblMail.Name = "LblMail"
         Me.LblMail.Size = New System.Drawing.Size(33, 17)
         Me.LblMail.TabIndex = 3
@@ -212,17 +203,10 @@ Partial Class ModificarUsuarioPaciente
         '
         'TxtMail
         '
-        Me.TxtMail.Location = New System.Drawing.Point(195, 162)
+        Me.TxtMail.Location = New System.Drawing.Point(71, 162)
         Me.TxtMail.Name = "TxtMail"
-        Me.TxtMail.Size = New System.Drawing.Size(153, 22)
+        Me.TxtMail.Size = New System.Drawing.Size(253, 22)
         Me.TxtMail.TabIndex = 31
-        '
-        'TxtCI
-        '
-        Me.TxtCI.Location = New System.Drawing.Point(71, 162)
-        Me.TxtCI.Name = "TxtCI"
-        Me.TxtCI.Size = New System.Drawing.Size(118, 22)
-        Me.TxtCI.TabIndex = 30
         '
         'TxtApellido
         '
@@ -285,11 +269,30 @@ Partial Class ModificarUsuarioPaciente
         Me.BtnEliminarMedicacion.UseVisualStyleBackColor = True
         Me.BtnEliminarMedicacion.Visible = False
         '
+        'LblSeleccionarCI
+        '
+        Me.LblSeleccionarCI.AutoSize = True
+        Me.LblSeleccionarCI.Location = New System.Drawing.Point(68, 28)
+        Me.LblSeleccionarCI.Name = "LblSeleccionarCI"
+        Me.LblSeleccionarCI.Size = New System.Drawing.Size(181, 17)
+        Me.LblSeleccionarCI.TabIndex = 46
+        Me.LblSeleccionarCI.Text = "Seleccione la CI a modificar"
+        '
+        'CmbSeleccionarCI
+        '
+        Me.CmbSeleccionarCI.FormattingEnabled = True
+        Me.CmbSeleccionarCI.Location = New System.Drawing.Point(267, 28)
+        Me.CmbSeleccionarCI.Name = "CmbSeleccionarCI"
+        Me.CmbSeleccionarCI.Size = New System.Drawing.Size(121, 24)
+        Me.CmbSeleccionarCI.TabIndex = 47
+        '
         'ModificarUsuarioPaciente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.CmbSeleccionarCI)
+        Me.Controls.Add(Me.LblSeleccionarCI)
         Me.Controls.Add(Me.BtnEliminarMedicacion)
         Me.Controls.Add(Me.BtnEliminarEnfermedad)
         Me.Controls.Add(Me.BtnVolver)
@@ -305,7 +308,6 @@ Partial Class ModificarUsuarioPaciente
         Me.Controls.Add(Me.RdbM)
         Me.Controls.Add(Me.DtpFechaNacimiento)
         Me.Controls.Add(Me.TxtMail)
-        Me.Controls.Add(Me.TxtCI)
         Me.Controls.Add(Me.TxtApellido)
         Me.Controls.Add(Me.TxtNombre)
         Me.Controls.Add(Me.LblMedicacion)
@@ -313,7 +315,6 @@ Partial Class ModificarUsuarioPaciente
         Me.Controls.Add(Me.LblSexo)
         Me.Controls.Add(Me.LblFechaNacimiento)
         Me.Controls.Add(Me.LblMail)
-        Me.Controls.Add(Me.LblCI)
         Me.Controls.Add(Me.LblApellido)
         Me.Controls.Add(Me.LblNombre)
         Me.Name = "ModificarUsuarioPaciente"
@@ -325,7 +326,6 @@ Partial Class ModificarUsuarioPaciente
 
     Friend WithEvents LblNombre As Label
     Friend WithEvents LblApellido As Label
-    Friend WithEvents LblCI As Label
     Friend WithEvents LblMail As Label
     Friend WithEvents LblFechaNacimiento As Label
     Friend WithEvents LblSexo As Label
@@ -341,7 +341,6 @@ Partial Class ModificarUsuarioPaciente
     Friend WithEvents RdbM As RadioButton
     Friend WithEvents DtpFechaNacimiento As DateTimePicker
     Friend WithEvents TxtMail As TextBox
-    Friend WithEvents TxtCI As TextBox
     Friend WithEvents TxtApellido As TextBox
     Friend WithEvents TxtNombre As TextBox
     Friend WithEvents BtnVolver As Button
@@ -349,4 +348,6 @@ Partial Class ModificarUsuarioPaciente
     Friend WithEvents BtnAceptar As Button
     Friend WithEvents BtnEliminarEnfermedad As Button
     Friend WithEvents BtnEliminarMedicacion As Button
+    Friend WithEvents LblSeleccionarCI As Label
+    Friend WithEvents CmbSeleccionarCI As ComboBox
 End Class

@@ -5,6 +5,7 @@
         MyBase.New(user, pass)
     End Sub
 
+    Public CI As String
     Public Nombre As String
     Public Apellido As String
     Public Mail As String
@@ -178,4 +179,16 @@
             Command.ExecuteNonQuery()
         End Try
     End Sub
+
+    Public Function ObtenerCI()
+        Command.CommandText = "
+            SELECT
+                ci_persona
+            FROM
+                paciente  
+            WHERE
+                activo = 1 "
+       Reader = Command.ExecuteReader()
+        Return Reader
+    End Function
 End Class
