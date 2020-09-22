@@ -116,6 +116,12 @@
       <DependentUpon>MenuGestion.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ModificarUsuarioPaciente.Designer.vb">
+      <DependentUpon>ModificarUsuarioPaciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarUsuarioPaciente.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuGestion.resx">
       <DependentUpon>MenuGestion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarUsuarioPaciente.resx">
+      <DependentUpon>ModificarUsuarioPaciente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

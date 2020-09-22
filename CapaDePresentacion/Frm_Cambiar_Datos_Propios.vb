@@ -11,9 +11,11 @@ Public Class Frm_Cambiar_Datos_Propios
     Dim Medicaciones As New List(Of String)
 
     Private Sub Frm_Cambiar_Datos_Propios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         ObtenerDatosPersona()
         ObtenerMedicacionesPaciente()
         ObtenerEnfermedadesCronicas()
+
     End Sub
 
     Public Sub ObtenerDatosPersona()
@@ -211,9 +213,9 @@ Public Class Frm_Cambiar_Datos_Propios
 
     Private Sub LstMedicaciones_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstMedicaciones.SelectedIndexChanged
         If LstMedicaciones.SelectedItems.Count > 0 Then
-            BtnEliminarEnfermedad.Enabled = True
+            BtnEliminarMedicacion.Enabled = True
         Else
-            BtnEliminarEnfermedad.Enabled = False
+            BtnEliminarMedicacion.Enabled = False
         End If
 
     End Sub
