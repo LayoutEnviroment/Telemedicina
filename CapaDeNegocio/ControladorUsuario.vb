@@ -35,4 +35,11 @@ Public Module ControladorUsuario
         }
         Return u.NuevoPaciente()
     End Function
+
+    Public Function ObtenerCorreo()
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass)
+        u.ObtenerCorreo()
+
+    End Function
+
 End Module

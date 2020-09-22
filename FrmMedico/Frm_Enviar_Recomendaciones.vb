@@ -16,18 +16,24 @@ Public Class Frm_Enviar_Recomendaciones
         End Try
     End Sub
 
-
     Private Sub CmbAcciones_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbAcciones.SelectedIndexChanged
         CmbSobre.Enabled = True
+        MsgBox("Accion " + CmbAcciones.SelectedItem.ToString)
+        VerificarCmb()
     End Sub
 
     Private Sub CmbSobre_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbSobre.SelectedIndexChanged
-        If CmbAcciones.SelectedText = "Modificar" Or CmbAcciones.SelectedText = "Eliminar" Then
+        MsgBox(" Sobre" + CmbSobre.SelectedItem.ToString)
+        VerificarCmb()
+    End Sub
 
-            If CmbSobre.SelectedText = "Sintoma" Then
+    Private Sub VerificarCmb()
+        MsgBox("Intentando entrar " + CmbAcciones.Text)
+        If CmbAcciones.Text = "Modificar" Or CmbAcciones.Text = "Eliminar" Then
+            MsgBox("Soy " + CmbAcciones.Text)
+            If CmbSobre.Text = "Sintoma" Then
                 CargarSintomas()
-
-            ElseIf CmbSobre.SelectedText = "Enfermedad" Then
+            ElseIf CmbSobre.Text = "Enfermedad" Then
                 CargarEnfermedades()
 
             End If
@@ -40,6 +46,7 @@ Public Class Frm_Enviar_Recomendaciones
     End Sub
 
     Private Sub CargarSintomas()
+        LimpiarCmbItems()
         Dim LectorSintomas As IDataReader
         Try
             LectorSintomas = ControladorSintoma.ListarNombre()
@@ -47,21 +54,28 @@ Public Class Frm_Enviar_Recomendaciones
             While LectorSintomas.Read
                 CmbItem.Items.Add(LectorSintomas(0))
             End While
+            HabilitarCmbItems()
         Catch ex As Exception
 
         End Try
     End Sub
 
     Private Sub CargarEnfermedades()
+        LimpiarCmbItems()
         Dim LectorEnfermedades As IDataReader
         Try
-            LectorEnfermedades = ControladorSintoma.ListarNombre()
+            LectorEnfermedades = ControladorEnfermedad.ListarNombre()
 
             While LectorEnfermedades.Read
                 CmbItem.Items.Add(LectorEnfermedades(0))
             End While
+            HabilitarCmbItems()
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub LimpiarCmbItems()
+        CmbItem.Items.Clear()
     End Sub
 End Class

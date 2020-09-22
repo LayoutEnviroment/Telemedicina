@@ -29,7 +29,7 @@ Partial Class Frm_Menu
         Me.BtnEnviar = New System.Windows.Forms.Button()
         Me.BtnFinalizarChat = New System.Windows.Forms.Button()
         Me.BtnIniciarChat = New System.Windows.Forms.Button()
-        Me.BtnCerrarSesion = New System.Windows.Forms.Button()
+        Me.BtnRecomendaciones = New System.Windows.Forms.Button()
         Me.BtnSalir = New System.Windows.Forms.Button()
         Me.DgvEnEspera = New System.Windows.Forms.DataGridView()
         Me.TmrBuscarMensajesNuevos = New System.Windows.Forms.Timer(Me.components)
@@ -91,15 +91,15 @@ Partial Class Frm_Menu
         Me.BtnIniciarChat.Text = "Iniciar Chat"
         Me.BtnIniciarChat.UseVisualStyleBackColor = True
         '
-        'BtnCerrarSesion
+        'BtnRecomendaciones
         '
-        Me.BtnCerrarSesion.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCerrarSesion.Location = New System.Drawing.Point(909, 32)
-        Me.BtnCerrarSesion.Name = "BtnCerrarSesion"
-        Me.BtnCerrarSesion.Size = New System.Drawing.Size(128, 29)
-        Me.BtnCerrarSesion.TabIndex = 7
-        Me.BtnCerrarSesion.Text = "Cerrar Sesion"
-        Me.BtnCerrarSesion.UseVisualStyleBackColor = True
+        Me.BtnRecomendaciones.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnRecomendaciones.Location = New System.Drawing.Point(909, 32)
+        Me.BtnRecomendaciones.Name = "BtnRecomendaciones"
+        Me.BtnRecomendaciones.Size = New System.Drawing.Size(128, 29)
+        Me.BtnRecomendaciones.TabIndex = 7
+        Me.BtnRecomendaciones.Text = "Recomendaciones"
+        Me.BtnRecomendaciones.UseVisualStyleBackColor = True
         '
         'BtnSalir
         '
@@ -203,7 +203,7 @@ Partial Class Frm_Menu
         Me.Controls.Add(Me.LblNombrePaciente)
         Me.Controls.Add(Me.DgvEnEspera)
         Me.Controls.Add(Me.BtnSalir)
-        Me.Controls.Add(Me.BtnCerrarSesion)
+        Me.Controls.Add(Me.BtnRecomendaciones)
         Me.Controls.Add(Me.BtnIniciarChat)
         Me.Controls.Add(Me.BtnFinalizarChat)
         Me.Controls.Add(Me.BtnEnviar)
@@ -223,7 +223,7 @@ Partial Class Frm_Menu
     Friend WithEvents BtnEnviar As Button
     Friend WithEvents BtnFinalizarChat As Button
     Friend WithEvents BtnIniciarChat As Button
-    Friend WithEvents BtnCerrarSesion As Button
+    Friend WithEvents BtnRecomendaciones As Button
     Friend WithEvents BtnSalir As Button
     Friend WithEvents DgvEnEspera As DataGridView
     Friend WithEvents TmrBuscarMensajesNuevos As Timer

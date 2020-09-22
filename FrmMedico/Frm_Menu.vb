@@ -228,5 +228,9 @@ Public Class Frm_Menu
 
     End Sub
 
+    Private Sub BtnRecomendaciones_Click(sender As Object, e As EventArgs) Handles BtnRecomendaciones.Click
+        Me.Hide()
+        Frm_Enviar_Recomendaciones.Show()
 
+    End Sub
 End Class

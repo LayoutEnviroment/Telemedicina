@@ -109,6 +109,7 @@ Partial Class Frm_Enviar_Recomendaciones
         '
         'CmbItem
         '
+        Me.CmbItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CmbItem.Enabled = False
         Me.CmbItem.FormattingEnabled = True
         Me.CmbItem.Location = New System.Drawing.Point(571, 73)
