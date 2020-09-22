@@ -5,6 +5,7 @@
         MyBase.New(user, pass)
     End Sub
 
+    Public CI As String
     Public Nombre As String
     Public Apellido As String
     Public Mail As String
@@ -95,19 +96,20 @@
                         ci = " + Me.Pwd + "
                 "
                 Command.ExecuteNonQuery()
-                MsgBox("Hice Update a persona")
+
                 Try
                     Command.CommandText = "
                         UPDATE
                             paciente
                         SET
                             sexo = " + Me.Sexo + ",
-                            fecha_nac = " + Me.FechaNacimiento + "
+                            fecha_nac = '" + Me.FechaNacimiento + "'
                         WHERE
                             ci_persona = " + Me.Pwd + "
                     "
+                    MsgBox(FechaNacimiento)
                     Command.ExecuteNonQuery()
-                    MsgBox("Hice Update a paciente")
+
                     Try
                         Command.CommandText = "
                             DELETE FROM
@@ -116,7 +118,7 @@
                                 ci_persona_paciente = " + Me.Pwd + "
                         "
                         Command.ExecuteNonQuery()
-                        MsgBox("Borre las enfermedades")
+
                         Try
                             Command.CommandText = "
                             DELETE FROM
@@ -125,10 +127,11 @@
                                 ci_persona_paciente = " + Me.Pwd + "
                         "
                             Command.ExecuteNonQuery()
-                            MsgBox("Borre las medicaciones")
+
                             Try
                                 Dim values = String.Join(",", Enfermedades.Select(Function(f) String.Format("'{0}'", f)).ToArray())
                                 For Each enfermedad In Enfermedades
+                                    MsgBox(enfermedad)
                                     Command.CommandText = "
                                         INSERT INTO
                                             enfermedades_cronicas(ci_persona_paciente, enfermedad)
@@ -137,7 +140,7 @@
                                     "
                                     Command.ExecuteNonQuery()
                                 Next
-                                MsgBox("Ingrese las enfermedades")
+
                                 Try
                                     Dim valores = String.Join(",", Medicaciones.Select(Function(f) String.Format("'{0}'", f)).ToArray())
                                     For Each medicacion In Medicaciones
@@ -149,7 +152,7 @@
                                     "
                                         Command.ExecuteNonQuery()
                                     Next
-                                    MsgBox("Ingrese las medicaciones")
+
                                     Command.CommandText = "COMMIT"
                                     Command.ExecuteNonQuery()
                                 Catch ex As Exception
@@ -176,4 +179,16 @@
             Command.ExecuteNonQuery()
         End Try
     End Sub
+
+    Public Function ObtenerCI()
+        Command.CommandText = "
+            SELECT
+                ci_persona
+            FROM
+                paciente  
+            WHERE
+                activo = 1 "
+       Reader = Command.ExecuteReader()
+        Return Reader
+    End Function
 End Class

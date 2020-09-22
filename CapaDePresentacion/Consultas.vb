@@ -13,6 +13,8 @@ Public Class Consultas
     End Sub
 
     Private Sub DgvDiagnosticos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvDiagnosticos.CellContentClick
+        RtbDescripcion.Text = ""
+        RtbChat.Text = ""
         PnlInformacion.Visible = True
         Dim IdDiagnostico As String = DgvDiagnosticos.Item("Id", DgvDiagnosticos.CurrentCell.RowIndex).Value.ToString
 
