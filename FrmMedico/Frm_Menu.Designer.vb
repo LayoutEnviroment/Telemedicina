@@ -29,7 +29,7 @@ Partial Class Frm_Menu
         Me.BtnEnviar = New System.Windows.Forms.Button()
         Me.BtnFinalizarChat = New System.Windows.Forms.Button()
         Me.BtnIniciarChat = New System.Windows.Forms.Button()
-        Me.BtnCerrarSesion = New System.Windows.Forms.Button()
+        Me.BtnRecomendaciones = New System.Windows.Forms.Button()
         Me.BtnSalir = New System.Windows.Forms.Button()
         Me.DgvEnEspera = New System.Windows.Forms.DataGridView()
         Me.TmrBuscarMensajesNuevos = New System.Windows.Forms.Timer(Me.components)
@@ -39,24 +39,21 @@ Partial Class Frm_Menu
         Me.LstEnfermedades = New System.Windows.Forms.ListView()
         Me.LstMedicaciones = New System.Windows.Forms.ListView()
         Me.TmrBuscarChats = New System.Windows.Forms.Timer(Me.components)
-        Me.WbbConversacion = New System.Windows.Forms.WebBrowser()
-        Me.WbbMensaje = New System.Windows.Forms.WebBrowser()
         CType(Me.DgvEnEspera, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RtbConversacion
         '
-        Me.RtbConversacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RtbConversacion.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RtbConversacion.Location = New System.Drawing.Point(335, 154)
         Me.RtbConversacion.Name = "RtbConversacion"
-        Me.RtbConversacion.ReadOnly = True
-        Me.RtbConversacion.Size = New System.Drawing.Size(414, 272)
+        Me.RtbConversacion.Size = New System.Drawing.Size(442, 302)
         Me.RtbConversacion.TabIndex = 0
         Me.RtbConversacion.Text = ""
         '
         'RtbMensaje
         '
-        Me.RtbMensaje.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RtbMensaje.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RtbMensaje.Location = New System.Drawing.Point(335, 472)
         Me.RtbMensaje.Name = "RtbMensaje"
         Me.RtbMensaje.Size = New System.Drawing.Size(329, 47)
@@ -65,7 +62,7 @@ Partial Class Frm_Menu
         '
         'BtnEnviar
         '
-        Me.BtnEnviar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEnviar.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnEnviar.Location = New System.Drawing.Point(689, 472)
         Me.BtnEnviar.Name = "BtnEnviar"
         Me.BtnEnviar.Size = New System.Drawing.Size(88, 47)
@@ -76,7 +73,7 @@ Partial Class Frm_Menu
         'BtnFinalizarChat
         '
         Me.BtnFinalizarChat.Enabled = False
-        Me.BtnFinalizarChat.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnFinalizarChat.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnFinalizarChat.Location = New System.Drawing.Point(812, 538)
         Me.BtnFinalizarChat.Name = "BtnFinalizarChat"
         Me.BtnFinalizarChat.Size = New System.Drawing.Size(241, 26)
@@ -86,7 +83,7 @@ Partial Class Frm_Menu
         '
         'BtnIniciarChat
         '
-        Me.BtnIniciarChat.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnIniciarChat.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnIniciarChat.Location = New System.Drawing.Point(812, 151)
         Me.BtnIniciarChat.Name = "BtnIniciarChat"
         Me.BtnIniciarChat.Size = New System.Drawing.Size(241, 24)
@@ -94,19 +91,19 @@ Partial Class Frm_Menu
         Me.BtnIniciarChat.Text = "Iniciar Chat"
         Me.BtnIniciarChat.UseVisualStyleBackColor = True
         '
-        'BtnCerrarSesion
+        'BtnRecomendaciones
         '
-        Me.BtnCerrarSesion.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCerrarSesion.Location = New System.Drawing.Point(909, 32)
-        Me.BtnCerrarSesion.Name = "BtnCerrarSesion"
-        Me.BtnCerrarSesion.Size = New System.Drawing.Size(128, 29)
-        Me.BtnCerrarSesion.TabIndex = 7
-        Me.BtnCerrarSesion.Text = "Cerrar Sesion"
-        Me.BtnCerrarSesion.UseVisualStyleBackColor = True
+        Me.BtnRecomendaciones.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnRecomendaciones.Location = New System.Drawing.Point(909, 32)
+        Me.BtnRecomendaciones.Name = "BtnRecomendaciones"
+        Me.BtnRecomendaciones.Size = New System.Drawing.Size(128, 29)
+        Me.BtnRecomendaciones.TabIndex = 7
+        Me.BtnRecomendaciones.Text = "Recomendaciones"
+        Me.BtnRecomendaciones.UseVisualStyleBackColor = True
         '
         'BtnSalir
         '
-        Me.BtnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSalir.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSalir.Location = New System.Drawing.Point(909, 96)
         Me.BtnSalir.Name = "BtnSalir"
         Me.BtnSalir.Size = New System.Drawing.Size(128, 29)
@@ -142,7 +139,7 @@ Partial Class Frm_Menu
         Me.LblNombrePaciente.AutoSize = True
         Me.LblNombrePaciente.Location = New System.Drawing.Point(41, 169)
         Me.LblNombrePaciente.Name = "LblNombrePaciente"
-        Me.LblNombrePaciente.Size = New System.Drawing.Size(63, 20)
+        Me.LblNombrePaciente.Size = New System.Drawing.Size(47, 14)
         Me.LblNombrePaciente.TabIndex = 10
         Me.LblNombrePaciente.Text = "Label1"
         Me.LblNombrePaciente.Visible = False
@@ -152,7 +149,7 @@ Partial Class Frm_Menu
         Me.LblSexoPaciente.AutoSize = True
         Me.LblSexoPaciente.Location = New System.Drawing.Point(41, 206)
         Me.LblSexoPaciente.Name = "LblSexoPaciente"
-        Me.LblSexoPaciente.Size = New System.Drawing.Size(63, 20)
+        Me.LblSexoPaciente.Size = New System.Drawing.Size(47, 14)
         Me.LblSexoPaciente.TabIndex = 11
         Me.LblSexoPaciente.Text = "Label1"
         Me.LblSexoPaciente.Visible = False
@@ -162,7 +159,7 @@ Partial Class Frm_Menu
         Me.LblEdadPaciente.AutoSize = True
         Me.LblEdadPaciente.Location = New System.Drawing.Point(41, 243)
         Me.LblEdadPaciente.Name = "LblEdadPaciente"
-        Me.LblEdadPaciente.Size = New System.Drawing.Size(63, 20)
+        Me.LblEdadPaciente.Size = New System.Drawing.Size(47, 14)
         Me.LblEdadPaciente.TabIndex = 12
         Me.LblEdadPaciente.Text = "Label1"
         Me.LblEdadPaciente.Visible = False
@@ -191,32 +188,14 @@ Partial Class Frm_Menu
         '
         Me.TmrBuscarChats.Interval = 10000
         '
-        'WbbConversacion
-        '
-        Me.WbbConversacion.Location = New System.Drawing.Point(335, 243)
-        Me.WbbConversacion.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.WbbConversacion.Name = "WbbConversacion"
-        Me.WbbConversacion.Size = New System.Drawing.Size(414, 75)
-        Me.WbbConversacion.TabIndex = 15
-        '
-        'WbbMensaje
-        '
-        Me.WbbMensaje.Location = New System.Drawing.Point(335, 419)
-        Me.WbbMensaje.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.WbbMensaje.Name = "WbbMensaje"
-        Me.WbbMensaje.Size = New System.Drawing.Size(329, 47)
-        Me.WbbMensaje.TabIndex = 16
-        '
         'Frm_Menu
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1065, 590)
         Me.ControlBox = False
-        Me.Controls.Add(Me.WbbMensaje)
-        Me.Controls.Add(Me.WbbConversacion)
         Me.Controls.Add(Me.LstMedicaciones)
         Me.Controls.Add(Me.LstEnfermedades)
         Me.Controls.Add(Me.LblEdadPaciente)
@@ -224,13 +203,13 @@ Partial Class Frm_Menu
         Me.Controls.Add(Me.LblNombrePaciente)
         Me.Controls.Add(Me.DgvEnEspera)
         Me.Controls.Add(Me.BtnSalir)
-        Me.Controls.Add(Me.BtnCerrarSesion)
+        Me.Controls.Add(Me.BtnRecomendaciones)
         Me.Controls.Add(Me.BtnIniciarChat)
         Me.Controls.Add(Me.BtnFinalizarChat)
         Me.Controls.Add(Me.BtnEnviar)
         Me.Controls.Add(Me.RtbMensaje)
         Me.Controls.Add(Me.RtbConversacion)
-        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Libre Franklin Medium", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "Frm_Menu"
         Me.Text = "Menu Medico"
         CType(Me.DgvEnEspera, System.ComponentModel.ISupportInitialize).EndInit()
@@ -244,7 +223,7 @@ Partial Class Frm_Menu
     Friend WithEvents BtnEnviar As Button
     Friend WithEvents BtnFinalizarChat As Button
     Friend WithEvents BtnIniciarChat As Button
-    Friend WithEvents BtnCerrarSesion As Button
+    Friend WithEvents BtnRecomendaciones As Button
     Friend WithEvents BtnSalir As Button
     Friend WithEvents DgvEnEspera As DataGridView
     Friend WithEvents TmrBuscarMensajesNuevos As Timer
@@ -254,6 +233,4 @@ Partial Class Frm_Menu
     Friend WithEvents LstEnfermedades As ListView
     Friend WithEvents LstMedicaciones As ListView
     Friend WithEvents TmrBuscarChats As Timer
-    Friend WithEvents WbbConversacion As WebBrowser
-    Friend WithEvents WbbMensaje As WebBrowser
 End Class

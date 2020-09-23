@@ -80,7 +80,7 @@ Public Class Frm_Menu
             Else
                 LblSexoPaciente.Text = "Mujer"
             End If
-            LblEdadPaciente.Text = ObtenerEdadPaciente(Lector(3).ToString)
+            LblEdadPaciente.Text = ObtenerEdadPaciente(Lector(3).ToString) + " Años"
 
         End While
     End Sub
@@ -229,5 +229,9 @@ Public Class Frm_Menu
 
     End Sub
 
+    Private Sub BtnRecomendaciones_Click(sender As Object, e As EventArgs) Handles BtnRecomendaciones.Click
+        Me.Hide()
+        Frm_Enviar_Recomendaciones.Show()
 
+    End Sub
 End Class

@@ -36,7 +36,7 @@ Partial Class AltaUsuario
         Me.ChbAdministrador = New System.Windows.Forms.CheckBox()
         Me.LblFechaNacimiento = New System.Windows.Forms.Label()
         Me.LblSexo = New System.Windows.Forms.Label()
-        Me.DtFechaNacimiento = New System.Windows.Forms.DateTimePicker()
+        Me.DtpFechaNacimiento = New System.Windows.Forms.DateTimePicker()
         Me.RdbM = New System.Windows.Forms.RadioButton()
         Me.RdbF = New System.Windows.Forms.RadioButton()
         Me.BtnAceptar = New System.Windows.Forms.Button()
@@ -176,13 +176,13 @@ Partial Class AltaUsuario
         Me.LblSexo.Text = "Sexo"
         Me.LblSexo.Visible = False
         '
-        'DtFechaNacimiento
+        'DtpFechaNacimiento
         '
-        Me.DtFechaNacimiento.Location = New System.Drawing.Point(86, 267)
-        Me.DtFechaNacimiento.Name = "DtFechaNacimiento"
-        Me.DtFechaNacimiento.Size = New System.Drawing.Size(200, 22)
-        Me.DtFechaNacimiento.TabIndex = 14
-        Me.DtFechaNacimiento.Visible = False
+        Me.DtpFechaNacimiento.Location = New System.Drawing.Point(86, 267)
+        Me.DtpFechaNacimiento.Name = "DtpFechaNacimiento"
+        Me.DtpFechaNacimiento.Size = New System.Drawing.Size(200, 22)
+        Me.DtpFechaNacimiento.TabIndex = 14
+        Me.DtpFechaNacimiento.Visible = False
         '
         'RdbM
         '
@@ -329,7 +329,7 @@ Partial Class AltaUsuario
         Me.Controls.Add(Me.BtnAceptar)
         Me.Controls.Add(Me.RdbF)
         Me.Controls.Add(Me.RdbM)
-        Me.Controls.Add(Me.DtFechaNacimiento)
+        Me.Controls.Add(Me.DtpFechaNacimiento)
         Me.Controls.Add(Me.LblSexo)
         Me.Controls.Add(Me.LblFechaNacimiento)
         Me.Controls.Add(Me.ChbAdministrador)
@@ -365,7 +365,7 @@ Partial Class AltaUsuario
     Friend WithEvents ChbAdministrador As CheckBox
     Friend WithEvents LblFechaNacimiento As Label
     Friend WithEvents LblSexo As Label
-    Friend WithEvents DtFechaNacimiento As DateTimePicker
+    Friend WithEvents DtpFechaNacimiento As DateTimePicker
     Friend WithEvents RdbM As RadioButton
     Friend WithEvents RdbF As RadioButton
     Friend WithEvents BtnAceptar As Button

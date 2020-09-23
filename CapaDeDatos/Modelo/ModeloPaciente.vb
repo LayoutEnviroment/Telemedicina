@@ -229,12 +229,19 @@
         End Try
     End Sub
 
-    Public Function ObtenerDatosPersonales()
+    Public Function ObtenerCi()
         Command.CommandText = "
             SELECT
-                Nombre,
-                Apellido,
-
+                p.ci
+            FROM
+                persona p
+                    JOIN
+                        paciente pa
+                            ON
+                                p.ci = pa.ci_persona
         "
+
+        Reader = Command.ExecuteReader()
+        Return Reader
     End Function
 End Class

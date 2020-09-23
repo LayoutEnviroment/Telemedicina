@@ -72,6 +72,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Frm_Enviar_Recomendaciones.Designer.vb">
+      <DependentUpon>Frm_Enviar_Recomendaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Enviar_Recomendaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Frm_Login.Designer.vb">
       <DependentUpon>Frm_Login.vb</DependentUpon>
     </Compile>
@@ -102,6 +108,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Frm_Enviar_Recomendaciones.resx">
+      <DependentUpon>Frm_Enviar_Recomendaciones.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_Login.resx">
       <DependentUpon>Frm_Login.vb</DependentUpon>
     </EmbeddedResource>

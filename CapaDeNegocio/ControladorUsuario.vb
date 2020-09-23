@@ -2,37 +2,32 @@
 
 Public Module ControladorUsuario
 
-    Public Function CrearAdministrativo(Nombre As String, Apellido As String, CI As String, Mail As String)
+    Public Function CrearPersona(Nombre As String, Apellido As String, CI As String, Mail As String, TipoUsuario() As Boolean, FechaNacimiento As String, Sexo As String, EnfermedadesCronicas As List(Of String), Medicamentos As List(Of String))
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
             .Nombre = Nombre,
             .Apellido = Apellido,
             .CI = CI,
-            .Mail = Mail
-        }
-        Return u.NuevoAdministrativo()
-
-
-    End Function
-
-    Public Function CrearMedico(Nombre As String, Apellido As String, CI As String, Mail As String)
-        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
-            .Nombre = Nombre,
-            .Apellido = Apellido,
-            .CI = CI,
-            .Mail = Mail
-        }
-        Return u.NuevoMedico()
-    End Function
-
-    Public Function CrearPaciente(CI As String, FechaNacimiento As String, Sexo As String, Medicacion As List(Of String), EnfermedadCronica As List(Of String))
-
-        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
-            .CI = CI,
+            .Mail = Mail,
             .FechaNacimiento = FechaNacimiento,
             .Sexo = Sexo,
-            .Medicacion = Medicacion,
-            .EnfermedadCronica = EnfermedadCronica
+            .Medicacion = Medicamentos,
+            .EnfermedadCronica = EnfermedadesCronicas,
+            .TipoDeUsuario = TipoUsuario
         }
-        Return u.NuevoPaciente()
+        Return u.NuevaPersona()
+
+
+    End Function
+
+    Public Function ObtenerCorreo()
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass)
+
+        Return u.ObtenerCorreo()
+    End Function
+
+    Public Function ObtenerNombreApellidoCedula()
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass)
+
+        Return u.ObtenerNombreApellidoCedula
     End Function
 End Module
