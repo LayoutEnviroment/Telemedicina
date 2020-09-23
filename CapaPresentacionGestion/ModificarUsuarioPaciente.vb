@@ -14,7 +14,7 @@ Public Class ModificarUsuarioPaciente
     Private Sub ModificarUsuarioPaciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Dim LectorCI As IDataReader
-        LectorCI = ControladorPaciente.ObtenerCIPaciente
+        LectorCI = ControladorPaciente.ObtenerCi
 
         While LectorCI.Read
             CmbSeleccionarCI.Items.Add(LectorCI.GetValue(0))

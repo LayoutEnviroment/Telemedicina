@@ -66,5 +66,9 @@ Public Module ControladorPaciente
         p.CambiarDatos()
     End Sub
 
+    Public Function ObtenerCi()
+        Dim p As New ModeloPaciente(ControladorSesion.User, ControladorSesion.Pass)
 
+        Return p.ObtenerCi
+    End Function
 End Module

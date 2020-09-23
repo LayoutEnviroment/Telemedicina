@@ -133,5 +133,30 @@
     End Function
 
 
-    Public Functio
+    Public Function ObtenerCorreo()
+        Command.CommandText = "
+            SELECT
+                mail
+            FROM
+                persona
+            WHERE
+                ci = " + Me.Pwd + "
+        "
+        Return Command.ExecuteScalar.ToString()
+    End Function
+
+    Public Function ObtenerNombreApellidoCedula()
+        Command.CommandText = "
+            SELECT
+                nombre,
+                apellido,
+                ci
+            FROM
+                persona
+            WHERE
+                ci = " + Me.Pwd + "
+        "
+        Reader = Command.ExecuteReader()
+        Return Reader
+    End Function
 End Class
