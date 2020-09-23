@@ -38,6 +38,7 @@ Public Class Frm_Menu
         Try
             ControladorChatMedico.AceptarSolicitud(IdDiagnostico, CiPaciente, Nombre, Apellido)
             RtbConversacion.Text += "Chat iniciado con el paciente " + CiPaciente + Environment.NewLine
+            WbbConversacion.DocumentText += ""
             EmpezarChat(IdDiagnostico, CiPaciente)
             TraerInformacionPaciente(CiPaciente)
             TmrBuscarChats.Stop()
