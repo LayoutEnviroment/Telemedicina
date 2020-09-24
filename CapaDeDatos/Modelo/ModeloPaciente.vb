@@ -54,6 +54,7 @@
             SELECT
                 p.nombre,
                 p.apellido,
+                p.mail,
                 pa.sexo,
                 pa.fecha_nac
             FROM
@@ -198,6 +199,109 @@
                                             medicaciones(ci_persona_paciente, medicacion)
                                         VALUES
                                             (" + Me.Pwd + ", '" + medicacion + "')
+                                    "
+                                        Command.ExecuteNonQuery()
+                                    Next
+
+                                    Command.CommandText = "COMMIT"
+                                    Command.ExecuteNonQuery()
+                                Catch ex As Exception
+                                    MsgBox("Error en insertar medicaciones" + ex.ToString)
+                                End Try
+                            Catch ex As Exception
+                                MsgBox("Error en insertar enfermedades" + ex.ToString)
+                            End Try
+                        Catch ex As Exception
+                            MsgBox("Error en borrar medicaciones" + ex.ToString)
+                        End Try
+                    Catch ex As Exception
+                        MsgBox("Error en insertar enfermedades" + ex.ToString)
+                    End Try
+                Catch ex As Exception
+                    MsgBox("Error en actualizar paciente" + ex.ToString)
+                End Try
+            Catch ex As Exception
+                MsgBox("Error en actualizar personas" + ex.ToString)
+            End Try
+        Catch ex As Exception
+            MsgBox("Error en iniciar transaccion" + ex.ToString)
+            Command.CommandText = "ROLLBACK"
+            Command.ExecuteNonQuery()
+        End Try
+    End Sub
+
+    Public Sub CambiarDatos(ci As String)
+        Try
+            Command.CommandText = "SET AUTOCOMMIT = OFF"
+            Command.ExecuteNonQuery()
+            Command.CommandText = "START TRANSACTION"
+            Command.ExecuteNonQuery()
+
+            Try
+                Command.CommandText = "
+                    UPDATE
+                        persona
+                    SET
+                        nombre = '" + Me.Nombre + "',
+                        apellido = '" + Me.Apellido + "',
+                        mail = '" + Me.Mail + "'
+                    WHERE
+                        ci = " + ci + "
+                "
+                Command.ExecuteNonQuery()
+
+                Try
+                    Command.CommandText = "
+                        UPDATE
+                            paciente
+                        SET
+                            sexo = " + Me.Sexo + ",
+                            fecha_nac = '" + Me.FechaNacimiento + "'
+                        WHERE
+                            ci_persona = " + ci + "
+                    "
+                    MsgBox(FechaNacimiento)
+                    Command.ExecuteNonQuery()
+
+                    Try
+                        Command.CommandText = "
+                            DELETE FROM
+                                enfermedades_cronicas
+                            WHERE
+                                ci_persona_paciente = " + ci + "
+                        "
+                        Command.ExecuteNonQuery()
+
+                        Try
+                            Command.CommandText = "
+                            DELETE FROM
+                                medicaciones
+                            WHERE
+                                ci_persona_paciente = " + ci + "
+                        "
+                            Command.ExecuteNonQuery()
+
+                            Try
+                                Dim values = String.Join(",", Enfermedades.Select(Function(f) String.Format("'{0}'", f)).ToArray())
+                                For Each enfermedad In Enfermedades
+                                    MsgBox(enfermedad)
+                                    Command.CommandText = "
+                                        INSERT INTO
+                                            enfermedades_cronicas(ci_persona_paciente, enfermedad)
+                                        VALUES
+                                            (" + ci + ", '" + enfermedad + "')
+                                    "
+                                    Command.ExecuteNonQuery()
+                                Next
+
+                                Try
+                                    Dim valores = String.Join(",", Medicaciones.Select(Function(f) String.Format("'{0}'", f)).ToArray())
+                                    For Each medicacion In Medicaciones
+                                        Command.CommandText = "
+                                        INSERT INTO
+                                            medicaciones(ci_persona_paciente, medicacion)
+                                        VALUES
+                                            (" + ci + ", '" + medicacion + "')
                                     "
                                         Command.ExecuteNonQuery()
                                     Next

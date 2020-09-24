@@ -86,7 +86,7 @@ Public Class Frm_Enviar_Recomendaciones
 
         With smtp
             .UseDefaultCredentials = False
-            .Credentials = New Net.NetworkCredential("ledprogrammers@gmail.com", "LeoAleEdu2.0")
+            .Credentials = New Net.NetworkCredential("cuidartemed@gmail.com", "MedCuidarte")
             .Port = 587
             .EnableSsl = True
             .Host = "smtp.gmail.com"
