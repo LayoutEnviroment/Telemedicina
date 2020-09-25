@@ -21,7 +21,7 @@ VALUES
 	(3);
 
 INSERT INTO
-	roles(rol, ci_persona)
+	roles(usuario, rol)
 VALUES
 	('paciente', 1),
 	('medico', 2),

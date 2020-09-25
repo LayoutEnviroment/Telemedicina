@@ -23,7 +23,6 @@ Public Class FrmLogin
 
     Private Sub AutenticarPaciente(usuario As String, contra As String)
         Try
-            Dim Cedula As String = ControladorLogin.ObtenerCedula()
             ControladorLogin.Autentificar(usuario, contra)
 
         Catch ex As Exception
