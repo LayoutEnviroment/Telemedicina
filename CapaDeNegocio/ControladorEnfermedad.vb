@@ -43,11 +43,7 @@ Public Module ControladorEnfermedad
         e.Eliminar()
     End Sub
 
-    Public Function ObtenerId()
-        Dim e As New ModeloEnfermedad(ControladorSesion.User, ControladorSesion.Pass)
 
-        Return e.ObtenerIdConDiagnostico()
-    End Function
 
     Public Function ObtenerId(nombre As String)
         Dim e As New ModeloEnfermedad(ControladorSesion.User, ControladorSesion.Pass) With {

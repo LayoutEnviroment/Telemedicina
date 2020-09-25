@@ -30,4 +30,10 @@ Public Module ControladorUsuario
 
         Return u.ObtenerNombreApellidoCedula
     End Function
+
+    Public Function ObtenerCedula()
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass)
+
+        Return u.ObtenerCedula()
+    End Function
 End Module

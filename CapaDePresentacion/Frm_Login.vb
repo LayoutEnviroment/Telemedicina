@@ -5,7 +5,7 @@ Public Class FrmLogin
     Private Sub BtnIngresar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnIngresar.Click
         Try
             If Autentificar(TxtUser.Text, TxtPass.Text) = 1 Then
-                SetearSesion(TxtUser.Text, TxtPass.Text)
+                SetearSesion(TxtUser.Text, TxtPass.Text, Cedula)
                 Me.Hide()
                 Frm_Menu.Show()
 
@@ -32,10 +32,11 @@ Public Class FrmLogin
 
     End Sub
 
-    Private Sub SetearSesion(usuario As String, contra As String)
+    Private Sub SetearSesion(usuario As String, contra As String, ci As String)
         Try
             ControladorSesion.User = usuario
             ControladorSesion.Pass = contra
+            ControladorSesion.Cedula = ControladorUsuario.ObtenerCedula()
 
         Catch ex As Exception
             MsgBox("Usuario Invalido")

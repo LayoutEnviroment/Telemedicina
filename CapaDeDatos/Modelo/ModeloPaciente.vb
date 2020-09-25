@@ -20,7 +20,8 @@
                 nombre
             FROM
                 persona
-            WHERE ci = " + Me.Pwd + "
+            WHERE
+                ci = " + Me.Cedula + "
         "
         Return Command.ExecuteScalar.ToString()
 
@@ -42,7 +43,7 @@
                             ON 
                                 p.ci = pa.ci_persona
             WHERE
-                p.ci = " + Me.Pwd + "
+                p.ci = " + Me.Cedula + "
             "
         Reader = Command.ExecuteReader()
         Return Reader
@@ -78,7 +79,7 @@
             FROM
                 medicaciones
             WHERE
-                ci_persona_paciente = " + Me.Pwd + "
+                ci_persona_paciente = " + Me.Cedula + "
         "
 
         Reader = Command.ExecuteReader()
@@ -106,7 +107,7 @@
             FROM
                 enfermedades_cronicas
             WHERE
-                ci_persona_paciente = " + Me.Pwd + "
+                ci_persona_paciente = " + Me.Cedula + "
         "
 
         Reader = Command.ExecuteReader()
@@ -143,7 +144,7 @@
                         apellido = '" + Me.Apellido + "',
                         mail = '" + Me.Mail + "'
                     WHERE
-                        ci = " + Me.Pwd + "
+                        ci = " + Me.Cedula + "
                 "
                 Command.ExecuteNonQuery()
 
@@ -155,7 +156,7 @@
                             sexo = " + Me.Sexo + ",
                             fecha_nac = '" + Me.FechaNacimiento + "'
                         WHERE
-                            ci_persona = " + Me.Pwd + "
+                            ci_persona = " + Me.Cedula + "
                     "
                     MsgBox(FechaNacimiento)
                     Command.ExecuteNonQuery()
@@ -165,7 +166,7 @@
                             DELETE FROM
                                 enfermedades_cronicas
                             WHERE
-                                ci_persona_paciente = " + Me.Pwd + "
+                                ci_persona_paciente = " + Me.Cedula + "
                         "
                         Command.ExecuteNonQuery()
 
@@ -174,7 +175,7 @@
                             DELETE FROM
                                 medicaciones
                             WHERE
-                                ci_persona_paciente = " + Me.Pwd + "
+                                ci_persona_paciente = " + Me.Cedula + "
                         "
                             Command.ExecuteNonQuery()
 
@@ -186,7 +187,7 @@
                                         INSERT INTO
                                             enfermedades_cronicas(ci_persona_paciente, enfermedad)
                                         VALUES
-                                            (" + Me.Pwd + ", '" + enfermedad + "')
+                                            (" + Me.Cedula + ", '" + enfermedad + "')
                                     "
                                     Command.ExecuteNonQuery()
                                 Next
@@ -198,7 +199,7 @@
                                         INSERT INTO
                                             medicaciones(ci_persona_paciente, medicacion)
                                         VALUES
-                                            (" + Me.Pwd + ", '" + medicacion + "')
+                                            (" + Me.Cedula + ", '" + medicacion + "')
                                     "
                                         Command.ExecuteNonQuery()
                                     Next
@@ -333,19 +334,4 @@
         End Try
     End Sub
 
-    Public Function ObtenerCi()
-        Command.CommandText = "
-            SELECT
-                p.ci
-            FROM
-                persona p
-                    JOIN
-                        paciente pa
-                            ON
-                                p.ci = pa.ci_persona
-        "
-
-        Reader = Command.ExecuteReader()
-        Return Reader
-    End Function
 End Class

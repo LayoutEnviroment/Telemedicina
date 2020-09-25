@@ -5,6 +5,7 @@
         MyBase.New(user, pass)
     End Sub
 
+    Public Cedula As String
     Public IdMedico As String
     Public IdDiagnostico As String
     Public Mensaje As String
@@ -15,7 +16,7 @@
             INSERT INTO
                 Atiende(ci_persona_paciente, id_diagnostico, leido)
             VALUES
-                (" + Me.Pwd + ", " + Me.IdDiagnostico + ", 0)
+                (" + Me.Cedula + ", " + Me.IdDiagnostico + ", 0)
         "
         Command.ExecuteNonQuery()
         Me.Connect.Close()
@@ -26,7 +27,7 @@
             INSERT INTO 
                 atiende(ci_persona_medico, ci_persona_paciente, id_diagnostico, mensaje, leido, destinatario, status) 
             VALUES
-                (" + Me.Destinatario + ", " + Me.Pwd + ", " + Me.IdDiagnostico + ", '" + Me.Mensaje + "', 0, " + Me.Destinatario + ", 'Iniciado')
+                (" + Me.Destinatario + ", " + Me.Cedula + ", " + Me.IdDiagnostico + ", '" + Me.Mensaje + "', 0, " + Me.Destinatario + ", 'Iniciado')
         "
         Command.ExecuteNonQuery()
         Me.Connect.Close()
@@ -54,7 +55,7 @@
             WHERE 
                 id_diagnostico = " + Me.IdDiagnostico + "
                 AND
-                    destinatario = " + Me.Pwd + "
+                    destinatario = " + Me.Cedula + "
                 AND
                     leido = 0
             LIMIT
@@ -78,7 +79,7 @@
             WHERE
                 id_diagnostico = " + Me.IdDiagnostico + "
                 AND
-                    destinatario = " + Me.Pwd + "
+                    destinatario = " + Me.Cedula + "
                 "
 
         Command.ExecuteNonQuery()
@@ -91,7 +92,7 @@
             INSERT INTO
                 atiende(ci_persona_medico, ci_persona_paciente, id_diagnostico, mensaje, leido, destinatario, status)
             VALUES
-                (" + Me.Destinatario + ", " + Me.Pwd + ", " + Me.IdDiagnostico + ", 'El paciente terminó la conexión', 0," + Me.Destinatario + ", 'Finalizado')
+                (" + Me.Destinatario + ", " + Me.Cedula + ", " + Me.IdDiagnostico + ", 'El paciente terminó la conexión', 0," + Me.Destinatario + ", 'Finalizado')
         "
         Command.ExecuteNonQuery()
     End Sub

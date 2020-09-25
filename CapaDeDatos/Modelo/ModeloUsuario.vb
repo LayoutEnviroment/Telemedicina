@@ -159,4 +159,22 @@
         Reader = Command.ExecuteReader()
         Return Reader
     End Function
+
+    Public Function ObtenerCedula()
+        Command.CommandText = "
+            SELECT
+                p.ci
+            FROM
+                persona p
+                    JOIN
+                        roles r
+                            ON 
+                                p.ci = r.ci_persona
+            WHERE
+                r.usuario = '" + Me.Uid + "'
+        "
+
+        Return Command.ExecuteScalar.ToString
+    End Function
+
 End Class

@@ -104,24 +104,7 @@
 
     End Function
 
-    Public Function ObtenerIdConDiagnostico()
-        Command.CommandText = "
-            SELECT 
-                g.id_enfermedad_compone 
-            FROM 
-                genera g 
-                    JOIN 
-                        diagnostico d 
-                            ON g.id_diagnostico = d.id 
-            WHERE 
-                d.pertenece = " + Me.Pwd + " 
-            ORDER BY 
-                g.id_diagnostico DESC 
-            LIMIT 1
-        "
-        Return Command.ExecuteScalar.ToString()
 
-    End Function
 
     Public Function ObtenerPrioridad()
         Command.CommandText = "
