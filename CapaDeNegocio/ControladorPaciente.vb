@@ -66,6 +66,27 @@ Public Module ControladorPaciente
         p.CambiarDatos()
     End Sub
 
+    Public Sub CambiarDatos(nombre As String,
+                            apellido As String,
+                            correo As String,
+                            sexo As String,
+                            fecha As String,
+                            enfermedades As List(Of String),
+                            medicaciones As List(Of String),
+                            ci As String)
+        Dim p As New ModeloPaciente(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Nombre = nombre,
+            .Apellido = apellido,
+            .Mail = correo,
+            .Sexo = sexo,
+            .FechaNacimiento = fecha,
+            .Enfermedades = enfermedades,
+            .Medicaciones = medicaciones
+        }
+
+        p.CambiarDatos(ci)
+    End Sub
+
     Public Function ObtenerCi()
         Dim p As New ModeloPaciente(ControladorSesion.User, ControladorSesion.Pass)
 

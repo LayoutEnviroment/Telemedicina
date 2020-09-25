@@ -12,9 +12,9 @@ CREATE TABLE persona (
 );
 
 CREATE TABLE roles(
+  usuario VARCHAR(100) NOT NULL,
   rol TINYINT NOT NULL,
-  ci_persona INT(9) NOT NULL,
-  PRIMARY KEY (ci_persona, rol)
+  PRIMARY KEY (usuario, rol)
 );
 
 CREATE TABLE paciente (

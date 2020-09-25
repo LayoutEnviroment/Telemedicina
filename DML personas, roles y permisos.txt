@@ -21,33 +21,33 @@ VALUES
 	(3);
 
 INSERT INTO
-	roles(rol, ci_persona)
+	roles(usuario, rol)
 VALUES
-	(1, 1),
-	(2, 2),
-	(3, 3);
+	('paciente', 1),
+	('medico', 2),
+	('admin', 3);
 
 CREATE USER
 	'paciente'@'%'
 IDENTIFIED BY
-	'1';
+	'paciente';
 
 CREATE USER
 	'medico'@'localhost'
 IDENTIFIED BY
-	'2';
+	'medico';
 
 CREATE USER
 	'admin'@'localhost'
 IDENTIFIED BY
-	'3';
+	'admin';
 
 GRANT
     ALL
 ON
     bd_led.*
 TO
-    'paciente'@'%', 'medico'@'localhost', 'admin'@'localhost';
+    'paciente'@'%', 'medico'@'localhost', 'admin'@'localhost' WITH GRANT OPTION;
 
 FLUSH PRIVILEGES;
 

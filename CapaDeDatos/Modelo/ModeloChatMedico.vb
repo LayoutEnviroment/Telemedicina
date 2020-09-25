@@ -170,4 +170,18 @@
 
     End Sub
 
+    Public Function ObtenerIdFechaMisChat()
+        Command.CommandText = "
+            SELECT
+                DISTINCT(id),
+                fecha_hora
+            FROM
+                atiende
+            WHERE
+                ci_persona_medico = " + Me.Pwd + "
+            "
+        Reader = Command.ExecuteReader
+        Return Reader
+    End Function
+
 End Class

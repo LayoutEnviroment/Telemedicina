@@ -68,4 +68,10 @@ Public Module ControladorChatMedico
 
         c.MarcarComoFinalizado()
     End Sub
+
+    Public Function ObtenerIdFechaMisChat()
+        Dim c As New ModeloChatMedico(ControladorSesion.User, ControladorSesion.Pass)
+
+        Return c.ObtenerIdFechaMisChat()
+    End Function
 End Module
