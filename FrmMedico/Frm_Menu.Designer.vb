@@ -39,6 +39,7 @@ Partial Class Frm_Menu
         Me.LstEnfermedades = New System.Windows.Forms.ListView()
         Me.LstMedicaciones = New System.Windows.Forms.ListView()
         Me.TmrBuscarChats = New System.Windows.Forms.Timer(Me.components)
+        Me.WbbConversacion = New System.Windows.Forms.WebBrowser()
         CType(Me.DgvEnEspera, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -188,6 +189,14 @@ Partial Class Frm_Menu
         '
         Me.TmrBuscarChats.Interval = 10000
         '
+        'WbbConversacion
+        '
+        Me.WbbConversacion.Location = New System.Drawing.Point(187, 35)
+        Me.WbbConversacion.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.WbbConversacion.Name = "WbbConversacion"
+        Me.WbbConversacion.Size = New System.Drawing.Size(477, 250)
+        Me.WbbConversacion.TabIndex = 15
+        '
         'Frm_Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 12.0!)
@@ -196,6 +205,7 @@ Partial Class Frm_Menu
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1065, 590)
         Me.ControlBox = False
+        Me.Controls.Add(Me.WbbConversacion)
         Me.Controls.Add(Me.LstMedicaciones)
         Me.Controls.Add(Me.LstEnfermedades)
         Me.Controls.Add(Me.LblEdadPaciente)
@@ -233,4 +243,5 @@ Partial Class Frm_Menu
     Friend WithEvents LstEnfermedades As ListView
     Friend WithEvents LstMedicaciones As ListView
     Friend WithEvents TmrBuscarChats As Timer
+    Friend WithEvents WbbConversacion As WebBrowser
 End Class

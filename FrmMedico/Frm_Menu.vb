@@ -183,6 +183,7 @@ Public Class Frm_Menu
     End Sub
 
     Private Sub AgregarChat()
+        WbbConversacion.DocumentText += "<p></p>"
         RtbConversacion.Text += "YO:" + Environment.NewLine + RtbMensaje.Text + Environment.NewLine
         RtbMensaje.Clear()
 
