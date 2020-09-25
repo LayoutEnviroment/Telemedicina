@@ -21,11 +21,42 @@ VALUES
 	(3);
 
 INSERT INTO
-	roles(usuario, rol)
+	roles(ci_persona, usuario, rol)
 VALUES
-	('paciente', 1),
-	('medico', 2),
-	('admin', 3);
+	(1, 'paciente', 1),
+	(2, 'medico', 2),
+	(3, 'admin', 3);
+
+CREATE USER 'paciente'@'%'
+IDENTIFIED BY 'paciente';
+
+GRANT 
+	SELECT ON bd_led.roles TO 'paciente'@'%';
+GRANT
+	SELECT ON bd_led.sintoma TO 'paciente'@'%';
+GRANT
+	SELECT ON bd_led.enfermedad TO 'paciente'@'%';
+GRANT
+	SELECT ON bd_led.compone TO 'paciente'@'%';
+GRANT
+	SELECT ON bd_led.medico TO 'paciente'@'%';
+GRANT
+	SELECT, INSERT ON bd_led.genera TO 'paciente'@'%';
+GRANT
+	SELECT, INSERT ON bd_led.diagnostico TO 'paciente'@'%';
+GRANT
+	SELECT, INSERT ON bd_led.padece TO 'paciente'@'%';
+GRANT
+	SELECT, UPDATE ON bd_led.paciente TO 'paciente'@'%';
+GRANT
+	SELECT, UPDATE ON bd_led.persona TO 'paciente'@'%';
+GRANT
+	SELECT, INSERT, DELETE ON bd_led.enfermedades_cronicas TO 'paciente'@'%';
+GRANT
+	SELECT, INSERT, DELETE ON bd_led.medicaciones TO 'paciente'@'%';
+GRANT
+	SELECT, INSERT, UPDATE ON bd_led.atiende TO 'paciente'@'%';
+
 
 CREATE USER
 	'paciente'@'%'
