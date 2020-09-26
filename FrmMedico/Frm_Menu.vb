@@ -12,7 +12,7 @@ Public Class Frm_Menu
         Dim LectorDatos As IDataReader
 
         Try
-            LectorDatos = ControladorChatMedico.ObtenerMiNombreApellido()
+            LectorDatos = ControladorChat.ObtenerMiNombreApellido()
             GuardarMisDatos(LectorDatos)
 
         Catch ex As Exception
@@ -36,7 +36,7 @@ Public Class Frm_Menu
         CiPaciente = DgvEnEspera.Item(1, DgvEnEspera.CurrentCell.RowIndex).Value
 
         Try
-            ControladorChatMedico.AceptarSolicitud(IdDiagnostico, CiPaciente, Nombre, Apellido)
+            ControladorChat.AceptarSolicitud(IdDiagnostico, CiPaciente, Nombre, Apellido)
             RtbConversacion.Text += "Chat iniciado con el paciente " + CiPaciente + Environment.NewLine
             'WbbConversacion.DocumentText += ""
             EmpezarChat(IdDiagnostico, CiPaciente)
@@ -124,7 +124,7 @@ Public Class Frm_Menu
         Dim Tabla As New DataTable
 
         Try
-            Tabla.Load(ControladorChatMedico.BuscarSolicitud())
+            Tabla.Load(ControladorChat.BuscarSolicitud())
             DgvEnEspera.DataSource = Tabla
         Catch ex As Exception
             MsgBox("No se pudieron encontrar solicitudes")
@@ -135,7 +135,7 @@ Public Class Frm_Menu
         Dim Tabla As New DataTable
 
         Try
-            Tabla = ControladorChatMedico.BuscarMensajesNuevos(IdDiagnostico)
+            Tabla = ControladorChat.BuscarMensajesNuevos(IdDiagnostico)
             AgregarChat(Tabla)
 
         Catch ex As Exception
@@ -149,7 +149,7 @@ Public Class Frm_Menu
         Try
 
             If tabla.Rows.Count > 0 Then
-                ControladorChatMedico.MarcarComoLeido(IdDiagnostico)
+                ControladorChat.MarcarComoLeido(IdDiagnostico)
                 For Each fila As DataRow In tabla.Rows
                     If fila(5).ToString = "Iniciado" Then
                         RtbConversacion.Text += fila(1).ToString + ": " + Environment.NewLine + fila(2).ToString + Environment.NewLine
@@ -173,7 +173,7 @@ Public Class Frm_Menu
 
     Private Sub BtnEnviar_Click(sender As Object, e As EventArgs) Handles BtnEnviar.Click
         Try
-            ControladorChatMedico.EnviarMensaje(IdDiagnostico, RtbMensaje.Text, CiPaciente)
+            ControladorChat.EnviarMensaje(IdDiagnostico, RtbMensaje.Text, CiPaciente)
             AgregarChat()
 
         Catch ex As Exception
@@ -206,7 +206,7 @@ Public Class Frm_Menu
 
     Private Sub MenuMedico_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Try
-            ControladorChatMedico.FinalizarChat(IdDiagnostico, CiPaciente)
+            ControladorChat.FinalizarChat(IdDiagnostico, CiPaciente)
 
         Catch ex As Exception
             MsgBox("Error en la actualizacion del estado del chat")
@@ -219,7 +219,7 @@ Public Class Frm_Menu
 
     Private Sub BtnFinalizarChat_Click(sender As Object, e As EventArgs) Handles BtnFinalizarChat.Click
         Try
-            ControladorChatMedico.FinalizarChat(IdDiagnostico, CiPaciente)
+            ControladorChat.FinalizarChat(IdDiagnostico, CiPaciente)
 
         Catch ex As Exception
             MsgBox("Error en la actualizacion del estado del chat")

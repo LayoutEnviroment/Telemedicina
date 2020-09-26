@@ -7,9 +7,8 @@ Public Class Frm_Menu
     Dim NombreEnfermedad As String
 
     Private Sub Frm_Paciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ObtenerCedula()
         Try
-            LblSaludo.Text = "Bienvenido, " + ControladorPaciente.ObtenerNombre() + ""
+            LblSaludo.Text = "Bienvenido, " + ControladorUsuario.ObtenerNombre() + ""
 
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -70,7 +69,7 @@ Public Class Frm_Menu
             End Try
 
         End Try
-        ControladorSintoma.GuardarSintomasPadecidos(ListaSintomas)
+        ControladorPadece.GuardarSintomasPadecidos(ListaSintomas)
         ObtenerIdEnfermedadDiagnosticada()
 
     End Sub
@@ -124,7 +123,7 @@ Public Class Frm_Menu
     End Sub
 
     Private Sub BtnConsultaHistorial_Click(sender As Object, e As EventArgs) Handles BtnConsultaHistorial.Click
-        Consultas.Show()
+        Frm_Consultas.Show()
         Me.Hide()
 
     End Sub

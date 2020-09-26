@@ -32,7 +32,7 @@ Public Class Frm_Iniciar_Chat
 
     Private Sub BtnIniciarChat_Click(sender As Object, e As EventArgs) Handles BtnIniciarChat.Click
         Try
-            ControladorChatPaciente.EnviarSolicitud(TxtIdDiagnostico.Text)
+            ControladorChat.EnviarSolicitud(TxtIdDiagnostico.Text)
             Me.Hide()
             Frm_Chat.Show()
 

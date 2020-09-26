@@ -1,6 +1,7 @@
-﻿Imports CapaDeNegocio
+﻿Imports System.ComponentModel
+Imports CapaDeNegocio
 
-Public Class Consultas
+Public Class Frm_Consultas
 
     Private Sub Consultas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim Diagnosticos As New DataTable
@@ -91,7 +92,7 @@ Public Class Consultas
     Public Sub CargarMensajes(idDiagnostico As String)
         Dim Lector As IDataReader
         Try
-            Lector = ControladorChatPaciente.ObtenerMensajesDelDiagnostico(idDiagnostico)
+            Lector = ControladorChat.ObtenerMensajesDelDiagnostico(idDiagnostico)
             While Lector.Read
                 RtbChat.Text += Lector(1).ToString + Environment.NewLine
             End While
@@ -102,5 +103,9 @@ Public Class Consultas
 
     Private Sub RtbDescripcion_TextChanged(sender As Object, e As EventArgs) Handles RtbDescripcion.TextChanged
 
+    End Sub
+
+    Private Sub Frm_Consultas_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        Frm_Menu.Show()
     End Sub
 End Class

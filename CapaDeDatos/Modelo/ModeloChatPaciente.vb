@@ -11,18 +11,20 @@
     Public Mensaje As String
     Public Destinatario As String
 
-    Public Sub EnviarSolicitud()
+
+
+    Public Sub EnviarMensajePaciente()
         Command.CommandText = "
-            INSERT INTO
-                Atiende(ci_persona_paciente, id_diagnostico, leido)
+            INSERT INTO 
+                atiende(ci_persona_medico, ci_persona_paciente, id_diagnostico, mensaje, leido, destinatario, status) 
             VALUES
-                (" + Me.Cedula + ", " + Me.IdDiagnostico + ", 0)
+                (" + Me.Destinatario + ", " + Me.Cedula + ", " + Me.IdDiagnostico + ", '" + Me.Mensaje + "', 0, " + Me.Destinatario + ", 'Iniciado')
         "
         Command.ExecuteNonQuery()
         Me.Connect.Close()
     End Sub
 
-    Public Sub EnviarMensaje()
+    Public Sub EnviarMensajeMedico()
         Command.CommandText = "
             INSERT INTO 
                 atiende(ci_persona_medico, ci_persona_paciente, id_diagnostico, mensaje, leido, destinatario, status) 

@@ -1,4 +1,5 @@
-﻿Imports CapaDeNegocio
+﻿Imports System.ComponentModel
+Imports CapaDeNegocio
 
 Public Class Frm_Cambiar_Datos_Propios
 
@@ -94,6 +95,7 @@ Public Class Frm_Cambiar_Datos_Propios
 
     Private Sub BtnAgregarEnfermedad_Click(sender As Object, e As EventArgs) Handles BtnAgregarEnfermedad.Click
         LstEnfermedadesCronicas.Items.Add(TxtAgregarEnfermedad.Text)
+        TxtAgregarEnfermedad.Text = ""
     End Sub
 
     Private Sub TxtAgregarMedicacion_TextChanged(sender As Object, e As EventArgs) Handles TxtAgregarMedicacion.TextChanged
@@ -107,6 +109,7 @@ Public Class Frm_Cambiar_Datos_Propios
 
     Private Sub AgregarMedicacion_Click(sender As Object, e As EventArgs) Handles BtnAgregarMedicacion.Click
         LstMedicaciones.Items.Add(TxtAgregarMedicacion.Text)
+        TxtAgregarMedicacion.Text = ""
     End Sub
 
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
@@ -226,4 +229,7 @@ Public Class Frm_Cambiar_Datos_Propios
 
     End Sub
 
+    Private Sub Frm_Cambiar_Datos_Propios_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        Frm_Menu.Show()
+    End Sub
 End Class

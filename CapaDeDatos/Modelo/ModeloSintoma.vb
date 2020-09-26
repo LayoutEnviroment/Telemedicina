@@ -85,18 +85,4 @@
 
     End Sub
 
-    Public Sub GuardarPadecimientos()
-        For Each sintoma In ListadoSintomas
-            Command.CommandText = "
-            INSERT INTO
-                padece(ci_persona_paciente, id_sintoma)
-            VALUES(" + Me.Pwd + ", 
-                (SELECT id FROM sintoma WHERE nombre = '" + sintoma + "')
-                    )
-        "
-            Command.ExecuteNonQuery()
-        Next
-
-    End Sub
-
 End Class

@@ -47,13 +47,5 @@ Public Module ControladorSintoma
         s.Eliminar()
     End Sub
 
-    Public Sub GuardarSintomasPadecidos(ListaSintoma As List(Of String))
-        Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass) With {
-            .ListadoSintomas = ListaSintoma
-        }
-
-        s.GuardarPadecimientos()
-    End Sub
-
 End Module
 

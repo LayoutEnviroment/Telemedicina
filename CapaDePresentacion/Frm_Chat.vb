@@ -2,8 +2,7 @@
 
 Public Class Frm_Chat
 
-    Dim IdMedico As String
-    Dim Destinatario As String
+    Dim CiMedico As String
     Dim IdDiagnostico As String = Frm_Iniciar_Chat.TxtIdDiagnostico.Text
 
     Private Sub Frm_Chat_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -15,7 +14,7 @@ Public Class Frm_Chat
         Dim MensajeNuevo As New DataTable
 
         Try
-            MensajeNuevo = ControladorChatPaciente.BuscarMensajesNuevos(IdDiagnostico)
+            MensajeNuevo = ControladorChat.BuscarMensajesNuevos(IdDiagnostico)
             If MensajeNuevo.Rows.Count > 0 Then
                 AgregarChat(MensajeNuevo)
             End If
@@ -29,7 +28,7 @@ Public Class Frm_Chat
     End Sub
 
     Public Sub AgregarChat(mensaje As DataTable)
-        ControladorChatPaciente.MarcarComoLeido(IdDiagnostico)
+        ControladorChat.MarcarComoLeido(IdDiagnostico)
 
         For Each fila As DataRow In mensaje.Rows
             If fila(5).ToString = "Finalizado" Then
@@ -40,7 +39,7 @@ Public Class Frm_Chat
 
             Else
                 WbbConversacion.DocumentText += "<p style ='background-color:Tomato'; align = 'left' > " + fila(4).ToString + " : " + fila(2).ToString + "</p>"
-                IdMedico = fila(0).ToString
+                CiMedico = fila(0).ToString
                 BtnEnviar.Enabled = True
             End If
 
@@ -50,7 +49,7 @@ Public Class Frm_Chat
 
     Private Sub BtnEnviar_Click(sender As Object, e As EventArgs) Handles BtnEnviar.Click
         Try
-            ControladorChatPaciente.EnviarMensaje(IdDiagnostico, TxtMensaje.Text, IdMedico)
+            ControladorChat.EnviarMensajePaciente(IdDiagnostico, TxtMensaje.Text, CiMedico)
             AgregarChat()
 
         Catch ex As Exception
@@ -81,8 +80,13 @@ Public Class Frm_Chat
         Select Case MsgBox("¿Seguro quiere salir del chat?", MsgBoxStyle.YesNo)
             Case MsgBoxResult.Yes
                 Try
-                    ControladorChatPaciente.FinalizarChat(IdDiagnostico, IdMedico)
-                    ControladorChatPaciente.MarcarComoFinalizado(IdDiagnostico)
+                    If RtbConversacion.Text <> "" Then
+                        ControladorChat.FinalizarChatPaciente(IdDiagnostico, CiMedico)
+                        ControladorChat.MarcarComoFinalizado(IdDiagnostico)
+                    Else
+                        ControladorChat.FinalizarChat(IdDiagnostico)
+                    End If
+
                     RtbConversacion.Text = ""
                     RtbMensaje.Text = ""
                     Frm_Menu.Show()
