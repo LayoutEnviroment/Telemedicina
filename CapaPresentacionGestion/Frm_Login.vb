@@ -24,6 +24,7 @@ Public Class Frm_Login
     Private Sub SetearSesion(usuario As String, contra As String)
         ControladorSesion.User = usuario
         ControladorSesion.Pass = contra
+        ControladorSesion.Cedula = ControladorUsuario.ObtenerCedula()
     End Sub
 
     Private Sub TxtUser_TextChanged(sender As Object, e As EventArgs) Handles TxtUser.TextChanged

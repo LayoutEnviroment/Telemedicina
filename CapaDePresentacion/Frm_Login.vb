@@ -8,7 +8,7 @@ Public Class FrmLogin
             If Autentificar(TxtUser.Text, TxtPass.Text) = 1 Then
                 'Dim password As String = Membership.GeneratePassword(12, 1)
                 'MsgBox(password)
-                SetearSesion(TxtUser.Text, TxtPass.Text, Cedula)
+                SetearSesion(TxtUser.Text, TxtPass.Text)
                 Me.Hide()
                 Frm_Menu.Show()
 
@@ -35,7 +35,7 @@ Public Class FrmLogin
 
     End Sub
 
-    Private Sub SetearSesion(usuario As String, contra As String, ci As String)
+    Private Sub SetearSesion(usuario As String, contra As String)
         Try
             ControladorSesion.User = usuario
             ControladorSesion.Pass = contra

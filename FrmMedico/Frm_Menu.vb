@@ -173,7 +173,7 @@ Public Class Frm_Menu
 
     Private Sub BtnEnviar_Click(sender As Object, e As EventArgs) Handles BtnEnviar.Click
         Try
-            ControladorChat.EnviarMensaje(IdDiagnostico, RtbMensaje.Text, CiPaciente)
+            ControladorChat.EnviarMensajeMedico(IdDiagnostico, RtbMensaje.Text, CiPaciente)
             AgregarChat()
 
         Catch ex As Exception
@@ -206,7 +206,7 @@ Public Class Frm_Menu
 
     Private Sub MenuMedico_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Try
-            ControladorChat.FinalizarChat(IdDiagnostico, CiPaciente)
+            ControladorChat.FinalizarChatMedico(IdDiagnostico, CiPaciente)
 
         Catch ex As Exception
             MsgBox("Error en la actualizacion del estado del chat")
@@ -219,7 +219,7 @@ Public Class Frm_Menu
 
     Private Sub BtnFinalizarChat_Click(sender As Object, e As EventArgs) Handles BtnFinalizarChat.Click
         Try
-            ControladorChat.FinalizarChat(IdDiagnostico, CiPaciente)
+            ControladorChat.FinalizarChatMedico(IdDiagnostico, CiPaciente)
 
         Catch ex As Exception
             MsgBox("Error en la actualizacion del estado del chat")
