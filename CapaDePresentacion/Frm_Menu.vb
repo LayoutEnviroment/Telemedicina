@@ -70,6 +70,7 @@ Public Class Frm_Menu
             End Try
 
         End Try
+        ControladorSintoma.GuardarSintomasPadecidos(ListaSintomas)
         ObtenerIdEnfermedadDiagnosticada()
 
     End Sub
