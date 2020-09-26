@@ -1,10 +1,13 @@
 Imports CapaDeNegocio
 
 Public Class FrmLogin
+    'Public Property Membership As Object
 
     Private Sub BtnIngresar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnIngresar.Click
         Try
             If Autentificar(TxtUser.Text, TxtPass.Text) = 1 Then
+                'Dim password As String = Membership.GeneratePassword(12, 1)
+                'MsgBox(password)
                 SetearSesion(TxtUser.Text, TxtPass.Text, Cedula)
                 Me.Hide()
                 Frm_Menu.Show()
