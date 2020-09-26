@@ -140,9 +140,21 @@
             FROM
                 persona
             WHERE
-                ci = " + Me.Pwd + "
+                ci = " + Me.CI + "
         "
         Return Command.ExecuteScalar.ToString()
+    End Function
+
+    Public Function ObtenerNombre()
+        Command.CommandText = "
+            SELECT
+                nombre
+            FROM
+                persona
+            WHERE
+                ci = " + Me.CI + "
+        "
+        Return Command.ExecuteScalar.ToString
     End Function
 
     Public Function ObtenerNombreApellidoCedula()
@@ -154,7 +166,7 @@
             FROM
                 persona
             WHERE
-                ci = " + Me.Pwd + "
+                ci = " + Me.CI + "
         "
         Reader = Command.ExecuteReader()
         Return Reader
