@@ -5,10 +5,10 @@ Public Class Frm_Iniciar_Chat
     Public Sub Frm_Iniciar_Chat_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim idEnfermedad As String
         Try
-            idEnfermedad = ControladorEnfermedad.ObtenerId()
+            idEnfermedad = ControladorGenera.ObtenerIdEnfermedadGenerada()
             CargarTextBoxes(idEnfermedad)
         Catch ex As Exception
-
+            MsgBox(ex.ToString)
         End Try
 
     End Sub
@@ -24,6 +24,7 @@ Public Class Frm_Iniciar_Chat
                 TxtPrioridad.Text = Lector(2)
             End While
         Catch ex As Exception
+            MsgBox(ex.ToString)
             TxtDescripcion.Text = "No se pudieron cargar los datos"
         End Try
 
@@ -36,7 +37,8 @@ Public Class Frm_Iniciar_Chat
             Frm_Chat.Show()
 
         Catch ex As Exception
-            MsgBox("No pudimos ponerlo en cola de espera")
+            MsgBox(ex.ToString)
+            'MsgBox("No pudimos ponerlo en cola de espera")
 
         End Try
 

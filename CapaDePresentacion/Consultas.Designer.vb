@@ -24,6 +24,7 @@ Partial Class Consultas
     Private Sub InitializeComponent()
         Me.DgvDiagnosticos = New System.Windows.Forms.DataGridView()
         Me.PnlInformacion = New System.Windows.Forms.Panel()
+        Me.RtbChat = New System.Windows.Forms.RichTextBox()
         Me.RtbDescripcion = New System.Windows.Forms.RichTextBox()
         Me.LblPrioridadEnfermedad = New System.Windows.Forms.Label()
         Me.DgvSintomas = New System.Windows.Forms.DataGridView()
@@ -32,7 +33,6 @@ Partial Class Consultas
         Me.LblEnfermedad = New System.Windows.Forms.Label()
         Me.LblSintomas = New System.Windows.Forms.Label()
         Me.LblMedico = New System.Windows.Forms.Label()
-        Me.RtbChat = New System.Windows.Forms.RichTextBox()
         CType(Me.DgvDiagnosticos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PnlInformacion.SuspendLayout()
         CType(Me.DgvSintomas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -40,9 +40,19 @@ Partial Class Consultas
         '
         'DgvDiagnosticos
         '
+        Me.DgvDiagnosticos.AllowUserToAddRows = False
+        Me.DgvDiagnosticos.AllowUserToDeleteRows = False
+        Me.DgvDiagnosticos.AllowUserToResizeColumns = False
+        Me.DgvDiagnosticos.AllowUserToResizeRows = False
+        Me.DgvDiagnosticos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DgvDiagnosticos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.DgvDiagnosticos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvDiagnosticos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.DgvDiagnosticos.Location = New System.Drawing.Point(41, 12)
+        Me.DgvDiagnosticos.MultiSelect = False
         Me.DgvDiagnosticos.Name = "DgvDiagnosticos"
+        Me.DgvDiagnosticos.ReadOnly = True
+        Me.DgvDiagnosticos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvDiagnosticos.Size = New System.Drawing.Size(282, 721)
         Me.DgvDiagnosticos.TabIndex = 0
         '
@@ -63,10 +73,20 @@ Partial Class Consultas
         Me.PnlInformacion.TabIndex = 1
         Me.PnlInformacion.Visible = False
         '
+        'RtbChat
+        '
+        Me.RtbChat.Location = New System.Drawing.Point(49, 330)
+        Me.RtbChat.Name = "RtbChat"
+        Me.RtbChat.ReadOnly = True
+        Me.RtbChat.Size = New System.Drawing.Size(766, 388)
+        Me.RtbChat.TabIndex = 9
+        Me.RtbChat.Text = ""
+        '
         'RtbDescripcion
         '
         Me.RtbDescripcion.Location = New System.Drawing.Point(267, 144)
         Me.RtbDescripcion.Name = "RtbDescripcion"
+        Me.RtbDescripcion.ReadOnly = True
         Me.RtbDescripcion.Size = New System.Drawing.Size(508, 108)
         Me.RtbDescripcion.TabIndex = 8
         Me.RtbDescripcion.Text = ""
@@ -85,6 +105,7 @@ Partial Class Consultas
         Me.DgvSintomas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvSintomas.Location = New System.Drawing.Point(49, 46)
         Me.DgvSintomas.Name = "DgvSintomas"
+        Me.DgvSintomas.ReadOnly = True
         Me.DgvSintomas.Size = New System.Drawing.Size(180, 206)
         Me.DgvSintomas.TabIndex = 6
         '
@@ -132,14 +153,6 @@ Partial Class Consultas
         Me.LblMedico.Size = New System.Drawing.Size(81, 13)
         Me.LblMedico.TabIndex = 0
         Me.LblMedico.Text = "Medico a cargo"
-        '
-        'RtbChat
-        '
-        Me.RtbChat.Location = New System.Drawing.Point(49, 330)
-        Me.RtbChat.Name = "RtbChat"
-        Me.RtbChat.Size = New System.Drawing.Size(766, 388)
-        Me.RtbChat.TabIndex = 9
-        Me.RtbChat.Text = ""
         '
         'Consultas
         '

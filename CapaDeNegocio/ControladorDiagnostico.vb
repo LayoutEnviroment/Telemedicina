@@ -4,20 +4,25 @@ Public Module ControladorDiagnostico
     Public Sub Nuevo(sintomas As List(Of String), enfermedad As String)
         Dim d As New ModeloDiagnostico(ControladorSesion.User, ControladorSesion.Pass) With {
             .IdSintomas = sintomas,
-            .IdEnfermedad = enfermedad
+            .IdEnfermedad = enfermedad,
+            .Cedula = ControladorSesion.Cedula
         }
         d.Nuevo()
 
     End Sub
 
     Public Function ObtenerID()
-        Dim d As New ModeloDiagnostico(ControladorSesion.User, ControladorSesion.Pass)
+        Dim d As New ModeloDiagnostico(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Cedula = ControladorSesion.Cedula
+        }
 
         Return d.ObtenerId()
     End Function
 
     Public Function TodosMisDiagnosticos()
-        Dim d As New ModeloDiagnostico(ControladorSesion.User, ControladorSesion.Pass)
+        Dim d As New ModeloDiagnostico(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Cedula = ControladorSesion.Cedula
+        }
 
         Return d.TodosMisDiagnosticos()
     End Function

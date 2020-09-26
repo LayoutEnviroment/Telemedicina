@@ -7,6 +7,7 @@
 
     Public NombreUsuario As String
     Public ContraUsuario As String
+    Public Cedula As String
 
     Public Function ObtenerRol()
         Command.CommandText = "
@@ -15,7 +16,7 @@
             FROM
                 roles
             WHERE
-                ci_persona = '" + Me.Pwd + "'
+                usuario = '" + Me.Uid + "'
         "
         Return Command.ExecuteScalar.ToString
     End Function

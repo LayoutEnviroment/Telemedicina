@@ -16,4 +16,14 @@ Public Class MenuGestion
         FormCompone.Show()
     End Sub
 
+    Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
+        Me.Hide()
+        AltaUsuario.Show()
+
+    End Sub
+
+    Private Sub PacienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacienteToolStripMenuItem.Click
+        Me.Hide()
+        ModificarUsuarioPaciente.Show()
+    End Sub
 End Class

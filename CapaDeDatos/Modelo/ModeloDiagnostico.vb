@@ -5,6 +5,7 @@
         MyBase.New(user, pass)
     End Sub
 
+    Public Cedula As String
     Public IdSintomas As List(Of String)
     Public IdEnfermedad As String
     Public Id As String
@@ -24,7 +25,7 @@
                     INSERT INTO
                         diagnostico(fecha, pertenece)
                     VALUES(
-                        CURDATE(), " + Me.Pwd + ")
+                        CURDATE(), " + Me.Cedula + ")
                 "
                 Command.ExecuteNonQuery()
                 Try
@@ -80,7 +81,7 @@
             FROM
                 diagnostico
             WHERE
-                pertenece = " + Me.Pwd + "
+                pertenece = " + Me.Cedula + "
             "
 
         Return Command.ExecuteScalar.ToString()
@@ -95,7 +96,7 @@
             FROM
                 diagnostico
             WHERE
-                pertenece = " + Me.Pwd + "
+                pertenece = " + Me.Cedula + "
         "
 
         Reader = Command.ExecuteReader()
@@ -134,7 +135,7 @@
     Public Function SintomasEnfermedadDiagnosticada()
         Command.CommandText = "
             SELECT 
-                s.nombre
+                DISTINCT(s.nombre)
             FROM
                 sintoma s
                     JOIN
