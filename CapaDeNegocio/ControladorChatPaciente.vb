@@ -4,7 +4,8 @@ Public Module ControladorChatPaciente
 
     Public Sub EnviarSolicitud(id As String)
         Dim c As New ModeloChatPaciente(ControladorSesion.User, ControladorSesion.Pass) With {
-            .IdDiagnostico = id
+            .IdDiagnostico = id,
+            .Cedula = ControladorSesion.Cedula
         }
         c.EnviarSolicitud()
     End Sub
@@ -13,7 +14,8 @@ Public Module ControladorChatPaciente
         Dim c As New ModeloChatPaciente(ControladorSesion.User, ControladorSesion.Pass) With {
             .IdDiagnostico = id,
             .Mensaje = mensaje,
-            .Destinatario = destinatario
+            .Destinatario = destinatario,
+            .Cedula = ControladorSesion.Cedula
         }
 
         c.EnviarMensaje()
@@ -21,7 +23,8 @@ Public Module ControladorChatPaciente
 
     Public Function BuscarMensajesNuevos(id As String)
         Dim c As New ModeloChatPaciente(ControladorSesion.User, ControladorSesion.Pass) With {
-            .IdDiagnostico = id
+            .IdDiagnostico = id,
+            .Cedula = ControladorSesion.Cedula
         }
 
         Return c.BuscarMensajesNuevos
@@ -29,7 +32,8 @@ Public Module ControladorChatPaciente
 
     Public Sub MarcarComoLeido(id As String)
         Dim c As New ModeloChatPaciente(ControladorSesion.User, ControladorSesion.Pass) With {
-            .IdDiagnostico = id
+            .IdDiagnostico = id,
+            .Cedula = ControladorSesion.Cedula
         }
 
         c.MarcarComoLeido()
@@ -38,7 +42,8 @@ Public Module ControladorChatPaciente
     Public Sub FinalizarChat(id As String, destinatario As String)
         Dim c As New ModeloChatPaciente(ControladorSesion.User, ControladorSesion.Pass) With {
             .IdDiagnostico = id,
-            .Destinatario = destinatario
+            .Destinatario = destinatario,
+            .Cedula = ControladorSesion.Cedula
         }
 
         c.FinalizarChat()

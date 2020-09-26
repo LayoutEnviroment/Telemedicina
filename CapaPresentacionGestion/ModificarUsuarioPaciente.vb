@@ -14,15 +14,15 @@ Public Class ModificarUsuarioPaciente
     Private Sub ModificarUsuarioPaciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Dim LectorCI As IDataReader
-        LectorCI = ControladorPaciente.ObtenerCIPaciente
+        LectorCI = ControladorPaciente.ObtenerCi
 
         While LectorCI.Read
             CmbSeleccionarCI.Items.Add(LectorCI.GetValue(0))
         End While
 
-        ObtenerDatosPersona()
-        ObtenerMedicacionesPaciente()
-        ObtenerEnfermedadesCronicas()
+        'ObtenerDatosPersona()
+        'ObtenerMedicacionesPaciente()
+        'ObtenerEnfermedadesCronicas()
 
     End Sub
 
@@ -85,32 +85,34 @@ Public Class ModificarUsuarioPaciente
     End Sub
 
     Private Sub CmbSeleccionarCI_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbSeleccionarCI.SelectedIndexChanged
-
-    End Sub
-
-    Public Sub ObtenerDatosPersona()
         Dim Lector As IDataReader
-        Try
-            Lector = ControladorPaciente.ObtenerTodo()
-            CargarTextBoxes(Lector)
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-        End Try
+        Lector = ControladorPaciente.ObtenerTodo(CmbSeleccionarCI.Text)
+        CargarTextBoxes(Lector)
     End Sub
+
+    'Public Sub ObtenerDatosPersona()
+    '    Dim Lector As IDataReader
+    '    Try
+    '        Lector = ControladorPaciente.ObtenerTodo()
+    '        CargarTextBoxes(Lector)
+    '    Catch ex As Exception
+    '        MsgBox(ex.ToString)
+    '    End Try
+    'End Sub
 
     Public Sub CargarTextBoxes(Lector As IDataReader)
         While Lector.Read
-            CmbSeleccionarCI.Text = Lector(0).ToString
-            TxtNombre.Text = Lector(1).ToString
-            TxtApellido.Text = Lector(2).ToString
-            TxtMail.Text = Lector(3).ToString
-            If Lector(4).ToString = 1 Then
+            TxtNombre.Text = Lector(0).ToString
+            TxtApellido.Text = Lector(1).ToString
+            TxtMail.Text = Lector(2).ToString
+            If Lector(3).ToString = 1 Then
                 RdbM.Checked = True
             Else
                 RdbF.Checked = True
             End If
-            AdaptarFecha(Lector(5).ToString)
-
+            AdaptarFecha(Lector(4).ToString)
+            ObtenerMedicacionesPaciente()
+            ObtenerEnfermedadesCronicas()
         End While
     End Sub
 
@@ -122,7 +124,7 @@ Public Class ModificarUsuarioPaciente
     Public Sub ObtenerMedicacionesPaciente()
         Dim Lector As IDataReader
         Try
-            Lector = ControladorPaciente.ObtenerMedicaciones()
+            Lector = ControladorPaciente.ObtenerMedicaciones(CmbSeleccionarCI.Text)
             CargarListaMedicaciones(Lector)
         Catch ex As Exception
 
@@ -139,7 +141,7 @@ Public Class ModificarUsuarioPaciente
     Public Sub ObtenerEnfermedadesCronicas()
         Dim Lector As IDataReader
         Try
-            Lector = ControladorPaciente.ObtenerEnfermedades()
+            Lector = ControladorPaciente.ObtenerEnfermedades(CmbSeleccionarCI.Text)
             CargarListaEnfermedades(Lector)
         Catch ex As Exception
 
@@ -186,7 +188,7 @@ Public Class ModificarUsuarioPaciente
         Medicaciones.Clear()
         For x = 0 To LstEnfermedadCronica.Items.Count() - 1
             Try
-                Enfermedades.Add(LstEnfermedadCronica.Items(x).Text)
+                Enfermedades.Add(LstEnfermedadCronica.Items(x).ToString)
             Catch ex As Exception
                 MsgBox(ex.ToString)
             End Try
@@ -195,7 +197,7 @@ Public Class ModificarUsuarioPaciente
 
         For x = 0 To LstMedicacion.Items.Count() - 1
             Try
-                Medicaciones.Add(LstMedicacion.Items(x).Text)
+                Medicaciones.Add(LstMedicacion.Items(x).ToString)
             Catch ex As Exception
                 MsgBox(ex.ToString)
             End Try
@@ -211,7 +213,7 @@ Public Class ModificarUsuarioPaciente
     Public Sub GuardarValores()
         Try
             MsgBox(Sexo)
-            ControladorPaciente.CambiarDatos(Nombre, Apellido, Correo, Sexo, FechaNacimiento, Enfermedades, Medicaciones)
+            ControladorPaciente.CambiarDatos(Nombre, Apellido, Correo, Sexo, FechaNacimiento, Enfermedades, Medicaciones, CmbSeleccionarCI.Text)
         Catch ex As Exception
 
         End Try

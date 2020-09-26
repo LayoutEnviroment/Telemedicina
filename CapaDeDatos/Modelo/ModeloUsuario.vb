@@ -133,4 +133,60 @@
     End Function
 
 
+    Public Function ObtenerCorreo()
+        Command.CommandText = "
+            SELECT
+                mail
+            FROM
+                persona
+            WHERE
+                ci = " + Me.CI + "
+        "
+        Return Command.ExecuteScalar.ToString()
+    End Function
+
+    Public Function ObtenerNombre()
+        Command.CommandText = "
+            SELECT
+                nombre
+            FROM
+                persona
+            WHERE
+                ci = " + Me.CI + "
+        "
+        Return Command.ExecuteScalar.ToString
+    End Function
+
+    Public Function ObtenerNombreApellidoCedula()
+        Command.CommandText = "
+            SELECT
+                nombre,
+                apellido,
+                ci
+            FROM
+                persona
+            WHERE
+                ci = " + Me.CI + "
+        "
+        Reader = Command.ExecuteReader()
+        Return Reader
+    End Function
+
+    Public Function ObtenerCedula()
+        Command.CommandText = "
+            SELECT
+                p.ci
+            FROM
+                persona p
+                    JOIN
+                        roles r
+                            ON 
+                                p.ci = r.ci_persona
+            WHERE
+                r.usuario = '" + Me.Uid + "'
+        "
+
+        Return Command.ExecuteScalar.ToString
+    End Function
+
 End Class

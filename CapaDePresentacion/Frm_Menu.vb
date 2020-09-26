@@ -2,20 +2,27 @@
 
 Public Class Frm_Menu
 
+    Public Cedula As String
     Public ListaSintomas As New List(Of String)
     Dim NombreEnfermedad As String
 
     Private Sub Frm_Paciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ObtenerCedula()
         Try
             LblSaludo.Text = "Bienvenido, " + ControladorPaciente.ObtenerNombre() + ""
 
         Catch ex As Exception
-            LblSaludo.Text = "Bienvenido!"
+            MsgBox(ex.ToString)
+            'LblSaludo.Text = "Bienvenido!"
 
         End Try
 
         CargarSintoma()
 
+    End Sub
+
+    Private Sub ObtenerCedula()
+        Cedula = ControladorUsuario.ObtenerCedula()
     End Sub
 
     Private Sub CargarSintoma()
@@ -28,7 +35,8 @@ Public Class Frm_Menu
             End While
 
         Catch ex As Exception
-            MsgBox("No pudimos cargar los sintomas, intente reiniciar la aplicacion", MsgBoxStyle.Critical)
+            MsgBox(ex.ToString)
+            'MsgBox("No pudimos cargar los sintomas, intente reiniciar la aplicacion", MsgBoxStyle.Critical)
 
         End Try
 
@@ -53,10 +61,12 @@ Public Class Frm_Menu
         Try
             NombreEnfermedad = ControladorCompone.EnfermedadesPosibles(ListaSintomas)
         Catch ex As Exception
+            MsgBox(ex.ToString)
             Try
                 NombreEnfermedad = ControladorCompone.EnfermedadesPorAproximacion(ListaSintomas)
             Catch ex1 As Exception
-                MsgBox("No se pudo encontrar una enfermedad")
+                MsgBox(ex.ToString)
+                'MsgBox("No se pudo encontrar una enfermedad")
             End Try
 
         End Try
@@ -73,7 +83,8 @@ Public Class Frm_Menu
                 RealizarDiagnostico(IdEnfermedad)
 
             Catch ex As Exception
-                MsgBox("No se pudo hallar el identificador de la enfermedad")
+                MsgBox(ex.ToString)
+                'MsgBox("No se pudo hallar el identificador de la enfermedad")
 
             End Try
         End If
