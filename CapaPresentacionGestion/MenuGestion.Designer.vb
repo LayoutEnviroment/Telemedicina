@@ -29,6 +29,9 @@ Partial Class MenuGestion
         Me.UsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModificarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PacienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MedicoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AdministrativoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SintomaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -37,9 +40,6 @@ Partial Class MenuGestion
         Me.ImportarCSVToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SintomaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.EnfermedadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PacienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MedicoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AdministrativoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuGestor.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -47,7 +47,7 @@ Partial Class MenuGestion
         '
         Me.BtnEnfermedad.BackColor = System.Drawing.Color.White
         Me.BtnEnfermedad.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnEnfermedad.Location = New System.Drawing.Point(12, 252)
+        Me.BtnEnfermedad.Location = New System.Drawing.Point(214, 97)
         Me.BtnEnfermedad.Name = "BtnEnfermedad"
         Me.BtnEnfermedad.Size = New System.Drawing.Size(222, 41)
         Me.BtnEnfermedad.TabIndex = 0
@@ -58,7 +58,7 @@ Partial Class MenuGestion
         '
         Me.BtnSintoma.BackColor = System.Drawing.Color.White
         Me.BtnSintoma.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSintoma.Location = New System.Drawing.Point(305, 252)
+        Me.BtnSintoma.Location = New System.Drawing.Point(239, 202)
         Me.BtnSintoma.Name = "BtnSintoma"
         Me.BtnSintoma.Size = New System.Drawing.Size(222, 41)
         Me.BtnSintoma.TabIndex = 1
@@ -69,7 +69,7 @@ Partial Class MenuGestion
         '
         Me.BtnCompone.BackColor = System.Drawing.Color.White
         Me.BtnCompone.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCompone.Location = New System.Drawing.Point(595, 235)
+        Me.BtnCompone.Location = New System.Drawing.Point(592, 135)
         Me.BtnCompone.Name = "BtnCompone"
         Me.BtnCompone.Size = New System.Drawing.Size(222, 74)
         Me.BtnCompone.TabIndex = 2
@@ -78,18 +78,19 @@ Partial Class MenuGestion
         '
         'MenuGestor
         '
+        Me.MenuGestor.Dock = System.Windows.Forms.DockStyle.Left
         Me.MenuGestor.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuGestor.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UsuarioToolStripMenuItem, Me.SintomaToolStripMenuItem, Me.ImportarCSVToolStripMenuItem})
         Me.MenuGestor.Location = New System.Drawing.Point(0, 0)
         Me.MenuGestor.Name = "MenuGestor"
-        Me.MenuGestor.Size = New System.Drawing.Size(852, 28)
+        Me.MenuGestor.Size = New System.Drawing.Size(115, 402)
         Me.MenuGestor.TabIndex = 3
         '
         'UsuarioToolStripMenuItem
         '
         Me.UsuarioToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.ModificarToolStripMenuItem, Me.EliminarToolStripMenuItem})
         Me.UsuarioToolStripMenuItem.Name = "UsuarioToolStripMenuItem"
-        Me.UsuarioToolStripMenuItem.Size = New System.Drawing.Size(71, 24)
+        Me.UsuarioToolStripMenuItem.Size = New System.Drawing.Size(102, 24)
         Me.UsuarioToolStripMenuItem.Text = "Usuario"
         '
         'NuevoToolStripMenuItem
@@ -104,56 +105,6 @@ Partial Class MenuGestion
         Me.ModificarToolStripMenuItem.Name = "ModificarToolStripMenuItem"
         Me.ModificarToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
         Me.ModificarToolStripMenuItem.Text = "Modificar"
-        '
-        'EliminarToolStripMenuItem
-        '
-        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
-        Me.EliminarToolStripMenuItem.Text = "Eliminar"
-        '
-        'SintomaToolStripMenuItem
-        '
-        Me.SintomaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem1, Me.ModificarToolStripMenuItem1, Me.EliminarToolStripMenuItem1})
-        Me.SintomaToolStripMenuItem.Name = "SintomaToolStripMenuItem"
-        Me.SintomaToolStripMenuItem.Size = New System.Drawing.Size(76, 24)
-        Me.SintomaToolStripMenuItem.Text = "Sintoma"
-        '
-        'NuevoToolStripMenuItem1
-        '
-        Me.NuevoToolStripMenuItem1.Name = "NuevoToolStripMenuItem1"
-        Me.NuevoToolStripMenuItem1.Size = New System.Drawing.Size(148, 26)
-        Me.NuevoToolStripMenuItem1.Text = "Nuevo"
-        '
-        'ModificarToolStripMenuItem1
-        '
-        Me.ModificarToolStripMenuItem1.Name = "ModificarToolStripMenuItem1"
-        Me.ModificarToolStripMenuItem1.Size = New System.Drawing.Size(148, 26)
-        Me.ModificarToolStripMenuItem1.Text = "Modificar"
-        '
-        'EliminarToolStripMenuItem1
-        '
-        Me.EliminarToolStripMenuItem1.Name = "EliminarToolStripMenuItem1"
-        Me.EliminarToolStripMenuItem1.Size = New System.Drawing.Size(148, 26)
-        Me.EliminarToolStripMenuItem1.Text = "Eliminar"
-        '
-        'ImportarCSVToolStripMenuItem
-        '
-        Me.ImportarCSVToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SintomaToolStripMenuItem1, Me.EnfermedadToolStripMenuItem})
-        Me.ImportarCSVToolStripMenuItem.Name = "ImportarCSVToolStripMenuItem"
-        Me.ImportarCSVToolStripMenuItem.Size = New System.Drawing.Size(109, 24)
-        Me.ImportarCSVToolStripMenuItem.Text = "Importar CSV"
-        '
-        'SintomaToolStripMenuItem1
-        '
-        Me.SintomaToolStripMenuItem1.Name = "SintomaToolStripMenuItem1"
-        Me.SintomaToolStripMenuItem1.Size = New System.Drawing.Size(165, 26)
-        Me.SintomaToolStripMenuItem1.Text = "Sintoma"
-        '
-        'EnfermedadToolStripMenuItem
-        '
-        Me.EnfermedadToolStripMenuItem.Name = "EnfermedadToolStripMenuItem"
-        Me.EnfermedadToolStripMenuItem.Size = New System.Drawing.Size(165, 26)
-        Me.EnfermedadToolStripMenuItem.Text = "Enfermedad"
         '
         'PacienteToolStripMenuItem
         '
@@ -172,6 +123,56 @@ Partial Class MenuGestion
         Me.AdministrativoToolStripMenuItem.Name = "AdministrativoToolStripMenuItem"
         Me.AdministrativoToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
         Me.AdministrativoToolStripMenuItem.Text = "Administrativo"
+        '
+        'EliminarToolStripMenuItem
+        '
+        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+        Me.EliminarToolStripMenuItem.Text = "Eliminar"
+        '
+        'SintomaToolStripMenuItem
+        '
+        Me.SintomaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem1, Me.ModificarToolStripMenuItem1, Me.EliminarToolStripMenuItem1})
+        Me.SintomaToolStripMenuItem.Name = "SintomaToolStripMenuItem"
+        Me.SintomaToolStripMenuItem.Size = New System.Drawing.Size(102, 24)
+        Me.SintomaToolStripMenuItem.Text = "Sintoma"
+        '
+        'NuevoToolStripMenuItem1
+        '
+        Me.NuevoToolStripMenuItem1.Name = "NuevoToolStripMenuItem1"
+        Me.NuevoToolStripMenuItem1.Size = New System.Drawing.Size(216, 26)
+        Me.NuevoToolStripMenuItem1.Text = "Nuevo"
+        '
+        'ModificarToolStripMenuItem1
+        '
+        Me.ModificarToolStripMenuItem1.Name = "ModificarToolStripMenuItem1"
+        Me.ModificarToolStripMenuItem1.Size = New System.Drawing.Size(216, 26)
+        Me.ModificarToolStripMenuItem1.Text = "Modificar"
+        '
+        'EliminarToolStripMenuItem1
+        '
+        Me.EliminarToolStripMenuItem1.Name = "EliminarToolStripMenuItem1"
+        Me.EliminarToolStripMenuItem1.Size = New System.Drawing.Size(216, 26)
+        Me.EliminarToolStripMenuItem1.Text = "Eliminar"
+        '
+        'ImportarCSVToolStripMenuItem
+        '
+        Me.ImportarCSVToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SintomaToolStripMenuItem1, Me.EnfermedadToolStripMenuItem})
+        Me.ImportarCSVToolStripMenuItem.Name = "ImportarCSVToolStripMenuItem"
+        Me.ImportarCSVToolStripMenuItem.Size = New System.Drawing.Size(102, 24)
+        Me.ImportarCSVToolStripMenuItem.Text = "Importar CSV"
+        '
+        'SintomaToolStripMenuItem1
+        '
+        Me.SintomaToolStripMenuItem1.Name = "SintomaToolStripMenuItem1"
+        Me.SintomaToolStripMenuItem1.Size = New System.Drawing.Size(216, 26)
+        Me.SintomaToolStripMenuItem1.Text = "Sintoma"
+        '
+        'EnfermedadToolStripMenuItem
+        '
+        Me.EnfermedadToolStripMenuItem.Name = "EnfermedadToolStripMenuItem"
+        Me.EnfermedadToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+        Me.EnfermedadToolStripMenuItem.Text = "Enfermedad"
         '
         'MenuGestion
         '
