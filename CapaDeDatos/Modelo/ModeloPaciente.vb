@@ -343,7 +343,7 @@
             WHERE
                 activo = 1
         "
-        Command.ExecuteReader()
+        Reader = Command.ExecuteReader()
         Return Reader
 
 

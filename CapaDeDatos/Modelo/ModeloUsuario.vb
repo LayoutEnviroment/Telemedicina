@@ -15,6 +15,7 @@
     Public Sexo As String
     Public EnfermedadCronica As List(Of String)
     Public Medicacion As List(Of String)
+    Public Password As String
 
     Public Function NuevaPersona()
         Try
@@ -29,13 +30,11 @@
                           VALUES('" + Me.CI + "','" + Me.Nombre + "','" + Me.Apellido + "','" + Me.Mail + "','1')"
                 Command.ExecuteNonQuery()
 
-                Command.CommandText = "CREATE USER '" + Me.Mail + "'@'localhost' identified by '" + Me.CI + "'"
+                Command.CommandText = "CREATE USER '" + Me.Mail + "'@'localhost' identified by '" + Me.Password + "'"
                 Command.ExecuteNonQuery()
-                MsgBox("cree user")
-                MsgBox(TipoDeUsuario(1).ToString)
 
                 If Me.TipoDeUsuario(3) = True Then
-                    MsgBox("entre al if administrador")
+
                     Command.CommandText = "INSERT INTO administrativo (ci_persona)
                           VALUES('" + Me.CI + "')"
                     Command.ExecuteNonQuery()
@@ -43,7 +42,6 @@
                     Command.CommandText = "INSERT INTO roles (ci_persona, usuario, rol)
                           VALUES('" + Me.CI + "','" + Me.Mail + "', 3)"
                     Command.ExecuteNonQuery()
-                    MsgBox("cree roles")
 
                     Command.CommandText = "GRANT
                                         ALL
@@ -52,7 +50,6 @@
                                         TO
                                        '" + Me.Mail + "'@'localhost' WITH GRANT OPTION"
                     Command.ExecuteNonQuery()
-                    MsgBox("le di privilegios")
                     Command.CommandText = "FLUSH PRIVILEGES"
                     Command.ExecuteNonQuery()
                 End If

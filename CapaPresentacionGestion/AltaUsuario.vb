@@ -1,4 +1,5 @@
 ﻿Imports CapaDeNegocio
+Imports System.Net.Mail
 Public Class AltaUsuario
 
     Dim TipoUsuario(3) As Boolean
@@ -6,6 +7,7 @@ Public Class AltaUsuario
     Dim EnfermedadesCronicas As New List(Of String)
     Dim Medicamentos As New List(Of String)
     Dim Sexo As String
+    Dim Contra As String
 
     Private Sub AltaUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -23,18 +25,17 @@ Public Class AltaUsuario
     End Sub
 
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
-
+        CrearContra()
         If ChbAdministrador.Checked Then
             TipoUsuario(3) = True
 
-            MsgBox("Pase parametros administrador")
         Else
             TipoUsuario(3) = False
         End If
 
         If ChbMedico.Checked Then
             TipoUsuario(2) = True
-            MsgBox("Pase parametros medico")
+
         Else
             TipoUsuario(2) = False
 
@@ -63,10 +64,15 @@ Public Class AltaUsuario
         Else
             TipoUsuario(1) = False
         End If
+        Try
+            ControladorUsuario.CrearPersona(TxtNombre.Text.Trim, TxtApellido.Text.Trim, TxtCI.Text.Trim, TxtMail.Text.Trim, TipoUsuario, FechaNacimiento, Sexo, EnfermedadesCronicas, Medicamentos, Contra)
+            MsgBox("Usuario creado exitosamente")
+            EnviarMail()
+            Limpiar()
+        Catch ex As Exception
+            MsgBox("Error al crear usuario")
+        End Try
 
-        ControladorUsuario.CrearPersona(TxtNombre.Text.Trim, TxtApellido.Text.Trim, TxtCI.Text.Trim, TxtMail.Text.Trim, TipoUsuario, FechaNacimiento, Sexo, EnfermedadesCronicas, Medicamentos)
-        MsgBox("Usuario creado exitosamente")
-        Limpiar()
 
     End Sub
 
@@ -150,4 +156,44 @@ Public Class AltaUsuario
         BtnAgregarEnfermedad.Visible = False
         BtnAgregarMedicacion.Visible = False
     End Sub
+    Private Sub EnviarMail()
+        Dim Correo As New MailMessage()
+        Dim smtp As New SmtpClient()
+
+        With smtp
+            .UseDefaultCredentials = False
+            .Credentials = New Net.NetworkCredential("cuidartegestor@gmail.com", "GesCuidarte")
+            .Port = 587
+            .EnableSsl = True
+            .Host = "smtp.gmail.com"
+        End With
+
+        With Correo
+            .From = New MailAddress("cuidartegestor@gmail.com", "Cuidarte", System.Text.Encoding.UTF8)
+            .To.Add(TxtMail.Text)
+            .Subject = "Credenciales De Cuidarte"
+            .SubjectEncoding = System.Text.Encoding.UTF8
+            .Body = "Estimado/a usuario/a. Gracias por utilizar Cuidarte. su usuario es: " + TxtMail.Text + " y su password es: " + Contra
+            .BodyEncoding = System.Text.Encoding.UTF8
+            .IsBodyHtml = False
+        End With
+
+        Try
+            smtp.Send(Correo)
+            MsgBox("Mensaje enviado")
+        Catch ex As Exception
+            If ex.HResult = "-2146233088" Then
+                MsgBox("Usa este link capo: https: //myaccount.google.com/lesssecureapps")
+            Else
+                MsgBox(ex.ToString)
+            End If
+        End Try
+
+    End Sub
+    Private Function CrearContra()
+        Dim Contra As String = TxtCI.Text
+        Return Contra
+    End Function
+
+
 End Class

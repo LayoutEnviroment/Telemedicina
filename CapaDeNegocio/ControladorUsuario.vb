@@ -2,7 +2,7 @@
 
 Public Module ControladorUsuario
 
-    Public Function CrearPersona(Nombre As String, Apellido As String, CI As String, Mail As String, TipoUsuario() As Boolean, FechaNacimiento As String, Sexo As String, EnfermedadesCronicas As List(Of String), Medicamentos As List(Of String))
+    Public Function CrearPersona(Nombre As String, Apellido As String, CI As String, Mail As String, TipoUsuario() As Boolean, FechaNacimiento As String, Sexo As String, EnfermedadesCronicas As List(Of String), Medicamentos As List(Of String), Contra As String)
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
             .Nombre = Nombre,
             .Apellido = Apellido,
@@ -12,7 +12,8 @@ Public Module ControladorUsuario
             .Sexo = Sexo,
             .Medicacion = Medicamentos,
             .EnfermedadCronica = EnfermedadesCronicas,
-            .TipoDeUsuario = TipoUsuario
+            .TipoDeUsuario = TipoUsuario,
+            .Password = Contra
         }
         Return u.NuevaPersona()
 
@@ -50,4 +51,5 @@ Public Module ControladorUsuario
 
         Return u.ObtenerNombre()
     End Function
+
 End Module
