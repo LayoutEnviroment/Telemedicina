@@ -8,7 +8,8 @@ Public Class Frm_Iniciar_Chat
             idEnfermedad = ControladorGenera.ObtenerIdEnfermedadGenerada()
             CargarTextBoxes(idEnfermedad)
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            'MsgBox(ex.ToString)
+            MsgBox("No pudimos guardar el identificador de la enfermedad")
         End Try
 
     End Sub
@@ -24,7 +25,7 @@ Public Class Frm_Iniciar_Chat
                 TxtPrioridad.Text = Lector(2)
             End While
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            'MsgBox("Error cargando text boxes" + ex.ToString)
             TxtDescripcion.Text = "No se pudieron cargar los datos"
         End Try
 
@@ -37,8 +38,8 @@ Public Class Frm_Iniciar_Chat
             Frm_Chat.Show()
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
-            'MsgBox("No pudimos ponerlo en cola de espera")
+            'MsgBox(ex.ToString)
+            MsgBox("No pudimos ponerlo en cola de espera")
 
         End Try
 

@@ -1,4 +1,5 @@
-﻿Imports CapaDeNegocio
+﻿Imports System.ComponentModel
+Imports CapaDeNegocio
 
 Public Class Frm_Menu
 
@@ -11,17 +12,13 @@ Public Class Frm_Menu
             LblSaludo.Text = "Bienvenido, " + ControladorUsuario.ObtenerNombre() + ""
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
-            'LblSaludo.Text = "Bienvenido!"
+            'MsgBox(ex.ToString)
+            LblSaludo.Text = "Bienvenido!"
 
         End Try
 
         CargarSintoma()
 
-    End Sub
-
-    Private Sub ObtenerCedula()
-        Cedula = ControladorUsuario.ObtenerCedula()
     End Sub
 
     Private Sub CargarSintoma()
@@ -34,8 +31,8 @@ Public Class Frm_Menu
             End While
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
-            'MsgBox("No pudimos cargar los sintomas, intente reiniciar la aplicacion", MsgBoxStyle.Critical)
+            'MsgBox(ex.ToString)
+            MsgBox("No pudimos cargar los sintomas, intente reiniciar la aplicacion", MsgBoxStyle.Critical)
 
         End Try
 
@@ -60,31 +57,39 @@ Public Class Frm_Menu
         Try
             NombreEnfermedad = ControladorCompone.EnfermedadesPosibles(ListaSintomas)
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            'MsgBox("Error por exacto" + ex.ToString)
             Try
                 NombreEnfermedad = ControladorCompone.EnfermedadesPorAproximacion(ListaSintomas)
             Catch ex1 As Exception
-                MsgBox(ex.ToString)
-                'MsgBox("No se pudo encontrar una enfermedad")
+                'MsgBox("error por aprox" + ex.ToString)
+                MsgBox("No se pudo encontrar una enfermedad")
             End Try
 
         End Try
-        ControladorPadece.GuardarSintomasPadecidos(ListaSintomas)
+        GuardarPadecimientos()
         ObtenerIdEnfermedadDiagnosticada()
 
     End Sub
 
+    Private Sub GuardarPadecimientos()
+        Try
+            ControladorPadece.GuardarSintomasPadecidos(ListaSintomas)
+        Catch ex As Exception
+            MsgBox("No se pudieron registrar los sintomas padecidos")
+        End Try
+    End Sub
+
     Public Sub ObtenerIdEnfermedadDiagnosticada()
         Dim IdEnfermedad As String
-        MsgBox(NombreEnfermedad)
+        'MsgBox(NombreEnfermedad)
         If NombreEnfermedad <> "" Then
             Try
                 IdEnfermedad = ControladorEnfermedad.ObtenerId(NombreEnfermedad)
                 RealizarDiagnostico(IdEnfermedad)
 
             Catch ex As Exception
-                MsgBox(ex.ToString)
-                'MsgBox("No se pudo hallar el identificador de la enfermedad")
+                'MsgBox("Error obteniendo id enf" + ex.ToString)
+                MsgBox("No se pudo hallar el identificador de la enfermedad")
 
             End Try
         End If
@@ -131,5 +136,9 @@ Public Class Frm_Menu
     Private Sub BtnDatosPriopios_Click(sender As Object, e As EventArgs) Handles BtnDatosPriopios.Click
         Frm_Cambiar_Datos_Propios.Show()
         Me.Hide()
+    End Sub
+
+    Private Sub Frm_Menu_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        Me.Close()
     End Sub
 End Class

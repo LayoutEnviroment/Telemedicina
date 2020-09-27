@@ -9,7 +9,8 @@ Public Class Frm_Consultas
             Diagnosticos.Load(ControladorDiagnostico.TodosMisDiagnosticos())
             DgvDiagnosticos.DataSource = Diagnosticos
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            'MsgBox(ex.ToString)
+            MsgBox("No pudimos cargar sus diagnosticos")
         End Try
     End Sub
 
@@ -21,7 +22,6 @@ Public Class Frm_Consultas
 
         CargarEnfermedad(IdDiagnostico)
         CargarSintomas(IdDiagnostico)
-        'CargarMedico(IdDiagnostico)
         ExistenMensajes(IdDiagnostico)
 
     End Sub
@@ -99,10 +99,6 @@ Public Class Frm_Consultas
         Catch ex As Exception
 
         End Try
-    End Sub
-
-    Private Sub RtbDescripcion_TextChanged(sender As Object, e As EventArgs) Handles RtbDescripcion.TextChanged
-
     End Sub
 
     Private Sub Frm_Consultas_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing

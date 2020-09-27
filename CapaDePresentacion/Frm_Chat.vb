@@ -62,14 +62,14 @@ Public Class Frm_Chat
     End Sub
 
     Public Sub AgregarChat()
-        RtbMensaje.Clear()
+        TxtMensaje.Clear()
         WbbConversacion.DocumentText += "<p align = 'right'; style='line-height:6';padding=50px ><span style='background-color:MediumSeaGreen'>" + TxtMensaje.Text + " </span></p>"
 
 
     End Sub
 
-    Private Sub RtbMensaje_TextChanged(sender As Object, e As EventArgs) 
-        If RtbMensaje.Text = "" Then
+    Private Sub RtbMensaje_TextChanged(sender As Object, e As EventArgs)
+        If TxtMensaje.Text = "" Then
             BtnEnviar.Enabled = False
         Else
             BtnEnviar.Enabled = True
@@ -110,13 +110,14 @@ Public Class Frm_Chat
 
                 End If
 
-                    RtbConversacion.Text = ""
-                    RtbMensaje.Text = ""
-                    Frm_Menu.Show()
+                WbbConversacion.DocumentText = ""
+                TxtMensaje.Text = ""
+                Frm_Menu.Show()
                 Me.Hide()
 
             Case MsgBoxResult.No
 
         End Select
     End Sub
+
 End Class

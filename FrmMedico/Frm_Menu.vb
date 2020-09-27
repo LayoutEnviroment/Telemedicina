@@ -206,19 +206,21 @@ Public Class Frm_Menu
     End Sub
 
     Private Sub MenuMedico_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        Try
-            ControladorChat.FinalizarChatMedico(IdDiagnostico, CiPaciente)
+        If IdDiagnostico <> "" Then
+            Try
+                ControladorChat.FinalizarChatMedico(IdDiagnostico, CiPaciente)
 
-        Catch ex As Exception
-            MsgBox("Error en la actualizacion del estado del chat")
+            Catch ex As Exception
+                MsgBox("Error en la actualizacion del estado del chat")
 
-        End Try
-
+            End Try
+        End If
         CambiosEnForm()
 
     End Sub
 
     Private Sub BtnFinalizarChat_Click(sender As Object, e As EventArgs) Handles BtnFinalizarChat.Click
+        IdDiagnostico = ""
         Try
             ControladorChat.FinalizarChatMedico(IdDiagnostico, CiPaciente)
 

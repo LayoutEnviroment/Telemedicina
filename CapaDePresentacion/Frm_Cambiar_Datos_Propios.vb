@@ -25,7 +25,8 @@ Public Class Frm_Cambiar_Datos_Propios
             Lector = ControladorPaciente.ObtenerTodo()
             CargarTextBoxes(Lector)
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            'MsgBox(ex.ToString)
+            MsgBox("No se pudieron obtener sus datos")
         End Try
     End Sub
 
@@ -56,7 +57,7 @@ Public Class Frm_Cambiar_Datos_Propios
             Lector = ControladorPaciente.ObtenerMedicaciones()
             CargarListaMedicaciones(Lector)
         Catch ex As Exception
-
+            MsgBox("No se pudieron obtener sus medicaciones")
         End Try
     End Sub
 
@@ -73,7 +74,7 @@ Public Class Frm_Cambiar_Datos_Propios
             Lector = ControladorPaciente.ObtenerEnfermedades()
             CargarListaEnfermedades(Lector)
         Catch ex As Exception
-
+            MsgBox("No se pudieron obtene sus enfermedades")
         End Try
     End Sub
 
@@ -164,7 +165,7 @@ Public Class Frm_Cambiar_Datos_Propios
             MsgBox(Sexo)
             ControladorPaciente.CambiarDatos(Nombre, Apellido, Correo, Sexo, FechaNacimiento, Enfermedades, Medicaciones)
         Catch ex As Exception
-
+            MsgBox("No se pudieron actualizar sus datos")
         End Try
 
     End Sub
