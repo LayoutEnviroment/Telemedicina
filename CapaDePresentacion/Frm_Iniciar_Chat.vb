@@ -7,6 +7,7 @@ Public Class Frm_Iniciar_Chat
         Dim idEnfermedad As String
         Try
             idEnfermedad = ControladorGenera.ObtenerIdEnfermedadGenerada()
+            ObtenerDiagnostico()
             CargarTextBoxes(idEnfermedad)
         Catch ex As Exception
             'MsgBox(ex.ToString)
@@ -15,10 +16,19 @@ Public Class Frm_Iniciar_Chat
 
     End Sub
 
+
+    Private Sub ObtenerDiagnostico()
+        Try
+            TxtIdDiagnostico.Text = ControladorDiagnostico.ObtenerID()
+        Catch ex As Exception
+            MsgBox("Me activaron")
+        End Try
+
+    End Sub
+
     Public Sub CargarTextBoxes(idEnfermedad As String)
         Dim Lector As IDataReader
         Try
-            TxtIdDiagnostico.Text = ControladorDiagnostico.ObtenerID()
             Lector = ControladorEnfermedad.ObtenerTodo(idEnfermedad)
             While Lector.Read
                 TxtEnfermedad.Text = Lector(0)
@@ -51,4 +61,7 @@ Public Class Frm_Iniciar_Chat
         Frm_Menu.Show()
     End Sub
 
+    Private Sub Frm_Iniciar_Chat_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+        ObtenerDiagnostico()
+    End Sub
 End Class

@@ -179,7 +179,7 @@
     End Sub
 
     Public Sub MarcarComoFinalizado()
-        MsgBox("Estoy en el modelo con el id " + Me.IdDiagnostico)
+        'MsgBox("Estoy en el modelo con el id " + Me.IdDiagnostico)
         Command.CommandText = "
             UPDATE
                 atiende

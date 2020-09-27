@@ -220,10 +220,10 @@ Public Class Frm_Menu
     End Sub
 
     Private Sub BtnFinalizarChat_Click(sender As Object, e As EventArgs) Handles BtnFinalizarChat.Click
-        IdDiagnostico = ""
+
         Try
             ControladorChat.FinalizarChatMedico(IdDiagnostico, CiPaciente)
-
+            ControladorChat.MarcarComoFinalizado(IdDiagnostico)
         Catch ex As Exception
             MsgBox(ex.ToString)
             'MsgBox("Error en la actualizacion del estado del chat")

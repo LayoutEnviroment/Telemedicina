@@ -4,11 +4,11 @@ Imports CapaDeNegocio
 Public Class Frm_Chat
 
     Dim CiMedico As String
-    Dim IdDiagnostico As String = Frm_Iniciar_Chat.TxtIdDiagnostico.Text
+    Dim IdDiagnostico As String
 
     Private Sub Frm_Chat_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         WbbConversacion.DocumentText += "<p style='background-color:MediumSeaGreen'; padding=100px; margin=100px> Un médico se pondrá en contacto con usted en la brevedad </p>"
-
+        IdDiagnostico = ControladorDiagnostico.ObtenerID()
     End Sub
 
     Private Sub TmrMensajesNuevos_Tick(sender As Object, e As EventArgs) Handles TmrMensajesNuevos.Tick
@@ -125,11 +125,11 @@ Public Class Frm_Chat
         End Try
     End Sub
 
-    Private Sub Frm_Chat_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        Frm_Iniciar_Chat.TxtIdDiagnostico.Text = ""
-        Frm_Iniciar_Chat.TxtEnfermedad.Text = ""
-        Frm_Iniciar_Chat.TxtDescripcion.Text = ""
-        Frm_Iniciar_Chat.TxtPrioridad.Text = ""
+    'Private Sub Frm_Chat_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+    '    Frm_Iniciar_Chat.TxtIdDiagnostico.Text = ""
+    '    Frm_Iniciar_Chat.TxtEnfermedad.Text = ""
+    '    Frm_Iniciar_Chat.TxtDescripcion.Text = ""
+    '    Frm_Iniciar_Chat.TxtPrioridad.Text = ""
 
-    End Sub
+    'End Sub
 End Class
