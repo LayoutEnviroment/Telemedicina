@@ -17,6 +17,7 @@
     Public Medicacion As List(Of String)
     Public Password As String
 
+
     Public Function NuevaPersona()
         Try
             Command.CommandText = "SET AUTOCOMMIT = OFF"
@@ -99,12 +100,44 @@
                           VALUES('" + Me.CI + "','" + Me.Mail + "', 1)"
                     Command.ExecuteNonQuery()
 
+                    Command.CommandText = "GRANT 
+	SELECT ON bd_led.roles TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
                     Command.CommandText = "GRANT
-                                        ALL
-                                        ON
-                                             *.*
-                                        TO
-                                       '" + Me.Mail + "'@'localhost'"
+	SELECT ON bd_led.sintoma TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT ON bd_led.enfermedad TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT ON bd_led.compone TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT ON bd_led.medico TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT, INSERT ON bd_led.genera TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT, INSERT ON bd_led.diagnostico TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT, INSERT ON bd_led.padece TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT, UPDATE ON bd_led." + Me.Mail + " TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT, UPDATE ON bd_led.persona TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT, INSERT, DELETE ON bd_led.enfermedades_cronicas TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT, INSERT, DELETE ON bd_led.medicaciones TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT, INSERT, UPDATE ON bd_led.atiende TO '" + Me.Mail + "'@'%'"
                     Command.ExecuteNonQuery()
 
                     Command.CommandText = "FLUSH PRIVILEGES"
@@ -194,4 +227,39 @@
         Return Command.ExecuteScalar.ToString
     End Function
 
+    Public Function ObtenerCiMedico()
+        Command.CommandText = "         
+            SELECT
+                ci_persona
+            FROM
+                medico
+            WHERE
+                activo = 1
+        "
+        Reader = Command.ExecuteReader()
+        Return Reader
+
+
+    End Function
+    Public Function ObtenerCiAdministrador()
+        Command.CommandText = "         
+            SELECT
+                ci_persona
+            FROM
+                administrativo
+            WHERE
+                activo = 1
+        "
+        Reader = Command.ExecuteReader()
+        Return Reader
+
+    End Function
+
+    Public Function TraerDatosDoctor()
+        Command.CommandText = "SELECT nombre, apellido, mail 
+                                FROM persona
+                                WHERE ci = '" + Me.CI + "'"
+        Reader = Command.ExecuteReader
+        Return Reader
+    End Function
 End Class

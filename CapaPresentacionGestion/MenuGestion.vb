@@ -36,4 +36,10 @@ Public Class MenuGestion
 
         End Try
     End Sub
+
+    Private Sub MedicoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MedicoToolStripMenuItem.Click
+        Me.Hide()
+        ModificarUsuarioMedico.Show()
+
+    End Sub
 End Class

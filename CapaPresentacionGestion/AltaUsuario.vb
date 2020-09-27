@@ -190,10 +190,9 @@ Public Class AltaUsuario
         End Try
 
     End Sub
-    Private Function CrearContra()
-        Dim Contra As String = TxtCI.Text
-        Return Contra
-    End Function
+    Private Sub CrearContra()
+        Contra = TxtCI.Text
+    End Sub
 
 
 End Class

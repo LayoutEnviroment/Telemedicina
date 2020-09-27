@@ -37,11 +37,16 @@ Public Module ControladorUsuario
     End Function
 
     Public Function ObtenerCedula()
-        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
-            .CI = ControladorSesion.Cedula
-        }
-
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass)
         Return u.ObtenerCedula()
+    End Function
+    Public Function ObtenerCedulaMedico()
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass)
+        Return u.ObtenerCiMedico()
+    End Function
+    Public Function ObtenerCedulaAdministrativo()
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass)
+        Return u.ObtenerCiAdministrador()
     End Function
 
     Public Function ObtenerNombre()
@@ -52,4 +57,10 @@ Public Module ControladorUsuario
         Return u.ObtenerNombre()
     End Function
 
+    Public Function TraerDatosDeMedico(Ci As String)
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass)
+        u.CI = Ci
+        Return u.TraerDatosDoctor()
+
+    End Function
 End Module
