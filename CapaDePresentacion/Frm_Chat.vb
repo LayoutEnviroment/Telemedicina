@@ -1,4 +1,5 @@
-﻿Imports CapaDeNegocio
+﻿Imports System.ComponentModel
+Imports CapaDeNegocio
 
 Public Class Frm_Chat
 
@@ -81,43 +82,54 @@ Public Class Frm_Chat
         Select Case MsgBox("¿Seguro quiere salir del chat?", MsgBoxStyle.YesNo)
             Case MsgBoxResult.Yes
                 If CiMedico <> "" Then
-                    MsgBox("Tengo algo")
-                    Try
-                        ControladorChat.FinalizarChatPaciente(IdDiagnostico, CiMedico)
-                        Try
-                            ControladorChat.MarcarComoFinalizado(IdDiagnostico)
-                        Catch ex As Exception
-                            MsgBox("Error en marcar como finalizado " + ex.ToString)
-                        End Try
-
-                    Catch ex As Exception
-                        MsgBox("Error finalizar chat paciente" + ex.ToString)
-                    End Try
-
+                    FinalizarConMedico()
                 Else
-                    MsgBox("No tengo nada")
-                    Try
-                        ControladorChat.FinalizarChat(IdDiagnostico)
-                        Try
-                            ControladorChat.MarcarComoFinalizado(IdDiagnostico)
-                        Catch ex As Exception
-                            MsgBox("marcar como finalizado" + ex.ToString)
-                        End Try
-
-                    Catch ex As Exception
-                        MsgBox("Error en finalizar chat" + ex.ToString)
-                    End Try
-
+                    FinalizarSinMedico()
                 End If
 
                 WbbConversacion.DocumentText = ""
                 TxtMensaje.Text = ""
+                Me.Close()
                 Frm_Menu.Show()
-                Me.Hide()
 
             Case MsgBoxResult.No
 
         End Select
     End Sub
 
+    Private Sub FinalizarConMedico()
+        Try
+            ControladorChat.FinalizarChatPaciente(IdDiagnostico, CiMedico)
+            Try
+                ControladorChat.MarcarComoFinalizado(IdDiagnostico)
+            Catch ex As Exception
+                MsgBox("Error en marcar como finalizado " + ex.ToString)
+            End Try
+
+        Catch ex As Exception
+            MsgBox("Error finalizar chat paciente" + ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub FinalizarSinMedico()
+        Try
+            ControladorChat.FinalizarChat(IdDiagnostico)
+            Try
+                ControladorChat.MarcarComoFinalizado(IdDiagnostico)
+            Catch ex As Exception
+                MsgBox("marcar como finalizado" + ex.ToString)
+            End Try
+
+        Catch ex As Exception
+            MsgBox("Error en finalizar chat" + ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub Frm_Chat_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        Frm_Iniciar_Chat.TxtIdDiagnostico.Text = ""
+        Frm_Iniciar_Chat.TxtEnfermedad.Text = ""
+        Frm_Iniciar_Chat.TxtDescripcion.Text = ""
+        Frm_Iniciar_Chat.TxtPrioridad.Text = ""
+
+    End Sub
 End Class

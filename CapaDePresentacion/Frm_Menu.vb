@@ -139,6 +139,7 @@ Public Class Frm_Menu
     End Sub
 
     Private Sub Frm_Menu_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        Me.Close()
+        FrmLogin.Close()
     End Sub
+
 End Class
