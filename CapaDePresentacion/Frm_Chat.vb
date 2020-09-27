@@ -107,12 +107,7 @@ Public Class Frm_Chat
                     RtbConversacion.Text = ""
                     RtbMensaje.Text = ""
                     Frm_Menu.Show()
-                    Me.Hide()
-
-                Catch ex As Exception
-                    MsgBox("El chat no se pudo guardar correctamente" + ex.ToString)
-
-                End Try
+                Me.Hide()
 
             Case MsgBoxResult.No
 
