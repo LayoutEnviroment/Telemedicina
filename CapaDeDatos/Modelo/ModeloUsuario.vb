@@ -15,6 +15,8 @@
     Public Sexo As String
     Public EnfermedadCronica As List(Of String)
     Public Medicacion As List(Of String)
+    Public Password As String
+
 
     Public Function NuevaPersona()
         Try
@@ -29,20 +31,18 @@
                           VALUES('" + Me.CI + "','" + Me.Nombre + "','" + Me.Apellido + "','" + Me.Mail + "','1')"
                 Command.ExecuteNonQuery()
 
-                Command.CommandText = "CREATE USER '" + Me.Mail + "'@'localhost' identified by '" + Me.CI + "'"
+                Command.CommandText = "CREATE USER '" + Me.Mail + "'@'localhost' identified by '" + Me.Password + "'"
                 Command.ExecuteNonQuery()
-                MsgBox("cree user")
 
                 If Me.TipoDeUsuario(3) = True Then
-                    MsgBox("entre al if administrador")
+
                     Command.CommandText = "INSERT INTO administrativo (ci_persona)
                           VALUES('" + Me.CI + "')"
                     Command.ExecuteNonQuery()
 
-                    Command.CommandText = "INSERT INTO roles (ci_persona, rol)
-                          VALUES('" + Me.CI + "',3)"
+                    Command.CommandText = "INSERT INTO roles (ci_persona, usuario, rol)
+                          VALUES('" + Me.CI + "','" + Me.Mail + "', 3)"
                     Command.ExecuteNonQuery()
-                    MsgBox("cree roles")
 
                     Command.CommandText = "GRANT
                                         ALL
@@ -51,7 +51,6 @@
                                         TO
                                        '" + Me.Mail + "'@'localhost' WITH GRANT OPTION"
                     Command.ExecuteNonQuery()
-                    MsgBox("le di privilegios")
                     Command.CommandText = "FLUSH PRIVILEGES"
                     Command.ExecuteNonQuery()
                 End If
@@ -60,8 +59,8 @@
                           VALUES('" + Me.CI + "')"
                     Command.ExecuteNonQuery()
 
-                    Command.CommandText = "INSERT INTO roles (ci_persona, rol)
-                          VALUES('" + Me.CI + "',2)"
+                    Command.CommandText = "INSERT INTO roles (ci_persona, usuario, rol)
+                          VALUES('" + Me.CI + "', '" + Me.Mail + "', 2)"
                     Command.ExecuteNonQuery()
 
                     Command.CommandText = "GRANT
@@ -77,6 +76,8 @@
                 End If
 
                 If Me.TipoDeUsuario(1) = True Then
+                    MsgBox("entre a crear usuario paciente")
+
                     Command.CommandText = "INSERT INTO paciente (ci_persona, sexo, fecha_nac, activo)
                           VALUES('" + Me.CI + "','" + Me.Sexo + "','" + Me.FechaNacimiento + "',1)"
                     Command.ExecuteNonQuery()
@@ -95,16 +96,48 @@
                         Command.ExecuteNonQuery()
                     Next
 
-                    Command.CommandText = "INSERT INTO roles (ci_persona, rol)
-                          VALUES('" + Me.CI + "',1)"
+                    Command.CommandText = "INSERT INTO roles (ci_persona, usuario, rol)
+                          VALUES('" + Me.CI + "','" + Me.Mail + "', 1)"
                     Command.ExecuteNonQuery()
 
+                    Command.CommandText = "GRANT 
+	SELECT ON bd_led.roles TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
                     Command.CommandText = "GRANT
-                                        ALL
-                                        ON
-                                             *.*
-                                        TO
-                                       '" + Me.Mail + "'@'localhost'"
+	SELECT ON bd_led.sintoma TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT ON bd_led.enfermedad TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT ON bd_led.compone TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT ON bd_led.medico TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT, INSERT ON bd_led.genera TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT, INSERT ON bd_led.diagnostico TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT, INSERT ON bd_led.padece TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT, UPDATE ON bd_led." + Me.Mail + " TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT, UPDATE ON bd_led.persona TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT, INSERT, DELETE ON bd_led.enfermedades_cronicas TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT, INSERT, DELETE ON bd_led.medicaciones TO '" + Me.Mail + "'@'%'"
+                    Command.ExecuteNonQuery()
+                    Command.CommandText = "GRANT
+	SELECT, INSERT, UPDATE ON bd_led.atiende TO '" + Me.Mail + "'@'%'"
                     Command.ExecuteNonQuery()
 
                     Command.CommandText = "FLUSH PRIVILEGES"
@@ -116,7 +149,7 @@
 
                 End If
                 Command.CommandText = "COMMIT"
-                    Command.ExecuteNonQuery()
+                Command.ExecuteNonQuery()
 
 
                 Return 1
@@ -128,6 +161,10 @@
                 Return 2
             End Try
         Catch ex As Exception
+            MsgBox(ex.ToString)
+            Command.CommandText = "ROLLBACK"
+            Command.ExecuteNonQuery()
+
             Return 3
         End Try
     End Function
@@ -146,6 +183,7 @@
     End Function
 
     Public Function ObtenerNombre()
+        MsgBox(Me.CI)
         Command.CommandText = "
             SELECT
                 nombre
@@ -204,4 +242,39 @@
         Return Command.ExecuteScalar.ToString
     End Function
 
+    Public Function ObtenerCiMedico()
+        Command.CommandText = "         
+            SELECT
+                ci_persona
+            FROM
+                medico
+            WHERE
+                activo = 1
+        "
+        Reader = Command.ExecuteReader()
+        Return Reader
+
+
+    End Function
+    Public Function ObtenerCiAdministrador()
+        Command.CommandText = "         
+            SELECT
+                ci_persona
+            FROM
+                administrativo
+            WHERE
+                activo = 1
+        "
+        Reader = Command.ExecuteReader()
+        Return Reader
+
+    End Function
+
+    Public Function TraerDatosDoctor()
+        Command.CommandText = "SELECT nombre, apellido, mail 
+                                FROM persona
+                                WHERE ci = '" + Me.CI + "'"
+        Reader = Command.ExecuteReader
+        Return Reader
+    End Function
 End Class

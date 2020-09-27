@@ -116,6 +116,12 @@
       <DependentUpon>MenuGestion.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ModificarUsuarioMedico.Designer.vb">
+      <DependentUpon>ModificarUsuarioMedico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarUsuarioMedico.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ModificarUsuarioPaciente.Designer.vb">
       <DependentUpon>ModificarUsuarioPaciente.vb</DependentUpon>
     </Compile>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuGestion.resx">
       <DependentUpon>MenuGestion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarUsuarioMedico.resx">
+      <DependentUpon>ModificarUsuarioMedico.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarUsuarioPaciente.resx">
       <DependentUpon>ModificarUsuarioPaciente.vb</DependentUpon>

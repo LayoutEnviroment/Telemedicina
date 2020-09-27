@@ -12,17 +12,7 @@ Public Class ModificarUsuarioPaciente
 
 
     Private Sub ModificarUsuarioPaciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-        Dim LectorCI As IDataReader
-        LectorCI = ControladorPaciente.ObtenerCi()
-
-        While LectorCI.Read
-            CmbSeleccionarCI.Items.Add(LectorCI.GetValue(0))
-        End While
-
-        'ObtenerDatosPersona()
-        'ObtenerMedicacionesPaciente()
-        'ObtenerEnfermedadesCronicas()
+        CargarCI()
 
     End Sub
 
@@ -60,7 +50,8 @@ Public Class ModificarUsuarioPaciente
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
         Limpiar()
-
+        CmbSeleccionarCI.ResetText()
+        CargarCI()
     End Sub
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
@@ -88,17 +79,8 @@ Public Class ModificarUsuarioPaciente
         Dim Lector As IDataReader
         Lector = ControladorPaciente.ObtenerTodo(CmbSeleccionarCI.Text)
         CargarTextBoxes(Lector)
+        HabilitarAceptar()
     End Sub
-
-    'Public Sub ObtenerDatosPersona()
-    '    Dim Lector As IDataReader
-    '    Try
-    '        Lector = ControladorPaciente.ObtenerTodo()
-    '        CargarTextBoxes(Lector)
-    '    Catch ex As Exception
-    '        MsgBox(ex.ToString)
-    '    End Try
-    'End Sub
 
     Public Sub CargarTextBoxes(Lector As IDataReader)
         While Lector.Read
@@ -220,32 +202,8 @@ Public Class ModificarUsuarioPaciente
 
     End Sub
 
-    Private Sub DtpFechaNacimiento_ValueChanged(sender As Object, e As EventArgs) Handles DtpFechaNacimiento.ValueChanged
-        Dim Aceptar As String
-        If DateDiff(DateInterval.Year, DtpFechaNacimiento.Value, Date.Now) >= 18 Then
-            Aceptar = "Si"
-        Else
-            Aceptar = ""
-        End If
-        HabilitarAceptar(Aceptar)
-    End Sub
-
-    Private Sub TxtNombre_TextChanged(sender As Object, e As EventArgs) Handles TxtNombre.TextChanged
-        HabilitarAceptar(TxtNombre.Text)
-    End Sub
-
-    Private Sub TxtApellido_TextChanged(sender As Object, e As EventArgs) Handles TxtApellido.TextChanged
-        HabilitarAceptar(TxtApellido.Text)
-
-    End Sub
-
-    Private Sub TxtMail_TextChanged(sender As Object, e As EventArgs) Handles TxtMail.TextChanged
-        HabilitarAceptar(TxtMail.Text)
-
-    End Sub
-
-    Public Sub HabilitarAceptar(contenido As String)
-        If contenido <> "" Then
+    Public Sub HabilitarAceptar()
+        If CmbSeleccionarCI.SelectedValue.ToString = "" Or DateDiff(DateInterval.Year, DtpFechaNacimiento.Value, Date.Now) >= 18 Then
             BtnAceptar.Enabled = True
         Else
             BtnAceptar.Enabled = False
@@ -268,5 +226,18 @@ Public Class ModificarUsuarioPaciente
             BtnEliminarMedicacion.Enabled = False
         End If
 
+    End Sub
+    Public Sub CargarCI()
+        Dim LectorCI As IDataReader
+        Try
+            LectorCI = ControladorPaciente.ObtenerCi()
+
+            While LectorCI.Read
+                CmbSeleccionarCI.Items.Add(LectorCI.GetValue(0))
+            End While
+
+        Catch ex As Exception
+            MsgBox("Error al cargar las cedulas")
+        End Try
     End Sub
 End Class
