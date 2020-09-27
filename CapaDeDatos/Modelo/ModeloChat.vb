@@ -156,11 +156,12 @@
     End Sub
 
     Public Sub FinalizarChat(id As String)
+        MsgBox(id)
         Command.CommandText = "
             INSERT INTO
                 atiende(ci_persona_paciente, id_diagnostico, mensaje, leido, status)
             VALUES
-                (" + Me.Cedula + ", " + id + ",'paciente desconectado', '0', 'Finalizado')   
+                (" + Me.Cedula + ", " + id + ",'paciente desconectado', 0, 'Finalizado')   
         "
 
         Command.ExecuteNonQuery()

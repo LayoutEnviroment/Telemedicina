@@ -80,7 +80,9 @@ Public Module ControladorChat
     End Sub
 
     Public Sub FinalizarChat(id As String)
-        Dim c As New ModeloChat(ControladorSesion.User, ControladorSesion.Pass)
+        Dim c As New ModeloChat(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Cedula = ControladorSesion.Cedula
+        }
 
         c.FinalizarChat(id)
     End Sub

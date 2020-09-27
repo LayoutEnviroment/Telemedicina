@@ -68,7 +68,7 @@ Public Class Frm_Chat
 
     End Sub
 
-    Private Sub RtbMensaje_TextChanged(sender As Object, e As EventArgs) Handles RtbMensaje.TextChanged
+    Private Sub RtbMensaje_TextChanged(sender As Object, e As EventArgs) 
         If RtbMensaje.Text = "" Then
             BtnEnviar.Enabled = False
         Else
@@ -80,7 +80,7 @@ Public Class Frm_Chat
     Private Sub BbtnSalir_Click(sender As Object, e As EventArgs) Handles BbtnSalir.Click
         Select Case MsgBox("¿Seguro quiere salir del chat?", MsgBoxStyle.YesNo)
             Case MsgBoxResult.Yes
-                If WbbConversacion.DocumentText <> "" Then
+                If CiMedico <> "" Then
                     MsgBox("Tengo algo")
                     Try
                         ControladorChat.FinalizarChatPaciente(IdDiagnostico, CiMedico)
@@ -98,6 +98,12 @@ Public Class Frm_Chat
                     MsgBox("No tengo nada")
                     Try
                         ControladorChat.FinalizarChat(IdDiagnostico)
+                        Try
+                            ControladorChat.MarcarComoFinalizado(IdDiagnostico)
+                        Catch ex As Exception
+                            MsgBox("marcar como finalizado" + ex.ToString)
+                        End Try
+
                     Catch ex As Exception
                         MsgBox("Error en finalizar chat" + ex.ToString)
                     End Try
