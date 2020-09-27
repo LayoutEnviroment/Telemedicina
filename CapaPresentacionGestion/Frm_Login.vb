@@ -5,7 +5,7 @@ Public Class Frm_Login
     Private Sub BtnIngresar_Click(sender As Object, e As EventArgs) Handles BtnIngresar.Click
         Try
             If Autentificar(TxtUser.Text, TxtPass.Text) = 3 Then
-                SetearSesion(TxtUser.Text, TxtPass.Text)
+                SetearSesion(TxtUser.Text, TxtPass.Text, Cedula)
                 Me.Hide()
                 MenuGestion.Show()
             Else
@@ -21,9 +21,10 @@ Public Class Frm_Login
         Return ControladorLogin.Autentificar(usuario, contra)
     End Function
 
-    Private Sub SetearSesion(usuario As String, contra As String)
+    Private Sub SetearSesion(usuario As String, contra As String, ci As String)
         ControladorSesion.User = usuario
         ControladorSesion.Pass = contra
+        ControladorSesion.Cedula = ControladorUsuario.ObtenerCedula()
     End Sub
 
     Private Sub TxtUser_TextChanged(sender As Object, e As EventArgs) Handles TxtUser.TextChanged

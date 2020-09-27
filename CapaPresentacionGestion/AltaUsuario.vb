@@ -18,7 +18,6 @@ Public Class AltaUsuario
         Else
             OcultaCampoPaciente()
 
-
         End If
 
     End Sub
@@ -35,6 +34,7 @@ Public Class AltaUsuario
 
         If ChbMedico.Checked Then
             TipoUsuario(2) = True
+            MsgBox("Pase parametros medico")
         Else
             TipoUsuario(2) = False
 
@@ -65,7 +65,8 @@ Public Class AltaUsuario
         End If
 
         ControladorUsuario.CrearPersona(TxtNombre.Text.Trim, TxtApellido.Text.Trim, TxtCI.Text.Trim, TxtMail.Text.Trim, TipoUsuario, FechaNacimiento, Sexo, EnfermedadesCronicas, Medicamentos)
-
+        MsgBox("Usuario creado exitosamente")
+        Limpiar()
 
     End Sub
 

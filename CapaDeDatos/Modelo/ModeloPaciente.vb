@@ -334,4 +334,18 @@
         End Try
     End Sub
 
+    Public Function ObtenerCiPaciente()
+        Command.CommandText = "         
+            SELECT
+                ci_persona
+            FROM
+                paciente
+            WHERE
+                activo = 1
+        "
+        Command.ExecuteReader()
+        Return Reader
+
+
+    End Function
 End Class

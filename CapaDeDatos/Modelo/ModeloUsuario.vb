@@ -32,6 +32,7 @@
                 Command.CommandText = "CREATE USER '" + Me.Mail + "'@'localhost' identified by '" + Me.CI + "'"
                 Command.ExecuteNonQuery()
                 MsgBox("cree user")
+                MsgBox(TipoDeUsuario(1).ToString)
 
                 If Me.TipoDeUsuario(3) = True Then
                     MsgBox("entre al if administrador")
@@ -39,8 +40,8 @@
                           VALUES('" + Me.CI + "')"
                     Command.ExecuteNonQuery()
 
-                    Command.CommandText = "INSERT INTO roles (ci_persona, rol)
-                          VALUES('" + Me.CI + "',3)"
+                    Command.CommandText = "INSERT INTO roles (ci_persona, usuario, rol)
+                          VALUES('" + Me.CI + "','" + Me.Mail + "', 3)"
                     Command.ExecuteNonQuery()
                     MsgBox("cree roles")
 
@@ -60,8 +61,8 @@
                           VALUES('" + Me.CI + "')"
                     Command.ExecuteNonQuery()
 
-                    Command.CommandText = "INSERT INTO roles (ci_persona, rol)
-                          VALUES('" + Me.CI + "',2)"
+                    Command.CommandText = "INSERT INTO roles (ci_persona, usuario, rol)
+                          VALUES('" + Me.CI + "', '" + Me.Mail + "', 2)"
                     Command.ExecuteNonQuery()
 
                     Command.CommandText = "GRANT
@@ -77,6 +78,8 @@
                 End If
 
                 If Me.TipoDeUsuario(1) = True Then
+                    MsgBox("entre a crear usuario paciente")
+
                     Command.CommandText = "INSERT INTO paciente (ci_persona, sexo, fecha_nac, activo)
                           VALUES('" + Me.CI + "','" + Me.Sexo + "','" + Me.FechaNacimiento + "',1)"
                     Command.ExecuteNonQuery()
@@ -95,8 +98,8 @@
                         Command.ExecuteNonQuery()
                     Next
 
-                    Command.CommandText = "INSERT INTO roles (ci_persona, rol)
-                          VALUES('" + Me.CI + "',1)"
+                    Command.CommandText = "INSERT INTO roles (ci_persona, usuario, rol)
+                          VALUES('" + Me.CI + "','" + Me.Mail + "', 1)"
                     Command.ExecuteNonQuery()
 
                     Command.CommandText = "GRANT
@@ -116,7 +119,7 @@
 
                 End If
                 Command.CommandText = "COMMIT"
-                    Command.ExecuteNonQuery()
+                Command.ExecuteNonQuery()
 
 
                 Return 1
@@ -128,6 +131,10 @@
                 Return 2
             End Try
         Catch ex As Exception
+            MsgBox(ex.ToString)
+            Command.CommandText = "ROLLBACK"
+            Command.ExecuteNonQuery()
+
             Return 3
         End Try
     End Function
@@ -146,6 +153,7 @@
     End Function
 
     Public Function ObtenerNombre()
+        MsgBox(Me.CI)
         Command.CommandText = "
             SELECT
                 nombre
