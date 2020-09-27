@@ -39,6 +39,7 @@ Partial Class Frm_Menu
         Me.LstMedicaciones = New System.Windows.Forms.ListView()
         Me.TmrBuscarChats = New System.Windows.Forms.Timer(Me.components)
         Me.WbbConversacion = New System.Windows.Forms.WebBrowser()
+        Me.BtnConultas = New System.Windows.Forms.Button()
         CType(Me.DgvEnEspera, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -85,7 +86,7 @@ Partial Class Frm_Menu
         'BtnRecomendaciones
         '
         Me.BtnRecomendaciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnRecomendaciones.Location = New System.Drawing.Point(909, 32)
+        Me.BtnRecomendaciones.Location = New System.Drawing.Point(909, 26)
         Me.BtnRecomendaciones.Name = "BtnRecomendaciones"
         Me.BtnRecomendaciones.Size = New System.Drawing.Size(128, 29)
         Me.BtnRecomendaciones.TabIndex = 7
@@ -128,52 +129,52 @@ Partial Class Frm_Menu
         'LblNombrePaciente
         '
         Me.LblNombrePaciente.AutoSize = True
+        Me.LblNombrePaciente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.LblNombrePaciente.Location = New System.Drawing.Point(41, 169)
         Me.LblNombrePaciente.Name = "LblNombrePaciente"
         Me.LblNombrePaciente.Size = New System.Drawing.Size(63, 20)
         Me.LblNombrePaciente.TabIndex = 10
         Me.LblNombrePaciente.Text = "Label1"
-        Me.LblNombrePaciente.Visible = False
         '
         'LblSexoPaciente
         '
         Me.LblSexoPaciente.AutoSize = True
+        Me.LblSexoPaciente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.LblSexoPaciente.Location = New System.Drawing.Point(41, 206)
         Me.LblSexoPaciente.Name = "LblSexoPaciente"
         Me.LblSexoPaciente.Size = New System.Drawing.Size(63, 20)
         Me.LblSexoPaciente.TabIndex = 11
         Me.LblSexoPaciente.Text = "Label1"
-        Me.LblSexoPaciente.Visible = False
         '
         'LblEdadPaciente
         '
         Me.LblEdadPaciente.AutoSize = True
+        Me.LblEdadPaciente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.LblEdadPaciente.Location = New System.Drawing.Point(41, 243)
         Me.LblEdadPaciente.Name = "LblEdadPaciente"
         Me.LblEdadPaciente.Size = New System.Drawing.Size(63, 20)
         Me.LblEdadPaciente.TabIndex = 12
         Me.LblEdadPaciente.Text = "Label1"
-        Me.LblEdadPaciente.Visible = False
         '
         'LstEnfermedades
         '
+        Me.LstEnfermedades.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.LstEnfermedades.HideSelection = False
         Me.LstEnfermedades.Location = New System.Drawing.Point(44, 291)
         Me.LstEnfermedades.Name = "LstEnfermedades"
         Me.LstEnfermedades.Size = New System.Drawing.Size(131, 228)
         Me.LstEnfermedades.TabIndex = 13
         Me.LstEnfermedades.UseCompatibleStateImageBehavior = False
-        Me.LstEnfermedades.Visible = False
         '
         'LstMedicaciones
         '
+        Me.LstMedicaciones.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.LstMedicaciones.HideSelection = False
         Me.LstMedicaciones.Location = New System.Drawing.Point(198, 291)
         Me.LstMedicaciones.Name = "LstMedicaciones"
         Me.LstMedicaciones.Size = New System.Drawing.Size(131, 228)
         Me.LstMedicaciones.TabIndex = 14
         Me.LstMedicaciones.UseCompatibleStateImageBehavior = False
-        Me.LstMedicaciones.Visible = False
         '
         'TmrBuscarChats
         '
@@ -187,6 +188,16 @@ Partial Class Frm_Menu
         Me.WbbConversacion.Size = New System.Drawing.Size(448, 250)
         Me.WbbConversacion.TabIndex = 15
         '
+        'BtnConultas
+        '
+        Me.BtnConultas.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnConultas.Location = New System.Drawing.Point(909, 61)
+        Me.BtnConultas.Name = "BtnConultas"
+        Me.BtnConultas.Size = New System.Drawing.Size(128, 29)
+        Me.BtnConultas.TabIndex = 16
+        Me.BtnConultas.Text = "Conultas"
+        Me.BtnConultas.UseVisualStyleBackColor = True
+        '
         'Frm_Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
@@ -195,19 +206,20 @@ Partial Class Frm_Menu
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1065, 590)
         Me.ControlBox = False
+        Me.Controls.Add(Me.BtnConultas)
         Me.Controls.Add(Me.WbbConversacion)
         Me.Controls.Add(Me.LstMedicaciones)
         Me.Controls.Add(Me.LstEnfermedades)
         Me.Controls.Add(Me.LblEdadPaciente)
         Me.Controls.Add(Me.LblSexoPaciente)
         Me.Controls.Add(Me.LblNombrePaciente)
+        Me.Controls.Add(Me.RtbMensaje)
         Me.Controls.Add(Me.DgvEnEspera)
         Me.Controls.Add(Me.BtnSalir)
         Me.Controls.Add(Me.BtnRecomendaciones)
         Me.Controls.Add(Me.BtnIniciarChat)
         Me.Controls.Add(Me.BtnFinalizarChat)
         Me.Controls.Add(Me.BtnEnviar)
-        Me.Controls.Add(Me.RtbMensaje)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "Frm_Menu"
         Me.Text = "Menu Medico"
@@ -231,4 +243,5 @@ Partial Class Frm_Menu
     Friend WithEvents LstMedicaciones As ListView
     Friend WithEvents TmrBuscarChats As Timer
     Friend WithEvents WbbConversacion As WebBrowser
+    Friend WithEvents BtnConultas As Button
 End Class

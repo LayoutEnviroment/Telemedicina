@@ -106,7 +106,9 @@ Public Module ControladorChat
     End Sub
 
     Public Function ObtenerIdFechaMisChat()
-        Dim c As New ModeloChat(ControladorSesion.User, ControladorSesion.Pass)
+        Dim c As New ModeloChat(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Cedula = ControladorSesion.Cedula
+        }
 
         Return c.ObtenerIdFechaMisChat()
     End Function

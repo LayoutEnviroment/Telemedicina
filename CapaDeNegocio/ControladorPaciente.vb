@@ -19,9 +19,7 @@ Public Module ControladorPaciente
     End Function
 
     Public Function ObtenerTodo(ci As String)
-        Dim p As New ModeloPaciente(ControladorSesion.User, ControladorSesion.Pass) With {
-            .Cedula = ci
-        }
+        Dim p As New ModeloPaciente(ControladorSesion.User, ControladorSesion.Pass)
 
         Return p.ObtenerPersonaSexoNacimineto(ci)
     End Function
@@ -43,17 +41,13 @@ Public Module ControladorPaciente
     End Function
 
     Public Function ObtenerMedicaciones(ci As String)
-        Dim p As New ModeloPaciente(ControladorSesion.User, ControladorSesion.Pass) With {
-            .Cedula = ControladorSesion.Cedula
-        }
+        Dim p As New ModeloPaciente(ControladorSesion.User, ControladorSesion.Pass)
 
         Return p.ObtenerMedicaciones(ci)
     End Function
 
     Public Function ObtenerEnfermedades(ci As String)
-        Dim p As New ModeloPaciente(ControladorSesion.User, ControladorSesion.Pass) With {
-            .Cedula = ControladorSesion.Cedula
-        }
+        Dim p As New ModeloPaciente(ControladorSesion.User, ControladorSesion.Pass)
 
         Return p.ObtenerEnfermedades(ci)
     End Function

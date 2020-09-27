@@ -195,12 +195,14 @@
     Public Function ObtenerIdFechaMisChat()
         Command.CommandText = "
             SELECT
-                DISTINCT(id),
-                fecha_hora
+                id_diagnostico AS Id,
+                fecha_hora AS Fecha
             FROM
                 atiende
             WHERE
                 ci_persona_medico = " + Me.Cedula + "
+            GROUP BY
+                id_diagnostico
             "
         Reader = Command.ExecuteReader
         Return Reader

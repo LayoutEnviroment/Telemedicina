@@ -34,10 +34,9 @@ Public Class Frm_Menu
     Private Sub BtnIniciarChat_Click(sender As Object, e As EventArgs) Handles BtnIniciarChat.Click
         IdDiagnostico = DgvEnEspera.Item(0, DgvEnEspera.CurrentCell.RowIndex).Value
         CiPaciente = DgvEnEspera.Item(1, DgvEnEspera.CurrentCell.RowIndex).Value
-        MsgBox(IdDiagnostico + "" + CiPaciente)
+        'MsgBox(IdDiagnostico + "" + CiPaciente)
         Try
             ControladorChat.AceptarSolicitud(IdDiagnostico, CiPaciente, Nombre, Apellido)
-            'RtbConversacion.Text += "Chat iniciado con el paciente " + CiPaciente + Environment.NewLine
             WbbConversacion.DocumentText += "<p>Chat iniciado con el paciente " + CiPaciente + "</p>"
             EmpezarChat(IdDiagnostico, CiPaciente)
             TraerInformacionPaciente(CiPaciente)
@@ -75,13 +74,16 @@ Public Class Frm_Menu
 
     Private Sub CargarLabelsPaciente(Lector As IDataReader)
         While Lector.Read
+            MsgBox("Nombre: " + Lector(0).ToString + Lector(1).ToString)
+            MsgBox("Sexo : " + Lector(3).ToString)
+            MsgBox("Fecha: " + Lector(4).ToString)
             LblNombrePaciente.Text = Lector(0).ToString + " " + Lector(1).ToString
-            If Lector(2).ToString = 0 Then
+            If Lector(3).ToString = 0 Then
                 LblSexoPaciente.Text = "Hombre"
             Else
                 LblSexoPaciente.Text = "Mujer"
             End If
-            LblEdadPaciente.Text = ObtenerEdadPaciente(Lector(3).ToString) + " Años"
+            LblEdadPaciente.Text = ObtenerEdadPaciente(Lector(4).ToString) + " Años"
 
         End While
     End Sub
@@ -93,12 +95,14 @@ Public Class Frm_Menu
 
     Private Sub CargarListaEnfermedades(Enfermedades As IDataReader)
         While Enfermedades.Read
+            MsgBox(Enfermedades(0).ToString)
             LstEnfermedades.Items.Add(Enfermedades(0).ToString)
         End While
     End Sub
 
     Private Sub CargarListaMedicaciones(Medicaciones As IDataReader)
         While Medicaciones.Read
+            MsgBox(Medicaciones(0).ToString)
             LstMedicaciones.Items.Add(Medicaciones(0).ToString)
         End While
     End Sub
@@ -240,4 +244,9 @@ Public Class Frm_Menu
 
     End Sub
 
+    Private Sub BtnConultas_Click(sender As Object, e As EventArgs) Handles BtnConultas.Click
+        TmrBuscarChats.Stop()
+        Me.Hide()
+        FrmConsultas.Show()
+    End Sub
 End Class

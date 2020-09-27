@@ -58,4 +58,12 @@ Public Module ControladorDiagnostico
 
         Return d.ExistenMensajes()
     End Function
+
+    Public Function ObtenerCedulaPaciente(id As String)
+        Dim d As New ModeloDiagnostico(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Id = id
+        }
+
+        Return d.ObtenerCedulaPertenece()
+    End Function
 End Module

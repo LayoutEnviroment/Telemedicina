@@ -223,4 +223,19 @@
 
         Return Command.ExecuteScalar.ToString
     End Function
+
+    Public Function ObtenerCedulaPertenece()
+        Command.CommandText = "
+            SELECT
+                pertenece
+            FROM
+                diagnostico
+            WHERE
+                id = " + Me.Id + "
+        "
+
+        Return Command.ExecuteScalar.ToString
+    End Function
+
 End Class
+
