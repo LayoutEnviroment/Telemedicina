@@ -12,7 +12,7 @@ Public Class Frm_Menu
         Dim LectorDatos As IDataReader
 
         Try
-            LectorDatos = ControladorChat.ObtenerMiNombreApellido()
+            LectorDatos = ControladorUsuario.ObtenerNombreApellido()
             GuardarMisDatos(LectorDatos)
 
         Catch ex As Exception
@@ -34,16 +34,17 @@ Public Class Frm_Menu
     Private Sub BtnIniciarChat_Click(sender As Object, e As EventArgs) Handles BtnIniciarChat.Click
         IdDiagnostico = DgvEnEspera.Item(0, DgvEnEspera.CurrentCell.RowIndex).Value
         CiPaciente = DgvEnEspera.Item(1, DgvEnEspera.CurrentCell.RowIndex).Value
-
+        MsgBox(IdDiagnostico + "" + CiPaciente)
         Try
             ControladorChat.AceptarSolicitud(IdDiagnostico, CiPaciente, Nombre, Apellido)
-            RtbConversacion.Text += "Chat iniciado con el paciente " + CiPaciente + Environment.NewLine
-            'WbbConversacion.DocumentText += ""
+            'RtbConversacion.Text += "Chat iniciado con el paciente " + CiPaciente + Environment.NewLine
+            WbbConversacion.DocumentText += "<p>Chat iniciado con el paciente " + CiPaciente + "</p>"
             EmpezarChat(IdDiagnostico, CiPaciente)
             TraerInformacionPaciente(CiPaciente)
             TmrBuscarChats.Stop()
         Catch ex As Exception
-            MsgBox("Error al aceptar la solicitud")
+            MsgBox(ex.ToString)
+            'MsgBox("Error al aceptar la solicitud")
 
         End Try
 
@@ -152,8 +153,8 @@ Public Class Frm_Menu
                 ControladorChat.MarcarComoLeido(IdDiagnostico)
                 For Each fila As DataRow In tabla.Rows
                     If fila(5).ToString = "Iniciado" Then
-                        RtbConversacion.Text += fila(1).ToString + ": " + Environment.NewLine + fila(2).ToString + Environment.NewLine
-
+                        'RtbConversacion.Text += fila(1).ToString + ": " + Environment.NewLine + fila(2).ToString + Environment.NewLine
+                        WbbConversacion.DocumentText += "<p>" + fila(1).ToString + ": " + fila(2).ToString + "</p>"
                     ElseIf fila(5).ToString = "Finalizado" Then
                         Threading.Thread.Sleep(1000)
                         Me.CambiosEnForm()
@@ -184,8 +185,8 @@ Public Class Frm_Menu
     End Sub
 
     Private Sub AgregarChat()
-        WbbConversacion.DocumentText += "<p></p>"
-        RtbConversacion.Text += "YO:" + Environment.NewLine + RtbMensaje.Text + Environment.NewLine
+        WbbConversacion.DocumentText += "<p> YO: " + RtbMensaje.Text + "</p>"
+        'RtbConversacion.Text += "YO:" + Environment.NewLine + RtbMensaje.Text + Environment.NewLine
         RtbMensaje.Clear()
 
     End Sub
@@ -199,7 +200,7 @@ Public Class Frm_Menu
     Private Sub CambiosEnForm()
         RealizarCambios(False)
         TmrBuscarChats.Start()
-        RtbConversacion.Clear()
+        WbbConversacion.DocumentText = ""
         RtbMensaje.Clear()
 
     End Sub
@@ -222,7 +223,8 @@ Public Class Frm_Menu
             ControladorChat.FinalizarChatMedico(IdDiagnostico, CiPaciente)
 
         Catch ex As Exception
-            MsgBox("Error en la actualizacion del estado del chat")
+            MsgBox(ex.ToString)
+            'MsgBox("Error en la actualizacion del estado del chat")
 
         End Try
 
@@ -235,4 +237,5 @@ Public Class Frm_Menu
         Frm_Enviar_Recomendaciones.Show()
 
     End Sub
+
 End Class

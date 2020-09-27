@@ -32,6 +32,7 @@ Public Class Frm_Chat
 
         For Each fila As DataRow In mensaje.Rows
             If fila(5).ToString = "Finalizado" Then
+                ControladorChat.MarcarComoFinalizado(IdDiagnostico)
                 MsgBox("El doctor a finalizado el chat, el chat se cerrará automaticamente en 3 segundos...", MsgBoxStyle.OkOnly)
                 Threading.Thread.Sleep(3000)
                 Me.Hide()
@@ -79,13 +80,29 @@ Public Class Frm_Chat
     Private Sub BbtnSalir_Click(sender As Object, e As EventArgs) Handles BbtnSalir.Click
         Select Case MsgBox("¿Seguro quiere salir del chat?", MsgBoxStyle.YesNo)
             Case MsgBoxResult.Yes
-                Try
-                    If RtbConversacion.Text <> "" Then
+                If WbbConversacion.DocumentText <> "" Then
+                    MsgBox("Tengo algo")
+                    Try
                         ControladorChat.FinalizarChatPaciente(IdDiagnostico, CiMedico)
-                        ControladorChat.MarcarComoFinalizado(IdDiagnostico)
-                    Else
+                        Try
+                            ControladorChat.MarcarComoFinalizado(IdDiagnostico)
+                        Catch ex As Exception
+                            MsgBox("Error en marcar como finalizado " + ex.ToString)
+                        End Try
+
+                    Catch ex As Exception
+                        MsgBox("Error finalizar chat paciente" + ex.ToString)
+                    End Try
+
+                Else
+                    MsgBox("No tengo nada")
+                    Try
                         ControladorChat.FinalizarChat(IdDiagnostico)
-                    End If
+                    Catch ex As Exception
+                        MsgBox("Error en finalizar chat" + ex.ToString)
+                    End Try
+
+                End If
 
                     RtbConversacion.Text = ""
                     RtbMensaje.Text = ""

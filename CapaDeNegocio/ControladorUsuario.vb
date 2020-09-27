@@ -27,6 +27,22 @@ Public Module ControladorUsuario
         Return u.ObtenerCorreo()
     End Function
 
+    Public Function ObtenerNombre()
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
+            .CI = ControladorSesion.Cedula
+        }
+
+        Return u.ObtenerNombre()
+    End Function
+
+    Public Function ObtenerNombreApellido()
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
+            .CI = ControladorSesion.Cedula
+        }
+
+        Return u.ObtenerNombreApellido()
+    End Function
+
     Public Function ObtenerNombreApellidoCedula()
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
             .CI = ControladorSesion.Cedula
@@ -43,11 +59,4 @@ Public Module ControladorUsuario
         Return u.ObtenerCedula()
     End Function
 
-    Public Function ObtenerNombre()
-        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
-            .CI = ControladorSesion.Cedula
-        }
-
-        Return u.ObtenerNombre()
-    End Function
 End Module

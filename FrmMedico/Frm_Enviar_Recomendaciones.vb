@@ -1,4 +1,5 @@
 ﻿Imports CapaDeNegocio
+Imports System.ComponentModel
 Imports System.Net.Mail
 
 Public Class Frm_Enviar_Recomendaciones
@@ -154,4 +155,7 @@ Public Class Frm_Enviar_Recomendaciones
         Return Mensaje
     End Function
 
+    Private Sub Frm_Enviar_Recomendaciones_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        Frm_Menu.Show()
+    End Sub
 End Class

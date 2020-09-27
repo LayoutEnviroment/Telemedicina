@@ -149,7 +149,7 @@
             INSERT INTO
                 atiende(ci_persona_medico, ci_persona_paciente, id_diagnostico, mensaje, leido, destinatario, status)
             VALUES
-                (" + Me.CiMedico + ", " + Me.Cedula + ", " + Me.IdDiagnostico + ", 'medico desconectado', 0, " + Me.CiMedico + ", 'Finalizado' )
+                (" + Me.CiMedico + ", " + Me.Cedula + ", " + Me.IdDiagnostico + ", 'paciente desconectado', 0, " + Me.CiMedico + ", 'Finalizado' )
             
         "
         Command.ExecuteNonQuery()
@@ -158,9 +158,9 @@
     Public Sub FinalizarChat(id As String)
         Command.CommandText = "
             INSERT INTO
-                atiende(ci_persona_paciente, id_diagnostico, leido, status)
+                atiende(ci_persona_paciente, id_diagnostico, mensaje, leido, status)
             VALUES
-                (" + Me.Cedula + ", " + id + ", '1', 'Finalizado')   
+                (" + Me.Cedula + ", " + id + ",'paciente desconectado', '0', 'Finalizado')   
         "
 
         Command.ExecuteNonQuery()
@@ -178,6 +178,7 @@
     End Sub
 
     Public Sub MarcarComoFinalizado()
+        MsgBox("Estoy en el modelo con el id " + Me.IdDiagnostico)
         Command.CommandText = "
             UPDATE
                 atiende
@@ -190,44 +191,6 @@
 
     End Sub
 
-    Public Function ObtenerMiNombreApellido()
-        Command.CommandText = "
-            SELECT 
-                p.nombre, p.apellido 
-            FROM 
-                atiende a 
-                JOIN 
-                    medico m 
-                        ON 
-                            m.ci_persona = a.ci_persona_medico 
-                JOIN 
-                    persona p 
-                        ON 
-                            p.ci = m.ci_persona
-            WHERE
-                a.ci_persona_medico = " + Me.Cedula + "
-            LIMIT
-                1
-        "
-        Reader = Command.ExecuteReader()
-        Return Reader
-
-    End Function
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     Public Function ObtenerIdFechaMisChat()
         Command.CommandText = "
             SELECT
@@ -236,9 +199,25 @@
             FROM
                 atiende
             WHERE
-                ci_persona_medico = " + Me.Pwd + "
+                ci_persona_medico = " + Me.Cedula + "
             "
         Reader = Command.ExecuteReader
+        Return Reader
+    End Function
+
+    Public Function ObtenerMensajesDelDiagnostico()
+        Command.CommandText = "
+             SELECT 
+                fecha_hora, 
+                mensaje, 
+                destinatario 
+            FROM 
+                atiende 
+            WHERE 
+                id_diagnostico = " + Me.IdDiagnostico + " 
+        "
+
+        Reader = Command.ExecuteReader()
         Return Reader
     End Function
 

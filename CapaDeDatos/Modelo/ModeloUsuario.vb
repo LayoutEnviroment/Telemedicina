@@ -157,6 +157,21 @@
         Return Command.ExecuteScalar.ToString
     End Function
 
+    Public Function ObtenerNombreApellido()
+        Command.CommandText = "
+            SELECT 
+               nombre,
+               apellido
+            FROM 
+                persona
+            WHERE
+                ci = " + Me.CI + "
+        "
+        Reader = Command.ExecuteReader()
+        Return Reader
+
+    End Function
+
     Public Function ObtenerNombreApellidoCedula()
         Command.CommandText = "
             SELECT

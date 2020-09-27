@@ -63,13 +63,13 @@
 
             Catch ex As Exception
                 MsgBox("Error en diagnostcio" + ex.ToString)
-                Command.CommandText = "ROLLBACK"
-                Command.ExecuteNonQuery()
-                Command.CommandText = "UNLOCK TABLES"
-                Command.ExecuteNonQuery()
             End Try
         Catch ex As Exception
             MsgBox("Error en transaccion")
+            Command.CommandText = "ROLLBACK"
+            Command.ExecuteNonQuery()
+            Command.CommandText = "UNLOCK TABLES"
+            Command.ExecuteNonQuery()
         End Try
 
     End Sub

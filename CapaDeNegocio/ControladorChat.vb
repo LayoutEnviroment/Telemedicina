@@ -22,7 +22,8 @@ Public Module ControladorChat
             .IdDiagnostico = id,
             .CiPaciente = destinatario,
             .MiNombre = nombre,
-            .MiApellido = apellido
+            .MiApellido = apellido,
+            .Cedula = ControladorSesion.Cedula
         }
 
         c.AceptarSolicitud()
@@ -47,7 +48,7 @@ Public Module ControladorChat
             .Cedula = ControladorSesion.Cedula
         }
 
-        c.EnviarMensajePaciente()
+        c.EnviarMensajeMedico()
     End Sub
 
     Public Function BuscarMensajesNuevos(id As String)
@@ -91,22 +92,16 @@ Public Module ControladorChat
             .Cedula = ControladorSesion.Cedula
         }
 
-        c.FinalizarChatPaciente()
+        c.FinalizarChatMedico()
     End Sub
 
     Public Sub MarcarComoFinalizado(id As String)
         Dim c As New ModeloChat(ControladorSesion.User, ControladorSesion.Pass) With {
             .IdDiagnostico = id
         }
-
+        MsgBox("Estoy en el controlador")
         c.MarcarComoFinalizado()
     End Sub
-
-    Public Function ObtenerMiNombreApellido()
-        Dim c As New ModeloChat(ControladorSesion.User, ControladorSesion.Pass)
-
-        Return c.ObtenerMiNombreApellido()
-    End Function
 
     Public Function ObtenerIdFechaMisChat()
         Dim c As New ModeloChat(ControladorSesion.User, ControladorSesion.Pass)
@@ -115,9 +110,9 @@ Public Module ControladorChat
     End Function
 
     Public Function ObtenerMensajesDelDiagnostico(id As String)
-        Dim c As New ModeloChatPaciente(ControladorSesion.User, ControladorSesion.Pass) With {
-            .IdDiagnostico = id
-        }
+        Dim c As New ModeloChat(ControladorSesion.User, ControladorSesion.Pass) With {
+        .IdDiagnostico = id
+           }
 
         Return c.ObtenerMensajesDelDiagnostico()
     End Function
