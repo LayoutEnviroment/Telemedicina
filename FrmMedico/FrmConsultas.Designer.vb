@@ -106,6 +106,7 @@ Partial Class FrmConsultas
         '
         'TxtCedula
         '
+        Me.TxtCedula.Enabled = False
         Me.TxtCedula.Location = New System.Drawing.Point(332, 75)
         Me.TxtCedula.Name = "TxtCedula"
         Me.TxtCedula.Size = New System.Drawing.Size(133, 26)
@@ -113,6 +114,7 @@ Partial Class FrmConsultas
         '
         'TxtNombre
         '
+        Me.TxtNombre.Enabled = False
         Me.TxtNombre.Location = New System.Drawing.Point(481, 75)
         Me.TxtNombre.Name = "TxtNombre"
         Me.TxtNombre.Size = New System.Drawing.Size(133, 26)
@@ -120,6 +122,7 @@ Partial Class FrmConsultas
         '
         'TxtCorreo
         '
+        Me.TxtCorreo.Enabled = False
         Me.TxtCorreo.Location = New System.Drawing.Point(625, 75)
         Me.TxtCorreo.Name = "TxtCorreo"
         Me.TxtCorreo.Size = New System.Drawing.Size(133, 26)
@@ -127,6 +130,7 @@ Partial Class FrmConsultas
         '
         'TxtEdad
         '
+        Me.TxtEdad.Enabled = False
         Me.TxtEdad.Location = New System.Drawing.Point(764, 75)
         Me.TxtEdad.Name = "TxtEdad"
         Me.TxtEdad.Size = New System.Drawing.Size(133, 26)
@@ -134,6 +138,7 @@ Partial Class FrmConsultas
         '
         'TxtSexo
         '
+        Me.TxtSexo.Enabled = False
         Me.TxtSexo.Location = New System.Drawing.Point(903, 75)
         Me.TxtSexo.Name = "TxtSexo"
         Me.TxtSexo.Size = New System.Drawing.Size(133, 26)
@@ -159,6 +164,7 @@ Partial Class FrmConsultas
         '
         'LstEnfermedades
         '
+        Me.LstEnfermedades.Enabled = False
         Me.LstEnfermedades.HideSelection = False
         Me.LstEnfermedades.Location = New System.Drawing.Point(336, 196)
         Me.LstEnfermedades.Name = "LstEnfermedades"
@@ -168,6 +174,7 @@ Partial Class FrmConsultas
         '
         'LstMedicaciones
         '
+        Me.LstMedicaciones.Enabled = False
         Me.LstMedicaciones.HideSelection = False
         Me.LstMedicaciones.Location = New System.Drawing.Point(536, 196)
         Me.LstMedicaciones.Name = "LstMedicaciones"
@@ -186,6 +193,7 @@ Partial Class FrmConsultas
         '
         'TxtEnfermedad
         '
+        Me.TxtEnfermedad.Enabled = False
         Me.TxtEnfermedad.Location = New System.Drawing.Point(827, 157)
         Me.TxtEnfermedad.Name = "TxtEnfermedad"
         Me.TxtEnfermedad.Size = New System.Drawing.Size(133, 26)
@@ -193,6 +201,7 @@ Partial Class FrmConsultas
         '
         'LstSintomas
         '
+        Me.LstSintomas.Enabled = False
         Me.LstSintomas.HideSelection = False
         Me.LstSintomas.Location = New System.Drawing.Point(823, 225)
         Me.LstSintomas.Name = "LstSintomas"

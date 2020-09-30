@@ -54,6 +54,7 @@ Public Class FrmConsultas
     End Function
 
     Private Sub CargarEnfermedadesCronicas(enfermedades As IDataReader)
+        LstEnfermedades.Items.Clear()
         While enfermedades.Read
             LstEnfermedades.Items.Add(enfermedades(0).ToString)
         End While
@@ -61,6 +62,7 @@ Public Class FrmConsultas
     End Sub
 
     Private Sub CargarMedicaciones(medicaciones As IDataReader)
+        LstMedicaciones.Items.Clear()
         While medicaciones.Read
             LstMedicaciones.Items.Add(medicaciones(0).ToString)
         End While
