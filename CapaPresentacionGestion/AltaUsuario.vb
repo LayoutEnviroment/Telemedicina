@@ -8,6 +8,8 @@ Public Class AltaUsuario
     Dim Medicamentos As New List(Of String)
     Dim Sexo As String
     Dim Contra As String
+    Dim Mail As String
+    Dim DominioMail As String
 
     Private Sub AltaUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -65,7 +67,7 @@ Public Class AltaUsuario
             TipoUsuario(1) = False
         End If
         Try
-            ControladorUsuario.CrearPersona(TxtNombre.Text.Trim, TxtApellido.Text.Trim, TxtCI.Text.Trim, TxtMail.Text.Trim, TipoUsuario, FechaNacimiento, Sexo, EnfermedadesCronicas, Medicamentos, Contra)
+            ControladorUsuario.CrearPersona(TxtNombre.Text.Trim, TxtApellido.Text.Trim, TxtCI.Text.Trim, TxtMail.Text.Trim, , TxtDominioMail.Text.Trim, TipoUsuario, FechaNacimiento, Sexo, EnfermedadesCronicas, Medicamentos, Contra)
             MsgBox("Usuario creado exitosamente")
             EnviarMail()
             Limpiar()
@@ -193,6 +195,5 @@ Public Class AltaUsuario
     Private Sub CrearContra()
         Contra = TxtCI.Text
     End Sub
-
 
 End Class
