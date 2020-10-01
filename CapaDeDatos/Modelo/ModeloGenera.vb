@@ -5,10 +5,8 @@
         MyBase.New(user, pass)
     End Sub
 
-    Public IdDiagnostico As String
-    Public IdSintoma As String
-    Public IdEnfermedad As String
     Public Cedula As String
+    Public IdDiagnostico As String
 
     Public Function ObtenerEnfermedadGenerada()
         Command.CommandText = "
@@ -16,7 +14,7 @@
                 g.id_enfermedad_compone 
             FROM 
                 genera g 
-                    JOIN 
+                    JOIN
                         diagnostico d 
                             ON g.id_diagnostico = d.id 
             WHERE 
@@ -29,4 +27,42 @@
 
     End Function
 
+    Public Function ObtenerNombreEnfermedad()
+        Command.CommandText = "
+            SELECT
+                DISTINCT(e.nombre)
+            FROM
+                genera g 
+                    JOIN
+                        compone c
+                            ON
+                                g.id_enfermedad_compone = c.id_enfermedad
+                    JOIN
+                        enfermedad e
+                            ON
+                                c.id_enfermedad = e.id
+            WHERE
+                g.id_diagnostico = " + Me.IdDiagnostico + "
+        "
+        Return Command.ExecuteScalar.ToString
+    End Function
+
+    Public Function ObtenerNombreSintomas()
+        Command.CommandText = "
+            SELECT
+	            DISTINCT(s.nombre)
+            FROM
+	            genera g 
+                    JOIN 
+                        compone c 
+                            ON 
+                                g.id_sintoma_compone = c.id_sintoma
+                    JOIN 
+                        sintoma s ON c.id_sintoma = s.id
+            WHERE 
+                g.id_diagnostico = " + Me.IdDiagnostico + "
+        "
+        Reader = Command.ExecuteReader()
+        Return Reader
+    End Function
 End Class

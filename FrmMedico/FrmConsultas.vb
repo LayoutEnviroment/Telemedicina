@@ -20,6 +20,7 @@ Public Class FrmConsultas
     Private Sub ObtenerCedulaPaciente(Id As String)
         Dim CedulaPaciente As String = ControladorDiagnostico.ObtenerCedulaPaciente(Id)
         ObtenerDatosPaciente(CedulaPaciente)
+        ObtenerDatosConsulta(Id)
 
     End Sub
 
@@ -30,7 +31,6 @@ Public Class FrmConsultas
         CargarDatosPersonales(LectorDatos, cedula)
         CargarEnfermedadesCronicas(LectorEnfermedades)
         CargarMedicaciones(LectorMedicaciones)
-        ObtenerSintomasyEnfermedadDiag(cedula)
     End Sub
 
     Private Sub CargarDatosPersonales(lector As IDataReader, cedula As String)
@@ -69,7 +69,27 @@ Public Class FrmConsultas
 
     End Sub
 
-    Private Sub ObtenerSintomasyEnfermedadDiag(cedula)
+    Private Sub ObtenerDatosConsulta(id As String)
+        TxtEnfermedad.Text = ControladorGenera.ObtenerNombreEnfermedad(id)
+        Dim LectorSintomas As IDataReader = ControladorGenera.ObtenerNombreSintomas(id)
+        Dim LectorConversacion As IDataReader = ControladorChat.ObtenerMensajesDelDiagnostico(id)
+        CargarListaSintomas(LectorSintomas)
+        CargarConversacion(LectorConversacion)
 
+    End Sub
+
+    Private Sub CargarListaSintomas(lector As IDataReader)
+        LstSintomas.Items.Clear()
+        While lector.Read
+            LstSintomas.Items.Add(lector(0).ToString)
+        End While
+
+    End Sub
+
+    Private Sub CargarConversacion(lector As IDataReader)
+        WbbConversacion.DocumentText = ""
+        While lector.Read
+            WbbConversacion.DocumentText += "<p>" + lector(1).ToString + "</p>"
+        End While
     End Sub
 End Class

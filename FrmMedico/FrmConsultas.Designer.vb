@@ -42,7 +42,7 @@ Partial Class FrmConsultas
         Me.LstSintomas = New System.Windows.Forms.ListView()
         Me.LblSintomas = New System.Windows.Forms.Label()
         Me.LblChat = New System.Windows.Forms.Label()
-        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
+        Me.WbbConversacion = New System.Windows.Forms.WebBrowser()
         CType(Me.DgvConsultas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -227,20 +227,20 @@ Partial Class FrmConsultas
         Me.LblChat.TabIndex = 19
         Me.LblChat.Text = "Conversacion"
         '
-        'WebBrowser1
+        'WbbConversacion
         '
-        Me.WebBrowser1.Location = New System.Drawing.Point(353, 444)
-        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(720, 87)
-        Me.WebBrowser1.TabIndex = 20
+        Me.WbbConversacion.Location = New System.Drawing.Point(353, 444)
+        Me.WbbConversacion.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.WbbConversacion.Name = "WbbConversacion"
+        Me.WbbConversacion.Size = New System.Drawing.Size(720, 87)
+        Me.WbbConversacion.TabIndex = 20
         '
         'FrmConsultas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1120, 617)
-        Me.Controls.Add(Me.WebBrowser1)
+        Me.Controls.Add(Me.WbbConversacion)
         Me.Controls.Add(Me.LblChat)
         Me.Controls.Add(Me.LstSintomas)
         Me.Controls.Add(Me.LblSintomas)
@@ -289,5 +289,5 @@ Partial Class FrmConsultas
     Friend WithEvents LstSintomas As ListView
     Friend WithEvents LblSintomas As Label
     Friend WithEvents LblChat As Label
-    Friend WithEvents WebBrowser1 As WebBrowser
+    Friend WithEvents WbbConversacion As WebBrowser
 End Class
