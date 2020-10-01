@@ -12,7 +12,7 @@ Public Class Frm_Menu
         Dim LectorDatos As IDataReader
 
         Try
-            LectorDatos = ControladorUsuario.ObtenerNombreApellido()
+            LectorDatos = ControladorUsuario.ObtenerNombreApellidoCedula()
             GuardarMisDatos(LectorDatos)
 
         Catch ex As Exception
