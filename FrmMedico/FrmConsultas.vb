@@ -1,4 +1,5 @@
-﻿Imports CapaDeNegocio
+﻿Imports System.ComponentModel
+Imports CapaDeNegocio
 
 Public Class FrmConsultas
 
@@ -69,5 +70,10 @@ Public Class FrmConsultas
 
     Private Sub ObtenerSintomasyEnfermedadDiag(cedula)
 
+    End Sub
+
+    Private Sub FrmConsultas_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        Me.Hide()
+        Frm_Menu.Show()
     End Sub
 End Class
