@@ -85,4 +85,16 @@
 
     End Sub
 
+    Public Function ObtenerExistencia()
+        Command.CommandText = "
+            SELECT
+                COUNT(id)
+            FROM
+                sintoma
+            WHERE
+                nombre = '" + Me.Nombre + "' > 0
+        "
+        Return Command.ExecuteScalar.ToString
+
+    End Function
 End Class

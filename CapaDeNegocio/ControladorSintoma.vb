@@ -47,5 +47,12 @@ Public Module ControladorSintoma
         s.Eliminar()
     End Sub
 
+    Public Function ObtenerExistencia(nombre As String)
+        Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Nombre = nombre
+        }
+
+        Return s.ObtenerExistencia()
+    End Function
 End Module
 
