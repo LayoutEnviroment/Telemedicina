@@ -94,6 +94,7 @@ Public Class Frm_Consultas
         Try
             Lector = ControladorChat.ObtenerMensajesDelDiagnostico(idDiagnostico)
             While Lector.Read
+
                 RtbChat.Text += Lector(1).ToString + Environment.NewLine
             End While
         Catch ex As Exception
