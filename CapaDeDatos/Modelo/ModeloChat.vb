@@ -16,7 +16,7 @@
     Public Sub EnviarSolicitud()
         Command.CommandText = "
             INSERT INTO
-                Atiende(ci_persona_paciente, id_diagnostico, leido)
+                atiende(ci_persona_paciente, id_diagnostico, leido)
             VALUES
                 (" + Me.Cedula + ", " + Me.IdDiagnostico + ", 0)
         "

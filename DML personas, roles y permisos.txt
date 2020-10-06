@@ -1,5 +1,5 @@
 INSERT INTO
-	Persona(ci, nombre, apellido, mail)
+	persona(ci, nombre, apellido, mail)
 VALUES
 	(1, 'Jorge', 'Prado', 'jorge.prado@gmail.com'),
 	(2, 'Gregory','House','diagnostico.medico@gmail.com'),
@@ -57,12 +57,6 @@ GRANT
 GRANT
 	SELECT, INSERT, UPDATE ON bd_led.atiende TO 'paciente'@'%';
 
-
-CREATE USER
-	'paciente'@'%'
-IDENTIFIED BY
-	'paciente';
-
 CREATE USER
 	'medico'@'localhost'
 IDENTIFIED BY
@@ -76,9 +70,9 @@ IDENTIFIED BY
 GRANT
     ALL
 ON
-    bd_led.*
+    *.*
 TO
-    'paciente'@'%', 'medico'@'localhost', 'admin'@'localhost' WITH GRANT OPTION;
+   'admin'@'localhost' WITH GRANT OPTION;
 
 FLUSH PRIVILEGES;
 
