@@ -38,10 +38,10 @@ Public Class FrmLogin
         Try
             ControladorSesion.User = usuario
             ControladorSesion.Pass = contra
-            ControladorSesion.Cedula = ControladorUsuario.ObtenerCedula()
+            ControladorSesion.Cedula = TxtUser.Text
 
         Catch ex As Exception
-            MsgBox("Error en setear sesion")
+            MsgBox("Error en setear sesion" + ex.ToString)
             'MsgBox("Usuario Invalido")
 
         End Try
