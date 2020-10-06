@@ -125,14 +125,12 @@ Public Class FrmConsultas
     End Sub
 
     Public Sub CargarMensajes(idDiagnostico As String)
-        WbbChat.DocumentText = ""
         RtbChat.Text = ""
         Dim Lector As IDataReader
         Try
             Lector = ControladorChat.ObtenerMensajesDelDiagnostico(idDiagnostico)
             While Lector.Read
                 RtbChat.Text += Lector(1).ToString + Environment.NewLine
-                WbbChat.DocumentText += Lector(1).ToString
             End While
         Catch ex As Exception
             MsgBox(ex.ToString)
