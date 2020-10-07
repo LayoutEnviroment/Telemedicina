@@ -85,18 +85,6 @@
     <Compile Include="FormABMEnfermedad.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormABMSintoma.Designer.vb">
-      <DependentUpon>FormABMSintoma.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FormABMSintoma.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormCompone.Designer.vb">
-      <DependentUpon>FormCompone.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FormCompone.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="FormEnfermedad.Designer.vb">
       <DependentUpon>FormEnfermedad.vb</DependentUpon>
     </Compile>
@@ -156,12 +144,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormABMEnfermedad.resx">
       <DependentUpon>FormABMEnfermedad.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormABMSintoma.resx">
-      <DependentUpon>FormABMSintoma.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormCompone.resx">
-      <DependentUpon>FormCompone.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEnfermedad.resx">
       <DependentUpon>FormEnfermedad.vb</DependentUpon>

@@ -54,6 +54,7 @@ Partial Class FrmNuevoSintoma
         '
         'BtnAceptar
         '
+        Me.BtnAceptar.Enabled = False
         Me.BtnAceptar.Location = New System.Drawing.Point(73, 186)
         Me.BtnAceptar.Name = "BtnAceptar"
         Me.BtnAceptar.Size = New System.Drawing.Size(138, 38)

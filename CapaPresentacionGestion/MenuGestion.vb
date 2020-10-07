@@ -11,11 +11,6 @@ Public Class MenuGestion
     '    FormSintoma.Show()
     'End Sub
 
-    Private Sub BtnCompone_Click(sender As Object, e As EventArgs)
-        Me.Hide()
-        FormCompone.Show()
-    End Sub
-
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Me.Hide()
         AltaUsuario.Show()
@@ -48,8 +43,9 @@ Public Class MenuGestion
     End Sub
 
     Private Sub NuevoToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem1.Click
-        FrmNuevoSintoma.Show()
         Me.Hide()
+        FrmNuevoSintoma.Show()
+
 
     End Sub
 End Class
