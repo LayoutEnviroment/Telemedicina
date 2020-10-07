@@ -39,6 +39,12 @@ Public Module ControladorSintoma
 
     End Sub
 
+    Public Sub CambiarNombreDeSintoma(nombre As String)
+        Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass)
+
+        s.Modificar(nombre)
+    End Sub
+
     Public Sub EliminarSintoma(id As String)
         Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass) With {
             .IdSintoma = id

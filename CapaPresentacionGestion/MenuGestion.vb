@@ -39,13 +39,14 @@ Public Class MenuGestion
     End Sub
 
     Private Sub ModificarToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ModificarToolStripMenuItem1.Click
+        Me.Hide()
+        FrmModificarSintoma.Show()
 
     End Sub
 
     Private Sub NuevoToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem1.Click
         Me.Hide()
         FrmNuevoSintoma.Show()
-
 
     End Sub
 End Class

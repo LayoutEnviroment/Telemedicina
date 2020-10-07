@@ -72,6 +72,19 @@
 
     End Sub
 
+    Public Sub Modificar(nombre As String)
+        Command.CommandText = "
+            UPDATE
+                sintoma
+            SET
+                nombre = '" + nombre + "'
+            WHERE
+                nombre = '" + nombre + "'
+        "
+        Command.ExecuteNonQuery()
+
+    End Sub
+
     Public Sub Eliminar()
         Command.CommandText = "
             UPDATE 

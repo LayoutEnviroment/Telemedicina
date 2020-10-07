@@ -91,6 +91,12 @@
     <Compile Include="FormEnfermedad.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmModificarSintoma.Designer.vb">
+      <DependentUpon>FrmModificarSintoma.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModificarSintoma.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmNuevoSintoma.Designer.vb">
       <DependentUpon>FrmNuevoSintoma.vb</DependentUpon>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormEnfermedad.resx">
       <DependentUpon>FormEnfermedad.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificarSintoma.resx">
+      <DependentUpon>FrmModificarSintoma.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNuevoSintoma.resx">
       <DependentUpon>FrmNuevoSintoma.vb</DependentUpon>
