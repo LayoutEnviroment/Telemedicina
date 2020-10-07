@@ -49,4 +49,10 @@ Public Class MenuGestion
         FrmNuevoSintoma.Show()
 
     End Sub
+
+    Private Sub EliminarToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles EliminarToolStripMenuItem1.Click
+        Me.Hide()
+        FrmEliminarSintoma.Show()
+
+    End Sub
 End Class

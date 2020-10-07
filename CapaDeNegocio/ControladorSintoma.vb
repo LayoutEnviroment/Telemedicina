@@ -53,6 +53,12 @@ Public Module ControladorSintoma
         s.Eliminar()
     End Sub
 
+    Public Sub EliminarSintomaPorNombre(nombre As String)
+        Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass)
+
+        s.Eliminar(nombre)
+    End Sub
+
     Public Function ObtenerExistencia(nombre As String)
         Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass) With {
             .Nombre = nombre

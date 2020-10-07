@@ -34,4 +34,8 @@ Public Class FrmNuevoSintoma
             MsgBox("No se pudo crear el sintoma" + ex.ToString)
         End Try
     End Sub
+
+    Private Sub FrmNuevoSintoma_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        MenuGestion.Show()
+    End Sub
 End Class

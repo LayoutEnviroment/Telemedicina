@@ -66,7 +66,7 @@ Partial Class FrmNuevoSintoma
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(639, 282)
+        Me.ClientSize = New System.Drawing.Size(538, 282)
         Me.Controls.Add(Me.BtnAceptar)
         Me.Controls.Add(Me.LblDisponibilidad)
         Me.Controls.Add(Me.LblNombre)
