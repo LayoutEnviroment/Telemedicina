@@ -22,34 +22,57 @@ Partial Class FrmSintomasCsv
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
-        Me.FolderBrowserDialog2 = New System.Windows.Forms.FolderBrowserDialog()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.BtnBuscar = New System.Windows.Forms.Button()
+        Me.TxtRuta = New System.Windows.Forms.TextBox()
+        Me.BtnAceptar = New System.Windows.Forms.Button()
+        Me.OfdSeleccionarCsv = New System.Windows.Forms.OpenFileDialog()
         Me.SuspendLayout()
         '
-        'Label1
+        'BtnBuscar
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(172, 67)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(39, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Label1"
+        Me.BtnBuscar.Location = New System.Drawing.Point(51, 66)
+        Me.BtnBuscar.Name = "BtnBuscar"
+        Me.BtnBuscar.Size = New System.Drawing.Size(75, 23)
+        Me.BtnBuscar.TabIndex = 0
+        Me.BtnBuscar.Text = "Buscar"
+        Me.BtnBuscar.UseVisualStyleBackColor = True
+        '
+        'TxtRuta
+        '
+        Me.TxtRuta.Location = New System.Drawing.Point(145, 69)
+        Me.TxtRuta.Name = "TxtRuta"
+        Me.TxtRuta.Size = New System.Drawing.Size(346, 20)
+        Me.TxtRuta.TabIndex = 1
+        '
+        'BtnAceptar
+        '
+        Me.BtnAceptar.Location = New System.Drawing.Point(212, 133)
+        Me.BtnAceptar.Name = "BtnAceptar"
+        Me.BtnAceptar.Size = New System.Drawing.Size(128, 35)
+        Me.BtnAceptar.TabIndex = 2
+        Me.BtnAceptar.Text = "Aceptar"
+        Me.BtnAceptar.UseVisualStyleBackColor = True
+        '
+        'OfdSeleccionarCsv
+        '
+        Me.OfdSeleccionarCsv.FileName = "OpenFileDialog1"
         '
         'FrmSintomasCsv
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.Label1)
+        Me.ClientSize = New System.Drawing.Size(533, 216)
+        Me.Controls.Add(Me.BtnAceptar)
+        Me.Controls.Add(Me.TxtRuta)
+        Me.Controls.Add(Me.BtnBuscar)
         Me.Name = "FrmSintomasCsv"
         Me.Text = "FrmSintomasCsv"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
-    Friend WithEvents FolderBrowserDialog2 As FolderBrowserDialog
-    Friend WithEvents Label1 As Label
+    Friend WithEvents BtnBuscar As Button
+    Friend WithEvents TxtRuta As TextBox
+    Friend WithEvents BtnAceptar As Button
+    Friend WithEvents OfdSeleccionarCsv As OpenFileDialog
 End Class
