@@ -1,4 +1,5 @@
-﻿Imports CapaDeNegocio
+﻿Imports System.ComponentModel
+Imports CapaDeNegocio
 
 Public Class FrmConsultas
 
@@ -15,22 +16,30 @@ Public Class FrmConsultas
     Private Sub DgvConsultas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvConsultas.CellContentClick
         Dim IdDiagnostico As String = DgvConsultas.Item("Id", DgvConsultas.CurrentCell.RowIndex).Value.ToString
         ObtenerCedulaPaciente(IdDiagnostico)
+        CargarMensajes(IdDiagnostico)
     End Sub
 
     Private Sub ObtenerCedulaPaciente(Id As String)
-        Dim CedulaPaciente As String = ControladorDiagnostico.ObtenerCedulaPaciente(Id)
-        ObtenerDatosPaciente(CedulaPaciente)
-        ObtenerDatosConsulta(Id)
+        Try
+            Dim CedulaPaciente As String = ControladorDiagnostico.ObtenerCedulaPaciente(Id)
+            ObtenerDatosPaciente(CedulaPaciente)
+            ObtenerEnfermedadesCronicas(CedulaPaciente)
+            ObtenerMedicacionesPaciente(CedulaPaciente)
+            ObtenerSintomasyEnfermedadDiag(Id)
+        Catch ex As Exception
+
+        End Try
 
     End Sub
 
     Private Sub ObtenerDatosPaciente(cedula As String)
-        Dim LectorDatos As IDataReader = ControladorPaciente.ObtenerTodo(cedula)
-        Dim LectorEnfermedades As IDataReader = ControladorPaciente.ObtenerEnfermedades(cedula)
-        Dim LectorMedicaciones As IDataReader = ControladorPaciente.ObtenerMedicaciones(cedula)
-        CargarDatosPersonales(LectorDatos, cedula)
-        CargarEnfermedadesCronicas(LectorEnfermedades)
-        CargarMedicaciones(LectorMedicaciones)
+        Try
+            Dim LectorDatos As IDataReader = ControladorPaciente.ObtenerTodo(cedula)
+            CargarDatosPersonales(LectorDatos, cedula)
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Private Sub CargarDatosPersonales(lector As IDataReader, cedula As String)
@@ -53,6 +62,16 @@ Public Class FrmConsultas
         Return Edad
     End Function
 
+    Private Sub ObtenerEnfermedadesCronicas(cedula As String)
+        Try
+            Dim LectorEnfermedades As IDataReader = ControladorPaciente.ObtenerEnfermedades(cedula)
+            CargarEnfermedadesCronicas(LectorEnfermedades)
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+
     Private Sub CargarEnfermedadesCronicas(enfermedades As IDataReader)
         LstEnfermedades.Items.Clear()
         While enfermedades.Read
@@ -61,24 +80,43 @@ Public Class FrmConsultas
 
     End Sub
 
+    Private Sub ObtenerMedicacionesPaciente(cedula As String)
+        Try
+            Dim LectorMedicaciones As IDataReader = ControladorPaciente.ObtenerMedicaciones(cedula)
+            CargarMedicaciones(LectorMedicaciones)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
     Private Sub CargarMedicaciones(medicaciones As IDataReader)
-        LstMedicaciones.Items.Clear()
+        LstEnfermedades.Items.Clear()
         While medicaciones.Read
             LstMedicaciones.Items.Add(medicaciones(0).ToString)
         End While
 
     End Sub
 
-    Private Sub ObtenerDatosConsulta(id As String)
-        TxtEnfermedad.Text = ControladorGenera.ObtenerNombreEnfermedad(id)
-        Dim LectorSintomas As IDataReader = ControladorGenera.ObtenerNombreSintomas(id)
-        Dim LectorConversacion As IDataReader = ControladorChat.ObtenerMensajesDelDiagnostico(id)
-        CargarListaSintomas(LectorSintomas)
-        CargarConversacion(LectorConversacion)
+    Private Sub ObtenerSintomasyEnfermedadDiag(id As String)
+        Try
+            Dim LectorEnfermedad As IDataReader = ControladorDiagnostico.EnfermedadDiagnosticada(id)
+            Dim LectorSintomas As IDataReader = ControladorDiagnostico.SintomasEnfermedadDiagnosticada(id)
+            CargarEnfermedadDiagnosticada(LectorEnfermedad)
+            CargarSintomasConsultados(LectorSintomas)
+        Catch ex As Exception
+            MsgBox("Error obteniendo datos del diagnostico " + ex.ToString)
+        End Try
 
     End Sub
 
-    Private Sub CargarListaSintomas(lector As IDataReader)
+    Private Sub CargarEnfermedadDiagnosticada(lector As IDataReader)
+        While lector.Read
+            TxtEnfermedad.Text = lector(0)
+        End While
+
+    End Sub
+
+    Private Sub CargarSintomasConsultados(lector As IDataReader)
         LstSintomas.Items.Clear()
         While lector.Read
             LstSintomas.Items.Add(lector(0).ToString)
@@ -86,10 +124,22 @@ Public Class FrmConsultas
 
     End Sub
 
-    Private Sub CargarConversacion(lector As IDataReader)
-        WbbConversacion.DocumentText = ""
-        While lector.Read
-            WbbConversacion.DocumentText += "<p>" + lector(1).ToString + "</p>"
-        End While
+    Public Sub CargarMensajes(idDiagnostico As String)
+        RtbChat.Text = ""
+        Dim Lector As IDataReader
+        Try
+            Lector = ControladorChat.ObtenerMensajesDelDiagnostico(idDiagnostico)
+            While Lector.Read
+                RtbChat.Text += Lector(1).ToString + Environment.NewLine
+            End While
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+
     End Sub
+    Private Sub FrmConsultas_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        Me.Hide()
+        Frm_Menu.Show()
+    End Sub
+
 End Class

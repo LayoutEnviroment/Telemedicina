@@ -48,114 +48,117 @@ Partial Class MenuGestion
         Me.MenuGestor.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UsuarioToolStripMenuItem, Me.SintomaToolStripMenuItem, Me.ImportarCSVToolStripMenuItem})
         Me.MenuGestor.Location = New System.Drawing.Point(0, 0)
         Me.MenuGestor.Name = "MenuGestor"
-        Me.MenuGestor.Size = New System.Drawing.Size(156, 402)
+        Me.MenuGestor.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
+        Me.MenuGestor.Size = New System.Drawing.Size(124, 327)
         Me.MenuGestor.TabIndex = 3
         '
         'UsuarioToolStripMenuItem
         '
         Me.UsuarioToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.ModificarToolStripMenuItem, Me.EliminarToolStripMenuItem})
         Me.UsuarioToolStripMenuItem.Name = "UsuarioToolStripMenuItem"
-        Me.UsuarioToolStripMenuItem.Size = New System.Drawing.Size(143, 24)
+        Me.UsuarioToolStripMenuItem.Size = New System.Drawing.Size(115, 19)
         Me.UsuarioToolStripMenuItem.Text = "Usuario"
         '
         'NuevoToolStripMenuItem
         '
         Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
-        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.NuevoToolStripMenuItem.Text = "Nuevo"
         '
         'ModificarToolStripMenuItem
         '
         Me.ModificarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PacienteToolStripMenuItem, Me.MedicoToolStripMenuItem, Me.AdministrativoToolStripMenuItem})
         Me.ModificarToolStripMenuItem.Name = "ModificarToolStripMenuItem"
-        Me.ModificarToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+        Me.ModificarToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.ModificarToolStripMenuItem.Text = "Modificar"
         '
         'PacienteToolStripMenuItem
         '
         Me.PacienteToolStripMenuItem.Name = "PacienteToolStripMenuItem"
-        Me.PacienteToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+        Me.PacienteToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PacienteToolStripMenuItem.Text = "Paciente"
         '
         'MedicoToolStripMenuItem
         '
         Me.MedicoToolStripMenuItem.Name = "MedicoToolStripMenuItem"
-        Me.MedicoToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+        Me.MedicoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.MedicoToolStripMenuItem.Text = "Medico"
         '
         'AdministrativoToolStripMenuItem
         '
         Me.AdministrativoToolStripMenuItem.Name = "AdministrativoToolStripMenuItem"
-        Me.AdministrativoToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+        Me.AdministrativoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AdministrativoToolStripMenuItem.Text = "Administrativo"
         '
         'EliminarToolStripMenuItem
         '
         Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
         'SintomaToolStripMenuItem
         '
         Me.SintomaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem1, Me.ModificarToolStripMenuItem1, Me.EliminarToolStripMenuItem1})
         Me.SintomaToolStripMenuItem.Name = "SintomaToolStripMenuItem"
-        Me.SintomaToolStripMenuItem.Size = New System.Drawing.Size(143, 24)
+        Me.SintomaToolStripMenuItem.Size = New System.Drawing.Size(115, 19)
         Me.SintomaToolStripMenuItem.Text = "Sintoma"
         '
         'NuevoToolStripMenuItem1
         '
         Me.NuevoToolStripMenuItem1.Name = "NuevoToolStripMenuItem1"
-        Me.NuevoToolStripMenuItem1.Size = New System.Drawing.Size(148, 26)
+        Me.NuevoToolStripMenuItem1.Size = New System.Drawing.Size(125, 22)
         Me.NuevoToolStripMenuItem1.Text = "Nuevo"
         '
         'ModificarToolStripMenuItem1
         '
         Me.ModificarToolStripMenuItem1.Name = "ModificarToolStripMenuItem1"
-        Me.ModificarToolStripMenuItem1.Size = New System.Drawing.Size(148, 26)
+        Me.ModificarToolStripMenuItem1.Size = New System.Drawing.Size(125, 22)
         Me.ModificarToolStripMenuItem1.Text = "Modificar"
         '
         'EliminarToolStripMenuItem1
         '
         Me.EliminarToolStripMenuItem1.Name = "EliminarToolStripMenuItem1"
-        Me.EliminarToolStripMenuItem1.Size = New System.Drawing.Size(148, 26)
+        Me.EliminarToolStripMenuItem1.Size = New System.Drawing.Size(125, 22)
         Me.EliminarToolStripMenuItem1.Text = "Eliminar"
         '
         'ImportarCSVToolStripMenuItem
         '
         Me.ImportarCSVToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SintomaToolStripMenuItem1, Me.EnfermedadToolStripMenuItem})
         Me.ImportarCSVToolStripMenuItem.Name = "ImportarCSVToolStripMenuItem"
-        Me.ImportarCSVToolStripMenuItem.Size = New System.Drawing.Size(143, 24)
+        Me.ImportarCSVToolStripMenuItem.Size = New System.Drawing.Size(115, 19)
         Me.ImportarCSVToolStripMenuItem.Text = "Importar CSV"
         '
         'SintomaToolStripMenuItem1
         '
         Me.SintomaToolStripMenuItem1.Name = "SintomaToolStripMenuItem1"
-        Me.SintomaToolStripMenuItem1.Size = New System.Drawing.Size(165, 26)
+        Me.SintomaToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.SintomaToolStripMenuItem1.Text = "Sintoma"
         '
         'EnfermedadToolStripMenuItem
         '
         Me.EnfermedadToolStripMenuItem.Name = "EnfermedadToolStripMenuItem"
-        Me.EnfermedadToolStripMenuItem.Size = New System.Drawing.Size(165, 26)
+        Me.EnfermedadToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.EnfermedadToolStripMenuItem.Text = "Enfermedad"
         '
         'LblBienvenida
         '
         Me.LblBienvenida.AutoSize = True
-        Me.LblBienvenida.Location = New System.Drawing.Point(345, 48)
+        Me.LblBienvenida.Location = New System.Drawing.Point(259, 39)
+        Me.LblBienvenida.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblBienvenida.Name = "LblBienvenida"
-        Me.LblBienvenida.Size = New System.Drawing.Size(0, 17)
+        Me.LblBienvenida.Size = New System.Drawing.Size(0, 13)
         Me.LblBienvenida.TabIndex = 4
         '
         'MenuGestion
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(245, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(852, 402)
+        Me.ClientSize = New System.Drawing.Size(639, 327)
         Me.Controls.Add(Me.LblBienvenida)
         Me.Controls.Add(Me.MenuGestor)
         Me.MainMenuStrip = Me.MenuGestor
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "MenuGestion"
         Me.Text = "Menu"
         Me.MenuGestor.ResumeLayout(False)

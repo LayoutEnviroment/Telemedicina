@@ -4,11 +4,12 @@ Public Class Frm_Login
 
     Private Sub BtnIngresar_Click(sender As Object, e As EventArgs) Handles BtnIngresar.Click
         Try
-            If Autentificar(TxtUser.Text, TxtPass.Text) = 3 Then
+            If Autentificar(TxtUser.Text, TxtPass.Text) = 1 Then
                 SetearSesion(TxtUser.Text, TxtPass.Text, Cedula)
                 Me.Hide()
                 MenuGestion.Show()
             Else
+                MsgBox(Autentificar(TxtUser.Text, TxtPass.Text))
                 MsgBox("Usuario Invalido")
             End If
 
@@ -24,7 +25,7 @@ Public Class Frm_Login
     Private Sub SetearSesion(usuario As String, contra As String, ci As String)
         ControladorSesion.User = usuario
         ControladorSesion.Pass = contra
-        ControladorSesion.Cedula = ControladorUsuario.ObtenerCedula()
+        ControladorSesion.Cedula = TxtUser.Text
     End Sub
 
     Private Sub TxtUser_TextChanged(sender As Object, e As EventArgs) Handles TxtUser.TextChanged

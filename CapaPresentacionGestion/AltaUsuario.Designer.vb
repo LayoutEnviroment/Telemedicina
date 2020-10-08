@@ -50,16 +50,13 @@ Partial Class AltaUsuario
         Me.LstMedicacion = New System.Windows.Forms.ListBox()
         Me.BtnAgregarEnfermedad = New System.Windows.Forms.Button()
         Me.BtnAgregarMedicacion = New System.Windows.Forms.Button()
-        Me.LblArroba = New System.Windows.Forms.Label()
-        Me.LblPuntoCom = New System.Windows.Forms.Label()
-        Me.TxtDominioMail = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'LblNombre
         '
         Me.LblNombre.AutoSize = True
         Me.LblNombre.BackColor = System.Drawing.Color.Cornsilk
-        Me.LblNombre.Location = New System.Drawing.Point(101, 68)
+        Me.LblNombre.Location = New System.Drawing.Point(84, 68)
         Me.LblNombre.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblNombre.Name = "LblNombre"
         Me.LblNombre.Size = New System.Drawing.Size(44, 13)
@@ -89,7 +86,7 @@ Partial Class AltaUsuario
         'LblMail
         '
         Me.LblMail.AutoSize = True
-        Me.LblMail.Location = New System.Drawing.Point(44, 124)
+        Me.LblMail.Location = New System.Drawing.Point(84, 124)
         Me.LblMail.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblMail.Name = "LblMail"
         Me.LblMail.Size = New System.Drawing.Size(26, 13)
@@ -99,7 +96,7 @@ Partial Class AltaUsuario
         'LblUsuario
         '
         Me.LblUsuario.AutoSize = True
-        Me.LblUsuario.Location = New System.Drawing.Point(262, 147)
+        Me.LblUsuario.Location = New System.Drawing.Point(166, 148)
         Me.LblUsuario.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblUsuario.Name = "LblUsuario"
         Me.LblUsuario.Size = New System.Drawing.Size(82, 13)
@@ -124,7 +121,7 @@ Partial Class AltaUsuario
         '
         'TxtMail
         '
-        Me.TxtMail.Location = New System.Drawing.Point(36, 143)
+        Me.TxtMail.Location = New System.Drawing.Point(65, 140)
         Me.TxtMail.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TxtMail.Name = "TxtMail"
         Me.TxtMail.Size = New System.Drawing.Size(76, 20)
@@ -141,7 +138,7 @@ Partial Class AltaUsuario
         'ChbPaciente
         '
         Me.ChbPaciente.AutoSize = True
-        Me.ChbPaciente.Location = New System.Drawing.Point(349, 147)
+        Me.ChbPaciente.Location = New System.Drawing.Point(253, 148)
         Me.ChbPaciente.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ChbPaciente.Name = "ChbPaciente"
         Me.ChbPaciente.Size = New System.Drawing.Size(68, 17)
@@ -152,7 +149,7 @@ Partial Class AltaUsuario
         'ChbMedico
         '
         Me.ChbMedico.AutoSize = True
-        Me.ChbMedico.Location = New System.Drawing.Point(349, 169)
+        Me.ChbMedico.Location = New System.Drawing.Point(253, 170)
         Me.ChbMedico.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ChbMedico.Name = "ChbMedico"
         Me.ChbMedico.Size = New System.Drawing.Size(61, 17)
@@ -163,7 +160,7 @@ Partial Class AltaUsuario
         'ChbAdministrador
         '
         Me.ChbAdministrador.AutoSize = True
-        Me.ChbAdministrador.Location = New System.Drawing.Point(349, 191)
+        Me.ChbAdministrador.Location = New System.Drawing.Point(253, 192)
         Me.ChbAdministrador.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ChbAdministrador.Name = "ChbAdministrador"
         Me.ChbAdministrador.Size = New System.Drawing.Size(91, 17)
@@ -174,7 +171,7 @@ Partial Class AltaUsuario
         'LblFechaNacimiento
         '
         Me.LblFechaNacimiento.AutoSize = True
-        Me.LblFechaNacimiento.Location = New System.Drawing.Point(84, 195)
+        Me.LblFechaNacimiento.Location = New System.Drawing.Point(62, 195)
         Me.LblFechaNacimiento.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblFechaNacimiento.Name = "LblFechaNacimiento"
         Me.LblFechaNacimiento.Size = New System.Drawing.Size(108, 13)
@@ -195,7 +192,7 @@ Partial Class AltaUsuario
         '
         'DtpFechaNacimiento
         '
-        Me.DtpFechaNacimiento.Location = New System.Drawing.Point(82, 216)
+        Me.DtpFechaNacimiento.Location = New System.Drawing.Point(64, 217)
         Me.DtpFechaNacimiento.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.DtpFechaNacimiento.Name = "DtpFechaNacimiento"
         Me.DtpFechaNacimiento.Size = New System.Drawing.Size(151, 20)
@@ -340,39 +337,11 @@ Partial Class AltaUsuario
         Me.BtnAgregarMedicacion.UseVisualStyleBackColor = True
         Me.BtnAgregarMedicacion.Visible = False
         '
-        'LblArroba
-        '
-        Me.LblArroba.AutoSize = True
-        Me.LblArroba.Location = New System.Drawing.Point(117, 147)
-        Me.LblArroba.Name = "LblArroba"
-        Me.LblArroba.Size = New System.Drawing.Size(18, 13)
-        Me.LblArroba.TabIndex = 28
-        Me.LblArroba.Text = "@"
-        '
-        'LblPuntoCom
-        '
-        Me.LblPuntoCom.AutoSize = True
-        Me.LblPuntoCom.Location = New System.Drawing.Point(227, 148)
-        Me.LblPuntoCom.Name = "LblPuntoCom"
-        Me.LblPuntoCom.Size = New System.Drawing.Size(30, 13)
-        Me.LblPuntoCom.TabIndex = 29
-        Me.LblPuntoCom.Text = ".com"
-        '
-        'TxtDominioMail
-        '
-        Me.TxtDominioMail.Location = New System.Drawing.Point(141, 143)
-        Me.TxtDominioMail.Name = "TxtDominioMail"
-        Me.TxtDominioMail.Size = New System.Drawing.Size(88, 20)
-        Me.TxtDominioMail.TabIndex = 30
-        '
         'AltaUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(600, 366)
-        Me.Controls.Add(Me.TxtDominioMail)
-        Me.Controls.Add(Me.LblPuntoCom)
-        Me.Controls.Add(Me.LblArroba)
+        Me.ClientSize = New System.Drawing.Size(630, 372)
         Me.Controls.Add(Me.BtnAgregarMedicacion)
         Me.Controls.Add(Me.BtnAgregarEnfermedad)
         Me.Controls.Add(Me.LstMedicacion)
@@ -437,7 +406,4 @@ Partial Class AltaUsuario
     Friend WithEvents LstMedicacion As ListBox
     Friend WithEvents BtnAgregarEnfermedad As Button
     Friend WithEvents BtnAgregarMedicacion As Button
-    Friend WithEvents LblArroba As Label
-    Friend WithEvents LblPuntoCom As Label
-    Friend WithEvents TxtDominioMail As TextBox
 End Class

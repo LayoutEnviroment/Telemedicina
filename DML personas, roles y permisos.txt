@@ -1,5 +1,5 @@
 INSERT INTO
-	Persona(ci, nombre, apellido, mail)
+	persona(ci, nombre, apellido, mail)
 VALUES
 	(1, 'Jorge', 'Prado', 'jorge.prado@gmail.com'),
 	(2, 'Gregory','House','diagnostico.medico@gmail.com'),
@@ -57,16 +57,31 @@ GRANT
 GRANT
 	SELECT, INSERT, UPDATE ON bd_led.atiende TO 'paciente'@'%';
 
-
-CREATE USER
-	'paciente'@'%'
-IDENTIFIED BY
-	'paciente';
-
 CREATE USER
 	'medico'@'localhost'
 IDENTIFIED BY
 	'medico';
+
+GRANT
+	SELECT ON bd_led.roles TO 'medico'@'localhost';
+GRANT
+	SELECT ON bd_led.sintomas TO 'medico'@'localhost';
+GRANT 
+	SELECT ON bd_led.enfermedad TO 'medico'@'localhost';
+GRANT 
+	SELECT ON bd_led.compone TO 'medico'@'localhost';
+GRANT 
+	SELECT ON bd_led.medico TO 'medico'@'localhost';
+GRANT
+	SELECT ON bd_led.paciente TO 'medico'@'localhost';
+GRANT
+	SELECT ON bd_led.persona TO 'medico'@'localhost';
+GRANT
+	SELECT ON bd_led.enfermedades_cronicas TO 'medico'@'localhost';
+GRANT
+	SELECT ON bd_led.medicaciones TO 'medico'@'localhost';
+GRANT
+	SELECT, INSERT, UPDATE ON bd_led.atiende TO 'medico'@'localhost';
 
 CREATE USER
 	'admin'@'localhost'
@@ -76,9 +91,9 @@ IDENTIFIED BY
 GRANT
     ALL
 ON
-    bd_led.*
+    *.*
 TO
-    'paciente'@'%', 'medico'@'localhost', 'admin'@'localhost' WITH GRANT OPTION;
+   'admin'@'localhost' WITH GRANT OPTION;
 
 FLUSH PRIVILEGES;
 

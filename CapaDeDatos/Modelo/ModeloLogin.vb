@@ -12,11 +12,11 @@
     Public Function ObtenerRol()
         Command.CommandText = "
             SELECT
-                rol
+                COUNT(ci_persona)
             FROM
-                roles
+                administrativo
             WHERE
-                usuario = '" + Me.Uid + "'
+                ci_persona = '" + Me.Cedula + "' > 0
         "
         Return Command.ExecuteScalar.ToString
     End Function

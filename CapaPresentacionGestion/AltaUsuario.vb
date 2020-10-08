@@ -8,74 +8,93 @@ Public Class AltaUsuario
     Dim Medicamentos As New List(Of String)
     Dim Sexo As String
     Dim Contra As String
-    Dim Mail As String
-    Dim DominioMail As String
-
-    Private Sub AltaUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
 
     Private Sub ChbPaciente_CheckedChanged(sender As Object, e As EventArgs) Handles ChbPaciente.CheckedChanged
 
         If ChbPaciente.Checked Then
-            MuestraCampoPaciente()
+            CamposPaciente(True)
         Else
-            OcultaCampoPaciente()
+            CamposPaciente(False)
 
         End If
 
     End Sub
 
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
-        CrearContra()
+        Contra = CrearContra()
+        MsgBox(Contra)
+        ObtenerTipoUsuario()
+        EnviarMail()
+    End Sub
+
+    Private Sub ObtenerTipoUsuario()
         If ChbAdministrador.Checked Then
             TipoUsuario(3) = True
 
-        Else
-            TipoUsuario(3) = False
         End If
 
         If ChbMedico.Checked Then
             TipoUsuario(2) = True
 
-        Else
-            TipoUsuario(2) = False
-
         End If
 
         If ChbPaciente.Checked Then
-            TipoUsuario(1) = True
-            FechaNacimiento = DtpFechaNacimiento.Value.Year.ToString() + "-" + DtpFechaNacimiento.Value.Month.ToString() + "-" + DtpFechaNacimiento.Value.Day.ToString()
-
-            For x = 0 To LstEnfermedadCronica.Items.Count - 1
-                EnfermedadesCronicas.Add(LstEnfermedadCronica.Items(x).ToString)
-            Next
-
-            For y = 0 To LstMedicacion.Items.Count - 1
-                Medicamentos.Add(LstMedicacion.Items(y).ToString)
-            Next
-
-            If RdbF.Checked() Then
-                Sexo = "0"
-
-            End If
-            If RdbM.Checked() Then
-                Sexo = "1"
-
-            End If
-        Else
-            TipoUsuario(1) = False
+            CargarPaciente()
         End If
+
+        CrearPersona()
+
+    End Sub
+
+    Private Function CrearContra()
+        Dim rdm As New Random()
+        Dim Caracteres() As Char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLOMNOPQRSTUVWXYZ0123456789".ToCharArray()
+        Dim Pass As String = ""
+
+        For i As Integer = 0 To 8
+            Pass += Caracteres(rdm.Next(0, Caracteres.Length))
+        Next
+
+        Return Pass
+
+    End Function
+
+    Private Sub CargarPaciente()
+        TipoUsuario(1) = True
+
+        FechaNacimiento = DtpFechaNacimiento.Value.Year.ToString() + "-" + DtpFechaNacimiento.Value.Month.ToString() + "-" + DtpFechaNacimiento.Value.Day.ToString()
+
+        For x = 0 To LstEnfermedadCronica.Items.Count - 1
+            EnfermedadesCronicas.Add(LstEnfermedadCronica.Items(x).ToString)
+        Next
+
+        For y = 0 To LstMedicacion.Items.Count - 1
+            Medicamentos.Add(LstMedicacion.Items(y).ToString)
+        Next
+
+        If RdbF.Checked() Then
+            Sexo = "0"
+        Else
+            Sexo = "1"
+        End If
+
+    End Sub
+
+    Private Sub CrearPersona()
         Try
-            ControladorUsuario.CrearPersona(TxtNombre.Text.Trim, TxtApellido.Text.Trim, TxtCI.Text.Trim, TxtMail.Text.Trim, , TxtDominioMail.Text.Trim, TipoUsuario, FechaNacimiento, Sexo, EnfermedadesCronicas, Medicamentos, Contra)
-            MsgBox("Usuario creado exitosamente")
-            EnviarMail()
-            Limpiar()
+            ControladorUsuario.CrearPersona(TxtNombre.Text.Trim,
+                                            TxtApellido.Text.Trim,
+                                            TxtCI.Text.Trim,
+                                            TxtMail.Text.Trim,
+                                            TipoUsuario,
+                                            FechaNacimiento,
+                                            Sexo,
+                                            EnfermedadesCronicas,
+                                            Medicamentos,
+                                            Contra)
         Catch ex As Exception
             MsgBox("Error al crear usuario")
         End Try
-
-
     End Sub
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
@@ -101,14 +120,6 @@ Public Class AltaUsuario
 
     End Sub
 
-    Private Sub RdbM_CheckedChanged(sender As Object, e As EventArgs) Handles RdbM.CheckedChanged
-
-    End Sub
-
-    Private Sub RdbF_CheckedChanged(sender As Object, e As EventArgs) Handles RdbF.CheckedChanged
-
-    End Sub
-
     Private Sub Limpiar()
         TxtNombre.Text = ""
         TxtApellido.Text = ""
@@ -127,41 +138,32 @@ Public Class AltaUsuario
 
     End Sub
 
-    Private Sub MuestraCampoPaciente()
-        TxtEnfermedadCronica.Visible = True
-        TxtMedicacion.Visible = True
-        LstEnfermedadCronica.Visible = True
-        LstMedicacion.Visible = True
-        RdbF.Visible = True
-        RdbM.Visible = True
-        DtpFechaNacimiento.Visible = True
-        LblFechaNacimiento.Visible = True
-        LblEnfermedadCronica.Visible = True
-        LblMedicacion.Visible = True
-        LblSexo.Visible = True
-        BtnAgregarEnfermedad.Visible = True
-        BtnAgregarMedicacion.Visible = True
+    Private Sub CamposPaciente(estado As Boolean)
+        TxtEnfermedadCronica.Visible = estado
+        TxtMedicacion.Visible = estado
+        LstEnfermedadCronica.Visible = estado
+        LstMedicacion.Visible = estado
+        RdbF.Visible = estado
+        RdbM.Visible = estado
+        DtpFechaNacimiento.Visible = estado
+        LblFechaNacimiento.Visible = estado
+        LblEnfermedadCronica.Visible = estado
+        LblMedicacion.Visible = estado
+        LblSexo.Visible = estado
+        BtnAgregarEnfermedad.Visible = estado
+        BtnAgregarMedicacion.Visible = estado
     End Sub
 
-    Private Sub OcultaCampoPaciente()
-        TxtEnfermedadCronica.Visible = False
-        TxtMedicacion.Visible = False
-        LstEnfermedadCronica.Visible = False
-        LstMedicacion.Visible = False
-        RdbF.Visible = False
-        RdbM.Visible = False
-        DtpFechaNacimiento.Visible = False
-        LblFechaNacimiento.Visible = False
-        LblEnfermedadCronica.Visible = False
-        LblMedicacion.Visible = False
-        LblSexo.Visible = False
-        BtnAgregarEnfermedad.Visible = False
-        BtnAgregarMedicacion.Visible = False
-    End Sub
     Private Sub EnviarMail()
-        Dim Correo As New MailMessage()
         Dim smtp As New SmtpClient()
+        Dim Correo As New MailMessage()
+        CargarSmtp(smtp)
+        CargarDatos(Correo)
+        EnviarMensaje(smtp, Correo)
 
+    End Sub
+
+    Private Sub CargarSmtp(smtp)
         With smtp
             .UseDefaultCredentials = False
             .Credentials = New Net.NetworkCredential("cuidartegestor@gmail.com", "GesCuidarte")
@@ -170,6 +172,9 @@ Public Class AltaUsuario
             .Host = "smtp.gmail.com"
         End With
 
+    End Sub
+
+    Private Sub CargarDatos(Correo)
         With Correo
             .From = New MailAddress("cuidartegestor@gmail.com", "Cuidarte", System.Text.Encoding.UTF8)
             .To.Add(TxtMail.Text)
@@ -180,8 +185,11 @@ Public Class AltaUsuario
             .IsBodyHtml = False
         End With
 
+    End Sub
+
+    Private Sub EnviarMensaje(smtp, correo)
         Try
-            smtp.Send(Correo)
+            smtp.Send(correo)
             MsgBox("Mensaje enviado")
         Catch ex As Exception
             If ex.HResult = "-2146233088" Then
@@ -190,10 +198,7 @@ Public Class AltaUsuario
                 MsgBox(ex.ToString)
             End If
         End Try
-
-    End Sub
-    Private Sub CrearContra()
-        Contra = TxtCI.Text
+        Limpiar()
     End Sub
 
 End Class
