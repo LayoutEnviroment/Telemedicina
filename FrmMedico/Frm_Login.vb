@@ -3,7 +3,7 @@ Public Class Frm_Login
 
     Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnIngresar.Click
         Try
-            If Autentificar(TxtUser.Text, TxtPass.Text) = 2 Then
+            If Autentificar(TxtUser.Text, TxtPass.Text) = 1 Then
                 SetearSesion(TxtUser.Text, TxtPass.Text)
                 Me.Hide()
                 Frm_Menu.Show()
@@ -21,7 +21,7 @@ Public Class Frm_Login
     End Sub
 
     Private Function Autentificar(usuario As String, contra As String)
-        Return ControladorLogin.Autentificar(usuario, contra)
+        Return ControladorLogin.Autentificar(usuario, contra, 2)
 
     End Function
 

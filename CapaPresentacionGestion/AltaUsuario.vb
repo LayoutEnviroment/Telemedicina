@@ -180,7 +180,7 @@ Public Class AltaUsuario
             .To.Add(TxtMail.Text)
             .Subject = "Credenciales De Cuidarte"
             .SubjectEncoding = System.Text.Encoding.UTF8
-            .Body = "Estimado/a usuario/a. Gracias por utilizar Cuidarte. su usuario es: " + TxtMail.Text + " y su password es: " + Contra
+            .Body = "Estimado/a usuario/a. Gracias por utilizar Cuidarte. su usuario es: " + TxtCI.Text + " y su password es: " + Contra
             .BodyEncoding = System.Text.Encoding.UTF8
             .IsBodyHtml = False
         End With
@@ -199,6 +199,7 @@ Public Class AltaUsuario
             End If
         End Try
         Limpiar()
+
     End Sub
 
 End Class

@@ -4,11 +4,10 @@ Public Class FrmLogin
 
     Private Sub BtnIngresar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnIngresar.Click
         Try
-            If Autentificar(TxtUser.Text, TxtPass.Text) = 1 Then
+            If AutenticarPaciente(TxtUser.Text, TxtPass.Text) = 1 Then
                 SetearSesion(TxtUser.Text, TxtPass.Text)
                 Me.Hide()
                 Frm_Menu.Show()
-
             Else
                 MsgBox("Usuario invalido")
 
@@ -22,17 +21,10 @@ Public Class FrmLogin
 
     End Sub
 
-    Private Sub AutenticarPaciente(usuario As String, contra As String)
-        Try
-            ControladorLogin.Autentificar(usuario, contra)
+    Private Function AutenticarPaciente(usuario As String, contra As String)
+        Return ControladorLogin.Autentificar(usuario, contra, 1)
 
-        Catch ex As Exception
-            MsgBox("Error de autentificacion")
-            'MsgBox("Usuario Invalido")
-
-        End Try
-
-    End Sub
+    End Function
 
     Private Sub SetearSesion(usuario As String, contra As String)
         Try

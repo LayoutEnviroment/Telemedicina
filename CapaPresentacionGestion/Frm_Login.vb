@@ -19,7 +19,7 @@ Public Class Frm_Login
     End Sub
 
     Private Function Autentificar(usuario As String, contra As String)
-        Return ControladorLogin.Autentificar(usuario, contra)
+        Return ControladorLogin.Autentificar(usuario, contra, 3)
     End Function
 
     Private Sub SetearSesion(usuario As String, contra As String, ci As String)
