@@ -17,7 +17,11 @@
             FROM
                 sintoma
             WHERE
-                nombre LIKE '%" + Me.Nombre + "%'"
+                nombre LIKE '%" + Me.Nombre + "%'
+                AND
+                    activo = 1
+            "
+
         Reader = Command.ExecuteReader()
         Return Reader
 
@@ -29,6 +33,8 @@
                 nombre AS Sintoma 
             FROM 
                 sintoma
+            WHERE
+                activo = 1
         "
         Reader = Command.ExecuteReader()
         Return Reader
@@ -41,6 +47,8 @@
                 id AS ID, nombre AS Nombre
             FROM
                 sintoma
+            WHERE
+                activo = 1
         "
 
         Reader = Command.ExecuteReader
@@ -72,6 +80,19 @@
 
     End Sub
 
+    Public Sub Modificar(nombre As String)
+        Command.CommandText = "
+            UPDATE
+                sintoma
+            SET
+                nombre = '" + nombre + "'
+            WHERE
+                nombre = '" + nombre + "'
+        "
+        Command.ExecuteNonQuery()
+
+    End Sub
+
     Public Sub Eliminar()
         Command.CommandText = "
             UPDATE 
@@ -85,4 +106,28 @@
 
     End Sub
 
+    Public Sub Eliminar(nombre As String)
+        Command.CommandText = "
+            UPDATE 
+                sintoma 
+            SET 
+                activo = 0 
+            WHERE 
+                nombre = " + nombre + "
+        "
+        Command.ExecuteNonQuery()
+    End Sub
+
+    Public Function ObtenerExistencia()
+        Command.CommandText = "
+            SELECT
+                COUNT(id)
+            FROM
+                sintoma
+            WHERE
+                nombre = '" + Me.Nombre + "' > 0
+        "
+        Return Command.ExecuteScalar.ToString
+
+    End Function
 End Class

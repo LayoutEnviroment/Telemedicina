@@ -132,9 +132,10 @@ Partial Class Frm_Menu
         Me.LblNombrePaciente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.LblNombrePaciente.Location = New System.Drawing.Point(41, 169)
         Me.LblNombrePaciente.Name = "LblNombrePaciente"
-        Me.LblNombrePaciente.Size = New System.Drawing.Size(63, 20)
+        Me.LblNombrePaciente.Size = New System.Drawing.Size(45, 13)
         Me.LblNombrePaciente.TabIndex = 10
         Me.LblNombrePaciente.Text = "Label1"
+        Me.LblNombrePaciente.Visible = False
         '
         'LblSexoPaciente
         '
@@ -142,9 +143,10 @@ Partial Class Frm_Menu
         Me.LblSexoPaciente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.LblSexoPaciente.Location = New System.Drawing.Point(41, 206)
         Me.LblSexoPaciente.Name = "LblSexoPaciente"
-        Me.LblSexoPaciente.Size = New System.Drawing.Size(63, 20)
+        Me.LblSexoPaciente.Size = New System.Drawing.Size(45, 13)
         Me.LblSexoPaciente.TabIndex = 11
         Me.LblSexoPaciente.Text = "Label1"
+        Me.LblSexoPaciente.Visible = False
         '
         'LblEdadPaciente
         '
@@ -152,9 +154,10 @@ Partial Class Frm_Menu
         Me.LblEdadPaciente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.LblEdadPaciente.Location = New System.Drawing.Point(41, 243)
         Me.LblEdadPaciente.Name = "LblEdadPaciente"
-        Me.LblEdadPaciente.Size = New System.Drawing.Size(63, 20)
+        Me.LblEdadPaciente.Size = New System.Drawing.Size(45, 13)
         Me.LblEdadPaciente.TabIndex = 12
         Me.LblEdadPaciente.Text = "Label1"
+        Me.LblEdadPaciente.Visible = False
         '
         'LstEnfermedades
         '
@@ -165,6 +168,7 @@ Partial Class Frm_Menu
         Me.LstEnfermedades.Size = New System.Drawing.Size(131, 228)
         Me.LstEnfermedades.TabIndex = 13
         Me.LstEnfermedades.UseCompatibleStateImageBehavior = False
+        Me.LstEnfermedades.Visible = False
         '
         'LstMedicaciones
         '
@@ -175,6 +179,7 @@ Partial Class Frm_Menu
         Me.LstMedicaciones.Size = New System.Drawing.Size(131, 228)
         Me.LstMedicaciones.TabIndex = 14
         Me.LstMedicaciones.UseCompatibleStateImageBehavior = False
+        Me.LstMedicaciones.Visible = False
         '
         'TmrBuscarChats
         '
@@ -195,12 +200,12 @@ Partial Class Frm_Menu
         Me.BtnConultas.Name = "BtnConultas"
         Me.BtnConultas.Size = New System.Drawing.Size(128, 29)
         Me.BtnConultas.TabIndex = 16
-        Me.BtnConultas.Text = "Conultas"
+        Me.BtnConultas.Text = "Consultas"
         Me.BtnConultas.UseVisualStyleBackColor = True
         '
         'Frm_Menu
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch

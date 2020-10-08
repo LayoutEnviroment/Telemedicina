@@ -15,7 +15,8 @@ Public Class FrmLogin
             End If
 
         Catch ex As Exception
-            MsgBox("Usuario Invalido")
+            MsgBox(ex.ToString)
+            'MsgBox("Usuario Invalido")
 
         End Try
 
@@ -26,7 +27,8 @@ Public Class FrmLogin
             ControladorLogin.Autentificar(usuario, contra)
 
         Catch ex As Exception
-            MsgBox("Usuario Invalido")
+            MsgBox("Error de autentificacion")
+            'MsgBox("Usuario Invalido")
 
         End Try
 
@@ -36,10 +38,11 @@ Public Class FrmLogin
         Try
             ControladorSesion.User = usuario
             ControladorSesion.Pass = contra
-            ControladorSesion.Cedula = ControladorUsuario.ObtenerCedula()
+            ControladorSesion.Cedula = TxtUser.Text
 
         Catch ex As Exception
-            MsgBox("Usuario Invalido")
+            MsgBox("Error en setear sesion" + ex.ToString)
+            'MsgBox("Usuario Invalido")
 
         End Try
 

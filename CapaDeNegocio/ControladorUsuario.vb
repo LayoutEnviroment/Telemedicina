@@ -2,7 +2,16 @@
 
 Public Module ControladorUsuario
 
-    Public Function CrearPersona(Nombre As String, Apellido As String, CI As String, Mail As String, TipoUsuario() As Boolean, FechaNacimiento As String, Sexo As String, EnfermedadesCronicas As List(Of String), Medicamentos As List(Of String), Contra As String)
+    Public Sub CrearPersona(Nombre As String,
+                                 Apellido As String,
+                                 CI As String,
+                                 Mail As String,
+                                 TipoUsuario() As Boolean,
+                                 FechaNacimiento As String,
+                                 Sexo As String,
+                                 EnfermedadesCronicas As List(Of String),
+                                 Medicamentos As List(Of String),
+                                 Contra As String)
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
             .Nombre = Nombre,
             .Apellido = Apellido,
@@ -15,10 +24,9 @@ Public Module ControladorUsuario
             .TipoDeUsuario = TipoUsuario,
             .Password = Contra
         }
-        Return u.NuevaPersona()
+        u.NuevaPersona()
 
-
-    End Function
+    End Sub
 
     Public Function ObtenerCorreo()
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
@@ -36,10 +44,6 @@ Public Module ControladorUsuario
         Return u.ObtenerNombreApellidoCedula
     End Function
 
-    Public Function ObtenerCedula()
-        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass)
-        Return u.ObtenerCedula()
-    End Function
     Public Function ObtenerCedulaMedico()
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass)
         Return u.ObtenerCiMedico()

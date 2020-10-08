@@ -49,8 +49,8 @@ Public Class Frm_Iniciar_Chat
             Frm_Chat.Show()
 
         Catch ex As Exception
-            'MsgBox(ex.ToString)
-            MsgBox("No pudimos ponerlo en cola de espera")
+            MsgBox(ex.ToString)
+            'MsgBox("No pudimos ponerlo en cola de espera")
 
         End Try
 

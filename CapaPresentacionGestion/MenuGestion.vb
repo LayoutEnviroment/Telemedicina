@@ -6,15 +6,10 @@ Public Class MenuGestion
         FormEnfermedad.Show()
     End Sub
 
-    Private Sub BtnSintoma_Click(sender As Object, e As EventArgs)
-        Me.Hide()
-        FormSintoma.Show()
-    End Sub
-
-    Private Sub BtnCompone_Click(sender As Object, e As EventArgs)
-        Me.Hide()
-        FormCompone.Show()
-    End Sub
+    'Private Sub BtnSintoma_Click(sender As Object, e As EventArgs)
+    '    Me.Hide()
+    '    FormSintoma.Show()
+    'End Sub
 
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Me.Hide()
@@ -41,5 +36,28 @@ Public Class MenuGestion
         Me.Hide()
         ModificarUsuarioMedico.Show()
 
+    End Sub
+
+    Private Sub ModificarToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ModificarToolStripMenuItem1.Click
+        Me.Hide()
+        FrmModificarSintoma.Show()
+
+    End Sub
+
+    Private Sub NuevoToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem1.Click
+        Me.Hide()
+        FrmNuevoSintoma.Show()
+
+    End Sub
+
+    Private Sub EliminarToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles EliminarToolStripMenuItem1.Click
+        Me.Hide()
+        FrmEliminarSintoma.Show()
+
+    End Sub
+
+    Private Sub SintomaToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SintomaToolStripMenuItem1.Click
+        Me.Hide()
+        FrmSintomasCsv.Show()
     End Sub
 End Class

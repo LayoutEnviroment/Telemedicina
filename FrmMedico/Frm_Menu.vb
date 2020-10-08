@@ -83,9 +83,11 @@ Public Class Frm_Menu
             Else
                 LblSexoPaciente.Text = "Mujer"
             End If
-            LblEdadPaciente.Text = ObtenerEdadPaciente(Lector(4).ToString) + " Años"
-
+            Dim Edad As String = ObtenerEdadPaciente(Lector(4).ToString)
+            LblEdadPaciente.Text = Edad + " Años"
+            MostrarDatosPaciente(True)
         End While
+
     End Sub
 
     Private Function ObtenerEdadPaciente(FechaNacimiento As Date)
@@ -233,7 +235,7 @@ Public Class Frm_Menu
             'MsgBox("Error en la actualizacion del estado del chat")
 
         End Try
-
+        MostrarDatosPaciente(False)
         CambiosEnForm()
 
     End Sub
