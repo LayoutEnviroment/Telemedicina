@@ -9,10 +9,6 @@ Public Class AltaUsuario
     Dim Sexo As String
     Dim Contra As String
 
-    Private Sub AltaUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
     Private Sub ChbPaciente_CheckedChanged(sender As Object, e As EventArgs) Handles ChbPaciente.CheckedChanged
 
         If ChbPaciente.Checked Then
@@ -96,14 +92,6 @@ Public Class AltaUsuario
     Private Sub BtnAgregarMedicacion_Click(sender As Object, e As EventArgs) Handles BtnAgregarMedicacion.Click
         LstMedicacion.Items.Add(TxtMedicacion.Text)
         TxtMedicacion.Clear()
-
-    End Sub
-
-    Private Sub RdbM_CheckedChanged(sender As Object, e As EventArgs) Handles RdbM.CheckedChanged
-
-    End Sub
-
-    Private Sub RdbF_CheckedChanged(sender As Object, e As EventArgs) Handles RdbF.CheckedChanged
 
     End Sub
 
@@ -191,7 +179,12 @@ Public Class AltaUsuario
 
     End Sub
     Private Sub CrearContra()
-        Contra = TxtCI.Text
+        Dim rdm As New Random
+        Dim CarPermitidos() As Char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLOMNOPQRSTUVWXYZ0123456789".ToCharArray()
+        For i As Integer = 0 To 8
+            Contra += CarPermitidos(rdm.Next(0, CarPermitidos.Length))
+        Next
+        MsgBox(Contra)
     End Sub
 
 
