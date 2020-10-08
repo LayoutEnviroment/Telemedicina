@@ -109,6 +109,12 @@
     <Compile Include="FrmNuevoSintoma.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmSintomasCsv.Designer.vb">
+      <DependentUpon>FrmSintomasCsv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSintomasCsv.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Frm_Login.Designer.vb">
       <DependentUpon>Frm_Login.vb</DependentUpon>
     </Compile>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNuevoSintoma.resx">
       <DependentUpon>FrmNuevoSintoma.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSintomasCsv.resx">
+      <DependentUpon>FrmSintomasCsv.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Login.resx">
       <DependentUpon>Frm_Login.vb</DependentUpon>
