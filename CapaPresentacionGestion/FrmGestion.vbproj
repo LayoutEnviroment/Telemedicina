@@ -79,18 +79,6 @@
     <Compile Include="AltaUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormABMEnfermedad.Designer.vb">
-      <DependentUpon>FormABMEnfermedad.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FormABMEnfermedad.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormEnfermedad.Designer.vb">
-      <DependentUpon>FormEnfermedad.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FormEnfermedad.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="FrmEliminarSintoma.Designer.vb">
       <DependentUpon>FrmEliminarSintoma.vb</DependentUpon>
     </Compile>
@@ -101,6 +89,12 @@
       <DependentUpon>FrmModificarSintoma.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmModificarSintoma.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNuevaEnfermedad.Designer.vb">
+      <DependentUpon>FrmNuevaEnfermedad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNuevaEnfermedad.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmNuevoSintoma.Designer.vb">
@@ -160,17 +154,14 @@
     <EmbeddedResource Include="AltaUsuario.resx">
       <DependentUpon>AltaUsuario.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormABMEnfermedad.resx">
-      <DependentUpon>FormABMEnfermedad.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEnfermedad.resx">
-      <DependentUpon>FormEnfermedad.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmEliminarSintoma.resx">
       <DependentUpon>FrmEliminarSintoma.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmModificarSintoma.resx">
       <DependentUpon>FrmModificarSintoma.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNuevaEnfermedad.resx">
+      <DependentUpon>FrmNuevaEnfermedad.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNuevoSintoma.resx">
       <DependentUpon>FrmNuevoSintoma.vb</DependentUpon>

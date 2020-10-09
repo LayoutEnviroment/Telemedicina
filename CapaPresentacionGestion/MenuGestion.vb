@@ -1,16 +1,6 @@
 ﻿Imports CapaDeNegocio
 
 Public Class MenuGestion
-    Private Sub BtnEnfermedad_Click(sender As Object, e As EventArgs)
-        Me.Hide()
-        FormEnfermedad.Show()
-    End Sub
-
-    'Private Sub BtnSintoma_Click(sender As Object, e As EventArgs)
-    '    Me.Hide()
-    '    FormSintoma.Show()
-    'End Sub
-
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Me.Hide()
         AltaUsuario.Show()
@@ -59,5 +49,10 @@ Public Class MenuGestion
     Private Sub SintomaToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SintomaToolStripMenuItem1.Click
         Me.Hide()
         FrmSintomasCsv.Show()
+    End Sub
+
+    Private Sub NuevoToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem2.Click
+        Me.Hide()
+        FrmNuevaEnfermedad.Show()
     End Sub
 End Class

@@ -14,11 +14,15 @@ Public Module ControladorEnfermedad
         Return e.ListarNombreEnfermedad()
     End Function
 
-    Public Sub CrearEnfermedad(nombre As String, descripcion As String, prioridad As String)
+    Public Sub CrearEnfermedad(nombre As String,
+                               descripcion As String,
+                               prioridad As String,
+                               sintomas As List(Of String))
         Dim e As New ModeloEnfermedad(ControladorSesion.User, ControladorSesion.Pass) With {
             .Nombre = nombre,
             .Descripcion = descripcion,
-            .Prioridad = prioridad
+            .Prioridad = prioridad,
+            .Sintomas = sintomas
         }
 
         e.Insertar()
@@ -77,5 +81,13 @@ Public Module ControladorEnfermedad
         }
 
         Return e.ObtenerTodo()
+    End Function
+
+    Public Function ObtenerExistencia(nombre As String)
+        Dim e As New ModeloEnfermedad(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Nombre = nombre
+        }
+        Return e.ObtenerExistencia()
+
     End Function
 End Module

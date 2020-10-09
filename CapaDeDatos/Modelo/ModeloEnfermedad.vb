@@ -9,6 +9,58 @@
     Public Nombre As String
     Public Descripcion As String
     Public Prioridad As String
+    Public Sintomas As New List(Of String)
+
+
+    Public Sub Insertar()
+        Try
+            Command.CommandText = "SET AUTOCOMMIT = OFF"
+            Command.ExecuteNonQuery()
+            Command.CommandText = "START TRANSACTION"
+            Command.ExecuteNonQuery()
+
+
+            Command.CommandText = "
+            INSERT INTO 
+                enfermedad(nombre,descripcion,prioridad) 
+            VALUES
+                ('" + Me.Nombre + "','" + Me.Descripcion + "','" + Me.Prioridad + "')
+            "
+            Command.ExecuteNonQuery()
+
+            For Each sintoma In Sintomas
+                Command.CommandText = "
+                    INSERT INTO
+                        compone(id_sintoma, id_enfermedad)
+                    VALUES
+                        ((SELECT
+                            id
+                        FROM
+                            sintoma
+                        WHERE
+                            nombre = '" + sintoma + "'),
+                        (SELECT
+                            id
+                        FROM
+                            enfermedad
+                        WHERE
+                            nombre = '" + Nombre + "'))
+
+                "
+                Command.ExecuteNonQuery()
+
+            Next
+
+            Command.CommandText = "COMMIT"
+            Command.ExecuteNonQuery()
+        Catch ex As Exception
+            Command.CommandText = "ROLLBACK"
+            Command.ExecuteNonQuery()
+            MsgBox(ex.ToString)
+        End Try
+
+
+    End Sub
 
     Public Function Listar()
         Command.CommandText = "
@@ -54,17 +106,6 @@
 
     End Function
 
-    Public Sub Insertar()
-        Command.CommandText = "
-            INSERT INTO 
-                enfermedad(nombre,descripcion,prioridad) 
-            VALUES
-                ('" + Me.Nombre + "','" + Me.Descripcion + "','" + Me.Prioridad + "')
-        "
-        Command.ExecuteNonQuery()
-
-    End Sub
-
     Public Sub Modificar()
         Command.CommandText = "
             UPDATE 
@@ -103,8 +144,6 @@
         Return Command.ExecuteScalar.ToString()
 
     End Function
-
-
 
     Public Function ObtenerPrioridad()
         Command.CommandText = "
@@ -151,5 +190,21 @@
         Return Reader
 
     End Function
+
+    Public Function ObtenerExistencia()
+        Command.CommandText = "
+            SELECT
+                COUNT(id)
+            FROM
+                enfermedad
+            WHERE 
+                nombre = '" + Me.Nombre + "'
+                AND
+                activo = 1 > 0
+        "
+        Return Command.ExecuteScalar.ToString()
+
+    End Function
+
 End Class
 
