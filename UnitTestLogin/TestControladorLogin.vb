@@ -7,7 +7,7 @@ Imports CapaDeNegocio
     <TestMethod()> Public Sub TestAutenticar()
         Dim resultado As Boolean
         Try
-            Assert.IsTrue(ControladorLogin.Autentificar("admin", "3"))
+            Assert.IsTrue(ControladorLogin.Autentificar("admin", "3", "3"))
             resultado = True
         Catch ex As Exception
             resultado = False
