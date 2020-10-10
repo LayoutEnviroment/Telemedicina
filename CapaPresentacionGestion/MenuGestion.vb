@@ -60,4 +60,9 @@ Public Class MenuGestion
         Me.Hide()
         FrmEliminarEnfermedad.Show()
     End Sub
+
+    Private Sub ModificarToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ModificarToolStripMenuItem2.Click
+        Me.Hide()
+        FrmModificarEnfermedad.Show()
+    End Sub
 End Class

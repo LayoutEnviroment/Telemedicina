@@ -187,7 +187,7 @@ Partial Class MenuGestion
         Me.Controls.Add(Me.LblBienvenida)
         Me.Controls.Add(Me.MenuGestor)
         Me.MainMenuStrip = Me.MenuGestor
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "MenuGestion"
         Me.Text = "Menu"
         Me.MenuGestor.ResumeLayout(False)

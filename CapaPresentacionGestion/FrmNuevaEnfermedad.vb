@@ -12,7 +12,7 @@ Public Class FrmNuevaEnfermedad
     Private Sub CargarSintomas()
         Dim LectorSintomas As IDataReader
         Try
-            LectorSintomas = ControladorSintoma.ListarNombre()
+            LectorSintomas = ControladorSintoma.ListarNombreSintomaActivo()
             CargarCmbSintomas(LectorSintomas)
         Catch ex As Exception
             MsgBox(ex.ToString + "No se pudieron cargar los sintomas")

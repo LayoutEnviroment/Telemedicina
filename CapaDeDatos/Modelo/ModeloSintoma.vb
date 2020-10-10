@@ -27,7 +27,7 @@
 
     End Function
 
-    Public Function ListarNombreSintoma()
+    Public Function ListarNombreSintomaActivo()
         Command.CommandText = "
             SELECT 
                 nombre AS Sintoma 
@@ -35,6 +35,20 @@
                 sintoma
             WHERE
                 activo = 1
+        "
+        Reader = Command.ExecuteReader()
+        Return Reader
+
+    End Function
+
+    Public Function ListarNombreSintomaInactivo()
+        Command.CommandText = "
+            SELECT 
+                nombre AS Sintoma 
+            FROM 
+                sintoma
+            WHERE
+                activo = 0
         "
         Reader = Command.ExecuteReader()
         Return Reader

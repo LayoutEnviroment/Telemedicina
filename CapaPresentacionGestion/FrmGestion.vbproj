@@ -172,6 +172,9 @@
     <EmbeddedResource Include="FrmEliminarSintoma.resx">
       <DependentUpon>FrmEliminarSintoma.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificarEnfermedad.resx">
+      <DependentUpon>FrmModificarEnfermedad.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmModificarSintoma.resx">
       <DependentUpon>FrmModificarSintoma.vb</DependentUpon>
     </EmbeddedResource>

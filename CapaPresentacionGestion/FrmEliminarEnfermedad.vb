@@ -31,6 +31,7 @@ Public Class FrmEliminarEnfermedad
     Private Sub CmbEnfermedades_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbEnfermedades.SelectedIndexChanged
         Try
             ObtenerDatos(ControladorEnfermedad.ObtenerId(CmbEnfermedades.SelectedItem.ToString))
+            BtnEliminar.Enabled = True
         Catch ex As Exception
             MsgBox("No se pudo identificar la enfermedad")
         End Try
@@ -78,6 +79,7 @@ Public Class FrmEliminarEnfermedad
     End Sub
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
+        Limpiar()
         Me.Hide()
         MenuGestion.Show()
     End Sub
@@ -86,5 +88,6 @@ Public Class FrmEliminarEnfermedad
         TxtDescripcion.Text = ""
         TxtPrioridad.Text = ""
         LstSintomas.Clear()
+        BtnEliminar.Enabled = False
     End Sub
 End Class

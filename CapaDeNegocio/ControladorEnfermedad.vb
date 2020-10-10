@@ -34,7 +34,10 @@ Public Module ControladorEnfermedad
         e.Insertar()
     End Sub
 
-    Public Sub CambiarNombreDeEnfermedad(idEnfermedad As String, nombre As String, descripcion As String, prioridad As String)
+    Public Sub CambiarEnfermedad(idEnfermedad As String,
+                                 nombre As String,
+                                 descripcion As String,
+                                 prioridad As String)
         Dim e As New ModeloEnfermedad(ControladorSesion.User, ControladorSesion.Pass) With {
             .Id = idEnfermedad,
             .Nombre = nombre,
@@ -43,6 +46,22 @@ Public Module ControladorEnfermedad
         }
 
         e.Modificar()
+    End Sub
+
+    Public Sub CambiarEnfermedadYSintomas(idEnfermedad As String,
+                                          nombre As String,
+                                          descripcion As String,
+                                          prioridad As String,
+                                          sintomas As List(Of String))
+        Dim e As New ModeloEnfermedad(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Id = idEnfermedad,
+            .Nombre = nombre,
+            .Descripcion = descripcion,
+            .Prioridad = prioridad,
+            .Sintomas = sintomas
+        }
+        e.CambiarEnfermedadYSintomas()
+
     End Sub
 
     Public Sub EliminarEnfermedad(id As String)

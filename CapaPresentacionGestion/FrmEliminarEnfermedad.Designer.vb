@@ -34,6 +34,8 @@ Partial Class FrmEliminarEnfermedad
         '
         'CmbEnfermedades
         '
+        Me.CmbEnfermedades.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.CmbEnfermedades.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.CmbEnfermedades.FormattingEnabled = True
         Me.CmbEnfermedades.Location = New System.Drawing.Point(59, 66)
         Me.CmbEnfermedades.Name = "CmbEnfermedades"
@@ -51,6 +53,7 @@ Partial Class FrmEliminarEnfermedad
         '
         'TxtDescripcion
         '
+        Me.TxtDescripcion.Enabled = False
         Me.TxtDescripcion.Location = New System.Drawing.Point(48, 134)
         Me.TxtDescripcion.Name = "TxtDescripcion"
         Me.TxtDescripcion.Size = New System.Drawing.Size(145, 20)
@@ -58,6 +61,7 @@ Partial Class FrmEliminarEnfermedad
         '
         'TxtPrioridad
         '
+        Me.TxtPrioridad.Enabled = False
         Me.TxtPrioridad.Location = New System.Drawing.Point(48, 175)
         Me.TxtPrioridad.Multiline = True
         Me.TxtPrioridad.Name = "TxtPrioridad"
@@ -66,6 +70,7 @@ Partial Class FrmEliminarEnfermedad
         '
         'LstSintomas
         '
+        Me.LstSintomas.Enabled = False
         Me.LstSintomas.HideSelection = False
         Me.LstSintomas.Location = New System.Drawing.Point(230, 66)
         Me.LstSintomas.MultiSelect = False
@@ -77,6 +82,7 @@ Partial Class FrmEliminarEnfermedad
         '
         'BtnEliminar
         '
+        Me.BtnEliminar.Enabled = False
         Me.BtnEliminar.Location = New System.Drawing.Point(408, 90)
         Me.BtnEliminar.Name = "BtnEliminar"
         Me.BtnEliminar.Size = New System.Drawing.Size(89, 37)

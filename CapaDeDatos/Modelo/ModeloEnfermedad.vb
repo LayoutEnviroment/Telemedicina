@@ -127,11 +127,77 @@
             UPDATE 
                 enfermedad 
             SET 
-                nombre = '" + Me.Nombre + "',descripcion = '" + Me.Descripcion + "',prioridad ='" + Me.Prioridad + "' 
+                nombre = '" + Me.Nombre + "',
+                descripcion = '" + Me.Descripcion + "',
+                prioridad ='" + Me.Prioridad + "' 
             WHERE 
                 id = " + Me.Id + "
         "
         Command.ExecuteNonQuery()
+
+    End Sub
+
+    Public Sub CambiarEnfermedadYSintomas()
+        Try
+            Command.CommandText = "SET AUTOCOMMIT = OFF"
+            Command.ExecuteNonQuery()
+            Command.CommandText = "START TRANSACTION"
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                UPDATE
+                    enfermedad
+                SET 
+                    nombre = '" + Me.Nombre + "',
+                    descripcion = '" + Me.Descripcion + "',
+                    prioridad ='" + Me.Prioridad + "' 
+                WHERE 
+                    id = " + Me.Id + "
+            "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "SET FOREIGN_KEY_CHECKS=0"
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                DELETE FROM
+                    compone
+                WHERE
+                    id_enfermedad = " + Me.Id + "
+            "
+            Command.ExecuteNonQuery()
+
+            For Each sintoma In Sintomas
+                Command.CommandText = "
+                    INSERT INTO
+                        compone(id_sintoma, id_enfermedad)
+                    VALUES
+                        ((SELECT
+                            id
+                          FROM
+                            sintoma
+                          WHERE
+                            nombre = '" + sintoma + "'),
+                        " + Me.Id + "
+                            )
+                "
+                Command.ExecuteNonQuery()
+
+            Next
+
+            Command.CommandText = "SET FOREIGN_KEY_CHECKS=1"
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "COMMIT"
+            Command.ExecuteNonQuery()
+
+        Catch ex As Exception
+            Command.CommandText = "ROLLBACK"
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "SET FOREIGN_KEY_CHECKS=1"
+            Command.ExecuteNonQuery()
+        End Try
 
     End Sub
 
