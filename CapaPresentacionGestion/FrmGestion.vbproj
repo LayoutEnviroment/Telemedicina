@@ -79,10 +79,22 @@
     <Compile Include="AltaUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmEliminarEnfermedad.Designer.vb">
+      <DependentUpon>FrmEliminarEnfermedad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEliminarEnfermedad.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmEliminarSintoma.Designer.vb">
       <DependentUpon>FrmEliminarSintoma.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmEliminarSintoma.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModificarEnfermedad.Designer.vb">
+      <DependentUpon>FrmModificarEnfermedad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModificarEnfermedad.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmModificarSintoma.Designer.vb">
@@ -153,6 +165,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AltaUsuario.resx">
       <DependentUpon>AltaUsuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEliminarEnfermedad.resx">
+      <DependentUpon>FrmEliminarEnfermedad.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEliminarSintoma.resx">
       <DependentUpon>FrmEliminarSintoma.vb</DependentUpon>

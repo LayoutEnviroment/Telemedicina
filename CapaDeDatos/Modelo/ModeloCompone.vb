@@ -117,4 +117,22 @@
 
     End Sub
 
+    Public Function ObtenerSintomasEnfermedad()
+        Command.CommandText = "
+            SELECT
+                s.nombre
+            FROM
+                compone c 
+                    JOIN
+                        sintoma s
+                            ON
+                                c.id_sintoma = s.id
+            WHERE
+                id_enfermedad = " + Me.IdEnfermedad + "
+        "
+        Reader = Command.ExecuteReader()
+        Return Reader
+
+    End Function
+
 End Class

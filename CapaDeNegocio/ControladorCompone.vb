@@ -27,4 +27,11 @@ Public Module ControladorCompone
         c.Insertar()
     End Sub
 
+    Public Function ObtenerSintomasEnfermedad(enfermedad As String)
+        Dim c As New ModeloCompone(ControladorSesion.User, ControladorSesion.Pass) With {
+            .IdEnfermedad = enfermedad
+        }
+
+        Return c.ObtenerSintomasEnfermedad()
+    End Function
 End Module

@@ -8,10 +8,16 @@ Public Module ControladorEnfermedad
         Return e.Listar()
     End Function
 
-    Public Function ListarNombre()
+    Public Function ListarNombreEnfermedadesInactivas()
         Dim e As New ModeloEnfermedad(ControladorSesion.User, ControladorSesion.Pass)
 
-        Return e.ListarNombreEnfermedad()
+        Return e.ListarNombreEnfermedadesInactivas()
+    End Function
+
+    Public Function ListarNombreEnfermedadesActivas()
+        Dim e As New ModeloEnfermedad(ControladorSesion.User, ControladorSesion.Pass)
+
+        Return e.ListarNombreEnfermedadesActivas()
     End Function
 
     Public Sub CrearEnfermedad(nombre As String,

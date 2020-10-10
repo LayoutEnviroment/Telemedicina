@@ -79,12 +79,28 @@
 
     End Function
 
-    Public Function ListarNombreEnfermedad()
+    Public Function ListarNombreEnfermedadesActivas()
+        Command.CommandText = "
+            SELECT
+                nombre 
+            FROM
+                enfermedad
+            WHERE
+                activo = 1
+        "
+        Reader = Command.ExecuteReader()
+        Return Reader
+
+    End Function
+
+    Public Function ListarNombreEnfermedadesInactivas()
         Command.CommandText = "
             SELECT 
-                nombre AS Enfermedad 
+                nombre
             FROM 
                 enfermedad
+            WHERE
+                activo = 0
         "
         Reader = Command.ExecuteReader()
         Return Reader
@@ -121,13 +137,14 @@
 
     Public Sub Eliminar()
         Command.CommandText = "
-            UPDATE 
-                enfermedad 
-            SET 
-                activo = 0 
-            WHERE id = " + Me.Id + "
-        "
-        Command.ExecuteNonQuery()
+                UPDATE
+                    enfermedad
+                SET
+                    activo = 0
+                WHERE
+                    id = '" + Me.Id + "'
+            "
+        Command.ExecuteReader()
 
     End Sub
 
