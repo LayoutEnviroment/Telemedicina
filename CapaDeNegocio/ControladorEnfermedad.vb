@@ -34,6 +34,22 @@ Public Module ControladorEnfermedad
         e.Insertar()
     End Sub
 
+    Public Sub ActivarEnfermedad(nombre As String)
+        Dim e As New ModeloEnfermedad(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Nombre = nombre
+        }
+
+        e.ActivarEnfermedad()
+    End Sub
+
+    Public Function EstaInactivo(nombre As String)
+        Dim e As New ModeloEnfermedad(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Nombre = nombre
+        }
+
+        Return e.EstaInactivo()
+    End Function
+
     Public Sub CambiarEnfermedad(idEnfermedad As String,
                                  nombre As String,
                                  descripcion As String,

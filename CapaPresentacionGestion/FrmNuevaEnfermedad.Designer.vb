@@ -40,7 +40,7 @@ Partial Class FrmNuevaEnfermedad
         'TxtNombre
         '
         Me.TxtNombre.Location = New System.Drawing.Point(78, 39)
-        Me.TxtNombre.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TxtNombre.Margin = New System.Windows.Forms.Padding(2)
         Me.TxtNombre.Name = "TxtNombre"
         Me.TxtNombre.Size = New System.Drawing.Size(137, 20)
         Me.TxtNombre.TabIndex = 0
@@ -48,7 +48,7 @@ Partial Class FrmNuevaEnfermedad
         'TxtDescripcion
         '
         Me.TxtDescripcion.Location = New System.Drawing.Point(78, 105)
-        Me.TxtDescripcion.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TxtDescripcion.Margin = New System.Windows.Forms.Padding(2)
         Me.TxtDescripcion.Multiline = True
         Me.TxtDescripcion.Name = "TxtDescripcion"
         Me.TxtDescripcion.Size = New System.Drawing.Size(137, 18)
@@ -60,7 +60,7 @@ Partial Class FrmNuevaEnfermedad
         Me.CmbPrioridad.FormattingEnabled = True
         Me.CmbPrioridad.Items.AddRange(New Object() {"ALTA", "MEDIA", "BAJA"})
         Me.CmbPrioridad.Location = New System.Drawing.Point(78, 248)
-        Me.CmbPrioridad.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.CmbPrioridad.Margin = New System.Windows.Forms.Padding(2)
         Me.CmbPrioridad.Name = "CmbPrioridad"
         Me.CmbPrioridad.Size = New System.Drawing.Size(137, 21)
         Me.CmbPrioridad.TabIndex = 2
@@ -81,7 +81,7 @@ Partial Class FrmNuevaEnfermedad
         Me.CmbSintomas.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.CmbSintomas.FormattingEnabled = True
         Me.CmbSintomas.Location = New System.Drawing.Point(254, 38)
-        Me.CmbSintomas.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.CmbSintomas.Margin = New System.Windows.Forms.Padding(2)
         Me.CmbSintomas.Name = "CmbSintomas"
         Me.CmbSintomas.Size = New System.Drawing.Size(130, 21)
         Me.CmbSintomas.TabIndex = 4
@@ -90,7 +90,7 @@ Partial Class FrmNuevaEnfermedad
         '
         Me.LstSintomasSeleccionados.HideSelection = False
         Me.LstSintomasSeleccionados.Location = New System.Drawing.Point(254, 76)
-        Me.LstSintomasSeleccionados.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.LstSintomasSeleccionados.Margin = New System.Windows.Forms.Padding(2)
         Me.LstSintomasSeleccionados.Name = "LstSintomasSeleccionados"
         Me.LstSintomasSeleccionados.Size = New System.Drawing.Size(130, 191)
         Me.LstSintomasSeleccionados.TabIndex = 5
@@ -131,7 +131,7 @@ Partial Class FrmNuevaEnfermedad
         '
         Me.BtnCrear.Enabled = False
         Me.BtnCrear.Location = New System.Drawing.Point(461, 29)
-        Me.BtnCrear.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.BtnCrear.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnCrear.Name = "BtnCrear"
         Me.BtnCrear.Size = New System.Drawing.Size(87, 27)
         Me.BtnCrear.TabIndex = 9
@@ -141,7 +141,7 @@ Partial Class FrmNuevaEnfermedad
         'BtnLimpiar
         '
         Me.BtnLimpiar.Location = New System.Drawing.Point(461, 90)
-        Me.BtnLimpiar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.BtnLimpiar.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnLimpiar.Name = "BtnLimpiar"
         Me.BtnLimpiar.Size = New System.Drawing.Size(87, 32)
         Me.BtnLimpiar.TabIndex = 10
@@ -151,7 +151,7 @@ Partial Class FrmNuevaEnfermedad
         'BtnVolver
         '
         Me.BtnVolver.Location = New System.Drawing.Point(461, 154)
-        Me.BtnVolver.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.BtnVolver.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnVolver.Name = "BtnVolver"
         Me.BtnVolver.Size = New System.Drawing.Size(87, 27)
         Me.BtnVolver.TabIndex = 11
@@ -171,7 +171,7 @@ Partial Class FrmNuevaEnfermedad
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(664, 318)
+        Me.ClientSize = New System.Drawing.Size(660, 319)
         Me.Controls.Add(Me.LblDisponible)
         Me.Controls.Add(Me.BtnVolver)
         Me.Controls.Add(Me.BtnLimpiar)
@@ -185,7 +185,7 @@ Partial Class FrmNuevaEnfermedad
         Me.Controls.Add(Me.CmbPrioridad)
         Me.Controls.Add(Me.TxtDescripcion)
         Me.Controls.Add(Me.TxtNombre)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "FrmNuevaEnfermedad"
         Me.Text = "FrmNuevaEnfermedad"
         Me.ResumeLayout(False)

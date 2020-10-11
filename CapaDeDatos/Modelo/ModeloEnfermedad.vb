@@ -59,8 +59,35 @@
             MsgBox(ex.ToString)
         End Try
 
+    End Sub
+
+    Public Sub ActivarEnfermedad()
+        Command.CommandText = "
+            UPDATE 
+                enfermedad
+            SET 
+                activo = 1
+            WHERE
+                nombre = '" + Me.Nombre + "'
+        "
+        Command.ExecuteNonQuery()
 
     End Sub
+
+    Public Function EstaInactivo()
+        Command.CommandText = "
+            SELECT
+                COUNT(id)
+            FROM
+                enfermedad
+            WHERE
+                nombre = '" + Me.Nombre + "'
+                AND
+                    activo = 0 > 0
+        "
+        Return Command.ExecuteScalar.ToString()
+
+    End Function
 
     Public Function Listar()
         Command.CommandText = "
@@ -281,9 +308,7 @@
             FROM
                 enfermedad
             WHERE 
-                nombre = '" + Me.Nombre + "'
-                AND
-                activo = 1 > 0
+                nombre = '" + Me.Nombre + "' > 0
         "
         Return Command.ExecuteScalar.ToString()
 

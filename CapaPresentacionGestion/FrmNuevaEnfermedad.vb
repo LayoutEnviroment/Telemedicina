@@ -67,6 +67,23 @@ Public Class FrmNuevaEnfermedad
     End Sub
 
     Private Sub BtnCrear_Click(sender As Object, e As EventArgs) Handles BtnCrear.Click
+        If BtnCrear.Text = "Activar" Then
+            Actualizar()
+        Else
+            Crear()
+        End If
+
+    End Sub
+
+    Private Sub Actualizar()
+        Try
+            ControladorEnfermedad.ActivarEnfermedad(TxtNombre.Text)
+        Catch ex As Exception
+            MsgBox("No se pudo actualizar la enfermedad")
+        End Try
+    End Sub
+
+    Private Sub Crear()
         Try
             ControladorEnfermedad.CrearEnfermedad(TxtNombre.Text,
                                                   TxtDescripcion.Text,
@@ -77,7 +94,6 @@ Public Class FrmNuevaEnfermedad
         Catch ex As Exception
             MsgBox(ex.ToString + "No se pudo ingresar la enfermedad")
         End Try
-
     End Sub
 
     Private Sub BtnLimpiar_Click(sender As Object, e As EventArgs) Handles BtnLimpiar.Click
@@ -101,14 +117,54 @@ Public Class FrmNuevaEnfermedad
     End Sub
 
     Private Sub TxtNombre_TextChanged(sender As Object, e As EventArgs) Handles TxtNombre.TextChanged
-        If ControladorEnfermedad.ObtenerExistencia(TxtNombre.Text) Or TxtNombre.Text = "" Then
-            LblDisponible.Text = "Enfermedad existente o campo vacio"
+        If ControladorEnfermedad.ObtenerExistencia(TxtNombre.Text) = 1 Then
+            MsgBox("Reviso activo")
+            RevisarActivo()
+
+        ElseIf TxtNombre.Text = "" Then
+            LblDisponible.Text = "El nombre no puede estar vacio"
             Nombre = False
+            ManejarActivacion(True)
+
         Else
             LblDisponible.Text = "Nombre disponible"
             Nombre = True
+            ManejarActivacion(True)
+
         End If
+
         HabilitarCreacion()
+    End Sub
+
+    Private Sub RevisarActivo()
+        Try
+            If ControladorEnfermedad.EstaInactivo(TxtNombre.Text) = 1 Then
+                MsgBox(ControladorEnfermedad.EstaInactivo(TxtNombre.Text))
+                ManejarActivacion(False)
+            Else
+                LblDisponible.Text = "Esta enfermedad ya existe"
+                ManejarActivacion(True)
+                Nombre = False
+            End If
+
+        Catch ex As Exception
+            MsgBox("No se pudo obtener el estado de la enfermedad")
+
+        End Try
+    End Sub
+
+    Private Sub ManejarActivacion(Estado As Boolean)
+        If Estado = False Then
+            BtnCrear.Text = "Activar"
+        Else
+            BtnCrear.Text = "Crear"
+        End If
+
+        TxtDescripcion.Enabled = Estado
+        CmbPrioridad.Enabled = Estado
+        CmbSintomas.Enabled = Estado
+        LstSintomasSeleccionados.Enabled = Estado
+
     End Sub
 
     Private Sub HabilitarCreacion()
