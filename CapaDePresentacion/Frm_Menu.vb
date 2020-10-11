@@ -24,7 +24,7 @@ Public Class Frm_Menu
     Private Sub CargarSintoma()
         Dim LectorSintomas As IDataReader
         Try
-            LectorSintomas = ControladorSintoma.ListarNombre()
+            LectorSintomas = ControladorSintoma.ListarNombreSintomaActivo()
 
             While LectorSintomas.Read
                 CmbSintomas.Items.Add(LectorSintomas(0))

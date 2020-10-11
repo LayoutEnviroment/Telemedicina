@@ -8,10 +8,16 @@ Public Module ControladorEnfermedad
         Return e.Listar()
     End Function
 
-    Public Function ListarNombre()
+    Public Function ListarNombreEnfermedadesInactivas()
         Dim e As New ModeloEnfermedad(ControladorSesion.User, ControladorSesion.Pass)
 
-        Return e.ListarNombreEnfermedad()
+        Return e.ListarNombreEnfermedadesInactivas()
+    End Function
+
+    Public Function ListarNombreEnfermedadesActivas()
+        Dim e As New ModeloEnfermedad(ControladorSesion.User, ControladorSesion.Pass)
+
+        Return e.ListarNombreEnfermedadesActivas()
     End Function
 
     Public Sub CrearEnfermedad(nombre As String,
@@ -28,7 +34,26 @@ Public Module ControladorEnfermedad
         e.Insertar()
     End Sub
 
-    Public Sub CambiarNombreDeEnfermedad(idEnfermedad As String, nombre As String, descripcion As String, prioridad As String)
+    Public Sub ActivarEnfermedad(nombre As String)
+        Dim e As New ModeloEnfermedad(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Nombre = nombre
+        }
+
+        e.ActivarEnfermedad()
+    End Sub
+
+    Public Function EstaInactivo(nombre As String)
+        Dim e As New ModeloEnfermedad(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Nombre = nombre
+        }
+
+        Return e.EstaInactivo()
+    End Function
+
+    Public Sub CambiarEnfermedad(idEnfermedad As String,
+                                 nombre As String,
+                                 descripcion As String,
+                                 prioridad As String)
         Dim e As New ModeloEnfermedad(ControladorSesion.User, ControladorSesion.Pass) With {
             .Id = idEnfermedad,
             .Nombre = nombre,
@@ -37,6 +62,22 @@ Public Module ControladorEnfermedad
         }
 
         e.Modificar()
+    End Sub
+
+    Public Sub CambiarEnfermedadYSintomas(idEnfermedad As String,
+                                          nombre As String,
+                                          descripcion As String,
+                                          prioridad As String,
+                                          sintomas As List(Of String))
+        Dim e As New ModeloEnfermedad(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Id = idEnfermedad,
+            .Nombre = nombre,
+            .Descripcion = descripcion,
+            .Prioridad = prioridad,
+            .Sintomas = sintomas
+        }
+        e.CambiarEnfermedadYSintomas()
+
     End Sub
 
     Public Sub EliminarEnfermedad(id As String)
