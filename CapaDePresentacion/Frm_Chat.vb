@@ -125,6 +125,10 @@ Public Class Frm_Chat
         End Try
     End Sub
 
+    Private Sub WbbConversacion_DocumentCompleted(sender As Object, e As WebBrowserDocumentCompletedEventArgs) Handles WbbConversacion.DocumentCompleted
+
+    End Sub
+
     'Private Sub Frm_Chat_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
     '    Frm_Iniciar_Chat.TxtIdDiagnostico.Text = ""
     '    Frm_Iniciar_Chat.TxtEnfermedad.Text = ""

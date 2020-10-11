@@ -3,7 +3,7 @@
 Public Class FrmNuevaEnfermedad
 
     Public ListaSintomas As New List(Of String)
-    Public Nombre, Descripcion, Prioridad, Sintomas As Boolean
+    Public Nombre, Descripcion, Prioridad, Sintomas, Reactivacion As Boolean
 
     Private Sub FrmNuevaEnfermedad_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarSintomas()
@@ -63,7 +63,7 @@ Public Class FrmNuevaEnfermedad
         Else
             Sintomas = False
         End If
-        HabilitarCreacion()
+        HabilitarCreacion(False)
     End Sub
 
     Private Sub BtnCrear_Click(sender As Object, e As EventArgs) Handles BtnCrear.Click
@@ -113,66 +113,75 @@ Public Class FrmNuevaEnfermedad
             Descripcion = False
         End If
 
-        HabilitarCreacion()
+        HabilitarCreacion(False)
+    End Sub
+
+    Private Sub BtnReactivar_Click(sender As Object, e As EventArgs) Handles BtnReactivar.Click
+        Select Case MsgBox("Esto hara que la enfermedad vuelva a estar activa", MsgBoxStyle.YesNo, "caption")
+            Case MsgBoxResult.Yes
+                ReactivarEnfermedad()
+            Case MsgBoxResult.No
+
+        End Select
+    End Sub
+
+    Private Sub ReactivarEnfermedad()
+        Try
+            ControladorEnfermedad.ReactivarEnfermedad(TxtNombre.Text)
+            MsgBox("Enfermedad reactivada con exito!")
+            Limpiar()
+        Catch ex As Exception
+            MsgBox("No se pudo reactivar la enfermedad" + ex.ToString)
+        End Try
     End Sub
 
     Private Sub TxtNombre_TextChanged(sender As Object, e As EventArgs) Handles TxtNombre.TextChanged
+
         If ControladorEnfermedad.ObtenerExistencia(TxtNombre.Text) = 1 Then
-            MsgBox("Reviso activo")
-            RevisarActivo()
+            If ControladorEnfermedad.EstaInactivo(TxtNombre.Text) = 1 Then
+                BtnReactivar.Enabled = True
+                Reactivacion = True
+                LblDisponible.Text = "Esta enfermedad se encuentra inactiva, pulse reacitvar para volver a activarla"
+            Else
+                Reactivacion = False
+                BtnReactivar.Enabled = False
+                LblDisponible.Text = "El nombre de esta enfermedad ya esta en uso"
+            End If
 
         ElseIf TxtNombre.Text = "" Then
             LblDisponible.Text = "El nombre no puede estar vacio"
             Nombre = False
-            ManejarActivacion(True)
+            Reactivacion = False
 
         Else
             LblDisponible.Text = "Nombre disponible"
             Nombre = True
-            ManejarActivacion(True)
+            Reactivacion = False
 
         End If
-
-        HabilitarCreacion()
+        HabilitarCreacion(Reactivacion)
     End Sub
 
-    Private Sub RevisarActivo()
-        Try
-            If ControladorEnfermedad.EstaInactivo(TxtNombre.Text) = 1 Then
-                MsgBox(ControladorEnfermedad.EstaInactivo(TxtNombre.Text))
-                ManejarActivacion(False)
-            Else
-                LblDisponible.Text = "Esta enfermedad ya existe"
-                ManejarActivacion(True)
-                Nombre = False
-            End If
+    Private Sub HabilitarCreacion(Reactivacion As Boolean)
+        If Reactivacion Then
+            BtnReactivar.Enabled = Reactivacion
+            BtnCrear.Enabled = False
 
-        Catch ex As Exception
-            MsgBox("No se pudo obtener el estado de la enfermedad")
-
-        End Try
-    End Sub
-
-    Private Sub ManejarActivacion(Estado As Boolean)
-        If Estado = False Then
-            BtnCrear.Text = "Activar"
-        Else
-            BtnCrear.Text = "Crear"
-        End If
-
-        TxtDescripcion.Enabled = Estado
-        CmbPrioridad.Enabled = Estado
-        CmbSintomas.Enabled = Estado
-        LstSintomasSeleccionados.Enabled = Estado
-
-    End Sub
-
-    Private Sub HabilitarCreacion()
-        If Nombre And Descripcion And Prioridad And LstSintomasSeleccionados.Items.Count() > 0 Then
+        ElseIf Nombre And Descripcion And Prioridad And LstSintomasSeleccionados.Items.Count() > 0 Then
+            BtnReactivar.Enabled = Reactivacion
             BtnCrear.Enabled = True
         Else
+            BtnReactivar.Enabled = Reactivacion
             BtnCrear.Enabled = False
         End If
+
+    End Sub
+
+    Private Sub BtnReactivar_EnabledChanged(sender As Object, e As EventArgs) Handles BtnReactivar.EnabledChanged
+        TxtDescripcion.Enabled = Not BtnReactivar.Enabled
+        CmbPrioridad.Enabled = Not BtnReactivar.Enabled
+        CmbSintomas.Enabled = Not BtnReactivar.Enabled
+        LstSintomasSeleccionados.Enabled = Not BtnReactivar.Enabled
 
     End Sub
 
