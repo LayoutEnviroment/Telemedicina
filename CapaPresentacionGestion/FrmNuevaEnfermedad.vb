@@ -31,7 +31,6 @@ Public Class FrmNuevaEnfermedad
         Prioridad = True
         CargarListado()
 
-
     End Sub
 
     Private Sub CargarListado()
@@ -66,6 +65,68 @@ Public Class FrmNuevaEnfermedad
         HabilitarCreacion(False)
     End Sub
 
+    Private Sub TxtDescripcion_TextChanged(sender As Object, e As EventArgs) Handles TxtDescripcion.TextChanged
+        If TxtDescripcion.Text <> "" Then
+            Descripcion = True
+        Else
+            Descripcion = False
+        End If
+
+        HabilitarCreacion(False)
+    End Sub
+
+
+    Private Sub TxtNombre_TextChanged(sender As Object, e As EventArgs) Handles TxtNombre.TextChanged
+
+        If ControladorEnfermedad.ObtenerExistencia(TxtNombre.Text) = 1 Then
+            AveriguarInactividad()
+
+        ElseIf TxtNombre.Text = "" Then
+            LblDisponible.Text = "El nombre no puede estar vacio"
+            Nombre = False
+            Reactivacion = False
+
+        Else
+            LblDisponible.Text = "Nombre disponible"
+            Nombre = True
+            Reactivacion = False
+
+        End If
+        HabilitarCreacion(Reactivacion)
+    End Sub
+
+    Private Sub AveriguarInactividad()
+        If ControladorEnfermedad.EstaInactivo(TxtNombre.Text) = 1 Then
+            BtnReactivar.Enabled = True
+            Reactivacion = True
+            LblDisponible.Text = "Esta enfermedad se encuentra inactiva, pulse reacitvar para volver a activarla"
+
+        Else
+            Reactivacion = False
+            BtnReactivar.Enabled = False
+            LblDisponible.Text = "El nombre de esta enfermedad ya esta en uso"
+
+        End If
+
+    End Sub
+
+    Private Sub HabilitarCreacion(Reactivacion As Boolean)
+        If Reactivacion Then
+            BtnReactivar.Enabled = Reactivacion
+            BtnCrear.Enabled = False
+
+        ElseIf Nombre And Descripcion And Prioridad And LstSintomasSeleccionados.Items.Count() > 0 Then
+            BtnReactivar.Enabled = Reactivacion
+            BtnCrear.Enabled = True
+
+        Else
+            BtnReactivar.Enabled = Reactivacion
+            BtnCrear.Enabled = False
+
+        End If
+
+    End Sub
+
     Private Sub BtnCrear_Click(sender As Object, e As EventArgs) Handles BtnCrear.Click
         If BtnCrear.Text = "Activar" Then
             Actualizar()
@@ -96,87 +157,6 @@ Public Class FrmNuevaEnfermedad
         End Try
     End Sub
 
-    Private Sub BtnLimpiar_Click(sender As Object, e As EventArgs) Handles BtnLimpiar.Click
-        Limpiar()
-    End Sub
-
-    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
-        Limpiar()
-        Me.Hide()
-        MenuGestion.Show()
-    End Sub
-
-    Private Sub TxtDescripcion_TextChanged(sender As Object, e As EventArgs) Handles TxtDescripcion.TextChanged
-        If TxtDescripcion.Text <> "" Then
-            Descripcion = True
-        Else
-            Descripcion = False
-        End If
-
-        HabilitarCreacion(False)
-    End Sub
-
-    Private Sub BtnReactivar_Click(sender As Object, e As EventArgs) Handles BtnReactivar.Click
-        Select Case MsgBox("Esto hara que la enfermedad vuelva a estar activa", MsgBoxStyle.YesNo, "caption")
-            Case MsgBoxResult.Yes
-                ReactivarEnfermedad()
-            Case MsgBoxResult.No
-
-        End Select
-    End Sub
-
-    Private Sub ReactivarEnfermedad()
-        Try
-            ControladorEnfermedad.ReactivarEnfermedad(TxtNombre.Text)
-            MsgBox("Enfermedad reactivada con exito!")
-            Limpiar()
-        Catch ex As Exception
-            MsgBox("No se pudo reactivar la enfermedad" + ex.ToString)
-        End Try
-    End Sub
-
-    Private Sub TxtNombre_TextChanged(sender As Object, e As EventArgs) Handles TxtNombre.TextChanged
-
-        If ControladorEnfermedad.ObtenerExistencia(TxtNombre.Text) = 1 Then
-            If ControladorEnfermedad.EstaInactivo(TxtNombre.Text) = 1 Then
-                BtnReactivar.Enabled = True
-                Reactivacion = True
-                LblDisponible.Text = "Esta enfermedad se encuentra inactiva, pulse reacitvar para volver a activarla"
-            Else
-                Reactivacion = False
-                BtnReactivar.Enabled = False
-                LblDisponible.Text = "El nombre de esta enfermedad ya esta en uso"
-            End If
-
-        ElseIf TxtNombre.Text = "" Then
-            LblDisponible.Text = "El nombre no puede estar vacio"
-            Nombre = False
-            Reactivacion = False
-
-        Else
-            LblDisponible.Text = "Nombre disponible"
-            Nombre = True
-            Reactivacion = False
-
-        End If
-        HabilitarCreacion(Reactivacion)
-    End Sub
-
-    Private Sub HabilitarCreacion(Reactivacion As Boolean)
-        If Reactivacion Then
-            BtnReactivar.Enabled = Reactivacion
-            BtnCrear.Enabled = False
-
-        ElseIf Nombre And Descripcion And Prioridad And LstSintomasSeleccionados.Items.Count() > 0 Then
-            BtnReactivar.Enabled = Reactivacion
-            BtnCrear.Enabled = True
-        Else
-            BtnReactivar.Enabled = Reactivacion
-            BtnCrear.Enabled = False
-        End If
-
-    End Sub
-
     Private Sub BtnReactivar_EnabledChanged(sender As Object, e As EventArgs) Handles BtnReactivar.EnabledChanged
         TxtDescripcion.Enabled = Not BtnReactivar.Enabled
         CmbPrioridad.Enabled = Not BtnReactivar.Enabled
@@ -185,11 +165,48 @@ Public Class FrmNuevaEnfermedad
 
     End Sub
 
+    Private Sub BtnReactivar_Click(sender As Object, e As EventArgs) Handles BtnReactivar.Click
+        Select Case MsgBox("Esto hara que la enfermedad vuelva a estar activa", MsgBoxStyle.YesNo, "caption")
+            Case MsgBoxResult.Yes
+                ReactivarEnfermedad()
+
+            Case MsgBoxResult.No
+
+        End Select
+
+    End Sub
+
+    Private Sub ReactivarEnfermedad()
+        Try
+            ControladorEnfermedad.ReactivarEnfermedad(TxtNombre.Text)
+            MsgBox("Enfermedad reactivada con exito!")
+            Limpiar()
+
+        Catch ex As Exception
+            MsgBox("No se pudo reactivar la enfermedad" + ex.ToString)
+
+        End Try
+
+    End Sub
+
+    Private Sub BtnLimpiar_Click(sender As Object, e As EventArgs) Handles BtnLimpiar.Click
+        Limpiar()
+
+    End Sub
+
     Private Sub Limpiar()
         TxtNombre.Clear()
         TxtDescripcion.Clear()
         LstSintomasSeleccionados.Clear()
         ListaSintomas.Clear()
+
+    End Sub
+
+    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
+        Limpiar()
+        Me.Hide()
+        MenuGestion.Show()
+
     End Sub
 
 End Class

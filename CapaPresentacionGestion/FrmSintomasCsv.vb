@@ -17,7 +17,9 @@ Public Class FrmSintomasCsv
             Archivo.SetDelimiters(",")
 
             Dim Fila As String()
-            While Not Archivo.EndOfData
+            If CbxHeader.Checked = TrueThen Then
+
+                While Not Archivo.EndOfData
                 Try
                     Fila = Archivo.ReadFields()
                     Dim Campo As String
