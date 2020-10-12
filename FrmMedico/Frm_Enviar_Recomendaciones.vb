@@ -49,7 +49,7 @@ Public Class Frm_Enviar_Recomendaciones
         LimpiarCmbItems()
         Dim LectorSintomas As IDataReader
         Try
-            LectorSintomas = ControladorSintoma.ListarNombre()
+            LectorSintomas = ControladorSintoma.ListarNombreSintomaActivo()
 
             While LectorSintomas.Read
                 CmbItem.Items.Add(LectorSintomas(0))
@@ -64,7 +64,7 @@ Public Class Frm_Enviar_Recomendaciones
         LimpiarCmbItems()
         Dim LectorEnfermedades As IDataReader
         Try
-            LectorEnfermedades = ControladorEnfermedad.ListarNombre()
+            LectorEnfermedades = ControladorEnfermedad.ListarNombreEnfermedadesActivas()
 
             While LectorEnfermedades.Read
                 CmbItem.Items.Add(LectorEnfermedades(0))
