@@ -113,7 +113,7 @@
                         GRANT
 	                        SELECT 
                         ON 
-                            bd_led.roles 
+                            bd_led_test.roles 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -123,7 +123,7 @@
                         GRANT
 	                        SELECT 
                         ON 
-                            bd_led.sintoma 
+                            bd_led_test.sintoma 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -133,7 +133,7 @@
                         GRANT 
 	                        SELECT 
                         ON 
-                            bd_led.enfermedad 
+                            bd_led_test.enfermedad 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -143,7 +143,7 @@
                         GRANT 
 	                        SELECT 
                         ON 
-                            bd_led.compone 
+                            bd_led_test.compone 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -153,7 +153,7 @@
                         GRANT 
 	                        SELECT 
                         ON 
-                            bd_led.medico 
+                            bd_led_test.medico 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -163,7 +163,7 @@
                         GRANT
 	                        SELECT 
                         ON 
-                            bd_led.paciente 
+                            bd_led_test.paciente 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -173,7 +173,7 @@
                         GRANT
 	                        SELECT 
                         ON 
-                            bd_led.persona 
+                            bd_led_test.persona 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -183,7 +183,7 @@
                         GRANT
 	                        SELECT 
                         ON 
-                            bd_led.enfermedades_cronicas 
+                            bd_led_test.enfermedades_cronicas 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -193,7 +193,7 @@
                         GRANT
 	                        SELECT 
                         ON 
-                            bd_led.medicaciones 
+                            bd_led_test.medicaciones 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -203,7 +203,7 @@
                         GRANT
 	                        SELECT, INSERT, UPDATE 
                         ON 
-                            bd_led.atiende 
+                            bd_led_test.atiende 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -272,7 +272,7 @@
                         GRANT 
 	                        SELECT 
                         ON 
-                            bd_led.roles 
+                            bd_led_test.roles 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -282,7 +282,7 @@
                         GRANT
 	                        SELECT 
                         ON 
-                            bd_led.sintoma 
+                            bd_led_test.sintoma 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -292,7 +292,7 @@
                         GRANT
 	                        SELECT 
                         ON 
-                            bd_led.enfermedad 
+                            bd_led_test.enfermedad 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -302,7 +302,7 @@
                         GRANT
 	                        SELECT 
                         ON 
-                            bd_led.compone 
+                            bd_led_test.compone 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -312,7 +312,7 @@
                         GRANT
 	                        SELECT 
                         ON 
-                            bd_led.medico 
+                            bd_led_test.medico 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -322,7 +322,7 @@
                         GRANT
 	                        SELECT, INSERT 
                         ON 
-                            bd_led.genera 
+                            bd_led_test.genera 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -332,7 +332,7 @@
                         GRANT
 	                        SELECT, INSERT 
                         ON 
-                            bd_led.diagnostico 
+                            bd_led_test.diagnostico 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -342,7 +342,7 @@
                         GRANT
 	                        SELECT, INSERT 
                         ON 
-                            bd_led.padece 
+                            bd_led_test.padece 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -352,7 +352,7 @@
                         GRANT
 	                        SELECT, UPDATE 
                         ON 
-                            bd_led.paciente 
+                            bd_led_test.paciente 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -362,7 +362,7 @@
                         GRANT
 	                        SELECT, UPDATE 
                         ON 
-                            bd_led.persona 
+                            bd_led_test.persona 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -372,7 +372,7 @@
                         GRANT
 	                        SELECT, INSERT, DELETE 
                         ON 
-                            bd_led.enfermedades_cronicas 
+                            bd_led_test.enfermedades_cronicas 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -382,7 +382,7 @@
                         GRANT
 	                        SELECT, INSERT, DELETE 
                         ON 
-                            bd_led.medicaciones 
+                            bd_led_test.medicaciones 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
@@ -392,7 +392,7 @@
                         GRANT
 	                        SELECT, INSERT, UPDATE 
                         ON 
-                            bd_led.atiende 
+                            bd_led_test.atiende 
                         TO 
                             '" + Me.CI + "'@'%'
                         "
