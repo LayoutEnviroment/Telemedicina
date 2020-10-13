@@ -7,8 +7,8 @@ Imports CapaDeDatos
     <TestMethod()> Public Sub TestEnviarSolicitud()
         Dim resultado As Boolean
         Try
-            Dim c As New ModeloChat("45556667", "VzD91g32s") With {
-            .Cedula = ControladorSesion.Cedula = "45556667",
+            Dim c As New ModeloChat("111", "05H7IIOiV") With {
+            .Cedula = ControladorSesion.Cedula = "99999",
             .IdDiagnostico = 1
             }
             resultado = True
@@ -25,7 +25,7 @@ Imports CapaDeDatos
     <TestMethod()> Public Sub TestBuscarSolicitud()
         Dim TablaEsperada As New DataTable
         Try
-            Dim c As New ModeloChat("12223334", "yKI9SAAB5")
+            Dim c As New ModeloChat("111", "05H7IIOiV")
 
             Assert.AreSame(ControladorChat.BuscarSolicitud.GetType(), TablaEsperada.GetType())
 
@@ -38,11 +38,12 @@ Imports CapaDeDatos
     <TestMethod()> Public Sub TestAceptarSolicitud()
         Dim resultado As Boolean
         Try
-            Dim c As New ModeloChat("12223334", "yKI9SAAB5")
+            Dim c As New ModeloChat("111", "05H7IIOiV")
 
-            ControladorChat.AceptarSolicitud("2", "45556667", "doctor", "test")
+            ControladorChat.AceptarSolicitud("1", "99999", "Doctor", "Apellido")
             resultado = True
         Catch ex As Exception
+            MsgBox(ex.ToString)
             resultado = False
         End Try
 
