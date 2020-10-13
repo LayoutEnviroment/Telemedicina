@@ -10,7 +10,6 @@ Public Class AltaUsuario
     Dim Contra As String
 
     Private Sub ChbPaciente_CheckedChanged(sender As Object, e As EventArgs) Handles ChbPaciente.CheckedChanged
-
         If ChbPaciente.Checked Then
             CamposPaciente(True)
         Else
@@ -25,6 +24,7 @@ Public Class AltaUsuario
         MsgBox(Contra)
         ObtenerTipoUsuario()
         EnviarMail()
+
     End Sub
 
     Private Sub ObtenerTipoUsuario()
@@ -177,7 +177,14 @@ Public Class AltaUsuario
     Private Sub CargarDatos(Correo)
         With Correo
             .From = New MailAddress("cuidartegestor@gmail.com", "Cuidarte", System.Text.Encoding.UTF8)
-            .To.Add(TxtMail.Text)
+            Try
+                .To.Add(TxtMail.Text)
+            Catch ex As Exception
+                If ex.HResult = -2146233033 Then
+                    MsgBox("La direccion de correo no tiene un formato valido")
+                End If
+            End Try
+
             .Subject = "Credenciales De Cuidarte"
             .SubjectEncoding = System.Text.Encoding.UTF8
             .Body = "Estimado/a usuario/a. Gracias por utilizar Cuidarte. su usuario es: " + TxtCI.Text + " y su password es: " + Contra

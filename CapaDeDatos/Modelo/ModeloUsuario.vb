@@ -507,11 +507,33 @@
 
     End Function
 
-    Public Function TraerDatosDoctor()
-        Command.CommandText = "SELECT nombre, apellido, mail 
-                                FROM persona
-                                WHERE ci = '" + Me.CI + "'"
+    Public Function TraerNombreApellidoMail()
+        Command.CommandText = "
+            SELECT 
+                nombre, 
+                apellido, 
+                mail                         
+            FROM 
+                persona
+            WHERE 
+                ci = '" + Me.CI + "'"
         Reader = Command.ExecuteReader
         Return Reader
+
     End Function
+
+    Public Sub ModificarPersona()
+        Command.CommandText = "
+            UPDATE
+                persona
+            SET
+                nombre = '" + Me.Nombre + "',
+                apellido = '" + Me.Apellido + "',
+                mail = '" + Me.Mail + "'
+            WHERE
+                ci = " + Me.CI + "
+            "
+        Command.ExecuteNonQuery()
+
+    End Sub
 End Class
