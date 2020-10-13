@@ -251,4 +251,8 @@ Public Class Frm_Menu
         Me.Hide()
         FrmConsultas.Show()
     End Sub
+
+    Private Sub DgvEnEspera_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvEnEspera.CellContentClick
+
+    End Sub
 End Class

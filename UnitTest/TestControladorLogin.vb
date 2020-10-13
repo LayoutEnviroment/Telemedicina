@@ -1,22 +1,17 @@
 ﻿Imports System.Text
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports CapaDeNegocio
-<TestClass()> Public Class TestControladorSesion
 
-    <TestMethod()> Public Sub TestSesion()
+<TestClass()> Public Class TestControladorLogin
+
+    <TestMethod()> Public Sub TestAutenticar()
         Dim resultado As Boolean
         Try
-            ControladorSesion.User = "admin"
-            ControladorSesion.Pass = 3
-            ControladorSesion.Cedula = 3
+            Assert.IsTrue(ControladorLogin.Autentificar("49249605", "EGUfabre924960", "3"))
             resultado = True
-
         Catch ex As Exception
             resultado = False
-
         End Try
-        Assert.IsTrue(resultado)
-
     End Sub
 
 End Class
