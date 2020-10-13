@@ -10,76 +10,36 @@ Public Class ModificarUsuarioPaciente
     Dim Enfermedades As New List(Of String)
     Dim Medicaciones As New List(Of String)
 
-
     Private Sub ModificarUsuarioPaciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarCI()
 
     End Sub
 
-    Private Sub BtnAgregarEnfermedad_Click(sender As Object, e As EventArgs) Handles BtnAgregarEnfermedad.Click
-        LstEnfermedadCronica.Items.Add(TxtEnfermedadCronica.Text)
-    End Sub
+    Public Sub CargarCI()
+        Dim LectorCI As IDataReader
+        Try
+            LectorCI = ControladorPaciente.ObtenerCi()
 
-    Private Sub BtnEliminarEnfermedad_Click(sender As Object, e As EventArgs) Handles BtnEliminarEnfermedad.Click
+            While LectorCI.Read
+                CmbSeleccionarCI.Items.Add(LectorCI.GetValue(0))
+            End While
 
-        LstEnfermedadCronica.Items.Remove(LstEnfermedadCronica.SelectedItems(0))
-        AsignarListas()
-    End Sub
-
-    Private Sub BtnAgregarMedicacion_Click(sender As Object, e As EventArgs) Handles BtnAgregarMedicacion.Click
-
-        LstMedicacion.Items.Add(TxtMedicacion.Text)
-        TxtMedicacion.Clear()
-    End Sub
-
-    Private Sub BtnEliminarMedicacion_Click(sender As Object, e As EventArgs) Handles BtnEliminarMedicacion.Click
-        LstMedicacion.Items.Remove(LstMedicacion.SelectedItems(0))
-        AsignarListas()
-    End Sub
-
-    Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
-
-        Nombre = TxtNombre.Text
-        Apellido = TxtApellido.Text
-        Correo = TxtMail.Text
-        DeterminarSexo()
-        AsignarListas()
-        DeterminarFecha()
-        GuardarValores()
-    End Sub
-
-    Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
-        Limpiar()
-        CmbSeleccionarCI.ResetText()
-        CargarCI()
-    End Sub
-
-    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
-
-        MenuGestion.Show()
-        Me.Close()
-    End Sub
-
-    Private Sub Limpiar()
-        TxtNombre.Text = ""
-        TxtApellido.Text = ""
-        CmbSeleccionarCI.Items.Clear()
-        TxtMail.Text = ""
-        TxtEnfermedadCronica.Text = ""
-        TxtMedicacion.Text = ""
-        DtpFechaNacimiento.Checked = False
-        LstEnfermedadCronica.Items.Clear()
-        LstMedicacion.Items.Clear()
-        RdbF.Checked = False
-        RdbM.Checked = False
+        Catch ex As Exception
+            MsgBox("Error al cargar las cedulas")
+        End Try
 
     End Sub
 
     Private Sub CmbSeleccionarCI_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbSeleccionarCI.SelectedIndexChanged
         Dim Lector As IDataReader
-        Lector = ControladorPaciente.ObtenerTodo(CmbSeleccionarCI.Text)
-        CargarTextBoxes(Lector)
-        HabilitarAceptar()
+        Try
+            Lector = ControladorPaciente.ObtenerTodo(CmbSeleccionarCI.Text)
+            CargarTextBoxes(Lector)
+            HabilitarAceptar()
+        Catch ex As Exception
+            MsgBox("Error al obtener datos del paciente")
+        End Try
+
     End Sub
 
     Public Sub CargarTextBoxes(Lector As IDataReader)
@@ -96,8 +56,8 @@ Public Class ModificarUsuarioPaciente
             ObtenerMedicacionesPaciente()
             ObtenerEnfermedadesCronicas()
         End While
-    End Sub
 
+    End Sub
 
     Public Sub AdaptarFecha(fecha As Date)
         DtpFechaNacimiento.Value = fecha.Date
@@ -114,6 +74,7 @@ Public Class ModificarUsuarioPaciente
     End Sub
 
     Public Sub CargarListaMedicaciones(Lector As IDataReader)
+        LstMedicacion.Items.Clear()
         While Lector.Read
             LstMedicacion.Items.Add(Lector(0).ToString)
         End While
@@ -126,11 +87,13 @@ Public Class ModificarUsuarioPaciente
             Lector = ControladorPaciente.ObtenerEnfermedades(CmbSeleccionarCI.Text)
             CargarListaEnfermedades(Lector)
         Catch ex As Exception
-
+            MsgBox(ex.ToString + "No se pudieron traer las enfermedades")
         End Try
+
     End Sub
 
     Public Sub CargarListaEnfermedades(Lector As IDataReader)
+        LstEnfermedadCronica.Items.Clear()
         While Lector.Read
             LstEnfermedadCronica.Items.Add(Lector(0).ToString)
         End While
@@ -138,13 +101,24 @@ Public Class ModificarUsuarioPaciente
     End Sub
 
     Private Sub TxtEnfermedadCronica_TextChanged(sender As Object, e As EventArgs) Handles TxtEnfermedadCronica.TextChanged
-
         If TxtEnfermedadCronica.Text <> " " Then
             BtnAgregarEnfermedad.Enabled = True
         Else
             BtnAgregarEnfermedad.Enabled = False
 
         End If
+
+    End Sub
+
+    Private Sub BtnAgregarEnfermedad_Click(sender As Object, e As EventArgs) Handles BtnAgregarEnfermedad.Click
+        LstEnfermedadCronica.Items.Add(TxtEnfermedadCronica.Text)
+
+    End Sub
+
+    Private Sub BtnEliminarEnfermedad_Click(sender As Object, e As EventArgs) Handles BtnEliminarEnfermedad.Click
+        LstEnfermedadCronica.Items.Remove(LstEnfermedadCronica.SelectedItems(0))
+        AsignarListas()
+
     End Sub
 
     Private Sub TxtMedicacion_TextChanged(sender As Object, e As EventArgs) Handles TxtMedicacion.TextChanged
@@ -154,6 +128,30 @@ Public Class ModificarUsuarioPaciente
             BtnAgregarMedicacion.Enabled = False
 
         End If
+
+    End Sub
+
+    Private Sub BtnAgregarMedicacion_Click(sender As Object, e As EventArgs) Handles BtnAgregarMedicacion.Click
+        LstMedicacion.Items.Add(TxtMedicacion.Text)
+        TxtMedicacion.Clear()
+
+    End Sub
+
+    Private Sub BtnEliminarMedicacion_Click(sender As Object, e As EventArgs) Handles BtnEliminarMedicacion.Click
+        LstMedicacion.Items.Remove(LstMedicacion.SelectedItems(0))
+        AsignarListas()
+
+    End Sub
+
+    Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
+        Nombre = TxtNombre.Text
+        Apellido = TxtApellido.Text
+        Correo = TxtMail.Text
+        DeterminarSexo()
+        AsignarListas()
+        DeterminarFecha()
+        GuardarValores()
+
     End Sub
 
     Public Sub DeterminarSexo()
@@ -166,6 +164,8 @@ Public Class ModificarUsuarioPaciente
     End Sub
 
     Public Sub AsignarListas()
+        LstMedicacion.Items.Clear()
+        LstEnfermedadCronica.Items.Clear()
         Enfermedades.Clear()
         Medicaciones.Clear()
         For x = 0 To LstEnfermedadCronica.Items.Count() - 1
@@ -195,15 +195,66 @@ Public Class ModificarUsuarioPaciente
     Public Sub GuardarValores()
         Try
             MsgBox(Sexo)
-            ControladorPaciente.CambiarDatos(Nombre, Apellido, Correo, Sexo, FechaNacimiento, Enfermedades, Medicaciones, CmbSeleccionarCI.Text)
+            ControladorPaciente.CambiarDatos(Nombre,
+                                             Apellido,
+                                             Correo,
+                                             Sexo,
+                                             FechaNacimiento,
+                                             Enfermedades,
+                                             Medicaciones,
+                                             CmbSeleccionarCI.Text)
         Catch ex As Exception
-
+            MsgBox("No se pudo actualizar la informacion del paciente")
         End Try
 
     End Sub
 
+    Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
+        Limpiar()
+        CmbSeleccionarCI.ResetText()
+        CargarCI()
+
+    End Sub
+
+    Private Sub Limpiar()
+        TxtNombre.Text = ""
+        TxtApellido.Text = ""
+        CmbSeleccionarCI.Items.Clear()
+        TxtMail.Text = ""
+        TxtEnfermedadCronica.Text = ""
+        TxtMedicacion.Text = ""
+        DtpFechaNacimiento.Checked = False
+        LstEnfermedadCronica.Items.Clear()
+        LstMedicacion.Items.Clear()
+        RdbF.Checked = False
+        RdbM.Checked = False
+
+    End Sub
+
+    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
+        Limpiar()
+        MenuGestion.Show()
+        Me.Close()
+
+    End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     Public Sub HabilitarAceptar()
-        If CmbSeleccionarCI.SelectedValue.ToString = "" Or DateDiff(DateInterval.Year, DtpFechaNacimiento.Value, Date.Now) >= 18 Then
+        If DateDiff(DateInterval.Year, DtpFechaNacimiento.Value, Date.Now) >= 18 Then
             BtnAceptar.Enabled = True
         Else
             BtnAceptar.Enabled = False
@@ -227,17 +278,9 @@ Public Class ModificarUsuarioPaciente
         End If
 
     End Sub
-    Public Sub CargarCI()
-        Dim LectorCI As IDataReader
-        Try
-            LectorCI = ControladorPaciente.ObtenerCi()
 
-            While LectorCI.Read
-                CmbSeleccionarCI.Items.Add(LectorCI.GetValue(0))
-            End While
 
-        Catch ex As Exception
-            MsgBox("Error al cargar las cedulas")
-        End Try
+    Private Sub DtpFechaNacimiento_ValueChanged(sender As Object, e As EventArgs) Handles DtpFechaNacimiento.ValueChanged
+        HabilitarAceptar()
     End Sub
 End Class
