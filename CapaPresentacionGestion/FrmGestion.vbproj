@@ -237,5 +237,11 @@
   <ItemGroup>
     <None Include="Resources\Proxima_Nova.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Correcto1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Error1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

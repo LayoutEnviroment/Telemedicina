@@ -8,6 +8,7 @@ Public Class FrmAltaUsuario
     Dim Medicamentos As New List(Of String)
     Dim Sexo As String
     Dim Contra As String
+    Public Ci, Nombre, Apellido, Mail, Sexo, Fecha As Boolean
 
     Private Sub TxtNombre_TextChanged(sender As Object, e As EventArgs) Handles TxtNombre.TextChanged, TxtNombre.Validated
 
@@ -167,6 +168,10 @@ Public Class FrmAltaUsuario
 
     End Sub
 
+    Private Sub TxtNombre_MouseLeave(sender As Object, e As EventArgs) Handles TxtNombre.MouseLeave
+        HabilitarAceptar()
+    End Sub
+
     Private Sub CargarSmtp(smtp)
         With smtp
             .UseDefaultCredentials = False
@@ -176,6 +181,27 @@ Public Class FrmAltaUsuario
             .Host = "smtp.gmail.com"
         End With
 
+    End Sub
+
+    Private Sub TxtApellido_Leave(sender As Object, e As EventArgs) Handles TxtApellido.Leave
+        If System.Text.RegularExpressions.Regex.IsMatch(TxtApellido.Text, "^[a-zA-Z]+$") Then
+            TxtApellido.ForeColor = Color.Black
+            Apellido = True
+        Else
+            TxtApellido.ForeColor = Color.Red
+            Apellido = False
+        End If
+
+    End Sub
+
+    Private Sub TxtCI_Leave(sender As Object, e As EventArgs) Handles TxtCI.Leave
+        If System.Text.RegularExpressions.Regex.IsMatch(TxtCI.Text, "^[0-9]+$") Then
+            TxtCI.ForeColor = Color.Black
+            Ci = True
+        Else
+            TxtCI.ForeColor = Color.Red
+            Ci = False
+        End If
     End Sub
 
     Private Sub CargarDatos(Correo)
@@ -214,20 +240,29 @@ Public Class FrmAltaUsuario
     End Sub
 
     Private Sub Btn_Click(sender As Object, e As EventArgs) Handles Btn.Click
-        If ChbAdministrador.Checked Then
-            TipoUsuario(2) = True
+        BtnAceptar.Enabled = True
 
+    End Sub
+
+    Private Sub TxtNombre_Leave(sender As Object, e As EventArgs) Handles TxtNombre.Leave
+        If System.Text.RegularExpressions.Regex.IsMatch(TxtNombre.Text, "^[a-zA-Z]+$") Then
+            TxtNombre.ForeColor = Color.Black
+            Nombre = True
+        Else
+            TxtNombre.ForeColor = Color.Red
+            Nombre = False
         End If
 
-        If ChbMedico.Checked Then
-            TipoUsuario(1) = True
+    End Sub
 
-        End If
 
-        If ChbPaciente.Checked Then
-            TipoUsuario(0) = True
+
+    Private Sub HabilitarAceptar()
+        If Ci And Nombre And Apellido And Mail Then
+            BtnAceptar.Enabled = True
+        Else
+            BtnAceptar.Enabled = False
         End If
-        MsgBox(TipoUsuario(0).ToString + ", " + TipoUsuario(1).ToString + ", " + TipoUsuario(2).ToString)
 
     End Sub
 
