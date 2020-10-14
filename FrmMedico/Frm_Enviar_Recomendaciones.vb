@@ -43,13 +43,14 @@ Public Class Frm_Enviar_Recomendaciones
     Private Sub HabilitarCmbItems()
         CmbItem.Enabled = True
         CmbItem.Visible = True
+
     End Sub
 
     Private Sub CargarSintomas()
         LimpiarCmbItems()
         Dim LectorSintomas As IDataReader
         Try
-            LectorSintomas = ControladorSintoma.ListarNombre()
+            LectorSintomas = ControladorSintoma.ListarNombreSintomaActivo()
 
             While LectorSintomas.Read
                 CmbItem.Items.Add(LectorSintomas(0))
@@ -64,7 +65,7 @@ Public Class Frm_Enviar_Recomendaciones
         LimpiarCmbItems()
         Dim LectorEnfermedades As IDataReader
         Try
-            LectorEnfermedades = ControladorEnfermedad.ListarNombre()
+            LectorEnfermedades = ControladorEnfermedad.ListarNombreEnfermedadesActivas()
 
             While LectorEnfermedades.Read
                 CmbItem.Items.Add(LectorEnfermedades(0))
@@ -77,6 +78,7 @@ Public Class Frm_Enviar_Recomendaciones
 
     Private Sub LimpiarCmbItems()
         CmbItem.Items.Clear()
+
     End Sub
 
 
@@ -133,10 +135,11 @@ Public Class Frm_Enviar_Recomendaciones
         Try
             LectorDatos = ControladorUsuario.ObtenerNombreApellidoCedula()
             CargarDatosMedico(LectorDatos)
+
         Catch ex As Exception
             MsgBox("Error al obtener los datos del medico" + ex.ToString)
-        End Try
 
+        End Try
 
     End Sub
 
@@ -157,5 +160,6 @@ Public Class Frm_Enviar_Recomendaciones
 
     Private Sub Frm_Enviar_Recomendaciones_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         Frm_Menu.Show()
+
     End Sub
 End Class

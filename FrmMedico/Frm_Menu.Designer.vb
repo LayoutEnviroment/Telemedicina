@@ -132,7 +132,7 @@ Partial Class Frm_Menu
         Me.LblNombrePaciente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.LblNombrePaciente.Location = New System.Drawing.Point(41, 169)
         Me.LblNombrePaciente.Name = "LblNombrePaciente"
-        Me.LblNombrePaciente.Size = New System.Drawing.Size(45, 13)
+        Me.LblNombrePaciente.Size = New System.Drawing.Size(63, 20)
         Me.LblNombrePaciente.TabIndex = 10
         Me.LblNombrePaciente.Text = "Label1"
         Me.LblNombrePaciente.Visible = False
@@ -143,7 +143,7 @@ Partial Class Frm_Menu
         Me.LblSexoPaciente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.LblSexoPaciente.Location = New System.Drawing.Point(41, 206)
         Me.LblSexoPaciente.Name = "LblSexoPaciente"
-        Me.LblSexoPaciente.Size = New System.Drawing.Size(45, 13)
+        Me.LblSexoPaciente.Size = New System.Drawing.Size(63, 20)
         Me.LblSexoPaciente.TabIndex = 11
         Me.LblSexoPaciente.Text = "Label1"
         Me.LblSexoPaciente.Visible = False
@@ -154,7 +154,7 @@ Partial Class Frm_Menu
         Me.LblEdadPaciente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.LblEdadPaciente.Location = New System.Drawing.Point(41, 243)
         Me.LblEdadPaciente.Name = "LblEdadPaciente"
-        Me.LblEdadPaciente.Size = New System.Drawing.Size(45, 13)
+        Me.LblEdadPaciente.Size = New System.Drawing.Size(63, 20)
         Me.LblEdadPaciente.TabIndex = 12
         Me.LblEdadPaciente.Text = "Label1"
         Me.LblEdadPaciente.Visible = False
@@ -205,7 +205,7 @@ Partial Class Frm_Menu
         '
         'Frm_Menu
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch

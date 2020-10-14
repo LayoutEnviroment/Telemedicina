@@ -129,18 +129,18 @@ Public Class Frm_Menu
 
     Private Sub TmrBuscarChats_Tick(sender As Object, e As EventArgs) Handles TmrBuscarChats.Tick
         Dim Tabla As New DataTable
-
         Try
             Tabla.Load(ControladorChat.BuscarSolicitud())
             DgvEnEspera.DataSource = Tabla
+
         Catch ex As Exception
-            MsgBox("No se pudieron encontrar solicitudes")
+            MsgBox("No se pudieron encontrar solicitudes" + ex.ToString)
         End Try
+
     End Sub
 
     Private Sub TmrBuscarMensajesNuevos_Tick_1(sender As Object, e As EventArgs) Handles TmrBuscarMensajesNuevos.Tick
         Dim Tabla As New DataTable
-
         Try
             Tabla = ControladorChat.BuscarMensajesNuevos(IdDiagnostico)
             AgregarChat(Tabla)
@@ -250,5 +250,8 @@ Public Class Frm_Menu
         TmrBuscarChats.Stop()
         Me.Hide()
         FrmConsultas.Show()
+
     End Sub
+
+
 End Class
