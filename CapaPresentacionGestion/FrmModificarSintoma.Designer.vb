@@ -26,6 +26,7 @@ Partial Class FrmModificarSintoma
         Me.LblNombre = New System.Windows.Forms.Label()
         Me.TxtSintoma = New System.Windows.Forms.TextBox()
         Me.BtnAceptar = New System.Windows.Forms.Button()
+        Me.BtnVolver = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'CmbSintomas
@@ -57,18 +58,28 @@ Partial Class FrmModificarSintoma
         'BtnAceptar
         '
         Me.BtnAceptar.Enabled = False
-        Me.BtnAceptar.Location = New System.Drawing.Point(232, 175)
+        Me.BtnAceptar.Location = New System.Drawing.Point(129, 175)
         Me.BtnAceptar.Name = "BtnAceptar"
         Me.BtnAceptar.Size = New System.Drawing.Size(188, 23)
         Me.BtnAceptar.TabIndex = 3
         Me.BtnAceptar.Text = "Aceptar"
         Me.BtnAceptar.UseVisualStyleBackColor = True
         '
+        'BtnVolver
+        '
+        Me.BtnVolver.Location = New System.Drawing.Point(333, 175)
+        Me.BtnVolver.Name = "BtnVolver"
+        Me.BtnVolver.Size = New System.Drawing.Size(188, 23)
+        Me.BtnVolver.TabIndex = 4
+        Me.BtnVolver.Text = "Volver"
+        Me.BtnVolver.UseVisualStyleBackColor = True
+        '
         'FrmModificarSintoma
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(693, 260)
+        Me.Controls.Add(Me.BtnVolver)
         Me.Controls.Add(Me.BtnAceptar)
         Me.Controls.Add(Me.TxtSintoma)
         Me.Controls.Add(Me.LblNombre)
@@ -84,4 +95,5 @@ Partial Class FrmModificarSintoma
     Friend WithEvents LblNombre As Label
     Friend WithEvents TxtSintoma As TextBox
     Friend WithEvents BtnAceptar As Button
+    Friend WithEvents BtnVolver As Button
 End Class

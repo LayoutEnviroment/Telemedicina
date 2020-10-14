@@ -30,8 +30,12 @@ Public Class FrmModificarSintoma
         TxtSintoma.Text = CmbSintomas.SelectedItem.ToString()
         SintomaOriginal = TxtSintoma.Text
         BtnAceptar.Enabled = False
+
     End Sub
 
+    Private Function ObtenerId()
+        Return ControladorSintoma.ObtenerId(CmbSintomas.SelectedItem.ToString())
+    End Function
     Private Sub TxtSintoma_TextChanged(sender As Object, e As EventArgs) Handles TxtSintoma.TextChanged
         BtnAceptar.Enabled = Not Equals(TxtSintoma.Text, SintomaOriginal)
 
@@ -39,7 +43,7 @@ Public Class FrmModificarSintoma
 
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
         Try
-            ControladorSintoma.CambiarNombreDeSintoma(TxtSintoma.Text)
+            ControladorSintoma.CambiarNombreDeSintoma(ObtenerId(), TxtSintoma.Text)
             MsgBox("Sintoma modificado con exito")
             TxtSintoma.Text = ""
             RecargarSintomas()
@@ -56,6 +60,14 @@ Public Class FrmModificarSintoma
     End Sub
 
     Private Sub FrmModificarSintoma_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        MenuGestion.Show()
+        FrmMenuGestion.Show()
+
+    End Sub
+
+    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
+        TxtSintoma.Text = ""
+        Me.Hide()
+        FrmMenuGestion.Show()
+
     End Sub
 End Class

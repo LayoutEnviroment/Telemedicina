@@ -39,7 +39,7 @@ Public Class FrmNuevoSintoma
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
         TxtNombre.Text = ""
         Me.Hide()
-        MenuGestion.Show()
+        FrmMenuGestion.Show()
 
     End Sub
 

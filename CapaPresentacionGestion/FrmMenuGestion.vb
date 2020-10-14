@@ -1,9 +1,9 @@
 ﻿Imports CapaDeNegocio
 
-Public Class MenuGestion
+Public Class FrmMenuGestion
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Me.Hide()
-        AltaUsuario.Show()
+        FrmAltaUsuario.Show()
 
     End Sub
 

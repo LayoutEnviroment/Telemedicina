@@ -144,4 +144,17 @@
         Return Command.ExecuteScalar.ToString
 
     End Function
+
+    Public Function ObtenerId()
+        Command.CommandText = "
+            SELECT
+                id
+            FROM
+                sintoma
+            WHERE
+                nombre = '" + Me.Nombre + "'
+        "
+        Return Command.ExecuteScalar.ToString()
+
+    End Function
 End Class

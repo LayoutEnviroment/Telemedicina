@@ -1,6 +1,6 @@
 ﻿Imports CapaDeNegocio
 Imports System.Net.Mail
-Public Class AltaUsuario
+Public Class FrmAltaUsuario
 
     Dim TipoUsuario(3) As Boolean
     Dim FechaNacimiento As String
@@ -8,6 +8,10 @@ Public Class AltaUsuario
     Dim Medicamentos As New List(Of String)
     Dim Sexo As String
     Dim Contra As String
+
+    Private Sub TxtNombre_TextChanged(sender As Object, e As EventArgs) Handles TxtNombre.TextChanged, TxtNombre.Validated
+
+    End Sub
 
     Private Sub ChbPaciente_CheckedChanged(sender As Object, e As EventArgs) Handles ChbPaciente.CheckedChanged
         If ChbPaciente.Checked Then
@@ -29,12 +33,12 @@ Public Class AltaUsuario
 
     Private Sub ObtenerTipoUsuario()
         If ChbAdministrador.Checked Then
-            TipoUsuario(3) = True
+            TipoUsuario(2) = True
 
         End If
 
         If ChbMedico.Checked Then
-            TipoUsuario(2) = True
+            TipoUsuario(1) = True
 
         End If
 
@@ -60,7 +64,7 @@ Public Class AltaUsuario
     End Function
 
     Private Sub CargarPaciente()
-        TipoUsuario(1) = True
+        TipoUsuario(0) = True
 
         FechaNacimiento = DtpFechaNacimiento.Value.Year.ToString() + "-" + DtpFechaNacimiento.Value.Month.ToString() + "-" + DtpFechaNacimiento.Value.Day.ToString()
 
@@ -103,7 +107,7 @@ Public Class AltaUsuario
     End Sub
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
-        MenuGestion.Show()
+        FrmMenuGestion.Show()
         Me.Close()
 
     End Sub
@@ -206,6 +210,24 @@ Public Class AltaUsuario
             End If
         End Try
         Limpiar()
+
+    End Sub
+
+    Private Sub Btn_Click(sender As Object, e As EventArgs) Handles Btn.Click
+        If ChbAdministrador.Checked Then
+            TipoUsuario(2) = True
+
+        End If
+
+        If ChbMedico.Checked Then
+            TipoUsuario(1) = True
+
+        End If
+
+        If ChbPaciente.Checked Then
+            TipoUsuario(0) = True
+        End If
+        MsgBox(TipoUsuario(0).ToString + ", " + TipoUsuario(1).ToString + ", " + TipoUsuario(2).ToString)
 
     End Sub
 

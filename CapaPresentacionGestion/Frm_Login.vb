@@ -7,7 +7,7 @@ Public Class Frm_Login
             If Autentificar(TxtUser.Text, TxtPass.Text) = 1 Then
                 SetearSesion(TxtUser.Text, TxtPass.Text, Cedula)
                 Me.Hide()
-                MenuGestion.Show()
+                FrmMenuGestion.Show()
             Else
                 MsgBox(Autentificar(TxtUser.Text, TxtPass.Text))
                 MsgBox("Usuario Invalido")

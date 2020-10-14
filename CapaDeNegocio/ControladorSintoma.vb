@@ -67,5 +67,14 @@ Public Module ControladorSintoma
 
         Return s.ObtenerExistencia()
     End Function
+
+    Public Function ObtenerId(nombre As String)
+        Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Nombre = nombre
+        }
+
+        Return s.ObtenerId()
+    End Function
+
 End Module
 

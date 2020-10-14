@@ -73,10 +73,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AltaUsuario.Designer.vb">
-      <DependentUpon>AltaUsuario.vb</DependentUpon>
+    <Compile Include="FrmAltaUsuario.Designer.vb">
+      <DependentUpon>FrmAltaUsuario.vb</DependentUpon>
     </Compile>
-    <Compile Include="AltaUsuario.vb">
+    <Compile Include="FrmAltaUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmEliminarEnfermedad.Designer.vb">
@@ -133,11 +133,11 @@
     <Compile Include="Frm_Login.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuGestion.vb">
+    <Compile Include="FrmMenuGestion.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuGestion.Designer.vb">
-      <DependentUpon>MenuGestion.vb</DependentUpon>
+    <Compile Include="FrmMenuGestion.Designer.vb">
+      <DependentUpon>FrmMenuGestion.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmModificarMedico.Designer.vb">
@@ -169,8 +169,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AltaUsuario.resx">
-      <DependentUpon>AltaUsuario.vb</DependentUpon>
+    <EmbeddedResource Include="FrmAltaUsuario.resx">
+      <DependentUpon>FrmAltaUsuario.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEliminarEnfermedad.resx">
       <DependentUpon>FrmEliminarEnfermedad.vb</DependentUpon>
@@ -199,8 +199,8 @@
     <EmbeddedResource Include="Frm_Login.resx">
       <DependentUpon>Frm_Login.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuGestion.resx">
-      <DependentUpon>MenuGestion.vb</DependentUpon>
+    <EmbeddedResource Include="FrmMenuGestion.resx">
+      <DependentUpon>FrmMenuGestion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmModificarMedico.resx">
       <DependentUpon>FrmModificarMedico.vb</DependentUpon>

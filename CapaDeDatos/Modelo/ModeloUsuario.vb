@@ -34,35 +34,36 @@
                         ('" + Me.CI + "','" + Me.Nombre + "','" + Me.Apellido + "','" + Me.Mail + "','1')
                     "
                 Command.ExecuteNonQuery()
-
+                MsgBox("Es admin: " + TipoDeUsuario(2).ToString())
+                MsgBox("Es medico: " + TipoDeUsuario(1).ToString())
+                MsgBox("Es paciente: " + TipoDeUsuario(0).ToString())
                 '' Creacion de un administrador
-                If Me.TipoDeUsuario(3) = True Then
-                    Try
-                        Command.CommandText = "
+                If Me.TipoDeUsuario(2) = True Then
+                    Command.CommandText = "
                     CREATE USER 
                         '" + Me.CI + "'@'localhost' 
                     IDENTIFIED BY
                         '" + Me.Password + "'
                     "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = "
+                    Command.CommandText = "
                         INSERT INTO 
                             administrativo (ci_persona)
                         VALUES
                             ('" + Me.CI + "')
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = "
+                    Command.CommandText = "
                         INSERT INTO 
                             roles (ci_persona, usuario, rol)
                         VALUES
                             ('" + Me.CI + "','" + Me.Mail + "', 3)
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = "
+                    Command.CommandText = "
                         GRANT
                            ALL
                         ON
@@ -70,46 +71,40 @@
                         TO
                             '" + Me.CI + "'@'localhost' WITH GRANT OPTION
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = "FLUSH PRIVILEGES"
-                        Command.ExecuteNonQuery()
-                    Catch ex As Exception
-                        MsgBox("Error al crear admin " + ex.ToString)
-                        Command.CommandText = "ROLLBACK"
-                        Command.ExecuteNonQuery()
-                    End Try
-
+                    Command.CommandText = "FLUSH PRIVILEGES"
+                    Command.ExecuteNonQuery()
 
                 End If
 
                 '' Creacion de un medico
-                If Me.TipoDeUsuario(2) = True Then
-                    Try
-                        Command.CommandText = "
+                If Me.TipoDeUsuario(1) = True Then
+
+                    Command.CommandText = "
                     CREATE USER 
                         '" + Me.CI + "'@'%' 
                     IDENTIFIED BY
                         '" + Me.Password + "'
                     "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = "
+                    Command.CommandText = "
                         INSERT INTO 
                             medico (ci_persona)
                         VALUES
                             ('" + Me.CI + "')
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = "
+                    Command.CommandText = "
                         INSERT INTO 
                             roles (ci_persona, usuario, rol)
                         VALUES
                             ('" + Me.CI + "', '" + Me.Mail + "', 2)"
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = "
+                    Command.CommandText = "
                         GRANT
 	                        SELECT 
                         ON 
@@ -117,9 +112,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = " 
+                    Command.CommandText = " 
                         GRANT
 	                        SELECT 
                         ON 
@@ -127,9 +122,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = " 
+                    Command.CommandText = " 
                         GRANT 
 	                        SELECT 
                         ON 
@@ -137,9 +132,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = " 
+                    Command.CommandText = " 
                         GRANT 
 	                        SELECT 
                         ON 
@@ -147,9 +142,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = " 
+                    Command.CommandText = " 
                         GRANT 
 	                        SELECT 
                         ON 
@@ -157,9 +152,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = " 
+                    Command.CommandText = " 
                         GRANT
 	                        SELECT 
                         ON 
@@ -167,9 +162,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = " 
+                    Command.CommandText = " 
                         GRANT
 	                        SELECT 
                         ON 
@@ -177,9 +172,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = " 
+                    Command.CommandText = " 
                         GRANT
 	                        SELECT 
                         ON 
@@ -187,9 +182,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = " 
+                    Command.CommandText = " 
                         GRANT
 	                        SELECT 
                         ON 
@@ -197,9 +192,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = " 
+                    Command.CommandText = " 
                         GRANT
 	                        SELECT, INSERT, UPDATE 
                         ON 
@@ -207,68 +202,65 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = "FLUSH PRIVILEGES"
-                        Command.ExecuteNonQuery()
-                    Catch ex As Exception
-                        MsgBox("Error al crear medico" + ex.ToString)
-                        Command.CommandText = "ROLLBACK"
-                        Command.ExecuteNonQuery()
-                    End Try
+                    Command.CommandText = "FLUSH PRIVILEGES"
+                    Command.ExecuteNonQuery()
 
                 End If
 
                 ''Creacion de un paciente
-                If Me.TipoDeUsuario(1) = True Then
-                    Try
-                        Command.CommandText = "
-                    CREATE USER 
-                        '" + Me.CI + "'@'%' 
-                    IDENTIFIED BY
-                        '" + Me.Password + "'
-                    "
-                        Command.ExecuteNonQuery()
+                If Me.TipoDeUsuario(0) = True Then
+                    Command.CommandText = "
+                            CREATE USER 
+                                '" + Me.CI + "'@'%' 
+                            IDENTIFIED BY
+                                '" + Me.Password + "'
+                            "
+                    Command.ExecuteNonQuery()
+                    MsgBox("Creo usuario")
 
-                        Command.CommandText = "
+                    Command.CommandText = "
                         INSERT INTO 
                             paciente (ci_persona, sexo, fecha_nac, activo)
                         VALUES
                             ('" + Me.CI + "','" + Me.Sexo + "','" + Me.FechaNacimiento + "',1)
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
+                    MsgBox("Creo paciente")
 
-                        For Each Enfermedad In EnfermedadCronica
-                            Command.CommandText = "
+                    For Each Enfermedad In EnfermedadCronica
+                        Command.CommandText = "
                             INSERT INTO 
                                 enfermedades_cronicas (ci_persona_paciente, enfermedad)
                             VALUES
                                 ('" + Me.CI + "','" + Enfermedad + "')
                             "
-                            Command.ExecuteNonQuery()
+                        Command.ExecuteNonQuery()
 
-                        Next
+                    Next
 
-                        For Each Medicamento In Medicacion
-                            Command.CommandText = "
+                    For Each Medicamento In Medicacion
+                        Command.CommandText = "
                             INSERT INTO 
                                 medicaciones (ci_persona_paciente, medicacion)
                             VALUES
                                 ('" + Me.CI + "','" + Medicamento + "')
                             "
-                            Command.ExecuteNonQuery()
-
-                        Next
-
-                        Command.CommandText = "
-                        INSERT INTO 
-                            roles (ci_persona, usuario, rol)
-                        VALUES
-                            ('" + Me.CI + "','" + Me.Mail + "', 1)
-                        "
                         Command.ExecuteNonQuery()
 
-                        Command.CommandText = "
+                    Next
+
+                    Command.CommandText = "
+                        INSERT INTO 
+                            roles (ci_persona, rol)
+                        VALUES
+                            ('" + Me.CI + "', 1)
+                        "
+                    Command.ExecuteNonQuery()
+                    MsgBox("Creo rol")
+
+                    Command.CommandText = "
                         GRANT 
 	                        SELECT 
                         ON 
@@ -276,9 +268,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = "
+                    Command.CommandText = "
                         GRANT
 	                        SELECT 
                         ON 
@@ -286,9 +278,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = "
+                    Command.CommandText = "
                         GRANT
 	                        SELECT 
                         ON 
@@ -296,9 +288,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = "
+                    Command.CommandText = "
                         GRANT
 	                        SELECT 
                         ON 
@@ -306,9 +298,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = "
+                    Command.CommandText = "
                         GRANT
 	                        SELECT 
                         ON 
@@ -316,9 +308,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = "
+                    Command.CommandText = "
                         GRANT
 	                        SELECT, INSERT 
                         ON 
@@ -326,9 +318,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = "
+                    Command.CommandText = "
                         GRANT
 	                        SELECT, INSERT 
                         ON 
@@ -336,9 +328,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = "
+                    Command.CommandText = "
                         GRANT
 	                        SELECT, INSERT 
                         ON 
@@ -346,9 +338,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = "
+                    Command.CommandText = "
                         GRANT
 	                        SELECT, UPDATE 
                         ON 
@@ -356,9 +348,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = "
+                    Command.CommandText = "
                         GRANT
 	                        SELECT, UPDATE 
                         ON 
@@ -366,9 +358,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = "
+                    Command.CommandText = "
                         GRANT
 	                        SELECT, INSERT, DELETE 
                         ON 
@@ -376,9 +368,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = "    
+                    Command.CommandText = "    
                         GRANT
 	                        SELECT, INSERT, DELETE 
                         ON 
@@ -386,9 +378,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = "
+                    Command.CommandText = "
                         GRANT
 	                        SELECT, INSERT, UPDATE 
                         ON 
@@ -396,20 +388,21 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                        Command.ExecuteNonQuery()
+                    Command.ExecuteNonQuery()
 
-                        Command.CommandText = "FLUSH PRIVILEGES"
-                        Command.ExecuteNonQuery()
-                    Catch ex As Exception
-                        Command.CommandText = "ROLLBACK"
-                        Command.ExecuteNonQuery()
-                    End Try
+                    Command.CommandText = "FLUSH PRIVILEGES"
+                    Command.ExecuteNonQuery()
+
                 End If
+
+                Command.CommandText = "COMMIT"
+                Command.ExecuteNonQuery()
             Catch ex As Exception
+                Command.CommandText = "ROLLBACK"
+                Command.ExecuteNonQuery()
             End Try
 
         Catch ex As Exception
-                MsgBox(ex.ToString)
             Command.CommandText = "ROLLBACK"
             Command.ExecuteNonQuery()
 

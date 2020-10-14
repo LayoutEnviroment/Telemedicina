@@ -58,7 +58,7 @@ Public Class FrmModificarMedico
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
         Limpiar()
-        MenuGestion.Show()
+        FrmMenuGestion.Show()
         Me.Close()
 
     End Sub

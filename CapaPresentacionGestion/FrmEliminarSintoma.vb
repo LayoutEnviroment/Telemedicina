@@ -46,6 +46,6 @@ Public Class FrmEliminarSintoma
     End Sub
 
     Private Sub FrmEliminarSintoma_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        MenuGestion.Show()
+        FrmMenuGestion.Show()
     End Sub
 End Class

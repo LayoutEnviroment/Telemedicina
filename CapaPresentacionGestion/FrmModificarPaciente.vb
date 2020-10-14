@@ -35,10 +35,10 @@ Public Class FrmModificarPaciente
     Private Sub BtnEliminarMedicacion_Click(sender As Object, e As EventArgs) Handles BtnEliminarMedicacion.Click
         LstMedicacion.Items.Remove(LstMedicacion.SelectedItems(0))
         AsignarListas()
+
     End Sub
 
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
-
         Nombre = TxtNombre.Text
         Apellido = TxtApellido.Text
         Correo = TxtMail.Text
@@ -46,18 +46,21 @@ Public Class FrmModificarPaciente
         AsignarListas()
         DeterminarFecha()
         GuardarValores()
+
     End Sub
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
         Limpiar()
         CmbSeleccionarCI.ResetText()
         CargarCI()
+
     End Sub
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
-
-        MenuGestion.Show()
+        Limpiar()
+        FrmMenuGestion.Show()
         Me.Close()
+
     End Sub
 
     Private Sub Limpiar()
@@ -80,6 +83,7 @@ Public Class FrmModificarPaciente
         Lector = ControladorPaciente.ObtenerTodo(CmbSeleccionarCI.Text)
         CargarTextBoxes(Lector)
         HabilitarAceptar()
+
     End Sub
 
     Public Sub CargarTextBoxes(Lector As IDataReader)
@@ -96,6 +100,7 @@ Public Class FrmModificarPaciente
             ObtenerMedicacionesPaciente()
             ObtenerEnfermedadesCronicas()
         End While
+
     End Sub
 
 
@@ -109,8 +114,9 @@ Public Class FrmModificarPaciente
             Lector = ControladorPaciente.ObtenerMedicaciones(CmbSeleccionarCI.Text)
             CargarListaMedicaciones(Lector)
         Catch ex As Exception
-
+            MsgBox("No se pudieron obtener las medicaciones del paciente")
         End Try
+
     End Sub
 
     Public Sub CargarListaMedicaciones(Lector As IDataReader)
@@ -126,7 +132,7 @@ Public Class FrmModificarPaciente
             Lector = ControladorPaciente.ObtenerEnfermedades(CmbSeleccionarCI.Text)
             CargarListaEnfermedades(Lector)
         Catch ex As Exception
-
+            MsgBox("No se pudieron obtener las enfermedades del paciente")
         End Try
     End Sub
 
