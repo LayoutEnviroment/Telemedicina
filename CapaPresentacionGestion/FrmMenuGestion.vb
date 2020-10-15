@@ -65,4 +65,9 @@ Public Class FrmMenuGestion
         Me.Hide()
         FrmModificarEnfermedad.Show()
     End Sub
+
+    Private Sub FrmMenuGestion_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Me.Hide()
+        Frm_Login.Close()
+    End Sub
 End Class

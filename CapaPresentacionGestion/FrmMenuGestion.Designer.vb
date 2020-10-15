@@ -109,19 +109,19 @@ Partial Class FrmMenuGestion
         'NuevoToolStripMenuItem1
         '
         Me.NuevoToolStripMenuItem1.Name = "NuevoToolStripMenuItem1"
-        Me.NuevoToolStripMenuItem1.Size = New System.Drawing.Size(252, 30)
+        Me.NuevoToolStripMenuItem1.Size = New System.Drawing.Size(171, 30)
         Me.NuevoToolStripMenuItem1.Text = "Nuevo"
         '
         'ModificarToolStripMenuItem1
         '
         Me.ModificarToolStripMenuItem1.Name = "ModificarToolStripMenuItem1"
-        Me.ModificarToolStripMenuItem1.Size = New System.Drawing.Size(252, 30)
+        Me.ModificarToolStripMenuItem1.Size = New System.Drawing.Size(171, 30)
         Me.ModificarToolStripMenuItem1.Text = "Modificar"
         '
         'EliminarToolStripMenuItem1
         '
         Me.EliminarToolStripMenuItem1.Name = "EliminarToolStripMenuItem1"
-        Me.EliminarToolStripMenuItem1.Size = New System.Drawing.Size(252, 30)
+        Me.EliminarToolStripMenuItem1.Size = New System.Drawing.Size(171, 30)
         Me.EliminarToolStripMenuItem1.Text = "Eliminar"
         '
         'ImportarCSVToolStripMenuItem
@@ -134,7 +134,7 @@ Partial Class FrmMenuGestion
         'SintomaToolStripMenuItem1
         '
         Me.SintomaToolStripMenuItem1.Name = "SintomaToolStripMenuItem1"
-        Me.SintomaToolStripMenuItem1.Size = New System.Drawing.Size(252, 30)
+        Me.SintomaToolStripMenuItem1.Size = New System.Drawing.Size(162, 30)
         Me.SintomaToolStripMenuItem1.Text = "Sintoma"
         '
         'EnfermedadToolStripMenuItem1
@@ -147,19 +147,19 @@ Partial Class FrmMenuGestion
         'NuevoToolStripMenuItem2
         '
         Me.NuevoToolStripMenuItem2.Name = "NuevoToolStripMenuItem2"
-        Me.NuevoToolStripMenuItem2.Size = New System.Drawing.Size(252, 30)
+        Me.NuevoToolStripMenuItem2.Size = New System.Drawing.Size(171, 30)
         Me.NuevoToolStripMenuItem2.Text = "Nuevo"
         '
         'ModificarToolStripMenuItem2
         '
         Me.ModificarToolStripMenuItem2.Name = "ModificarToolStripMenuItem2"
-        Me.ModificarToolStripMenuItem2.Size = New System.Drawing.Size(252, 30)
+        Me.ModificarToolStripMenuItem2.Size = New System.Drawing.Size(171, 30)
         Me.ModificarToolStripMenuItem2.Text = "Modificar"
         '
         'EliminarToolStripMenuItem2
         '
         Me.EliminarToolStripMenuItem2.Name = "EliminarToolStripMenuItem2"
-        Me.EliminarToolStripMenuItem2.Size = New System.Drawing.Size(252, 30)
+        Me.EliminarToolStripMenuItem2.Size = New System.Drawing.Size(171, 30)
         Me.EliminarToolStripMenuItem2.Text = "Eliminar"
         '
         'LblBienvenida
@@ -170,7 +170,7 @@ Partial Class FrmMenuGestion
         Me.LblBienvenida.Size = New System.Drawing.Size(0, 20)
         Me.LblBienvenida.TabIndex = 4
         '
-        'MenuGestion
+        'FrmMenuGestion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -179,7 +179,7 @@ Partial Class FrmMenuGestion
         Me.Controls.Add(Me.LblBienvenida)
         Me.Controls.Add(Me.MenuGestor)
         Me.MainMenuStrip = Me.MenuGestor
-        Me.Name = "MenuGestion"
+        Me.Name = "FrmMenuGestion"
         Me.Text = "Menu"
         Me.MenuGestor.ResumeLayout(False)
         Me.MenuGestor.PerformLayout()

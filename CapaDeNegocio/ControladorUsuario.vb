@@ -2,16 +2,124 @@
 
 Public Module ControladorUsuario
 
-    Public Sub CrearPersona(Nombre As String,
-                                 Apellido As String,
-                                 CI As String,
-                                 Mail As String,
-                                 TipoUsuario() As Boolean,
-                                 FechaNacimiento As String,
-                                 Sexo As String,
-                                 EnfermedadesCronicas As List(Of String),
-                                 Medicamentos As List(Of String),
-                                 Contra As String)
+    Public Sub NuevoPaciente(cedula As String,
+                             nombre As String,
+                             apellido As String,
+                             mail As String,
+                             fechaNacimineto As String,
+                             sexo As String,
+                             enfermedades As List(Of String),
+                             medicaciones As List(Of String),
+                             contra As String)
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
+            .CI = cedula,
+            .Nombre = nombre,
+            .Apellido = apellido,
+            .Mail = mail,
+            .FechaNacimiento = fechaNacimineto,
+            .Sexo = sexo,
+            .EnfermedadCronica = enfermedades,
+            .Medicacion = medicaciones,
+            .Password = contra
+        }
+
+        u.NuevoPaciente()
+
+    End Sub
+
+    Public Sub NuevoMedico(cedula As String,
+                           nombre As String,
+                           apellido As String,
+                           mail As String,
+                           contra As String)
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
+            .CI = cedula,
+            .Nombre = nombre,
+            .Apellido = apellido,
+            .Mail = mail,
+            .Password = contra
+        }
+
+        u.NuevoMedico()
+
+    End Sub
+
+    Public Sub NuevoAdministrativo(cedula As String,
+                                    nombre As String,
+                                    apellido As String,
+                                    mail As String,
+                                    contra As String)
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
+            .CI = cedula,
+            .Nombre = nombre,
+            .Apellido = apellido,
+            .Mail = mail,
+            .Password = contra
+        }
+
+        u.NuevoAdministrativo()
+
+    End Sub
+
+    Public Sub NuevoPacienteMedico(cedula As String,
+                             nombre As String,
+                             apellido As String,
+                             mail As String,
+                             fechaNacimineto As String,
+                             sexo As String,
+                             enfermedades As List(Of String),
+                             medicaciones As List(Of String),
+                             contra As String)
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
+            .CI = cedula,
+            .Nombre = nombre,
+            .Apellido = apellido,
+            .Mail = mail,
+            .FechaNacimiento = fechaNacimineto,
+            .Sexo = sexo,
+            .EnfermedadCronica = enfermedades,
+            .Medicacion = medicaciones,
+            .Password = contra
+        }
+
+        u.NuevoPacienteMedico()
+
+    End Sub
+
+    Public Sub NuevoPacienteAdmin(cedula As String,
+                             nombre As String,
+                             apellido As String,
+                             mail As String,
+                             fechaNacimineto As String,
+                             sexo As String,
+                             enfermedades As List(Of String),
+                             medicaciones As List(Of String),
+                             contra As String)
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
+            .CI = cedula,
+            .Nombre = nombre,
+            .Apellido = apellido,
+            .Mail = mail,
+            .FechaNacimiento = fechaNacimineto,
+            .Sexo = sexo,
+            .EnfermedadCronica = enfermedades,
+            .Medicacion = medicaciones,
+            .Password = contra
+        }
+
+        u.NuevoPacienteAdmin()
+
+    End Sub
+
+    Public Sub NuevoPacienteMedicoAdmin(Nombre As String,
+                                        Apellido As String,
+                                        CI As String,
+                                        Mail As String,
+                                        FechaNacimiento As String,
+                                        Sexo As String,
+                                        EnfermedadesCronicas As List(Of String),
+                                        Medicamentos As List(Of String),
+                                        Contra As String)
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
             .Nombre = Nombre,
             .Apellido = Apellido,
@@ -21,10 +129,26 @@ Public Module ControladorUsuario
             .Sexo = Sexo,
             .Medicacion = Medicamentos,
             .EnfermedadCronica = EnfermedadesCronicas,
-            .TipoDeUsuario = TipoUsuario,
             .Password = Contra
         }
-        u.NuevaPersona()
+        u.NuevoPacienteMedicoAdmin()
+
+    End Sub
+
+    Public Sub NuevoMedicoAdmin(cedula As String,
+                                nombre As String,
+                                apellido As String,
+                                mail As String,
+                                contra As String)
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
+            .CI = cedula,
+            .Nombre = nombre,
+            .Apellido = apellido,
+            .Mail = mail,
+            .Password = contra
+        }
+
+        u.NuevoMedicoAdmin()
 
     End Sub
 

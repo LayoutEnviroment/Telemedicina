@@ -16,7 +16,7 @@
             FROM
                 roles
             WHERE
-                ci_persona = '" + Me.Cedula + "' 
+                ci_persona = " + Me.Cedula + "
                 AND
                     rol = " + rol + " > 0
         "

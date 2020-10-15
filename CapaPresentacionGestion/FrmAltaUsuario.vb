@@ -79,7 +79,7 @@ Public Class FrmAltaUsuario
     End Sub
 
     Private Sub ChbAdministrador_CheckedChanged(sender As Object, e As EventArgs) Handles ChbAdministrador.CheckedChanged
-        If ChbAdministrador.Checked And ChbAdministrador.Enabled Then
+        If ChbAdministrador.Enabled Then
             HabilitarAceptar()
         Else
             BtnAceptar.Enabled = False
@@ -88,7 +88,7 @@ Public Class FrmAltaUsuario
     End Sub
 
     Private Sub ChbMedico_CheckedChanged(sender As Object, e As EventArgs) Handles ChbMedico.CheckedChanged
-        If ChbMedico.Checked And ChbMedico.Enabled Then
+        If ChbMedico.Enabled Then
             HabilitarAceptar()
         Else
             BtnAceptar.Enabled = False
@@ -97,12 +97,18 @@ Public Class FrmAltaUsuario
     End Sub
 
     Private Sub ChbPaciente_CheckedChanged(sender As Object, e As EventArgs) Handles ChbPaciente.CheckedChanged
-        If ChbPaciente.Checked And ChbPaciente.Enabled Then
+        If ChbPaciente.Checked Then
             CamposPaciente(True)
-            HabilitarAceptar()
         Else
             CamposPaciente(False)
+            HabilitarAceptar()
+        End If
+
+        If ChbPaciente.Enabled Then
+            HabilitarAceptar()
+        Else
             BtnAceptar.Enabled = False
+
         End If
 
     End Sub
@@ -125,7 +131,7 @@ Public Class FrmAltaUsuario
     End Sub
 
     Private Sub HabilitarAceptar()
-        If Ci And Nombre And Apellido And Mail And ChbPaciente.Enabled Then
+        If Ci And Nombre And Apellido And Mail And ChbPaciente.Enabled And (ChbAdministrador.Checked Or ChbMedico.Checked Or ChbPaciente.Checked) Then
             BtnAceptar.Enabled = True
         Else
             BtnAceptar.Enabled = False
@@ -139,21 +145,32 @@ Public Class FrmAltaUsuario
     End Sub
 
     Private Sub ObtenerTipoUsuario()
-        If ChbAdministrador.Checked Then
-            TipoUsuario(2) = True
+        If ChbAdministrador.Checked And Not ChbMedico.Checked And Not ChbPaciente.Checked Then
+            CrearPersona(3)
 
-        End If
+        ElseIf ChbMedico.Checked And Not ChbPaciente.Checked And Not ChbAdministrador.Checked Then
+            CrearPersona(2)
 
-        If ChbMedico.Checked Then
-            TipoUsuario(1) = True
-
-        End If
-
-        If ChbPaciente.Checked Then
+        ElseIf ChbPaciente.Checked And Not ChbMedico.Checked And Not ChbAdministrador.Checked Then
             CargarPaciente()
-        End If
+            CrearPersona(1)
 
-        CrearPersona()
+        ElseIf ChbAdministrador.Checked And ChbMedico.Checked And Not ChbPaciente.Checked Then
+            CrearPersona(23)
+
+        ElseIf ChbAdministrador.Checked And ChbPaciente.Checked And Not ChbMedico.Checked Then
+            CargarPaciente()
+            CrearPersona(13)
+
+        ElseIf ChbMedico.Checked And ChbPaciente.Checked And Not ChbAdministrador.Checked Then
+            CargarPaciente()
+            CrearPersona(12)
+
+        ElseIf ChbMedico.Checked And ChbPaciente.Checked And ChbAdministrador.Checked Then
+            CargarPaciente()
+            CrearPersona(123)
+
+        End If
 
     End Sub
 
@@ -161,7 +178,7 @@ Public Class FrmAltaUsuario
         TipoUsuario(0) = True
 
         FechaNacimiento = DtpFechaNacimiento.Value.Year.ToString() + "-" + DtpFechaNacimiento.Value.Month.ToString() + "-" + DtpFechaNacimiento.Value.Day.ToString()
-
+        MsgBox(FechaNacimiento)
         For x = 0 To LstEnfermedadCronica.Items.Count - 1
             EnfermedadesCronicas.Add(LstEnfermedadCronica.Items(x).ToString)
         Next
@@ -190,13 +207,129 @@ Public Class FrmAltaUsuario
 
     End Sub
 
-    Private Sub CrearPersona()
+    Private Sub CrearPersona(Tipo As Integer)
+        If Tipo = 1 Then
+            CrearPaciente()
+        ElseIf Tipo = 2 Then
+            CrearMedico()
+        ElseIf Tipo = 3 Then
+            CrearAdministrativo()
+        ElseIf Tipo = 12 Then
+            CrearPacienteMedico()
+        ElseIf Tipo = 13 Then
+            CrearPacienteAdmin()
+        ElseIf Tipo = 23 Then
+            CrearMedicoAdmin()
+        ElseIf Tipo = 123 Then
+            CrearPacienteMedicoAdmin()
+        End If
+
+    End Sub
+
+    Private Sub CrearPaciente()
         Try
-            ControladorUsuario.CrearPersona(TxtNombre.Text.Trim,
+            ControladorUsuario.NuevoPaciente(TxtCI.Text,
+                                             TxtNombre.Text,
+                                             TxtApellido.Text,
+                                             TxtMail.Text,
+                                             FechaNacimiento,
+                                             Sexo, EnfermedadesCronicas,
+                                             Medicamentos,
+                                             CrearContra())
+            MsgBox("paciente creado con exito!")
+            EnviarMail()
+        Catch ex As Exception
+            MsgBox("Error al crear al paciente" + ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub CrearMedico()
+        Try
+            ControladorUsuario.NuevoMedico(TxtCI.Text,
+                                            TxtNombre.Text,
+                                            TxtApellido.Text,
+                                            TxtMail.Text,
+                                            CrearContra())
+            MsgBox("medico creado con exito!")
+            EnviarMail()
+
+        Catch ex As Exception
+            MsgBox("Error al crear al medico")
+        End Try
+
+    End Sub
+
+    Private Sub CrearAdministrativo()
+        Try
+            ControladorUsuario.NuevoAdministrativo(TxtCI.Text,
+                                                   TxtNombre.Text,
+                                                   TxtApellido.Text,
+                                                   TxtMail.Text,
+                                                   CrearContra())
+            MsgBox("Administrativo creado con exito!")
+            EnviarMail()
+        Catch ex As Exception
+            MsgBox("Error al crear al administrativo" + ex.ToString())
+
+        End Try
+    End Sub
+
+    Private Sub CrearPacienteMedico()
+        Try
+            ControladorUsuario.NuevoPacienteMedico(TxtCI.Text,
+                                             TxtNombre.Text,
+                                             TxtApellido.Text,
+                                             TxtMail.Text,
+                                             FechaNacimiento,
+                                             Sexo, EnfermedadesCronicas,
+                                             Medicamentos,
+                                             CrearContra())
+            MsgBox("Paciente medico creado con exito")
+            EnviarMail()
+        Catch ex As Exception
+            MsgBox("Error creando al usuario " + TxtNombre.Text + " " + ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub CrearPacienteAdmin()
+        Try
+            ControladorUsuario.NuevoPacienteAdmin(TxtCI.Text,
+                                             TxtNombre.Text,
+                                             TxtApellido.Text,
+                                             TxtMail.Text,
+                                             FechaNacimiento,
+                                             Sexo, EnfermedadesCronicas,
+                                             Medicamentos,
+                                             CrearContra())
+            MsgBox("El usuario se creo como paciente y administrativo")
+            EnviarMail()
+        Catch ex As Exception
+            MsgBox("Error al crear al usuario " + ex.ToString)
+        End Try
+
+    End Sub
+
+    Private Sub CrearMedicoAdmin()
+        Try
+            ControladorUsuario.NuevoMedicoAdmin(TxtCI.Text,
+                                                TxtNombre.Text,
+                                                TxtApellido.Text,
+                                                TxtMail.Text,
+                                                CrearContra())
+            MsgBox("El usuario " + TxtNombre.Text + " fue creado con exito!")
+            EnviarMail()
+        Catch ex As Exception
+            MsgBox("Error al crear al administrativo, medico" + ex.ToString())
+
+        End Try
+    End Sub
+
+    Private Sub CrearPacienteMedicoAdmin()
+        Try
+            ControladorUsuario.NuevoPacienteMedicoAdmin(TxtNombre.Text.Trim,
                                             TxtApellido.Text.Trim,
                                             TxtCI.Text.Trim,
                                             TxtMail.Text.Trim,
-                                            TipoUsuario,
                                             FechaNacimiento,
                                             Sexo,
                                             EnfermedadesCronicas,

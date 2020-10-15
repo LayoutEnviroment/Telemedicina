@@ -17,250 +17,68 @@
     Public Medicacion As List(Of String)
     Public Password As String
 
-
-    Public Sub NuevaPersona()
+    Public Sub NuevoPaciente()
         Try
             Command.CommandText = "SET AUTOCOMMIT = OFF"
             Command.ExecuteNonQuery()
             Command.CommandText = "START TRANSACTION"
             Command.ExecuteNonQuery()
 
-            Try
-
-                Command.CommandText = "
-                    INSERT INTO 
-                        persona (ci, nombre, apellido, mail, activo)
-                    VALUES
-                        ('" + Me.CI + "','" + Me.Nombre + "','" + Me.Apellido + "','" + Me.Mail + "','1')
-                    "
-                Command.ExecuteNonQuery()
-                MsgBox("Es admin: " + TipoDeUsuario(2).ToString())
-                MsgBox("Es medico: " + TipoDeUsuario(1).ToString())
-                MsgBox("Es paciente: " + TipoDeUsuario(0).ToString())
-                '' Creacion de un administrador
-                If Me.TipoDeUsuario(2) = True Then
-                    Command.CommandText = "
-                    CREATE USER 
-                        '" + Me.CI + "'@'localhost' 
-                    IDENTIFIED BY
-                        '" + Me.Password + "'
-                    "
-                    Command.ExecuteNonQuery()
-
-                    Command.CommandText = "
-                        INSERT INTO 
-                            administrativo (ci_persona)
-                        VALUES
-                            ('" + Me.CI + "')
-                        "
-                    Command.ExecuteNonQuery()
-
-                    Command.CommandText = "
-                        INSERT INTO 
-                            roles (ci_persona, usuario, rol)
-                        VALUES
-                            ('" + Me.CI + "','" + Me.Mail + "', 3)
-                        "
-                    Command.ExecuteNonQuery()
-
-                    Command.CommandText = "
-                        GRANT
-                           ALL
-                        ON
-                            *.*
-                        TO
-                            '" + Me.CI + "'@'localhost' WITH GRANT OPTION
-                        "
-                    Command.ExecuteNonQuery()
-
-                    Command.CommandText = "FLUSH PRIVILEGES"
-                    Command.ExecuteNonQuery()
-
-                End If
-
-                '' Creacion de un medico
-                If Me.TipoDeUsuario(1) = True Then
-
-                    Command.CommandText = "
+            Command.CommandText = "
                     CREATE USER 
                         '" + Me.CI + "'@'%' 
                     IDENTIFIED BY
                         '" + Me.Password + "'
                     "
-                    Command.ExecuteNonQuery()
+            Command.ExecuteNonQuery()
 
-                    Command.CommandText = "
-                        INSERT INTO 
-                            medico (ci_persona)
-                        VALUES
-                            ('" + Me.CI + "')
-                        "
-                    Command.ExecuteNonQuery()
+            Command.CommandText = "
+                    INSERT INTO 
+                        persona (ci, nombre, apellido, mail, activo)
+                    VALUES
+                        (" + Me.CI + ",'" + Me.Nombre + "','" + Me.Apellido + "','" + Me.Mail + "','1')
+                    "
+            Command.ExecuteNonQuery()
 
-                    Command.CommandText = "
-                        INSERT INTO 
-                            roles (ci_persona, usuario, rol)
-                        VALUES
-                            ('" + Me.CI + "', '" + Me.Mail + "', 2)"
-                    Command.ExecuteNonQuery()
-
-                    Command.CommandText = "
-                        GRANT
-	                        SELECT 
-                        ON 
-                            bd_led.roles 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-                    Command.ExecuteNonQuery()
-
-                    Command.CommandText = " 
-                        GRANT
-	                        SELECT 
-                        ON 
-                            bd_led.sintoma 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-                    Command.ExecuteNonQuery()
-
-                    Command.CommandText = " 
-                        GRANT 
-	                        SELECT 
-                        ON 
-                            bd_led.enfermedad 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-                    Command.ExecuteNonQuery()
-
-                    Command.CommandText = " 
-                        GRANT 
-	                        SELECT 
-                        ON 
-                            bd_led.compone 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-                    Command.ExecuteNonQuery()
-
-                    Command.CommandText = " 
-                        GRANT 
-	                        SELECT 
-                        ON 
-                            bd_led.medico 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-                    Command.ExecuteNonQuery()
-
-                    Command.CommandText = " 
-                        GRANT
-	                        SELECT 
-                        ON 
-                            bd_led.paciente 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-                    Command.ExecuteNonQuery()
-
-                    Command.CommandText = " 
-                        GRANT
-	                        SELECT 
-                        ON 
-                            bd_led.persona 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-                    Command.ExecuteNonQuery()
-
-                    Command.CommandText = " 
-                        GRANT
-	                        SELECT 
-                        ON 
-                            bd_led.enfermedades_cronicas 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-                    Command.ExecuteNonQuery()
-
-                    Command.CommandText = " 
-                        GRANT
-	                        SELECT 
-                        ON 
-                            bd_led.medicaciones 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-                    Command.ExecuteNonQuery()
-
-                    Command.CommandText = " 
-                        GRANT
-	                        SELECT, INSERT, UPDATE 
-                        ON 
-                            bd_led.atiende 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-                    Command.ExecuteNonQuery()
-
-                    Command.CommandText = "FLUSH PRIVILEGES"
-                    Command.ExecuteNonQuery()
-
-                End If
-
-                ''Creacion de un paciente
-                If Me.TipoDeUsuario(0) = True Then
-                    Command.CommandText = "
-                            CREATE USER 
-                                '" + Me.CI + "'@'%' 
-                            IDENTIFIED BY
-                                '" + Me.Password + "'
-                            "
-                    Command.ExecuteNonQuery()
-                    MsgBox("Creo usuario")
-
-                    Command.CommandText = "
-                        INSERT INTO 
-                            paciente (ci_persona, sexo, fecha_nac, activo)
-                        VALUES
-                            ('" + Me.CI + "','" + Me.Sexo + "','" + Me.FechaNacimiento + "',1)
-                        "
-                    Command.ExecuteNonQuery()
-                    MsgBox("Creo paciente")
-
-                    For Each Enfermedad In EnfermedadCronica
-                        Command.CommandText = "
-                            INSERT INTO 
-                                enfermedades_cronicas (ci_persona_paciente, enfermedad)
-                            VALUES
-                                ('" + Me.CI + "','" + Enfermedad + "')
-                            "
-                        Command.ExecuteNonQuery()
-
-                    Next
-
-                    For Each Medicamento In Medicacion
-                        Command.CommandText = "
-                            INSERT INTO 
-                                medicaciones (ci_persona_paciente, medicacion)
-                            VALUES
-                                ('" + Me.CI + "','" + Medicamento + "')
-                            "
-                        Command.ExecuteNonQuery()
-
-                    Next
-
-                    Command.CommandText = "
+            Command.CommandText = "
                         INSERT INTO 
                             roles (ci_persona, rol)
                         VALUES
-                            ('" + Me.CI + "', 1)
+                            (" + Me.CI + ", 1)
                         "
-                    Command.ExecuteNonQuery()
-                    MsgBox("Creo rol")
+            Command.ExecuteNonQuery()
 
-                    Command.CommandText = "
+            Command.CommandText = "
+                        INSERT INTO 
+                            paciente (ci_persona, sexo, fecha_nac)
+                        VALUES
+                            (" + Me.CI + ", " + Me.Sexo + ", '" + Me.FechaNacimiento + "')
+                        "
+            Command.ExecuteNonQuery()
+
+            For Each Enfermedad In EnfermedadCronica
+                Command.CommandText = "
+                            INSERT INTO 
+                                enfermedades_cronicas (ci_persona_paciente, enfermedad)
+                            VALUES
+                                (" + Me.CI + ",'" + Enfermedad + "')
+                            "
+                Command.ExecuteNonQuery()
+
+            Next
+
+            For Each Medicamento In Medicacion
+                Command.CommandText = "
+                            INSERT INTO 
+                                medicaciones (ci_persona_paciente, medicacion)
+                            VALUES
+                                (" + Me.CI + ",'" + Medicamento + "')
+                            "
+                Command.ExecuteNonQuery()
+
+            Next
+
+            Command.CommandText = "
                         GRANT 
 	                        SELECT 
                         ON 
@@ -268,9 +86,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                    Command.ExecuteNonQuery()
+            Command.ExecuteNonQuery()
 
-                    Command.CommandText = "
+            Command.CommandText = "
                         GRANT
 	                        SELECT 
                         ON 
@@ -278,9 +96,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                    Command.ExecuteNonQuery()
+            Command.ExecuteNonQuery()
 
-                    Command.CommandText = "
+            Command.CommandText = "
                         GRANT
 	                        SELECT 
                         ON 
@@ -288,9 +106,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                    Command.ExecuteNonQuery()
+            Command.ExecuteNonQuery()
 
-                    Command.CommandText = "
+            Command.CommandText = "
                         GRANT
 	                        SELECT 
                         ON 
@@ -298,9 +116,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                    Command.ExecuteNonQuery()
+            Command.ExecuteNonQuery()
 
-                    Command.CommandText = "
+            Command.CommandText = "
                         GRANT
 	                        SELECT 
                         ON 
@@ -308,9 +126,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                    Command.ExecuteNonQuery()
+            Command.ExecuteNonQuery()
 
-                    Command.CommandText = "
+            Command.CommandText = "
                         GRANT
 	                        SELECT, INSERT 
                         ON 
@@ -318,9 +136,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                    Command.ExecuteNonQuery()
+            Command.ExecuteNonQuery()
 
-                    Command.CommandText = "
+            Command.CommandText = "
                         GRANT
 	                        SELECT, INSERT 
                         ON 
@@ -328,9 +146,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                    Command.ExecuteNonQuery()
+            Command.ExecuteNonQuery()
 
-                    Command.CommandText = "
+            Command.CommandText = "
                         GRANT
 	                        SELECT, INSERT 
                         ON 
@@ -338,9 +156,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                    Command.ExecuteNonQuery()
+            Command.ExecuteNonQuery()
 
-                    Command.CommandText = "
+            Command.CommandText = "
                         GRANT
 	                        SELECT, UPDATE 
                         ON 
@@ -348,9 +166,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                    Command.ExecuteNonQuery()
+            Command.ExecuteNonQuery()
 
-                    Command.CommandText = "
+            Command.CommandText = "
                         GRANT
 	                        SELECT, UPDATE 
                         ON 
@@ -358,9 +176,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                    Command.ExecuteNonQuery()
+            Command.ExecuteNonQuery()
 
-                    Command.CommandText = "
+            Command.CommandText = "
                         GRANT
 	                        SELECT, INSERT, DELETE 
                         ON 
@@ -368,9 +186,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                    Command.ExecuteNonQuery()
+            Command.ExecuteNonQuery()
 
-                    Command.CommandText = "    
+            Command.CommandText = "    
                         GRANT
 	                        SELECT, INSERT, DELETE 
                         ON 
@@ -378,9 +196,9 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                    Command.ExecuteNonQuery()
+            Command.ExecuteNonQuery()
 
-                    Command.CommandText = "
+            Command.CommandText = "
                         GRANT
 	                        SELECT, INSERT, UPDATE 
                         ON 
@@ -388,19 +206,444 @@
                         TO 
                             '" + Me.CI + "'@'%'
                         "
-                    Command.ExecuteNonQuery()
+            Command.ExecuteNonQuery()
 
-                    Command.CommandText = "FLUSH PRIVILEGES"
-                    Command.ExecuteNonQuery()
+            Command.CommandText = "FLUSH PRIVILEGES"
+            Command.ExecuteNonQuery()
 
-                End If
+            Command.CommandText = "COMMIT"
+            Command.ExecuteNonQuery()
 
-                Command.CommandText = "COMMIT"
+        Catch ex As Exception
+            Command.CommandText = "ROLLBACK"
+            Command.ExecuteNonQuery()
+            MsgBox(ex.ToString)
+
+        End Try
+
+    End Sub
+
+    Public Sub NuevoMedico()
+        Try
+            Command.CommandText = "SET AUTOCOMMIT = OFF"
+            Command.ExecuteNonQuery()
+            Command.CommandText = "START TRANSACTION"
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                    CREATE USER 
+                        '" + Me.CI + "'@'%' 
+                    IDENTIFIED BY
+                        '" + Me.Password + "'
+                    "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                    INSERT INTO 
+                        persona (ci, nombre, apellido, mail, activo)
+                    VALUES
+                        (" + Me.CI + ",'" + Me.Nombre + "','" + Me.Apellido + "','" + Me.Mail + "','1')
+                    "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                    INSERT INTO 
+                        roles (ci_persona, rol)
+                    VALUES
+                        ('" + Me.CI + "', 2)
+                "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        INSERT INTO 
+                            medico (ci_persona)
+                        VALUES
+                            (" + Me.CI + ")
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.roles 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = " 
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.sintoma 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = " 
+                        GRANT 
+	                        SELECT 
+                        ON 
+                            bd_led.enfermedad 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = " 
+                        GRANT 
+	                        SELECT 
+                        ON 
+                            bd_led.compone 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = " 
+                        GRANT 
+	                        SELECT 
+                        ON 
+                            bd_led.medico 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = " 
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.paciente 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = " 
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.persona 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = " 
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.enfermedades_cronicas 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = " 
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.medicaciones 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = " 
+                        GRANT
+	                        SELECT, INSERT, UPDATE 
+                        ON 
+                            bd_led.atiende 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "FLUSH PRIVILEGES"
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "COMMIT"
+            Command.ExecuteNonQuery()
+            'Return True
+        Catch ex As Exception
+            Command.CommandText = "ROLLBACK"
+            Command.ExecuteNonQuery()
+            MsgBox(ex.HResult)
+            'Return ex.HResult.ToString
+        End Try
+
+    End Sub
+
+    Public Sub NuevoAdministrativo()
+        Try
+            Command.CommandText = "SET AUTOCOMMIT = OFF"
+            Command.ExecuteNonQuery()
+            Command.CommandText = "START TRANSACTION"
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                    CREATE USER 
+                        '" + Me.CI + "'@'localhost' 
+                    IDENTIFIED BY
+                        '" + Me.Password + "'
+                    "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                    INSERT INTO 
+                        persona (ci, nombre, apellido, mail, activo)
+                    VALUES
+                        (" + Me.CI + ",'" + Me.Nombre + "','" + Me.Apellido + "','" + Me.Mail + "','1')
+                    "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        INSERT INTO 
+                            roles (ci_persona, rol)
+                        VALUES
+                            (" + Me.CI + ", 3)
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        INSERT INTO 
+                            administrativo (ci_persona)
+                        VALUES
+                            (" + Me.CI + ")
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+                           ALL
+                        ON
+                            *.*
+                        TO
+                            '" + Me.CI + "'@'localhost' WITH GRANT OPTION
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "FLUSH PRIVILEGES"
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "COMMIT"
+            Command.ExecuteNonQuery()
+
+        Catch ex As Exception
+            Command.CommandText = "ROLLBACK"
+            Command.ExecuteNonQuery()
+            MsgBox(ex.ToString())
+        End Try
+    End Sub
+
+    Public Sub NuevoPacienteMedico()
+        Try
+            Command.CommandText = "SET AUTOCOMMIT = OFF"
+            Command.ExecuteNonQuery()
+            Command.CommandText = "START TRANSACTION"
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                    CREATE USER 
+                        '" + Me.CI + "'@'%' 
+                    IDENTIFIED BY
+                        '" + Me.Password + "'
+                    "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                    INSERT INTO 
+                        persona (ci, nombre, apellido, mail, activo)
+                    VALUES
+                        (" + Me.CI + ",'" + Me.Nombre + "','" + Me.Apellido + "','" + Me.Mail + "','1')
+                    "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        INSERT INTO 
+                            roles (ci_persona, rol)
+                        VALUES
+                            (" + Me.CI + ", 2),
+                            (" + Me.CI + ", 1)
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        INSERT INTO 
+                            medico (ci_persona)
+                        VALUES
+                            (" + Me.CI + ")
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        INSERT INTO 
+                            paciente (ci_persona, sexo, fecha_nac)
+                        VALUES
+                            (" + Me.CI + ", " + Me.Sexo + ", '" + Me.FechaNacimiento + "')
+                        "
+            Command.ExecuteNonQuery()
+
+            For Each Enfermedad In EnfermedadCronica
+                Command.CommandText = "
+                            INSERT INTO 
+                                enfermedades_cronicas (ci_persona_paciente, enfermedad)
+                            VALUES
+                                (" + Me.CI + ",'" + Enfermedad + "')
+                            "
                 Command.ExecuteNonQuery()
-            Catch ex As Exception
-                Command.CommandText = "ROLLBACK"
+
+            Next
+
+            For Each Medicamento In Medicacion
+                Command.CommandText = "
+                            INSERT INTO 
+                                medicaciones (ci_persona_paciente, medicacion)
+                            VALUES
+                                (" + Me.CI + ",'" + Medicamento + "')
+                            "
                 Command.ExecuteNonQuery()
-            End Try
+
+            Next
+
+            Command.CommandText = "
+                        GRANT 
+	                        SELECT 
+                        ON 
+                            bd_led.roles 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.sintoma 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.enfermedad 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.compone 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.medico 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT, INSERT 
+                        ON 
+                            bd_led.genera 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT, INSERT 
+                        ON 
+                            bd_led.diagnostico 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT, INSERT 
+                        ON 
+                            bd_led.padece 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT, UPDATE 
+                        ON 
+                            bd_led.paciente 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT, UPDATE 
+                        ON 
+                            bd_led.persona 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT, INSERT, DELETE 
+                        ON 
+                            bd_led.enfermedades_cronicas 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "    
+                        GRANT
+	                        SELECT, INSERT, DELETE 
+                        ON 
+                            bd_led.medicaciones 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT, INSERT, UPDATE 
+                        ON 
+                            bd_led.atiende 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "FLUSH PRIVILEGES"
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "COMMIT"
+            Command.ExecuteNonQuery()
 
         Catch ex As Exception
             Command.CommandText = "ROLLBACK"
@@ -409,6 +652,658 @@
         End Try
     End Sub
 
+    Public Sub NuevoPacienteAdmin()
+        Try
+            Command.CommandText = "SET AUTOCOMMIT = OFF"
+            Command.ExecuteNonQuery()
+            Command.CommandText = "START TRANSACTION"
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                    CREATE USER 
+                        '" + Me.CI + "'@'%' 
+                    IDENTIFIED BY
+                        '" + Me.Password + "'
+                    "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                    CREATE USER 
+                        '" + Me.CI + "'@'localhost' 
+                    IDENTIFIED BY
+                        '" + Me.Password + "'
+                    "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                    INSERT INTO 
+                        persona (ci, nombre, apellido, mail, activo)
+                    VALUES
+                        (" + Me.CI + ",'" + Me.Nombre + "','" + Me.Apellido + "','" + Me.Mail + "','1')
+                    "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        INSERT INTO 
+                            roles (ci_persona, rol)
+                        VALUES
+                            (" + Me.CI + ", 3),
+                            (" + Me.CI + ", 1)
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        INSERT INTO 
+                            administrativo (ci_persona)
+                        VALUES
+                            (" + Me.CI + ")
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        INSERT INTO 
+                            paciente (ci_persona, sexo, fecha_nac)
+                        VALUES
+                            (" + Me.CI + ", " + Me.Sexo + ", '" + Me.FechaNacimiento + "')
+                        "
+            Command.ExecuteNonQuery()
+
+            For Each Enfermedad In EnfermedadCronica
+                Command.CommandText = "
+                            INSERT INTO 
+                                enfermedades_cronicas (ci_persona_paciente, enfermedad)
+                            VALUES
+                                (" + Me.CI + ",'" + Enfermedad + "')
+                            "
+                Command.ExecuteNonQuery()
+
+            Next
+
+            For Each Medicamento In Medicacion
+                Command.CommandText = "
+                            INSERT INTO 
+                                medicaciones (ci_persona_paciente, medicacion)
+                            VALUES
+                                (" + Me.CI + ",'" + Medicamento + "')
+                            "
+                Command.ExecuteNonQuery()
+
+            Next
+
+            Command.CommandText = "
+                        GRANT
+                           ALL
+                        ON
+                            *.*
+                        TO
+                            '" + Me.CI + "'@'localhost' WITH GRANT OPTION
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT 
+	                        SELECT 
+                        ON 
+                            bd_led.roles 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.sintoma 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.enfermedad 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.compone 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.medico 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT, INSERT 
+                        ON 
+                            bd_led.genera 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT, INSERT 
+                        ON 
+                            bd_led.diagnostico 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT, INSERT 
+                        ON 
+                            bd_led.padece 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT, UPDATE 
+                        ON 
+                            bd_led.paciente 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT, UPDATE 
+                        ON 
+                            bd_led.persona 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT, INSERT, DELETE 
+                        ON 
+                            bd_led.enfermedades_cronicas 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "    
+                        GRANT
+	                        SELECT, INSERT, DELETE 
+                        ON 
+                            bd_led.medicaciones 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT, INSERT, UPDATE 
+                        ON 
+                            bd_led.atiende 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "FLUSH PRIVILEGES"
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "COMMIT"
+            Command.ExecuteNonQuery()
+
+        Catch ex As Exception
+            Command.CommandText = "ROLLBACK"
+            Command.ExecuteNonQuery()
+            MsgBox("error")
+
+        End Try
+    End Sub
+
+    Public Sub NuevoMedicoAdmin()
+        Try
+            Command.CommandText = "SET AUTOCOMMIT = OFF"
+            Command.ExecuteNonQuery()
+            Command.CommandText = "START TRANSACTION"
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                    CREATE USER 
+                        '" + Me.CI + "'@'localhost' 
+                    IDENTIFIED BY
+                        '" + Me.Password + "'
+                    "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                    CREATE USER 
+                        '" + Me.CI + "'@'%' 
+                    IDENTIFIED BY
+                        '" + Me.Password + "'
+                    "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                    INSERT INTO 
+                        persona (ci, nombre, apellido, mail, activo)
+                    VALUES
+                        (" + Me.CI + ",'" + Me.Nombre + "','" + Me.Apellido + "','" + Me.Mail + "','1')
+                    "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        INSERT INTO 
+                            roles (ci_persona, rol)
+                        VALUES
+                            (" + Me.CI + ", 3),
+                            (" + Me.CI + ", 2)
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        INSERT INTO 
+                            administrativo (ci_persona)
+                        VALUES
+                            (" + Me.CI + ")
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        INSERT INTO 
+                            medico (ci_persona)
+                        VALUES
+                            (" + Me.CI + ")
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+                           ALL
+                        ON
+                            *.*
+                        TO
+                            '" + Me.CI + "'@'localhost' WITH GRANT OPTION
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.roles 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = " 
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.sintoma 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = " 
+                        GRANT 
+	                        SELECT 
+                        ON 
+                            bd_led.enfermedad 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = " 
+                        GRANT 
+	                        SELECT 
+                        ON 
+                            bd_led.compone 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = " 
+                        GRANT 
+	                        SELECT 
+                        ON 
+                            bd_led.medico 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = " 
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.paciente 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = " 
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.persona 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = " 
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.enfermedades_cronicas 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = " 
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.medicaciones 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = " 
+                        GRANT
+	                        SELECT, INSERT, UPDATE 
+                        ON 
+                            bd_led.atiende 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "FLUSH PRIVILEGES"
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "COMMIT"
+            Command.ExecuteNonQuery()
+
+        Catch ex As Exception
+            Command.CommandText = "ROLLBACK"
+            Command.ExecuteNonQuery()
+
+        End Try
+    End Sub
+
+    Public Sub NuevoPacienteMedicoAdmin()
+        Try
+            Command.CommandText = "SET AUTOCOMMIT = OFF"
+            Command.ExecuteNonQuery()
+            Command.CommandText = "START TRANSACTION"
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                    CREATE USER 
+                        '" + Me.CI + "'@'%' 
+                    IDENTIFIED BY
+                        '" + Me.Password + "'
+                    "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                    CREATE USER 
+                        '" + Me.CI + "'@'localhost' 
+                    IDENTIFIED BY
+                        '" + Me.Password + "'
+                    "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                    INSERT INTO 
+                        persona (ci, nombre, apellido, mail, activo)
+                    VALUES
+                        (" + Me.CI + ",'" + Me.Nombre + "','" + Me.Apellido + "','" + Me.Mail + "','1')
+                    "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        INSERT INTO 
+                            roles (ci_persona, rol)
+                        VALUES
+                            (" + Me.CI + ", 3),
+                            (" + Me.CI + ", 2),
+                            (" + Me.CI + ", 1)
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        INSERT INTO 
+                            administrativo (ci_persona)
+                        VALUES
+                            (" + Me.CI + ")
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        INSERT INTO 
+                            medico (ci_persona)
+                        VALUES
+                            (" + Me.CI + ")
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        INSERT INTO 
+                            paciente (ci_persona, sexo, fecha_nac)
+                        VALUES
+                            (" + Me.CI + ", " + Me.Sexo + ", '" + Me.FechaNacimiento + "')
+                        "
+            Command.ExecuteNonQuery()
+
+            For Each Enfermedad In EnfermedadCronica
+                Command.CommandText = "
+                            INSERT INTO 
+                                enfermedades_cronicas (ci_persona_paciente, enfermedad)
+                            VALUES
+                                (" + Me.CI + ",'" + Enfermedad + "')
+                            "
+                Command.ExecuteNonQuery()
+
+            Next
+
+            For Each Medicamento In Medicacion
+                Command.CommandText = "
+                            INSERT INTO 
+                                medicaciones (ci_persona_paciente, medicacion)
+                            VALUES
+                                (" + Me.CI + ",'" + Medicamento + "')
+                            "
+                Command.ExecuteNonQuery()
+
+            Next
+
+            Command.CommandText = "
+                        GRANT
+                           ALL
+                        ON
+                            *.*
+                        TO
+                            '" + Me.CI + "'@'localhost' WITH GRANT OPTION
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT 
+	                        SELECT 
+                        ON 
+                            bd_led.roles 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.sintoma 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.enfermedad 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.compone 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.medico 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT, INSERT 
+                        ON 
+                            bd_led.genera 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT, INSERT 
+                        ON 
+                            bd_led.diagnostico 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT, INSERT 
+                        ON 
+                            bd_led.padece 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT, UPDATE 
+                        ON 
+                            bd_led.paciente 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT, UPDATE 
+                        ON 
+                            bd_led.persona 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT, INSERT, DELETE 
+                        ON 
+                            bd_led.enfermedades_cronicas 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "    
+                        GRANT
+	                        SELECT, INSERT, DELETE 
+                        ON 
+                            bd_led.medicaciones 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+                        GRANT
+	                        SELECT, INSERT, UPDATE 
+                        ON 
+                            bd_led.atiende 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "FLUSH PRIVILEGES"
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "COMMIT"
+            Command.ExecuteNonQuery()
+
+        Catch ex As Exception
+            Command.CommandText = "ROLLBACK"
+            Command.ExecuteNonQuery()
+            MsgBox("error")
+
+        End Try
+
+    End Sub
 
     Public Function ObtenerCorreo()
         Command.CommandText = "
@@ -423,7 +1318,6 @@
     End Function
 
     Public Function ObtenerNombre()
-        MsgBox(Me.CI)
         Command.CommandText = "
             SELECT
                 nombre
@@ -479,6 +1373,7 @@
 
 
     End Function
+
     Public Function ObtenerCiAdministrador()
         Command.CommandText = "         
             SELECT
@@ -522,4 +1417,5 @@
         Command.ExecuteNonQuery()
 
     End Sub
+
 End Class

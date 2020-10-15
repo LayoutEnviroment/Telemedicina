@@ -9,7 +9,6 @@ Public Class Frm_Login
                 Me.Hide()
                 FrmMenuGestion.Show()
             Else
-                MsgBox(Autentificar(TxtUser.Text, TxtPass.Text))
                 MsgBox("Usuario Invalido")
             End If
 

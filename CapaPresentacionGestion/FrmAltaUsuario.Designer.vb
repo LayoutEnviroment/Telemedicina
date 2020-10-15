@@ -103,33 +103,37 @@ Partial Class FrmAltaUsuario
         Me.TxtNombre.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
         Me.TxtNombre.CausesValidation = False
         Me.TxtNombre.Location = New System.Drawing.Point(130, 143)
+        Me.TxtNombre.MaxLength = 25
         Me.TxtNombre.Name = "TxtNombre"
         Me.TxtNombre.Size = New System.Drawing.Size(205, 26)
-        Me.TxtNombre.TabIndex = 5
+        Me.TxtNombre.TabIndex = 1
         Me.TxtNombre.Tag = "^[a-zA-Z]+$"
         '
         'TxtApellido
         '
         Me.TxtApellido.CausesValidation = False
         Me.TxtApellido.Location = New System.Drawing.Point(423, 143)
+        Me.TxtApellido.MaxLength = 25
         Me.TxtApellido.Name = "TxtApellido"
         Me.TxtApellido.Size = New System.Drawing.Size(205, 26)
-        Me.TxtApellido.TabIndex = 6
+        Me.TxtApellido.TabIndex = 2
         '
         'TxtMail
         '
         Me.TxtMail.Location = New System.Drawing.Point(130, 226)
+        Me.TxtMail.MaxLength = 50
         Me.TxtMail.Name = "TxtMail"
         Me.TxtMail.Size = New System.Drawing.Size(498, 26)
-        Me.TxtMail.TabIndex = 8
+        Me.TxtMail.TabIndex = 3
         '
         'TxtCI
         '
         Me.TxtCI.AccessibleDescription = "Ingrese su cedula sin puntos ni guiones"
         Me.TxtCI.Location = New System.Drawing.Point(130, 52)
+        Me.TxtCI.MaxLength = 9
         Me.TxtCI.Name = "TxtCI"
         Me.TxtCI.Size = New System.Drawing.Size(205, 26)
-        Me.TxtCI.TabIndex = 7
+        Me.TxtCI.TabIndex = 0
         '
         'ChbPaciente
         '
@@ -138,7 +142,7 @@ Partial Class FrmAltaUsuario
         Me.ChbPaciente.Location = New System.Drawing.Point(249, 314)
         Me.ChbPaciente.Name = "ChbPaciente"
         Me.ChbPaciente.Size = New System.Drawing.Size(97, 24)
-        Me.ChbPaciente.TabIndex = 9
+        Me.ChbPaciente.TabIndex = 4
         Me.ChbPaciente.Text = "Paciente"
         Me.ChbPaciente.UseVisualStyleBackColor = True
         '
@@ -149,7 +153,7 @@ Partial Class FrmAltaUsuario
         Me.ChbMedico.Location = New System.Drawing.Point(249, 348)
         Me.ChbMedico.Name = "ChbMedico"
         Me.ChbMedico.Size = New System.Drawing.Size(86, 24)
-        Me.ChbMedico.TabIndex = 10
+        Me.ChbMedico.TabIndex = 5
         Me.ChbMedico.Text = "Medico"
         Me.ChbMedico.UseVisualStyleBackColor = True
         '
@@ -160,7 +164,7 @@ Partial Class FrmAltaUsuario
         Me.ChbAdministrador.Location = New System.Drawing.Point(249, 382)
         Me.ChbAdministrador.Name = "ChbAdministrador"
         Me.ChbAdministrador.Size = New System.Drawing.Size(134, 24)
-        Me.ChbAdministrador.TabIndex = 11
+        Me.ChbAdministrador.TabIndex = 6
         Me.ChbAdministrador.Text = "Administrativo"
         Me.ChbAdministrador.UseVisualStyleBackColor = True
         '
@@ -189,7 +193,7 @@ Partial Class FrmAltaUsuario
         Me.DtpFechaNacimiento.Location = New System.Drawing.Point(74, 538)
         Me.DtpFechaNacimiento.Name = "DtpFechaNacimiento"
         Me.DtpFechaNacimiento.Size = New System.Drawing.Size(224, 26)
-        Me.DtpFechaNacimiento.TabIndex = 14
+        Me.DtpFechaNacimiento.TabIndex = 7
         Me.DtpFechaNacimiento.Visible = False
         '
         'RdbM
@@ -199,7 +203,7 @@ Partial Class FrmAltaUsuario
         Me.RdbM.Location = New System.Drawing.Point(130, 611)
         Me.RdbM.Name = "RdbM"
         Me.RdbM.Size = New System.Drawing.Size(47, 24)
-        Me.RdbM.TabIndex = 15
+        Me.RdbM.TabIndex = 8
         Me.RdbM.TabStop = True
         Me.RdbM.Text = "M"
         Me.RdbM.UseVisualStyleBackColor = True
@@ -211,7 +215,7 @@ Partial Class FrmAltaUsuario
         Me.RdbF.Location = New System.Drawing.Point(130, 645)
         Me.RdbF.Name = "RdbF"
         Me.RdbF.Size = New System.Drawing.Size(44, 24)
-        Me.RdbF.TabIndex = 16
+        Me.RdbF.TabIndex = 9
         Me.RdbF.TabStop = True
         Me.RdbF.Text = "F"
         Me.RdbF.UseVisualStyleBackColor = True
@@ -223,7 +227,7 @@ Partial Class FrmAltaUsuario
         Me.BtnAceptar.Location = New System.Drawing.Point(852, 85)
         Me.BtnAceptar.Name = "BtnAceptar"
         Me.BtnAceptar.Size = New System.Drawing.Size(142, 40)
-        Me.BtnAceptar.TabIndex = 17
+        Me.BtnAceptar.TabIndex = 14
         Me.BtnAceptar.Text = "Aceptar"
         Me.BtnAceptar.UseVisualStyleBackColor = True
         '
@@ -232,7 +236,7 @@ Partial Class FrmAltaUsuario
         Me.BtnCancelar.Location = New System.Drawing.Point(852, 151)
         Me.BtnCancelar.Name = "BtnCancelar"
         Me.BtnCancelar.Size = New System.Drawing.Size(142, 40)
-        Me.BtnCancelar.TabIndex = 18
+        Me.BtnCancelar.TabIndex = 15
         Me.BtnCancelar.Text = "Cancelar"
         Me.BtnCancelar.UseVisualStyleBackColor = True
         '
@@ -241,7 +245,7 @@ Partial Class FrmAltaUsuario
         Me.BtnVolver.Location = New System.Drawing.Point(852, 217)
         Me.BtnVolver.Name = "BtnVolver"
         Me.BtnVolver.Size = New System.Drawing.Size(142, 40)
-        Me.BtnVolver.TabIndex = 19
+        Me.BtnVolver.TabIndex = 16
         Me.BtnVolver.Text = "Volver"
         Me.BtnVolver.UseVisualStyleBackColor = True
         '
@@ -268,17 +272,19 @@ Partial Class FrmAltaUsuario
         'TxtEnfermedadCronica
         '
         Me.TxtEnfermedadCronica.Location = New System.Drawing.Point(423, 538)
+        Me.TxtEnfermedadCronica.MaxLength = 40
         Me.TxtEnfermedadCronica.Name = "TxtEnfermedadCronica"
         Me.TxtEnfermedadCronica.Size = New System.Drawing.Size(127, 26)
-        Me.TxtEnfermedadCronica.TabIndex = 22
+        Me.TxtEnfermedadCronica.TabIndex = 10
         Me.TxtEnfermedadCronica.Visible = False
         '
         'TxtMedicacion
         '
         Me.TxtMedicacion.Location = New System.Drawing.Point(711, 535)
+        Me.TxtMedicacion.MaxLength = 40
         Me.TxtMedicacion.Name = "TxtMedicacion"
         Me.TxtMedicacion.Size = New System.Drawing.Size(142, 26)
-        Me.TxtMedicacion.TabIndex = 23
+        Me.TxtMedicacion.TabIndex = 12
         Me.TxtMedicacion.Visible = False
         '
         'LstEnfermedadCronica
@@ -306,7 +312,7 @@ Partial Class FrmAltaUsuario
         Me.BtnAgregarEnfermedad.Location = New System.Drawing.Point(573, 538)
         Me.BtnAgregarEnfermedad.Name = "BtnAgregarEnfermedad"
         Me.BtnAgregarEnfermedad.Size = New System.Drawing.Size(84, 29)
-        Me.BtnAgregarEnfermedad.TabIndex = 26
+        Me.BtnAgregarEnfermedad.TabIndex = 11
         Me.BtnAgregarEnfermedad.Text = "Agregar"
         Me.BtnAgregarEnfermedad.UseVisualStyleBackColor = True
         Me.BtnAgregarEnfermedad.Visible = False
@@ -316,7 +322,7 @@ Partial Class FrmAltaUsuario
         Me.BtnAgregarMedicacion.Location = New System.Drawing.Point(870, 534)
         Me.BtnAgregarMedicacion.Name = "BtnAgregarMedicacion"
         Me.BtnAgregarMedicacion.Size = New System.Drawing.Size(84, 29)
-        Me.BtnAgregarMedicacion.TabIndex = 27
+        Me.BtnAgregarMedicacion.TabIndex = 13
         Me.BtnAgregarMedicacion.Text = "Agregar"
         Me.BtnAgregarMedicacion.UseVisualStyleBackColor = True
         Me.BtnAgregarMedicacion.Visible = False
