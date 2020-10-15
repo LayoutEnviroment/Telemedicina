@@ -17,19 +17,45 @@ Public Class FrmSintomasCsv
             Archivo.SetDelimiters(",")
 
             Dim Fila As String()
-            While Not Archivo.EndOfData
-                Try
-                    Fila = Archivo.ReadFields()
-                    Dim Campo As String
-                    For Each Campo In Fila
-                        Sintomas.Add(Campo)
-                        ControladorSintoma.CrearSintoma(Campo)
-                    Next
-                Catch ex As Exception
+            If CbxHeader.Checked = False Then
+                While Not Archivo.EndOfData
+                    Try
+                        Fila = Archivo.ReadFields()
+                        Dim Campo As String
+                        For Each Campo In Fila
+                            MsgBox(Campo)
+                            'Sintomas.Add(Campo)
+                            'ControladorSintoma.CrearSintoma(Campo)
+                        Next
+                    Catch ex As Exception
 
-                End Try
+                    End Try
 
-            End While
+                End While
+
+            Else
+                Dim Pos As Integer = 0
+                While Not Archivo.EndOfData
+                    Try
+                        Fila = Archivo.ReadFields()
+                        Dim Campo As String
+                        For Each Campo In Fila
+                            If Pos = 0 Then
+                                Pos = 1
+                            Else
+                                MsgBox(Campo)
+                                'Sintomas.Add(Campo)
+                                'ControladorSintoma.CrearSintoma(Campo)
+                            End If
+                            'Sintomas.Add(Campo)
+                            'ControladorSintoma.CrearSintoma(Campo)
+                        Next
+                    Catch ex As Exception
+
+                    End Try
+
+                End While
+            End If
 
         End Using
 

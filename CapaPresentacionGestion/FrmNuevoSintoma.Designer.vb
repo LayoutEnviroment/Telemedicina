@@ -26,51 +26,69 @@ Partial Class FrmNuevoSintoma
         Me.LblNombre = New System.Windows.Forms.Label()
         Me.LblDisponibilidad = New System.Windows.Forms.Label()
         Me.BtnAceptar = New System.Windows.Forms.Button()
+        Me.BtnVolver = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'TxtNombre
         '
-        Me.TxtNombre.Location = New System.Drawing.Point(73, 70)
+        Me.TxtNombre.Location = New System.Drawing.Point(110, 108)
+        Me.TxtNombre.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TxtNombre.Name = "TxtNombre"
-        Me.TxtNombre.Size = New System.Drawing.Size(160, 20)
+        Me.TxtNombre.Size = New System.Drawing.Size(238, 26)
         Me.TxtNombre.TabIndex = 0
         '
         'LblNombre
         '
         Me.LblNombre.AutoSize = True
-        Me.LblNombre.Location = New System.Drawing.Point(79, 42)
+        Me.LblNombre.Location = New System.Drawing.Point(118, 65)
+        Me.LblNombre.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblNombre.Name = "LblNombre"
-        Me.LblNombre.Size = New System.Drawing.Size(44, 13)
+        Me.LblNombre.Size = New System.Drawing.Size(65, 20)
         Me.LblNombre.TabIndex = 1
         Me.LblNombre.Text = "Nombre"
         '
         'LblDisponibilidad
         '
         Me.LblDisponibilidad.AutoSize = True
-        Me.LblDisponibilidad.Location = New System.Drawing.Point(290, 76)
+        Me.LblDisponibilidad.Location = New System.Drawing.Point(435, 117)
+        Me.LblDisponibilidad.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblDisponibilidad.Name = "LblDisponibilidad"
-        Me.LblDisponibilidad.Size = New System.Drawing.Size(0, 13)
+        Me.LblDisponibilidad.Size = New System.Drawing.Size(0, 20)
         Me.LblDisponibilidad.TabIndex = 2
         '
         'BtnAceptar
         '
         Me.BtnAceptar.Enabled = False
-        Me.BtnAceptar.Location = New System.Drawing.Point(73, 186)
+        Me.BtnAceptar.Location = New System.Drawing.Point(110, 286)
+        Me.BtnAceptar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnAceptar.Name = "BtnAceptar"
-        Me.BtnAceptar.Size = New System.Drawing.Size(138, 38)
+        Me.BtnAceptar.Size = New System.Drawing.Size(207, 58)
         Me.BtnAceptar.TabIndex = 3
         Me.BtnAceptar.Text = "Aceptar"
         Me.BtnAceptar.UseVisualStyleBackColor = True
         '
+        'BtnVolver
+        '
+        Me.BtnVolver.Enabled = False
+        Me.BtnVolver.Location = New System.Drawing.Point(425, 286)
+        Me.BtnVolver.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.BtnVolver.Name = "BtnVolver"
+        Me.BtnVolver.Size = New System.Drawing.Size(207, 58)
+        Me.BtnVolver.TabIndex = 4
+        Me.BtnVolver.Text = "Volver"
+        Me.BtnVolver.UseVisualStyleBackColor = True
+        '
         'FrmNuevoSintoma
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(538, 282)
+        Me.ClientSize = New System.Drawing.Size(807, 434)
+        Me.Controls.Add(Me.BtnVolver)
         Me.Controls.Add(Me.BtnAceptar)
         Me.Controls.Add(Me.LblDisponibilidad)
         Me.Controls.Add(Me.LblNombre)
         Me.Controls.Add(Me.TxtNombre)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "FrmNuevoSintoma"
         Me.Text = "FrmNuevoSintoma"
         Me.ResumeLayout(False)
@@ -82,4 +100,5 @@ Partial Class FrmNuevoSintoma
     Friend WithEvents LblNombre As Label
     Friend WithEvents LblDisponibilidad As Label
     Friend WithEvents BtnAceptar As Button
+    Friend WithEvents BtnVolver As Button
 End Class
