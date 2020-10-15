@@ -7,7 +7,6 @@ Imports CapaDeDatos
     <TestMethod()> Public Sub TestEnviarSolicitud()
         Dim resultado As Boolean
         Try
-            ControladorChat.EnviarSolicitud("111", "05H7IIOiV")
             Dim c As New ModeloChat("111", "05H7IIOiV") With {
             .Cedula = ControladorSesion.Cedula = "99999",
             .IdDiagnostico = 1
