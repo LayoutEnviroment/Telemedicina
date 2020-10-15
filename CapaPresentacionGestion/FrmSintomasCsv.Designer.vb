@@ -26,29 +26,33 @@ Partial Class FrmSintomasCsv
         Me.TxtRuta = New System.Windows.Forms.TextBox()
         Me.BtnAceptar = New System.Windows.Forms.Button()
         Me.OfdSeleccionarCsv = New System.Windows.Forms.OpenFileDialog()
+        Me.CbxHeader = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'BtnBuscar
         '
-        Me.BtnBuscar.Location = New System.Drawing.Point(51, 66)
+        Me.BtnBuscar.Location = New System.Drawing.Point(76, 102)
+        Me.BtnBuscar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnBuscar.Name = "BtnBuscar"
-        Me.BtnBuscar.Size = New System.Drawing.Size(75, 23)
+        Me.BtnBuscar.Size = New System.Drawing.Size(112, 35)
         Me.BtnBuscar.TabIndex = 0
         Me.BtnBuscar.Text = "Buscar"
         Me.BtnBuscar.UseVisualStyleBackColor = True
         '
         'TxtRuta
         '
-        Me.TxtRuta.Location = New System.Drawing.Point(145, 69)
+        Me.TxtRuta.Location = New System.Drawing.Point(218, 106)
+        Me.TxtRuta.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TxtRuta.Name = "TxtRuta"
-        Me.TxtRuta.Size = New System.Drawing.Size(346, 20)
+        Me.TxtRuta.Size = New System.Drawing.Size(517, 26)
         Me.TxtRuta.TabIndex = 1
         '
         'BtnAceptar
         '
-        Me.BtnAceptar.Location = New System.Drawing.Point(212, 133)
+        Me.BtnAceptar.Location = New System.Drawing.Point(323, 230)
+        Me.BtnAceptar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnAceptar.Name = "BtnAceptar"
-        Me.BtnAceptar.Size = New System.Drawing.Size(128, 35)
+        Me.BtnAceptar.Size = New System.Drawing.Size(192, 54)
         Me.BtnAceptar.TabIndex = 2
         Me.BtnAceptar.Text = "Aceptar"
         Me.BtnAceptar.UseVisualStyleBackColor = True
@@ -57,14 +61,26 @@ Partial Class FrmSintomasCsv
         '
         Me.OfdSeleccionarCsv.FileName = "OpenFileDialog1"
         '
+        'CbxHeader
+        '
+        Me.CbxHeader.AutoSize = True
+        Me.CbxHeader.Location = New System.Drawing.Point(295, 167)
+        Me.CbxHeader.Name = "CbxHeader"
+        Me.CbxHeader.Size = New System.Drawing.Size(251, 24)
+        Me.CbxHeader.TabIndex = 3
+        Me.CbxHeader.Text = "Mi archivo CSV tiene cabezera"
+        Me.CbxHeader.UseVisualStyleBackColor = True
+        '
         'FrmSintomasCsv
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(533, 216)
+        Me.ClientSize = New System.Drawing.Size(800, 332)
+        Me.Controls.Add(Me.CbxHeader)
         Me.Controls.Add(Me.BtnAceptar)
         Me.Controls.Add(Me.TxtRuta)
         Me.Controls.Add(Me.BtnBuscar)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "FrmSintomasCsv"
         Me.Text = "FrmSintomasCsv"
         Me.ResumeLayout(False)
@@ -75,4 +91,5 @@ Partial Class FrmSintomasCsv
     Friend WithEvents TxtRuta As TextBox
     Friend WithEvents BtnAceptar As Button
     Friend WithEvents OfdSeleccionarCsv As OpenFileDialog
+    Friend WithEvents CbxHeader As CheckBox
 End Class

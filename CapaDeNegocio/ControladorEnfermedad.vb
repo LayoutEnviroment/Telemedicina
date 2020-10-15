@@ -131,4 +131,13 @@ Public Module ControladorEnfermedad
         Return e.ObtenerExistencia()
 
     End Function
+
+    Public Function ReactivarEnfermedad(nombre As String)
+        Dim e As New ModeloEnfermedad(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Nombre = nombre
+        }
+
+        e.ReactivarEnfermedad()
+
+    End Function
 End Module

@@ -97,6 +97,12 @@
     <Compile Include="FrmModificarEnfermedad.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmModificarAdministrativo.Designer.vb">
+      <DependentUpon>FrmModificarAdministrativo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModificarAdministrativo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmModificarSintoma.Designer.vb">
       <DependentUpon>FrmModificarSintoma.vb</DependentUpon>
     </Compile>
@@ -134,16 +140,16 @@
       <DependentUpon>MenuGestion.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModificarUsuarioMedico.Designer.vb">
-      <DependentUpon>ModificarUsuarioMedico.vb</DependentUpon>
+    <Compile Include="FrmModificarMedico.Designer.vb">
+      <DependentUpon>FrmModificarMedico.vb</DependentUpon>
     </Compile>
-    <Compile Include="ModificarUsuarioMedico.vb">
+    <Compile Include="FrmModificarMedico.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModificarUsuarioPaciente.Designer.vb">
-      <DependentUpon>ModificarUsuarioPaciente.vb</DependentUpon>
+    <Compile Include="FrmModificarPaciente.Designer.vb">
+      <DependentUpon>FrmModificarPaciente.vb</DependentUpon>
     </Compile>
-    <Compile Include="ModificarUsuarioPaciente.vb">
+    <Compile Include="FrmModificarPaciente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -172,6 +178,9 @@
     <EmbeddedResource Include="FrmEliminarSintoma.resx">
       <DependentUpon>FrmEliminarSintoma.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificarAdministrativo.resx">
+      <DependentUpon>FrmModificarAdministrativo.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmModificarEnfermedad.resx">
       <DependentUpon>FrmModificarEnfermedad.vb</DependentUpon>
     </EmbeddedResource>
@@ -193,11 +202,11 @@
     <EmbeddedResource Include="MenuGestion.resx">
       <DependentUpon>MenuGestion.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModificarUsuarioMedico.resx">
-      <DependentUpon>ModificarUsuarioMedico.vb</DependentUpon>
+    <EmbeddedResource Include="FrmModificarMedico.resx">
+      <DependentUpon>FrmModificarMedico.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModificarUsuarioPaciente.resx">
-      <DependentUpon>ModificarUsuarioPaciente.vb</DependentUpon>
+    <EmbeddedResource Include="FrmModificarPaciente.resx">
+      <DependentUpon>FrmModificarPaciente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

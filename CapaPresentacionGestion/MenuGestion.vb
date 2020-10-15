@@ -9,7 +9,7 @@ Public Class MenuGestion
 
     Private Sub PacienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacienteToolStripMenuItem.Click
         Me.Hide()
-        ModificarUsuarioPaciente.Show()
+        FrmModificarPaciente.Show()
     End Sub
 
     Private Sub MenuGestion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -24,7 +24,7 @@ Public Class MenuGestion
 
     Private Sub MedicoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MedicoToolStripMenuItem.Click
         Me.Hide()
-        ModificarUsuarioMedico.Show()
+        FrmModificarMedico.Show()
 
     End Sub
 

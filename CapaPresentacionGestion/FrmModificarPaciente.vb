@@ -1,6 +1,6 @@
 ﻿Imports CapaDeNegocio
 
-Public Class ModificarUsuarioPaciente
+Public Class FrmModificarPaciente
 
     Dim Nombre As String
     Dim Apellido As String

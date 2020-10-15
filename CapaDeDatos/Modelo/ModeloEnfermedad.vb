@@ -314,5 +314,16 @@
 
     End Function
 
+    Public Sub ReactivarEnfermedad()
+        Command.CommandText = "
+            UPDATE
+                enfermedad
+            SET 
+                activo = 1
+            WHERE 
+                nombre = '" + Me.Nombre + "'
+        "
+        Command.ExecuteNonQuery()
+    End Sub
 End Class
 
