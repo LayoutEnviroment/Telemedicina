@@ -8,18 +8,111 @@ Public Class FrmAltaUsuario
     Dim Medicamentos As New List(Of String)
     Dim Sexo As String
     Dim Contra As String
-    Public Ci, Nombre, Apellido, Mail, Sexo, Fecha As Boolean
+    Public Ci, Nombre, Apellido, Mail, FoM, Fecha As Boolean
 
-    Private Sub TxtNombre_TextChanged(sender As Object, e As EventArgs) Handles TxtNombre.TextChanged, TxtNombre.Validated
+    Private Sub TxtCI_TextChanged(sender As Object, e As EventArgs) Handles TxtCI.TextChanged
+        If System.Text.RegularExpressions.Regex.IsMatch(TxtCI.Text, "^[0-9]+$") Then
+            TxtCI.ForeColor = Color.Black
+            Ci = True
+        Else
+            TxtCI.ForeColor = Color.Red
+            Ci = False
+        End If
+
+        HabilitarTipoUsuario()
+
+    End Sub
+
+    Private Sub TxtNombre_TextChanged(sender As Object, e As EventArgs) Handles TxtNombre.TextChanged
+        If System.Text.RegularExpressions.Regex.IsMatch(TxtNombre.Text, "^[a-zA-Z]+$") Then
+            TxtNombre.ForeColor = Color.Black
+            Nombre = True
+        Else
+            TxtNombre.ForeColor = Color.Red
+            Nombre = False
+        End If
+
+        HabilitarTipoUsuario()
+
+    End Sub
+
+    Private Sub TxtApellido_TextChanged(sender As Object, e As EventArgs) Handles TxtApellido.TextChanged
+        If System.Text.RegularExpressions.Regex.IsMatch(TxtApellido.Text, "^[a-zA-Z]+$") Then
+            TxtApellido.ForeColor = Color.Black
+            Apellido = True
+        Else
+            TxtApellido.ForeColor = Color.Red
+            Apellido = False
+        End If
+
+        HabilitarTipoUsuario()
+
+    End Sub
+
+    Private Sub TxtMail_TextChanged(sender As Object, e As EventArgs) Handles TxtMail.TextChanged
+        If System.Text.RegularExpressions.Regex.IsMatch(TxtMail.Text, "^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$") Then
+            TxtMail.ForeColor = Color.Black
+            Mail = True
+        Else
+            TxtMail.ForeColor = Color.Red
+            Mail = False
+        End If
+
+        HabilitarTipoUsuario()
+
+    End Sub
+
+    Private Sub HabilitarTipoUsuario()
+        If Ci And Nombre And Apellido And Mail Then
+            ChbPaciente.Enabled = True
+            ChbMedico.Enabled = True
+            ChbAdministrador.Enabled = True
+        Else
+            ChbPaciente.Enabled = False
+            ChbMedico.Enabled = False
+            ChbAdministrador.Enabled = False
+            ChbPaciente.Checked = False
+            ChbMedico.Checked = False
+            ChbAdministrador.Checked = False
+        End If
+
+    End Sub
+
+    Private Sub ChbAdministrador_CheckedChanged(sender As Object, e As EventArgs) Handles ChbAdministrador.CheckedChanged
+        If ChbAdministrador.Checked And ChbAdministrador.Enabled Then
+            HabilitarAceptar()
+        Else
+            BtnAceptar.Enabled = False
+        End If
+
+    End Sub
+
+    Private Sub ChbMedico_CheckedChanged(sender As Object, e As EventArgs) Handles ChbMedico.CheckedChanged
+        If ChbMedico.Checked And ChbMedico.Enabled Then
+            HabilitarAceptar()
+        Else
+            BtnAceptar.Enabled = False
+        End If
 
     End Sub
 
     Private Sub ChbPaciente_CheckedChanged(sender As Object, e As EventArgs) Handles ChbPaciente.CheckedChanged
-        If ChbPaciente.Checked Then
+        If ChbPaciente.Checked And ChbPaciente.Enabled Then
             CamposPaciente(True)
+            HabilitarAceptar()
         Else
             CamposPaciente(False)
+            BtnAceptar.Enabled = False
+        End If
 
+    End Sub
+
+
+    Private Sub HabilitarAceptar()
+        If Ci And Nombre And Apellido And Mail And ChbPaciente.Enabled Then
+            BtnAceptar.Enabled = True
+        Else
+            BtnAceptar.Enabled = False
         End If
 
     End Sub
@@ -157,6 +250,7 @@ Public Class FrmAltaUsuario
         LblSexo.Visible = estado
         BtnAgregarEnfermedad.Visible = estado
         BtnAgregarMedicacion.Visible = estado
+
     End Sub
 
     Private Sub EnviarMail()
@@ -168,9 +262,7 @@ Public Class FrmAltaUsuario
 
     End Sub
 
-    Private Sub TxtNombre_MouseLeave(sender As Object, e As EventArgs) Handles TxtNombre.MouseLeave
-        HabilitarAceptar()
-    End Sub
+
 
     Private Sub CargarSmtp(smtp)
         With smtp
@@ -183,26 +275,16 @@ Public Class FrmAltaUsuario
 
     End Sub
 
-    Private Sub TxtApellido_Leave(sender As Object, e As EventArgs) Handles TxtApellido.Leave
-        If System.Text.RegularExpressions.Regex.IsMatch(TxtApellido.Text, "^[a-zA-Z]+$") Then
-            TxtApellido.ForeColor = Color.Black
-            Apellido = True
-        Else
-            TxtApellido.ForeColor = Color.Red
-            Apellido = False
-        End If
+
+
+
+
+    Private Sub Btn_Click(sender As Object, e As EventArgs)
+        BtnAceptar.Enabled = True
 
     End Sub
 
-    Private Sub TxtCI_Leave(sender As Object, e As EventArgs) Handles TxtCI.Leave
-        If System.Text.RegularExpressions.Regex.IsMatch(TxtCI.Text, "^[0-9]+$") Then
-            TxtCI.ForeColor = Color.Black
-            Ci = True
-        Else
-            TxtCI.ForeColor = Color.Red
-            Ci = False
-        End If
-    End Sub
+
 
     Private Sub CargarDatos(Correo)
         With Correo
@@ -238,32 +320,4 @@ Public Class FrmAltaUsuario
         Limpiar()
 
     End Sub
-
-    Private Sub Btn_Click(sender As Object, e As EventArgs) Handles Btn.Click
-        BtnAceptar.Enabled = True
-
-    End Sub
-
-    Private Sub TxtNombre_Leave(sender As Object, e As EventArgs) Handles TxtNombre.Leave
-        If System.Text.RegularExpressions.Regex.IsMatch(TxtNombre.Text, "^[a-zA-Z]+$") Then
-            TxtNombre.ForeColor = Color.Black
-            Nombre = True
-        Else
-            TxtNombre.ForeColor = Color.Red
-            Nombre = False
-        End If
-
-    End Sub
-
-
-
-    Private Sub HabilitarAceptar()
-        If Ci And Nombre And Apellido And Mail Then
-            BtnAceptar.Enabled = True
-        Else
-            BtnAceptar.Enabled = False
-        End If
-
-    End Sub
-
 End Class
