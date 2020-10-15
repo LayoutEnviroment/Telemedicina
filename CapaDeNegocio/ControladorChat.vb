@@ -60,6 +60,10 @@ Public Module ControladorChat
         Return c.BuscarMensajesNuevos
     End Function
 
+    Public Function BuscarMensajesNuevo() As Object
+        Throw New NotImplementedException()
+    End Function
+
     Public Sub MarcarComoLeido(id As String)
         Dim c As New ModeloChat(ControladorSesion.User, ControladorSesion.Pass) With {
             .IdDiagnostico = id,
