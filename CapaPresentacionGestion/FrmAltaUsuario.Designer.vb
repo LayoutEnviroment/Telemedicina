@@ -50,6 +50,7 @@ Partial Class FrmAltaUsuario
         Me.LstMedicacion = New System.Windows.Forms.ListBox()
         Me.BtnAgregarEnfermedad = New System.Windows.Forms.Button()
         Me.BtnAgregarMedicacion = New System.Windows.Forms.Button()
+        Me.BtnEliminar = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'LblNombre
@@ -252,7 +253,7 @@ Partial Class FrmAltaUsuario
         'LblEnfermedadCronica
         '
         Me.LblEnfermedadCronica.AutoSize = True
-        Me.LblEnfermedadCronica.Location = New System.Drawing.Point(436, 511)
+        Me.LblEnfermedadCronica.Location = New System.Drawing.Point(423, 447)
         Me.LblEnfermedadCronica.Name = "LblEnfermedadCronica"
         Me.LblEnfermedadCronica.Size = New System.Drawing.Size(180, 20)
         Me.LblEnfermedadCronica.TabIndex = 20
@@ -271,7 +272,7 @@ Partial Class FrmAltaUsuario
         '
         'TxtEnfermedadCronica
         '
-        Me.TxtEnfermedadCronica.Location = New System.Drawing.Point(423, 538)
+        Me.TxtEnfermedadCronica.Location = New System.Drawing.Point(410, 474)
         Me.TxtEnfermedadCronica.MaxLength = 40
         Me.TxtEnfermedadCronica.Name = "TxtEnfermedadCronica"
         Me.TxtEnfermedadCronica.Size = New System.Drawing.Size(127, 26)
@@ -291,9 +292,9 @@ Partial Class FrmAltaUsuario
         '
         Me.LstEnfermedadCronica.FormattingEnabled = True
         Me.LstEnfermedadCronica.ItemHeight = 20
-        Me.LstEnfermedadCronica.Location = New System.Drawing.Point(423, 575)
+        Me.LstEnfermedadCronica.Location = New System.Drawing.Point(410, 511)
         Me.LstEnfermedadCronica.Name = "LstEnfermedadCronica"
-        Me.LstEnfermedadCronica.Size = New System.Drawing.Size(232, 104)
+        Me.LstEnfermedadCronica.Size = New System.Drawing.Size(232, 144)
         Me.LstEnfermedadCronica.TabIndex = 24
         Me.LstEnfermedadCronica.Visible = False
         '
@@ -309,7 +310,7 @@ Partial Class FrmAltaUsuario
         '
         'BtnAgregarEnfermedad
         '
-        Me.BtnAgregarEnfermedad.Location = New System.Drawing.Point(573, 538)
+        Me.BtnAgregarEnfermedad.Location = New System.Drawing.Point(558, 474)
         Me.BtnAgregarEnfermedad.Name = "BtnAgregarEnfermedad"
         Me.BtnAgregarEnfermedad.Size = New System.Drawing.Size(84, 29)
         Me.BtnAgregarEnfermedad.TabIndex = 11
@@ -327,11 +328,21 @@ Partial Class FrmAltaUsuario
         Me.BtnAgregarMedicacion.UseVisualStyleBackColor = True
         Me.BtnAgregarMedicacion.Visible = False
         '
+        'BtnEliminar
+        '
+        Me.BtnEliminar.Location = New System.Drawing.Point(454, 661)
+        Me.BtnEliminar.Name = "BtnEliminar"
+        Me.BtnEliminar.Size = New System.Drawing.Size(127, 31)
+        Me.BtnEliminar.TabIndex = 26
+        Me.BtnEliminar.Text = "Eliminar"
+        Me.BtnEliminar.UseVisualStyleBackColor = True
+        '
         'FrmAltaUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1082, 722)
+        Me.Controls.Add(Me.BtnEliminar)
         Me.Controls.Add(Me.BtnAgregarMedicacion)
         Me.Controls.Add(Me.BtnAgregarEnfermedad)
         Me.Controls.Add(Me.LstMedicacion)
@@ -395,4 +406,5 @@ Partial Class FrmAltaUsuario
     Friend WithEvents LstMedicacion As ListBox
     Friend WithEvents BtnAgregarEnfermedad As Button
     Friend WithEvents BtnAgregarMedicacion As Button
+    Friend WithEvents BtnEliminar As Button
 End Class

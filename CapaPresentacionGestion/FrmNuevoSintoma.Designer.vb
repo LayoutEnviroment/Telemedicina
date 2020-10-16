@@ -69,7 +69,6 @@ Partial Class FrmNuevoSintoma
         '
         'BtnVolver
         '
-        Me.BtnVolver.Enabled = False
         Me.BtnVolver.Location = New System.Drawing.Point(425, 286)
         Me.BtnVolver.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnVolver.Name = "BtnVolver"

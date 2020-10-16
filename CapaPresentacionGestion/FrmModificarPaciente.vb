@@ -209,11 +209,7 @@ Public Class FrmModificarPaciente
     End Sub
 
     Public Sub HabilitarAceptar()
-        If CmbSeleccionarCI.SelectedValue.ToString = "" Or DateDiff(DateInterval.Year, DtpFechaNacimiento.Value, Date.Now) >= 18 Then
-            BtnAceptar.Enabled = True
-        Else
-            BtnAceptar.Enabled = False
-        End If
+        BtnAceptar.Enabled = True
     End Sub
 
     Private Sub LstEnfermedadCronica_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstEnfermedadCronica.SelectedIndexChanged

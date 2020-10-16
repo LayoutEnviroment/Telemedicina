@@ -395,6 +395,27 @@ Public Class FrmAltaUsuario
 
     End Sub
 
+    Private Sub TxtEnfermedadCronica_TextChanged(sender As Object, e As EventArgs) Handles TxtEnfermedadCronica.TextChanged
+        If TxtEnfermedadCronica.Text <> "" Then
+            BtnAgregarEnfermedad.Enabled = True
+        Else
+            BtnAgregarEnfermedad.Enabled = False
+        End If
+
+    End Sub
+
+    Private Sub TxtMedicacion_TextChanged(sender As Object, e As EventArgs) Handles TxtMedicacion.TextChanged
+        If TxtMedicacion.Text <> "" Then
+            BtnAgregarMedicacion.Enabled = True
+        Else
+            BtnAgregarMedicacion.Enabled = False
+        End If
+    End Sub
+
+    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
+
+    End Sub
+
     Private Sub EnviarMensaje(smtp, correo)
         Try
             smtp.Send(correo)

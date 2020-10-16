@@ -70,4 +70,10 @@ Public Class FrmMenuGestion
         Me.Hide()
         Frm_Login.Close()
     End Sub
+
+    Private Sub AdministrativoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AdministrativoToolStripMenuItem.Click
+        Me.Hide()
+        FrmModificarAdministrativo.Show()
+
+    End Sub
 End Class
