@@ -71,4 +71,10 @@ Public Class FrmModificarAdministrativo
         TxtMail.Text = ""
 
     End Sub
+
+    Private Sub FrmModificarAdministrativo_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Limpiar()
+        Me.Hide()
+        FrmMenuGestion.Show()
+    End Sub
 End Class

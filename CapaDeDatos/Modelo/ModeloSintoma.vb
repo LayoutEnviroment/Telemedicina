@@ -145,6 +145,21 @@
 
     End Function
 
+    Public Function EstaInactivo()
+        Command.CommandText = "
+            SELECT
+                COUNT(id)
+            FROM
+                sintoma
+            WHERE
+                nombre = '" + Me.Nombre + "'
+                AND
+                    activo = 0 > 0
+        "
+        Return Command.ExecuteScalar.ToString()
+
+    End Function
+
     Public Function ObtenerId()
         Command.CommandText = "
             SELECT
@@ -157,4 +172,18 @@
         Return Command.ExecuteScalar.ToString()
 
     End Function
+
+    Public Sub ActivarSintoma()
+        Command.CommandText = "
+            UPDATE
+                sintoma
+            SET 
+                activo = 1
+            WHERE
+                id = " + Me.IdSintoma + "
+        "
+        Command.ExecuteNonQuery()
+
+    End Sub
+
 End Class

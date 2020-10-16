@@ -41,6 +41,7 @@ Partial Class FrmNuevaEnfermedad
         'TxtNombre
         '
         Me.TxtNombre.Location = New System.Drawing.Point(117, 60)
+        Me.TxtNombre.MaxLength = 50
         Me.TxtNombre.Name = "TxtNombre"
         Me.TxtNombre.Size = New System.Drawing.Size(204, 26)
         Me.TxtNombre.TabIndex = 0
@@ -48,6 +49,7 @@ Partial Class FrmNuevaEnfermedad
         'TxtDescripcion
         '
         Me.TxtDescripcion.Location = New System.Drawing.Point(117, 162)
+        Me.TxtDescripcion.MaxLength = 500
         Me.TxtDescripcion.Multiline = True
         Me.TxtDescripcion.Name = "TxtDescripcion"
         Me.TxtDescripcion.Size = New System.Drawing.Size(204, 26)

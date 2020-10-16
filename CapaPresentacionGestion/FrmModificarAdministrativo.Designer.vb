@@ -78,6 +78,7 @@ Partial Class FrmModificarAdministrativo
         '
         Me.TxtMail.Location = New System.Drawing.Point(70, 391)
         Me.TxtMail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.TxtMail.MaxLength = 100
         Me.TxtMail.Name = "TxtMail"
         Me.TxtMail.Size = New System.Drawing.Size(259, 26)
         Me.TxtMail.TabIndex = 41
@@ -86,6 +87,7 @@ Partial Class FrmModificarAdministrativo
         '
         Me.TxtApellido.Location = New System.Drawing.Point(219, 290)
         Me.TxtApellido.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.TxtApellido.MaxLength = 25
         Me.TxtApellido.Name = "TxtApellido"
         Me.TxtApellido.Size = New System.Drawing.Size(112, 26)
         Me.TxtApellido.TabIndex = 40
@@ -94,6 +96,7 @@ Partial Class FrmModificarAdministrativo
         '
         Me.TxtNombre.Location = New System.Drawing.Point(70, 290)
         Me.TxtNombre.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.TxtNombre.MaxLength = 25
         Me.TxtNombre.Name = "TxtNombre"
         Me.TxtNombre.Size = New System.Drawing.Size(112, 26)
         Me.TxtNombre.TabIndex = 39
@@ -152,7 +155,7 @@ Partial Class FrmModificarAdministrativo
         Me.Controls.Add(Me.LblApellido)
         Me.Controls.Add(Me.LblNombre)
         Me.Name = "FrmModificarAdministrativo"
-        Me.Text = "FrmModificarMedico"
+        Me.Text = "Modificacion de Administrativos"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

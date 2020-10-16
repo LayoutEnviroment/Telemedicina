@@ -6,14 +6,13 @@ CREATE TABLE persona (
   ci INT(9) NOT NULL,
   nombre VARCHAR(25) NOT NULL,
   apellido VARCHAR(25) NOT NULL,
-  mail VARCHAR(30) NOT NULL,
+  mail VARCHAR(100) NOT NULL,
   activo BOOLEAN NOT NULL DEFAULT TRUE,
   PRIMARY KEY (ci)
 );
 
 CREATE TABLE roles(
   ci_persona INT(9) NOT NULL,
-  usuario VARCHAR(100) NOT NULL,
   rol TINYINT NOT NULL,
   PRIMARY KEY (ci_persona, rol),
   CONSTRAINT ci_persona_rol_fk FOREIGN KEY (ci_persona) REFERENCES persona (ci)

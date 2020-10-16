@@ -157,6 +157,7 @@ Partial Class FrmModificarPaciente
         '
         Me.TxtMedicacion.Location = New System.Drawing.Point(440, 372)
         Me.TxtMedicacion.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.TxtMedicacion.MaxLength = 40
         Me.TxtMedicacion.Name = "TxtMedicacion"
         Me.TxtMedicacion.Size = New System.Drawing.Size(141, 26)
         Me.TxtMedicacion.TabIndex = 36
@@ -165,6 +166,7 @@ Partial Class FrmModificarPaciente
         '
         Me.TxtEnfermedadCronica.Location = New System.Drawing.Point(440, 130)
         Me.TxtEnfermedadCronica.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.TxtEnfermedadCronica.MaxLength = 40
         Me.TxtEnfermedadCronica.Name = "TxtEnfermedadCronica"
         Me.TxtEnfermedadCronica.Size = New System.Drawing.Size(128, 26)
         Me.TxtEnfermedadCronica.TabIndex = 35
@@ -177,13 +179,13 @@ Partial Class FrmModificarPaciente
         Me.RdbF.Name = "RdbF"
         Me.RdbF.Size = New System.Drawing.Size(44, 24)
         Me.RdbF.TabIndex = 34
-        Me.RdbF.TabStop = True
         Me.RdbF.Text = "F"
         Me.RdbF.UseVisualStyleBackColor = True
         '
         'RdbM
         '
         Me.RdbM.AutoSize = True
+        Me.RdbM.Checked = True
         Me.RdbM.Location = New System.Drawing.Point(162, 412)
         Me.RdbM.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.RdbM.Name = "RdbM"
@@ -206,6 +208,7 @@ Partial Class FrmModificarPaciente
         '
         Me.TxtMail.Location = New System.Drawing.Point(80, 202)
         Me.TxtMail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.TxtMail.MaxLength = 100
         Me.TxtMail.Name = "TxtMail"
         Me.TxtMail.Size = New System.Drawing.Size(284, 26)
         Me.TxtMail.TabIndex = 31
@@ -214,6 +217,7 @@ Partial Class FrmModificarPaciente
         '
         Me.TxtApellido.Location = New System.Drawing.Point(237, 131)
         Me.TxtApellido.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.TxtApellido.MaxLength = 25
         Me.TxtApellido.Name = "TxtApellido"
         Me.TxtApellido.Size = New System.Drawing.Size(127, 26)
         Me.TxtApellido.TabIndex = 29
@@ -222,6 +226,7 @@ Partial Class FrmModificarPaciente
         '
         Me.TxtNombre.Location = New System.Drawing.Point(80, 131)
         Me.TxtNombre.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.TxtNombre.MaxLength = 25
         Me.TxtNombre.Name = "TxtNombre"
         Me.TxtNombre.Size = New System.Drawing.Size(132, 26)
         Me.TxtNombre.TabIndex = 28
@@ -294,7 +299,7 @@ Partial Class FrmModificarPaciente
         Me.CmbSeleccionarCI.Size = New System.Drawing.Size(136, 28)
         Me.CmbSeleccionarCI.TabIndex = 47
         '
-        'ModificarUsuarioPaciente
+        'FrmModificarPaciente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -326,7 +331,7 @@ Partial Class FrmModificarPaciente
         Me.Controls.Add(Me.LblApellido)
         Me.Controls.Add(Me.LblNombre)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Name = "ModificarUsuarioPaciente"
+        Me.Name = "FrmModificarPaciente"
         Me.Text = "ModificarUsuarioPaciente"
         Me.ResumeLayout(False)
         Me.PerformLayout()

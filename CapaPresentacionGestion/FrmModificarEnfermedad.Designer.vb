@@ -61,6 +61,7 @@ Partial Class FrmModificarEnfermedad
         '
         Me.TxtNombre.Location = New System.Drawing.Point(84, 171)
         Me.TxtNombre.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TxtNombre.MaxLength = 50
         Me.TxtNombre.Name = "TxtNombre"
         Me.TxtNombre.Size = New System.Drawing.Size(236, 26)
         Me.TxtNombre.TabIndex = 2
@@ -90,6 +91,7 @@ Partial Class FrmModificarEnfermedad
         '
         Me.TxtDescripcion.Location = New System.Drawing.Point(84, 240)
         Me.TxtDescripcion.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TxtDescripcion.MaxLength = 500
         Me.TxtDescripcion.Multiline = True
         Me.TxtDescripcion.Name = "TxtDescripcion"
         Me.TxtDescripcion.Size = New System.Drawing.Size(236, 127)

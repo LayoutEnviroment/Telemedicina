@@ -422,7 +422,8 @@ Public Class FrmAltaUsuario
             MsgBox("Mensaje enviado")
         Catch ex As Exception
             If ex.HResult = "-2146233088" Then
-                MsgBox("Usa este link capo: https: //myaccount.google.com/lesssecureapps")
+                MsgBox(ex.ToString)
+                'MsgBox("Usa este link capo: https: //myaccount.google.com/lesssecureapps")
             Else
                 MsgBox(ex.ToString)
             End If

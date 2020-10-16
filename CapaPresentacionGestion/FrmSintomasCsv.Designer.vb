@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmSintomasCsv
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,13 +20,14 @@ Partial Class FrmSintomasCsv
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.BtnBuscar = New System.Windows.Forms.Button()
         Me.TxtRuta = New System.Windows.Forms.TextBox()
         Me.BtnAceptar = New System.Windows.Forms.Button()
         Me.OfdSeleccionarCsv = New System.Windows.Forms.OpenFileDialog()
         Me.CbxHeader = New System.Windows.Forms.CheckBox()
+        Me.BtnVolver = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'BtnBuscar
@@ -49,7 +50,8 @@ Partial Class FrmSintomasCsv
         '
         'BtnAceptar
         '
-        Me.BtnAceptar.Location = New System.Drawing.Point(323, 230)
+        Me.BtnAceptar.Enabled = False
+        Me.BtnAceptar.Location = New System.Drawing.Point(169, 326)
         Me.BtnAceptar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnAceptar.Name = "BtnAceptar"
         Me.BtnAceptar.Size = New System.Drawing.Size(192, 54)
@@ -64,18 +66,29 @@ Partial Class FrmSintomasCsv
         'CbxHeader
         '
         Me.CbxHeader.AutoSize = True
-        Me.CbxHeader.Location = New System.Drawing.Point(295, 167)
+        Me.CbxHeader.Location = New System.Drawing.Point(76, 170)
         Me.CbxHeader.Name = "CbxHeader"
         Me.CbxHeader.Size = New System.Drawing.Size(251, 24)
         Me.CbxHeader.TabIndex = 3
         Me.CbxHeader.Text = "Mi archivo CSV tiene cabezera"
         Me.CbxHeader.UseVisualStyleBackColor = True
         '
+        'BtnVolver
+        '
+        Me.BtnVolver.Location = New System.Drawing.Point(425, 326)
+        Me.BtnVolver.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.BtnVolver.Name = "BtnVolver"
+        Me.BtnVolver.Size = New System.Drawing.Size(192, 54)
+        Me.BtnVolver.TabIndex = 4
+        Me.BtnVolver.Text = "Volver"
+        Me.BtnVolver.UseVisualStyleBackColor = True
+        '
         'FrmSintomasCsv
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 332)
+        Me.ClientSize = New System.Drawing.Size(800, 421)
+        Me.Controls.Add(Me.BtnVolver)
         Me.Controls.Add(Me.CbxHeader)
         Me.Controls.Add(Me.BtnAceptar)
         Me.Controls.Add(Me.TxtRuta)
@@ -92,4 +105,5 @@ Partial Class FrmSintomasCsv
     Friend WithEvents BtnAceptar As Button
     Friend WithEvents OfdSeleccionarCsv As OpenFileDialog
     Friend WithEvents CbxHeader As CheckBox
+    Friend WithEvents BtnVolver As Button
 End Class

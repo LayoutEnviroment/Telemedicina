@@ -311,7 +311,7 @@
                 nombre = '" + Me.Nombre + "' > 0
         "
         Return Command.ExecuteScalar.ToString()
-
+        MsgBox(Command.ExecuteScalar.ToString())
     End Function
 
     Public Sub ReactivarEnfermedad()

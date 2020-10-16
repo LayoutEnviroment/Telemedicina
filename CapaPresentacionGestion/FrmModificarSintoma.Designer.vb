@@ -34,56 +34,63 @@ Partial Class FrmModificarSintoma
         Me.CmbSintomas.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.CmbSintomas.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.CmbSintomas.FormattingEnabled = True
-        Me.CmbSintomas.Location = New System.Drawing.Point(84, 103)
+        Me.CmbSintomas.Location = New System.Drawing.Point(126, 158)
+        Me.CmbSintomas.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.CmbSintomas.Name = "CmbSintomas"
-        Me.CmbSintomas.Size = New System.Drawing.Size(197, 21)
+        Me.CmbSintomas.Size = New System.Drawing.Size(294, 28)
         Me.CmbSintomas.TabIndex = 0
         '
         'LblNombre
         '
         Me.LblNombre.AutoSize = True
-        Me.LblNombre.Location = New System.Drawing.Point(163, 65)
+        Me.LblNombre.Location = New System.Drawing.Point(244, 100)
+        Me.LblNombre.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblNombre.Name = "LblNombre"
-        Me.LblNombre.Size = New System.Drawing.Size(50, 13)
+        Me.LblNombre.Size = New System.Drawing.Size(76, 20)
         Me.LblNombre.TabIndex = 1
         Me.LblNombre.Text = "Sintomas"
         '
         'TxtSintoma
         '
-        Me.TxtSintoma.Location = New System.Drawing.Point(354, 103)
+        Me.TxtSintoma.Location = New System.Drawing.Point(531, 158)
+        Me.TxtSintoma.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TxtSintoma.MaxLength = 50
         Me.TxtSintoma.Name = "TxtSintoma"
-        Me.TxtSintoma.Size = New System.Drawing.Size(208, 20)
+        Me.TxtSintoma.Size = New System.Drawing.Size(310, 26)
         Me.TxtSintoma.TabIndex = 2
         '
         'BtnAceptar
         '
         Me.BtnAceptar.Enabled = False
-        Me.BtnAceptar.Location = New System.Drawing.Point(129, 175)
+        Me.BtnAceptar.Location = New System.Drawing.Point(194, 269)
+        Me.BtnAceptar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnAceptar.Name = "BtnAceptar"
-        Me.BtnAceptar.Size = New System.Drawing.Size(188, 23)
+        Me.BtnAceptar.Size = New System.Drawing.Size(282, 35)
         Me.BtnAceptar.TabIndex = 3
         Me.BtnAceptar.Text = "Aceptar"
         Me.BtnAceptar.UseVisualStyleBackColor = True
         '
         'BtnVolver
         '
-        Me.BtnVolver.Location = New System.Drawing.Point(333, 175)
+        Me.BtnVolver.Location = New System.Drawing.Point(500, 269)
+        Me.BtnVolver.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnVolver.Name = "BtnVolver"
-        Me.BtnVolver.Size = New System.Drawing.Size(188, 23)
+        Me.BtnVolver.Size = New System.Drawing.Size(282, 35)
         Me.BtnVolver.TabIndex = 4
         Me.BtnVolver.Text = "Volver"
         Me.BtnVolver.UseVisualStyleBackColor = True
         '
         'FrmModificarSintoma
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(693, 260)
+        Me.ClientSize = New System.Drawing.Size(1040, 400)
         Me.Controls.Add(Me.BtnVolver)
         Me.Controls.Add(Me.BtnAceptar)
         Me.Controls.Add(Me.TxtSintoma)
         Me.Controls.Add(Me.LblNombre)
         Me.Controls.Add(Me.CmbSintomas)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "FrmModificarSintoma"
         Me.Text = "FrmModificarSintoma"
         Me.ResumeLayout(False)

@@ -27,12 +27,14 @@ Partial Class FrmNuevoSintoma
         Me.LblDisponibilidad = New System.Windows.Forms.Label()
         Me.BtnAceptar = New System.Windows.Forms.Button()
         Me.BtnVolver = New System.Windows.Forms.Button()
+        Me.BtnReactivar = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'TxtNombre
         '
         Me.TxtNombre.Location = New System.Drawing.Point(110, 108)
         Me.TxtNombre.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TxtNombre.MaxLength = 50
         Me.TxtNombre.Name = "TxtNombre"
         Me.TxtNombre.Size = New System.Drawing.Size(238, 26)
         Me.TxtNombre.TabIndex = 0
@@ -59,7 +61,7 @@ Partial Class FrmNuevoSintoma
         'BtnAceptar
         '
         Me.BtnAceptar.Enabled = False
-        Me.BtnAceptar.Location = New System.Drawing.Point(110, 286)
+        Me.BtnAceptar.Location = New System.Drawing.Point(110, 269)
         Me.BtnAceptar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnAceptar.Name = "BtnAceptar"
         Me.BtnAceptar.Size = New System.Drawing.Size(207, 58)
@@ -69,19 +71,31 @@ Partial Class FrmNuevoSintoma
         '
         'BtnVolver
         '
-        Me.BtnVolver.Location = New System.Drawing.Point(425, 286)
+        Me.BtnVolver.Location = New System.Drawing.Point(646, 367)
         Me.BtnVolver.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnVolver.Name = "BtnVolver"
-        Me.BtnVolver.Size = New System.Drawing.Size(207, 58)
+        Me.BtnVolver.Size = New System.Drawing.Size(137, 53)
         Me.BtnVolver.TabIndex = 4
         Me.BtnVolver.Text = "Volver"
         Me.BtnVolver.UseVisualStyleBackColor = True
+        '
+        'BtnReactivar
+        '
+        Me.BtnReactivar.Enabled = False
+        Me.BtnReactivar.Location = New System.Drawing.Point(369, 269)
+        Me.BtnReactivar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.BtnReactivar.Name = "BtnReactivar"
+        Me.BtnReactivar.Size = New System.Drawing.Size(207, 58)
+        Me.BtnReactivar.TabIndex = 5
+        Me.BtnReactivar.Text = "Reactivar"
+        Me.BtnReactivar.UseVisualStyleBackColor = True
         '
         'FrmNuevoSintoma
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(807, 434)
+        Me.Controls.Add(Me.BtnReactivar)
         Me.Controls.Add(Me.BtnVolver)
         Me.Controls.Add(Me.BtnAceptar)
         Me.Controls.Add(Me.LblDisponibilidad)
@@ -100,4 +114,5 @@ Partial Class FrmNuevoSintoma
     Friend WithEvents LblDisponibilidad As Label
     Friend WithEvents BtnAceptar As Button
     Friend WithEvents BtnVolver As Button
+    Friend WithEvents BtnReactivar As Button
 End Class
