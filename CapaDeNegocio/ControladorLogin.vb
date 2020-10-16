@@ -6,14 +6,7 @@ Public Module ControladorLogin
         Dim l As New ModeloLogin(User, Pass) With {
             .Cedula = User
         }
-        Try
-            Return l.ObtenerRol(rol)
-            Return True
-
-        Catch ex As Exception
-            Return False
-
-        End Try
+        Return l.ObtenerRol(rol)
 
 
     End Function
