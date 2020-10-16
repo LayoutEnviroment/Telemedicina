@@ -25,6 +25,7 @@
             GROUP BY 
                 id_enfermedad
             HAVING
+                
         "
 
         For Each sintoma In IdSintomas
@@ -34,7 +35,9 @@
                                      FROM
                                         sintoma
                                      WHERE 
-                                        nombre = '" + sintoma + "')
+                                        nombre = '" + sintoma + "'
+                                        AND
+                                        activo = 1)
                         ) > 0 
                     AND         
                 "

@@ -11,12 +11,15 @@
     Public Function ObtenerEnfermedadGenerada()
         Command.CommandText = "
             SELECT 
-                g.id_enfermedad_compone 
+                c.id_enfermedad
             FROM 
                 genera g 
                     JOIN
                         diagnostico d 
-                            ON g.id_diagnostico = d.id 
+                            ON g.id_diagnostico = d.id
+                    JOIN
+                         compone c
+                            ON c.id_enfermedad = g.id_enfermedad
             WHERE 
                 d.pertenece = " + Me.Cedula + " 
             ORDER BY 

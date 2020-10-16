@@ -10,8 +10,8 @@ Public Class Frm_Iniciar_Chat
             ObtenerDiagnostico()
             CargarTextBoxes(idEnfermedad)
         Catch ex As Exception
-            'MsgBox(ex.ToString)
-            MsgBox("No pudimos guardar el identificador de la enfermedad")
+            MsgBox(ex.ToString)
+            'MsgBox("No pudimos guardar el identificador de la enfermedad")
         End Try
 
     End Sub

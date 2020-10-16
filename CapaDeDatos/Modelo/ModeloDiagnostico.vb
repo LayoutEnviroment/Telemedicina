@@ -33,7 +33,7 @@
                     For Each sintoma In IdSintomas
                         Command.CommandText = "
                         INSERT INTO
-                            genera(id_diagnostico, id_sintoma_compone, id_enfermedad_compone)
+                            genera(id_diagnostico, id_sintoma, id_enfermedad)
                         VALUES
                             ((SELECT
                                 MAX(id)
@@ -118,7 +118,7 @@
                     JOIN
                         genera g
                             ON
-                                c.id_enfermedad = g.id_enfermedad_compone
+                                c.id_enfermedad = g.id_enfermedad
                     JOIN
                         diagnostico d
                             ON
@@ -145,7 +145,7 @@
                     JOIN
                         genera g
                             ON
-                                c.id_sintoma = g.id_sintoma_compone
+                                c.id_sintoma = g.id_sintoma
                     JOIN
                         diagnostico d
                             ON

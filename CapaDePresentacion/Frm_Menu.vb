@@ -57,12 +57,12 @@ Public Class Frm_Menu
         Try
             NombreEnfermedad = ControladorCompone.EnfermedadesPosibles(ListaSintomas)
         Catch ex As Exception
-            'MsgBox("Error por exacto" + ex.ToString)
+            MsgBox("Error por exacto" + ex.ToString)
             Try
                 NombreEnfermedad = ControladorCompone.EnfermedadesPorAproximacion(ListaSintomas)
             Catch ex1 As Exception
-                'MsgBox("error por aprox" + ex.ToString)
-                MsgBox("No se pudo encontrar una enfermedad")
+                MsgBox("error por aprox" + ex.ToString)
+                'MsgBox("No se pudo encontrar una enfermedad")
             End Try
 
         End Try
@@ -75,7 +75,8 @@ Public Class Frm_Menu
         Try
             ControladorPadece.GuardarSintomasPadecidos(ListaSintomas)
         Catch ex As Exception
-            MsgBox("No se pudieron registrar los sintomas padecidos")
+            MsgBox(ex.ToString())
+            'MsgBox("No se pudieron registrar los sintomas padecidos")
         End Try
     End Sub
 
@@ -88,8 +89,8 @@ Public Class Frm_Menu
                 RealizarDiagnostico(IdEnfermedad)
 
             Catch ex As Exception
-                'MsgBox("Error obteniendo id enf" + ex.ToString)
-                MsgBox("No se pudo hallar el identificador de la enfermedad")
+                MsgBox("Error obteniendo id enf" + ex.ToString)
+                'MsgBox("No se pudo hallar el identificador de la enfermedad")
 
             End Try
         End If

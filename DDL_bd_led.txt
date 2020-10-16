@@ -97,12 +97,10 @@ CREATE TABLE compone(
 
 CREATE TABLE genera(
   id_diagnostico INT NOT NULL,
-  id_sintoma_compone INT NOT NULL,
-  id_enfermedad_compone INT NOT NULL,
-  PRIMARY KEY (id_diagnostico, id_sintoma_compone, id_enfermedad_compone),
+  id_sintoma INT NOT NULL,
+  id_enfermedad INT NOT NULL,
+  PRIMARY KEY (id_diagnostico, id_sintoma),
   CONSTRAINT id_diagnostico_gen_fk FOREIGN KEY (id_diagnostico) REFERENCES diagnostico (id),
-  CONSTRAINT id_sintoma_compone_gen_fk FOREIGN KEY (id_sintoma_compone) REFERENCES compone (id_sintoma),
-  CONSTRAINT id_enfermedad_compone_gen_fk FOREIGN KEY (id_enfermedad_compone) REFERENCES compone (id_enfermedad)
 );
 
 CREATE TABLE atiende(
