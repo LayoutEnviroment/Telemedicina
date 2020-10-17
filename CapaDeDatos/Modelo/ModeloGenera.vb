@@ -39,7 +39,7 @@
                     JOIN
                         compone c
                             ON
-                                g.id_enfermedad_compone = c.id_enfermedad
+                                g.id_enfermedad = c.id_enfermedad
                     JOIN
                         enfermedad e
                             ON
@@ -59,7 +59,7 @@
                     JOIN 
                         compone c 
                             ON 
-                                g.id_sintoma_compone = c.id_sintoma
+                                g.id_sintoma = c.id_sintoma
                     JOIN 
                         sintoma s ON c.id_sintoma = s.id
             WHERE 
