@@ -76,4 +76,8 @@ Public Class FrmMenuGestion
         FrmModificarAdministrativo.Show()
 
     End Sub
+
+    Private Sub UsuarioToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles UsuarioToolStripMenuItem1.Click
+        FrmModificarUsuario.Show()
+    End Sub
 End Class

@@ -16,6 +16,7 @@
     Public EnfermedadCronica As List(Of String)
     Public Medicacion As List(Of String)
     Public Password As String
+    Public Rol As String
 
     Public Sub NuevoPaciente()
         Try
@@ -1400,6 +1401,34 @@
                 ci = '" + Me.CI + "'"
         Reader = Command.ExecuteReader
         Return Reader
+
+    End Function
+
+    Public Function ObtenerTodasLasCedulas()
+        Command.CommandText = "
+            SELECT
+                ci
+            FROM
+                persona
+        "
+
+        Reader = Command.ExecuteReader
+        Return Reader
+
+    End Function
+
+    Public Function ExisteRol()
+        Command.CommandText = "
+            SELECT
+                COUNT(ci_persona)
+            FROM
+                roles
+            WHERE
+                ci_persona = " + Me.CI + " 
+                AND
+                    rol = " + Me.Rol + "> 0
+            "
+        Return Command.ExecuteScalar.ToString()
 
     End Function
 

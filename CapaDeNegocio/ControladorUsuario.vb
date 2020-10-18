@@ -196,6 +196,25 @@ Public Module ControladorUsuario
 
     End Function
 
+    Public Function ObtenerTodasLasCedulas()
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass)
+
+        Return u.ObtenerTodasLasCedulas()
+    End Function
+
+    Public Function ExisteRol(cedula As String, rol As String)
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
+            .CI = cedula,
+            .Rol = rol
+        }
+
+        Return u.ExisteRol()
+    End Function
+
+    Private Sub ExisteMedico(cedula As String)
+
+    End Sub
+
     Public Sub ModificarPersona(nombre As String,
                                 apellido As String,
                                 mail As String,

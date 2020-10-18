@@ -416,6 +416,10 @@ Public Class FrmAltaUsuario
 
     End Sub
 
+    Private Sub FrmAltaUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
     Private Sub EnviarMensaje(smtp, correo)
         Try
             smtp.Send(correo)

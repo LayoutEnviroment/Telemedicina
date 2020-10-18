@@ -41,6 +41,7 @@ Partial Class FrmMenuGestion
         Me.ModificarToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.LblBienvenida = New System.Windows.Forms.Label()
+        Me.UsuarioToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuGestor.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -70,7 +71,7 @@ Partial Class FrmMenuGestion
         '
         'ModificarToolStripMenuItem
         '
-        Me.ModificarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PacienteToolStripMenuItem, Me.MedicoToolStripMenuItem, Me.AdministrativoToolStripMenuItem})
+        Me.ModificarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PacienteToolStripMenuItem, Me.MedicoToolStripMenuItem, Me.AdministrativoToolStripMenuItem, Me.UsuarioToolStripMenuItem1})
         Me.ModificarToolStripMenuItem.Name = "ModificarToolStripMenuItem"
         Me.ModificarToolStripMenuItem.Size = New System.Drawing.Size(252, 30)
         Me.ModificarToolStripMenuItem.Text = "Modificar"
@@ -170,6 +171,12 @@ Partial Class FrmMenuGestion
         Me.LblBienvenida.Size = New System.Drawing.Size(0, 20)
         Me.LblBienvenida.TabIndex = 4
         '
+        'UsuarioToolStripMenuItem1
+        '
+        Me.UsuarioToolStripMenuItem1.Name = "UsuarioToolStripMenuItem1"
+        Me.UsuarioToolStripMenuItem1.Size = New System.Drawing.Size(252, 30)
+        Me.UsuarioToolStripMenuItem1.Text = "usuario"
+        '
         'FrmMenuGestion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -206,4 +213,5 @@ Partial Class FrmMenuGestion
     Friend WithEvents NuevoToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents ModificarToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents EliminarToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents UsuarioToolStripMenuItem1 As ToolStripMenuItem
 End Class
