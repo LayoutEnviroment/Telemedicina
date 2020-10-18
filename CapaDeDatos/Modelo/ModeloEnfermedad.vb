@@ -183,9 +183,6 @@
             "
             Command.ExecuteNonQuery()
 
-            Command.CommandText = "SET FOREIGN_KEY_CHECKS=0"
-            Command.ExecuteNonQuery()
-
             Command.CommandText = "
                 DELETE FROM
                     compone
@@ -212,9 +209,6 @@
 
             Next
 
-            Command.CommandText = "SET FOREIGN_KEY_CHECKS=1"
-            Command.ExecuteNonQuery()
-
             Command.CommandText = "COMMIT"
             Command.ExecuteNonQuery()
 
@@ -222,8 +216,6 @@
             Command.CommandText = "ROLLBACK"
             Command.ExecuteNonQuery()
 
-            Command.CommandText = "SET FOREIGN_KEY_CHECKS=1"
-            Command.ExecuteNonQuery()
         End Try
 
     End Sub

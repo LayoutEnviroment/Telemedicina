@@ -39,7 +39,7 @@
                 genera g 
                     ON g.id_diagnostico = d.id 
                 JOIN compone c 
-                    ON c.id_enfermedad = g.id_enfermedad_compone 
+                    ON c.id_enfermedad = g.id_enfermedad
                 JOIN enfermedad e 
                     ON e.id = c.id_enfermedad 
             WHERE 
