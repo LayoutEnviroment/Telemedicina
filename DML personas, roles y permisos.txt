@@ -1,9 +1,9 @@
 INSERT INTO
 	persona(ci, nombre, apellido, mail)
 VALUES
-	(3, 'Jorge', 'Prado', 'jorge.prado@gmail.com'),
+	(1, 'Jorge', 'Prado', 'jorge.prado@gmail.com'),
 	(2, 'Gregory','House','diagnostico.medico@gmail.com'),
-	(1, 'admin','admin', 'admin@hotmail.com'),
+	(3, 'admin','admin', 'admin@hotmail.com'),
 	(1111, 'super', 'pruebas','atoderol@gmail.com'),
 	(11112223, 'admin', 'pruebas', 'adminpruebas@hotmail.com'),
 	(22223334, 'doctor', 'pruebas','doctorpruebas@gmail.com'),
@@ -11,7 +11,7 @@ VALUES
 INSERT INTO 
 	paciente(ci_persona, sexo, fecha_nac) 
 VALUES
-	(3, 0, '1999-09-09'),
+	(1, 0, '1999-09-09'),
 	(1111, 0, '1979-03-06'),
 	(33334445, 0, '1995-06-05');
 INSERT INTO
@@ -34,7 +34,7 @@ VALUES
 INSERT INTO
 	administrativo(ci_persona)
 VALUES
-	(1),
+	(3),
 	(1111),
 	(11112223);
 
@@ -47,12 +47,12 @@ VALUES
 	(1111,1),
 	(1111,2),
 	(1111,3),
-	(33334445, 3),
+	(33334445, 1),
 	(22223334, 2),
-	(11112223, 1);
+	(11112223, 3);
 
 CREATE USER '33334445'@'%'
-IDENTIFIED BY 'Paciente123';
+IDENTIFIED BY 'Pacie123';
 
 GRANT 
 	SELECT ON bd_led.roles TO '33334445'@'%';
