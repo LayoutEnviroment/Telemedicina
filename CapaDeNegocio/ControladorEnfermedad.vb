@@ -132,12 +132,13 @@ Public Module ControladorEnfermedad
 
     End Function
 
-    Public Function ReactivarEnfermedad(nombre As String)
+    Public Sub ReactivarEnfermedad(nombre As String)
         Dim e As New ModeloEnfermedad(ControladorSesion.User, ControladorSesion.Pass) With {
             .Nombre = nombre
         }
 
         e.ReactivarEnfermedad()
 
-    End Function
+    End Sub
+
 End Module
