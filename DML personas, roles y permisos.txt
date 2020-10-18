@@ -11,7 +11,7 @@ VALUES
 INSERT INTO 
 	paciente(ci_persona, sexo, fecha_nac) 
 VALUES
-	(1, 0, '1999-09-09'),
+	(3, 0, '1999-09-09'),
 	(1111, 0, '1979-03-06'),
 	(33334445, 0, '1995-06-05');
 INSERT INTO
@@ -34,7 +34,7 @@ VALUES
 INSERT INTO
 	administrativo(ci_persona)
 VALUES
-	(3),
+	(1),
 	(1111),
 	(11112223);
 
