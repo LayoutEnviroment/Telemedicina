@@ -44,7 +44,7 @@
                         INSERT INTO 
                             roles (ci_persona, rol)
                         VALUES
-                            (" + Me.CI + ", 1)
+                            (" + Me.CI + ", 3)
                         "
             Command.ExecuteNonQuery()
 
@@ -404,7 +404,7 @@
                         INSERT INTO 
                             roles (ci_persona, rol)
                         VALUES
-                            (" + Me.CI + ", 3)
+                            (" + Me.CI + ", 1)
                         "
             Command.ExecuteNonQuery()
 
