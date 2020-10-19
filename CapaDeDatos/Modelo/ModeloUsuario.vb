@@ -1447,4 +1447,16 @@
 
     End Sub
 
+    Public Function Eliminar()
+        Try
+            Command.CommandText = "UPDATE persona
+                                   SET activo = 0
+                                   WHERE id = " + Me.CI + ""
+            Command.ExecuteNonQuery()
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+
 End Class

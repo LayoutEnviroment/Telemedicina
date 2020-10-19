@@ -228,4 +228,14 @@ Public Module ControladorUsuario
 
         u.ModificarPersona()
     End Sub
+
+    Public Function EliminarPersona(CI As String)
+        Dim p As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass)
+
+        p.CI = CI
+
+        Return p.Eliminar()
+
+    End Function
+
 End Module
