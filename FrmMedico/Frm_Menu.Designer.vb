@@ -45,6 +45,7 @@ Partial Class Frm_Menu
         '
         'RtbMensaje
         '
+        Me.RtbMensaje.Enabled = False
         Me.RtbMensaje.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RtbMensaje.Location = New System.Drawing.Point(346, 462)
         Me.RtbMensaje.Name = "RtbMensaje"
@@ -54,6 +55,7 @@ Partial Class Frm_Menu
         '
         'BtnEnviar
         '
+        Me.BtnEnviar.Enabled = False
         Me.BtnEnviar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnEnviar.Location = New System.Drawing.Point(706, 462)
         Me.BtnEnviar.Name = "BtnEnviar"
