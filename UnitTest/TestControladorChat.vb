@@ -57,7 +57,7 @@ Imports CapaDeDatos
     <TestMethod()> Public Sub TestEnviarMensajeMedico()
         Dim resultado As Boolean
         Try
-            ControladorChat.EnviarMensajeMedico(1, "como el tester", "22223334")
+            ControladorChat.EnviarMensajeMedico(1, "como el tester", "33334445")
             resultado = True
         Catch ex As Exception
             resultado = False
