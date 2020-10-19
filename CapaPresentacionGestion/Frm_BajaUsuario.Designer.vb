@@ -29,14 +29,14 @@ Partial Class Frm_BajaUsuario
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.CmbCI = New System.Windows.Forms.ComboBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TxtNombre = New System.Windows.Forms.TextBox()
+        Me.TxtApellido = New System.Windows.Forms.TextBox()
+        Me.TxtMail = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.BtnVolver = New System.Windows.Forms.Button()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
+        Me.ChbPaciente = New System.Windows.Forms.CheckBox()
+        Me.ChbMedico = New System.Windows.Forms.CheckBox()
+        Me.ChbAdministrador = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'BtnEliminar
@@ -103,26 +103,26 @@ Partial Class Frm_BajaUsuario
         Me.CmbCI.Size = New System.Drawing.Size(143, 24)
         Me.CmbCI.TabIndex = 7
         '
-        'TextBox1
+        'TxtNombre
         '
-        Me.TextBox1.Location = New System.Drawing.Point(144, 155)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(143, 22)
-        Me.TextBox1.TabIndex = 8
+        Me.TxtNombre.Location = New System.Drawing.Point(144, 155)
+        Me.TxtNombre.Name = "TxtNombre"
+        Me.TxtNombre.Size = New System.Drawing.Size(143, 22)
+        Me.TxtNombre.TabIndex = 8
         '
-        'TextBox2
+        'TxtApellido
         '
-        Me.TextBox2.Location = New System.Drawing.Point(144, 225)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(143, 22)
-        Me.TextBox2.TabIndex = 9
+        Me.TxtApellido.Location = New System.Drawing.Point(144, 225)
+        Me.TxtApellido.Name = "TxtApellido"
+        Me.TxtApellido.Size = New System.Drawing.Size(143, 22)
+        Me.TxtApellido.TabIndex = 9
         '
-        'TextBox3
+        'TxtMail
         '
-        Me.TextBox3.Location = New System.Drawing.Point(144, 302)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(143, 22)
-        Me.TextBox3.TabIndex = 10
+        Me.TxtMail.Location = New System.Drawing.Point(144, 302)
+        Me.TxtMail.Name = "TxtMail"
+        Me.TxtMail.Size = New System.Drawing.Size(143, 22)
+        Me.TxtMail.TabIndex = 10
         '
         'Label6
         '
@@ -142,49 +142,49 @@ Partial Class Frm_BajaUsuario
         Me.BtnVolver.Text = "Volver"
         Me.BtnVolver.UseVisualStyleBackColor = True
         '
-        'CheckBox1
+        'ChbPaciente
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(187, 347)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(85, 21)
-        Me.CheckBox1.TabIndex = 13
-        Me.CheckBox1.Text = "Paciente"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.ChbPaciente.AutoSize = True
+        Me.ChbPaciente.Location = New System.Drawing.Point(187, 347)
+        Me.ChbPaciente.Name = "ChbPaciente"
+        Me.ChbPaciente.Size = New System.Drawing.Size(85, 21)
+        Me.ChbPaciente.TabIndex = 13
+        Me.ChbPaciente.Text = "Paciente"
+        Me.ChbPaciente.UseVisualStyleBackColor = True
         '
-        'CheckBox2
+        'ChbMedico
         '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(187, 383)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(75, 21)
-        Me.CheckBox2.TabIndex = 14
-        Me.CheckBox2.Text = "Médico"
-        Me.CheckBox2.UseVisualStyleBackColor = True
+        Me.ChbMedico.AutoSize = True
+        Me.ChbMedico.Location = New System.Drawing.Point(187, 383)
+        Me.ChbMedico.Name = "ChbMedico"
+        Me.ChbMedico.Size = New System.Drawing.Size(75, 21)
+        Me.ChbMedico.TabIndex = 14
+        Me.ChbMedico.Text = "Médico"
+        Me.ChbMedico.UseVisualStyleBackColor = True
         '
-        'CheckBox3
+        'ChbAdministrador
         '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Location = New System.Drawing.Point(187, 417)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(118, 21)
-        Me.CheckBox3.TabIndex = 15
-        Me.CheckBox3.Text = "Administrativo"
-        Me.CheckBox3.UseVisualStyleBackColor = True
+        Me.ChbAdministrador.AutoSize = True
+        Me.ChbAdministrador.Location = New System.Drawing.Point(187, 417)
+        Me.ChbAdministrador.Name = "ChbAdministrador"
+        Me.ChbAdministrador.Size = New System.Drawing.Size(118, 21)
+        Me.ChbAdministrador.TabIndex = 15
+        Me.ChbAdministrador.Text = "Administrativo"
+        Me.ChbAdministrador.UseVisualStyleBackColor = True
         '
         'Frm_BajaUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.CheckBox3)
-        Me.Controls.Add(Me.CheckBox2)
-        Me.Controls.Add(Me.CheckBox1)
+        Me.Controls.Add(Me.ChbAdministrador)
+        Me.Controls.Add(Me.ChbMedico)
+        Me.Controls.Add(Me.ChbPaciente)
         Me.Controls.Add(Me.BtnVolver)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.TxtMail)
+        Me.Controls.Add(Me.TxtApellido)
+        Me.Controls.Add(Me.TxtNombre)
         Me.Controls.Add(Me.CmbCI)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -206,12 +206,12 @@ Partial Class Frm_BajaUsuario
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents CmbCI As ComboBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents TxtNombre As TextBox
+    Friend WithEvents TxtApellido As TextBox
+    Friend WithEvents TxtMail As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents BtnVolver As Button
-    Friend WithEvents CheckBox1 As CheckBox
-    Friend WithEvents CheckBox2 As CheckBox
-    Friend WithEvents CheckBox3 As CheckBox
+    Friend WithEvents ChbPaciente As CheckBox
+    Friend WithEvents ChbMedico As CheckBox
+    Friend WithEvents ChbAdministrador As CheckBox
 End Class

@@ -1459,4 +1459,41 @@
         End Try
     End Function
 
+    Public Function CheckPaciente()
+        Try
+            Command.CommandText = "SELECT COUNT (ci_persona)
+                                   FROM (paciente)
+                                   WHERE ci_persona = " + Me.CI + "" > 0
+            Command.ExecuteNonQuery()
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+
+    Public Function CheckMedico()
+        Try
+            Command.CommandText = "SELECT COUNT (ci_persona)
+                                   FROM (medico)
+                                   WHERE ci_persona = " + Me.CI + "" > 0
+            Command.ExecuteNonQuery()
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+
+    Public Function CheckAdministrativo()
+        Try
+            Command.CommandText = "SELECT COUNT (ci_persona)
+                                   FROM (administrativo)
+                                   WHERE ci_persona = " + Me.CI + "" > 0
+            Command.ExecuteNonQuery()
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+
+
 End Class
