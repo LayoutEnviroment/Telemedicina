@@ -9,8 +9,12 @@ Public Class Frm_Menu
 
     Private Sub MenuMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TmrBuscarMensajesNuevos.Stop()
-        Dim LectorDatos As IDataReader
+        ObtenerMisDatos()
 
+    End Sub
+
+    Private Sub ObtenerMisDatos()
+        Dim LectorDatos As IDataReader
         Try
             LectorDatos = ControladorUsuario.ObtenerNombreApellidoCedula()
             GuardarMisDatos(LectorDatos)
@@ -20,13 +24,13 @@ Public Class Frm_Menu
 
         End Try
         TmrBuscarChats.Start()
+
     End Sub
 
     Private Sub GuardarMisDatos(lector As IDataReader)
         While lector.Read
             Nombre = lector(0)
             Apellido = lector(1)
-
         End While
 
     End Sub
@@ -34,7 +38,11 @@ Public Class Frm_Menu
     Private Sub BtnIniciarChat_Click(sender As Object, e As EventArgs) Handles BtnIniciarChat.Click
         IdDiagnostico = DgvEnEspera.Item(0, DgvEnEspera.CurrentCell.RowIndex).Value
         CiPaciente = DgvEnEspera.Item(1, DgvEnEspera.CurrentCell.RowIndex).Value
-        'MsgBox(IdDiagnostico + "" + CiPaciente)
+        CargarDatosConsulta()
+
+    End Sub
+
+    Private Sub CargarDatosConsulta()
         Try
             ControladorChat.AceptarSolicitud(IdDiagnostico, CiPaciente, Nombre, Apellido)
             WbbConversacion.DocumentText += "<p>Chat iniciado con el paciente " + CiPaciente + "</p>"
@@ -43,10 +51,8 @@ Public Class Frm_Menu
             TmrBuscarChats.Stop()
         Catch ex As Exception
             MsgBox(ex.ToString)
-            'MsgBox("Error al aceptar la solicitud")
 
         End Try
-
     End Sub
 
     Private Sub EmpezarChat(diagnostico As String, paciente As String)
