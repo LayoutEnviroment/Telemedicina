@@ -227,5 +227,7 @@ Public Module ControladorUsuario
         }
 
         u.ModificarPersona()
+
     End Sub
+
 End Module

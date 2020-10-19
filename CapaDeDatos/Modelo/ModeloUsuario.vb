@@ -355,6 +355,26 @@
 
             Command.CommandText = " 
                         GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.diagnostico 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = " 
+                        GRANT
+	                        SELECT 
+                        ON 
+                            bd_led.genera 
+                        TO 
+                            '" + Me.CI + "'@'%'
+                        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = " 
+                        GRANT
 	                        SELECT, INSERT, UPDATE 
                         ON 
                             bd_led.atiende 
@@ -1410,6 +1430,8 @@
                 ci
             FROM
                 persona
+            WHERE
+                activo = 1
         "
 
         Reader = Command.ExecuteReader
@@ -1444,6 +1466,72 @@
                 ci = " + Me.CI + "
             "
         Command.ExecuteNonQuery()
+
+    End Sub
+
+    Public Sub ModificarPaciente()
+        Try
+            Command.CommandText = "START TRANSACTION"
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "SET AUTOCOMMIT = OFF"
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+            UPDATE
+                paciente
+            SET
+                sexo = " + Me.Sexo + ",
+                fecha_nac = '" + Me.FechaNacimiento + "',
+                mail = '" + Me.Mail + "'
+        "
+            Command.ExecuteNonQuery()
+
+            Command.CommandText = "
+            DELETE FROM
+                enfermedades_cronicas
+            WHERE
+                ci_persona = " + Me.CI + "
+        "
+            Command.ExecuteNonQuery()
+
+            For Each enfermedad In EnfermedadCronica
+                Command.CommandText = "
+                INSERT INTO
+                    enfermedades_cronicas(ci_persona, enfermedad)
+                VALUES
+                    (" + Me.CI + ",'" + enfermedad + "')
+            "
+                Command.ExecuteNonQuery()
+            Next
+
+            Command.CommandText = "
+            DELETE FROM
+                medicaciones
+            WHERE
+                ci_persona = " + Me.CI + "
+        "
+            Command.ExecuteNonQuery()
+
+            For Each medicamento In Medicacion
+                Command.CommandText = "
+                INSERT INTO
+                    medicaciones(ci_persona, medicacion)
+                VALUES
+                    (" + Me.CI + ",'" + medicamento + "')
+            "
+                Command.ExecuteNonQuery()
+            Next
+
+            Command.CommandText = "COMMIT"
+            Command.ExecuteNonQuery()
+        Catch ex As Exception
+            Command.CommandText = "ROLLBACK"
+            Command.ExecuteNonQuery()
+            MsgBox(ex.ToString)
+        End Try
+
+
 
     End Sub
 

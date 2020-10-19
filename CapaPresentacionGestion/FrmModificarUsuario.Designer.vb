@@ -24,7 +24,6 @@ Partial Class FrmModificarUsuario
     Private Sub InitializeComponent()
         Me.BtnAgregarMedicacion = New System.Windows.Forms.Button()
         Me.BtnAgregarEnfermedad = New System.Windows.Forms.Button()
-        Me.LstEnfermedadCronica = New System.Windows.Forms.ListBox()
         Me.TxtMedicacion = New System.Windows.Forms.TextBox()
         Me.TxtEnfermedadCronica = New System.Windows.Forms.TextBox()
         Me.LblMedicacion = New System.Windows.Forms.Label()
@@ -50,75 +49,69 @@ Partial Class FrmModificarUsuario
         Me.CmbCi = New System.Windows.Forms.ComboBox()
         Me.RdbH = New System.Windows.Forms.RadioButton()
         Me.RdbM = New System.Windows.Forms.RadioButton()
+        Me.LstMedicaciones = New System.Windows.Forms.ListView()
+        Me.LstEnfermedades = New System.Windows.Forms.ListView()
+        Me.BtnEliminarEnfermedad = New System.Windows.Forms.Button()
+        Me.BtnEliminarMedicacion = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'BtnAgregarMedicacion
         '
-        Me.BtnAgregarMedicacion.Location = New System.Drawing.Point(909, 389)
+        Me.BtnAgregarMedicacion.Enabled = False
+        Me.BtnAgregarMedicacion.Location = New System.Drawing.Point(898, 329)
         Me.BtnAgregarMedicacion.Name = "BtnAgregarMedicacion"
         Me.BtnAgregarMedicacion.Size = New System.Drawing.Size(84, 29)
         Me.BtnAgregarMedicacion.TabIndex = 42
         Me.BtnAgregarMedicacion.Text = "Agregar"
         Me.BtnAgregarMedicacion.UseVisualStyleBackColor = True
-        Me.BtnAgregarMedicacion.Visible = False
         '
         'BtnAgregarEnfermedad
         '
+        Me.BtnAgregarEnfermedad.Enabled = False
         Me.BtnAgregarEnfermedad.Location = New System.Drawing.Point(597, 329)
         Me.BtnAgregarEnfermedad.Name = "BtnAgregarEnfermedad"
         Me.BtnAgregarEnfermedad.Size = New System.Drawing.Size(84, 29)
         Me.BtnAgregarEnfermedad.TabIndex = 39
         Me.BtnAgregarEnfermedad.Text = "Agregar"
         Me.BtnAgregarEnfermedad.UseVisualStyleBackColor = True
-        Me.BtnAgregarEnfermedad.Visible = False
-        '
-        'LstEnfermedadCronica
-        '
-        Me.LstEnfermedadCronica.FormattingEnabled = True
-        Me.LstEnfermedadCronica.ItemHeight = 20
-        Me.LstEnfermedadCronica.Location = New System.Drawing.Point(449, 366)
-        Me.LstEnfermedadCronica.Name = "LstEnfermedadCronica"
-        Me.LstEnfermedadCronica.Size = New System.Drawing.Size(232, 144)
-        Me.LstEnfermedadCronica.TabIndex = 48
-        Me.LstEnfermedadCronica.Visible = False
         '
         'TxtMedicacion
         '
-        Me.TxtMedicacion.Location = New System.Drawing.Point(750, 390)
+        Me.TxtMedicacion.Enabled = False
+        Me.TxtMedicacion.Location = New System.Drawing.Point(739, 330)
         Me.TxtMedicacion.MaxLength = 40
         Me.TxtMedicacion.Name = "TxtMedicacion"
         Me.TxtMedicacion.Size = New System.Drawing.Size(142, 26)
         Me.TxtMedicacion.TabIndex = 41
-        Me.TxtMedicacion.Visible = False
         '
         'TxtEnfermedadCronica
         '
+        Me.TxtEnfermedadCronica.Enabled = False
         Me.TxtEnfermedadCronica.Location = New System.Drawing.Point(449, 329)
         Me.TxtEnfermedadCronica.MaxLength = 40
         Me.TxtEnfermedadCronica.Name = "TxtEnfermedadCronica"
         Me.TxtEnfermedadCronica.Size = New System.Drawing.Size(127, 26)
         Me.TxtEnfermedadCronica.TabIndex = 38
-        Me.TxtEnfermedadCronica.Visible = False
         '
         'LblMedicacion
         '
         Me.LblMedicacion.AutoSize = True
-        Me.LblMedicacion.Location = New System.Drawing.Point(775, 366)
+        Me.LblMedicacion.Enabled = False
+        Me.LblMedicacion.Location = New System.Drawing.Point(764, 306)
         Me.LblMedicacion.Name = "LblMedicacion"
         Me.LblMedicacion.Size = New System.Drawing.Size(89, 20)
         Me.LblMedicacion.TabIndex = 47
         Me.LblMedicacion.Text = "Medicación"
-        Me.LblMedicacion.Visible = False
         '
         'LblEnfermedadCronica
         '
         Me.LblEnfermedadCronica.AutoSize = True
+        Me.LblEnfermedadCronica.Enabled = False
         Me.LblEnfermedadCronica.Location = New System.Drawing.Point(462, 302)
         Me.LblEnfermedadCronica.Name = "LblEnfermedadCronica"
         Me.LblEnfermedadCronica.Size = New System.Drawing.Size(180, 20)
         Me.LblEnfermedadCronica.TabIndex = 46
         Me.LblEnfermedadCronica.Text = "Enfermedades Crónicas"
-        Me.LblEnfermedadCronica.Visible = False
         '
         'BtnVolver
         '
@@ -150,21 +143,21 @@ Partial Class FrmModificarUsuario
         '
         'DtpFechaNacimiento
         '
+        Me.DtpFechaNacimiento.Enabled = False
         Me.DtpFechaNacimiento.Location = New System.Drawing.Point(8, 454)
         Me.DtpFechaNacimiento.Name = "DtpFechaNacimiento"
         Me.DtpFechaNacimiento.Size = New System.Drawing.Size(224, 26)
         Me.DtpFechaNacimiento.TabIndex = 37
-        Me.DtpFechaNacimiento.Visible = False
         '
         'LblFechaNacimiento
         '
         Me.LblFechaNacimiento.AutoSize = True
+        Me.LblFechaNacimiento.Enabled = False
         Me.LblFechaNacimiento.Location = New System.Drawing.Point(34, 427)
         Me.LblFechaNacimiento.Name = "LblFechaNacimiento"
         Me.LblFechaNacimiento.Size = New System.Drawing.Size(159, 20)
         Me.LblFechaNacimiento.TabIndex = 40
         Me.LblFechaNacimiento.Text = "Fecha de Nacimiento"
-        Me.LblFechaNacimiento.Visible = False
         '
         'ChbAdministrador
         '
@@ -201,6 +194,7 @@ Partial Class FrmModificarUsuario
         '
         'TxtMail
         '
+        Me.TxtMail.Enabled = False
         Me.TxtMail.Location = New System.Drawing.Point(63, 189)
         Me.TxtMail.MaxLength = 50
         Me.TxtMail.Name = "TxtMail"
@@ -219,6 +213,7 @@ Partial Class FrmModificarUsuario
         'TxtApellido
         '
         Me.TxtApellido.CausesValidation = False
+        Me.TxtApellido.Enabled = False
         Me.TxtApellido.Location = New System.Drawing.Point(356, 139)
         Me.TxtApellido.MaxLength = 25
         Me.TxtApellido.Name = "TxtApellido"
@@ -229,6 +224,7 @@ Partial Class FrmModificarUsuario
         '
         Me.TxtNombre.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
         Me.TxtNombre.CausesValidation = False
+        Me.TxtNombre.Enabled = False
         Me.TxtNombre.Location = New System.Drawing.Point(63, 139)
         Me.TxtNombre.MaxLength = 25
         Me.TxtNombre.Name = "TxtNombre"
@@ -239,6 +235,7 @@ Partial Class FrmModificarUsuario
         'LblUsuario
         '
         Me.LblUsuario.AutoSize = True
+        Me.LblUsuario.Enabled = False
         Me.LblUsuario.Location = New System.Drawing.Point(34, 313)
         Me.LblUsuario.Name = "LblUsuario"
         Me.LblUsuario.Size = New System.Drawing.Size(120, 20)
@@ -248,6 +245,7 @@ Partial Class FrmModificarUsuario
         'LblMail
         '
         Me.LblMail.AutoSize = True
+        Me.LblMail.Enabled = False
         Me.LblMail.Location = New System.Drawing.Point(59, 233)
         Me.LblMail.Name = "LblMail"
         Me.LblMail.Size = New System.Drawing.Size(37, 20)
@@ -266,6 +264,7 @@ Partial Class FrmModificarUsuario
         'LblApellido
         '
         Me.LblApellido.AutoSize = True
+        Me.LblApellido.Enabled = False
         Me.LblApellido.Location = New System.Drawing.Point(383, 98)
         Me.LblApellido.Name = "LblApellido"
         Me.LblApellido.Size = New System.Drawing.Size(65, 20)
@@ -276,6 +275,7 @@ Partial Class FrmModificarUsuario
         '
         Me.LblNombre.AutoSize = True
         Me.LblNombre.BackColor = System.Drawing.Color.Cornsilk
+        Me.LblNombre.Enabled = False
         Me.LblNombre.Location = New System.Drawing.Point(93, 98)
         Me.LblNombre.Name = "LblNombre"
         Me.LblNombre.Size = New System.Drawing.Size(65, 20)
@@ -303,6 +303,7 @@ Partial Class FrmModificarUsuario
         'RdbH
         '
         Me.RdbH.AutoSize = True
+        Me.RdbH.Enabled = False
         Me.RdbH.Location = New System.Drawing.Point(277, 457)
         Me.RdbH.Name = "RdbH"
         Me.RdbH.Size = New System.Drawing.Size(91, 24)
@@ -314,6 +315,7 @@ Partial Class FrmModificarUsuario
         'RdbM
         '
         Me.RdbM.AutoSize = True
+        Me.RdbM.Enabled = False
         Me.RdbM.Location = New System.Drawing.Point(277, 487)
         Me.RdbM.Name = "RdbM"
         Me.RdbM.Size = New System.Drawing.Size(73, 24)
@@ -322,18 +324,61 @@ Partial Class FrmModificarUsuario
         Me.RdbM.Text = "Mujer"
         Me.RdbM.UseVisualStyleBackColor = True
         '
+        'LstMedicaciones
+        '
+        Me.LstMedicaciones.Enabled = False
+        Me.LstMedicaciones.HideSelection = False
+        Me.LstMedicaciones.Location = New System.Drawing.Point(739, 366)
+        Me.LstMedicaciones.Name = "LstMedicaciones"
+        Me.LstMedicaciones.Size = New System.Drawing.Size(188, 145)
+        Me.LstMedicaciones.TabIndex = 53
+        Me.LstMedicaciones.UseCompatibleStateImageBehavior = False
+        '
+        'LstEnfermedades
+        '
+        Me.LstEnfermedades.Enabled = False
+        Me.LstEnfermedades.HideSelection = False
+        Me.LstEnfermedades.Location = New System.Drawing.Point(449, 366)
+        Me.LstEnfermedades.Name = "LstEnfermedades"
+        Me.LstEnfermedades.Size = New System.Drawing.Size(188, 145)
+        Me.LstEnfermedades.TabIndex = 54
+        Me.LstEnfermedades.UseCompatibleStateImageBehavior = False
+        '
+        'BtnEliminarEnfermedad
+        '
+        Me.BtnEliminarEnfermedad.Enabled = False
+        Me.BtnEliminarEnfermedad.Location = New System.Drawing.Point(586, 517)
+        Me.BtnEliminarEnfermedad.Name = "BtnEliminarEnfermedad"
+        Me.BtnEliminarEnfermedad.Size = New System.Drawing.Size(84, 29)
+        Me.BtnEliminarEnfermedad.TabIndex = 55
+        Me.BtnEliminarEnfermedad.Text = "Eliminar"
+        Me.BtnEliminarEnfermedad.UseVisualStyleBackColor = True
+        '
+        'BtnEliminarMedicacion
+        '
+        Me.BtnEliminarMedicacion.Enabled = False
+        Me.BtnEliminarMedicacion.Location = New System.Drawing.Point(898, 517)
+        Me.BtnEliminarMedicacion.Name = "BtnEliminarMedicacion"
+        Me.BtnEliminarMedicacion.Size = New System.Drawing.Size(84, 29)
+        Me.BtnEliminarMedicacion.TabIndex = 56
+        Me.BtnEliminarMedicacion.Text = "Eliminar"
+        Me.BtnEliminarMedicacion.UseVisualStyleBackColor = True
+        '
         'FrmModificarUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(994, 551)
+        Me.Controls.Add(Me.BtnEliminarMedicacion)
+        Me.Controls.Add(Me.BtnEliminarEnfermedad)
+        Me.Controls.Add(Me.LstEnfermedades)
+        Me.Controls.Add(Me.LstMedicaciones)
         Me.Controls.Add(Me.RdbM)
         Me.Controls.Add(Me.RdbH)
         Me.Controls.Add(Me.CmbCi)
         Me.Controls.Add(Me.LblCedula)
         Me.Controls.Add(Me.BtnAgregarMedicacion)
         Me.Controls.Add(Me.BtnAgregarEnfermedad)
-        Me.Controls.Add(Me.LstEnfermedadCronica)
         Me.Controls.Add(Me.TxtMedicacion)
         Me.Controls.Add(Me.TxtEnfermedadCronica)
         Me.Controls.Add(Me.LblMedicacion)
@@ -364,7 +409,6 @@ Partial Class FrmModificarUsuario
 
     Friend WithEvents BtnAgregarMedicacion As Button
     Friend WithEvents BtnAgregarEnfermedad As Button
-    Friend WithEvents LstEnfermedadCronica As ListBox
     Friend WithEvents TxtMedicacion As TextBox
     Friend WithEvents TxtEnfermedadCronica As TextBox
     Friend WithEvents LblMedicacion As Label
@@ -390,4 +434,8 @@ Partial Class FrmModificarUsuario
     Friend WithEvents CmbCi As ComboBox
     Friend WithEvents RdbH As RadioButton
     Friend WithEvents RdbM As RadioButton
+    Friend WithEvents LstMedicaciones As ListView
+    Friend WithEvents LstEnfermedades As ListView
+    Friend WithEvents BtnEliminarEnfermedad As Button
+    Friend WithEvents BtnEliminarMedicacion As Button
 End Class
