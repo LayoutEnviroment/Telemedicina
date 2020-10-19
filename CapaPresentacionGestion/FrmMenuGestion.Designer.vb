@@ -95,19 +95,19 @@ Partial Class FrmMenuGestion
         'NuevoToolStripMenuItem1
         '
         Me.NuevoToolStripMenuItem1.Name = "NuevoToolStripMenuItem1"
-        Me.NuevoToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.NuevoToolStripMenuItem1.Size = New System.Drawing.Size(125, 22)
         Me.NuevoToolStripMenuItem1.Text = "Nuevo"
         '
         'ModificarToolStripMenuItem1
         '
         Me.ModificarToolStripMenuItem1.Name = "ModificarToolStripMenuItem1"
-        Me.ModificarToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.ModificarToolStripMenuItem1.Size = New System.Drawing.Size(125, 22)
         Me.ModificarToolStripMenuItem1.Text = "Modificar"
         '
         'EliminarToolStripMenuItem1
         '
         Me.EliminarToolStripMenuItem1.Name = "EliminarToolStripMenuItem1"
-        Me.EliminarToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.EliminarToolStripMenuItem1.Size = New System.Drawing.Size(125, 22)
         Me.EliminarToolStripMenuItem1.Text = "Eliminar"
         '
         'ImportarCSVToolStripMenuItem
@@ -169,7 +169,7 @@ Partial Class FrmMenuGestion
         Me.Controls.Add(Me.LblBienvenida)
         Me.Controls.Add(Me.MenuGestor)
         Me.MainMenuStrip = Me.MenuGestor
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "FrmMenuGestion"
         Me.Text = "Menu"
         Me.MenuGestor.ResumeLayout(False)
