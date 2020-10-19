@@ -54,7 +54,8 @@
                                         )
                         ) = 0; 
         "
-
+        Command.CommandText = "WHERE e.activo = 1"
+        Command.ExecuteNonQuery()
         Return Command.ExecuteScalar.ToString()
 
     End Function
@@ -82,7 +83,7 @@
                     WHERE
                         nombre IN(
                             " + values + "
-                        )
+                        ) AND activo = 1
                 )
             GROUP BY
                 c.id_enfermedad

@@ -82,7 +82,7 @@ Partial Class Frm_Menu
         '
         'BtnDiagnostico
         '
-        Me.BtnDiagnostico.Location = New System.Drawing.Point(633, 651)
+        Me.BtnDiagnostico.Location = New System.Drawing.Point(638, 714)
         Me.BtnDiagnostico.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnDiagnostico.Name = "BtnDiagnostico"
         Me.BtnDiagnostico.Size = New System.Drawing.Size(266, 60)
@@ -93,12 +93,13 @@ Partial Class Frm_Menu
         'LvSintomas
         '
         Me.LvSintomas.HideSelection = False
-        Me.LvSintomas.Location = New System.Drawing.Point(460, 412)
+        Me.LvSintomas.Location = New System.Drawing.Point(350, 412)
         Me.LvSintomas.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.LvSintomas.Name = "LvSintomas"
-        Me.LvSintomas.Size = New System.Drawing.Size(600, 190)
+        Me.LvSintomas.Size = New System.Drawing.Size(806, 253)
         Me.LvSintomas.TabIndex = 20
         Me.LvSintomas.UseCompatibleStateImageBehavior = False
+        Me.LvSintomas.View = System.Windows.Forms.View.Tile
         '
         'BtnConsultaHistorial
         '
