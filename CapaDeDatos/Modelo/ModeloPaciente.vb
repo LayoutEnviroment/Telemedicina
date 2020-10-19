@@ -135,8 +135,8 @@
             Command.CommandText = "START TRANSACTION"
             Command.ExecuteNonQuery()
 
-            Try
-                Command.CommandText = "
+
+            Command.CommandText = "
                     UPDATE
                         persona
                     SET
@@ -146,10 +146,10 @@
                     WHERE
                         ci = " + Me.Cedula + "
                 "
-                Command.ExecuteNonQuery()
+            Command.ExecuteNonQuery()
 
-                Try
-                    Command.CommandText = "
+
+            Command.CommandText = "
                         UPDATE
                             paciente
                         SET
@@ -158,77 +158,57 @@
                         WHERE
                             ci_persona = " + Me.Cedula + "
                     "
-                    MsgBox(FechaNacimiento)
-                    Command.ExecuteNonQuery()
+            MsgBox(FechaNacimiento)
+            Command.ExecuteNonQuery()
 
-                    Try
-                        Command.CommandText = "
+
+            Command.CommandText = "
                             DELETE FROM
                                 enfermedades_cronicas
                             WHERE
                                 ci_persona_paciente = " + Me.Cedula + "
                         "
-                        Command.ExecuteNonQuery()
+            Command.ExecuteNonQuery()
 
-                        Try
-                            Command.CommandText = "
+
+            Command.CommandText = "
                             DELETE FROM
                                 medicaciones
                             WHERE
                                 ci_persona_paciente = " + Me.Cedula + "
                         "
-                            Command.ExecuteNonQuery()
+            Command.ExecuteNonQuery()
 
-                            Try
-                                Dim values = String.Join(",", Enfermedades.Select(Function(f) String.Format("'{0}'", f)).ToArray())
-                                For Each enfermedad In Enfermedades
-                                    MsgBox(enfermedad)
-                                    Command.CommandText = "
+            For Each enfermedad In Enfermedades
+                MsgBox(enfermedad)
+                Command.CommandText = "
                                         INSERT INTO
                                             enfermedades_cronicas(ci_persona_paciente, enfermedad)
                                         VALUES
                                             (" + Me.Cedula + ", '" + enfermedad + "')
                                     "
-                                    Command.ExecuteNonQuery()
-                                Next
+                Command.ExecuteNonQuery()
+            Next
 
-                                Try
-                                    Dim valores = String.Join(",", Medicaciones.Select(Function(f) String.Format("'{0}'", f)).ToArray())
-                                    For Each medicacion In Medicaciones
-                                        Command.CommandText = "
+            For Each medicacion In Medicaciones
+                Command.CommandText = "
                                         INSERT INTO
                                             medicaciones(ci_persona_paciente, medicacion)
                                         VALUES
                                             (" + Me.Cedula + ", '" + medicacion + "')
                                     "
-                                        Command.ExecuteNonQuery()
-                                    Next
+                Command.ExecuteNonQuery()
+            Next
 
-                                    Command.CommandText = "COMMIT"
-                                    Command.ExecuteNonQuery()
-                                Catch ex As Exception
-                                    MsgBox("Error en insertar medicaciones" + ex.ToString)
-                                End Try
-                            Catch ex As Exception
-                                MsgBox("Error en insertar enfermedades" + ex.ToString)
-                            End Try
-                        Catch ex As Exception
-                            MsgBox("Error en borrar medicaciones" + ex.ToString)
-                        End Try
-                    Catch ex As Exception
-                        MsgBox("Error en insertar enfermedades" + ex.ToString)
-                    End Try
-                Catch ex As Exception
-                    MsgBox("Error en actualizar paciente" + ex.ToString)
-                End Try
-            Catch ex As Exception
-                MsgBox("Error en actualizar personas" + ex.ToString)
-            End Try
+            Command.CommandText = "COMMIT"
+            Command.ExecuteNonQuery()
+
         Catch ex As Exception
             MsgBox("Error en iniciar transaccion" + ex.ToString)
             Command.CommandText = "ROLLBACK"
             Command.ExecuteNonQuery()
         End Try
+
     End Sub
 
     Public Sub CambiarDatos(ci As String)
@@ -238,8 +218,8 @@
             Command.CommandText = "START TRANSACTION"
             Command.ExecuteNonQuery()
 
-            Try
-                Command.CommandText = "
+
+            Command.CommandText = "
                     UPDATE
                         persona
                     SET
@@ -251,8 +231,8 @@
                 "
                 Command.ExecuteNonQuery()
 
-                Try
-                    Command.CommandText = "
+
+            Command.CommandText = "
                         UPDATE
                             paciente
                         SET
@@ -261,11 +241,11 @@
                         WHERE
                             ci_persona = " + ci + "
                     "
-                    MsgBox(FechaNacimiento)
-                    Command.ExecuteNonQuery()
 
-                    Try
-                        Command.CommandText = "
+            Command.ExecuteNonQuery()
+
+
+            Command.CommandText = "
                             DELETE FROM
                                 enfermedades_cronicas
                             WHERE
@@ -273,8 +253,8 @@
                         "
                         Command.ExecuteNonQuery()
 
-                        Try
-                            Command.CommandText = "
+
+            Command.CommandText = "
                             DELETE FROM
                                 medicaciones
                             WHERE
@@ -282,11 +262,9 @@
                         "
                             Command.ExecuteNonQuery()
 
-                            Try
-                                Dim values = String.Join(",", Enfermedades.Select(Function(f) String.Format("'{0}'", f)).ToArray())
-                                For Each enfermedad In Enfermedades
-                                    MsgBox(enfermedad)
-                                    Command.CommandText = "
+            For Each enfermedad In Enfermedades
+
+                Command.CommandText = "
                                         INSERT INTO
                                             enfermedades_cronicas(ci_persona_paciente, enfermedad)
                                         VALUES
@@ -295,9 +273,7 @@
                                     Command.ExecuteNonQuery()
                                 Next
 
-                                Try
-                                    Dim valores = String.Join(",", Medicaciones.Select(Function(f) String.Format("'{0}'", f)).ToArray())
-                                    For Each medicacion In Medicaciones
+            For Each medicacion In Medicaciones
                                         Command.CommandText = "
                                         INSERT INTO
                                             medicaciones(ci_persona_paciente, medicacion)
@@ -309,24 +285,8 @@
 
                                     Command.CommandText = "COMMIT"
                                     Command.ExecuteNonQuery()
-                                Catch ex As Exception
-                                    MsgBox("Error en insertar medicaciones" + ex.ToString)
-                                End Try
-                            Catch ex As Exception
-                                MsgBox("Error en insertar enfermedades" + ex.ToString)
-                            End Try
-                        Catch ex As Exception
-                            MsgBox("Error en borrar medicaciones" + ex.ToString)
-                        End Try
-                    Catch ex As Exception
-                        MsgBox("Error en insertar enfermedades" + ex.ToString)
-                    End Try
-                Catch ex As Exception
-                    MsgBox("Error en actualizar paciente" + ex.ToString)
-                End Try
-            Catch ex As Exception
-                MsgBox("Error en actualizar personas" + ex.ToString)
-            End Try
+
+
         Catch ex As Exception
             MsgBox("Error en iniciar transaccion" + ex.ToString)
             Command.CommandText = "ROLLBACK"

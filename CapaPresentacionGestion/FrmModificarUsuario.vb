@@ -3,6 +3,8 @@
 Public Class FrmModificarUsuario
 
     Dim rol(3) As Boolean
+    Public Enfermedades As New List(Of String)
+    Public Medicaciones As New List(Of String)
     Public Nombre, Apellido, Mail As Boolean
 
     Private Sub FrmModificarUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -28,11 +30,13 @@ Public Class FrmModificarUsuario
     End Sub
 
     Private Sub CmbCi_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbCi.SelectedIndexChanged
+        Limpiar()
         HabilitarPersona(True)
         ObtenerDatosPersona()
         EsPaciente()
         EsMedico()
         EsAdministrativo()
+        HabilitarModificacion()
 
     End Sub
 
@@ -64,8 +68,8 @@ Public Class FrmModificarUsuario
     Private Sub CargarDatos(lector As IDataReader)
         While lector.Read
             TxtNombre.Text = lector(0).ToString
-            TxtApellido.Text = lector(0).ToString
-            TxtMail.Text = lector(0).ToString
+            TxtApellido.Text = lector(1).ToString
+            TxtMail.Text = lector(2).ToString
 
         End While
     End Sub
@@ -110,12 +114,12 @@ Public Class FrmModificarUsuario
             Else
                 RdbM.Checked = True
             End If
+
         End While
 
     End Sub
 
     Private Sub AdaptarFecha(fecha As Date)
-        MsgBox(fecha.ToString)
         DtpFechaNacimiento.Value = fecha.Date
 
     End Sub
@@ -123,7 +127,7 @@ Public Class FrmModificarUsuario
     Private Sub ObtenerEnfermedadesCronicas()
         Dim LectorEnfermedades As IDataReader
         Try
-            LectorEnfermedades = ControladorPaciente.ObtenerEnfermedades()
+            LectorEnfermedades = ControladorPaciente.ObtenerEnfermedades(CmbCi.SelectedItem)
             CargarEnfermedades(LectorEnfermedades)
         Catch ex As Exception
             MsgBox(ex.ToString())
@@ -142,7 +146,7 @@ Public Class FrmModificarUsuario
     Private Sub ObtenerMedicacion()
         Dim LectorMedicaciones As IDataReader
         Try
-            LectorMedicaciones = ControladorPaciente.ObtenerMedicaciones()
+            LectorMedicaciones = ControladorPaciente.ObtenerMedicaciones(CmbCi.SelectedItem)
             CargarMedicaciones(LectorMedicaciones)
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -200,12 +204,11 @@ Public Class FrmModificarUsuario
         BtnAgregarEnfermedad.Enabled = estado
         LstEnfermedades.Enabled = estado
         LblMedicacion.Enabled = estado
-        BtnAgregarMedicacion.Enabled = estado
         TxtMedicacion.Enabled = estado
+        BtnAgregarMedicacion.Enabled = estado
+        LstMedicaciones.Enabled = estado
 
     End Sub
-
-
 
     Private Sub TxtEnfermedadCronica_TextChanged(sender As Object, e As EventArgs) Handles TxtEnfermedadCronica.TextChanged
         If TxtEnfermedadCronica.Text <> "" Then
@@ -218,16 +221,17 @@ Public Class FrmModificarUsuario
 
     Private Sub BtnAgregarEnfermedad_Click(sender As Object, e As EventArgs) Handles BtnAgregarEnfermedad.Click
         LstEnfermedades.Items.Add(TxtEnfermedadCronica.Text)
-
+        TxtEnfermedadCronica.Text = ""
     End Sub
 
     Private Sub LstEnfermedades_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstEnfermedades.SelectedIndexChanged
-        BtnAgregarEnfermedad.Enabled = True
+        BtnEliminarEnfermedad.Enabled = True
 
     End Sub
 
     Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminarEnfermedad.Click
         LstEnfermedades.Items.Remove(LstEnfermedades.SelectedItems(0))
+        BtnEliminarEnfermedad.Enabled = False
 
     End Sub
 
@@ -242,16 +246,22 @@ Public Class FrmModificarUsuario
 
     Private Sub BtnAgregarMedicacion_Click(sender As Object, e As EventArgs) Handles BtnAgregarMedicacion.Click
         LstMedicaciones.Items.Add(TxtMedicacion.Text)
+        TxtMedicacion.Text = ""
 
     End Sub
 
     Private Sub LstMedicaciones_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstMedicaciones.SelectedIndexChanged
-        BtnEliminarMedicacion.Enabled = True
+        If LstMedicaciones.SelectedItems.Count() > 0 Then
+            BtnEliminarMedicacion.Enabled = True
+        Else
+            BtnEliminarMedicacion.Enabled = False
+        End If
 
     End Sub
 
     Private Sub BtnEliminarMedicacion_Click(sender As Object, e As EventArgs) Handles BtnEliminarMedicacion.Click
         LstMedicaciones.Items.Remove(LstMedicaciones.SelectedItems(0))
+        BtnEliminarMedicacion.Enabled = False
 
     End Sub
 
@@ -306,31 +316,25 @@ Public Class FrmModificarUsuario
     End Sub
 
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
-        For Each r As String In rol
-            MsgBox(r)
-        Next
         If ChbPaciente.Checked And rol(0) = True Then
-            'ModificarPersonaYPaciente()
-            MsgBox("Modificar Paciente")
+            ModificarPersonaYPaciente()
         ElseIf ChbPaciente.CheckAlign And rol(0) = False Then
-
-            MsgBox("Agregar a paciente")
+            AgregarAPaciente()
         End If
 
         If ChbMedico.Checked And rol(1) = True Then
-            'ControladorUsuario.ModificarPersona(TxtNombre.Text, TxtApellido.Text, TxtMail.Text)
-            MsgBox("Modificar Persona -medico-")
+            ModificarPersona(2)
         ElseIf ChbMedico.Checked And rol(1) = False Then
-            MsgBox("Agregar a medico")
+            AgregarAMedico()
         End If
 
         If ChbAdministrador.Checked And rol(2) = True Then
-            MsgBox("Modifico Administrador")
+            ModificarPersona(3)
         ElseIf ChbAdministrador.Checked And rol(2) = False Then
-            MsgBox("Agrego Administrador")
+            AgregarAAdministrador()
 
         End If
-
+        Limpiar()
 
     End Sub
 
@@ -351,6 +355,67 @@ Public Class FrmModificarUsuario
 
     End Sub
 
+    Private Sub AgregarAPaciente()
+        Try
+            ControladorUsuario.AgregarNuevoPaciente(CmbCi.SelectedItem(),
+                                                    ObtenerSexo(),
+                                                    ObtenerFecha(),
+                                                    CargarListaEnfermedades(),
+                                                    CargarListaMedicinas())
+            MsgBox("Usuario actualizado como paciente")
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub AgregarAMedico()
+        Try
+            ControladorUsuario.AgregarNuevoMedico(CmbCi.SelectedItem,
+                                                  TxtNombre.Text,
+                                                  TxtApellido.Text,
+                                                  TxtMail.Text)
+            MsgBox("Usuario agregado como medico")
+        Catch ex As Exception
+            MsgBox(ex.ToString())
+        End Try
+
+    End Sub
+
+    Private Sub AgregarAAdministrador()
+        Try
+            ControladorUsuario.AgregarNuevoAdministrativo(CmbCi.SelectedItem,
+                                                        TxtNombre.Text,
+                                                        TxtApellido.Text,
+                                                        TxtMail.Text)
+            MsgBox("Usuario agregado como administrador")
+        Catch ex As Exception
+            MsgBox(ex.ToString())
+        End Try
+    End Sub
+
+    Private Sub ModificarPersona(Usuario As Integer)
+        Try
+            ControladorUsuario.ModificarPersona(TxtNombre.Text,
+                                                TxtApellido.Text,
+                                                TxtMail.Text,
+                                                CmbCi.SelectedItem)
+            If Usuario = 2 Then
+                MsgBox("Medico actualizado con exito!")
+            Else
+                MsgBox("Administrador actualizado con exito!")
+            End If
+
+        Catch ex As Exception
+            If Usuario = 2 Then
+                MsgBox("Error al acutalizar al medico")
+            Else
+                MsgBox("Error al acutalizar al adminsitrador")
+            End If
+
+        End Try
+
+    End Sub
+
     Private Function ObtenerSexo()
         If RdbH.Checked Then
             Return 0
@@ -363,29 +428,55 @@ Public Class FrmModificarUsuario
     Private Function ObtenerFecha()
         Return DtpFechaNacimiento.Value.Year.ToString + "-" +
             DtpFechaNacimiento.Value.Month.ToString + "-" +
-            DtpFechaNacimiento.Value.Day
+            DtpFechaNacimiento.Value.Day.ToString
 
     End Function
 
     Private Function CargarListaEnfermedades()
-        Dim Enfermedades As List(Of String)
         Enfermedades.Clear()
         For x = 0 To LstEnfermedades.Items.Count() - 1
-            Enfermedades.Add(LstEnfermedades.Items(x).ToString())
+            Enfermedades.Add(LstEnfermedades.Items(x).Text)
         Next
         Return Enfermedades
 
     End Function
 
     Private Function CargarListaMedicinas()
-
-        Dim Medicinas As List(Of String)
-        Medicinas.Clear()
-        For x = 0 To LstEnfermedades.Items.Count() - 1
-            Medicinas.Add(LstEnfermedades.Items(x).ToString())
+        Medicaciones.Clear()
+        For x = 0 To LstMedicaciones.Items.Count() - 1
+            Medicaciones.Add(LstMedicaciones.Items(x).Text)
         Next
-        Return Medicinas
+        Return Medicaciones
 
     End Function
+
+
+
+    Private Sub Limpiar()
+        TxtNombre.Text = ""
+        TxtApellido.Text = ""
+        TxtMail.Text = ""
+        ChbPaciente.Checked = False
+        ChbMedico.Checked = False
+        ChbAdministrador.Checked = False
+        TxtEnfermedadCronica.Text = ""
+        TxtMedicacion.Text = ""
+        LstEnfermedades.Items.Clear()
+        LstMedicaciones.Items.Clear()
+        MostrarDatosPaciente(False)
+
+    End Sub
+
+    Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
+        Limpiar()
+
+    End Sub
+
+    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
+        Limpiar()
+        Me.Dispose()
+        FrmMenuGestion.Show()
+
+    End Sub
 
 End Class

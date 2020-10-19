@@ -27,6 +27,22 @@ Public Module ControladorUsuario
 
     End Sub
 
+    Public Sub AgregarNuevoPaciente(cedula As String,
+                                    sexo As String,
+                                    fechaNacimiento As String,
+                                    enfermedades As List(Of String),
+                                    medicaciones As List(Of String))
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
+            .CI = cedula,
+            .Sexo = sexo,
+            .FechaNacimiento = fechaNacimiento,
+            .EnfermedadCronica = enfermedades,
+            .Medicacion = medicaciones
+        }
+        u.AgregarNuevoPaciente()
+
+    End Sub
+
     Public Sub NuevoMedico(cedula As String,
                            nombre As String,
                            apellido As String,
@@ -44,6 +60,20 @@ Public Module ControladorUsuario
 
     End Sub
 
+    Public Sub AgregarNuevoMedico(cedula As String,
+                                    nombre As String,
+                                    apellido As String,
+                                    mail As String)
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
+            .CI = cedula,
+            .Nombre = nombre,
+            .Apellido = apellido,
+            .Mail = mail
+        }
+        u.AgregarNuevoMedico()
+
+    End Sub
+
     Public Sub NuevoAdministrativo(cedula As String,
                                     nombre As String,
                                     apellido As String,
@@ -58,6 +88,20 @@ Public Module ControladorUsuario
         }
 
         u.NuevoAdministrativo()
+
+    End Sub
+
+    Public Sub AgregarNuevoAdministrativo(cedula As String,
+                                        nombre As String,
+                                        apellido As String,
+                                        mail As String)
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
+            .CI = cedula,
+            .Nombre = nombre,
+            .Apellido = apellido,
+            .Mail = mail
+        }
+        u.AgregarNuevoAdministrativo
 
     End Sub
 

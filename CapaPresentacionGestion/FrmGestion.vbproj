@@ -103,12 +103,6 @@
     <Compile Include="FrmModificarEnfermedad.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmModificarAdministrativo.Designer.vb">
-      <DependentUpon>FrmModificarAdministrativo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmModificarAdministrativo.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="FrmModificarSintoma.Designer.vb">
       <DependentUpon>FrmModificarSintoma.vb</DependentUpon>
     </Compile>
@@ -146,18 +140,6 @@
       <DependentUpon>FrmMenuGestion.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmModificarMedico.Designer.vb">
-      <DependentUpon>FrmModificarMedico.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmModificarMedico.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmModificarPaciente.Designer.vb">
-      <DependentUpon>FrmModificarPaciente.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmModificarPaciente.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -187,9 +169,6 @@
     <EmbeddedResource Include="FrmModificarUsuario.resx">
       <DependentUpon>FrmModificarUsuario.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmModificarAdministrativo.resx">
-      <DependentUpon>FrmModificarAdministrativo.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmModificarEnfermedad.resx">
       <DependentUpon>FrmModificarEnfermedad.vb</DependentUpon>
     </EmbeddedResource>
@@ -210,12 +189,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenuGestion.resx">
       <DependentUpon>FrmMenuGestion.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmModificarMedico.resx">
-      <DependentUpon>FrmModificarMedico.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmModificarPaciente.resx">
-      <DependentUpon>FrmModificarPaciente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

@@ -96,7 +96,7 @@ Public Module ControladorPaciente
             .FechaNacimiento = fecha,
             .Enfermedades = enfermedades,
             .Medicaciones = medicaciones,
-            .Cedula = ControladorSesion.Cedula
+            .Cedula = ci
         }
 
         p.CambiarDatos(ci)

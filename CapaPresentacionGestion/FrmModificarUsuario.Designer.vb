@@ -58,9 +58,10 @@ Partial Class FrmModificarUsuario
         'BtnAgregarMedicacion
         '
         Me.BtnAgregarMedicacion.Enabled = False
-        Me.BtnAgregarMedicacion.Location = New System.Drawing.Point(898, 329)
+        Me.BtnAgregarMedicacion.Location = New System.Drawing.Point(599, 214)
+        Me.BtnAgregarMedicacion.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnAgregarMedicacion.Name = "BtnAgregarMedicacion"
-        Me.BtnAgregarMedicacion.Size = New System.Drawing.Size(84, 29)
+        Me.BtnAgregarMedicacion.Size = New System.Drawing.Size(56, 19)
         Me.BtnAgregarMedicacion.TabIndex = 42
         Me.BtnAgregarMedicacion.Text = "Agregar"
         Me.BtnAgregarMedicacion.UseVisualStyleBackColor = True
@@ -68,9 +69,10 @@ Partial Class FrmModificarUsuario
         'BtnAgregarEnfermedad
         '
         Me.BtnAgregarEnfermedad.Enabled = False
-        Me.BtnAgregarEnfermedad.Location = New System.Drawing.Point(597, 329)
+        Me.BtnAgregarEnfermedad.Location = New System.Drawing.Point(398, 214)
+        Me.BtnAgregarEnfermedad.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnAgregarEnfermedad.Name = "BtnAgregarEnfermedad"
-        Me.BtnAgregarEnfermedad.Size = New System.Drawing.Size(84, 29)
+        Me.BtnAgregarEnfermedad.Size = New System.Drawing.Size(56, 19)
         Me.BtnAgregarEnfermedad.TabIndex = 39
         Me.BtnAgregarEnfermedad.Text = "Agregar"
         Me.BtnAgregarEnfermedad.UseVisualStyleBackColor = True
@@ -78,28 +80,31 @@ Partial Class FrmModificarUsuario
         'TxtMedicacion
         '
         Me.TxtMedicacion.Enabled = False
-        Me.TxtMedicacion.Location = New System.Drawing.Point(739, 330)
+        Me.TxtMedicacion.Location = New System.Drawing.Point(493, 214)
+        Me.TxtMedicacion.Margin = New System.Windows.Forms.Padding(2)
         Me.TxtMedicacion.MaxLength = 40
         Me.TxtMedicacion.Name = "TxtMedicacion"
-        Me.TxtMedicacion.Size = New System.Drawing.Size(142, 26)
+        Me.TxtMedicacion.Size = New System.Drawing.Size(96, 20)
         Me.TxtMedicacion.TabIndex = 41
         '
         'TxtEnfermedadCronica
         '
         Me.TxtEnfermedadCronica.Enabled = False
-        Me.TxtEnfermedadCronica.Location = New System.Drawing.Point(449, 329)
+        Me.TxtEnfermedadCronica.Location = New System.Drawing.Point(299, 214)
+        Me.TxtEnfermedadCronica.Margin = New System.Windows.Forms.Padding(2)
         Me.TxtEnfermedadCronica.MaxLength = 40
         Me.TxtEnfermedadCronica.Name = "TxtEnfermedadCronica"
-        Me.TxtEnfermedadCronica.Size = New System.Drawing.Size(127, 26)
+        Me.TxtEnfermedadCronica.Size = New System.Drawing.Size(86, 20)
         Me.TxtEnfermedadCronica.TabIndex = 38
         '
         'LblMedicacion
         '
         Me.LblMedicacion.AutoSize = True
         Me.LblMedicacion.Enabled = False
-        Me.LblMedicacion.Location = New System.Drawing.Point(764, 306)
+        Me.LblMedicacion.Location = New System.Drawing.Point(509, 199)
+        Me.LblMedicacion.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblMedicacion.Name = "LblMedicacion"
-        Me.LblMedicacion.Size = New System.Drawing.Size(89, 20)
+        Me.LblMedicacion.Size = New System.Drawing.Size(62, 13)
         Me.LblMedicacion.TabIndex = 47
         Me.LblMedicacion.Text = "Medicación"
         '
@@ -107,26 +112,29 @@ Partial Class FrmModificarUsuario
         '
         Me.LblEnfermedadCronica.AutoSize = True
         Me.LblEnfermedadCronica.Enabled = False
-        Me.LblEnfermedadCronica.Location = New System.Drawing.Point(462, 302)
+        Me.LblEnfermedadCronica.Location = New System.Drawing.Point(308, 196)
+        Me.LblEnfermedadCronica.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblEnfermedadCronica.Name = "LblEnfermedadCronica"
-        Me.LblEnfermedadCronica.Size = New System.Drawing.Size(180, 20)
+        Me.LblEnfermedadCronica.Size = New System.Drawing.Size(119, 13)
         Me.LblEnfermedadCronica.TabIndex = 46
         Me.LblEnfermedadCronica.Text = "Enfermedades Crónicas"
         '
         'BtnVolver
         '
-        Me.BtnVolver.Location = New System.Drawing.Point(785, 213)
+        Me.BtnVolver.Location = New System.Drawing.Point(523, 138)
+        Me.BtnVolver.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnVolver.Name = "BtnVolver"
-        Me.BtnVolver.Size = New System.Drawing.Size(142, 40)
+        Me.BtnVolver.Size = New System.Drawing.Size(95, 26)
         Me.BtnVolver.TabIndex = 45
         Me.BtnVolver.Text = "Volver"
         Me.BtnVolver.UseVisualStyleBackColor = True
         '
         'BtnCancelar
         '
-        Me.BtnCancelar.Location = New System.Drawing.Point(785, 147)
+        Me.BtnCancelar.Location = New System.Drawing.Point(523, 96)
+        Me.BtnCancelar.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnCancelar.Name = "BtnCancelar"
-        Me.BtnCancelar.Size = New System.Drawing.Size(142, 40)
+        Me.BtnCancelar.Size = New System.Drawing.Size(95, 26)
         Me.BtnCancelar.TabIndex = 44
         Me.BtnCancelar.Text = "Cancelar"
         Me.BtnCancelar.UseVisualStyleBackColor = True
@@ -134,9 +142,10 @@ Partial Class FrmModificarUsuario
         'BtnAceptar
         '
         Me.BtnAceptar.Enabled = False
-        Me.BtnAceptar.Location = New System.Drawing.Point(785, 81)
+        Me.BtnAceptar.Location = New System.Drawing.Point(523, 53)
+        Me.BtnAceptar.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnAceptar.Name = "BtnAceptar"
-        Me.BtnAceptar.Size = New System.Drawing.Size(142, 40)
+        Me.BtnAceptar.Size = New System.Drawing.Size(95, 26)
         Me.BtnAceptar.TabIndex = 43
         Me.BtnAceptar.Text = "Aceptar"
         Me.BtnAceptar.UseVisualStyleBackColor = True
@@ -144,18 +153,20 @@ Partial Class FrmModificarUsuario
         'DtpFechaNacimiento
         '
         Me.DtpFechaNacimiento.Enabled = False
-        Me.DtpFechaNacimiento.Location = New System.Drawing.Point(8, 454)
+        Me.DtpFechaNacimiento.Location = New System.Drawing.Point(5, 295)
+        Me.DtpFechaNacimiento.Margin = New System.Windows.Forms.Padding(2)
         Me.DtpFechaNacimiento.Name = "DtpFechaNacimiento"
-        Me.DtpFechaNacimiento.Size = New System.Drawing.Size(224, 26)
+        Me.DtpFechaNacimiento.Size = New System.Drawing.Size(151, 20)
         Me.DtpFechaNacimiento.TabIndex = 37
         '
         'LblFechaNacimiento
         '
         Me.LblFechaNacimiento.AutoSize = True
         Me.LblFechaNacimiento.Enabled = False
-        Me.LblFechaNacimiento.Location = New System.Drawing.Point(34, 427)
+        Me.LblFechaNacimiento.Location = New System.Drawing.Point(23, 278)
+        Me.LblFechaNacimiento.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblFechaNacimiento.Name = "LblFechaNacimiento"
-        Me.LblFechaNacimiento.Size = New System.Drawing.Size(159, 20)
+        Me.LblFechaNacimiento.Size = New System.Drawing.Size(108, 13)
         Me.LblFechaNacimiento.TabIndex = 40
         Me.LblFechaNacimiento.Text = "Fecha de Nacimiento"
         '
@@ -163,9 +174,10 @@ Partial Class FrmModificarUsuario
         '
         Me.ChbAdministrador.AutoSize = True
         Me.ChbAdministrador.Enabled = False
-        Me.ChbAdministrador.Location = New System.Drawing.Point(183, 381)
+        Me.ChbAdministrador.Location = New System.Drawing.Point(122, 248)
+        Me.ChbAdministrador.Margin = New System.Windows.Forms.Padding(2)
         Me.ChbAdministrador.Name = "ChbAdministrador"
-        Me.ChbAdministrador.Size = New System.Drawing.Size(134, 24)
+        Me.ChbAdministrador.Size = New System.Drawing.Size(91, 17)
         Me.ChbAdministrador.TabIndex = 36
         Me.ChbAdministrador.Text = "Administrativo"
         Me.ChbAdministrador.UseVisualStyleBackColor = True
@@ -174,9 +186,10 @@ Partial Class FrmModificarUsuario
         '
         Me.ChbMedico.AutoSize = True
         Me.ChbMedico.Enabled = False
-        Me.ChbMedico.Location = New System.Drawing.Point(183, 347)
+        Me.ChbMedico.Location = New System.Drawing.Point(122, 226)
+        Me.ChbMedico.Margin = New System.Windows.Forms.Padding(2)
         Me.ChbMedico.Name = "ChbMedico"
-        Me.ChbMedico.Size = New System.Drawing.Size(86, 24)
+        Me.ChbMedico.Size = New System.Drawing.Size(61, 17)
         Me.ChbMedico.TabIndex = 35
         Me.ChbMedico.Text = "Medico"
         Me.ChbMedico.UseVisualStyleBackColor = True
@@ -185,9 +198,10 @@ Partial Class FrmModificarUsuario
         '
         Me.ChbPaciente.AutoSize = True
         Me.ChbPaciente.Enabled = False
-        Me.ChbPaciente.Location = New System.Drawing.Point(183, 313)
+        Me.ChbPaciente.Location = New System.Drawing.Point(122, 203)
+        Me.ChbPaciente.Margin = New System.Windows.Forms.Padding(2)
         Me.ChbPaciente.Name = "ChbPaciente"
-        Me.ChbPaciente.Size = New System.Drawing.Size(97, 24)
+        Me.ChbPaciente.Size = New System.Drawing.Size(68, 17)
         Me.ChbPaciente.TabIndex = 34
         Me.ChbPaciente.Text = "Paciente"
         Me.ChbPaciente.UseVisualStyleBackColor = True
@@ -195,29 +209,32 @@ Partial Class FrmModificarUsuario
         'TxtMail
         '
         Me.TxtMail.Enabled = False
-        Me.TxtMail.Location = New System.Drawing.Point(63, 189)
+        Me.TxtMail.Location = New System.Drawing.Point(42, 123)
+        Me.TxtMail.Margin = New System.Windows.Forms.Padding(2)
         Me.TxtMail.MaxLength = 50
         Me.TxtMail.Name = "TxtMail"
-        Me.TxtMail.Size = New System.Drawing.Size(498, 26)
+        Me.TxtMail.Size = New System.Drawing.Size(333, 20)
         Me.TxtMail.TabIndex = 32
         '
         'TxtCI
         '
         Me.TxtCI.AccessibleDescription = "Ingrese su cedula sin puntos ni guiones"
-        Me.TxtCI.Location = New System.Drawing.Point(64, -32)
+        Me.TxtCI.Location = New System.Drawing.Point(43, -21)
+        Me.TxtCI.Margin = New System.Windows.Forms.Padding(2)
         Me.TxtCI.MaxLength = 9
         Me.TxtCI.Name = "TxtCI"
-        Me.TxtCI.Size = New System.Drawing.Size(205, 26)
+        Me.TxtCI.Size = New System.Drawing.Size(138, 20)
         Me.TxtCI.TabIndex = 26
         '
         'TxtApellido
         '
         Me.TxtApellido.CausesValidation = False
         Me.TxtApellido.Enabled = False
-        Me.TxtApellido.Location = New System.Drawing.Point(356, 139)
+        Me.TxtApellido.Location = New System.Drawing.Point(237, 90)
+        Me.TxtApellido.Margin = New System.Windows.Forms.Padding(2)
         Me.TxtApellido.MaxLength = 25
         Me.TxtApellido.Name = "TxtApellido"
-        Me.TxtApellido.Size = New System.Drawing.Size(205, 26)
+        Me.TxtApellido.Size = New System.Drawing.Size(138, 20)
         Me.TxtApellido.TabIndex = 30
         '
         'TxtNombre
@@ -225,10 +242,11 @@ Partial Class FrmModificarUsuario
         Me.TxtNombre.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
         Me.TxtNombre.CausesValidation = False
         Me.TxtNombre.Enabled = False
-        Me.TxtNombre.Location = New System.Drawing.Point(63, 139)
+        Me.TxtNombre.Location = New System.Drawing.Point(42, 90)
+        Me.TxtNombre.Margin = New System.Windows.Forms.Padding(2)
         Me.TxtNombre.MaxLength = 25
         Me.TxtNombre.Name = "TxtNombre"
-        Me.TxtNombre.Size = New System.Drawing.Size(205, 26)
+        Me.TxtNombre.Size = New System.Drawing.Size(138, 20)
         Me.TxtNombre.TabIndex = 27
         Me.TxtNombre.Tag = "^[a-zA-Z]+$"
         '
@@ -236,9 +254,10 @@ Partial Class FrmModificarUsuario
         '
         Me.LblUsuario.AutoSize = True
         Me.LblUsuario.Enabled = False
-        Me.LblUsuario.Location = New System.Drawing.Point(34, 313)
+        Me.LblUsuario.Location = New System.Drawing.Point(23, 203)
+        Me.LblUsuario.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblUsuario.Name = "LblUsuario"
-        Me.LblUsuario.Size = New System.Drawing.Size(120, 20)
+        Me.LblUsuario.Size = New System.Drawing.Size(82, 13)
         Me.LblUsuario.TabIndex = 33
         Me.LblUsuario.Text = "Tipo de Usuario"
         '
@@ -246,18 +265,20 @@ Partial Class FrmModificarUsuario
         '
         Me.LblMail.AutoSize = True
         Me.LblMail.Enabled = False
-        Me.LblMail.Location = New System.Drawing.Point(59, 233)
+        Me.LblMail.Location = New System.Drawing.Point(39, 151)
+        Me.LblMail.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblMail.Name = "LblMail"
-        Me.LblMail.Size = New System.Drawing.Size(37, 20)
+        Me.LblMail.Size = New System.Drawing.Size(26, 13)
         Me.LblMail.TabIndex = 31
         Me.LblMail.Text = "Mail"
         '
         'LblCI
         '
         Me.LblCI.AutoSize = True
-        Me.LblCI.Location = New System.Drawing.Point(112, -73)
+        Me.LblCI.Location = New System.Drawing.Point(75, -47)
+        Me.LblCI.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblCI.Name = "LblCI"
-        Me.LblCI.Size = New System.Drawing.Size(25, 20)
+        Me.LblCI.Size = New System.Drawing.Size(17, 13)
         Me.LblCI.TabIndex = 29
         Me.LblCI.Text = "CI"
         '
@@ -265,9 +286,10 @@ Partial Class FrmModificarUsuario
         '
         Me.LblApellido.AutoSize = True
         Me.LblApellido.Enabled = False
-        Me.LblApellido.Location = New System.Drawing.Point(383, 98)
+        Me.LblApellido.Location = New System.Drawing.Point(255, 64)
+        Me.LblApellido.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblApellido.Name = "LblApellido"
-        Me.LblApellido.Size = New System.Drawing.Size(65, 20)
+        Me.LblApellido.Size = New System.Drawing.Size(44, 13)
         Me.LblApellido.TabIndex = 28
         Me.LblApellido.Text = "Apellido"
         '
@@ -276,9 +298,10 @@ Partial Class FrmModificarUsuario
         Me.LblNombre.AutoSize = True
         Me.LblNombre.BackColor = System.Drawing.Color.Cornsilk
         Me.LblNombre.Enabled = False
-        Me.LblNombre.Location = New System.Drawing.Point(93, 98)
+        Me.LblNombre.Location = New System.Drawing.Point(62, 64)
+        Me.LblNombre.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblNombre.Name = "LblNombre"
-        Me.LblNombre.Size = New System.Drawing.Size(65, 20)
+        Me.LblNombre.Size = New System.Drawing.Size(44, 13)
         Me.LblNombre.TabIndex = 25
         Me.LblNombre.Text = "Nombre"
         '
@@ -286,27 +309,30 @@ Partial Class FrmModificarUsuario
         '
         Me.LblCedula.AutoSize = True
         Me.LblCedula.BackColor = System.Drawing.Color.Cornsilk
-        Me.LblCedula.Location = New System.Drawing.Point(80, 9)
+        Me.LblCedula.Location = New System.Drawing.Point(53, 6)
+        Me.LblCedula.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblCedula.Name = "LblCedula"
-        Me.LblCedula.Size = New System.Drawing.Size(169, 20)
+        Me.LblCedula.Size = New System.Drawing.Size(116, 13)
         Me.LblCedula.TabIndex = 49
         Me.LblCedula.Text = "Seleccione una cedula"
         '
         'CmbCi
         '
         Me.CmbCi.FormattingEnabled = True
-        Me.CmbCi.Location = New System.Drawing.Point(84, 45)
+        Me.CmbCi.Location = New System.Drawing.Point(56, 29)
+        Me.CmbCi.Margin = New System.Windows.Forms.Padding(2)
         Me.CmbCi.Name = "CmbCi"
-        Me.CmbCi.Size = New System.Drawing.Size(196, 28)
+        Me.CmbCi.Size = New System.Drawing.Size(132, 21)
         Me.CmbCi.TabIndex = 50
         '
         'RdbH
         '
         Me.RdbH.AutoSize = True
         Me.RdbH.Enabled = False
-        Me.RdbH.Location = New System.Drawing.Point(277, 457)
+        Me.RdbH.Location = New System.Drawing.Point(185, 297)
+        Me.RdbH.Margin = New System.Windows.Forms.Padding(2)
         Me.RdbH.Name = "RdbH"
-        Me.RdbH.Size = New System.Drawing.Size(91, 24)
+        Me.RdbH.Size = New System.Drawing.Size(62, 17)
         Me.RdbH.TabIndex = 51
         Me.RdbH.TabStop = True
         Me.RdbH.Text = "Hombre"
@@ -316,9 +342,10 @@ Partial Class FrmModificarUsuario
         '
         Me.RdbM.AutoSize = True
         Me.RdbM.Enabled = False
-        Me.RdbM.Location = New System.Drawing.Point(277, 487)
+        Me.RdbM.Location = New System.Drawing.Point(185, 317)
+        Me.RdbM.Margin = New System.Windows.Forms.Padding(2)
         Me.RdbM.Name = "RdbM"
-        Me.RdbM.Size = New System.Drawing.Size(73, 24)
+        Me.RdbM.Size = New System.Drawing.Size(51, 17)
         Me.RdbM.TabIndex = 52
         Me.RdbM.TabStop = True
         Me.RdbM.Text = "Mujer"
@@ -328,9 +355,10 @@ Partial Class FrmModificarUsuario
         '
         Me.LstMedicaciones.Enabled = False
         Me.LstMedicaciones.HideSelection = False
-        Me.LstMedicaciones.Location = New System.Drawing.Point(739, 366)
+        Me.LstMedicaciones.Location = New System.Drawing.Point(493, 238)
+        Me.LstMedicaciones.Margin = New System.Windows.Forms.Padding(2)
         Me.LstMedicaciones.Name = "LstMedicaciones"
-        Me.LstMedicaciones.Size = New System.Drawing.Size(188, 145)
+        Me.LstMedicaciones.Size = New System.Drawing.Size(127, 96)
         Me.LstMedicaciones.TabIndex = 53
         Me.LstMedicaciones.UseCompatibleStateImageBehavior = False
         '
@@ -338,18 +366,20 @@ Partial Class FrmModificarUsuario
         '
         Me.LstEnfermedades.Enabled = False
         Me.LstEnfermedades.HideSelection = False
-        Me.LstEnfermedades.Location = New System.Drawing.Point(449, 366)
+        Me.LstEnfermedades.Location = New System.Drawing.Point(299, 238)
+        Me.LstEnfermedades.Margin = New System.Windows.Forms.Padding(2)
         Me.LstEnfermedades.Name = "LstEnfermedades"
-        Me.LstEnfermedades.Size = New System.Drawing.Size(188, 145)
+        Me.LstEnfermedades.Size = New System.Drawing.Size(127, 96)
         Me.LstEnfermedades.TabIndex = 54
         Me.LstEnfermedades.UseCompatibleStateImageBehavior = False
         '
         'BtnEliminarEnfermedad
         '
         Me.BtnEliminarEnfermedad.Enabled = False
-        Me.BtnEliminarEnfermedad.Location = New System.Drawing.Point(586, 517)
+        Me.BtnEliminarEnfermedad.Location = New System.Drawing.Point(391, 336)
+        Me.BtnEliminarEnfermedad.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnEliminarEnfermedad.Name = "BtnEliminarEnfermedad"
-        Me.BtnEliminarEnfermedad.Size = New System.Drawing.Size(84, 29)
+        Me.BtnEliminarEnfermedad.Size = New System.Drawing.Size(56, 19)
         Me.BtnEliminarEnfermedad.TabIndex = 55
         Me.BtnEliminarEnfermedad.Text = "Eliminar"
         Me.BtnEliminarEnfermedad.UseVisualStyleBackColor = True
@@ -357,18 +387,19 @@ Partial Class FrmModificarUsuario
         'BtnEliminarMedicacion
         '
         Me.BtnEliminarMedicacion.Enabled = False
-        Me.BtnEliminarMedicacion.Location = New System.Drawing.Point(898, 517)
+        Me.BtnEliminarMedicacion.Location = New System.Drawing.Point(599, 336)
+        Me.BtnEliminarMedicacion.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnEliminarMedicacion.Name = "BtnEliminarMedicacion"
-        Me.BtnEliminarMedicacion.Size = New System.Drawing.Size(84, 29)
+        Me.BtnEliminarMedicacion.Size = New System.Drawing.Size(56, 19)
         Me.BtnEliminarMedicacion.TabIndex = 56
         Me.BtnEliminarMedicacion.Text = "Eliminar"
         Me.BtnEliminarMedicacion.UseVisualStyleBackColor = True
         '
         'FrmModificarUsuario
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(994, 551)
+        Me.ClientSize = New System.Drawing.Size(663, 358)
         Me.Controls.Add(Me.BtnEliminarMedicacion)
         Me.Controls.Add(Me.BtnEliminarEnfermedad)
         Me.Controls.Add(Me.LstEnfermedades)
@@ -400,6 +431,7 @@ Partial Class FrmModificarUsuario
         Me.Controls.Add(Me.LblCI)
         Me.Controls.Add(Me.LblApellido)
         Me.Controls.Add(Me.LblNombre)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "FrmModificarUsuario"
         Me.Text = "FrmModificarUsuario"
         Me.ResumeLayout(False)
