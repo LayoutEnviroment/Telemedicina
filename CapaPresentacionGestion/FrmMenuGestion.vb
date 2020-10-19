@@ -1,16 +1,6 @@
 ﻿Imports CapaDeNegocio
 
 Public Class FrmMenuGestion
-    Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
-        Me.Hide()
-        FrmAltaUsuario.Show()
-
-    End Sub
-
-    Private Sub PacienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacienteToolStripMenuItem.Click
-        Me.Hide()
-        FrmModificarPaciente.Show()
-    End Sub
 
     Private Sub MenuGestion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
@@ -22,11 +12,12 @@ Public Class FrmMenuGestion
         End Try
     End Sub
 
-    Private Sub MedicoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MedicoToolStripMenuItem.Click
+    Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Me.Hide()
-        FrmModificarMedico.Show()
+        FrmAltaUsuario.Show()
 
     End Sub
+
 
     Private Sub ModificarToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ModificarToolStripMenuItem1.Click
         Me.Hide()
@@ -71,13 +62,16 @@ Public Class FrmMenuGestion
         Frm_Login.Close()
     End Sub
 
-    Private Sub AdministrativoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AdministrativoToolStripMenuItem.Click
-        Me.Hide()
-        FrmModificarAdministrativo.Show()
+    Private Sub UsuarioToolStripMenuItem1_Click(sender As Object, e As EventArgs)
+        FrmModificarUsuario.Show()
+    End Sub
+
+    Private Sub ModificarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModificarToolStripMenuItem.Click
+        FrmModificarUsuario.Show()
 
     End Sub
 
-    Private Sub UsuarioToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles UsuarioToolStripMenuItem1.Click
-        FrmModificarUsuario.Show()
+    Private Sub EliminarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EliminarToolStripMenuItem.Click
+        Frm_BajaUsuario.Show()
     End Sub
 End Class

@@ -233,7 +233,8 @@ Public Class FrmAltaUsuario
                                              TxtApellido.Text,
                                              TxtMail.Text,
                                              FechaNacimiento,
-                                             Sexo, EnfermedadesCronicas,
+                                             Sexo,
+                                             EnfermedadesCronicas,
                                              Medicamentos,
                                              CrearContra())
             MsgBox("paciente creado con exito!")
@@ -281,7 +282,8 @@ Public Class FrmAltaUsuario
                                              TxtApellido.Text,
                                              TxtMail.Text,
                                              FechaNacimiento,
-                                             Sexo, EnfermedadesCronicas,
+                                             Sexo,
+                                             EnfermedadesCronicas,
                                              Medicamentos,
                                              CrearContra())
             MsgBox("Paciente medico creado con exito")
@@ -298,7 +300,8 @@ Public Class FrmAltaUsuario
                                              TxtApellido.Text,
                                              TxtMail.Text,
                                              FechaNacimiento,
-                                             Sexo, EnfermedadesCronicas,
+                                             Sexo,
+                                             EnfermedadesCronicas,
                                              Medicamentos,
                                              CrearContra())
             MsgBox("El usuario se creo como paciente y administrativo")
@@ -413,10 +416,6 @@ Public Class FrmAltaUsuario
     End Sub
 
     Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
-
-    End Sub
-
-    Private Sub FrmAltaUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 

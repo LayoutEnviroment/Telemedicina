@@ -13,17 +13,33 @@ Public Module ControladorUsuario
                              contra As String)
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
             .CI = cedula,
-            .Nombre = nombre,
-            .Apellido = apellido,
-            .Mail = mail,
+            .nombre = nombre,
+            .apellido = apellido,
+            .mail = mail,
             .FechaNacimiento = fechaNacimineto,
-            .Sexo = sexo,
+            .sexo = sexo,
             .EnfermedadCronica = enfermedades,
             .Medicacion = medicaciones,
             .Password = contra
         }
 
         u.NuevoPaciente()
+
+    End Sub
+
+    Public Sub AgregarNuevoPaciente(cedula As String,
+                                    sexo As String,
+                                    fechaNacimiento As String,
+                                    enfermedades As List(Of String),
+                                    medicaciones As List(Of String))
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
+            .CI = cedula,
+            .sexo = sexo,
+            .fechaNacimiento = fechaNacimiento,
+            .EnfermedadCronica = enfermedades,
+            .Medicacion = medicaciones
+        }
+        u.AgregarNuevoPaciente()
 
     End Sub
 
@@ -34,13 +50,27 @@ Public Module ControladorUsuario
                            contra As String)
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
             .CI = cedula,
-            .Nombre = nombre,
-            .Apellido = apellido,
-            .Mail = mail,
+            .nombre = nombre,
+            .apellido = apellido,
+            .mail = mail,
             .Password = contra
         }
 
         u.NuevoMedico()
+
+    End Sub
+
+    Public Sub AgregarNuevoMedico(cedula As String,
+                                    nombre As String,
+                                    apellido As String,
+                                    mail As String)
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
+            .CI = cedula,
+            .nombre = nombre,
+            .apellido = apellido,
+            .mail = mail
+        }
+        u.AgregarNuevoMedico()
 
     End Sub
 
@@ -51,13 +81,27 @@ Public Module ControladorUsuario
                                     contra As String)
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
             .CI = cedula,
-            .Nombre = nombre,
-            .Apellido = apellido,
-            .Mail = mail,
+            .nombre = nombre,
+            .apellido = apellido,
+            .mail = mail,
             .Password = contra
         }
 
         u.NuevoAdministrativo()
+
+    End Sub
+
+    Public Sub AgregarNuevoAdministrativo(cedula As String,
+                                        nombre As String,
+                                        apellido As String,
+                                        mail As String)
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
+            .CI = cedula,
+            .nombre = nombre,
+            .apellido = apellido,
+            .mail = mail
+        }
+        u.AgregarNuevoAdministrativo
 
     End Sub
 
@@ -72,11 +116,11 @@ Public Module ControladorUsuario
                              contra As String)
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
             .CI = cedula,
-            .Nombre = nombre,
-            .Apellido = apellido,
-            .Mail = mail,
+            .nombre = nombre,
+            .apellido = apellido,
+            .mail = mail,
             .FechaNacimiento = fechaNacimineto,
-            .Sexo = sexo,
+            .sexo = sexo,
             .EnfermedadCronica = enfermedades,
             .Medicacion = medicaciones,
             .Password = contra
@@ -97,11 +141,11 @@ Public Module ControladorUsuario
                              contra As String)
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
             .CI = cedula,
-            .Nombre = nombre,
-            .Apellido = apellido,
-            .Mail = mail,
+            .nombre = nombre,
+            .apellido = apellido,
+            .mail = mail,
             .FechaNacimiento = fechaNacimineto,
-            .Sexo = sexo,
+            .sexo = sexo,
             .EnfermedadCronica = enfermedades,
             .Medicacion = medicaciones,
             .Password = contra
@@ -142,9 +186,9 @@ Public Module ControladorUsuario
                                 contra As String)
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
             .CI = cedula,
-            .Nombre = nombre,
-            .Apellido = apellido,
-            .Mail = mail,
+            .nombre = nombre,
+            .apellido = apellido,
+            .mail = mail,
             .Password = contra
         }
 
@@ -190,7 +234,7 @@ Public Module ControladorUsuario
 
     Public Function TraerNombreApellidoMail(ci As String)
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
-            .CI = ci
+            .ci = ci
         }
         Return u.TraerNombreApellidoMail()
 
@@ -205,7 +249,7 @@ Public Module ControladorUsuario
     Public Function ExisteRol(cedula As String, rol As String)
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
             .CI = cedula,
-            .Rol = rol
+            .rol = rol
         }
 
         Return u.ExisteRol()
@@ -220,12 +264,47 @@ Public Module ControladorUsuario
                                 mail As String,
                                 ci As String)
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
-            .Nombre = nombre,
-            .Apellido = apellido,
-            .Mail = mail,
-            .CI = ci
+            .nombre = nombre,
+            .apellido = apellido,
+            .mail = mail,
+            .ci = ci
         }
 
         u.ModificarPersona()
+
     End Sub
+
+
+    Public Function EliminarPersona(CI As String)
+        Dim p As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass)
+
+        p.CI = CI
+
+        Return p.Eliminar()
+
+    End Function
+
+    Public Function ChequearPaciente(ci_persona As String)
+        Dim p As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass)
+
+        p.CI = ci_persona
+        Return p.CheckPaciente()
+
+    End Function
+
+    Public Function ChequearMedico(ci_persona As String)
+        Dim p As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass)
+
+        p.CI = ci_persona
+        Return p.CheckMedico()
+
+    End Function
+
+    Public Function ChequearAdministrativo(ci_persona As String)
+        Dim p As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass)
+
+        p.CI = ci_persona
+        Return p.CheckAdministrativo()
+
+    End Function
 End Module
