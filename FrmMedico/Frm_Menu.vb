@@ -240,7 +240,7 @@ Public Class Frm_Menu
     End Sub
 
     Private Sub BtnFinalizarChat_Click(sender As Object, e As EventArgs) Handles BtnFinalizarChat.Click
-        Select Case MsgBox("Esto hara que la enfermedad vuelva a estar activa", MsgBoxStyle.YesNo, "caption")
+        Select Case MsgBox("Seguro desea finalizar el chat?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
                 FinalizarConversacion()
 
@@ -284,6 +284,13 @@ Public Class Frm_Menu
 
     End Sub
 
+    Private Sub RtbMensaje_TextChanged(sender As Object, e As EventArgs) Handles RtbMensaje.TextChanged
+        If RtbMensaje.Text <> "" Then
+            BtnEnviar.Enabled = True
+        Else
+            BtnEnviar.Enabled = False
+        End If
 
+    End Sub
 
 End Class
