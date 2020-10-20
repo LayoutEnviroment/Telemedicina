@@ -54,8 +54,7 @@ Public Class Frm_Menu
         MsgBox(Ci)
         Try
             ControladorChat.AceptarSolicitud(Id, Ci, Nombre, Apellido)
-            MsgBox(ControladorPaciente.ObtenerNombre(Ci))
-            AgregarMensajes("<p>Chat iniciado con el paciente " + ControladorPaciente.ObtenerNombre(Ci) + "</p>", 0)
+            AgregarMensajes("<p>Chat iniciado con el paciente " + ControladorUsuario.ObtenerNombre(Ci) + "</p>", 0)
             EmpezarChat()
             TraerInformacionPaciente(Ci)
             TmrBuscarChats.Stop()
@@ -147,6 +146,11 @@ Public Class Frm_Menu
     End Sub
 
     Private Sub TmrBuscarChats_Tick(sender As Object, e As EventArgs) Handles TmrBuscarChats.Tick
+        BusquedaDeChats()
+
+    End Sub
+
+    Private Sub BusquedaDeChats()
         Dim Tabla As New DataTable
         Try
             Tabla.Load(ControladorChat.BuscarSolicitud())
@@ -182,8 +186,7 @@ Public Class Frm_Menu
 
                     ElseIf fila(5).ToString = "Finalizado" Then
                         Threading.Thread.Sleep(1000)
-                        Me.CambiosEnForm()
-
+                        FinalizarConversacion()
                     End If
 
                 Next
@@ -201,7 +204,6 @@ Public Class Frm_Menu
         Try
             ControladorChat.EnviarMensajeMedico(IdDiagnostico, RtbMensaje.Text, CiPaciente)
             AgregarMensajes("<p> Yo: " + RtbMensaje.Text + "</p>", 1)
-            'AgregarChat()
 
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -255,8 +257,16 @@ Public Class Frm_Menu
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
+        ReinicioDeBusqueda()
 
+    End Sub
+
+    Private Sub ReinicioDeBusqueda()
         MostrarDatosPaciente(False)
+        TmrBuscarMensajesNuevos.Stop()
+        IdDiagnostico = ""
+        CiPaciente = ""
+        BusquedaDeChats()
         CambiosEnForm()
 
     End Sub

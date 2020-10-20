@@ -1360,6 +1360,19 @@
                 ci = " + Me.CI + "
         "
         Return Command.ExecuteScalar.ToString
+
+    End Function
+
+    Public Function ObtenerNombre(cedula As String)
+        Command.CommandText = "
+            SELECT
+                nombre
+            FROM
+                persona
+            WHERE
+                ci = " + cedula + "
+        "
+        Return Command.ExecuteScalar.ToString
     End Function
 
     Public Function ObtenerNombreApellido()
