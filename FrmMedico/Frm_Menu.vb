@@ -34,6 +34,15 @@ Public Class Frm_Menu
 
     End Sub
 
+    Private Sub DgvEnEspera_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvEnEspera.CellContentClick
+        If DgvEnEspera.SelectedRows.Count() > 0 Then
+            BtnIniciarChat.Enabled = True
+        Else
+            BtnIniciarChat.Enabled = False
+        End If
+
+    End Sub
+
     Private Sub BtnIniciarChat_Click(sender As Object, e As EventArgs) Handles BtnIniciarChat.Click
         IdDiagnostico = DgvEnEspera.Item(0, DgvEnEspera.CurrentCell.RowIndex).Value
         CiPaciente = DgvEnEspera.Item(1, DgvEnEspera.CurrentCell.RowIndex).Value
@@ -42,8 +51,10 @@ Public Class Frm_Menu
     End Sub
 
     Private Sub CargarDatosConsulta(Id, Ci)
+        MsgBox(Ci)
         Try
             ControladorChat.AceptarSolicitud(Id, Ci, Nombre, Apellido)
+            MsgBox(ControladorPaciente.ObtenerNombre(Ci))
             AgregarMensajes("<p>Chat iniciado con el paciente " + ControladorPaciente.ObtenerNombre(Ci) + "</p>", 0)
             EmpezarChat()
             TraerInformacionPaciente(Ci)
@@ -84,8 +95,9 @@ Public Class Frm_Menu
             CargarListaMedicaciones(LectorMedicaciones)
             MostrarDatosPaciente(True)
         Catch ex As Exception
-
+            MsgBox(ex.ToString)
         End Try
+
     End Sub
 
     Private Sub CargarLabelsPaciente(Lector As IDataReader)
@@ -108,7 +120,7 @@ Public Class Frm_Menu
     End Function
 
     Private Function ObtenerEdadPaciente(FechaNacimiento As Date)
-        Return DateDiff(DateInterval.Year, FechaNacimiento, Date.Now)
+        Return DateDiff(DateInterval.Year, FechaNacimiento, Date.Now).ToString()
 
     End Function
 
@@ -198,13 +210,6 @@ Public Class Frm_Menu
 
     End Sub
 
-    'Private Sub AgregarChat()
-    '    WbbConversacion.DocumentText += "<p> YO: " + RtbMensaje.Text + "</p>"
-    '    'RtbConversacion.Text += "YO:" + Environment.NewLine + RtbMensaje.Text + Environment.NewLine
-    '    RtbMensaje.Clear()
-
-    'End Sub
-
     Private Sub AgregarMensajes(Mensaje As String, Emisor As Integer)
         WbbConversacion.DocumentText += Mensaje
         RtbMensaje.Clear()
@@ -227,15 +232,8 @@ Public Class Frm_Menu
 
     Private Sub MenuMedico_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If IdDiagnostico <> "" Then
-            Try
-                ControladorChat.FinalizarChatMedico(IdDiagnostico, CiPaciente)
-
-            Catch ex As Exception
-                MsgBox("Error en la actualizacion del estado del chat")
-
-            End Try
+            FinalizarConversacion()
         End If
-        CambiosEnForm()
 
     End Sub
 
@@ -256,10 +254,11 @@ Public Class Frm_Menu
             ControladorChat.MarcarComoFinalizado(IdDiagnostico)
         Catch ex As Exception
             MsgBox(ex.ToString)
-
         End Try
+
         MostrarDatosPaciente(False)
         CambiosEnForm()
+
     End Sub
 
     Private Sub BtnRecomendaciones_Click(sender As Object, e As EventArgs) Handles BtnRecomendaciones.Click
@@ -275,13 +274,6 @@ Public Class Frm_Menu
 
     End Sub
 
-    Private Sub DgvEnEspera_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvEnEspera.CellContentClick
-        If DgvEnEspera.SelectedRows.Count() > 0 Then
-            BtnIniciarChat.Enabled = True
-        Else
-            BtnIniciarChat.Enabled = False
-        End If
 
-    End Sub
 
 End Class

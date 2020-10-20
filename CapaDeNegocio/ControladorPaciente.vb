@@ -9,13 +9,17 @@ Public Module ControladorPaciente
 
         Return p.ObtenerNombre()
     End Function
-    Public Function ObtenerCi()
 
-        Dim p As New ModeloPaciente(ControladorSesion.User, ControladorSesion.Pass)
-        Return p.ObtenerCiPaciente()
+    Public Function ObtenerNombre(cedula As String)
 
     End Function
 
+    Public Function ObtenerCi()
+        Dim p As New ModeloPaciente(ControladorSesion.User, ControladorSesion.Pass)
+
+        Return p.ObtenerCiPaciente()
+
+    End Function
 
     Public Function ObtenerTodo()
         Dim p As New ModeloPaciente(ControladorSesion.User, ControladorSesion.Pass) With {
