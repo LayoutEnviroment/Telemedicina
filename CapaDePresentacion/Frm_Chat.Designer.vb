@@ -27,7 +27,6 @@ Partial Class Frm_Chat
         Me.TmrMensajesNuevos = New System.Windows.Forms.Timer(Me.components)
         Me.BbtnSalir = New System.Windows.Forms.Button()
         Me.WbbConversacion = New System.Windows.Forms.WebBrowser()
-        Me.TxtMensaje = New System.Windows.Forms.TextBox()
         Me.RtbMensaje = New System.Windows.Forms.RichTextBox()
         Me.SuspendLayout()
         '
@@ -63,20 +62,11 @@ Partial Class Frm_Chat
         Me.WbbConversacion.Size = New System.Drawing.Size(424, 260)
         Me.WbbConversacion.TabIndex = 4
         '
-        'TxtMensaje
-        '
-        Me.TxtMensaje.Enabled = False
-        Me.TxtMensaje.Location = New System.Drawing.Point(143, 287)
-        Me.TxtMensaje.Margin = New System.Windows.Forms.Padding(2)
-        Me.TxtMensaje.Name = "TxtMensaje"
-        Me.TxtMensaje.Size = New System.Drawing.Size(337, 20)
-        Me.TxtMensaje.TabIndex = 5
-        '
         'RtbMensaje
         '
-        Me.RtbMensaje.Location = New System.Drawing.Point(40, 176)
+        Me.RtbMensaje.Location = New System.Drawing.Point(143, 283)
         Me.RtbMensaje.Name = "RtbMensaje"
-        Me.RtbMensaje.Size = New System.Drawing.Size(100, 96)
+        Me.RtbMensaje.Size = New System.Drawing.Size(354, 26)
         Me.RtbMensaje.TabIndex = 6
         Me.RtbMensaje.Text = ""
         '
@@ -87,20 +77,17 @@ Partial Class Frm_Chat
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(183, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(659, 363)
         Me.Controls.Add(Me.RtbMensaje)
-        Me.Controls.Add(Me.TxtMensaje)
         Me.Controls.Add(Me.WbbConversacion)
         Me.Controls.Add(Me.BbtnSalir)
         Me.Controls.Add(Me.BtnEnviar)
         Me.Name = "Frm_Chat"
         Me.Text = "Chat"
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents BtnEnviar As Button
     Friend WithEvents TmrMensajesNuevos As Timer
     Friend WithEvents BbtnSalir As Button
     Friend WithEvents WbbConversacion As WebBrowser
-    Friend WithEvents TxtMensaje As TextBox
     Friend WithEvents RtbMensaje As RichTextBox
 End Class

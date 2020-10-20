@@ -9,11 +9,11 @@ Public Class Frm_Chat
     Private Sub Frm_Chat_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         AgregarMensaje("<p> Un médico se pondrá en contacto con usted en la brevedad </p>", 0)
         IdDiagnostico = ControladorDiagnostico.ObtenerID()
+        TmrMensajesNuevos.Start()
 
     End Sub
 
     Private Sub TmrMensajesNuevos_Tick(sender As Object, e As EventArgs) Handles TmrMensajesNuevos.Tick
-        TmrMensajesNuevos.Start()
         BusquedaDeMensajes()
 
     End Sub
@@ -25,7 +25,7 @@ Public Class Frm_Chat
             If MensajeNuevo.Rows.Count > 0 Then
                 AgregarChat(MensajeNuevo)
             End If
-            TxtMensaje.Enabled = True
+            RtbMensaje.Enabled = True
         Catch ex As Exception
             MsgBox(ex.ToString)
 
@@ -44,7 +44,7 @@ Public Class Frm_Chat
             Else
                 AgregarMensaje("<p style ='background-color:Tomato'; align = 'left' > " + fila(4).ToString + " : " + fila(2).ToString + "</p>", 1)
                 CiMedico = fila(0).ToString
-                TxtMensaje.Enabled = True
+                RtbMensaje.Enabled = True
 
             End If
 
@@ -52,8 +52,8 @@ Public Class Frm_Chat
 
     End Sub
 
-    Private Sub TxtMensaje_TextChanged(sender As Object, e As EventArgs) Handles TxtMensaje.TextChanged
-        If TxtMensaje.Text <> "" Then
+    Private Sub RtbMensaje_TextChanged(sender As Object, e As EventArgs) Handles RtbMensaje.TextChanged
+        If RtbMensaje.Text <> "" Then
             BtnEnviar.Enabled = True
         Else
             BtnEnviar.Enabled = False
@@ -64,7 +64,6 @@ Public Class Frm_Chat
     Private Sub BtnEnviar_Click(sender As Object, e As EventArgs) Handles BtnEnviar.Click
         Try
             ControladorChat.EnviarMensajePaciente(IdDiagnostico, RtbMensaje.Text, CiMedico)
-            'AgregarMensaje("<p style ='background-color:Tomato'; align = 'right'>" + TxtMensaje.Text + "</p>", 0)
             AgregarMensaje("<p style ='background-color:Green'; align = 'right'>" + RtbMensaje.Text + "</p>", 0)
             BtnEnviar.Enabled = False
         Catch ex As Exception
@@ -77,7 +76,7 @@ Public Class Frm_Chat
     Private Sub AgregarMensaje(Mensaje As String, Emisor As Integer)
         WbbConversacion.DocumentText += Mensaje
         If Emisor = 0 Then
-            TxtMensaje.Text = ""
+            RtbMensaje.Text = ""
         End If
 
     End Sub
@@ -131,7 +130,7 @@ Public Class Frm_Chat
     Private Sub TerminarChat()
         TmrMensajesNuevos.Stop()
         WbbConversacion.DocumentText = ""
-        TxtMensaje.Text = ""
+        RtbMensaje.Text = ""
         Me.Close()
         Frm_Menu.Show()
 
