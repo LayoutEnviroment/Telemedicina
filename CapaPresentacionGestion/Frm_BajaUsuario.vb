@@ -3,12 +3,12 @@ Imports System.Net.Mail
 
 Public Class Frm_BajaUsuario
     Private Sub Frm_BajaUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CargarDatos()
+        ObtenerCedulas()
     End Sub
 
     Private Sub CmbCI_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbCI.SelectedIndexChanged
         Dim LeerDatosDePersona As IDataReader
-        LeerDatosDePersona = ControladorUsuario.TraerNombreApellidoMail(CmbCI.Text)
+        LeerDatosDePersona = ControladorUsuario.TraerNombreApellidoMail(CmbCI.SelectedItem.ToString())
         While LeerDatosDePersona.Read
             TxtNombre.Text = LeerDatosDePersona.GetValue(0)
             TxtApellido.Text = LeerDatosDePersona.GetValue(1)
@@ -35,18 +35,21 @@ Public Class Frm_BajaUsuario
         End Try
     End Sub
 
-    Private Sub CargarDatos()
-        Dim LectorId As IDataReader
-        LectorId = ControladorUsuario.ObtenerTodasLasCedulas
-
-        While LectorId.Read
-            CmbCI.Items.Add(LectorId.GetValue(0))
-        End While
+    Private Sub ObtenerCedulas()
+        Dim LectorCedula As IDataReader
+        Try
+            LectorCedula = ControladorUsuario.ObtenerTodasLasCedulas()
+            CargarCedulas(LectorCedula)
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
     End Sub
 
-    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
-        FrmMenuGestion.Show()
-        Me.Close()
+    Private Sub CargarCedulas(lector As IDataReader)
+        CmbCI.Items.Clear()
+        While lector.Read
+            CmbCI.Items.Add(lector(0).ToString)
+        End While
 
     End Sub
 
@@ -54,6 +57,9 @@ Public Class Frm_BajaUsuario
         TxtNombre.Clear()
         TxtApellido.Clear()
         TxtMail.Clear()
+        ChbPaciente.Checked = False
+        ChbMedico.Checked = False
+        ChbAdministrador.Checked = False
 
     End Sub
 
@@ -90,11 +96,18 @@ Public Class Frm_BajaUsuario
     End Sub
 
     Private Sub HabilitarEliminar()
-        If ChbAdministrador.Checked Or ChbMedico.Checked Or ChbPaciente.Checked Then
+        If ChbAdministrador.Checked = True Or ChbMedico.Checked = True Or ChbPaciente.Checked = True Then
             BtnEliminar.Enabled = True
         Else
             BtnEliminar.Enabled = False
         End If
+
+    End Sub
+
+
+    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
+        FrmMenuGestion.Show()
+        Me.Close()
 
     End Sub
 
