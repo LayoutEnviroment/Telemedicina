@@ -37,13 +37,14 @@ Partial Class Frm_BajaUsuario
         Me.ChbPaciente = New System.Windows.Forms.CheckBox()
         Me.ChbMedico = New System.Windows.Forms.CheckBox()
         Me.ChbAdministrador = New System.Windows.Forms.CheckBox()
+        Me.BtnCancelar = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'BtnEliminar
         '
-        Me.BtnEliminar.Location = New System.Drawing.Point(408, 330)
+        Me.BtnEliminar.Location = New System.Drawing.Point(418, 347)
         Me.BtnEliminar.Name = "BtnEliminar"
-        Me.BtnEliminar.Size = New System.Drawing.Size(179, 74)
+        Me.BtnEliminar.Size = New System.Drawing.Size(116, 74)
         Me.BtnEliminar.TabIndex = 0
         Me.BtnEliminar.Text = "Eliminar"
         Me.BtnEliminar.UseVisualStyleBackColor = True
@@ -105,6 +106,7 @@ Partial Class Frm_BajaUsuario
         '
         'TxtNombre
         '
+        Me.TxtNombre.Enabled = False
         Me.TxtNombre.Location = New System.Drawing.Point(144, 155)
         Me.TxtNombre.Name = "TxtNombre"
         Me.TxtNombre.Size = New System.Drawing.Size(143, 22)
@@ -112,6 +114,7 @@ Partial Class Frm_BajaUsuario
         '
         'TxtApellido
         '
+        Me.TxtApellido.Enabled = False
         Me.TxtApellido.Location = New System.Drawing.Point(144, 225)
         Me.TxtApellido.Name = "TxtApellido"
         Me.TxtApellido.Size = New System.Drawing.Size(143, 22)
@@ -119,6 +122,7 @@ Partial Class Frm_BajaUsuario
         '
         'TxtMail
         '
+        Me.TxtMail.Enabled = False
         Me.TxtMail.Location = New System.Drawing.Point(144, 302)
         Me.TxtMail.Name = "TxtMail"
         Me.TxtMail.Size = New System.Drawing.Size(143, 22)
@@ -135,9 +139,9 @@ Partial Class Frm_BajaUsuario
         '
         'BtnVolver
         '
-        Me.BtnVolver.Location = New System.Drawing.Point(609, 330)
+        Me.BtnVolver.Location = New System.Drawing.Point(540, 347)
         Me.BtnVolver.Name = "BtnVolver"
-        Me.BtnVolver.Size = New System.Drawing.Size(179, 74)
+        Me.BtnVolver.Size = New System.Drawing.Size(120, 74)
         Me.BtnVolver.TabIndex = 12
         Me.BtnVolver.Text = "Volver"
         Me.BtnVolver.UseVisualStyleBackColor = True
@@ -172,11 +176,21 @@ Partial Class Frm_BajaUsuario
         Me.ChbAdministrador.Text = "Administrativo"
         Me.ChbAdministrador.UseVisualStyleBackColor = True
         '
+        'BtnCancelar
+        '
+        Me.BtnCancelar.Location = New System.Drawing.Point(668, 347)
+        Me.BtnCancelar.Name = "BtnCancelar"
+        Me.BtnCancelar.Size = New System.Drawing.Size(120, 74)
+        Me.BtnCancelar.TabIndex = 16
+        Me.BtnCancelar.Text = "Cancelar"
+        Me.BtnCancelar.UseVisualStyleBackColor = True
+        '
         'Frm_BajaUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.BtnCancelar)
         Me.Controls.Add(Me.ChbAdministrador)
         Me.Controls.Add(Me.ChbMedico)
         Me.Controls.Add(Me.ChbPaciente)
@@ -214,4 +228,5 @@ Partial Class Frm_BajaUsuario
     Friend WithEvents ChbPaciente As CheckBox
     Friend WithEvents ChbMedico As CheckBox
     Friend WithEvents ChbAdministrador As CheckBox
+    Friend WithEvents BtnCancelar As Button
 End Class

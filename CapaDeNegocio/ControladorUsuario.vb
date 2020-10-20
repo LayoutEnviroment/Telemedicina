@@ -284,27 +284,4 @@ Public Module ControladorUsuario
 
     End Function
 
-    Public Function ChequearPaciente(ci_persona As String)
-        Dim p As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass)
-
-        p.CI = ci_persona
-        Return p.CheckPaciente()
-
-    End Function
-
-    Public Function ChequearMedico(ci_persona As String)
-        Dim p As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass)
-
-        p.CI = ci_persona
-        Return p.CheckMedico()
-
-    End Function
-
-    Public Function ChequearAdministrativo(ci_persona As String)
-        Dim p As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass)
-
-        p.CI = ci_persona
-        Return p.CheckAdministrativo()
-
-    End Function
 End Module
