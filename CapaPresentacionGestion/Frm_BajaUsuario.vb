@@ -107,7 +107,7 @@ Public Class Frm_BajaUsuario
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
         FrmMenuGestion.Show()
-        Me.Close()
+        Me.Dispose()
 
     End Sub
 
