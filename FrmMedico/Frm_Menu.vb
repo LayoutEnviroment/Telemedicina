@@ -10,6 +10,7 @@ Public Class Frm_Menu
     Private Sub MenuMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TmrBuscarMensajesNuevos.Stop()
         ObtenerMisDatos()
+        BusquedaDeChats()
 
     End Sub
 
@@ -182,7 +183,7 @@ Public Class Frm_Menu
                 ControladorChat.MarcarComoLeido(IdDiagnostico)
                 For Each fila As DataRow In tabla.Rows
                     If fila(5).ToString = "Iniciado" Then
-                        AgregarMensajes("<p>" + ControladorPaciente.ObtenerNombre(fila(1).ToString) + ": " + fila(2).ToString + "</p>", 1)
+                        AgregarMensajes("<p>" + ControladorUsuario.ObtenerNombre(fila(1).ToString) + ": " + fila(2).ToString + "</p>", 1)
 
                     ElseIf fila(5).ToString = "Finalizado" Then
                         Threading.Thread.Sleep(1000)
@@ -204,7 +205,7 @@ Public Class Frm_Menu
         Try
             ControladorChat.EnviarMensajeMedico(IdDiagnostico, RtbMensaje.Text, CiPaciente)
             AgregarMensajes("<p> Yo: " + RtbMensaje.Text + "</p>", 1)
-
+            BtnEnviar.Enabled = False
         Catch ex As Exception
             MsgBox(ex.ToString)
 

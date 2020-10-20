@@ -68,6 +68,7 @@ Public Class Frm_Menu
         End Try
         GuardarPadecimientos()
         ObtenerIdEnfermedadDiagnosticada()
+        LvSintomas.Clear()
 
     End Sub
 

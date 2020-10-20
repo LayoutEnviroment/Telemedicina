@@ -127,7 +127,6 @@ Partial Class Frm_Menu
         '
         'TmrBuscarMensajesNuevos
         '
-        Me.TmrBuscarMensajesNuevos.Enabled = True
         '
         'LblNombrePaciente
         '
