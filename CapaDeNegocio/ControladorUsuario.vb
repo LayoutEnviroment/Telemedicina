@@ -232,6 +232,14 @@ Public Module ControladorUsuario
 
     End Function
 
+    Public Function ObtenerNombre(cedula As String)
+        Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
+            .CI = ControladorSesion.Cedula
+        }
+        Return u.ObtenerNombre(cedula)
+
+    End Function
+
     Public Function TraerNombreApellidoMail(ci As String)
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
             .ci = ci

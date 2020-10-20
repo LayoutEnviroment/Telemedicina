@@ -211,7 +211,7 @@ Partial Class FrmModificarUsuario
         Me.TxtMail.Enabled = False
         Me.TxtMail.Location = New System.Drawing.Point(42, 123)
         Me.TxtMail.Margin = New System.Windows.Forms.Padding(2)
-        Me.TxtMail.MaxLength = 50
+        Me.TxtMail.MaxLength = 100
         Me.TxtMail.Name = "TxtMail"
         Me.TxtMail.Size = New System.Drawing.Size(333, 20)
         Me.TxtMail.TabIndex = 32

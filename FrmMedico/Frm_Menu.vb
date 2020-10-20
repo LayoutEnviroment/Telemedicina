@@ -9,51 +9,78 @@ Public Class Frm_Menu
 
     Private Sub MenuMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TmrBuscarMensajesNuevos.Stop()
-        Dim LectorDatos As IDataReader
+        ObtenerMisDatos()
+        BusquedaDeChats()
 
+    End Sub
+
+    Private Sub ObtenerMisDatos()
+        Dim LectorDatos As IDataReader
         Try
             LectorDatos = ControladorUsuario.ObtenerNombreApellidoCedula()
+            TmrBuscarChats.Start()
             GuardarMisDatos(LectorDatos)
-
         Catch ex As Exception
             MsgBox("Error al setear las credenciales" + ex.ToString)
 
         End Try
-        TmrBuscarChats.Start()
+
     End Sub
 
     Private Sub GuardarMisDatos(lector As IDataReader)
         While lector.Read
             Nombre = lector(0)
             Apellido = lector(1)
-
         End While
+
+    End Sub
+
+    Private Sub DgvEnEspera_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvEnEspera.CellContentClick
+        If DgvEnEspera.SelectedRows.Count() > 0 Then
+            BtnIniciarChat.Enabled = True
+        Else
+            BtnIniciarChat.Enabled = False
+        End If
 
     End Sub
 
     Private Sub BtnIniciarChat_Click(sender As Object, e As EventArgs) Handles BtnIniciarChat.Click
         IdDiagnostico = DgvEnEspera.Item(0, DgvEnEspera.CurrentCell.RowIndex).Value
         CiPaciente = DgvEnEspera.Item(1, DgvEnEspera.CurrentCell.RowIndex).Value
-        'MsgBox(IdDiagnostico + "" + CiPaciente)
+        CargarDatosConsulta(IdDiagnostico, CiPaciente)
+
+    End Sub
+
+    Private Sub CargarDatosConsulta(Id, Ci)
+        MsgBox(Ci)
         Try
-            ControladorChat.AceptarSolicitud(IdDiagnostico, CiPaciente, Nombre, Apellido)
-            WbbConversacion.DocumentText += "<p>Chat iniciado con el paciente " + CiPaciente + "</p>"
-            EmpezarChat(IdDiagnostico, CiPaciente)
-            TraerInformacionPaciente(CiPaciente)
+            ControladorChat.AceptarSolicitud(Id, Ci, Nombre, Apellido)
+            AgregarMensajes("<p>Chat iniciado con el paciente " + ControladorUsuario.ObtenerNombre(Ci) + "</p>", 0)
+            EmpezarChat()
+            TraerInformacionPaciente(Ci)
             TmrBuscarChats.Stop()
         Catch ex As Exception
             MsgBox(ex.ToString)
-            'MsgBox("Error al aceptar la solicitud")
-
         End Try
 
     End Sub
 
-    Private Sub EmpezarChat(diagnostico As String, paciente As String)
-        IdDiagnostico = diagnostico
-        CiPaciente = paciente
+    Private Sub EmpezarChat()
         TmrBuscarMensajesNuevos.Start()
         RealizarCambios(True)
+
+    End Sub
+
+    Public Sub RealizarCambios(estado As Boolean)
+        RtbMensaje.Enabled = estado
+        BtnEnviar.Enabled = estado
+        BtnFinalizarChat.Enabled = estado
+        BtnIniciarChat.Enabled = estado
+        DgvEnEspera.Enabled = Not estado
+        BtnConultas.Enabled = Not estado
+        BtnRecomendaciones.Enabled = Not estado
+        LstEnfermedades.Clear()
+        LstMedicaciones.Clear()
 
     End Sub
 
@@ -68,45 +95,46 @@ Public Class Frm_Menu
             CargarListaMedicaciones(LectorMedicaciones)
             MostrarDatosPaciente(True)
         Catch ex As Exception
-
+            MsgBox(ex.ToString)
         End Try
+
     End Sub
 
     Private Sub CargarLabelsPaciente(Lector As IDataReader)
         While Lector.Read
-            MsgBox("Nombre: " + Lector(0).ToString + Lector(1).ToString)
-            MsgBox("Sexo : " + Lector(3).ToString)
-            MsgBox("Fecha: " + Lector(4).ToString)
             LblNombrePaciente.Text = Lector(0).ToString + " " + Lector(1).ToString
-            If Lector(3).ToString = 0 Then
-                LblSexoPaciente.Text = "Hombre"
-            Else
-                LblSexoPaciente.Text = "Mujer"
-            End If
-            Dim Edad As String = ObtenerEdadPaciente(Lector(4).ToString)
-            LblEdadPaciente.Text = Edad + " Años"
+            LblSexoPaciente.Text = ObtenerSexo(Lector(3).ToString())
+            LblEdadPaciente.Text = ObtenerEdadPaciente(Lector(4).ToString) + " Años"
             MostrarDatosPaciente(True)
         End While
 
     End Sub
 
+    Private Function ObtenerSexo(Sexo As String)
+        If Sexo = 0 Then
+            Return "Hombre"
+        Else
+            Return "Mujer"
+        End If
+
+    End Function
+
     Private Function ObtenerEdadPaciente(FechaNacimiento As Date)
-        Return DateDiff(DateInterval.Year, FechaNacimiento, Date.Now)
+        Return DateDiff(DateInterval.Year, FechaNacimiento, Date.Now).ToString()
 
     End Function
 
     Private Sub CargarListaEnfermedades(Enfermedades As IDataReader)
         While Enfermedades.Read
-            MsgBox(Enfermedades(0).ToString)
             LstEnfermedades.Items.Add(Enfermedades(0).ToString)
         End While
     End Sub
 
     Private Sub CargarListaMedicaciones(Medicaciones As IDataReader)
         While Medicaciones.Read
-            MsgBox(Medicaciones(0).ToString)
             LstMedicaciones.Items.Add(Medicaciones(0).ToString)
         End While
+
     End Sub
 
     Private Sub MostrarDatosPaciente(estado As Boolean)
@@ -115,19 +143,15 @@ Public Class Frm_Menu
         LblSexoPaciente.Visible = estado
         LstEnfermedades.Visible = estado
         LstMedicaciones.Visible = estado
-    End Sub
 
-    Public Sub RealizarCambios(estado As Boolean)
-        BtnEnviar.Enabled = estado
-        BtnFinalizarChat.Enabled = estado
-        RtbMensaje.Enabled = estado
-        BtnIniciarChat.Enabled = Not estado
-        DgvEnEspera.Enabled = Not estado
-        LstEnfermedades.Clear()
-        LstMedicaciones.Clear()
     End Sub
 
     Private Sub TmrBuscarChats_Tick(sender As Object, e As EventArgs) Handles TmrBuscarChats.Tick
+        BusquedaDeChats()
+
+    End Sub
+
+    Private Sub BusquedaDeChats()
         Dim Tabla As New DataTable
         Try
             Tabla.Load(ControladorChat.BuscarSolicitud())
@@ -154,17 +178,16 @@ Public Class Frm_Menu
 
     Public Sub AgregarChat(tabla As DataTable)
         Try
-
             If tabla.Rows.Count > 0 Then
+
                 ControladorChat.MarcarComoLeido(IdDiagnostico)
                 For Each fila As DataRow In tabla.Rows
                     If fila(5).ToString = "Iniciado" Then
-                        'RtbConversacion.Text += fila(1).ToString + ": " + Environment.NewLine + fila(2).ToString + Environment.NewLine
-                        WbbConversacion.DocumentText += "<p>" + fila(1).ToString + ": " + fila(2).ToString + "</p>"
+                        AgregarMensajes("<p>" + ControladorUsuario.ObtenerNombre(fila(1).ToString) + ": " + fila(2).ToString + "</p>", 1)
+
                     ElseIf fila(5).ToString = "Finalizado" Then
                         Threading.Thread.Sleep(1000)
-                        Me.CambiosEnForm()
-
+                        FinalizarConversacion()
                     End If
 
                 Next
@@ -181,8 +204,8 @@ Public Class Frm_Menu
     Private Sub BtnEnviar_Click(sender As Object, e As EventArgs) Handles BtnEnviar.Click
         Try
             ControladorChat.EnviarMensajeMedico(IdDiagnostico, RtbMensaje.Text, CiPaciente)
-            AgregarChat()
-
+            AgregarMensajes("<p> Yo: " + RtbMensaje.Text + "</p>", 1)
+            BtnEnviar.Enabled = False
         Catch ex As Exception
             MsgBox(ex.ToString)
 
@@ -190,9 +213,8 @@ Public Class Frm_Menu
 
     End Sub
 
-    Private Sub AgregarChat()
-        WbbConversacion.DocumentText += "<p> YO: " + RtbMensaje.Text + "</p>"
-        'RtbConversacion.Text += "YO:" + Environment.NewLine + RtbMensaje.Text + Environment.NewLine
+    Private Sub AgregarMensajes(Mensaje As String, Emisor As Integer)
+        WbbConversacion.DocumentText += Mensaje
         RtbMensaje.Clear()
 
     End Sub
@@ -213,29 +235,39 @@ Public Class Frm_Menu
 
     Private Sub MenuMedico_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If IdDiagnostico <> "" Then
-            Try
-                ControladorChat.FinalizarChatMedico(IdDiagnostico, CiPaciente)
-
-            Catch ex As Exception
-                MsgBox("Error en la actualizacion del estado del chat")
-
-            End Try
+            FinalizarConversacion()
         End If
-        CambiosEnForm()
 
     End Sub
 
     Private Sub BtnFinalizarChat_Click(sender As Object, e As EventArgs) Handles BtnFinalizarChat.Click
+        Select Case MsgBox("Seguro desea finalizar el chat?", MsgBoxStyle.YesNo, "caption")
+            Case MsgBoxResult.Yes
+                FinalizarConversacion()
 
+            Case MsgBoxResult.No
+
+        End Select
+
+    End Sub
+
+    Private Sub FinalizarConversacion()
         Try
             ControladorChat.FinalizarChatMedico(IdDiagnostico, CiPaciente)
             ControladorChat.MarcarComoFinalizado(IdDiagnostico)
         Catch ex As Exception
             MsgBox(ex.ToString)
-            'MsgBox("Error en la actualizacion del estado del chat")
-
         End Try
+        ReinicioDeBusqueda()
+
+    End Sub
+
+    Private Sub ReinicioDeBusqueda()
         MostrarDatosPaciente(False)
+        TmrBuscarMensajesNuevos.Stop()
+        IdDiagnostico = ""
+        CiPaciente = ""
+        BusquedaDeChats()
         CambiosEnForm()
 
     End Sub
@@ -253,5 +285,13 @@ Public Class Frm_Menu
 
     End Sub
 
+    Private Sub RtbMensaje_TextChanged(sender As Object, e As EventArgs) Handles RtbMensaje.TextChanged
+        If RtbMensaje.Text <> "" Then
+            BtnEnviar.Enabled = True
+        Else
+            BtnEnviar.Enabled = False
+        End If
+
+    End Sub
 
 End Class

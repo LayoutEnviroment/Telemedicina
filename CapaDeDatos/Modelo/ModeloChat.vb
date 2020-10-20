@@ -156,7 +156,6 @@
     End Sub
 
     Public Sub FinalizarChat(id As String)
-        MsgBox(id)
         Command.CommandText = "
             INSERT INTO
                 atiende(ci_persona_paciente, id_diagnostico, mensaje, leido, status)
@@ -179,7 +178,6 @@
     End Sub
 
     Public Sub MarcarComoFinalizado()
-        'MsgBox("Estoy en el modelo con el id " + Me.IdDiagnostico)
         Command.CommandText = "
             UPDATE
                 atiende

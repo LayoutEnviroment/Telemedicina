@@ -7,22 +7,27 @@ Public Class Frm_Chat
     Dim IdDiagnostico As String
 
     Private Sub Frm_Chat_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        WbbConversacion.DocumentText += "<p style='background-color:MediumSeaGreen'; padding=100px; margin=100px> Un médico se pondrá en contacto con usted en la brevedad </p>"
+        AgregarMensaje("<p> Un médico se pondrá en contacto con usted en la brevedad </p>", 0)
         IdDiagnostico = ControladorDiagnostico.ObtenerID()
+        TmrMensajesNuevos.Start()
+
     End Sub
 
     Private Sub TmrMensajesNuevos_Tick(sender As Object, e As EventArgs) Handles TmrMensajesNuevos.Tick
-        Dim MensajeNuevo As New DataTable
+        BusquedaDeMensajes()
 
+    End Sub
+
+    Private Sub BusquedaDeMensajes()
+        Dim MensajeNuevo As New DataTable
         Try
             MensajeNuevo = ControladorChat.BuscarMensajesNuevos(IdDiagnostico)
             If MensajeNuevo.Rows.Count > 0 Then
                 AgregarChat(MensajeNuevo)
             End If
-
+            RtbMensaje.Enabled = True
         Catch ex As Exception
             MsgBox(ex.ToString)
-            'MsgBox("Error buscando mensajes", MsgBoxStyle.ApplicationModal)
 
         End Try
 
@@ -33,47 +38,45 @@ Public Class Frm_Chat
 
         For Each fila As DataRow In mensaje.Rows
             If fila(5).ToString = "Finalizado" Then
-                ControladorChat.MarcarComoFinalizado(IdDiagnostico)
-                MsgBox("El doctor a finalizado el chat, el chat se cerrará automaticamente en 3 segundos...", MsgBoxStyle.OkOnly)
-                Threading.Thread.Sleep(3000)
-                Me.Hide()
-                Frm_Menu.Show()
+                MsgBox("El doctor a finalizado el chat, el chat se cerrará automaticamente...", MsgBoxStyle.OkOnly)
+                FinalizarConMedico()
 
             Else
-                WbbConversacion.DocumentText += "<p style ='background-color:Tomato'; align = 'left' > " + fila(4).ToString + " : " + fila(2).ToString + "</p>"
+                AgregarMensaje("<p style ='background-color:Tomato'; align = 'left' > " + fila(4).ToString + " : " + fila(2).ToString + "</p>", 1)
                 CiMedico = fila(0).ToString
-                BtnEnviar.Enabled = True
+                RtbMensaje.Enabled = True
+
             End If
 
         Next
 
     End Sub
 
+    Private Sub RtbMensaje_TextChanged(sender As Object, e As EventArgs) Handles RtbMensaje.TextChanged
+        If RtbMensaje.Text <> "" Then
+            BtnEnviar.Enabled = True
+        Else
+            BtnEnviar.Enabled = False
+        End If
+
+    End Sub
+
     Private Sub BtnEnviar_Click(sender As Object, e As EventArgs) Handles BtnEnviar.Click
         Try
-            ControladorChat.EnviarMensajePaciente(IdDiagnostico, TxtMensaje.Text, CiMedico)
-            AgregarChat()
-
+            ControladorChat.EnviarMensajePaciente(IdDiagnostico, RtbMensaje.Text, CiMedico)
+            AgregarMensaje("<p style ='background-color:Green'; align = 'right'>" + RtbMensaje.Text + "</p>", 0)
+            BtnEnviar.Enabled = False
         Catch ex As Exception
             MsgBox(ex.ToString)
-            'MsgBox("No se pudo enviar el mensaje ", MsgBoxStyle.Critical)
 
         End Try
 
     End Sub
 
-    Public Sub AgregarChat()
-        TxtMensaje.Clear()
-        WbbConversacion.DocumentText += "<p align = 'right'; style='line-height:6';padding=50px ><span style='background-color:MediumSeaGreen'>" + TxtMensaje.Text + " </span></p>"
-
-
-    End Sub
-
-    Private Sub RtbMensaje_TextChanged(sender As Object, e As EventArgs)
-        If TxtMensaje.Text = "" Then
-            BtnEnviar.Enabled = False
-        Else
-            BtnEnviar.Enabled = True
+    Private Sub AgregarMensaje(Mensaje As String, Emisor As Integer)
+        WbbConversacion.DocumentText += Mensaje
+        If Emisor = 0 Then
+            RtbMensaje.Text = ""
         End If
 
     End Sub
@@ -87,10 +90,7 @@ Public Class Frm_Chat
                     FinalizarSinMedico()
                 End If
 
-                WbbConversacion.DocumentText = ""
-                TxtMensaje.Text = ""
-                Me.Close()
-                Frm_Menu.Show()
+                TerminarChat()
 
             Case MsgBoxResult.No
 
@@ -109,6 +109,7 @@ Public Class Frm_Chat
         Catch ex As Exception
             MsgBox("Error finalizar chat paciente" + ex.ToString)
         End Try
+
     End Sub
 
     Private Sub FinalizarSinMedico()
@@ -123,17 +124,16 @@ Public Class Frm_Chat
         Catch ex As Exception
             MsgBox("Error en finalizar chat" + ex.ToString)
         End Try
-    End Sub
-
-    Private Sub WbbConversacion_DocumentCompleted(sender As Object, e As WebBrowserDocumentCompletedEventArgs) Handles WbbConversacion.DocumentCompleted
 
     End Sub
 
-    'Private Sub Frm_Chat_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-    '    Frm_Iniciar_Chat.TxtIdDiagnostico.Text = ""
-    '    Frm_Iniciar_Chat.TxtEnfermedad.Text = ""
-    '    Frm_Iniciar_Chat.TxtDescripcion.Text = ""
-    '    Frm_Iniciar_Chat.TxtPrioridad.Text = ""
+    Private Sub TerminarChat()
+        TmrMensajesNuevos.Stop()
+        WbbConversacion.DocumentText = ""
+        RtbMensaje.Text = ""
+        Me.Close()
+        Frm_Menu.Show()
 
-    'End Sub
+    End Sub
+
 End Class

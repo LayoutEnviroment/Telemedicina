@@ -5,7 +5,6 @@
         MyBase.New(user, pass)
     End Sub
 
-
     Public TipoDeUsuario(3) As Boolean
     Public Nombre As String
     Public Apellido As String
@@ -230,16 +229,6 @@
             Command.CommandText = "SET AUTOCOMMIT = OFF"
             Command.ExecuteNonQuery()
             Command.CommandText = "START TRANSACTION"
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                UPDATE  
-                    mysql.user
-                SET
-                    Host = '%'
-                WHERE
-                    User = '" + Me.CI + "'
-            "
             Command.ExecuteNonQuery()
 
             Command.CommandText = "
@@ -608,16 +597,6 @@
             Command.ExecuteNonQuery()
 
             Command.CommandText = "
-                UPDATE  
-                    mysql.user
-                SET
-                    Host = '%'
-                WHERE
-                    User = '" + Me.CI + "'
-            "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
                 INSERT INTO
                     roles(ci_persona, rol)
                 VALUES
@@ -777,7 +756,7 @@
 
             Command.CommandText = "
                     CREATE USER 
-                        '" + Me.CI + "'@'localhost' 
+                        '" + Me.CI + "'@'%' 
                     IDENTIFIED BY
                         '" + Me.Password + "'
                     "
@@ -835,16 +814,6 @@
             Command.CommandText = "SET AUTOCOMMIT = OFF"
             Command.ExecuteNonQuery()
             Command.CommandText = "START TRANSACTION"
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                UPDATE  
-                    mysql.user
-                SET
-                    Host = '%'
-                WHERE
-                    User = '" + Me.CI + "'
-            "
             Command.ExecuteNonQuery()
 
             Command.CommandText = "
@@ -1116,14 +1085,6 @@
             Command.ExecuteNonQuery()
 
             Command.CommandText = "
-                    CREATE USER 
-                        '" + Me.CI + "'@'localhost' 
-                    IDENTIFIED BY
-                        '" + Me.Password + "'
-                    "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
                     INSERT INTO 
                         persona (ci, nombre, apellido, mail, activo)
                     VALUES
@@ -1184,137 +1145,7 @@
                         ON
                             *.*
                         TO
-                            '" + Me.CI + "'@'localhost' WITH GRANT OPTION
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT 
-	                        SELECT 
-                        ON 
-                            bd_led.roles 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT 
-                        ON 
-                            bd_led.sintoma 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT 
-                        ON 
-                            bd_led.enfermedad 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT 
-                        ON 
-                            bd_led.compone 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT 
-                        ON 
-                            bd_led.medico 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT, INSERT 
-                        ON 
-                            bd_led.genera 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT, INSERT 
-                        ON 
-                            bd_led.diagnostico 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT, INSERT 
-                        ON 
-                            bd_led.padece 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT, UPDATE 
-                        ON 
-                            bd_led.paciente 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT, UPDATE 
-                        ON 
-                            bd_led.persona 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT, INSERT, DELETE 
-                        ON 
-                            bd_led.enfermedades_cronicas 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "    
-                        GRANT
-	                        SELECT, INSERT, DELETE 
-                        ON 
-                            bd_led.medicaciones 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT, INSERT, UPDATE 
-                        ON 
-                            bd_led.atiende 
-                        TO 
-                            '" + Me.CI + "'@'%'
+                            '" + Me.CI + "'@'%' WITH GRANT OPTION
                         "
             Command.ExecuteNonQuery()
 
@@ -1337,14 +1168,6 @@
             Command.CommandText = "SET AUTOCOMMIT = OFF"
             Command.ExecuteNonQuery()
             Command.CommandText = "START TRANSACTION"
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                    CREATE USER 
-                        '" + Me.CI + "'@'localhost' 
-                    IDENTIFIED BY
-                        '" + Me.Password + "'
-                    "
             Command.ExecuteNonQuery()
 
             Command.CommandText = "
@@ -1394,107 +1217,7 @@
                         ON
                             *.*
                         TO
-                            '" + Me.CI + "'@'localhost' WITH GRANT OPTION
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT 
-                        ON 
-                            bd_led.roles 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = " 
-                        GRANT
-	                        SELECT 
-                        ON 
-                            bd_led.sintoma 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = " 
-                        GRANT 
-	                        SELECT 
-                        ON 
-                            bd_led.enfermedad 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = " 
-                        GRANT 
-	                        SELECT 
-                        ON 
-                            bd_led.compone 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = " 
-                        GRANT 
-	                        SELECT 
-                        ON 
-                            bd_led.medico 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = " 
-                        GRANT
-	                        SELECT 
-                        ON 
-                            bd_led.paciente 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = " 
-                        GRANT
-	                        SELECT 
-                        ON 
-                            bd_led.persona 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = " 
-                        GRANT
-	                        SELECT 
-                        ON 
-                            bd_led.enfermedades_cronicas 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = " 
-                        GRANT
-	                        SELECT 
-                        ON 
-                            bd_led.medicaciones 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = " 
-                        GRANT
-	                        SELECT, INSERT, UPDATE 
-                        ON 
-                            bd_led.atiende 
-                        TO 
-                            '" + Me.CI + "'@'%'
+                            '" + Me.CI + "'@'%' WITH GRANT OPTION
                         "
             Command.ExecuteNonQuery()
 
@@ -1521,14 +1244,6 @@
             Command.CommandText = "
                     CREATE USER 
                         '" + Me.CI + "'@'%' 
-                    IDENTIFIED BY
-                        '" + Me.Password + "'
-                    "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                    CREATE USER 
-                        '" + Me.CI + "'@'localhost' 
                     IDENTIFIED BY
                         '" + Me.Password + "'
                     "
@@ -1604,137 +1319,7 @@
                         ON
                             *.*
                         TO
-                            '" + Me.CI + "'@'localhost' WITH GRANT OPTION
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT 
-	                        SELECT 
-                        ON 
-                            bd_led.roles 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT 
-                        ON 
-                            bd_led.sintoma 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT 
-                        ON 
-                            bd_led.enfermedad 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT 
-                        ON 
-                            bd_led.compone 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT 
-                        ON 
-                            bd_led.medico 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT, INSERT 
-                        ON 
-                            bd_led.genera 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT, INSERT 
-                        ON 
-                            bd_led.diagnostico 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT, INSERT 
-                        ON 
-                            bd_led.padece 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT, UPDATE 
-                        ON 
-                            bd_led.paciente 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT, UPDATE 
-                        ON 
-                            bd_led.persona 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT, INSERT, DELETE 
-                        ON 
-                            bd_led.enfermedades_cronicas 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "    
-                        GRANT
-	                        SELECT, INSERT, DELETE 
-                        ON 
-                            bd_led.medicaciones 
-                        TO 
-                            '" + Me.CI + "'@'%'
-                        "
-            Command.ExecuteNonQuery()
-
-            Command.CommandText = "
-                        GRANT
-	                        SELECT, INSERT, UPDATE 
-                        ON 
-                            bd_led.atiende 
-                        TO 
-                            '" + Me.CI + "'@'%'
+                            '" + Me.CI + "'@'%' WITH GRANT OPTION
                         "
             Command.ExecuteNonQuery()
 
@@ -1773,6 +1358,19 @@
                 persona
             WHERE
                 ci = " + Me.CI + "
+        "
+        Return Command.ExecuteScalar.ToString
+
+    End Function
+
+    Public Function ObtenerNombre(cedula As String)
+        Command.CommandText = "
+            SELECT
+                nombre
+            FROM
+                persona
+            WHERE
+                ci = " + cedula + "
         "
         Return Command.ExecuteScalar.ToString
     End Function
@@ -1974,6 +1572,7 @@
         Return Command.ExecuteScalar.ToString()
 
     End Function
+
     Public Function Eliminar()
         Try
             Command.CommandText = "UPDATE persona
@@ -2021,6 +1620,5 @@
             Return False
         End Try
     End Function
-
 
 End Class
