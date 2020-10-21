@@ -22,6 +22,8 @@
                         compone c 
                             ON 
                                 e.id = c.id_enfermedad
+            WHERE
+                e.activo = 1
             GROUP BY 
                 id_enfermedad
             HAVING
@@ -54,7 +56,6 @@
                                         )
                         ) = 0; 
         "
-        Command.CommandText = "WHERE e.activo = 1"
         Command.ExecuteNonQuery()
         Return Command.ExecuteScalar.ToString()
 
@@ -85,6 +86,8 @@
                             " + values + "
                         ) AND activo = 1
                 )
+                    AND
+                    e.activo = 1
             GROUP BY
                 c.id_enfermedad
             ORDER BY

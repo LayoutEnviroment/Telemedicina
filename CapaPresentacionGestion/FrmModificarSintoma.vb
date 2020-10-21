@@ -66,7 +66,7 @@ Public Class FrmModificarSintoma
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
         TxtSintoma.Text = ""
-        Me.Hide()
+        Me.Dispose()
         FrmMenuGestion.Show()
 
     End Sub

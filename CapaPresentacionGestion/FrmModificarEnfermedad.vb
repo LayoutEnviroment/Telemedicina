@@ -186,7 +186,7 @@ Public Class FrmModificarEnfermedad
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
         Limpiar()
-        Me.Hide()
+        Me.Dispose()
         FrmMenuGestion.Show()
 
     End Sub

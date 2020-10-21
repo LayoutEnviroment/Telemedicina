@@ -80,8 +80,9 @@ Public Class FrmEliminarEnfermedad
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
         Limpiar()
-        Me.Hide()
+        Me.Dispose()
         FrmMenuGestion.Show()
+
     End Sub
 
     Private Sub Limpiar()
@@ -89,5 +90,7 @@ Public Class FrmEliminarEnfermedad
         TxtPrioridad.Text = ""
         LstSintomas.Clear()
         BtnEliminar.Enabled = False
+
     End Sub
+
 End Class
