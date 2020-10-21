@@ -46,30 +46,30 @@ Imports CapaDeDatos
         Assert.IsTrue(resultado)
 
     End Sub
+    'NO ENCUENTRO DONDE ESTA EN LA PARTE VISUAL
+    '<TestMethod()> Public Sub TestInsertar()
+    '    Dim resultado As Boolean
+    '    Dim sintomasTest As New List(Of String) From {
+    '         "Diarrea",
+    '        "Debilidad",
+    '        "Ansiedad",
+    '        "Alucinaciones",
+    '        "Desmayo",
+    '        "Delirio"
+    '    }
 
-    <TestMethod()> Public Sub TestInsertar()
-        Dim resultado As Boolean
-        Dim sintomasTest As New List(Of String) From {
-             "Diarrea",
-            "Debilidad",
-            "Ansiedad",
-            "Alucinaciones",
-            "Desmayo",
-            "Delirio"
-        }
+    '    Try
+    '        ControladorCompone.Insertar(sintomasTest, "Hartnup")
+    '        resultado = True
 
-        Try
-            ControladorCompone.Insertar(sintomasTest, "Hartnup")
-            resultado = True
+    '    Catch ex As Exception
+    '        resultado = False
 
-        Catch ex As Exception
-            resultado = False
+    '    End Try
 
-        End Try
+    '    Assert.IsTrue(resultado)
 
-        Assert.IsTrue(resultado)
-
-    End Sub
+    'End Sub
 
     <TestMethod()> Public Sub TestObtenerSintomasEnfermedad()
         Dim resultado As Boolean
