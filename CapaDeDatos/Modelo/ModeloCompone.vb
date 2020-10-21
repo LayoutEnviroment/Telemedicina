@@ -22,6 +22,8 @@
                         compone c 
                             ON 
                                 e.id = c.id_enfermedad
+            WHERE
+                e.activo = 1
             GROUP BY 
                 id_enfermedad
             HAVING
@@ -52,10 +54,9 @@
                                             nombre IN(
                                                 " + values + ")
                                         )
-                        ) = 0; 
+                        ) = 0
         "
-        Command.CommandText = "WHERE e.activo = 1"
-        Command.ExecuteNonQuery()
+
         Return Command.ExecuteScalar.ToString()
 
     End Function
