@@ -2,20 +2,6 @@
 
 Public Module ControladorSintoma
 
-    Public Function ListarSintoma(Sintoma As String)
-        Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass) With {
-            .Nombre = Sintoma
-        }
-
-        Return s.Listar()
-    End Function
-
-    Public Function ListarSintoma()
-        Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass)
-
-        Return s.ListarTodo()
-    End Function
-
     Public Function ListarNombreSintomaActivo()
         Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass)
 
