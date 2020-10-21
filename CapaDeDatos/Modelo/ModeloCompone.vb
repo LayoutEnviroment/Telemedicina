@@ -86,6 +86,8 @@
                             " + values + "
                         ) AND activo = 1
                 )
+                    AND
+                    e.activo = 1
             GROUP BY
                 c.id_enfermedad
             ORDER BY

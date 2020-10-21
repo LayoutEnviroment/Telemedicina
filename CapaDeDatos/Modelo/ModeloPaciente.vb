@@ -204,7 +204,6 @@
             Command.ExecuteNonQuery()
 
         Catch ex As Exception
-            MsgBox("Error en iniciar transaccion" + ex.ToString)
             Command.CommandText = "ROLLBACK"
             Command.ExecuteNonQuery()
         End Try
@@ -229,7 +228,7 @@
                     WHERE
                         ci = " + ci + "
                 "
-                Command.ExecuteNonQuery()
+            Command.ExecuteNonQuery()
 
 
             Command.CommandText = "
@@ -251,7 +250,7 @@
                             WHERE
                                 ci_persona_paciente = " + ci + "
                         "
-                        Command.ExecuteNonQuery()
+            Command.ExecuteNonQuery()
 
 
             Command.CommandText = "
@@ -260,7 +259,7 @@
                             WHERE
                                 ci_persona_paciente = " + ci + "
                         "
-                            Command.ExecuteNonQuery()
+            Command.ExecuteNonQuery()
 
             For Each enfermedad In Enfermedades
 
@@ -270,28 +269,28 @@
                                         VALUES
                                             (" + ci + ", '" + enfermedad + "')
                                     "
-                                    Command.ExecuteNonQuery()
-                                Next
+                Command.ExecuteNonQuery()
+            Next
 
             For Each medicacion In Medicaciones
-                                        Command.CommandText = "
+                Command.CommandText = "
                                         INSERT INTO
                                             medicaciones(ci_persona_paciente, medicacion)
                                         VALUES
                                             (" + ci + ", '" + medicacion + "')
                                     "
-                                        Command.ExecuteNonQuery()
-                                    Next
+                Command.ExecuteNonQuery()
+            Next
 
-                                    Command.CommandText = "COMMIT"
-                                    Command.ExecuteNonQuery()
+            Command.CommandText = "COMMIT"
+            Command.ExecuteNonQuery()
 
 
         Catch ex As Exception
-            MsgBox("Error en iniciar transaccion" + ex.ToString)
             Command.CommandText = "ROLLBACK"
             Command.ExecuteNonQuery()
         End Try
+
     End Sub
 
     Public Function ObtenerCiPaciente()

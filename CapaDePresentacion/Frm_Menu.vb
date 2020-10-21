@@ -57,18 +57,18 @@ Public Class Frm_Menu
         Try
             NombreEnfermedad = ControladorCompone.EnfermedadesPosibles(ListaSintomas)
         Catch ex As Exception
-            MsgBox("Error por exacto" + ex.ToString)
+            MsgBox("No se encontró una enfermedad que coincida de manera exacta, se buscará la mas probable", MsgBoxStyle.Information)
             Try
                 NombreEnfermedad = ControladorCompone.EnfermedadesPorAproximacion(ListaSintomas)
             Catch ex1 As Exception
-                MsgBox("error por aprox" + ex.ToString)
-                'MsgBox("No se pudo encontrar una enfermedad")
+
             End Try
 
         End Try
         GuardarPadecimientos()
         ObtenerIdEnfermedadDiagnosticada()
         LvSintomas.Clear()
+        ListaSintomas.Clear()
 
     End Sub
 

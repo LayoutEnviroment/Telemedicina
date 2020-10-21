@@ -12,7 +12,6 @@ Public Class Frm_Cambiar_Datos_Propios
     Dim Medicaciones As New List(Of String)
 
     Private Sub Frm_Cambiar_Datos_Propios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         ObtenerDatosPersona()
         ObtenerMedicacionesPaciente()
         ObtenerEnfermedadesCronicas()
@@ -25,9 +24,9 @@ Public Class Frm_Cambiar_Datos_Propios
             Lector = ControladorPaciente.ObtenerTodo()
             CargarTextBoxes(Lector)
         Catch ex As Exception
-            'MsgBox(ex.ToString)
             MsgBox("No se pudieron obtener sus datos")
         End Try
+
     End Sub
 
     Public Sub CargarTextBoxes(Lector As IDataReader)
@@ -49,6 +48,7 @@ Public Class Frm_Cambiar_Datos_Propios
 
     Public Sub AdaptarFecha(fecha As Date)
         DttFecha.Value = fecha.Date
+
     End Sub
 
     Public Sub ObtenerMedicacionesPaciente()
@@ -59,6 +59,7 @@ Public Class Frm_Cambiar_Datos_Propios
         Catch ex As Exception
             MsgBox("No se pudieron obtener sus medicaciones")
         End Try
+
     End Sub
 
     Public Sub CargarListaMedicaciones(Lector As IDataReader)
@@ -97,6 +98,7 @@ Public Class Frm_Cambiar_Datos_Propios
     Private Sub BtnAgregarEnfermedad_Click(sender As Object, e As EventArgs) Handles BtnAgregarEnfermedad.Click
         LstEnfermedadesCronicas.Items.Add(TxtAgregarEnfermedad.Text)
         TxtAgregarEnfermedad.Text = ""
+
     End Sub
 
     Private Sub TxtAgregarMedicacion_TextChanged(sender As Object, e As EventArgs) Handles TxtAgregarMedicacion.TextChanged
@@ -106,11 +108,13 @@ Public Class Frm_Cambiar_Datos_Propios
             BtnAgregarMedicacion.Enabled = False
 
         End If
+
     End Sub
 
     Private Sub AgregarMedicacion_Click(sender As Object, e As EventArgs) Handles BtnAgregarMedicacion.Click
         LstMedicaciones.Items.Add(TxtAgregarMedicacion.Text)
         TxtAgregarMedicacion.Text = ""
+
     End Sub
 
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
@@ -137,20 +141,12 @@ Public Class Frm_Cambiar_Datos_Propios
         Enfermedades.Clear()
         Medicaciones.Clear()
         For x = 0 To LstEnfermedadesCronicas.Items.Count() - 1
-            Try
-                Enfermedades.Add(LstEnfermedadesCronicas.Items(x).Text)
-            Catch ex As Exception
-                MsgBox(ex.ToString)
-            End Try
+            Enfermedades.Add(LstEnfermedadesCronicas.Items(x).Text)
 
         Next
 
         For x = 0 To LstMedicaciones.Items.Count() - 1
-            Try
-                Medicaciones.Add(LstMedicaciones.Items(x).Text)
-            Catch ex As Exception
-                MsgBox(ex.ToString)
-            End Try
+            Medicaciones.Add(LstMedicaciones.Items(x).Text)
 
         Next
     End Sub
@@ -162,7 +158,6 @@ Public Class Frm_Cambiar_Datos_Propios
 
     Public Sub GuardarValores()
         Try
-            MsgBox(Sexo)
             ControladorPaciente.CambiarDatos(Nombre, Apellido, Correo, Sexo, FechaNacimiento, Enfermedades, Medicaciones)
         Catch ex As Exception
             MsgBox("No se pudieron actualizar sus datos")
@@ -178,18 +173,22 @@ Public Class Frm_Cambiar_Datos_Propios
             Aceptar = ""
         End If
         HabilitarAceptar(Aceptar)
+
     End Sub
 
     Private Sub TxtNombre_TextChanged(sender As Object, e As EventArgs) Handles TxtNombre.TextChanged
         HabilitarAceptar(TxtNombre.Text)
+
     End Sub
 
     Private Sub TxtApellido_TextChanged(sender As Object, e As EventArgs) Handles TxtApellido.TextChanged
         HabilitarAceptar(TxtApellido.Text)
+
     End Sub
 
     Private Sub TxtCorreo_TextChanged(sender As Object, e As EventArgs) Handles TxtCorreo.TextChanged
         HabilitarAceptar(TxtCorreo.Text)
+
     End Sub
 
     Public Sub HabilitarAceptar(contenido As String)
@@ -198,6 +197,7 @@ Public Class Frm_Cambiar_Datos_Propios
         Else
             BtnAceptar.Enabled = False
         End If
+
     End Sub
 
     Private Sub LstEnfermedadesCronicas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstEnfermedadesCronicas.SelectedIndexChanged
@@ -232,5 +232,7 @@ Public Class Frm_Cambiar_Datos_Propios
 
     Private Sub Frm_Cambiar_Datos_Propios_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         Frm_Menu.Show()
+
     End Sub
+
 End Class
