@@ -84,6 +84,15 @@ Public Class Frm_BajaUsuario
         End If
     End Sub
 
+    Private Sub CmbCI_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbCI.SelectedIndexChanged
+        LimpiarCampos()
+        DatosPersona()
+        EsPaciente()
+        EsMedico()
+        EsAdministrativo()
+        HabilitarEliminar()
+    End Sub
+
     Private Sub HabilitarEliminar()
         If ChbAdministrador.Checked = True Or ChbMedico.Checked = True Or ChbPaciente.Checked = True Then
             BtnEliminar.Enabled = True
