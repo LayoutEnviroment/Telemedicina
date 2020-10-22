@@ -55,20 +55,20 @@
 
     End Function
 
-    Public Function ListarTodo()
-        Command.CommandText = "
-            SELECT
-                id AS ID, nombre AS Nombre
-            FROM
-                sintoma
-            WHERE
-                activo = 1
-        "
+    'Public Function ListarTodo()
+    '    Command.CommandText = "
+    '        SELECT
+    '            id AS ID, nombre AS Nombre
+    '        FROM
+    '            sintoma
+    '        WHERE
+    '            activo = 1
+    '    "
 
-        Reader = Command.ExecuteReader
-        Return Reader
+    '    Reader = Command.ExecuteReader
+    '    Return Reader
 
-    End Function
+    'End Function
 
     Public Sub Insertar()
         Command.CommandText = "
@@ -94,18 +94,18 @@
 
     End Sub
 
-    Public Sub Modificar(nombre As String)
-        Command.CommandText = "
-            UPDATE
-                sintoma
-            SET
-                nombre = '" + nombre + "'
-            WHERE
-                nombre = '" + nombre + "'
-        "
-        Command.ExecuteNonQuery()
+    'Public Sub Modificar(nombre As String)
+    '    Command.CommandText = "
+    '        UPDATE
+    '            sintoma
+    '        SET
+    '            nombre = '" + nombre + "'
+    '        WHERE
+    '            nombre = '" + nombre + "'
+    '    "
+    '    Command.ExecuteNonQuery()
 
-    End Sub
+    'End Sub
 
     Public Sub Eliminar()
         Command.CommandText = "

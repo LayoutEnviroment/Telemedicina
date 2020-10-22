@@ -242,7 +242,7 @@ Public Module ControladorUsuario
 
     Public Function TraerNombreApellidoMail(ci As String)
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
-            .ci = ci
+            .CI = ci
         }
         Return u.TraerNombreApellidoMail()
 

@@ -10,11 +10,11 @@ Public Module ControladorSintoma
         Return s.Listar()
     End Function
 
-    Public Function ListarSintoma()
-        Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass)
+    'Public Function ListarSintoma()
+    '    Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass)
 
-        Return s.ListarTodo()
-    End Function
+    '    Return s.ListarTodo()
+    'End Function
 
     Public Function ListarNombreSintomaActivo()
         Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass)
@@ -40,12 +40,6 @@ Public Module ControladorSintoma
 
     End Sub
 
-    Public Sub CambiarNombreDeSintoma(nombre As String)
-        Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass)
-
-        s.Modificar(nombre)
-    End Sub
-
     Public Sub EliminarSintoma(id As String)
         Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass) With {
             .IdSintoma = id
@@ -53,12 +47,6 @@ Public Module ControladorSintoma
 
         s.Eliminar()
     End Sub
-
-    'Public Sub EliminarSintomaPorNombre(nombre As String)
-    '    Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass)
-
-    '    s.Eliminar(nombre)
-    'End Sub
 
     Public Function ObtenerExistencia(nombre As String)
         Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass) With {
