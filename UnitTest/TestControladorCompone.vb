@@ -1,7 +1,6 @@
 ﻿Imports System.Text
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports CapaDeNegocio
-Imports CapaDeDatos
 
 <TestClass()> Public Class TestControladorCompone
 

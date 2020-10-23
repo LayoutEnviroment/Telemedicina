@@ -23,7 +23,7 @@ Imports CapaDeNegocio
         Dim resultado As Boolean
 
         Try
-            ControladorSintoma.CrearSintoma("Delirio")
+            ControladorSintoma.CrearSintoma("Rinitis")
             resultado = True
 
         Catch ex As Exception
@@ -113,7 +113,7 @@ Imports CapaDeNegocio
         Dim resultado As Boolean
 
         Try
-            ControladorSintoma.ActivarSintoma("Temblores")
+            ControladorSintoma.ActivarSintoma("49")
             resultado = True
 
         Catch ex As Exception

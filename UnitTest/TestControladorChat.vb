@@ -1,13 +1,12 @@
 ﻿Imports System.Text
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports CapaDeNegocio
-Imports CapaDeDatos
 <TestClass()> Public Class TestControladorChat
 
     <TestMethod()> Public Sub TestEnviarSolicitud()
         Dim resultado As Boolean
         Try
-            ControladorChat.EnviarSolicitud("1")
+            ControladorChat.EnviarSolicitud("4")
 
             resultado = True
 
