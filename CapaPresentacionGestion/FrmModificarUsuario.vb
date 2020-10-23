@@ -77,6 +77,7 @@ Public Class FrmModificarUsuario
     Private Sub EsPaciente()
         Try
             If ControladorUsuario.ExisteRol(CmbCi.SelectedItem.ToString(), 1) = 1 Then
+                MsgBox("Soy paciente")
                 rol(0) = True
                 ChbPaciente.Checked = True
                 ChbPaciente.Enabled = False
@@ -318,7 +319,8 @@ Public Class FrmModificarUsuario
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
         If ChbPaciente.Checked And rol(0) = True Then
             ModificarPersonaYPaciente()
-        ElseIf ChbPaciente.CheckAlign And rol(0) = False Then
+        ElseIf ChbPaciente.Checked And rol(0) = False Then
+            MsgBox("Agregar paciente")
             AgregarAPaciente()
         End If
 
