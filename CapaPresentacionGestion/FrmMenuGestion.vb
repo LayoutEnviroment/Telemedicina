@@ -72,6 +72,6 @@ Public Class FrmMenuGestion
     End Sub
 
     Private Sub EliminarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EliminarToolStripMenuItem.Click
-        Frm_BajaUsuario.Show()
+        FrmEliminarUsuario.Show()
     End Sub
 End Class

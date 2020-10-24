@@ -320,7 +320,6 @@ Public Class FrmModificarUsuario
         If ChbPaciente.Checked And rol(0) = True Then
             ModificarPersonaYPaciente()
         ElseIf ChbPaciente.Checked And rol(0) = False Then
-            MsgBox("Agregar paciente")
             AgregarAPaciente()
         End If
 
