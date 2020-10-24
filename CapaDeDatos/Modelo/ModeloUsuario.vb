@@ -1573,14 +1573,70 @@
 
     End Function
 
-    Public Function Eliminar()
+    Public Sub Eliminar(roles() As Boolean)
 
-        Command.CommandText = "UPDATE persona
-                               SET activo = 0
-                               WHERE id = " + Me.CI + ""
-        Return Command.ExecuteNonQuery()
+        Command.CommandText = "SET AUTOCOMMIT = OFF"
+        Command.ExecuteNonQuery()
+        Command.CommandText = "START TRANSACTION"
+        Command.ExecuteNonQuery()
+
+        For x = 0 To roles.Count() - 1
+            If roles(x) = True Then
+                Command.CommandText = "
+                    DELETE FROM
+                        roles
+                    WHERE
+                        ci_persona = " + Me.CI + "
+                        AND
+                            rol = " + x + "
+                "
+                Command.ExecuteNonQuery()
+
+                If x = 0 Then
+                    Command.CommandText = "
+                        UPDATE
+                            paciente
+                        SET
+                            activo = 0 
+                        WHERE   
+                            ci_persona = " + Me.CI + "
+                    "
+                    Command.ExecuteNonQuery()
+                ElseIf x = 1 Then
+                    Command.CommandText = "
+                        UPDATE
+                            medico
+                        SET
+                            activo = 0 
+                        WHERE   
+                            ci_persona = " + Me.CI + "
+                    "
+                    Command.ExecuteNonQuery()
+                ElseIf x = 2 Then
+                    Command.CommandText = "
+                        UPDATE
+                            medico
+                        SET
+                            activo = 0 
+                        WHERE   
+                            ci_persona = " + Me.CI + "
+                    "
+                    Command.ExecuteNonQuery()
+
+                    i += 1
+
+                    If i = 3 Then
+
+                    End If
+                End If
+            End If
+
+        Next
 
 
-    End Function
+
+
+
+    End Sub
 
 End Class
