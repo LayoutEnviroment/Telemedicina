@@ -104,6 +104,8 @@
     <Compile Include="TestControladorPadece.vb" />
     <Compile Include="TestControladorSintoma.vb" />
     <Compile Include="TestModeloChat.vb" />
+    <Compile Include="TestModeloCompone.vb" />
+    <Compile Include="TestModeloDiagnostico.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

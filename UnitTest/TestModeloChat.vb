@@ -103,28 +103,113 @@ Imports CapaDeDatos
 
     End Sub
     <TestMethod()> Public Sub TestMarcarComoLeido()
-
+        Dim c As New ModeloChat("22223334", "Medico123") With {
+            .IdDiagnostico = "4",
+            .Cedula = "1111"
+        }
+        Dim modificarEstado As Boolean
+        Try
+            c.MarcarComoLeido()
+            modificarEstado = True
+        Catch ex As Exception
+            modificarEstado = False
+        End Try
+        Assert.IsTrue(modificarEstado)
 
     End Sub
     <TestMethod()> Public Sub TestFinalizarChatPaciente()
+        Dim c As New ModeloChat("1111", "Todes123") With {
+            .CiMedico = "22223334",
+            .Cedula = "1111",
+            .IdDiagnostico = "4"
+        }
+        Dim modificarEstado As Boolean
+        Try
+            c.FinalizarChatPaciente()
+            modificarEstado = True
+        Catch ex As Exception
+            modificarEstado = False
+        End Try
+        Assert.IsTrue(modificarEstado)
 
     End Sub
-    <TestMethod()> Public Sub TestFinalizarChat()
+    <TestMethod()> Public Sub TestFinalizarChatConId()
+        Dim c As New ModeloChat("1111", "Todes123") With {
+            .CiMedico = "22223334",
+            .Cedula = "1111",
+            .IdDiagnostico = "4"
+        }
+        Dim modificarEstado As Boolean
 
+        Try
+            c.FinalizarChat("4")
+            modificarEstado = True
+        Catch ex As Exception
+            modificarEstado = False
+        End Try
+
+        Assert.IsTrue(modificarEstado)
 
     End Sub
+
     <TestMethod()> Public Sub TestFinalizarChatMedico()
+        Dim c As New ModeloChat("22223334", "Medico123") With {
+           .CiPaciente = "1111",
+           .Cedula = "22223334",
+           .IdDiagnostico = "4"
+       }
+        Dim modificarEstado As Boolean
+        Try
+            c.FinalizarChatMedico()
+            modificarEstado = True
+        Catch ex As Exception
+            modificarEstado = False
+        End Try
+        Assert.IsTrue(modificarEstado)
 
     End Sub
+
     <TestMethod()> Public Sub TestMarcarComoFinalizado()
 
+        Dim c As New ModeloChat("22223334", "Medico123") With {
+         .IdDiagnostico = "4"
+     }
+        Dim modificarEstado As Boolean
+        Try
+            c.MarcarComoFinalizado()
+            modificarEstado = True
+        Catch ex As Exception
+            modificarEstado = False
+        End Try
+        Assert.IsTrue(modificarEstado)
 
     End Sub
     <TestMethod()> Public Sub TestObtenerIdFechaMisChat()
-
+        Dim c As New ModeloChat("22223334", "Medico123") With {
+       .Cedula = "22223334"
+   }
+        Dim buscarInformacion As Boolean
+        Try
+            c.ObtenerIdFechaMisChat()
+            buscarInformacion = True
+        Catch ex As Exception
+            buscarInformacion = False
+        End Try
+        Assert.IsTrue(buscarInformacion)
     End Sub
 
     <TestMethod()> Public Sub TestObtenerMensajesDelDiagnostico()
-
+        Dim c As New ModeloChat("1111", "Todes123") With {
+      .IdDiagnostico = "4"
+  }
+        Dim buscarInformacion As Boolean
+        Try
+            c.ObtenerMensajesDelDiagnostico()
+            buscarInformacion = True
+        Catch ex As Exception
+            buscarInformacion = False
+        End Try
+        Assert.IsTrue(buscarInformacion)
     End Sub
+
 End Class
