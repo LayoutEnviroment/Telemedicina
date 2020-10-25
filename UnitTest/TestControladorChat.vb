@@ -12,7 +12,7 @@ Imports CapaDeNegocio
 
         Catch ex As Exception
             resultado = False
-            MsgBox(ex.ToString)
+
         End Try
         Assert.IsTrue(resultado)
 
@@ -34,7 +34,7 @@ Imports CapaDeNegocio
             ControladorChat.AceptarSolicitud("1", "1111", "super", "pruebas")
             resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
             resultado = False
         End Try
 
@@ -48,7 +48,7 @@ Imports CapaDeNegocio
             resultado = True
         Catch ex As Exception
             resultado = False
-            MsgBox(ex.ToString)
+
         End Try
         Assert.IsTrue(resultado)
     End Sub
@@ -60,7 +60,7 @@ Imports CapaDeNegocio
             resultado = True
         Catch ex As Exception
             resultado = False
-            MsgBox(ex.ToString)
+
         End Try
         Assert.IsTrue(resultado)
     End Sub
@@ -118,7 +118,7 @@ Imports CapaDeNegocio
             ControladorChat.FinalizarChat("2")
             resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
             resultado = False
         End Try
 
@@ -131,7 +131,7 @@ Imports CapaDeNegocio
             ControladorChat.MarcarComoFinalizado("1")
             resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
             resultado = False
         End Try
 
