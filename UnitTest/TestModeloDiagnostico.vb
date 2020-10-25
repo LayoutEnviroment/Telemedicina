@@ -114,10 +114,30 @@ Imports CapaDeDatos
     End Sub
 
     <TestMethod()> Public Sub TestExistenMensajes()
-
+        Dim d As New ModeloDiagnostico("1111", "Todes123") With {
+           .Id = "4"
+       }
+        Dim buscarInformacion As Boolean
+        Try
+            d.ExistenMensajes()
+            buscarInformacion = True
+        Catch ex As Exception
+            buscarInformacion = False
+        End Try
+        Assert.IsTrue(buscarInformacion)
     End Sub
 
     <TestMethod()> Public Sub TestObtenerCedulaPertenece()
-
+        Dim d As New ModeloDiagnostico("1111", "Todes123") With {
+          .Id = "4"
+      }
+        Dim buscarInformacion As Boolean
+        Try
+            d.ObtenerCedulaPertenece()
+            buscarInformacion = True
+        Catch ex As Exception
+            buscarInformacion = False
+        End Try
+        Assert.IsTrue(buscarInformacion)
     End Sub
 End Class
