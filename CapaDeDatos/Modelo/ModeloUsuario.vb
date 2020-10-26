@@ -241,15 +241,28 @@
             "
             Command.ExecuteNonQuery()
 
-            Command.CommandText = "
-                INSERT INTO
-                    paciente(ci_persona, sexo, fecha_nac)
-                VALUES        
-                    (" + Me.CI + ", 
-                    '" + Me.Sexo + "', 
-                    '" + Me.FechaNacimiento + "')
-            "
-            Command.ExecuteNonQuery()
+            Try
+                Command.CommandText = "
+                    INSERT INTO
+                        paciente(ci_persona, sexo, fecha_nac)
+                    VALUES        
+                        (" + Me.CI + ", 
+                        '" + Me.Sexo + "', 
+                        '" + Me.FechaNacimiento + "')
+                "
+                Command.ExecuteNonQuery()
+            Catch ex As Exception
+                Command.CommandText = "
+                    UPDATE
+                        paciente
+                    SET
+                        activo = 1
+                    WHERE
+                        ci_persona =   " + Me.CI + "
+                "
+                Command.ExecuteNonQuery()
+            End Try
+
 
             For Each Enfermedad In EnfermedadCronica
                 Command.CommandText = "
@@ -606,13 +619,26 @@
             "
             Command.ExecuteNonQuery()
 
-            Command.CommandText = "
-                        INSERT INTO 
-                            medico (ci_persona)
-                        VALUES
-                            (" + Me.CI + ")
-                        "
-            Command.ExecuteNonQuery()
+            Try
+                Command.CommandText = "
+                    INSERT INTO 
+                        medico (ci_persona)
+                    VALUES
+                        (" + Me.CI + ")
+                "
+                Command.ExecuteNonQuery()
+            Catch ex As Exception
+                Command.CommandText = "
+                    UPDATE
+                        medico 
+                    SET
+                        activo = 1
+                    WHERE
+                        ci_persona = " + Me.CI + "
+                "
+                Command.ExecuteNonQuery()
+            End Try
+
 
             Command.CommandText = "
                         GRANT
@@ -826,13 +852,26 @@
             "
             Command.ExecuteNonQuery()
 
-            Command.CommandText = "
-                        INSERT INTO 
-                            administrativo(ci_persona)
-                        VALUES
-                            (" + Me.CI + ")
-                        "
-            Command.ExecuteNonQuery()
+            Try
+                Command.CommandText = "
+                    INSERT INTO 
+                        administrativo(ci_persona)
+                    VALUES
+                        (" + Me.CI + ")
+                    "
+                Command.ExecuteNonQuery()
+            Catch ex As Exception
+                Command.CommandText = "
+                    UPDATE
+                        administrativo
+                    SET
+                        activo = 1
+                    WHERE
+                        ci_persona = " + Me.CI + "
+                "
+                Command.ExecuteNonQuery()
+            End Try
+
 
             Command.CommandText = "
                 GRANT 

@@ -460,6 +460,9 @@ Public Class FrmModificarUsuario
         ChbPaciente.Checked = False
         ChbMedico.Checked = False
         ChbAdministrador.Checked = False
+        ChbPaciente.Enabled = False
+        ChbMedico.Enabled = False
+        ChbAdministrador.Enabled = False
         TxtEnfermedadCronica.Text = ""
         TxtMedicacion.Text = ""
         LstEnfermedades.Items.Clear()
