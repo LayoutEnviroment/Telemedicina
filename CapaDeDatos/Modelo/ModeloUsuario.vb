@@ -17,6 +17,8 @@
     Public Password As String
     Public Rol As String
     Public Anfitrion As String
+    Public Roles(3) As Boolean
+    Public EliminarPersona As Boolean
 
     Public Sub NuevoPaciente()
         Try
@@ -1573,70 +1575,72 @@
 
     End Function
 
-    Public Sub Eliminar(roles() As Boolean)
+    Public Sub Eliminar()
 
-        Command.CommandText = "SET AUTOCOMMIT = OFF"
-        Command.ExecuteNonQuery()
-        Command.CommandText = "START TRANSACTION"
-        Command.ExecuteNonQuery()
+        If EliminarPersona Then
+            Command.CommandText = "
+                UPDATE
+                    persona
+                SET
+                    activo = 0 
+                WHERE   
+                    ci = " + Me.CI + "
+            "
+            Command.ExecuteNonQuery()
+        End If
 
-        For x = 0 To roles.Count() - 1
-            If roles(x) = True Then
+        For x = 1 To Roles.Count() - 1
+            If Roles(x - 1) Then
                 Command.CommandText = "
                     DELETE FROM
                         roles
                     WHERE
                         ci_persona = " + Me.CI + "
                         AND
-                            rol = " + x + "
-                "
+                            rol = " + x.ToString + "
+                    "
                 Command.ExecuteNonQuery()
 
-                If x = 0 Then
+                If x = 1 Then
                     Command.CommandText = "
                         UPDATE
                             paciente
                         SET
-                            activo = 0 
-                        WHERE   
+                            activo = 0
+                        WHERE
                             ci_persona = " + Me.CI + "
-                    "
+                        "
                     Command.ExecuteNonQuery()
-                ElseIf x = 1 Then
+                End If
+
+                If x = 2 Then
                     Command.CommandText = "
                         UPDATE
                             medico
                         SET
-                            activo = 0 
-                        WHERE   
+                            activo = 0
+                        WHERE
                             ci_persona = " + Me.CI + "
-                    "
+                        "
                     Command.ExecuteNonQuery()
-                ElseIf x = 2 Then
+                End If
+
+                If x = 3 Then
                     Command.CommandText = "
                         UPDATE
-                            medico
+                            administrativo
                         SET
-                            activo = 0 
-                        WHERE   
+                            activo = 0
+                        WHERE
                             ci_persona = " + Me.CI + "
-                    "
+                        "
                     Command.ExecuteNonQuery()
-
-                    i += 1
-
-                    If i = 3 Then
-
-                    End If
                 End If
             End If
 
         Next
 
-
-
-
-
     End Sub
+
 
 End Class

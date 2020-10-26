@@ -283,15 +283,14 @@ Public Module ControladorUsuario
     End Sub
 
 
-    Public Function EliminarPersona(ci As String, roles() As Boolean)
+    Public Sub EliminarPersona(ci As String, roles() As Boolean, eliminarPersona As Boolean)
         Dim p As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
-            .CI = ci
+            .CI = ci,
+            .Roles = roles,
+            .EliminarPersona = eliminarPersona
         }
 
-
-
-        Return p.Eliminar(roles)
-
-    End Function
+        p.Eliminar()
+    End Sub
 
 End Module

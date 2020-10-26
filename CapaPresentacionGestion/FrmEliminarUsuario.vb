@@ -5,6 +5,7 @@ Public Class FrmEliminarUsuario
 
     Dim rol(3) As Boolean
     Dim RolesAEliminar(3) As Boolean
+    Dim EliminarPersona As Boolean
 
     Private Sub Frm_BajaUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ObtenerCedulas()
@@ -30,7 +31,7 @@ Public Class FrmEliminarUsuario
     End Sub
 
     Private Sub CmbCI_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbCI.SelectedIndexChanged
-        LimpiarCampos()
+        Limpiar()
         ObtenerDatosPersona()
         EsPaciente()
         EsMedico()
@@ -130,11 +131,12 @@ Public Class FrmEliminarUsuario
             Select Case MsgBox(MensajeDeConfirmacion(), MsgBoxStyle.YesNo)
                 Case DialogResult.Yes
                     Try
-                        ControladorUsuario.EliminarPersona(CmbCI.SelectedItem, RolesAEliminar)
-                        CmbCI.Items.Clear()
+                        ControladorUsuario.EliminarPersona(CmbCI.SelectedItem, RolesAEliminar, EliminarPersona)
+                        Limpiar()
                     Catch ex As Exception
                         MsgBox("No se puede eliminar al usuario", MsgBoxStyle.Critical)
                     End Try
+
                 Case DialogResult.No
 
             End Select
@@ -169,23 +171,29 @@ Public Class FrmEliminarUsuario
 
         If i = 3 Then
             Mensaje += "Se eliminará a la persona"
+            EliminarPersona = True
+        Else
+            EliminarPersona = False
         End If
         Return Mensaje
 
     End Function
 
-    Private Sub LimpiarCampos()
+    Private Sub Limpiar()
         TxtNombre.Clear()
         TxtApellido.Clear()
         TxtMail.Clear()
         ChbPaciente.Checked = False
         ChbMedico.Checked = False
         ChbAdministrador.Checked = False
+        ChbPaciente.Enabled = False
+        ChbMedico.Enabled = False
+        ChbAdministrador.Enabled = False
 
     End Sub
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
-        LimpiarCampos()
+        Limpiar()
 
     End Sub
 
