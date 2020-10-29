@@ -14,7 +14,7 @@ Public Class FrmMenuGestion
 
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Me.Hide()
-        FrmAltaUsuario.Show()
+        FrmNuevoUsuario.Show()
 
     End Sub
 

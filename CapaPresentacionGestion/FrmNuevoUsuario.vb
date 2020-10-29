@@ -1,6 +1,6 @@
 ﻿Imports CapaDeNegocio
 Imports System.Net.Mail
-Public Class FrmAltaUsuario
+Public Class FrmNuevoUsuario
 
     Dim TipoUsuario(3) As Boolean
     Dim FechaNacimiento As String
@@ -347,11 +347,22 @@ Public Class FrmAltaUsuario
 
     Private Function CrearContra()
         Dim rdm As New Random()
-        Dim Caracteres() As Char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLOMNOPQRSTUVWXYZ0123456789".ToCharArray()
+        Dim Mayus() As Char = "ABCDEFGHIJKLOMNOPQRSTUVWXYZ".ToCharArray()
+        Dim Numeros() As Char = "0123456789".ToCharArray()
+        Dim Especiales() As Char = "*_/".ToCharArray()
+        Dim Caracteres() As Char = "abcdefghijklmnopqrstuvwxyz".ToCharArray()
         Dim Pass As String = ""
 
         For i As Integer = 0 To 8
-            Pass += Caracteres(rdm.Next(0, Caracteres.Length))
+            If i < 6 Then
+                Pass += Caracteres(rdm.Next(0, Caracteres.Length))
+            ElseIf i = 6 Then
+                Pass += Especiales(rdm.Next(0, Especiales.Length))
+            ElseIf i = 7 Then
+                Pass += Numeros(rdm.Next(0, Numeros.Length))
+            Else
+                Pass += Mayus(rdm.Next(0, Mayus.Length))
+            End If
         Next
 
         Return Pass

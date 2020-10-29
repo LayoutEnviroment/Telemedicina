@@ -43,66 +43,60 @@ Partial Class Frm_Login
         '
         Me.LogoPictureBox.Image = CType(resources.GetObject("LogoPictureBox.Image"), System.Drawing.Image)
         Me.LogoPictureBox.Location = New System.Drawing.Point(0, 0)
-        Me.LogoPictureBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.LogoPictureBox.Name = "LogoPictureBox"
-        Me.LogoPictureBox.Size = New System.Drawing.Size(248, 297)
+        Me.LogoPictureBox.Size = New System.Drawing.Size(165, 193)
         Me.LogoPictureBox.TabIndex = 0
         Me.LogoPictureBox.TabStop = False
         '
         'UsernameLabel
         '
-        Me.UsernameLabel.Location = New System.Drawing.Point(258, 37)
-        Me.UsernameLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.UsernameLabel.Location = New System.Drawing.Point(172, 24)
         Me.UsernameLabel.Name = "UsernameLabel"
-        Me.UsernameLabel.Size = New System.Drawing.Size(330, 35)
+        Me.UsernameLabel.Size = New System.Drawing.Size(220, 23)
         Me.UsernameLabel.TabIndex = 0
         Me.UsernameLabel.Text = "&Nombre de usuario"
         Me.UsernameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'PasswordLabel
         '
-        Me.PasswordLabel.Location = New System.Drawing.Point(258, 125)
-        Me.PasswordLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.PasswordLabel.Location = New System.Drawing.Point(172, 81)
         Me.PasswordLabel.Name = "PasswordLabel"
-        Me.PasswordLabel.Size = New System.Drawing.Size(330, 35)
+        Me.PasswordLabel.Size = New System.Drawing.Size(220, 23)
         Me.PasswordLabel.TabIndex = 2
         Me.PasswordLabel.Text = "&Contraseña"
         Me.PasswordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'TxtUser
         '
-        Me.TxtUser.Location = New System.Drawing.Point(261, 68)
-        Me.TxtUser.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TxtUser.Location = New System.Drawing.Point(174, 44)
         Me.TxtUser.MaxLength = 9
         Me.TxtUser.Name = "TxtUser"
-        Me.TxtUser.Size = New System.Drawing.Size(328, 26)
+        Me.TxtUser.Size = New System.Drawing.Size(220, 20)
         Me.TxtUser.TabIndex = 1
         '
         'TxtPass
         '
-        Me.TxtPass.Location = New System.Drawing.Point(261, 155)
-        Me.TxtPass.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.TxtPass.MaxLength = 8
+        Me.TxtPass.Location = New System.Drawing.Point(174, 101)
+        Me.TxtPass.MaxLength = 20
         Me.TxtPass.Name = "TxtPass"
         Me.TxtPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TxtPass.Size = New System.Drawing.Size(328, 26)
+        Me.TxtPass.Size = New System.Drawing.Size(220, 20)
         Me.TxtPass.TabIndex = 3
         '
         'BtnIngresar
         '
-        Me.BtnIngresar.Location = New System.Drawing.Point(302, 218)
-        Me.BtnIngresar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.BtnIngresar.Location = New System.Drawing.Point(201, 142)
         Me.BtnIngresar.Name = "BtnIngresar"
-        Me.BtnIngresar.Size = New System.Drawing.Size(248, 35)
+        Me.BtnIngresar.Size = New System.Drawing.Size(165, 23)
         Me.BtnIngresar.TabIndex = 4
         Me.BtnIngresar.Text = "Ingresar"
         '
         'Frm_Login
         '
         Me.AcceptButton = Me.BtnIngresar
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(602, 295)
+        Me.ClientSize = New System.Drawing.Size(401, 192)
         Me.Controls.Add(Me.BtnIngresar)
         Me.Controls.Add(Me.TxtPass)
         Me.Controls.Add(Me.TxtUser)
@@ -110,7 +104,6 @@ Partial Class Frm_Login
         Me.Controls.Add(Me.UsernameLabel)
         Me.Controls.Add(Me.LogoPictureBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Frm_Login"

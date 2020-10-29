@@ -7,7 +7,7 @@ Public MustInherit Class ModeloBaseDeDatos
     Public Port As String = "3306"
     Public DatabaseName As String = "bd_led"
     'El Host debe tener el mismo valor que la salida al comando hostname -I del la VM o servidor
-    Public Host As String = "localhost"
+    Public Host As String = "192.168.1.2"
 
     Public Connect As New OdbcConnection()
     Public Command As New OdbcCommand

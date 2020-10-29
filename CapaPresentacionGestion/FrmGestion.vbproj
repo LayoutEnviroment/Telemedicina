@@ -79,10 +79,10 @@
     <Compile Include="FrmEliminarUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAltaUsuario.Designer.vb">
-      <DependentUpon>FrmAltaUsuario.vb</DependentUpon>
+    <Compile Include="FrmNuevoUsuario.Designer.vb">
+      <DependentUpon>FrmNuevoUsuario.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmAltaUsuario.vb">
+    <Compile Include="FrmNuevoUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmEliminarEnfermedad.Designer.vb">
@@ -163,8 +163,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FrmAltaUsuario.resx">
-      <DependentUpon>FrmAltaUsuario.vb</DependentUpon>
+    <EmbeddedResource Include="FrmNuevoUsuario.resx">
+      <DependentUpon>FrmNuevoUsuario.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEliminarEnfermedad.resx">
       <DependentUpon>FrmEliminarEnfermedad.vb</DependentUpon>
