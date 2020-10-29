@@ -2,20 +2,6 @@
 
 Public Module ControladorSintoma
 
-    Public Function ListarSintoma(Sintoma As String)
-        Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass) With {
-            .Nombre = Sintoma
-        }
-
-        Return s.Listar()
-    End Function
-
-    'Public Function ListarSintoma()
-    '    Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass)
-
-    '    Return s.ListarTodo()
-    'End Function
-
     Public Function ListarNombreSintomaActivo()
         Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass)
 
@@ -25,7 +11,7 @@ Public Module ControladorSintoma
 
     Public Sub CrearSintoma(nombre As String)
         Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass) With {
-            .Nombre = nombre
+            .nombre = nombre
         }
 
         s.Insertar()
@@ -33,8 +19,8 @@ Public Module ControladorSintoma
 
     Public Sub CambiarNombreDeSintoma(idSintoma As String, nombre As String)
         Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass) With {
-            .IdSintoma = idSintoma,
-            .Nombre = nombre
+            .idSintoma = idSintoma,
+            .nombre = nombre
         }
         s.Modificar()
 
@@ -50,7 +36,7 @@ Public Module ControladorSintoma
 
     Public Function ObtenerExistencia(nombre As String)
         Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass) With {
-            .Nombre = nombre
+            .nombre = nombre
         }
 
         Return s.ObtenerExistencia()
@@ -58,7 +44,7 @@ Public Module ControladorSintoma
 
     Public Function EstaInactivo(nombre As String)
         Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass) With {
-            .Nombre = nombre
+            .nombre = nombre
         }
 
         Return s.EstaInactivo()
@@ -66,7 +52,7 @@ Public Module ControladorSintoma
 
     Public Function ObtenerId(nombre As String)
         Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass) With {
-            .Nombre = nombre
+            .nombre = nombre
         }
 
         Return s.ObtenerId()

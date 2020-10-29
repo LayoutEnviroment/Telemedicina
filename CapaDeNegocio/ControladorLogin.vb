@@ -6,8 +6,8 @@ Public Module ControladorLogin
         Dim l As New ModeloLogin(User, Pass) With {
             .Cedula = User
         }
-
         Return l.ObtenerRol(rol)
+
 
     End Function
 

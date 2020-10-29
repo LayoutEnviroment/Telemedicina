@@ -96,6 +96,22 @@
     </Compile>
     <Compile Include="TestControladorLogin.vb" />
     <Compile Include="TestControladorChat.vb" />
+    <Compile Include="TestControladorCompone.vb" />
+    <Compile Include="TestControladorDiagnostico.vb" />
+    <Compile Include="TestControladorEnfermedad.vb" />
+    <Compile Include="TestControladorGenera.vb" />
+    <Compile Include="TestControladorPaciente.vb" />
+    <Compile Include="TestControladorPadece.vb" />
+    <Compile Include="TestControladorSintoma.vb" />
+    <Compile Include="TestModeloChat.vb" />
+    <Compile Include="TestModeloCompone.vb" />
+    <Compile Include="TestModeloDiagnostico.vb" />
+    <Compile Include="TestModeloEnfermedad.vb" />
+    <Compile Include="TestModeloGenera.vb" />
+    <Compile Include="TestModeloLogin.vb" />
+    <Compile Include="TestModeloPaciente.vb" />
+    <Compile Include="TestModeloPadece.vb" />
+    <Compile Include="TestModeloSintoma.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
