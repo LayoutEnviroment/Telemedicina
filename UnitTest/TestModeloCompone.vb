@@ -10,6 +10,7 @@ Imports CapaDeDatos
     Private ReadOnly PacPass As String = "Pac1234_"
     Private ReadOnly MedPass As String = "Med1234_"
     Private ReadOnly AdmPass As String = "Adm1234_"
+    Private ReadOnly Diagnostico As String = "5"
 
     <TestMethod()> Public Sub TestEnfermedadesPosibles()
         'CONSULTAR POR LAS DUDAS

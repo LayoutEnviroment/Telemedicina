@@ -18,6 +18,7 @@ Imports CapaDeNegocio
         End Try
         Assert.IsTrue(resultado)
     End Sub
+
     <TestMethod()> Public Sub TestObtenerID()
         Try
             Assert.AreEqual(ControladorDiagnostico.ObtenerID(), 4)
@@ -57,6 +58,7 @@ Imports CapaDeNegocio
         Assert.IsTrue(resultado)
 
     End Sub
+
     <TestMethod()> Public Sub TestMedicoDiagnostico()
         Dim tablaEsperada As New DataTable
         Try
@@ -77,6 +79,7 @@ Imports CapaDeNegocio
         Assert.IsTrue(resultado)
 
     End Sub
+
     <TestMethod()> Public Sub ObtenerCedulaPaciente()
         Dim resultado As Boolean
         Try

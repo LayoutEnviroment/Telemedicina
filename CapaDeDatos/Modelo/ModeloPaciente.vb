@@ -158,7 +158,6 @@
                         WHERE
                             ci_persona = " + Me.Cedula + "
                     "
-            MsgBox(FechaNacimiento)
             Command.ExecuteNonQuery()
 
 
@@ -180,7 +179,6 @@
             Command.ExecuteNonQuery()
 
             For Each enfermedad In Enfermedades
-                MsgBox(enfermedad)
                 Command.CommandText = "
                                         INSERT INTO
                                             enfermedades_cronicas(ci_persona_paciente, enfermedad)

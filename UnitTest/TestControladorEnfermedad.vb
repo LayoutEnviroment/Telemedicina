@@ -41,6 +41,7 @@ Imports CapaDeNegocio
             ControladorEnfermedad.CrearEnfermedad("Hartnup", "Mala absorción de los aminoácidos", "ALTA", listaSintomaPrueba)
             resultado = True
         Catch ex As Exception
+            MsgBox(ex.ToString)
             resultado = False
         End Try
         Assert.IsTrue(resultado)

@@ -14,8 +14,8 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestObtenerNombre()
         Dim resultado As Boolean
-        Dim p As New ModeloPaciente("1111", "Todes123") With {
-           .Cedula = "1111"
+        Dim p As New ModeloPaciente(Paciente, PacPass) With {
+           .Cedula = Paciente
        }
 
         Try
@@ -32,8 +32,8 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestObtenerPersonaSexoNacimineto()
         Dim resultado As Boolean
-        Dim p As New ModeloPaciente("1111", "Todes123") With {
-           .Cedula = "1111"
+        Dim p As New ModeloPaciente(Paciente, PacPass) With {
+           .Cedula = Paciente
        }
 
         Try
@@ -50,12 +50,12 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestObtenerPersonaSexoNaciminetoConCi()
         Dim resultado As Boolean
-        Dim p As New ModeloPaciente("1111", "Todes123") With {
-           .Cedula = "1111"
+        Dim p As New ModeloPaciente(Paciente, PacPass) With {
+           .Cedula = Paciente
        }
 
         Try
-            p.ObtenerPersonaSexoNacimineto("1111")
+            p.ObtenerPersonaSexoNacimineto(Paciente)
             resultado = True
 
         Catch ex As Exception
@@ -69,8 +69,8 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestObtenerMedicaciones()
         Dim resultado As Boolean
-        Dim p As New ModeloPaciente("1111", "Todes123") With {
-           .Cedula = "1111"
+        Dim p As New ModeloPaciente(Paciente, PacPass) With {
+           .Cedula = Paciente
        }
 
         Try
@@ -88,12 +88,12 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestObtenerMedicacionesConCI()
         Dim resultado As Boolean
-        Dim p As New ModeloPaciente("1111", "Todes123") With {
-           .Cedula = "1111"
+        Dim p As New ModeloPaciente(Paciente, PacPass) With {
+           .Cedula = Paciente
        }
 
         Try
-            p.ObtenerMedicaciones("1111")
+            p.ObtenerMedicaciones(Paciente)
 
             resultado = True
 
@@ -108,8 +108,8 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestObtenerEnfermedades()
         Dim resultado As Boolean
-        Dim p As New ModeloPaciente("1111", "Todes123") With {
-           .Cedula = "1111"
+        Dim p As New ModeloPaciente(Paciente, PacPass) With {
+           .Cedula = Paciente
        }
 
         Try
@@ -127,12 +127,12 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestTestObtenerEnfermedadesConCI()
         Dim resultado As Boolean
-        Dim p As New ModeloPaciente("1111", "Todes123") With {
-           .Cedula = "1111"
+        Dim p As New ModeloPaciente(Paciente, PacPass) With {
+           .Cedula = Paciente
        }
 
         Try
-            p.ObtenerEnfermedades("1111")
+            p.ObtenerEnfermedades(Paciente)
 
             resultado = True
 
@@ -153,11 +153,11 @@ Imports CapaDeDatos
         "Diabetes"
         }
 
-        Dim p As New ModeloPaciente("1111", "Todes123") With {
+        Dim p As New ModeloPaciente(Paciente, PacPass) With {
             .Nombre = "Super",
             .Apellido = "Pruebas",
             .Mail = "atoderol@gmail.com",
-            .Cedula = "1111",
+            .Cedula = Paciente,
             .Sexo = "0",
             .FechaNacimiento = "1979-03-06",
             .Medicaciones = medicacionPrueba,
@@ -185,7 +185,7 @@ Imports CapaDeDatos
         "Diabetes"
         }
 
-        Dim p As New ModeloPaciente("1111", "Todes123") With {
+        Dim p As New ModeloPaciente(Paciente, PacPass) With {
             .Nombre = "Super",
             .Apellido = "Pruebas",
             .Mail = "atoderol@gmail.com",
@@ -196,7 +196,7 @@ Imports CapaDeDatos
        }
 
         Try
-            p.CambiarDatos("1111")
+            p.CambiarDatos(Paciente)
             resultado = True
 
         Catch ex As Exception
@@ -209,7 +209,7 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestObtenerCiPaciente()
         Dim resultado As Boolean
-        Dim p As New ModeloPaciente("1111", "Todes123")
+        Dim p As New ModeloPaciente(Paciente, PacPass)
 
         Try
             p.ObtenerCiPaciente()

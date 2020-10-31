@@ -40,6 +40,7 @@ Imports CapaDeDatos
         End Try
         Assert.IsTrue(consultaOk)
     End Sub
+
     <TestMethod()> Public Sub TestAceptarSolicitud()
         Dim c As New ModeloChat(Medico, MedPass) With {
             .Cedula = Medico,
@@ -59,8 +60,8 @@ Imports CapaDeDatos
 
     End Sub
     <TestMethod()> Public Sub TestEnviarMensajePaciente()
-        Dim c As New ModeloChat(Medico, MedPass) With {
-            .Cedula = Medico,
+        Dim c As New ModeloChat(Paciente, PacPass) With {
+            .Cedula = Paciente,
             .CiMedico = Medico,
             .IdDiagnostico = Diagnostico,
             .CiPaciente = Paciente,
@@ -68,7 +69,7 @@ Imports CapaDeDatos
         }
         Dim insertadoOk As Boolean
         Try
-            c.AceptarSolicitud()
+            c.EnviarMensajePaciente()
             insertadoOk = True
         Catch ex As Exception
             insertadoOk = False
@@ -89,7 +90,7 @@ Imports CapaDeDatos
             .CiPaciente = Paciente,
             .Mensaje = "Nunca estuve tan de acuerdo"
         }
-            c.AceptarSolicitud()
+            c.EnviarMensajeMedico()
             insertadoOk = True
         Catch ex As Exception
             insertadoOk = False
@@ -127,12 +128,14 @@ Imports CapaDeDatos
         Assert.IsTrue(modificarEstado)
 
     End Sub
+
     <TestMethod()> Public Sub TestFinalizarChatPaciente()
         Dim c As New ModeloChat(Paciente, PacPass) With {
             .CiMedico = Medico,
             .Cedula = Paciente,
             .IdDiagnostico = Diagnostico
         }
+
         Dim modificarEstado As Boolean
         Try
             c.FinalizarChatPaciente()
@@ -143,9 +146,9 @@ Imports CapaDeDatos
         Assert.IsTrue(modificarEstado)
 
     End Sub
+
     <TestMethod()> Public Sub TestFinalizarChatConId()
         Dim c As New ModeloChat(Paciente, PacPass) With {
-            .CiMedico = Medico,
             .Cedula = Paciente,
             .IdDiagnostico = Diagnostico
         }

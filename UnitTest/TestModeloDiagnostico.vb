@@ -18,7 +18,7 @@ Imports CapaDeDatos
         Dim sintomaPrueba As New List(Of String) From {
             "Sintoma de prueba"
         }
-        Dim d As New ModeloDiagnostico(Paciente, Paciente) With {
+        Dim d As New ModeloDiagnostico(Paciente, PacPass) With {
             .IdSintomas = sintomaPrueba,
             .IdEnfermedad = "8"
         }

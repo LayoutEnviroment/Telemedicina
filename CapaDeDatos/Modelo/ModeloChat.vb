@@ -150,9 +150,9 @@
                 atiende(ci_persona_medico, ci_persona_paciente, id_diagnostico, mensaje, leido, destinatario, status)
             VALUES
                 (" + Me.CiMedico + ", " + Me.Cedula + ", " + Me.IdDiagnostico + ", 'paciente desconectado', 0, " + Me.CiMedico + ", 'Finalizado' )
-            
         "
         Command.ExecuteNonQuery()
+
     End Sub
 
     Public Sub FinalizarChat(id As String)

@@ -5,12 +5,17 @@ Imports CapaDeNegocio
 
     Private ReadOnly Paciente As String = "53590226"
     Private ReadOnly Medico As String = "49249605"
+    Private ReadOnly Admin As String = "54083680"
+    Private ReadOnly PacPass As String = "Pac1234_"
+    Private ReadOnly MedPass As String = "Med1234_"
+    Private ReadOnly AdmPass As String = "Adm1234_"
+    Private ReadOnly Diagnostico As String = "5"
 
     <TestMethod()> Public Sub TestEnviarSolicitud()
         ControladorSesion.Cedula = Paciente
         Dim resultado As Boolean
         Try
-            ControladorChat.EnviarSolicitud(5)
+            ControladorChat.EnviarSolicitud(Diagnostico)
 
             resultado = True
 
@@ -36,10 +41,10 @@ Imports CapaDeNegocio
         ControladorSesion.Cedula = Medico
         Dim resultado As Boolean
         Try
-            ControladorChat.AceptarSolicitud(5, "1111", "super", "pruebas")
+            ControladorChat.AceptarSolicitud(5, Paciente, "Eduardo", "Fabre")
             resultado = True
         Catch ex As Exception
-
+            MsgBox(ex.ToString)
             resultado = False
         End Try
 
@@ -50,9 +55,10 @@ Imports CapaDeNegocio
         ControladorSesion.Cedula = Paciente
         Dim resultado As Boolean
         Try
-            ControladorChat.EnviarMensajePaciente(5, "haré cualquiera", "1111")
+            ControladorChat.EnviarMensajePaciente(5, "soy paciente", Medico)
             resultado = True
         Catch ex As Exception
+            MsgBox(ex.ToString)
             resultado = False
 
         End Try
@@ -63,9 +69,10 @@ Imports CapaDeNegocio
         ControladorSesion.Cedula = Medico
         Dim resultado As Boolean
         Try
-            ControladorChat.EnviarMensajeMedico(5, "como el tester", "33334445")
+            ControladorChat.EnviarMensajeMedico(5, "soy medico", Paciente)
             resultado = True
         Catch ex As Exception
+            MsgBox(ex.ToString)
             resultado = False
 
         End Try
@@ -87,7 +94,7 @@ Imports CapaDeNegocio
     <TestMethod()> Public Sub TestMarcarComoLeido()
         Dim resultado As Boolean
         Try
-            ControladorChat.MarcarComoLeido(1)
+            ControladorChat.MarcarComoLeido(Diagnostico)
             resultado = True
         Catch ex As Exception
             resultado = False
@@ -98,10 +105,12 @@ Imports CapaDeNegocio
     <TestMethod()> Public Sub TestFinalizarChatPaciente()
         ControladorSesion.Cedula = Paciente
         Dim resultado As Boolean
+
         Try
-            ControladorChat.FinalizarChatPaciente(1, Medico)
+            ControladorChat.FinalizarChatPaciente(5, Medico)
             resultado = True
         Catch ex As Exception
+            MsgBox(ex.ToString)
             resultado = False
         End Try
 
@@ -124,8 +133,9 @@ Imports CapaDeNegocio
     <TestMethod()> Public Sub TestFinalizarChat()
         ControladorSesion.Cedula = Paciente
         Dim resultado As Boolean
+
         Try
-            ControladorChat.FinalizarChat(5)
+            ControladorChat.FinalizarChat(Diagnostico)
             resultado = True
         Catch ex As Exception
 

@@ -6,7 +6,6 @@ Public Class FrmNuevoSintoma
 
     Private Sub TxtNombre_TextChanged(sender As Object, e As EventArgs) Handles TxtNombre.TextChanged
         If ControladorSintoma.ObtenerExistencia(TxtNombre.Text) = 1 Then
-            MsgBox("Estoy")
             AveriguarInactividad()
 
         ElseIf TxtNombre.Text = "" Then

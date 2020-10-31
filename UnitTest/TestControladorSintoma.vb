@@ -3,6 +3,17 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports CapaDeNegocio
 <TestClass()> Public Class TestControladorSintoma
 
+    Private Function Random()
+        Dim rdm As New Random()
+        Dim Letras() As Char = "ABCDEFGHIJKLOMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".ToCharArray()
+        Dim Sintoma As String = ""
+
+        For i As Integer = 0 To 8
+            Sintoma += Letras(rdm.Next(0, Letras.Length))
+        Next
+        Return Sintoma
+    End Function
+
     <TestMethod()> Public Sub TestListarNombreSintomaActivo()
         Dim resultado As Boolean
 
@@ -23,7 +34,7 @@ Imports CapaDeNegocio
         Dim resultado As Boolean
 
         Try
-            ControladorSintoma.CrearSintoma("Rinitis")
+            ControladorSintoma.CrearSintoma(Random())
             resultado = True
 
         Catch ex As Exception

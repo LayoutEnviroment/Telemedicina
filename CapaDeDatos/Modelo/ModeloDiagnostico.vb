@@ -16,22 +16,18 @@
             Command.ExecuteNonQuery()
             Command.CommandText = "START TRANSACTION"
             Command.ExecuteNonQuery()
-            'Command.CommandText = "LOCK TABLE Diagnostico READ"
-            'Command.ExecuteNonQuery()
-            'Command.CommandText = "LOCK TABLE Diagnostico WRITE"
-            'Command.ExecuteNonQuery()
-            Try
-                Command.CommandText = "
+
+            Command.CommandText = "
                     INSERT INTO
                         diagnostico(fecha, pertenece)
                     VALUES(
                         CURDATE(), " + Me.Cedula + ")
                 "
-                Command.ExecuteNonQuery()
-                Try
-                    Dim values = String.Join(",", IdSintomas.Select(Function(f) String.Format("'{0}'", f)).ToArray())
-                    For Each sintoma In IdSintomas
-                        Command.CommandText = "
+            Command.ExecuteNonQuery()
+
+            Dim values = String.Join(",", IdSintomas.Select(Function(f) String.Format("'{0}'", f)).ToArray())
+            For Each sintoma In IdSintomas
+                Command.CommandText = "
                         INSERT INTO
                             genera(id_diagnostico, id_sintoma, id_enfermedad)
                         VALUES
@@ -48,28 +44,20 @@
                              " + Me.IdEnfermedad + "
                             )
                     "
-                        Command.ExecuteNonQuery()
-                    Next
+                Command.ExecuteNonQuery()
+            Next
 
-                    Command.CommandText = "COMMIT"
-                    Command.ExecuteNonQuery()
-                    Command.CommandText = "UNLOCK TABLES"
-                    Command.ExecuteNonQuery()
+            Command.CommandText = "COMMIT"
+            Command.ExecuteNonQuery()
+            Command.CommandText = "UNLOCK TABLES"
+            Command.ExecuteNonQuery()
 
-                Catch ex As Exception
-                    MsgBox("Error en insert genera")
-                    MsgBox(ex.ToString)
-                End Try
-
-            Catch ex As Exception
-                MsgBox("Error en diagnostcio" + ex.ToString)
-            End Try
         Catch ex As Exception
-            MsgBox("Error en transaccion")
             Command.CommandText = "ROLLBACK"
             Command.ExecuteNonQuery()
             Command.CommandText = "UNLOCK TABLES"
             Command.ExecuteNonQuery()
+
         End Try
 
     End Sub

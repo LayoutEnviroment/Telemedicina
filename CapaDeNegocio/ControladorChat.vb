@@ -29,11 +29,11 @@ Public Module ControladorChat
         c.AceptarSolicitud()
     End Sub
 
-    Public Sub EnviarMensajePaciente(id As String, mensaje As String, paciente As String)
+    Public Sub EnviarMensajePaciente(id As String, mensaje As String, medico As String)
         Dim c As New ModeloChat(ControladorSesion.User, ControladorSesion.Pass) With {
             .IdDiagnostico = id,
             .Mensaje = mensaje,
-            .CiMedico = paciente,
+            .CiMedico = medico,
             .Cedula = ControladorSesion.Cedula
         }
 
