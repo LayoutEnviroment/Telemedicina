@@ -4,10 +4,29 @@ Imports CapaDeDatos
 
 <TestClass()> Public Class TestModeloSintoma
 
+    Private ReadOnly Paciente As String = "53590226"
+    Private ReadOnly Medico As String = "49249605"
+    Private ReadOnly Admin As String = "54083680"
+    Private ReadOnly PacPass As String = "Pac1234_"
+    Private ReadOnly MedPass As String = "Med1234_"
+    Private ReadOnly AdmPass As String = "Adm1234_"
+    Private ReadOnly Diagnostico As String = "5"
+
+    Private Function Random()
+        Dim rdm As New Random()
+        Dim Letras() As Char = "ABCDEFGHIJKLOMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".ToCharArray()
+        Dim Sintoma As String = ""
+
+        For i As Integer = 0 To 8
+            Sintoma += Letras(rdm.Next(0, Letras.Length))
+        Next
+        Return Sintoma
+    End Function
+
     <TestMethod()> Public Sub TestListar()
 
         Dim resultado As Boolean
-        Dim s As New ModeloSintoma("11112223", "Admin123") With {
+        Dim s As New ModeloSintoma(Admin, AdmPass) With {
            .Nombre = "Tos"
        }
 
@@ -17,7 +36,7 @@ Imports CapaDeDatos
 
         Catch ex As Exception
             resultado = False
-
+            MsgBox(ex.ToString)
         End Try
 
         Assert.IsTrue(resultado)
@@ -25,7 +44,7 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestListarNombreSintomaActivo()
         Dim resultado As Boolean
-        Dim s As New ModeloSintoma("11112223", "Admin123")
+        Dim s As New ModeloSintoma(Admin, AdmPass)
 
         Try
             s.ListarNombreSintomaActivo()
@@ -39,27 +58,27 @@ Imports CapaDeDatos
         Assert.IsTrue(resultado)
     End Sub
 
-    <TestMethod()> Public Sub TestListarTodo()
-        Dim resultado As Boolean
-        Dim s As New ModeloSintoma("11112223", "Admin123")
+    '<TestMethod()> Public Sub TestListarTodo()
+    '    Dim resultado As Boolean
+    '    Dim s As New ModeloSintoma("11112223", "Admin123")
 
-        Try
-            s.ListarTodo()
-            resultado = True
+    '    Try
+    '        s.ListarTodo()
+    '        resultado = True
 
-        Catch ex As Exception
-            resultado = False
+    '    Catch ex As Exception
+    '        resultado = False
 
-        End Try
+    '    End Try
 
-        Assert.IsTrue(resultado)
+    '    Assert.IsTrue(resultado)
 
-    End Sub
+    'End Sub
 
     <TestMethod()> Public Sub TestInsertar()
         Dim resultado As Boolean
-        Dim s As New ModeloSintoma("11112223", "Admin123") With {
-            .Nombre = "Ardor de estomago"
+        Dim s As New ModeloSintoma(Admin, AdmPass) With {
+            .Nombre = Random()
         }
 
         Try
@@ -67,6 +86,7 @@ Imports CapaDeDatos
             resultado = True
 
         Catch ex As Exception
+            MsgBox(ex.ToString)
             resultado = False
 
         End Try
@@ -76,7 +96,7 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestModificar()
         Dim resultado As Boolean
-        Dim s As New ModeloSintoma("11112223", "Admin123") With {
+        Dim s As New ModeloSintoma(Admin, AdmPass) With {
             .Nombre = "Espinillas negras",
             .IdSintoma = "11"
         }
@@ -115,7 +135,7 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestEliminar()
         Dim resultado As Boolean
-        Dim s As New ModeloSintoma("11112223", "Admin123") With {
+        Dim s As New ModeloSintoma(Admin, AdmPass) With {
             .IdSintoma = "27"
         }
 
@@ -134,7 +154,7 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestListarNombreSintomaInactivo()
         Dim resultado As Boolean
-        Dim s As New ModeloSintoma("11112223", "Admin123")
+        Dim s As New ModeloSintoma(Admin, AdmPass)
 
         Try
             s.ListarNombreSintomaInactivo()
@@ -151,7 +171,7 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestObtenerExistencia()
         Dim resultado As Boolean
-        Dim s As New ModeloSintoma("11112223", "Admin123") With {
+        Dim s As New ModeloSintoma(Admin, AdmPass) With {
             .Nombre = "Quistes"
         }
 
@@ -169,7 +189,7 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestEstaInactivo()
         Dim resultado As Boolean
-        Dim s As New ModeloSintoma("11112223", "Admin123") With {
+        Dim s As New ModeloSintoma(Admin, AdmPass) With {
             .Nombre = "Quistes"
         }
 
@@ -188,7 +208,7 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestObtenerId()
         Dim resultado As Boolean
-        Dim s As New ModeloSintoma("11112223", "Admin123") With {
+        Dim s As New ModeloSintoma(Admin, AdmPass) With {
             .Nombre = "Ronchas"
         }
 
@@ -206,7 +226,7 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestActivarSintoma()
         Dim resultado As Boolean
-        Dim s As New ModeloSintoma("11112223", "Admin123") With {
+        Dim s As New ModeloSintoma(Admin, AdmPass) With {
             .IdSintoma = "10"
         }
 
@@ -223,23 +243,23 @@ Imports CapaDeDatos
 
     End Sub
 
-    <TestMethod()> Public Sub TestEliminarConNombre()
-        Dim resultado As Boolean
-        Dim sintomapruebas = "Quistes"
-        Dim s As New ModeloSintoma("11112223", "Admin123") With {
-            .Nombre = sintomapruebas
-        }
+    '<TestMethod()> Public Sub TestEliminarConNombre()
+    '    Dim resultado As Boolean
+    '    Dim sintomapruebas = "Quistes"
+    '    Dim s As New ModeloSintoma("11112223", "Admin123") With {
+    '        .Nombre = sintomapruebas
+    '    }
 
-        Try
-            s.Eliminar(sintomapruebas)
-            resultado = True
+    '    Try
+    '        s.Eliminar(sintomapruebas)
+    '        resultado = True
 
-        Catch ex As Exception
-            resultado = False
+    '    Catch ex As Exception
+    '        resultado = False
 
-        End Try
+    '    End Try
 
-        Assert.IsTrue(resultado)
-    End Sub
+    '    Assert.IsTrue(resultado)
+    'End Sub
 
 End Class

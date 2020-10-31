@@ -7,6 +7,14 @@ Imports CapaDeDatos
 'REVISAR ACTIVAR ENFERMEDAD Y REACTIVAR, YA QUE HACEN LO MISMO
 <TestClass()> Public Class TestModeloEnfermedad
 
+    Private ReadOnly Paciente As String = "53590226"
+    Private ReadOnly Medico As String = "49249605"
+    Private ReadOnly Admin As String = "54083680"
+    Private ReadOnly PacPass As String = "Pac1234_"
+    Private ReadOnly MedPass As String = "Med1234_"
+    Private ReadOnly AdmPass As String = "Adm1234_"
+    Private ReadOnly Diagnostico As String = "5"
+
     <TestMethod()> Public Sub TestInsertar()
         Dim resultado As Boolean
 
@@ -18,7 +26,7 @@ Imports CapaDeDatos
             "Desmayo"
         }
 
-        Dim e As New ModeloEnfermedad("11112223", "Admin123") With {
+        Dim e As New ModeloEnfermedad(Admin, AdmPass) With {
             .Sintomas = sintomaPrueba,
             .Nombre = "Hartnup",
             .Descripcion = "Mala absorcion de los aminoacidos",
@@ -40,7 +48,7 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestEstaInactivo()
         Dim resultado As Boolean
-        Dim e As New ModeloEnfermedad("11112223", "Admin123") With {
+        Dim e As New ModeloEnfermedad(Admin, AdmPass) With {
            .Nombre = "Alergia"
        }
 
@@ -58,7 +66,7 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestActivarEnfermedad()
         Dim activarEnfermedad
-        Dim e As New ModeloEnfermedad("11112223", "Admin123") With {
+        Dim e As New ModeloEnfermedad(Admin, AdmPass) With {
            .Nombre = "Alergia"
        }
 
@@ -77,7 +85,7 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestListar()
         Dim listado As Boolean
-        Dim e As New ModeloEnfermedad("11112223", "Admin123")
+        Dim e As New ModeloEnfermedad(Admin, AdmPass)
 
         Try
             e.Listar()
@@ -94,7 +102,7 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestListarNombreEnfermedadesActivas()
         Dim listado As Boolean
-        Dim e As New ModeloEnfermedad("11112223", "Admin123")
+        Dim e As New ModeloEnfermedad(Admin, AdmPass)
 
         Try
             e.Listar()
@@ -110,7 +118,7 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestListarNombreEnfermedadesInactivas()
         Dim listado As Boolean
-        Dim e As New ModeloEnfermedad("11112223", "Admin123")
+        Dim e As New ModeloEnfermedad(Admin, AdmPass)
 
         Try
             e.Listar()
@@ -132,7 +140,7 @@ Imports CapaDeDatos
 
         Dim modificadoOK As Boolean
 
-        Dim e As New ModeloEnfermedad("11112223", "Admin123") With {
+        Dim e As New ModeloEnfermedad(Admin, AdmPass) With {
            .Nombre = "Bronquitis",
            .Descripcion = "Inflamacion de los conductos bronquiales, las vias respiratorias que llevan oxigeno a sus pulmones.",
            .Prioridad = "ALTA",
@@ -164,7 +172,7 @@ Imports CapaDeDatos
             "Desmayo",
             "Temblores"
         }
-        Dim e As New ModeloEnfermedad("11112223", "Admin123") With {
+        Dim e As New ModeloEnfermedad(Admin, AdmPass) With {
            .Nombre = "Hartnup",
            .Descripcion = "Mala absorcion de los aminoacidos",
            .Prioridad = "ALTA",
@@ -185,7 +193,7 @@ Imports CapaDeDatos
     End Sub
     <TestMethod()> Public Sub TestEliminar()
         Dim resultado As Boolean
-        Dim e As New ModeloEnfermedad("11112223", "Admin123") With {
+        Dim e As New ModeloEnfermedad(Admin, AdmPass) With {
            .Id = "3"
        }
 
@@ -203,7 +211,7 @@ Imports CapaDeDatos
     End Sub
     <TestMethod()> Public Sub TestObtenerId()
         Dim resultado As Boolean
-        Dim e As New ModeloEnfermedad("11112223", "Admin123") With {
+        Dim e As New ModeloEnfermedad(Admin, AdmPass) With {
            .Nombre = "Hartnup"
        }
 
@@ -212,6 +220,7 @@ Imports CapaDeDatos
             resultado = True
 
         Catch ex As Exception
+            MsgBox(ex.ToString)
             resultado = False
 
         End Try
@@ -222,7 +231,7 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestObtenerPrioridad()
         Dim resultado As Boolean
-        Dim e As New ModeloEnfermedad("11112223", "Admin123") With {
+        Dim e As New ModeloEnfermedad(Admin, AdmPass) With {
            .Id = "4"
        }
 
@@ -241,7 +250,7 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestObtenerDescripcion()
         Dim resultado As Boolean
-        Dim e As New ModeloEnfermedad("11112223", "Admin123") With {
+        Dim e As New ModeloEnfermedad(Admin, AdmPass) With {
            .Id = "5"
        }
 
@@ -260,7 +269,7 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestObtenerTodo()
         Dim resultado As Boolean
-        Dim e As New ModeloEnfermedad("11112223", "Admin123") With {
+        Dim e As New ModeloEnfermedad(Admin, AdmPass) With {
            .Id = "5"
        }
 
@@ -279,7 +288,7 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestObtenerExistencia()
         Dim resultado As Boolean
-        Dim e As New ModeloEnfermedad("11112223", "Admin123") With {
+        Dim e As New ModeloEnfermedad(Admin, AdmPass) With {
            .Nombre = "Alergia"
        }
 

@@ -26,6 +26,7 @@ Imports CapaDeNegocio
         Assert.IsTrue(resultado)
 
     End Sub
+
     <TestMethod()> Public Sub TestCrearEnfermedad()
         Dim resultado As Boolean
         Dim listaSintomaPrueba As New List(Of String) From {

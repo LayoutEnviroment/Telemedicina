@@ -11,7 +11,7 @@ Public Module ControladorSintoma
 
     Public Sub CrearSintoma(nombre As String)
         Dim s As New ModeloSintoma(ControladorSesion.User, ControladorSesion.Pass) With {
-            .nombre = nombre
+            .Nombre = nombre
         }
 
         s.Insertar()

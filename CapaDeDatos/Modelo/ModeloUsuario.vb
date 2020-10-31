@@ -220,7 +220,6 @@
         Catch ex As Exception
             Command.CommandText = "ROLLBACK"
             Command.ExecuteNonQuery()
-            MsgBox(ex.ToString)
 
         End Try
 
@@ -424,7 +423,6 @@
         Catch ex As Exception
             Command.CommandText = "ROLLBACK"
             Command.ExecuteNonQuery()
-            MsgBox(ex.ToString)
 
         End Try
 
@@ -594,12 +592,11 @@
 
             Command.CommandText = "COMMIT"
             Command.ExecuteNonQuery()
-            'Return True
+
         Catch ex As Exception
             Command.CommandText = "ROLLBACK"
             Command.ExecuteNonQuery()
-            MsgBox(ex.HResult)
-            'Return ex.HResult.ToString
+
         End Try
 
     End Sub
@@ -769,7 +766,6 @@
         Catch ex As Exception
             Command.CommandText = "ROLLBACK"
             Command.ExecuteNonQuery()
-            MsgBox(ex.ToString())
 
         End Try
 
@@ -833,7 +829,6 @@
         Catch ex As Exception
             Command.CommandText = "ROLLBACK"
             Command.ExecuteNonQuery()
-            MsgBox(ex.ToString())
         End Try
     End Sub
 
@@ -892,7 +887,7 @@
         Catch ex As Exception
             Command.CommandText = "ROLLBACK"
             Command.ExecuteNonQuery()
-            MsgBox(ex.ToString)
+
         End Try
 
     End Sub
@@ -1199,7 +1194,6 @@
         Catch ex As Exception
             Command.CommandText = "ROLLBACK"
             Command.ExecuteNonQuery()
-            MsgBox("error")
 
         End Try
     End Sub
@@ -1373,7 +1367,6 @@
         Catch ex As Exception
             Command.CommandText = "ROLLBACK"
             Command.ExecuteNonQuery()
-            MsgBox("error")
 
         End Try
 
@@ -1594,10 +1587,8 @@
         Catch ex As Exception
             Command.CommandText = "ROLLBACK"
             Command.ExecuteNonQuery()
-            MsgBox(ex.ToString)
+
         End Try
-
-
 
     End Sub
 

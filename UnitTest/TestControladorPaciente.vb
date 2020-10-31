@@ -4,6 +4,8 @@ Imports CapaDeNegocio
 
 <TestClass()> Public Class TestControladorPaciente
 
+    Private ReadOnly Paciente As String = "53590226"
+
     <TestMethod()> Public Sub TestObtenerNombre()
         Dim resultado As Boolean
         Try

@@ -56,7 +56,6 @@
         Catch ex As Exception
             Command.CommandText = "ROLLBACK"
             Command.ExecuteNonQuery()
-            MsgBox(ex.ToString)
         End Try
 
     End Sub
@@ -303,7 +302,6 @@
                 nombre = '" + Me.Nombre + "' > 0
         "
         Return Command.ExecuteScalar.ToString()
-        MsgBox(Command.ExecuteScalar.ToString())
     End Function
 
     Public Sub ReactivarEnfermedad()

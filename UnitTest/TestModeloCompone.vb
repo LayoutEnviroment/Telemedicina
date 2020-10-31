@@ -4,12 +4,19 @@ Imports CapaDeDatos
 
 <TestClass()> Public Class TestModeloCompone
 
+    Private ReadOnly Paciente As String = "53590226"
+    Private ReadOnly Medico As String = "49249605"
+    Private ReadOnly Admin As String = "54083680"
+    Private ReadOnly PacPass As String = "Pac1234_"
+    Private ReadOnly MedPass As String = "Med1234_"
+    Private ReadOnly AdmPass As String = "Adm1234_"
+
     <TestMethod()> Public Sub TestEnfermedadesPosibles()
         'CONSULTAR POR LAS DUDAS
         Dim sintomaPrueba As New List(Of String) From {
         ("Sintoma de prueba")
         }
-        Dim c As New ModeloCompone("1111", "Todes123") With {
+        Dim c As New ModeloCompone(Paciente, PacPass) With {
             .IdSintomas = sintomaPrueba}
         Dim buscarInformacion As Boolean
 
@@ -32,7 +39,7 @@ Imports CapaDeDatos
        ("Diarrea"),
        ("Ronchas")
        }
-        Dim C As New ModeloCompone("1111", "Todes123") With {
+        Dim C As New ModeloCompone(Paciente, PacPass) With {
             .IdSintomas = sintomaPrueba}
         Dim buscarInformacion As Boolean
 
@@ -52,7 +59,7 @@ Imports CapaDeDatos
     'End Sub
 
     <TestMethod()> Public Sub TestObtenerSintomasEnfermedad()
-        Dim c As New ModeloCompone("11112223", "Admin123") With {
+        Dim c As New ModeloCompone(Admin, AdmPass) With {
       .IdEnfermedad = "5"
   }
         Dim buscarInformacion As Boolean

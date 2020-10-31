@@ -208,6 +208,7 @@ Public Class FrmNuevoUsuario
     End Sub
 
     Private Sub CrearPersona(Tipo As Integer)
+        CrearContra()
         If Tipo = 1 Then
             CrearPaciente()
         ElseIf Tipo = 2 Then
@@ -236,7 +237,7 @@ Public Class FrmNuevoUsuario
                                              Sexo,
                                              EnfermedadesCronicas,
                                              Medicamentos,
-                                             CrearContra())
+                                             Contra)
             MsgBox("paciente creado con exito!")
             EnviarMail()
         Catch ex As Exception
@@ -250,7 +251,7 @@ Public Class FrmNuevoUsuario
                                             TxtNombre.Text,
                                             TxtApellido.Text,
                                             TxtMail.Text,
-                                            CrearContra())
+                                            Contra)
             MsgBox("medico creado con exito!")
             EnviarMail()
 
@@ -266,7 +267,7 @@ Public Class FrmNuevoUsuario
                                                    TxtNombre.Text,
                                                    TxtApellido.Text,
                                                    TxtMail.Text,
-                                                   CrearContra())
+                                                   Contra)
             MsgBox("Administrativo creado con exito!")
             EnviarMail()
         Catch ex As Exception
@@ -285,7 +286,7 @@ Public Class FrmNuevoUsuario
                                              Sexo,
                                              EnfermedadesCronicas,
                                              Medicamentos,
-                                             CrearContra())
+                                             Contra)
             MsgBox("Paciente medico creado con exito")
             EnviarMail()
         Catch ex As Exception
@@ -303,7 +304,7 @@ Public Class FrmNuevoUsuario
                                              Sexo,
                                              EnfermedadesCronicas,
                                              Medicamentos,
-                                             CrearContra())
+                                             Contra)
             MsgBox("El usuario se creo como paciente y administrativo")
             EnviarMail()
         Catch ex As Exception
@@ -318,7 +319,7 @@ Public Class FrmNuevoUsuario
                                                 TxtNombre.Text,
                                                 TxtApellido.Text,
                                                 TxtMail.Text,
-                                                CrearContra())
+                                                Contra)
             MsgBox("El usuario " + TxtNombre.Text + " fue creado con exito!")
             EnviarMail()
         Catch ex As Exception
@@ -337,7 +338,7 @@ Public Class FrmNuevoUsuario
                                             Sexo,
                                             EnfermedadesCronicas,
                                             Medicamentos,
-                                            CrearContra())
+                                            Contra)
             MsgBox("Persona creada con exito")
             EnviarMail()
         Catch ex As Exception
@@ -345,29 +346,26 @@ Public Class FrmNuevoUsuario
         End Try
     End Sub
 
-    Private Function CrearContra()
+    Private Sub CrearContra()
         Dim rdm As New Random()
         Dim Mayus() As Char = "ABCDEFGHIJKLOMNOPQRSTUVWXYZ".ToCharArray()
         Dim Numeros() As Char = "0123456789".ToCharArray()
         Dim Especiales() As Char = "*_/".ToCharArray()
         Dim Caracteres() As Char = "abcdefghijklmnopqrstuvwxyz".ToCharArray()
-        Dim Pass As String = ""
 
         For i As Integer = 0 To 8
             If i < 6 Then
-                Pass += Caracteres(rdm.Next(0, Caracteres.Length))
+                Contra += Caracteres(rdm.Next(0, Caracteres.Length))
             ElseIf i = 6 Then
-                Pass += Especiales(rdm.Next(0, Especiales.Length))
+                Contra += Especiales(rdm.Next(0, Especiales.Length))
             ElseIf i = 7 Then
-                Pass += Numeros(rdm.Next(0, Numeros.Length))
+                Contra += Numeros(rdm.Next(0, Numeros.Length))
             Else
-                Pass += Mayus(rdm.Next(0, Mayus.Length))
+                Contra += Mayus(rdm.Next(0, Mayus.Length))
             End If
         Next
 
-        Return Pass
-
-    End Function
+    End Sub
 
     Private Sub EnviarMail()
         Dim smtp As New SmtpClient()

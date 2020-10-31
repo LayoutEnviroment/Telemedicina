@@ -55,21 +55,6 @@
 
     End Function
 
-    'Public Function ListarTodo()
-    '    Command.CommandText = "
-    '        SELECT
-    '            id AS ID, nombre AS Nombre
-    '        FROM
-    '            sintoma
-    '        WHERE
-    '            activo = 1
-    '    "
-
-    '    Reader = Command.ExecuteReader
-    '    Return Reader
-
-    'End Function
-
     Public Sub Insertar()
         Command.CommandText = "
             INSERT INTO 

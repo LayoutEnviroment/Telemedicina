@@ -7,7 +7,7 @@ Imports CapaDeNegocio
         Dim resultado As Boolean
         Try
             ControladorSesion.User = 1111
-            ControladorSesion.Pass = "Todes123"
+            ControladorSesion.Pass = "Todes123_"
             ControladorSesion.Cedula = 1111
             resultado = True
 

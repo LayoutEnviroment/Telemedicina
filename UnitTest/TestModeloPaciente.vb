@@ -4,6 +4,14 @@ Imports CapaDeDatos
 
 <TestClass()> Public Class TestModeloPaciente
 
+    Private ReadOnly Paciente As String = "53590226"
+    Private ReadOnly Medico As String = "49249605"
+    Private ReadOnly Admin As String = "54083680"
+    Private ReadOnly PacPass As String = "Pac1234_"
+    Private ReadOnly MedPass As String = "Med1234_"
+    Private ReadOnly AdmPass As String = "Adm1234_"
+    Private ReadOnly Diagnostico As String = "5"
+
     <TestMethod()> Public Sub TestObtenerNombre()
         Dim resultado As Boolean
         Dim p As New ModeloPaciente("1111", "Todes123") With {

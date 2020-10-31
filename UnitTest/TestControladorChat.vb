@@ -3,10 +3,14 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports CapaDeNegocio
 <TestClass()> Public Class TestControladorChat
 
+    Private ReadOnly Paciente As String = "53590226"
+    Private ReadOnly Medico As String = "49249605"
+
     <TestMethod()> Public Sub TestEnviarSolicitud()
+        ControladorSesion.Cedula = Paciente
         Dim resultado As Boolean
         Try
-            ControladorChat.EnviarSolicitud("4")
+            ControladorChat.EnviarSolicitud(5)
 
             resultado = True
 
@@ -29,9 +33,10 @@ Imports CapaDeNegocio
     End Sub
 
     <TestMethod()> Public Sub TestAceptarSolicitud()
+        ControladorSesion.Cedula = Medico
         Dim resultado As Boolean
         Try
-            ControladorChat.AceptarSolicitud("1", "1111", "super", "pruebas")
+            ControladorChat.AceptarSolicitud(5, "1111", "super", "pruebas")
             resultado = True
         Catch ex As Exception
 
@@ -42,9 +47,10 @@ Imports CapaDeNegocio
     End Sub
 
     <TestMethod()> Public Sub TestEnviarMensajePaciente()
+        ControladorSesion.Cedula = Paciente
         Dim resultado As Boolean
         Try
-            ControladorChat.EnviarMensajePaciente(2, "haré cualquiera", "1111")
+            ControladorChat.EnviarMensajePaciente(5, "haré cualquiera", "1111")
             resultado = True
         Catch ex As Exception
             resultado = False
@@ -54,9 +60,10 @@ Imports CapaDeNegocio
     End Sub
 
     <TestMethod()> Public Sub TestEnviarMensajeMedico()
+        ControladorSesion.Cedula = Medico
         Dim resultado As Boolean
         Try
-            ControladorChat.EnviarMensajeMedico(1, "como el tester", "33334445")
+            ControladorChat.EnviarMensajeMedico(5, "como el tester", "33334445")
             resultado = True
         Catch ex As Exception
             resultado = False
@@ -89,9 +96,10 @@ Imports CapaDeNegocio
     End Sub
 
     <TestMethod()> Public Sub TestFinalizarChatPaciente()
+        ControladorSesion.Cedula = Paciente
         Dim resultado As Boolean
         Try
-            ControladorChat.FinalizarChatPaciente(2, "1111")
+            ControladorChat.FinalizarChatPaciente(1, Medico)
             resultado = True
         Catch ex As Exception
             resultado = False
@@ -101,9 +109,10 @@ Imports CapaDeNegocio
     End Sub
 
     <TestMethod()> Public Sub TestFinalizarChatMedico()
+        ControladorSesion.Cedula = Medico
         Dim resultado As Boolean
         Try
-            ControladorChat.FinalizarChatMedico(2, "1111")
+            ControladorChat.FinalizarChatMedico(5, Paciente)
             resultado = True
         Catch ex As Exception
             resultado = False
@@ -113,9 +122,10 @@ Imports CapaDeNegocio
     End Sub
 
     <TestMethod()> Public Sub TestFinalizarChat()
+        ControladorSesion.Cedula = Paciente
         Dim resultado As Boolean
         Try
-            ControladorChat.FinalizarChat("2")
+            ControladorChat.FinalizarChat(5)
             resultado = True
         Catch ex As Exception
 

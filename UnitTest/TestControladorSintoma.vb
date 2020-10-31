@@ -28,7 +28,7 @@ Imports CapaDeNegocio
 
         Catch ex As Exception
             resultado = False
-
+            MsgBox(ex.ToString)
         End Try
 
         Assert.IsTrue(resultado)

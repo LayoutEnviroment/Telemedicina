@@ -4,10 +4,18 @@ Imports CapaDeDatos
 
 <TestClass()> Public Class TestModeloGenera
 
+    Private ReadOnly Paciente As String = "53590226"
+    Private ReadOnly Medico As String = "49249605"
+    Private ReadOnly Admin As String = "54083680"
+    Private ReadOnly PacPass As String = "Pac1234_"
+    Private ReadOnly MedPass As String = "Med1234_"
+    Private ReadOnly AdmPass As String = "Adm1234_"
+    Private ReadOnly Diagnostico As String = "5"
+
     <TestMethod()> Public Sub TestObtenerEnfermedadGenerada()
         Dim resultado As Boolean
-        Dim g As New ModeloGenera("1111", "Todes123") With {
-           .Cedula = "1111"
+        Dim g As New ModeloGenera(Paciente, PacPass) With {
+           .Cedula = Paciente
        }
 
         Try
@@ -25,8 +33,8 @@ Imports CapaDeDatos
 
     <TestMethod()> Public Sub TestObtenerNombreEnfermedad()
         Dim resultado As Boolean
-        Dim g As New ModeloGenera("1111", "Todes123") With {
-           .IdDiagnostico = "4"
+        Dim g As New ModeloGenera(Paciente, PacPass) With {
+           .IdDiagnostico = Diagnostico
        }
 
         Try
@@ -45,8 +53,8 @@ Imports CapaDeDatos
     <TestMethod()> Public Sub TestObtenerNombreSintomas()
 
         Dim resultado As Boolean
-        Dim g As New ModeloGenera("1111", "Todes123") With {
-           .IdDiagnostico = "4"
+        Dim g As New ModeloGenera(Paciente, PacPass) With {
+           .IdDiagnostico = Diagnostico
        }
 
         Try

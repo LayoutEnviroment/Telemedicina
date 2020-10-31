@@ -1,129 +1,128 @@
 INSERT INTO
 	persona(ci, nombre, apellido, mail)
 VALUES
-	(1, 'Jorge', 'Prado', 'jorge.prado@gmail.com'),
-	(2, 'Gregory','House','diagnostico.medico@gmail.com'),
-	(3, 'admin','admin', 'admin@hotmail.com'),
-	(1111, 'super', 'pruebas','atoderol@gmail.com'),
-	(11112223, 'admin', 'pruebas', 'adminpruebas@hotmail.com'),
-	(22223334, 'doctor', 'pruebas','doctorpruebas@gmail.com'),
-	(33334445, 'paciente', 'pruebas', 'pacientepruebas@adinet.com');
+	(53590226, 'Alejandro','Nunez','nunezalejandro019@gmail.com'),
+	(49249605, 'Edurado', 'Fabre', 'egufabre@hotmail.com'),
+	(54083680, 'Leonardo','Santos','leonardosantosbran@gmail.com'),
+	(1111, 'Super','User','ledprogrammers@gmail.com');
+
 INSERT INTO 
 	paciente(ci_persona, sexo, fecha_nac) 
 VALUES
-	(1, 0, '1999-09-09'),
-	(1111, 0, '1979-03-06'),
-	(33334445, 0, '1995-06-05');
+	(53590226, 0, '1998-04-25'),
+	(1111, 0, '2020-11-06');
+
 INSERT INTO
 	enfermedades_cronicas (ci_persona_paciente, enfermedad)
 VALUES
-	(33334445, 'asma'),
-	(1111, 'diabetes');
+	(53590226, 'asma'),
+	(53590226, 'diabetes');
+
 INSERT INTO
 	medicaciones (ci_persona_paciente, medicacion)
 VALUES
-	(33334445, 'ventolin'),
-	(1111, 'insulina');
+	(53590226, 'ventolin'),
+	(53590226, 'insulina');
+
 INSERT INTO
 	medico(ci_persona)
 VALUES
-	(2),
-	(1111),
-	(22223334);
+	(49249605),
+	(1111);
 
 INSERT INTO
 	administrativo(ci_persona)
 VALUES
-	(3),
-	(1111),
-	(11112223);
+	(54083680),
+	(1111);
 
 INSERT INTO
 	roles(ci_persona, rol)
 VALUES
-	(1, 1),
-	(2, 2),
-	(3, 3),
-	(1111,1),
-	(1111,2),
-	(1111,3),
-	(33334445, 1),
-	(22223334, 2),
-	(11112223, 3);
+	(53590226, 1),
+	(49249605, 2),
+	(54083680, 3),
+	(1111, 1),
+	(1111, 2),
+	(1111, 3);
 
-CREATE USER '33334445'@'%'
-IDENTIFIED BY 'Pacie123';
+CREATE USER '53590226'@'%'
+IDENTIFIED BY 'Pac1234_';
 
 GRANT 
-	SELECT ON bd_led.roles TO '33334445'@'%';
+	SELECT ON bd_led.roles TO '53590226'@'%';
 GRANT
-	SELECT ON bd_led.sintoma TO '33334445'@'%';
+	SELECT ON bd_led.sintoma TO '53590226'@'%';
 GRANT
-	SELECT ON bd_led.enfermedad TO '33334445'@'%';
+	SELECT ON bd_led.enfermedad TO '53590226'@'%';
 GRANT
-	SELECT ON bd_led.compone TO '33334445'@'%';
+	SELECT ON bd_led.compone TO '53590226'@'%';
 GRANT
-	SELECT ON bd_led.medico TO '33334445'@'%';
+	SELECT ON bd_led.medico TO '53590226'@'%';
 GRANT
-	SELECT, INSERT ON bd_led.genera TO '33334445'@'%';
+	SELECT, INSERT ON bd_led.genera TO '53590226'@'%';
 GRANT
-	SELECT, INSERT ON bd_led.diagnostico TO '33334445'@'%';
+	SELECT, INSERT ON bd_led.diagnostico TO '53590226'@'%';
 GRANT
-	SELECT, INSERT ON bd_led.padece TO '33334445'@'%';
+	SELECT, INSERT ON bd_led.padece TO '53590226'@'%';
 GRANT
-	SELECT, UPDATE ON bd_led.paciente TO '33334445'@'%';
+	SELECT, UPDATE ON bd_led.paciente TO '53590226'@'%';
 GRANT
-	SELECT, UPDATE ON bd_led.persona TO '33334445'@'%';
+	SELECT, UPDATE ON bd_led.persona TO '53590226'@'%';
 GRANT
-	SELECT, INSERT, DELETE ON bd_led.enfermedades_cronicas TO '33334445'@'%';
+	SELECT, INSERT, DELETE ON bd_led.enfermedades_cronicas TO '53590226'@'%';
 GRANT
-	SELECT, INSERT, DELETE ON bd_led.medicaciones TO '33334445'@'%';
+	SELECT, INSERT, DELETE ON bd_led.medicaciones TO '53590226'@'%';
 GRANT
-	SELECT, INSERT, UPDATE ON bd_led.atiende TO '33334445'@'%';
+	SELECT, INSERT, UPDATE ON bd_led.atiende TO '53590226'@'%';
 
 CREATE USER
-	'22223334'@'localhost'
+	'49249605'@'%'
 IDENTIFIED BY
-	'Medico123';
+	'Med1234_';
 
 GRANT
-	SELECT ON bd_led.roles TO '22223334'@'localhost';
+	SELECT ON bd_led.roles TO '49249605'@'%';
 GRANT
-	SELECT ON bd_led.sintoma TO '22223334'@'localhost';
+	SELECT ON bd_led.sintoma TO '49249605'@'%';
 GRANT 
-	SELECT ON bd_led.enfermedad TO '22223334'@'localhost';
+	SELECT ON bd_led.enfermedad TO '49249605'@'%';
 GRANT 
-	SELECT ON bd_led.compone TO '22223334'@'localhost';
+	SELECT ON bd_led.compone TO '49249605'@'%';
 GRANT 
-	SELECT ON bd_led.medico TO '22223334'@'localhost';
+	SELECT ON bd_led.medico TO '49249605'@'%';
 GRANT
-	SELECT ON bd_led.paciente TO '22223334'@'localhost';
+	SELECT ON bd_led.paciente TO '49249605'@'%';
 GRANT
-	SELECT ON bd_led.persona TO '22223334'@'localhost';
+	SELECT ON bd_led.persona TO '49249605'@'%';
 GRANT
-	SELECT ON bd_led.enfermedades_cronicas TO '22223334'@'localhost';
+	SELECT ON bd_led.enfermedades_cronicas TO '49249605'@'%';
 GRANT
-	SELECT ON bd_led.medicaciones TO '22223334'@'localhost';
+	SELECT ON bd_led.medicaciones TO '49249605'@'%';
 GRANT
-	SELECT, INSERT, UPDATE ON bd_led.atiende TO '22223334'@'localhost';
+	SELECT ON bd_led.diagnostico TO '49249605'@'%';
+GRANT
+	SELECT ON bd_led.genera TO '49249605'@'%';
+GRANT
+	SELECT, INSERT, UPDATE ON bd_led.atiende TO '49249605'@'%';
 
 CREATE USER
-	'11112223'@'%'
+	'54083680'@'%'
 IDENTIFIED BY
-	'Admin123';
-
-CREATE USER
-	'1111'@'%'
-IDENTIFIED BY
-	'Todes123';
-
+	'Adm1234_';
 
 GRANT
     ALL
 ON
     *.*
 TO
-   '11112223'@'%' WITH GRANT OPTION;
+   '54083680'@'%' WITH GRANT OPTION;
+
+
+CREATE USER
+	'1111'@'%'
+IDENTIFIED BY
+	'Todes123_';
 
 GRANT
     ALL
@@ -131,74 +130,4 @@ ON
     *.*
 TO
    '1111'@'%' WITH GRANT OPTION;
-
-
-CREATE USER 'paciente'@'%'
-IDENTIFIED BY 'paciente';
-
-GRANT 
-	SELECT ON bd_led.roles TO 'paciente'@'%';
-GRANT
-	SELECT ON bd_led.sintoma TO 'paciente'@'%';
-GRANT
-	SELECT ON bd_led.enfermedad TO 'paciente'@'%';
-GRANT
-	SELECT ON bd_led.compone TO 'paciente'@'%';
-GRANT
-	SELECT ON bd_led.medico TO 'paciente'@'%';
-GRANT
-	SELECT, INSERT ON bd_led.genera TO 'paciente'@'%';
-GRANT
-	SELECT, INSERT ON bd_led.diagnostico TO 'paciente'@'%';
-GRANT
-	SELECT, INSERT ON bd_led.padece TO 'paciente'@'%';
-GRANT
-	SELECT, UPDATE ON bd_led.paciente TO 'paciente'@'%';
-GRANT
-	SELECT, UPDATE ON bd_led.persona TO 'paciente'@'%';
-GRANT
-	SELECT, INSERT, DELETE ON bd_led.enfermedades_cronicas TO 'paciente'@'%';
-GRANT
-	SELECT, INSERT, DELETE ON bd_led.medicaciones TO 'paciente'@'%';
-GRANT
-	SELECT, INSERT, UPDATE ON bd_led.atiende TO 'paciente'@'%';
-
-CREATE USER
-	'medico'@'localhost'
-IDENTIFIED BY
-	'medico';
-
-GRANT
-	SELECT ON bd_led.roles TO 'medico'@'localhost';
-GRANT
-	SELECT ON bd_led.sintoma TO 'medico'@'localhost';
-GRANT 
-	SELECT ON bd_led.enfermedad TO 'medico'@'localhost';
-GRANT 
-	SELECT ON bd_led.compone TO 'medico'@'localhost';
-GRANT 
-	SELECT ON bd_led.medico TO 'medico'@'localhost';
-GRANT
-	SELECT ON bd_led.paciente TO 'medico'@'localhost';
-GRANT
-	SELECT ON bd_led.persona TO 'medico'@'localhost';
-GRANT
-	SELECT ON bd_led.enfermedades_cronicas TO 'medico'@'localhost';
-GRANT
-	SELECT ON bd_led.medicaciones TO 'medico'@'localhost';
-GRANT
-	SELECT, INSERT, UPDATE ON bd_led.atiende TO 'medico'@'localhost';
-
-CREATE USER
-	'admin'@'localhost'
-IDENTIFIED BY
-	'admin';
-
-GRANT
-    ALL
-ON
-    *.*
-TO
-   'admin'@'localhost' WITH GRANT OPTION;
-
 FLUSH PRIVILEGES;

@@ -80,7 +80,7 @@ Imports CapaDeNegocio
     <TestMethod()> Public Sub ObtenerCedulaPaciente()
         Dim resultado As Boolean
         Try
-            ControladorDiagnostico.ObtenerCedulaPaciente(1)
+            ControladorDiagnostico.ObtenerCedulaPaciente(5)
             resultado = True
         Catch ex As Exception
             resultado = False
