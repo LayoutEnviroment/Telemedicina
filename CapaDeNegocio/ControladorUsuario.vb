@@ -60,15 +60,9 @@ Public Module ControladorUsuario
 
     End Sub
 
-    Public Sub AgregarNuevoMedico(cedula As String,
-                                    nombre As String,
-                                    apellido As String,
-                                    mail As String)
+    Public Sub AgregarNuevoMedico(cedula As String)
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
-            .CI = cedula,
-            .nombre = nombre,
-            .apellido = apellido,
-            .mail = mail
+            .CI = cedula
         }
         u.AgregarNuevoMedico()
 
@@ -91,17 +85,11 @@ Public Module ControladorUsuario
 
     End Sub
 
-    Public Sub AgregarNuevoAdministrativo(cedula As String,
-                                        nombre As String,
-                                        apellido As String,
-                                        mail As String)
+    Public Sub AgregarNuevoAdministrativo(cedula As String)
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
-            .CI = cedula,
-            .nombre = nombre,
-            .apellido = apellido,
-            .mail = mail
+            .CI = cedula
         }
-        u.AgregarNuevoAdministrativo
+        u.AgregarNuevoAdministrativo()
 
     End Sub
 
@@ -240,11 +228,11 @@ Public Module ControladorUsuario
 
     End Function
 
-    Public Function TraerNombreApellidoMail(ci As String)
+    Public Function ObtenerNombreApellidoMail(ci As String)
         Dim u As New ModeloUsuario(ControladorSesion.User, ControladorSesion.Pass) With {
             .CI = ci
         }
-        Return u.TraerNombreApellidoMail()
+        Return u.ObtenerNombreApellidoMail()
 
     End Function
 
@@ -262,10 +250,6 @@ Public Module ControladorUsuario
 
         Return u.ExisteRol()
     End Function
-
-    Private Sub ExisteMedico(cedula As String)
-
-    End Sub
 
     Public Sub ModificarPersona(nombre As String,
                                 apellido As String,

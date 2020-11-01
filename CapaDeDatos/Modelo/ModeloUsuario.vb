@@ -1468,7 +1468,7 @@
 
     End Function
 
-    Public Function TraerNombreApellidoMail()
+    Public Function ObtenerNombreApellidoMail()
         Command.CommandText = "
             SELECT 
                 nombre, 

@@ -371,10 +371,7 @@ Public Class FrmModificarUsuario
 
     Private Sub AgregarAMedico()
         Try
-            ControladorUsuario.AgregarNuevoMedico(CmbCi.SelectedItem,
-                                                  TxtNombre.Text,
-                                                  TxtApellido.Text,
-                                                  TxtMail.Text)
+            ControladorUsuario.AgregarNuevoMedico(CmbCi.SelectedItem)
             MsgBox("Usuario agregado como medico")
         Catch ex As Exception
             MsgBox(ex.ToString())
@@ -384,10 +381,7 @@ Public Class FrmModificarUsuario
 
     Private Sub AgregarAAdministrador()
         Try
-            ControladorUsuario.AgregarNuevoAdministrativo(CmbCi.SelectedItem,
-                                                        TxtNombre.Text,
-                                                        TxtApellido.Text,
-                                                        TxtMail.Text)
+            ControladorUsuario.AgregarNuevoAdministrativo(CmbCi.SelectedItem)
             MsgBox("Usuario agregado como administrador")
         Catch ex As Exception
             MsgBox(ex.ToString())
