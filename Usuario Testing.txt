@@ -1,0 +1,133 @@
+INSERT INTO
+	persona(ci, nombre, apellido, mail)
+VALUES
+	(53590226, 'Alejandro','Nunez','nunezalejandro019@gmail.com'),
+	(49249605, 'Edurado', 'Fabre', 'egufabre@hotmail.com'),
+	(54083680, 'Leonardo','Santos','leonardosantosbran@gmail.com'),
+	(1111, 'Super','User','ledprogrammers@gmail.com');
+
+INSERT INTO 
+	paciente(ci_persona, sexo, fecha_nac) 
+VALUES
+	(53590226, 0, '1998-04-25'),
+	(1111, 0, '2020-11-06');
+
+INSERT INTO
+	enfermedades_cronicas (ci_persona_paciente, enfermedad)
+VALUES
+	(53590226, 'asma'),
+	(53590226, 'diabetes');
+
+INSERT INTO
+	medicaciones (ci_persona_paciente, medicacion)
+VALUES
+	(53590226, 'ventolin'),
+	(53590226, 'insulina');
+
+INSERT INTO
+	medico(ci_persona)
+VALUES
+	(49249605),
+	(1111);
+
+INSERT INTO
+	administrativo(ci_persona)
+VALUES
+	(54083680),
+	(1111);
+
+INSERT INTO
+	roles(ci_persona, rol)
+VALUES
+	(53590226, 1),
+	(49249605, 2),
+	(54083680, 3),
+	(1111, 1),
+	(1111, 2),
+	(1111, 3);
+
+CREATE USER '53590226'@'%'
+IDENTIFIED BY 'Pac1234_';
+
+GRANT 
+	SELECT ON bd_led_test.roles TO '53590226'@'%';
+GRANT
+	SELECT ON bd_led_test.sintoma TO '53590226'@'%';
+GRANT
+	SELECT ON bd_led_test.enfermedad TO '53590226'@'%';
+GRANT
+	SELECT ON bd_led_test.compone TO '53590226'@'%';
+GRANT
+	SELECT ON bd_led_test.medico TO '53590226'@'%';
+GRANT
+	SELECT, INSERT ON bd_led_test.genera TO '53590226'@'%';
+GRANT
+	SELECT, INSERT ON bd_led_test.diagnostico TO '53590226'@'%';
+GRANT
+	SELECT, INSERT ON bd_led_test.padece TO '53590226'@'%';
+GRANT
+	SELECT, UPDATE ON bd_led_test.paciente TO '53590226'@'%';
+GRANT
+	SELECT, UPDATE ON bd_led_test.persona TO '53590226'@'%';
+GRANT
+	SELECT, INSERT, DELETE ON bd_led_test.enfermedades_cronicas TO '53590226'@'%';
+GRANT
+	SELECT, INSERT, DELETE ON bd_led_test.medicaciones TO '53590226'@'%';
+GRANT
+	SELECT, INSERT, UPDATE ON bd_led_test.atiende TO '53590226'@'%';
+
+CREATE USER
+	'49249605'@'%'
+IDENTIFIED BY
+	'Med1234_';
+
+GRANT
+	SELECT ON bd_led_test.roles TO '49249605'@'%';
+GRANT
+	SELECT ON bd_led_test.sintoma TO '49249605'@'%';
+GRANT 
+	SELECT ON bd_led_test.enfermedad TO '49249605'@'%';
+GRANT 
+	SELECT ON bd_led_test.compone TO '49249605'@'%';
+GRANT 
+	SELECT ON bd_led_test.medico TO '49249605'@'%';
+GRANT
+	SELECT ON bd_led_test.paciente TO '49249605'@'%';
+GRANT
+	SELECT ON bd_led_test.persona TO '49249605'@'%';
+GRANT
+	SELECT ON bd_led_test.enfermedades_cronicas TO '49249605'@'%';
+GRANT
+	SELECT ON bd_led_test.medicaciones TO '49249605'@'%';
+GRANT
+	SELECT ON bd_led_test.diagnostico TO '49249605'@'%';
+GRANT
+	SELECT ON bd_led_test.genera TO '49249605'@'%';
+GRANT
+	SELECT, INSERT, UPDATE ON bd_led_test.atiende TO '49249605'@'%';
+
+CREATE USER
+	'54083680'@'%'
+IDENTIFIED BY
+	'Adm1234_';
+
+GRANT
+    ALL
+ON
+    *.*
+TO
+   '54083680'@'%' WITH GRANT OPTION;
+
+
+CREATE USER
+	'1111'@'%'
+IDENTIFIED BY
+	'Todes123_';
+
+GRANT
+    ALL
+ON
+    *.*
+TO
+   '1111'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
