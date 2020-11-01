@@ -3,9 +3,9 @@ Imports CapaDeNegocio
 
 Public Class Frm_Cambiar_Datos_Propios
 
-    Dim Nombre As String
-    Dim Apellido As String
-    Dim Correo As String
+    Dim Nombre As Boolean
+    Dim Apellido As Boolean
+    Dim Correo As Boolean
     Dim Sexo As String
     Dim FechaNacimiento As String
     Dim Enfermedades As New List(Of String)
@@ -15,6 +15,7 @@ Public Class Frm_Cambiar_Datos_Propios
         ObtenerDatosPersona()
         ObtenerMedicacionesPaciente()
         ObtenerEnfermedadesCronicas()
+        DttFecha.MaxDate = Today
 
     End Sub
 
@@ -63,6 +64,7 @@ Public Class Frm_Cambiar_Datos_Propios
     End Sub
 
     Public Sub CargarListaMedicaciones(Lector As IDataReader)
+        LstMedicaciones.Clear()
         While Lector.Read
             LstMedicaciones.Items.Add(Lector(0).ToString)
         End While
@@ -77,9 +79,11 @@ Public Class Frm_Cambiar_Datos_Propios
         Catch ex As Exception
             MsgBox("No se pudieron obtene sus enfermedades")
         End Try
+
     End Sub
 
     Public Sub CargarListaEnfermedades(Lector As IDataReader)
+        LstEnfermedadesCronicas.Clear()
         While Lector.Read
             LstEnfermedadesCronicas.Items.Add(Lector(0).ToString)
         End While
@@ -91,8 +95,8 @@ Public Class Frm_Cambiar_Datos_Propios
             BtnAgregarEnfermedad.Enabled = True
         Else
             BtnAgregarEnfermedad.Enabled = False
-
         End If
+
     End Sub
 
     Private Sub BtnAgregarEnfermedad_Click(sender As Object, e As EventArgs) Handles BtnAgregarEnfermedad.Click
@@ -114,17 +118,6 @@ Public Class Frm_Cambiar_Datos_Propios
     Private Sub AgregarMedicacion_Click(sender As Object, e As EventArgs) Handles BtnAgregarMedicacion.Click
         LstMedicaciones.Items.Add(TxtAgregarMedicacion.Text)
         TxtAgregarMedicacion.Text = ""
-
-    End Sub
-
-    Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
-        Nombre = TxtNombre.Text
-        Apellido = TxtApellido.Text
-        Correo = TxtCorreo.Text
-        DeterminarSexo()
-        AsignarListas()
-        DeterminarFecha()
-        GuardarValores()
 
     End Sub
 
@@ -153,50 +146,6 @@ Public Class Frm_Cambiar_Datos_Propios
 
     Public Sub DeterminarFecha()
         FechaNacimiento = DttFecha.Value.Year.ToString + "/" + DttFecha.Value.Month.ToString + "/" + DttFecha.Value.Day.ToString
-
-    End Sub
-
-    Public Sub GuardarValores()
-        Try
-            ControladorPaciente.CambiarDatos(Nombre, Apellido, Correo, Sexo, FechaNacimiento, Enfermedades, Medicaciones)
-        Catch ex As Exception
-            MsgBox("No se pudieron actualizar sus datos")
-        End Try
-
-    End Sub
-
-    Private Sub DttFecha_ValueChanged(sender As Object, e As EventArgs) Handles DttFecha.ValueChanged
-        Dim Aceptar As String
-        If DateDiff(DateInterval.Year, DttFecha.Value, Date.Now) >= 18 Then
-            Aceptar = "Si"
-        Else
-            Aceptar = ""
-        End If
-        HabilitarAceptar(Aceptar)
-
-    End Sub
-
-    Private Sub TxtNombre_TextChanged(sender As Object, e As EventArgs) Handles TxtNombre.TextChanged
-        HabilitarAceptar(TxtNombre.Text)
-
-    End Sub
-
-    Private Sub TxtApellido_TextChanged(sender As Object, e As EventArgs) Handles TxtApellido.TextChanged
-        HabilitarAceptar(TxtApellido.Text)
-
-    End Sub
-
-    Private Sub TxtCorreo_TextChanged(sender As Object, e As EventArgs) Handles TxtCorreo.TextChanged
-        HabilitarAceptar(TxtCorreo.Text)
-
-    End Sub
-
-    Public Sub HabilitarAceptar(contenido As String)
-        If contenido <> "" Then
-            BtnAceptar.Enabled = True
-        Else
-            BtnAceptar.Enabled = False
-        End If
 
     End Sub
 
@@ -230,8 +179,87 @@ Public Class Frm_Cambiar_Datos_Propios
 
     End Sub
 
-    Private Sub Frm_Cambiar_Datos_Propios_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+    Private Sub TxtNombre_TextChanged(sender As Object, e As EventArgs) Handles TxtNombre.TextChanged
+        If System.Text.RegularExpressions.Regex.IsMatch(TxtNombre.Text, "^[a-zA-Z]+$") Then
+            TxtNombre.ForeColor = Color.Black
+            Nombre = True
+        Else
+            TxtNombre.ForeColor = Color.Red
+            Nombre = False
+        End If
+
+        HabilitarAceptar()
+
+    End Sub
+
+    Private Sub TxtApellido_TextChanged(sender As Object, e As EventArgs) Handles TxtApellido.TextChanged
+        If System.Text.RegularExpressions.Regex.IsMatch(TxtApellido.Text, "^[a-zA-Z]+$") Then
+            TxtApellido.ForeColor = Color.Black
+            Apellido = True
+        Else
+            TxtApellido.ForeColor = Color.Red
+            Apellido = False
+        End If
+        HabilitarAceptar()
+
+    End Sub
+
+    Private Sub TxtCorreo_TextChanged(sender As Object, e As EventArgs) Handles TxtCorreo.TextChanged
+        If System.Text.RegularExpressions.Regex.IsMatch(TxtCorreo.Text, "^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$") Then
+            TxtCorreo.ForeColor = Color.Black
+            Correo = True
+        Else
+            TxtCorreo.ForeColor = Color.Red
+            Correo = False
+        End If
+
+        HabilitarAceptar()
+
+    End Sub
+
+    Public Sub HabilitarAceptar()
+        If Nombre And Apellido And Correo Then
+            BtnAceptar.Enabled = True
+        Else
+            BtnAceptar.Enabled = False
+        End If
+
+    End Sub
+
+    Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
+        DeterminarSexo()
+        AsignarListas()
+        DeterminarFecha()
+        GuardarValores()
+
+    End Sub
+
+    Public Sub GuardarValores()
+        Try
+            ControladorPaciente.CambiarDatos(TxtNombre.Text,
+                                             TxtApellido.Text,
+                                             TxtCorreo.Text,
+                                             Sexo,
+                                             FechaNacimiento,
+                                             Enfermedades,
+                                             Medicaciones)
+            MsgBox("Cambios realizados con exito!", MsgBoxStyle.Information, "Cambio de usuario")
+        Catch ex As Exception
+            MsgBox("No se pudieron actualizar sus datos")
+        End Try
+
+    End Sub
+
+    Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles BtnSalir.Click
         Frm_Menu.Show()
+        Me.Dispose()
+
+    End Sub
+
+    Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
+        ObtenerDatosPersona()
+        ObtenerMedicacionesPaciente()
+        ObtenerEnfermedadesCronicas()
 
     End Sub
 

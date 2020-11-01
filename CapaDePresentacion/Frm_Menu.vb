@@ -49,11 +49,11 @@ Public Class Frm_Menu
         For Each sintoma In ListaSintomas
             LvSintomas.Items.Add(sintoma)
         Next
+        HabilitarRealizarDiagnostico()
 
     End Sub
 
     Private Sub BtnDiagnostico_Click(sender As Object, e As EventArgs) Handles BtnDiagnostico.Click
-
         Try
             NombreEnfermedad = ControladorCompone.EnfermedadesPosibles(ListaSintomas)
         Catch ex As Exception
@@ -121,7 +121,7 @@ Public Class Frm_Menu
         For x = 0 To LvSintomas.Items.Count - 1
             ListaSintomas.Add(LvSintomas.Items(x).Text)
         Next
-
+        HabilitarRealizarDiagnostico()
     End Sub
 
     Private Sub Frm_Paciente_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
@@ -142,6 +142,28 @@ Public Class Frm_Menu
 
     Private Sub Frm_Menu_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         FrmLogin.Close()
+    End Sub
+
+    Private Sub LvSintomas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LvSintomas.SelectedIndexChanged
+        HabilitarRealizarDiagnostico()
+
+    End Sub
+
+    Private Sub HabilitarRealizarDiagnostico()
+        If LvSintomas.Items.Count() > 0 Then
+            BtnDiagnostico.Enabled = True
+        Else
+            BtnDiagnostico.Enabled = False
+        End If
+        ModificarAdvertencia()
+    End Sub
+
+    Private Sub ModificarAdvertencia()
+        If LvSintomas.Items.Count() < 3 Then
+            LblAdvertencia.Text = "La cantidad de sintomas es muy baja," + vbCrLf + " la enfermedad resultante será poco precisa"
+        Else
+            LblAdvertencia.Text = ""
+        End If
     End Sub
 
 End Class
