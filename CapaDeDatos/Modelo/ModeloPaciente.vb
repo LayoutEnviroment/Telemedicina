@@ -305,4 +305,16 @@
 
 
     End Function
+
+    Public Function ObtenerSexo()
+        Command.CommandText = "
+            SELECT
+                sexo
+            FROM 
+                paciente
+            WHERE
+                ci_persona = " + Me.Cedula + "
+        "
+        Return Command.ExecuteScalar.ToString()
+    End Function
 End Class

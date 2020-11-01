@@ -102,4 +102,12 @@ Public Module ControladorPaciente
         p.CambiarDatos(ci)
     End Sub
 
+    Public Function ObtenerSexo()
+        Dim p As New ModeloPaciente(ControladorSesion.User, ControladorSesion.Pass) With {
+            .Cedula = ControladorSesion.Cedula
+        }
+
+        Return p.ObtenerSexo()
+    End Function
+
 End Module

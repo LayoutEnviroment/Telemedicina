@@ -57,7 +57,7 @@ Public Class FrmModificarUsuario
     Private Sub ObtenerDatosPersona()
         Dim LectorDatos As IDataReader
         Try
-            LectorDatos = ControladorUsuario.TraerNombreApellidoMail(CmbCi.SelectedItem.ToString())
+            LectorDatos = ControladorUsuario.ObtenerNombreApellidoMail(CmbCi.SelectedItem.ToString())
             CargarDatos(LectorDatos)
         Catch ex As Exception
             MsgBox(ex.ToString)

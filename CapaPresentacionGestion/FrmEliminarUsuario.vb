@@ -43,7 +43,7 @@ Public Class FrmEliminarUsuario
     Private Sub ObtenerDatosPersona()
         Dim DatosPersona As IDataReader
         Try
-            DatosPersona = ControladorUsuario.TraerNombreApellidoMail(CmbCI.SelectedItem.ToString())
+            DatosPersona = ControladorUsuario.ObtenerNombreApellidoMail(CmbCI.SelectedItem.ToString())
             CargarDatos(DatosPersona)
         Catch ex As Exception
             MsgBox(ex.ToString)

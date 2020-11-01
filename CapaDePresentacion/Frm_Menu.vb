@@ -8,11 +8,15 @@ Public Class Frm_Menu
     Dim NombreEnfermedad As String
 
     Private Sub Frm_Paciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         Try
-            LblSaludo.Text = "Bienvenido, " + ControladorUsuario.ObtenerNombre() + ""
+            If ControladorPaciente.ObtenerSexo = 0 Then
+                LblSaludo.Text = "Bienvenido, " + ControladorUsuario.ObtenerNombre() + ""
+            Else
+                LblSaludo.Text = "Bienvenida, " + ControladorUsuario.ObtenerNombre() + ""
+            End If
 
         Catch ex As Exception
-            'MsgBox(ex.ToString)
             LblSaludo.Text = "Bienvenido!"
 
         End Try
@@ -31,7 +35,6 @@ Public Class Frm_Menu
             End While
 
         Catch ex As Exception
-            'MsgBox(ex.ToString)
             MsgBox("No pudimos cargar los sintomas, intente reiniciar la aplicacion", MsgBoxStyle.Critical)
 
         End Try
@@ -39,7 +42,9 @@ Public Class Frm_Menu
     End Sub
 
     Private Sub CmbSintomas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbSintomas.SelectedIndexChanged
-        ListaSintomas.Add(CmbSintomas.SelectedItem.ToString())
+        Dim index As Integer = CmbSintomas.SelectedIndex
+        ListaSintomas.Add(CmbSintomas.Items(index))
+        CmbSintomas.Items.RemoveAt(index)
         CargarListado(ListaSintomas)
 
     End Sub
@@ -99,18 +104,21 @@ Public Class Frm_Menu
     End Sub
 
     Public Sub RealizarDiagnostico(idEnfermedad As String)
-        Try
-            ControladorDiagnostico.Nuevo(ListaSintomas, idEnfermedad)
-            Frm_Iniciar_Chat.Show()
-            Me.Hide()
-        Catch ex As Exception
-            MsgBox("No se pudo realizar un diagnostico" + ex.ToString)
-        End Try
-
+        'Try
+        '    ControladorDiagnostico.Nuevo(ListaSintomas, idEnfermedad)
+        '    Frm_Iniciar_Chat.Show()
+        '    Me.Hide()
+        'Catch ex As Exception
+        '    MsgBox("No se pudo realizar un diagnostico" + ex.ToString)
+        'End Try
+        For Each sintoma In ListaSintomas
+            MsgBox(sintoma)
+        Next
 
     End Sub
 
     Private Sub LvSintomas_DoubleClick(sender As Object, e As EventArgs) Handles LvSintomas.DoubleClick
+        CmbSintomas.Items.Add(LvSintomas.Items(LvSintomas.SelectedIndices(0)).Text)
         LvSintomas.Items.RemoveAt(LvSintomas.SelectedIndices(0))
         ActualizarLista()
 
