@@ -104,16 +104,13 @@ Public Class Frm_Menu
     End Sub
 
     Public Sub RealizarDiagnostico(idEnfermedad As String)
-        'Try
-        '    ControladorDiagnostico.Nuevo(ListaSintomas, idEnfermedad)
-        '    Frm_Iniciar_Chat.Show()
-        '    Me.Hide()
-        'Catch ex As Exception
-        '    MsgBox("No se pudo realizar un diagnostico" + ex.ToString)
-        'End Try
-        For Each sintoma In ListaSintomas
-            MsgBox(sintoma)
-        Next
+        Try
+            ControladorDiagnostico.Nuevo(ListaSintomas, idEnfermedad)
+            Frm_Iniciar_Chat.Show()
+            Me.Hide()
+        Catch ex As Exception
+            MsgBox("No se pudo realizar un diagnostico" + ex.ToString)
+        End Try
 
     End Sub
 
