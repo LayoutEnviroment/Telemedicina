@@ -4,6 +4,8 @@ Imports CapaDeNegocio
 
 <TestClass()> Public Class TestControladorDiagnostico
 
+    Private ReadOnly Diagnostico As String = "3"
+
     <TestMethod()> Public Sub TestControladorNuevo()
         Dim resultado As Boolean
         Dim listaTest As New List(Of String)
@@ -83,7 +85,7 @@ Imports CapaDeNegocio
     <TestMethod()> Public Sub ObtenerCedulaPaciente()
         Dim resultado As Boolean
         Try
-            ControladorDiagnostico.ObtenerCedulaPaciente(5)
+            ControladorDiagnostico.ObtenerCedulaPaciente(Diagnostico)
             resultado = True
         Catch ex As Exception
             resultado = False

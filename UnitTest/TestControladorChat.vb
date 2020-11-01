@@ -5,23 +5,22 @@ Imports CapaDeNegocio
 
     Private ReadOnly Paciente As String = "53590226"
     Private ReadOnly Medico As String = "49249605"
-    Private ReadOnly Admin As String = "54083680"
     Private ReadOnly PacPass As String = "Pac1234_"
     Private ReadOnly MedPass As String = "Med1234_"
-    Private ReadOnly AdmPass As String = "Adm1234_"
-    Private ReadOnly Diagnostico As String = "5"
+    Private ReadOnly Diagnostico As String = "3"
+    Dim Resultado As Boolean = False
 
     <TestMethod()> Public Sub TestEnviarSolicitud()
         ControladorSesion.Cedula = Paciente
-        Dim resultado As Boolean
+        ControladorSesion.User = Paciente
+        ControladorSesion.Pass = PacPass
+        Resultado = False
         Try
             ControladorChat.EnviarSolicitud(Diagnostico)
-
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            resultado = False
-
+            MsgBox(ex.ToString)
         End Try
         Assert.IsTrue(resultado)
 
@@ -39,23 +38,26 @@ Imports CapaDeNegocio
 
     <TestMethod()> Public Sub TestAceptarSolicitud()
         ControladorSesion.Cedula = Medico
-        Dim resultado As Boolean
+        ControladorSesion.User = Medico
+        ControladorSesion.Pass = MedPass
+        Resultado = False
         Try
-            ControladorChat.AceptarSolicitud(5, Paciente, "Eduardo", "Fabre")
+            ControladorChat.AceptarSolicitud(Diagnostico, Paciente, "Eduardo", "Fabre")
             resultado = True
         Catch ex As Exception
             MsgBox(ex.ToString)
-            resultado = False
         End Try
 
         Assert.IsTrue(resultado)
     End Sub
 
     <TestMethod()> Public Sub TestEnviarMensajePaciente()
-        ControladorSesion.Cedula = Paciente
+        ControladorSesion.Cedula = Medico
+        ControladorSesion.User = Medico
+        ControladorSesion.Pass = MedPass
         Dim resultado As Boolean
         Try
-            ControladorChat.EnviarMensajePaciente(5, "soy paciente", Medico)
+            ControladorChat.EnviarMensajePaciente(Diagnostico, "soy paciente", Medico)
             resultado = True
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -67,9 +69,11 @@ Imports CapaDeNegocio
 
     <TestMethod()> Public Sub TestEnviarMensajeMedico()
         ControladorSesion.Cedula = Medico
+        ControladorSesion.User = Medico
+        ControladorSesion.Pass = MedPass
         Dim resultado As Boolean
         Try
-            ControladorChat.EnviarMensajeMedico(5, "soy medico", Paciente)
+            ControladorChat.EnviarMensajeMedico(Diagnostico, "soy medico", Paciente)
             resultado = True
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -104,10 +108,12 @@ Imports CapaDeNegocio
 
     <TestMethod()> Public Sub TestFinalizarChatPaciente()
         ControladorSesion.Cedula = Paciente
+        ControladorSesion.User = Paciente
+        ControladorSesion.Pass = PacPass
         Dim resultado As Boolean
 
         Try
-            ControladorChat.FinalizarChatPaciente(5, Medico)
+            ControladorChat.FinalizarChatPaciente(Diagnostico, Medico)
             resultado = True
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -119,27 +125,32 @@ Imports CapaDeNegocio
 
     <TestMethod()> Public Sub TestFinalizarChatMedico()
         ControladorSesion.Cedula = Medico
-        Dim resultado As Boolean
+        ControladorSesion.User = Medico
+        ControladorSesion.Pass = MedPass
+        Resultado = False
         Try
-            ControladorChat.FinalizarChatMedico(5, Paciente)
-            resultado = True
+            ControladorChat.FinalizarChatMedico(Diagnostico, Paciente)
+            Resultado = True
         Catch ex As Exception
-            resultado = False
 
+            MsgBox(ex.ToString)
         End Try
+
         Assert.IsTrue(resultado)
     End Sub
 
     <TestMethod()> Public Sub TestFinalizarChat()
         ControladorSesion.Cedula = Paciente
-        Dim resultado As Boolean
+        ControladorSesion.User = Paciente
+        ControladorSesion.Pass = PacPass
+        Resultado = False
 
         Try
             ControladorChat.FinalizarChat(Diagnostico)
             resultado = True
         Catch ex As Exception
+            MsgBox(ex.ToString)
 
-            resultado = False
         End Try
 
         Assert.IsTrue(resultado)

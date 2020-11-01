@@ -4,18 +4,14 @@ Imports CapaDeNegocio
 
 <TestClass()> Public Class TestControladorEnfermedad
 
-    '<TestMethod()> Public Sub TestListarEnfermedad()
+    Private ReadOnly Admin As String = "54083680"
+    Private ReadOnly AdmPass As String = "Adm1234_"
+    Private ReadOnly Paciente As String = "53590226"
+    Private ReadOnly PacPass As String = "Pac1234_"
 
-    'NO ENCUENTRO DONDE PIDE ESTE METODO
-
-    'End Sub
-
-    '<TestMethod()> Public Sub TestListarNombreEnfermedadesInactiva()
-
-    'NO ENCUENTRO DONDE PIDE ESTE METODO
-
-    'End Sub
     <TestMethod()> Public Sub TestListarNombreEnfermedadesActivas()
+        ControladorSesion.User = Admin
+        ControladorSesion.Pass = AdmPass
         Dim resultado As Boolean
         Try
             ControladorEnfermedad.ListarNombreEnfermedadesActivas()
@@ -28,6 +24,8 @@ Imports CapaDeNegocio
     End Sub
 
     <TestMethod()> Public Sub TestCrearEnfermedad()
+        ControladorSesion.User = Admin
+        ControladorSesion.Pass = AdmPass
         Dim resultado As Boolean
         Dim listaSintomaPrueba As New List(Of String) From {
             "4",
@@ -49,6 +47,8 @@ Imports CapaDeNegocio
     End Sub
 
     <TestMethod()> Public Sub TestEstaInactivo()
+        ControladorSesion.User = Admin
+        ControladorSesion.Pass = AdmPass
         Dim resultado As Boolean
         Try
             ControladorEnfermedad.EstaInactivo("Acne")
@@ -59,11 +59,14 @@ Imports CapaDeNegocio
         Assert.IsTrue(resultado)
     End Sub
     <TestMethod()> Public Sub TestActivarEnfermedad()
+        ControladorSesion.User = Admin
+        ControladorSesion.Pass = AdmPass
         Dim resultado As Boolean
         Try
             ControladorEnfermedad.ActivarEnfermedad("Acne")
             resultado = True
         Catch ex As Exception
+            MsgBox(ex.ToString)
             resultado = False
         End Try
         Assert.IsTrue(resultado)
@@ -71,18 +74,22 @@ Imports CapaDeNegocio
     End Sub
 
     <TestMethod()> Public Sub TestCambiarEnfermedad()
-
+        ControladorSesion.User = Admin
+        ControladorSesion.Pass = AdmPass
         Dim resultado As Boolean
         Try
             ControladorEnfermedad.CambiarEnfermedad("5", "Bronquitis", "Inflamacion de los conductos bronquiales, las vias respiratorias que llevan oxigeno a sus pulmones.", "ALTA")
             resultado = True
         Catch ex As Exception
+            MsgBox(ex.ToString)
             resultado = False
         End Try
         Assert.IsTrue(resultado)
 
     End Sub
     <TestMethod()> Public Sub TestCambiarEnfermedadYSintomas()
+        ControladorSesion.User = Admin
+        ControladorSesion.Pass = AdmPass
         Dim resultado As Boolean
         Dim listaSintomaPrueba As New List(Of String) From {
             "1",
@@ -105,17 +112,22 @@ Imports CapaDeNegocio
         Assert.IsTrue(resultado)
     End Sub
     <TestMethod()> Public Sub TestEliminarEnfermedad()
+        ControladorSesion.User = Admin
+        ControladorSesion.Pass = AdmPass
         Dim resultado As Boolean
         Try
             ControladorEnfermedad.EliminarEnfermedad("3")
             resultado = True
         Catch ex As Exception
+            MsgBox(ex.ToString)
             resultado = False
         End Try
         Assert.IsTrue(resultado)
 
     End Sub
     <TestMethod()> Public Sub TestObtenerId()
+        ControladorSesion.User = Admin
+        ControladorSesion.Pass = AdmPass
         Dim resultado As Boolean
         Try
             ControladorEnfermedad.ObtenerId("Aftas Bucales")
@@ -126,6 +138,8 @@ Imports CapaDeNegocio
         Assert.IsTrue(resultado)
     End Sub
     <TestMethod()> Public Sub TestObtenerPrioridad()
+        ControladorSesion.User = Admin
+        ControladorSesion.Pass = AdmPass
         Dim resultado As Boolean
         Try
             ControladorEnfermedad.ObtenerPrioridad("7")
@@ -137,6 +151,8 @@ Imports CapaDeNegocio
 
     End Sub
     <TestMethod()> Public Sub TestObtenerDescripcion()
+        ControladorSesion.User = Admin
+        ControladorSesion.Pass = AdmPass
         Dim resultado As Boolean
         Try
             ControladorEnfermedad.ObtenerDescripcion("8")
@@ -148,6 +164,8 @@ Imports CapaDeNegocio
     End Sub
 
     <TestMethod()> Public Sub TestObtenerTodo()
+        ControladorSesion.User = Admin
+        ControladorSesion.Pass = AdmPass
         Dim resultado As Boolean
         Try
             ControladorEnfermedad.ObtenerTodo("1")
@@ -158,6 +176,8 @@ Imports CapaDeNegocio
         Assert.IsTrue(resultado)
     End Sub
     <TestMethod()> Public Sub TestObtenerExistencia()
+        ControladorSesion.User = Admin
+        ControladorSesion.Pass = AdmPass
         Dim resultado As Boolean
         Try
             ControladorEnfermedad.ObtenerExistencia("Parkinson")
@@ -168,6 +188,8 @@ Imports CapaDeNegocio
         Assert.IsTrue(resultado)
     End Sub
     <TestMethod()> Public Sub TestReactivarEnfermedad()
+        ControladorSesion.User = Admin
+        ControladorSesion.Pass = AdmPass
         Dim resultado As Boolean
         Try
             ControladorEnfermedad.ReactivarEnfermedad("Alergia")

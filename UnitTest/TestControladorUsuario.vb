@@ -166,6 +166,8 @@ Imports CapaDeNegocio
     End Sub
 
     <TestMethod()> Public Sub TestObtenerNombreApellidoCedula()
+        ControladorSesion.User = Admin
+        ControladorSesion.Pass = AdmPass
         resultado = False
         Try
             ControladorUsuario.ObtenerNombreApellidoCedula()
@@ -186,6 +188,7 @@ Imports CapaDeNegocio
         End Try
         Assert.IsTrue(resultado)
     End Sub
+
     <TestMethod()> Public Sub TestObtenerCedulaAdministrativo()
         resultado = False
         Try
@@ -254,12 +257,14 @@ Imports CapaDeNegocio
     End Sub
 
     <TestMethod()> Public Sub TestModificarPersona()
+        ControladorSesion.User = Admin
+        ControladorSesion.Pass = AdmPass
         resultado = False
         Try
             ControladorUsuario.ModificarPersona("Nuevo Nombre", "Prueba", "Correo", Medico)
             resultado = True
         Catch ex As Exception
-
+            MsgBox(ex.ToString)
         End Try
         Assert.IsTrue(resultado)
     End Sub

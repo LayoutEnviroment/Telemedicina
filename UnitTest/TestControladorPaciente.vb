@@ -5,6 +5,7 @@ Imports CapaDeNegocio
 <TestClass()> Public Class TestControladorPaciente
 
     Private ReadOnly Paciente As String = "53590226"
+    Private ReadOnly PacPass As String = "Pac1234_"
 
     <TestMethod()> Public Sub TestObtenerNombre()
         Dim resultado As Boolean
@@ -128,6 +129,8 @@ Imports CapaDeNegocio
     End Sub
 
     <TestMethod()> Public Sub TestCambiarDatosConCI()
+        ControladorSesion.User = Paciente
+        ControladorSesion.Pass = PacPass
         Dim resultado As Boolean
         Dim enfermedadTest As New List(Of String) From {
             "diabetes"

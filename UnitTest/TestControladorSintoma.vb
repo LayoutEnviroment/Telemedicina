@@ -3,6 +3,9 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports CapaDeNegocio
 <TestClass()> Public Class TestControladorSintoma
 
+    Private ReadOnly Admin As String = "54083680"
+    Private ReadOnly AdmPass As String = "Adm1234_"
+
     Private Function Random()
         Dim rdm As New Random()
         Dim Letras() As Char = "ABCDEFGHIJKLOMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".ToCharArray()
@@ -15,6 +18,8 @@ Imports CapaDeNegocio
     End Function
 
     <TestMethod()> Public Sub TestListarNombreSintomaActivo()
+        ControladorSesion.User = Admin
+        ControladorSesion.Pass = AdmPass
         Dim resultado As Boolean
 
         Try
@@ -22,6 +27,7 @@ Imports CapaDeNegocio
             resultado = True
 
         Catch ex As Exception
+            MsgBox(ex.ToString)
             resultado = False
 
         End Try
@@ -31,6 +37,8 @@ Imports CapaDeNegocio
     End Sub
 
     <TestMethod()> Public Sub TestCrearSintoma()
+        ControladorSesion.User = Admin
+        ControladorSesion.Pass = AdmPass
         Dim resultado As Boolean
 
         Try
@@ -76,6 +84,8 @@ Imports CapaDeNegocio
     End Sub
 
     <TestMethod()> Public Sub TestObtenerExistencia()
+        ControladorSesion.User = Admin
+        ControladorSesion.Pass = AdmPass
         Dim resultado As Boolean
 
         Try
@@ -91,6 +101,8 @@ Imports CapaDeNegocio
     End Sub
 
     <TestMethod()> Public Sub TestEstaInactivo()
+        ControladorSesion.User = Admin
+        ControladorSesion.Pass = AdmPass
         Dim resultado As Boolean
 
         Try
@@ -106,6 +118,8 @@ Imports CapaDeNegocio
     End Sub
 
     <TestMethod()> Public Sub TestObtenerId()
+        ControladorSesion.User = Admin
+        ControladorSesion.Pass = AdmPass
         Dim resultado As Boolean
 
         Try
@@ -113,6 +127,7 @@ Imports CapaDeNegocio
             resultado = True
 
         Catch ex As Exception
+            MsgBox(ex.ToString)
             resultado = False
 
         End Try
@@ -121,8 +136,9 @@ Imports CapaDeNegocio
     End Sub
 
     <TestMethod()> Public Sub TestActivarSintoma()
+        ControladorSesion.User = Admin
+        ControladorSesion.Pass = AdmPass
         Dim resultado As Boolean
-
         Try
             ControladorSintoma.ActivarSintoma("49")
             resultado = True

@@ -75,6 +75,7 @@ Imports CapaDeDatos
     End Sub
 
     <TestMethod()> Public Sub TestAgregarNuevoMedico()
+
         resultado = False
         Dim u As New ModeloUsuario(Admin, AdmPass) With {
             .CI = Medico
@@ -140,15 +141,4 @@ Imports CapaDeDatos
     '    Assert.IsTrue(resutlado)
     'End Sub
 
-    '<TestMethod()> Public Sub Test()
-    '    resultado = False
-    '    Dim u As New ModeloUsuario(Admin, AdmPass) With {
-    '        }
-    '    Try
-    '        u.
-    '    Catch ex As Exception
-
-    '    End Try
-    '    Assert.IsTrue(resutlado)
-    'End Sub
 End Class

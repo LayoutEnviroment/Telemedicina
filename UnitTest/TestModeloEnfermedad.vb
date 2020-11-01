@@ -212,7 +212,7 @@ Imports CapaDeDatos
     <TestMethod()> Public Sub TestObtenerId()
         Dim resultado As Boolean
         Dim e As New ModeloEnfermedad(Admin, AdmPass) With {
-           .Nombre = "Hartnup"
+           .Nombre = "Acne"
        }
 
         Try
