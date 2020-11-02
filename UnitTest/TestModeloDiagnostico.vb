@@ -10,7 +10,8 @@ Imports CapaDeDatos
     Private ReadOnly PacPass As String = "Pac1234_"
     Private ReadOnly MedPass As String = "Med1234_"
     Private ReadOnly AdmPass As String = "Adm1234_"
-    Private ReadOnly Diagnostico As String = "3"
+    Private ReadOnly Diagnostico As String = "1"
+    Dim Resultado As Boolean = False
 
     <TestMethod()> Public Sub TestNuevo()
         Dim resultado As Boolean
@@ -138,16 +139,17 @@ Imports CapaDeDatos
     End Sub
 
     <TestMethod()> Public Sub TestObtenerCedulaPertenece()
+        Resultado = False
         Dim d As New ModeloDiagnostico(Paciente, PacPass) With {
           .Id = Diagnostico
-      }
-        Dim buscarInformacion As Boolean
+        }
+
         Try
             d.ObtenerCedulaPertenece()
-            buscarInformacion = True
+            Resultado = True
         Catch ex As Exception
-            buscarInformacion = False
+            MsgBox(ex.ToString)
         End Try
-        Assert.IsTrue(buscarInformacion)
+        Assert.IsTrue(Resultado)
     End Sub
 End Class

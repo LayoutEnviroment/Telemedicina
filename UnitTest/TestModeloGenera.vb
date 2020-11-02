@@ -10,7 +10,7 @@ Imports CapaDeDatos
     Private ReadOnly PacPass As String = "Pac1234_"
     Private ReadOnly MedPass As String = "Med1234_"
     Private ReadOnly AdmPass As String = "Adm1234_"
-    Private ReadOnly Diagnostico As String = "3"
+    Private ReadOnly Diagnostico As String = "1"
 
     <TestMethod()> Public Sub TestObtenerEnfermedadGenerada()
         Dim resultado As Boolean

@@ -4,7 +4,7 @@ Imports CapaDeNegocio
 
 <TestClass()> Public Class TestControladorDiagnostico
 
-    Private ReadOnly Diagnostico As String = "3"
+    Private ReadOnly Diagnostico As String = "1"
 
     <TestMethod()> Public Sub TestControladorNuevo()
         Dim resultado As Boolean

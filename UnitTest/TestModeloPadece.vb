@@ -16,7 +16,8 @@ Imports CapaDeDatos
         Dim resultado As Boolean
         Dim listaPrueba As New List(Of String) From {
             "Sintoma de prueba"
-            }
+        }
+
         Dim p As New ModeloPadece(Paciente, PacPass) With {
             .ListadoSintomas = listaPrueba,
             .Cedula = Paciente

@@ -7,7 +7,7 @@ Imports CapaDeNegocio
     Private ReadOnly Medico As String = "49249605"
     Private ReadOnly PacPass As String = "Pac1234_"
     Private ReadOnly MedPass As String = "Med1234_"
-    Private ReadOnly Diagnostico As String = "3"
+    Private ReadOnly Diagnostico As String = "1"
     Dim Resultado As Boolean = False
 
     <TestMethod()> Public Sub TestEnviarSolicitud()
@@ -86,7 +86,7 @@ Imports CapaDeNegocio
     <TestMethod()> Public Sub TestBuscarMensajesNuevo()
         Dim resultado As Boolean
         Try
-            ControladorChat.BuscarMensajesNuevos("1")
+            ControladorChat.BuscarMensajesNuevos(Diagnostico)
             resultado = True
         Catch ex As Exception
             resultado = False

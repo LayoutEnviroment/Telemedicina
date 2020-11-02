@@ -5,7 +5,7 @@ Imports CapaDeNegocio
 <TestClass()> Public Class TestControladorGenera
     Private ReadOnly Paciente As String = "53590226"
     Private ReadOnly PacPass As String = "Pac1234_"
-    Private ReadOnly Diagnostico As String = "3"
+    Private ReadOnly Diagnostico As String = "1"
 
 
     <TestMethod()> Public Sub TestObtenerIdEnfermedadGenerada()
