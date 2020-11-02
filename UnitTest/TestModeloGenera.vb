@@ -10,63 +10,60 @@ Imports CapaDeDatos
     Private ReadOnly PacPass As String = "Pac1234_"
     Private ReadOnly MedPass As String = "Med1234_"
     Private ReadOnly AdmPass As String = "Adm1234_"
-    Private ReadOnly Diagnostico As String = "1"
+    Private ReadOnly Diagnostico As String = "21"
+    Dim Resultado As Boolean = False
 
     <TestMethod()> Public Sub TestObtenerEnfermedadGenerada()
-        Dim resultado As Boolean
         Dim g As New ModeloGenera(Paciente, PacPass) With {
            .Cedula = Paciente
-       }
+        }
+        Resultado = False
 
         Try
             g.ObtenerEnfermedadGenerada()
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            resultado = False
 
         End Try
 
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
     <TestMethod()> Public Sub TestObtenerNombreEnfermedad()
-        Dim resultado As Boolean
         Dim g As New ModeloGenera(Paciente, PacPass) With {
            .IdDiagnostico = Diagnostico
-       }
+        }
+        Resultado = False
 
         Try
             g.ObtenerNombreEnfermedad()
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            resultado = False
 
         End Try
 
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
     <TestMethod()> Public Sub TestObtenerNombreSintomas()
-
-        Dim resultado As Boolean
         Dim g As New ModeloGenera(Paciente, PacPass) With {
            .IdDiagnostico = Diagnostico
-       }
+        }
+        Resultado = False
 
         Try
             g.ObtenerNombreSintomas()
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            resultado = False
 
         End Try
 
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
 
     End Sub
 

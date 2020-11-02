@@ -15,80 +15,80 @@ Imports CapaDeNegocio
     Private ReadOnly Medicaciones As New List(Of String)
     Private ReadOnly Roles(3) As Boolean
     Private ReadOnly Contra As String = "Pas1234_"
-    Dim resultado As Boolean = False
+    Dim Resultado As Boolean = False
 
     <TestMethod()> Public Sub TestNuevoPaciente()
-        resultado = False
+        Resultado = False
         Try
             ControladorUsuario.NuevoPaciente(Paciente, "Paciente", "Prueba", "correo", "2020-05-20", 1, Enfermedades, Medicaciones, Contra)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
 
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
     <TestMethod()> Public Sub TestAgregarNuevoPaciente()
-        resultado = False
+        Resultado = False
         Try
             ControladorUsuario.AgregarNuevoPaciente(Medico, 0, "1995-05-14", Enfermedades, Medicaciones)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
 
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
     <TestMethod()> Public Sub TestNuevoMedico()
-        resultado = False
+        Resultado = False
         Try
             ControladorUsuario.NuevoMedico(Medico, "Medico", "Prueba", "correo", Contra)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
 
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
     <TestMethod()> Public Sub TestAgregarNuevoMedico()
-        resultado = False
+        Resultado = False
         Try
             ControladorUsuario.AgregarNuevoMedico(Medico)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
 
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
     <TestMethod()> Public Sub TestNuevoAdministrativo()
-        resultado = False
+        Resultado = False
         Try
             ControladorUsuario.NuevoAdministrativo(Admin, "Administrativo", "Prueba", "Correo", Contra)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
 
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
     <TestMethod()> Public Sub TestAgregarNuevoAdministrativo()
-        resultado = False
+        Resultado = False
         Try
             ControladorUsuario.AgregarNuevoAdministrativo(Admin)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
 
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
     <TestMethod()> Public Sub TestNuevoPacienteMedico()
-        resultado = False
+        Resultado = False
         Try
             ControladorUsuario.NuevoPacienteMedico(Paciente,
                                                    "MedPac",
@@ -99,14 +99,15 @@ Imports CapaDeNegocio
                                                    Enfermedades,
                                                    Medicaciones,
                                                    Contra)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
 
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
+
     <TestMethod()> Public Sub TestNuevoPacienteAdmin()
-        resultado = False
+        Resultado = False
         Try
             ControladorUsuario.NuevoPacienteAdmin(Paciente,
                                                   "PacAdm",
@@ -117,15 +118,15 @@ Imports CapaDeNegocio
                                                   Enfermedades,
                                                   Medicaciones,
                                                   Contra)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
 
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestNuevoPacienteMedicoAdmin()
-        resultado = False
+        Resultado = False
         Try
             ControladorUsuario.NuevoPacienteMedicoAdmin("PacMedAdm",
                                                         "Prueba",
@@ -136,148 +137,148 @@ Imports CapaDeNegocio
                                                         Enfermedades,
                                                         Medicaciones,
                                                         Contra)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
 
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestNuevoMedicoAdmin()
-        resultado = False
+        Resultado = False
         Try
             ControladorUsuario.NuevoMedicoAdmin(Medico, "MedAdm", "Prueba", "Correo", Contra)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
 
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestObtenerCorreo()
-        resultado = False
+        Resultado = False
         Try
             ControladorUsuario.ObtenerCorreo()
-            resultado = True
+            Resultado = True
         Catch ex As Exception
 
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestObtenerNombreApellidoCedula()
         ControladorSesion.User = Admin
         ControladorSesion.Pass = AdmPass
-        resultado = False
+        Resultado = False
         Try
             ControladorUsuario.ObtenerNombreApellidoCedula()
-            resultado = True
+            Resultado = True
         Catch ex As Exception
 
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestObtenerCedulaMedico()
-        resultado = False
+        Resultado = False
         Try
             ControladorUsuario.ObtenerCedulaMedico()
-            resultado = True
+            Resultado = True
         Catch ex As Exception
 
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestObtenerCedulaAdministrativo()
-        resultado = False
+        Resultado = False
         Try
             ControladorUsuario.ObtenerCedulaAdministrativo()
-            resultado = True
+            Resultado = True
         Catch ex As Exception
 
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestObtenerNombre()
-        resultado = False
+        Resultado = False
         Try
             ControladorUsuario.ObtenerNombre()
-            resultado = True
+            Resultado = True
         Catch ex As Exception
 
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
 
     ''CP -> Con parametro
     <TestMethod()> Public Sub TestObtenerNombreCP()
-        resultado = False
+        Resultado = False
         Try
             ControladorUsuario.ObtenerNombre(Paciente)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
 
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestObtenerNombreApellidoMail()
-        resultado = False
+        Resultado = False
         Try
             ControladorUsuario.ObtenerNombreApellidoMail(Paciente)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
 
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestObtenerTodasLasCedulas()
-        resultado = False
+        Resultado = False
         Try
             ControladorUsuario.ObtenerTodasLasCedulas()
-            resultado = True
+            Resultado = True
         Catch ex As Exception
 
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestExisteRol()
-        resultado = False
+        Resultado = False
         Try
             ControladorUsuario.ExisteRol(Paciente, 1)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
 
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestModificarPersona()
         ControladorSesion.User = Admin
         ControladorSesion.Pass = AdmPass
-        resultado = False
+        Resultado = False
         Try
             ControladorUsuario.ModificarPersona("Nuevo Nombre", "Prueba", "Correo", Medico)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestEliminarPersona()
-        resultado = False
+        Resultado = False
         Try
             ControladorUsuario.EliminarPersona(Paciente, Roles, 0)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
 
 End Class

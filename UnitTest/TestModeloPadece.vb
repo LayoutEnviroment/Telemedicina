@@ -11,12 +11,13 @@ Imports CapaDeDatos
     Private ReadOnly MedPass As String = "Med1234_"
     Private ReadOnly AdmPass As String = "Adm1234_"
     Private ReadOnly Diagnostico As String = "5"
+    Dim Resultado As Boolean = False
 
     <TestMethod()> Public Sub TestGuardarPadecimientos()
-        Dim resultado As Boolean
         Dim listaPrueba As New List(Of String) From {
             "Sintoma de prueba"
         }
+        Resultado = False
 
         Dim p As New ModeloPadece(Paciente, PacPass) With {
             .ListadoSintomas = listaPrueba,
@@ -25,14 +26,13 @@ Imports CapaDeDatos
 
         Try
             p.GuardarPadecimientos()
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            resultado = False
 
         End Try
 
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
 
 End Class

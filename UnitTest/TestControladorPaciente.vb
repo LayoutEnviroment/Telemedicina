@@ -6,20 +6,22 @@ Imports CapaDeNegocio
 
     Private ReadOnly Paciente As String = "53590226"
     Private ReadOnly PacPass As String = "Pac1234_"
+    Private ReadOnly Sexo As String = "0"
     Dim Resultado As Boolean = False
 
     <TestMethod()> Public Sub TestObtenerNombre()
         ControladorSesion.User = Paciente
         ControladorSesion.Pass = PacPass
         Resultado = False
+
         Try
             ControladorPaciente.ObtenerNombre()
-
             Resultado = True
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
+
         Assert.IsTrue(Resultado)
 
     End Sub
@@ -28,15 +30,17 @@ Imports CapaDeNegocio
         ControladorSesion.User = Paciente
         ControladorSesion.Pass = PacPass
         Resultado = False
+
         Try
             ControladorPaciente.ObtenerCi()
-
             Resultado = True
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
+
         Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestObtenerTodo()
@@ -44,23 +48,26 @@ Imports CapaDeNegocio
         ControladorSesion.Pass = PacPass
         ControladorSesion.Cedula = Paciente
         Resultado = False
+
         Try
             ControladorPaciente.ObtenerTodo()
-
             Resultado = True
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
+
         Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestObtenerTodoConCI()
         ControladorSesion.User = Paciente
         ControladorSesion.Pass = PacPass
         Resultado = False
+
         Try
-            ControladorPaciente.ObtenerTodo("1111")
+            ControladorPaciente.ObtenerTodo(Paciente)
 
             Resultado = True
 
@@ -90,14 +97,15 @@ Imports CapaDeNegocio
         ControladorSesion.User = Paciente
         ControladorSesion.Pass = PacPass
         Resultado = False
-        Try
-            ControladorPaciente.ObtenerMedicaciones("1111")
 
+        Try
+            ControladorPaciente.ObtenerMedicaciones(Paciente)
             Resultado = True
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
+
         Assert.IsTrue(Resultado)
 
     End Sub
@@ -107,7 +115,7 @@ Imports CapaDeNegocio
         ControladorSesion.Pass = PacPass
         Resultado = False
         Try
-            ControladorPaciente.ObtenerEnfermedades("1111")
+            ControladorPaciente.ObtenerEnfermedades(Paciente)
 
             Resultado = True
 
@@ -127,15 +135,23 @@ Imports CapaDeNegocio
         Dim medicacionesTest As New List(Of String) From {
             "insulina"
         }
-        Try
-            ControladorPaciente.CambiarDatos("super", "pruebas", "atoderol@gmail.com", "0", "1979-03-06", enfermedadTest, medicacionesTest)
 
+        Try
+            ControladorPaciente.CambiarDatos("super",
+                                             "pruebas",
+                                             "atoderol@gmail.com",
+                                             "0",
+                                             "1979-03-06",
+                                             enfermedadTest,
+                                             medicacionesTest)
             Resultado = True
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
+
         Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestCambiarDatosConCI()
@@ -149,14 +165,22 @@ Imports CapaDeNegocio
         Dim medicacionesTest As New List(Of String) From {
             "insulina"
         }
-        Try
-            ControladorPaciente.CambiarDatos("super", "pruebas", "atoderol@gmail.com", "0", "1979-03-06", enfermedadTest, medicacionesTest, "1111")
 
+        Try
+            ControladorPaciente.CambiarDatos("super",
+                                             "pruebas",
+                                             "atoderol@gmail.com",
+                                             "0",
+                                             "1979-03-06",
+                                             enfermedadTest,
+                                             medicacionesTest,
+                                             Paciente)
             Resultado = True
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
+
         Assert.IsTrue(resultado)
     End Sub
 
@@ -164,28 +188,31 @@ Imports CapaDeNegocio
         ControladorSesion.User = Paciente
         ControladorSesion.Pass = PacPass
         Resultado = False
+
         Try
             ControladorPaciente.ObtenerEnfermedades()
-
             Resultado = True
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
+
         Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestObtenerSexo()
         ControladorSesion.User = Paciente
         ControladorSesion.Pass = PacPass
         ControladorSesion.Cedula = Paciente
-        Resultado = False
+
         Try
-            ControladorPaciente.ObtenerSexo()
-            Resultado = True
+            Assert.AreEqual(ControladorPaciente.ObtenerSexo(), Sexo)
+
         Catch ex As Exception
 
         End Try
-        Assert.IsTrue(Resultado)
+
     End Sub
+
 End Class

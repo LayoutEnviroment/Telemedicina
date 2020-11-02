@@ -3,24 +3,21 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports CapaDeNegocio
 
 <TestClass()> Public Class TestControladorPadece
+    Dim sintomasPadecidosTest As New List(Of String) From {
+        "Sintoma de prueba"
+    }
+    Dim Resultado As Boolean = False
+
 
     <TestMethod()> Public Sub TestGuardarSintomasPadecidos()
-
-        Dim resultado As Boolean
-        Dim sintomasPadecidosTest As New List(Of String)
-        sintomasPadecidosTest.Add("Sintoma de prueba")
-
         Try
             ControladorPadece.GuardarSintomasPadecidos(sintomasPadecidosTest)
-            resultado = True
-
+            Resultado = True
         Catch ex As Exception
-            resultado = False
-            MsgBox(ex.ToString)
 
         End Try
 
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
 
     End Sub
 

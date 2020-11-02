@@ -4,9 +4,13 @@ Imports CapaDeNegocio
 
 <TestClass()> Public Class TestControladorCompone
 
+    Private ReadOnly Paciente As String = "53590226"
+    Private ReadOnly PacPass As String = "Pac1234_"
+    Dim Resultado As Boolean = False
+
     <TestMethod()> Public Sub TestEnfermedadesPosibles()
 
-        Dim resultado As Boolean
+        Resultado = False
         Dim sintomasDeTest As New List(Of String)
         sintomasDeTest.Add("Sintoma de prueba")
 
@@ -15,8 +19,6 @@ Imports CapaDeNegocio
             resultado = True
 
         Catch ex As Exception
-            resultado = False
-            MsgBox(ex.ToString)
         End Try
 
         Assert.IsTrue(resultado)
@@ -24,8 +26,7 @@ Imports CapaDeNegocio
     End Sub
 
     <TestMethod()> Public Sub TestEnfermedadesPorAproximacion()
-
-        Dim resultado As Boolean
+        Resultado = False
         Dim sintomasTest As New List(Of String) From {
             "Fiebre",
             "Dolor",
@@ -35,54 +36,30 @@ Imports CapaDeNegocio
 
         Try
             ControladorCompone.EnfermedadesPorAproximacion(sintomasTest)
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            resultado = False
 
         End Try
 
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
 
     End Sub
-    'NO ENCUENTRO DONDE ESTA EN LA PARTE VISUAL
-    '<TestMethod()> Public Sub TestInsertar()
-    '    Dim resultado As Boolean
-    '    Dim sintomasTest As New List(Of String) From {
-    '         "Diarrea",
-    '        "Debilidad",
-    '        "Ansiedad",
-    '        "Alucinaciones",
-    '        "Desmayo",
-    '        "Delirio"
-    '    }
-
-    '    Try
-    '        ControladorCompone.Insertar(sintomasTest, "Hartnup")
-    '        resultado = True
-
-    '    Catch ex As Exception
-    '        resultado = False
-
-    '    End Try
-
-    '    Assert.IsTrue(resultado)
-
-    'End Sub
 
     <TestMethod()> Public Sub TestObtenerSintomasEnfermedad()
-        Dim resultado As Boolean
+        ControladorSesion.User = Paciente
+        ControladorSesion.Pass = PacPass
+        Resultado = False
 
         Try
             ControladorCompone.ObtenerSintomasEnfermedad("3")
             resultado = True
 
         Catch ex As Exception
-            resultado = False
-
         End Try
 
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
+
     End Sub
 
 End Class

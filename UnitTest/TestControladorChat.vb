@@ -7,7 +7,7 @@ Imports CapaDeNegocio
     Private ReadOnly Medico As String = "49249605"
     Private ReadOnly PacPass As String = "Pac1234_"
     Private ReadOnly MedPass As String = "Med1234_"
-    Private ReadOnly Diagnostico As String = "1"
+    Private ReadOnly Diagnostico As String = "21"
     Dim Resultado As Boolean = False
 
     <TestMethod()> Public Sub TestEnviarSolicitud()
@@ -20,9 +20,8 @@ Imports CapaDeNegocio
             Resultado = True
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
@@ -43,84 +42,85 @@ Imports CapaDeNegocio
         Resultado = False
         Try
             ControladorChat.AceptarSolicitud(Diagnostico, Paciente, "Eduardo", "Fabre")
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
 
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestEnviarMensajePaciente()
         ControladorSesion.Cedula = Medico
         ControladorSesion.User = Medico
         ControladorSesion.Pass = MedPass
-        Dim resultado As Boolean
+        Resultado = False
         Try
             ControladorChat.EnviarMensajePaciente(Diagnostico, "soy paciente", Medico)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
-            resultado = False
 
         End Try
-        Assert.IsTrue(resultado)
+
+        Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestEnviarMensajeMedico()
         ControladorSesion.Cedula = Medico
         ControladorSesion.User = Medico
         ControladorSesion.Pass = MedPass
-        Dim resultado As Boolean
+        Resultado = False
+
         Try
             ControladorChat.EnviarMensajeMedico(Diagnostico, "soy medico", Paciente)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
-            resultado = False
-
         End Try
-        Assert.IsTrue(resultado)
+
+        Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestBuscarMensajesNuevo()
-        Dim resultado As Boolean
+        Resultado = False
         Try
             ControladorChat.BuscarMensajesNuevos(Diagnostico)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            resultado = False
         End Try
+
         Assert.IsTrue(resultado)
 
     End Sub
 
     <TestMethod()> Public Sub TestMarcarComoLeido()
-        Dim resultado As Boolean
+        Resultado = False
+
         Try
             ControladorChat.MarcarComoLeido(Diagnostico)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            resultado = False
         End Try
-        Assert.IsTrue(resultado)
+
+        Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestFinalizarChatPaciente()
         ControladorSesion.Cedula = Paciente
         ControladorSesion.User = Paciente
         ControladorSesion.Pass = PacPass
-        Dim resultado As Boolean
+        Resultado = False
 
         Try
-            ControladorChat.FinalizarChatPaciente(Diagnostico, Medico)
-            resultado = True
+            ControladorChat.FinalizarChatConMedico(Diagnostico, Medico)
+            Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
-            resultado = False
         End Try
 
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestFinalizarChatMedico()
@@ -128,15 +128,15 @@ Imports CapaDeNegocio
         ControladorSesion.User = Medico
         ControladorSesion.Pass = MedPass
         Resultado = False
+
         Try
             ControladorChat.FinalizarChatMedico(Diagnostico, Paciente)
             Resultado = True
         Catch ex As Exception
-
-            MsgBox(ex.ToString)
         End Try
 
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestFinalizarChat()
@@ -146,48 +146,50 @@ Imports CapaDeNegocio
         Resultado = False
 
         Try
-            ControladorChat.FinalizarChat(Diagnostico)
-            resultado = True
+            ControladorChat.FinalizarChatSinMedico(Diagnostico)
+            Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
 
         End Try
 
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestMarcarComoFinalizado()
-        Dim resultado As Boolean
+        Resultado = False
         Try
             ControladorChat.MarcarComoFinalizado("1")
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-
-            resultado = False
         End Try
 
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestObtenerIdFechaMisChat()
-
         Dim TablaEsperada As New DataTable
         Try
             Assert.AreSame(ControladorChat.ObtenerIdFechaMisChat.GetType(), TablaEsperada.GetType())
 
         Catch ex As Exception
-
         End Try
+
     End Sub
 
     <TestMethod()> Public Sub TestObtenerMensajesDelDiagnostico()
-        Dim resultado As Boolean
+        Resultado = False
+
         Try
             ControladorChat.ObtenerMensajesDelDiagnostico(1)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            resultado = False
         End Try
-        Assert.IsTrue(resultado)
+
+        Assert.IsTrue(Resultado)
+
     End Sub
+
 End Class

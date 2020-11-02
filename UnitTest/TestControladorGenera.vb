@@ -5,49 +5,53 @@ Imports CapaDeNegocio
 <TestClass()> Public Class TestControladorGenera
     Private ReadOnly Paciente As String = "53590226"
     Private ReadOnly PacPass As String = "Pac1234_"
-    Private ReadOnly Diagnostico As String = "1"
+    Private ReadOnly Diagnostico As String = "21"
+    Dim Resultado As Boolean = False
 
 
     <TestMethod()> Public Sub TestObtenerIdEnfermedadGenerada()
         ControladorSesion.Cedula = Paciente
         ControladorSesion.User = Paciente
         ControladorSesion.Pass = PacPass
-        Dim resultado As Boolean
+        Resultado = False
         Try
             ControladorGenera.ObtenerIdEnfermedadGenerada()
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            resultado = False
-            MsgBox(ex.ToString)
+
         End Try
-        Assert.IsTrue(resultado)
+
+        Assert.IsTrue(Resultado)
 
     End Sub
 
     <TestMethod()> Public Sub TestObtenerNombreEnfermedad()
         ControladorSesion.User = Paciente
         ControladorSesion.Pass = PacPass
-        Dim resultado As Boolean
+        Resultado = False
+
         Try
             ControladorGenera.ObtenerNombreEnfermedad(Diagnostico)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
-            resultado = False
+
         End Try
-        Assert.IsTrue(resultado)
+
+        Assert.IsTrue(Resultado)
 
     End Sub
 
     <TestMethod()> Public Sub TestObtenerNombreSintomas()
-        Dim resultado As Boolean
+        Resultado = False
+
         Try
             ControladorGenera.ObtenerNombreSintomas(5)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            resultado = False
+
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
+
     End Sub
 
 

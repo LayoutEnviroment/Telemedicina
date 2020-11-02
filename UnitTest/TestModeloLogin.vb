@@ -10,24 +10,24 @@ Imports CapaDeDatos
     Private ReadOnly PacPass As String = "Pac1234_"
     Private ReadOnly MedPass As String = "Med1234_"
     Private ReadOnly AdmPass As String = "Adm1234_"
+    Dim Resultado As Boolean = False
 
     <TestMethod()> Public Sub TestObtenerRol()
-        Dim resultado As Boolean
         Dim l As New ModeloLogin(Admin, AdmPass) With {
           .Cedula = Admin
-       }
+        }
+        Resultado = False
 
         Try
-
             l.ObtenerRol(3)
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            resultado = False
 
         End Try
 
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
+
     End Sub
 
 End Class

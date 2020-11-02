@@ -11,147 +11,134 @@ Imports CapaDeDatos
     Private ReadOnly MedPass As String = "Med1234_"
     Private ReadOnly AdmPass As String = "Adm1234_"
     Private ReadOnly Diagnostico As String = "5"
+    Dim Resultado As Boolean = False
 
     <TestMethod()> Public Sub TestObtenerNombre()
-        Dim resultado As Boolean
         Dim p As New ModeloPaciente(Paciente, PacPass) With {
            .Cedula = Paciente
-       }
+        }
+        Resultado = False
 
         Try
             p.ObtenerNombre()
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            resultado = False
 
         End Try
 
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestObtenerPersonaSexoNacimineto()
-        Dim resultado As Boolean
         Dim p As New ModeloPaciente(Paciente, PacPass) With {
            .Cedula = Paciente
-       }
+        }
+        Resultado = False
 
         Try
             p.ObtenerPersonaSexoNacimineto()
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            resultado = False
 
         End Try
 
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestObtenerPersonaSexoNaciminetoConCi()
-        Dim resultado As Boolean
         Dim p As New ModeloPaciente(Paciente, PacPass) With {
            .Cedula = Paciente
-       }
+        }
+        Resultado = False
 
         Try
             p.ObtenerPersonaSexoNacimineto(Paciente)
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            resultado = False
 
         End Try
-
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
     <TestMethod()> Public Sub TestObtenerMedicaciones()
-        Dim resultado As Boolean
         Dim p As New ModeloPaciente(Paciente, PacPass) With {
            .Cedula = Paciente
-       }
+        }
+        Resultado = False
 
         Try
             p.ObtenerMedicaciones()
-
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            resultado = False
 
         End Try
+        Assert.IsTrue(Resultado)
 
-        Assert.IsTrue(resultado)
     End Sub
 
     <TestMethod()> Public Sub TestObtenerMedicacionesConCI()
-        Dim resultado As Boolean
         Dim p As New ModeloPaciente(Paciente, PacPass) With {
            .Cedula = Paciente
-       }
+        }
 
         Try
             p.ObtenerMedicaciones(Paciente)
-
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            resultado = False
 
         End Try
-
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
     <TestMethod()> Public Sub TestObtenerEnfermedades()
-        Dim resultado As Boolean
         Dim p As New ModeloPaciente(Paciente, PacPass) With {
            .Cedula = Paciente
-       }
+        }
+        Resultado = False
 
         Try
             p.ObtenerEnfermedades()
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            resultado = False
 
         End Try
-
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
     <TestMethod()> Public Sub TestTestObtenerEnfermedadesConCI()
-        Dim resultado As Boolean
         Dim p As New ModeloPaciente(Paciente, PacPass) With {
            .Cedula = Paciente
-       }
+        }
+        Resultado = False
 
         Try
             p.ObtenerEnfermedades(Paciente)
-
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            resultado = False
 
         End Try
+        Assert.IsTrue(Resultado)
 
-        Assert.IsTrue(resultado)
     End Sub
 
     <TestMethod()> Public Sub TestCambiarDatos()
-        Dim resultado As Boolean
         Dim medicacionPrueba As New List(Of String) From {
-        "Insulina"
+            "Insulina"
         }
         Dim enfermedadPrueba As New List(Of String) From {
-        "Diabetes"
+            "Diabetes"
         }
+        Resultado = False
 
         Dim p As New ModeloPaciente(Paciente, PacPass) With {
             .Nombre = "Super",
@@ -162,28 +149,27 @@ Imports CapaDeDatos
             .FechaNacimiento = "1979-03-06",
             .Medicaciones = medicacionPrueba,
             .Enfermedades = enfermedadPrueba
-       }
+        }
 
         Try
             p.CambiarDatos()
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            resultado = False
 
         End Try
+        Assert.IsTrue(Resultado)
 
-        Assert.IsTrue(resultado)
     End Sub
 
     <TestMethod()> Public Sub TestCambiarDatosConCI()
-        Dim resultado As Boolean
         Dim medicacionPrueba As New List(Of String) From {
-        "Insulina"
+            "Insulina"
         }
         Dim enfermedadPrueba As New List(Of String) From {
-        "Diabetes"
+            "Diabetes"
         }
+        Resultado = False
 
         Dim p As New ModeloPaciente(Paciente, PacPass) With {
             .Nombre = "Super",
@@ -193,34 +179,32 @@ Imports CapaDeDatos
             .FechaNacimiento = "1979-03-06",
             .Medicaciones = medicacionPrueba,
             .Enfermedades = enfermedadPrueba
-       }
+        }
 
         Try
             p.CambiarDatos(Paciente)
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            resultado = False
 
         End Try
+        Assert.IsTrue(Resultado)
 
-        Assert.IsTrue(resultado)
     End Sub
 
     <TestMethod()> Public Sub TestObtenerCiPaciente()
-        Dim resultado As Boolean
         Dim p As New ModeloPaciente(Paciente, PacPass)
+        Resultado = False
 
         Try
             p.ObtenerCiPaciente()
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            resultado = False
 
         End Try
+        Assert.IsTrue(Resultado)
 
-        Assert.IsTrue(resultado)
     End Sub
 
 End Class

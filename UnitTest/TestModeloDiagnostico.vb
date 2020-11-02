@@ -10,12 +10,10 @@ Imports CapaDeDatos
     Private ReadOnly PacPass As String = "Pac1234_"
     Private ReadOnly MedPass As String = "Med1234_"
     Private ReadOnly AdmPass As String = "Adm1234_"
-    Private ReadOnly Diagnostico As String = "1"
+    Private ReadOnly Diagnostico As String = "21"
     Dim Resultado As Boolean = False
 
     <TestMethod()> Public Sub TestNuevo()
-        Dim resultado As Boolean
-
         Dim sintomaPrueba As New List(Of String) From {
             "Sintoma de prueba"
         }
@@ -23,15 +21,16 @@ Imports CapaDeDatos
             .IdSintomas = sintomaPrueba,
             .IdEnfermedad = "8"
         }
+        Resultado = False
 
         Try
             d.Nuevo()
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
-            resultado = False
+
+
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
@@ -39,14 +38,15 @@ Imports CapaDeDatos
         Dim d As New ModeloDiagnostico(Paciente, PacPass) With {
             .Cedula = Paciente
         }
-        Dim buscarInformacion As Boolean
+        Resultado = False
+
         Try
             d.ObtenerId()
-            buscarInformacion = True
+            Resultado = True
         Catch ex As Exception
-            buscarInformacion = False
+
         End Try
-        Assert.IsTrue(buscarInformacion)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
@@ -54,14 +54,14 @@ Imports CapaDeDatos
         Dim d As New ModeloDiagnostico(Paciente, PacPass) With {
             .Cedula = Paciente
         }
-        Dim buscarInformacion As Boolean
+        Resultado = False
         Try
             d.TodosMisDiagnosticos()
-            buscarInformacion = True
+            Resultado = True
         Catch ex As Exception
-            buscarInformacion = False
+
         End Try
-        Assert.IsTrue(buscarInformacion)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
@@ -69,14 +69,14 @@ Imports CapaDeDatos
         Dim d As New ModeloDiagnostico(Paciente, PacPass) With {
             .Id = Diagnostico
         }
-        Dim buscarInformacion As Boolean
+        Resultado = False
         Try
             d.EnfermedadDiagnosticada()
-            buscarInformacion = True
+            Resultado = True
         Catch ex As Exception
-            buscarInformacion = False
+
         End Try
-        Assert.IsTrue(buscarInformacion)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
@@ -84,14 +84,14 @@ Imports CapaDeDatos
         Dim d As New ModeloDiagnostico(Paciente, PacPass) With {
             .Id = Diagnostico
         }
-        Dim buscarInformacion As Boolean
+        Resultado = False
         Try
             d.SintomasEnfermedadDiagnosticada()
-            buscarInformacion = True
+            Resultado = True
         Catch ex As Exception
-            buscarInformacion = False
+
         End Try
-        Assert.IsTrue(buscarInformacion)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
@@ -99,14 +99,14 @@ Imports CapaDeDatos
         Dim d As New ModeloDiagnostico(Paciente, PacPass) With {
             .Id = Diagnostico
         }
-        Dim buscarInformacion As Boolean
+        Resultado = False
         Try
             d.MedicoDiagnostico()
-            buscarInformacion = True
+            Resultado = True
         Catch ex As Exception
-            buscarInformacion = False
+
         End Try
-        Assert.IsTrue(buscarInformacion)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
@@ -114,42 +114,45 @@ Imports CapaDeDatos
         Dim d As New ModeloDiagnostico(Paciente, PacPass) With {
             .Id = Diagnostico
         }
-        Dim buscarInformacion As Boolean
+        Resultado = False
         Try
             d.MensajesDiagnostico()
-            buscarInformacion = True
+            Resultado = True
         Catch ex As Exception
-            buscarInformacion = False
+
         End Try
-        Assert.IsTrue(buscarInformacion)
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestExistenMensajes()
         Dim d As New ModeloDiagnostico(Paciente, PacPass) With {
            .Id = Diagnostico
        }
-        Dim buscarInformacion As Boolean
+        Resultado = False
         Try
             d.ExistenMensajes()
-            buscarInformacion = True
+            Resultado = True
         Catch ex As Exception
-            buscarInformacion = False
+
         End Try
-        Assert.IsTrue(buscarInformacion)
+        Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestObtenerCedulaPertenece()
-        Resultado = False
         Dim d As New ModeloDiagnostico(Paciente, PacPass) With {
           .Id = Diagnostico
         }
+        Resultado = False
 
         Try
             d.ObtenerCedulaPertenece()
             Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
         Assert.IsTrue(Resultado)
+
     End Sub
+
 End Class

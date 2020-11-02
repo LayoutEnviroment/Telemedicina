@@ -8,25 +8,29 @@ Imports CapaDeNegocio
     Private ReadOnly AdmPass As String = "Adm1234_"
     Private ReadOnly Paciente As String = "53590226"
     Private ReadOnly PacPass As String = "Pac1234_"
+    Dim Resultado As Boolean = False
 
     <TestMethod()> Public Sub TestListarNombreEnfermedadesActivas()
         ControladorSesion.User = Admin
         ControladorSesion.Pass = AdmPass
-        Dim resultado As Boolean
+        Resultado = False
+
         Try
             ControladorEnfermedad.ListarNombreEnfermedadesActivas()
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            resultado = False
+
         End Try
-        Assert.IsTrue(resultado)
+
+        Assert.IsTrue(Resultado)
 
     End Sub
 
     <TestMethod()> Public Sub TestCrearEnfermedad()
         ControladorSesion.User = Admin
         ControladorSesion.Pass = AdmPass
-        Dim resultado As Boolean
+        Resultado = False
+
         Dim listaSintomaPrueba As New List(Of String) From {
             "4",
             "43",
@@ -35,62 +39,71 @@ Imports CapaDeNegocio
             "49",
             "50"
         }
+
         Try
             ControladorEnfermedad.CrearEnfermedad("Hartnup", "Mala absorción de los aminoácidos", "ALTA", listaSintomaPrueba)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
-            resultado = False
+
         End Try
-        Assert.IsTrue(resultado)
+
+        Assert.IsTrue(Resultado)
 
     End Sub
 
     <TestMethod()> Public Sub TestEstaInactivo()
         ControladorSesion.User = Admin
         ControladorSesion.Pass = AdmPass
-        Dim resultado As Boolean
+        Resultado = False
+
         Try
             ControladorEnfermedad.EstaInactivo("Acne")
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            resultado = False
+
         End Try
-        Assert.IsTrue(resultado)
+
+        Assert.IsTrue(Resultado)
+
     End Sub
+
     <TestMethod()> Public Sub TestActivarEnfermedad()
         ControladorSesion.User = Admin
         ControladorSesion.Pass = AdmPass
-        Dim resultado As Boolean
+        Resultado = False
+
         Try
             ControladorEnfermedad.ActivarEnfermedad("Acne")
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
-            resultado = False
+
         End Try
-        Assert.IsTrue(resultado)
+
+        Assert.IsTrue(Resultado)
 
     End Sub
 
     <TestMethod()> Public Sub TestCambiarEnfermedad()
         ControladorSesion.User = Admin
         ControladorSesion.Pass = AdmPass
-        Dim resultado As Boolean
+        Resultado = False
+
         Try
             ControladorEnfermedad.CambiarEnfermedad("5", "Bronquitis", "Inflamacion de los conductos bronquiales, las vias respiratorias que llevan oxigeno a sus pulmones.", "ALTA")
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
-            resultado = False
+
         End Try
-        Assert.IsTrue(resultado)
+
+        Assert.IsTrue(Resultado)
 
     End Sub
+
     <TestMethod()> Public Sub TestCambiarEnfermedadYSintomas()
         ControladorSesion.User = Admin
         ControladorSesion.Pass = AdmPass
-        Dim resultado As Boolean
+        Resultado = False
+
         Dim listaSintomaPrueba As New List(Of String) From {
             "1",
             "2",
@@ -105,99 +118,122 @@ Imports CapaDeNegocio
         }
         Try
             ControladorEnfermedad.CambiarEnfermedadYSintomas("1", "Apendicitis", "Afeccion en la cual el apendice se inflama", "ALTA", listaSintomaPrueba)
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            resultado = False
+
         End Try
-        Assert.IsTrue(resultado)
+
+        Assert.IsTrue(Resultado)
+
     End Sub
+
     <TestMethod()> Public Sub TestEliminarEnfermedad()
         ControladorSesion.User = Admin
         ControladorSesion.Pass = AdmPass
-        Dim resultado As Boolean
+        Resultado = False
+
         Try
             ControladorEnfermedad.EliminarEnfermedad("3")
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
-            resultado = False
+
         End Try
-        Assert.IsTrue(resultado)
+
+        Assert.IsTrue(Resultado)
 
     End Sub
+
     <TestMethod()> Public Sub TestObtenerId()
         ControladorSesion.User = Admin
         ControladorSesion.Pass = AdmPass
-        Dim resultado As Boolean
+        Resultado = False
+
         Try
             ControladorEnfermedad.ObtenerId("Aftas Bucales")
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            resultado = False
+
         End Try
-        Assert.IsTrue(resultado)
+
+        Assert.IsTrue(Resultado)
+
     End Sub
     <TestMethod()> Public Sub TestObtenerPrioridad()
         ControladorSesion.User = Admin
         ControladorSesion.Pass = AdmPass
-        Dim resultado As Boolean
+        Resultado = False
+
         Try
             ControladorEnfermedad.ObtenerPrioridad("7")
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            resultado = False
+
         End Try
-        Assert.IsTrue(resultado)
+
+        Assert.IsTrue(Resultado)
 
     End Sub
+
     <TestMethod()> Public Sub TestObtenerDescripcion()
         ControladorSesion.User = Admin
         ControladorSesion.Pass = AdmPass
-        Dim resultado As Boolean
+        Resultado = False
+
         Try
             ControladorEnfermedad.ObtenerDescripcion("8")
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            resultado = False
+
         End Try
-        Assert.IsTrue(resultado)
+
+        Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestObtenerTodo()
         ControladorSesion.User = Admin
         ControladorSesion.Pass = AdmPass
-        Dim resultado As Boolean
+        Resultado = False
+
         Try
             ControladorEnfermedad.ObtenerTodo("1")
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            resultado = False
+
         End Try
-        Assert.IsTrue(resultado)
+
+        Assert.IsTrue(Resultado)
+
     End Sub
+
     <TestMethod()> Public Sub TestObtenerExistencia()
         ControladorSesion.User = Admin
         ControladorSesion.Pass = AdmPass
-        Dim resultado As Boolean
+        Resultado = False
+
         Try
             ControladorEnfermedad.ObtenerExistencia("Parkinson")
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            resultado = False
+
         End Try
-        Assert.IsTrue(resultado)
+
+        Assert.IsTrue(Resultado)
+
     End Sub
+
     <TestMethod()> Public Sub TestReactivarEnfermedad()
         ControladorSesion.User = Admin
         ControladorSesion.Pass = AdmPass
-        Dim resultado As Boolean
+        Resultado = False
         Try
             ControladorEnfermedad.ReactivarEnfermedad("Alergia")
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            resultado = False
+
         End Try
-        Assert.IsTrue(resultado)
+
+        Assert.IsTrue(Resultado)
 
     End Sub
 

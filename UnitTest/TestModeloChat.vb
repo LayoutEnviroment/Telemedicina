@@ -10,56 +10,59 @@ Imports CapaDeDatos
     Private ReadOnly PacPass As String = "Pac1234_"
     Private ReadOnly MedPass As String = "Med1234_"
     Private ReadOnly AdmPass As String = "Adm1234_"
-    Private ReadOnly Diagnostico As String = "1"
+    Private ReadOnly Diagnostico As String = "21"
+    Dim Resultado As Boolean = False
 
     <TestMethod()> Public Sub TestEnviarSolicitud()
+        Resultado = False
         Dim c As New ModeloChat(Paciente, PacPass) With {
-        .Cedula = Paciente,
-        .IdDiagnostico = Diagnostico
+            .Cedula = Paciente,
+            .IdDiagnostico = Diagnostico
         }
 
-        Dim resultado As Boolean
         Try
             c.EnviarSolicitud()
-            resultado = True
+            Resultado = True
         Catch ex As Exception
-            resultado = False
+
         End Try
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestBuscarSolicitud()
+        Resultado = False
         Dim c As New ModeloChat(Medico, MedPass)
-        Dim consultaOk As Boolean
 
         Try
             c.BuscarSolicitud()
-            consultaOk = True
+            Resultado = True
         Catch ex As Exception
-            consultaOk = False
+
         End Try
-        Assert.IsTrue(consultaOk)
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestAceptarSolicitud()
+        Resultado = False
         Dim c As New ModeloChat(Medico, MedPass) With {
             .Cedula = Medico,
             .CiPaciente = Paciente,
             .IdDiagnostico = Diagnostico
         }
-        Dim insertadoOk As Boolean
+
         Try
             c.AceptarSolicitud()
-            insertadoOk = True
+            Resultado = True
         Catch ex As Exception
-            insertadoOk = False
+
         End Try
 
-        Assert.IsTrue(insertadoOk)
+        Assert.IsTrue(Resultado)
 
 
     End Sub
     <TestMethod()> Public Sub TestEnviarMensajePaciente()
+        Resultado = False
         Dim c As New ModeloChat(Paciente, PacPass) With {
             .Cedula = Paciente,
             .CiMedico = Medico,
@@ -67,21 +70,20 @@ Imports CapaDeDatos
             .CiPaciente = Paciente,
             .Mensaje = "Estoy todito tomado Doc"
         }
-        Dim insertadoOk As Boolean
+
         Try
             c.EnviarMensajePaciente()
-            insertadoOk = True
+            Resultado = True
         Catch ex As Exception
-            insertadoOk = False
-            MsgBox(ex.ToString)
+
         End Try
 
-        Assert.IsTrue(insertadoOk)
+        Assert.IsTrue(Resultado)
 
     End Sub
-    'consultar por que no guarda el mensaje
+
     <TestMethod()> Public Sub TestEnviarMensajeMedico()
-        Dim insertadoOk As Boolean
+        Resultado = False
         Try
             Dim c As New ModeloChat(Medico, MedPass) With {
             .Cedula = Medico,
@@ -91,138 +93,142 @@ Imports CapaDeDatos
             .Mensaje = "Nunca estuve tan de acuerdo"
         }
             c.EnviarMensajeMedico()
-            insertadoOk = True
+            Resultado = True
         Catch ex As Exception
-            insertadoOk = False
+
         End Try
 
-        Assert.IsTrue(insertadoOk)
+        Assert.IsTrue(Resultado)
     End Sub
+
     <TestMethod()> Public Sub TestBuscarMensajesNuevos()
         Dim tablaEsperada As New DataTable
         Dim c As New ModeloChat(Medico, MedPass) With {
             .IdDiagnostico = Diagnostico,
             .Cedula = Medico
-            }
+        }
 
         Try
             Assert.AreSame(c.BuscarMensajesNuevos.GetType(), tablaEsperada.GetType())
-
         Catch ex As Exception
-            MsgBox("No comprobe el dato mandado")
         End Try
 
     End Sub
+
     <TestMethod()> Public Sub TestMarcarComoLeido()
+        Resultado = False
         Dim c As New ModeloChat(Medico, MedPass) With {
             .IdDiagnostico = Diagnostico,
             .Cedula = Paciente
         }
-        Dim modificarEstado As Boolean
+
         Try
             c.MarcarComoLeido()
-            modificarEstado = True
+            Resultado = True
         Catch ex As Exception
-            modificarEstado = False
+
         End Try
-        Assert.IsTrue(modificarEstado)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
     <TestMethod()> Public Sub TestFinalizarChatPaciente()
+        Resultado = False
         Dim c As New ModeloChat(Paciente, PacPass) With {
             .CiMedico = Medico,
             .Cedula = Paciente,
             .IdDiagnostico = Diagnostico
         }
 
-        Dim modificarEstado As Boolean
         Try
-            c.FinalizarChatPaciente()
-            modificarEstado = True
+            c.FinalizarChatConMedico()
+            Resultado = True
         Catch ex As Exception
-            modificarEstado = False
+
         End Try
-        Assert.IsTrue(modificarEstado)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
     <TestMethod()> Public Sub TestFinalizarChatConId()
+        Resultado = False
         Dim c As New ModeloChat(Paciente, PacPass) With {
             .Cedula = Paciente,
             .IdDiagnostico = Diagnostico
         }
-        Dim modificarEstado As Boolean
 
         Try
-            c.FinalizarChat(Diagnostico)
-            modificarEstado = True
+            c.FinalizarChatSinMedico(Diagnostico)
+            Resultado = True
         Catch ex As Exception
-            modificarEstado = False
+
         End Try
 
-        Assert.IsTrue(modificarEstado)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
     <TestMethod()> Public Sub TestFinalizarChatMedico()
+        Resultado = False
         Dim c As New ModeloChat(Medico, MedPass) With {
            .CiPaciente = Paciente,
            .Cedula = Medico,
            .IdDiagnostico = Diagnostico
-       }
-        Dim modificarEstado As Boolean
+        }
+
         Try
             c.FinalizarChatMedico()
-            modificarEstado = True
+            Resultado = True
         Catch ex As Exception
-            modificarEstado = False
+
         End Try
-        Assert.IsTrue(modificarEstado)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
     <TestMethod()> Public Sub TestMarcarComoFinalizado()
-
+        Resultado = False
         Dim c As New ModeloChat(Medico, MedPass) With {
-         .IdDiagnostico = Diagnostico
-     }
-        Dim modificarEstado As Boolean
+            .IdDiagnostico = Diagnostico
+        }
+
         Try
             c.MarcarComoFinalizado()
-            modificarEstado = True
+            Resultado = True
         Catch ex As Exception
-            modificarEstado = False
+
         End Try
-        Assert.IsTrue(modificarEstado)
+        Assert.IsTrue(Resultado)
 
     End Sub
     <TestMethod()> Public Sub TestObtenerIdFechaMisChat()
+        Resultado = False
         Dim c As New ModeloChat(Medico, MedPass) With {
-       .Cedula = Medico
-   }
-        Dim buscarInformacion As Boolean
+            .Cedula = Medico
+        }
+
         Try
             c.ObtenerIdFechaMisChat()
-            buscarInformacion = True
+            Resultado = True
         Catch ex As Exception
-            buscarInformacion = False
+
         End Try
-        Assert.IsTrue(buscarInformacion)
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestObtenerMensajesDelDiagnostico()
+        Resultado = False
         Dim c As New ModeloChat(Paciente, PacPass) With {
-      .IdDiagnostico = Diagnostico
-  }
-        Dim buscarInformacion As Boolean
+            .IdDiagnostico = Diagnostico
+        }
+
         Try
             c.ObtenerMensajesDelDiagnostico()
-            buscarInformacion = True
+            Resultado = True
         Catch ex As Exception
-            buscarInformacion = False
+
         End Try
-        Assert.IsTrue(buscarInformacion)
+        Assert.IsTrue(Resultado)
     End Sub
 
 End Class

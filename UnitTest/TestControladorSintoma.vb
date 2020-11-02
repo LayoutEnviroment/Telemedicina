@@ -5,6 +5,8 @@ Imports CapaDeNegocio
 
     Private ReadOnly Admin As String = "54083680"
     Private ReadOnly AdmPass As String = "Adm1234_"
+    ReadOnly Existe As String = "1"
+    Dim Resultado As Boolean = False
 
     Private Function Random()
         Dim rdm As New Random()
@@ -20,134 +22,120 @@ Imports CapaDeNegocio
     <TestMethod()> Public Sub TestListarNombreSintomaActivo()
         ControladorSesion.User = Admin
         ControladorSesion.Pass = AdmPass
-        Dim resultado As Boolean
+        Resultado = False
 
         Try
             ControladorSintoma.ListarNombreSintomaActivo()
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
-            resultado = False
 
         End Try
 
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
 
     End Sub
 
     <TestMethod()> Public Sub TestCrearSintoma()
         ControladorSesion.User = Admin
         ControladorSesion.Pass = AdmPass
-        Dim resultado As Boolean
+        Resultado = False
 
         Try
             ControladorSintoma.CrearSintoma(Random())
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            resultado = False
-            MsgBox(ex.ToString)
+
         End Try
 
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestCambiarNombreDeSintoma()
-        Dim resultado As Boolean
+        Resultado = False
 
         Try
             ControladorSintoma.CambiarNombreDeSintoma("47", "Delirios")
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            resultado = False
+
 
         End Try
 
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestEliminarSintoma()
-        Dim resultado As Boolean
+        Resultado = False
 
         Try
             ControladorSintoma.EliminarSintoma("44")
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            resultado = False
 
         End Try
 
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestObtenerExistencia()
         ControladorSesion.User = Admin
         ControladorSesion.Pass = AdmPass
-        Dim resultado As Boolean
 
         Try
-            ControladorSintoma.ObtenerExistencia("Bruma Sensorial")
-            resultado = True
-
+            Assert.AreEqual(ControladorSintoma.ObtenerExistencia("Bruma Sensorial"), Existe, False, "Error")
         Catch ex As Exception
-            resultado = False
 
         End Try
 
-        Assert.IsTrue(resultado)
     End Sub
 
     <TestMethod()> Public Sub TestEstaInactivo()
         ControladorSesion.User = Admin
         ControladorSesion.Pass = AdmPass
-        Dim resultado As Boolean
 
         Try
-            ControladorSintoma.EstaInactivo("Temblores")
-            resultado = True
+            Assert.AreEqual(ControladorSintoma.EstaInactivo("Temblores"), Existe, False, "Error")
 
         Catch ex As Exception
-            resultado = False
 
         End Try
 
-        Assert.IsTrue(resultado)
     End Sub
 
     <TestMethod()> Public Sub TestObtenerId()
         ControladorSesion.User = Admin
         ControladorSesion.Pass = AdmPass
-        Dim resultado As Boolean
+        Resultado = False
 
         Try
-            ControladorSintoma.ObtenerId("Diarrea")
-            resultado = True
+            Assert.AreEqual(ControladorSintoma.ObtenerId("Diarrea"), "4", False, "Error")
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
-            resultado = False
 
         End Try
 
-        Assert.IsTrue(resultado)
     End Sub
 
     <TestMethod()> Public Sub TestActivarSintoma()
         ControladorSesion.User = Admin
         ControladorSesion.Pass = AdmPass
-        Dim resultado As Boolean
+        Resultado = False
         Try
             ControladorSintoma.ActivarSintoma("49")
-            resultado = True
+            Resultado = True
 
         Catch ex As Exception
-            resultado = False
 
         End Try
 
-        Assert.IsTrue(resultado)
+        Assert.IsTrue(Resultado)
+
     End Sub
+
 End Class

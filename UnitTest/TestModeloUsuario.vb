@@ -38,6 +38,7 @@ Imports CapaDeDatos
 
         End Try
         Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestAgregarNuevoPaciente()
@@ -56,6 +57,7 @@ Imports CapaDeDatos
 
         End Try
         Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestNuevoMedico()
@@ -74,6 +76,7 @@ Imports CapaDeDatos
 
         End Try
         Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestAgregarNuevoMedico()
@@ -86,10 +89,11 @@ Imports CapaDeDatos
             u.AgregarNuevoMedico()
             Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
 
         End Try
         Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestNuevoAdministrativo()
@@ -108,6 +112,7 @@ Imports CapaDeDatos
 
         End Try
         Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestAgregarNuevoAdministrativo()
@@ -144,6 +149,7 @@ Imports CapaDeDatos
 
         End Try
         Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestNuevoPacienteAdmin()
@@ -162,7 +168,7 @@ Imports CapaDeDatos
             u.NuevoPacienteAdmin()
             Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
         Assert.IsTrue(Resultado)
     End Sub
@@ -180,9 +186,10 @@ Imports CapaDeDatos
             u.NuevoMedicoAdmin()
             Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
         Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestNuevoPacienteMedicoAdmin()
@@ -202,9 +209,10 @@ Imports CapaDeDatos
             u.NuevoPacienteMedicoAdmin()
             Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
         Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestObtenerCorreo()
@@ -213,12 +221,13 @@ Imports CapaDeDatos
             .CI = Paciente
         }
         Try
-            u.ObtenerCorreo()
+            Assert.AreEqual(u.ObtenerCorreo(), "atoderol@gmail.com")
             Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
         Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestObtenerNombreApellidoCedula()
@@ -230,9 +239,10 @@ Imports CapaDeDatos
             u.ObtenerNombreApellidoCedula()
             Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
         Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestObtenerCedulaMedico()
@@ -242,9 +252,10 @@ Imports CapaDeDatos
             u.ObtenerCiMedico()
             Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
         Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestObtenerCedulaAdministrativo()
@@ -254,9 +265,10 @@ Imports CapaDeDatos
             u.ObtenerCiAdministrador()
             Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
         Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestObtenerNombre()
@@ -268,9 +280,10 @@ Imports CapaDeDatos
             u.ObtenerNombre()
             Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
         Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestObtenerNombreCi()
@@ -280,9 +293,10 @@ Imports CapaDeDatos
             u.ObtenerNombre(Paciente)
             Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
         Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestObtenerNombreApellidoMail()
@@ -294,36 +308,37 @@ Imports CapaDeDatos
             u.ObtenerNombreApellidoMail()
             Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
+
         Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestObtenerTodasLasCedulas()
         Resultado = False
         Dim u As New ModeloUsuario(Admin, AdmPass)
+
         Try
             u.ObtenerTodasLasCedulas()
             Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
+
         Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestExisteRol()
-        Resultado = False
         Dim u As New ModeloUsuario(Admin, AdmPass) With {
             .CI = Paciente,
             .Rol = 1
         }
         Try
-            u.ExisteRol()
-            Resultado = True
+            Assert.AreEqual(u.ExisteRol(), 1)
         Catch ex As Exception
-            MsgBox(ex.ToString)
         End Try
-        Assert.IsTrue(Resultado)
+
     End Sub
 
     <TestMethod()> Public Sub TestModificarPersona()
@@ -338,7 +353,7 @@ Imports CapaDeDatos
             u.ModificarPersona()
             Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
         Assert.IsTrue(Resultado)
     End Sub
@@ -354,7 +369,7 @@ Imports CapaDeDatos
             u.Eliminar()
             Resultado = True
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
         End Try
         Assert.IsTrue(Resultado)
     End Sub

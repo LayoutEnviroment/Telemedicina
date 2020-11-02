@@ -79,8 +79,8 @@
     Public Function TodosMisDiagnosticos()
         Command.CommandText = "
             SELECT
-                Id,
-                Fecha
+                id,
+                fecha
             FROM
                 diagnostico
             WHERE
