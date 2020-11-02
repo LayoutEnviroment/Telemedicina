@@ -69,22 +69,22 @@ Public Module ControladorChat
         c.MarcarComoLeido()
     End Sub
 
-    Public Sub FinalizarChatPaciente(id As String, ci As String)
+    Public Sub FinalizarChatConMedico(id As String, ci As String)
         Dim c As New ModeloChat(ControladorSesion.User, ControladorSesion.Pass) With {
             .IdDiagnostico = id,
             .CiMedico = ci,
             .Cedula = ControladorSesion.Cedula
         }
 
-        c.FinalizarChatPaciente()
+        c.FinalizarChatConMedico()
     End Sub
 
-    Public Sub FinalizarChat(id As String)
+    Public Sub FinalizarChatSinMedico(id As String)
         Dim c As New ModeloChat(ControladorSesion.User, ControladorSesion.Pass) With {
             .Cedula = ControladorSesion.Cedula
         }
 
-        c.FinalizarChat(id)
+        c.FinalizarChatSinMedico(id)
     End Sub
 
     Public Sub FinalizarChatMedico(id As String, ci As String)
@@ -101,7 +101,6 @@ Public Module ControladorChat
         Dim c As New ModeloChat(ControladorSesion.User, ControladorSesion.Pass) With {
             .IdDiagnostico = id
         }
-        MsgBox("Estoy en el controlador")
         c.MarcarComoFinalizado()
     End Sub
 

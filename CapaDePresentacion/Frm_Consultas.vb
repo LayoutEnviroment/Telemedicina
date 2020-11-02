@@ -105,4 +105,9 @@ Public Class Frm_Consultas
     Private Sub Frm_Consultas_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         Frm_Menu.Show()
     End Sub
+
+    Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles BtnSalir.Click
+        Me.Close()
+        Frm_Menu.Show()
+    End Sub
 End Class

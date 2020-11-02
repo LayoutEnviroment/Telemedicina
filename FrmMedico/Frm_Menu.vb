@@ -52,7 +52,7 @@ Public Class Frm_Menu
     End Sub
 
     Private Sub CargarDatosConsulta(Id, Ci)
-        MsgBox(Ci)
+
         Try
             ControladorChat.AceptarSolicitud(Id, Ci, Nombre, Apellido)
             AgregarMensajes("<p>Chat iniciado con el paciente " + ControladorUsuario.ObtenerNombre(Ci) + "</p>", 0)
@@ -186,8 +186,9 @@ Public Class Frm_Menu
                         AgregarMensajes("<p>" + ControladorUsuario.ObtenerNombre(fila(1).ToString) + ": " + fila(2).ToString + "</p>", 1)
 
                     ElseIf fila(5).ToString = "Finalizado" Then
+                        MsgBox("El paciente se ha desconectado")
                         Threading.Thread.Sleep(1000)
-                        FinalizarConversacion()
+                        ReinicioDeBusqueda()
                     End If
 
                 Next

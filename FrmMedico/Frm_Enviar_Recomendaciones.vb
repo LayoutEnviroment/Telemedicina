@@ -21,6 +21,13 @@ Public Class Frm_Enviar_Recomendaciones
     End Sub
 
     Private Sub CmbAcciones_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbAcciones.SelectedIndexChanged
+        If CmbAcciones.SelectedItem = "Agregar" Then
+            CmbItem.Visible = False
+            LblItem.Visible = False
+        Else
+            CmbItem.Visible = True
+            LblItem.Visible = True
+        End If
         CmbSobre.Enabled = True
         VerificarCmb()
     End Sub
@@ -161,5 +168,13 @@ Public Class Frm_Enviar_Recomendaciones
     Private Sub Frm_Enviar_Recomendaciones_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         Frm_Menu.Show()
 
+    End Sub
+
+    Private Sub RtbMensaje_TextChanged(sender As Object, e As EventArgs) Handles RtbMensaje.TextChanged
+        If RtbMensaje.Text <> "" Then
+            BtnEnviar.Enabled = True
+        Else
+            BtnEnviar.Enabled = False
+        End If
     End Sub
 End Class

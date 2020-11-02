@@ -11,12 +11,14 @@ Public Class FrmConsultas
         Catch ex As Exception
             MsgBox("No se pudo obtener las consultas" + ex.ToString)
         End Try
+
     End Sub
 
     Private Sub DgvConsultas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvConsultas.CellContentClick
         Dim IdDiagnostico As String = DgvConsultas.Item("Id", DgvConsultas.CurrentCell.RowIndex).Value.ToString
         ObtenerCedulaPaciente(IdDiagnostico)
         CargarMensajes(IdDiagnostico)
+
     End Sub
 
     Private Sub ObtenerCedulaPaciente(Id As String)
@@ -67,7 +69,7 @@ Public Class FrmConsultas
             Dim LectorEnfermedades As IDataReader = ControladorPaciente.ObtenerEnfermedades(cedula)
             CargarEnfermedadesCronicas(LectorEnfermedades)
         Catch ex As Exception
-
+            MsgBox(ex.ToString)
         End Try
 
     End Sub
@@ -85,12 +87,13 @@ Public Class FrmConsultas
             Dim LectorMedicaciones As IDataReader = ControladorPaciente.ObtenerMedicaciones(cedula)
             CargarMedicaciones(LectorMedicaciones)
         Catch ex As Exception
-
+            MsgBox("No se pudieron obtener las medicaciones")
         End Try
+
     End Sub
 
     Private Sub CargarMedicaciones(medicaciones As IDataReader)
-        LstEnfermedades.Items.Clear()
+        LstMedicaciones.Items.Clear()
         While medicaciones.Read
             LstMedicaciones.Items.Add(medicaciones(0).ToString)
         End While
@@ -137,8 +140,9 @@ Public Class FrmConsultas
         End Try
 
     End Sub
-    Private Sub FrmConsultas_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        Me.Hide()
+
+    Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles BtnSalir.Click
+        Me.Close()
         Frm_Menu.Show()
     End Sub
 

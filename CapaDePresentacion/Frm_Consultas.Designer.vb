@@ -24,6 +24,8 @@ Partial Class Frm_Consultas
     Private Sub InitializeComponent()
         Me.DgvDiagnosticos = New System.Windows.Forms.DataGridView()
         Me.PnlInformacion = New System.Windows.Forms.Panel()
+        Me.LblPrioridad = New System.Windows.Forms.Label()
+        Me.LblNombre = New System.Windows.Forms.Label()
         Me.RtbChat = New System.Windows.Forms.RichTextBox()
         Me.RtbDescripcion = New System.Windows.Forms.RichTextBox()
         Me.LblPrioridadEnfermedad = New System.Windows.Forms.Label()
@@ -33,6 +35,8 @@ Partial Class Frm_Consultas
         Me.LblEnfermedad = New System.Windows.Forms.Label()
         Me.LblSintomas = New System.Windows.Forms.Label()
         Me.LblMedico = New System.Windows.Forms.Label()
+        Me.LblIndicaciones = New System.Windows.Forms.Label()
+        Me.BtnSalir = New System.Windows.Forms.Button()
         CType(Me.DgvDiagnosticos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PnlInformacion.SuspendLayout()
         CType(Me.DgvSintomas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -48,17 +52,19 @@ Partial Class Frm_Consultas
         Me.DgvDiagnosticos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.DgvDiagnosticos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvDiagnosticos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.DgvDiagnosticos.Location = New System.Drawing.Point(62, 18)
+        Me.DgvDiagnosticos.Location = New System.Drawing.Point(13, 36)
         Me.DgvDiagnosticos.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DgvDiagnosticos.MultiSelect = False
         Me.DgvDiagnosticos.Name = "DgvDiagnosticos"
         Me.DgvDiagnosticos.ReadOnly = True
         Me.DgvDiagnosticos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvDiagnosticos.Size = New System.Drawing.Size(423, 1109)
+        Me.DgvDiagnosticos.Size = New System.Drawing.Size(423, 919)
         Me.DgvDiagnosticos.TabIndex = 0
         '
         'PnlInformacion
         '
+        Me.PnlInformacion.Controls.Add(Me.LblPrioridad)
+        Me.PnlInformacion.Controls.Add(Me.LblNombre)
         Me.PnlInformacion.Controls.Add(Me.RtbChat)
         Me.PnlInformacion.Controls.Add(Me.RtbDescripcion)
         Me.PnlInformacion.Controls.Add(Me.LblPrioridadEnfermedad)
@@ -68,12 +74,30 @@ Partial Class Frm_Consultas
         Me.PnlInformacion.Controls.Add(Me.LblEnfermedad)
         Me.PnlInformacion.Controls.Add(Me.LblSintomas)
         Me.PnlInformacion.Controls.Add(Me.LblMedico)
-        Me.PnlInformacion.Location = New System.Drawing.Point(702, 18)
+        Me.PnlInformacion.Location = New System.Drawing.Point(444, 14)
         Me.PnlInformacion.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PnlInformacion.Name = "PnlInformacion"
         Me.PnlInformacion.Size = New System.Drawing.Size(1250, 1109)
         Me.PnlInformacion.TabIndex = 1
         Me.PnlInformacion.Visible = False
+        '
+        'LblPrioridad
+        '
+        Me.LblPrioridad.AutoSize = True
+        Me.LblPrioridad.Location = New System.Drawing.Point(758, 71)
+        Me.LblPrioridad.Name = "LblPrioridad"
+        Me.LblPrioridad.Size = New System.Drawing.Size(75, 20)
+        Me.LblPrioridad.TabIndex = 11
+        Me.LblPrioridad.Text = "Prioridad:"
+        '
+        'LblNombre
+        '
+        Me.LblNombre.AutoSize = True
+        Me.LblNombre.Location = New System.Drawing.Point(502, 71)
+        Me.LblNombre.Name = "LblNombre"
+        Me.LblNombre.Size = New System.Drawing.Size(69, 20)
+        Me.LblNombre.TabIndex = 10
+        Me.LblNombre.Text = "Nombre:"
         '
         'RtbChat
         '
@@ -87,23 +111,22 @@ Partial Class Frm_Consultas
         '
         'RtbDescripcion
         '
-        Me.RtbDescripcion.Location = New System.Drawing.Point(400, 222)
+        Me.RtbDescripcion.Location = New System.Drawing.Point(410, 211)
         Me.RtbDescripcion.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.RtbDescripcion.Name = "RtbDescripcion"
         Me.RtbDescripcion.ReadOnly = True
-        Me.RtbDescripcion.Size = New System.Drawing.Size(760, 164)
+        Me.RtbDescripcion.Size = New System.Drawing.Size(583, 164)
         Me.RtbDescripcion.TabIndex = 8
         Me.RtbDescripcion.Text = ""
         '
         'LblPrioridadEnfermedad
         '
         Me.LblPrioridadEnfermedad.AutoSize = True
-        Me.LblPrioridadEnfermedad.Location = New System.Drawing.Point(969, 112)
+        Me.LblPrioridadEnfermedad.Location = New System.Drawing.Point(758, 112)
         Me.LblPrioridadEnfermedad.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblPrioridadEnfermedad.Name = "LblPrioridadEnfermedad"
-        Me.LblPrioridadEnfermedad.Size = New System.Drawing.Size(57, 20)
+        Me.LblPrioridadEnfermedad.Size = New System.Drawing.Size(0, 20)
         Me.LblPrioridadEnfermedad.TabIndex = 7
-        Me.LblPrioridadEnfermedad.Text = "Label1"
         '
         'DgvSintomas
         '
@@ -121,9 +144,8 @@ Partial Class Frm_Consultas
         Me.LblNombreEnfermedad.Location = New System.Drawing.Point(573, 112)
         Me.LblNombreEnfermedad.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblNombreEnfermedad.Name = "LblNombreEnfermedad"
-        Me.LblNombreEnfermedad.Size = New System.Drawing.Size(57, 20)
+        Me.LblNombreEnfermedad.Size = New System.Drawing.Size(0, 20)
         Me.LblNombreEnfermedad.TabIndex = 5
-        Me.LblNombreEnfermedad.Text = "Label1"
         '
         'LblConversacion
         '
@@ -138,7 +160,7 @@ Partial Class Frm_Consultas
         'LblEnfermedad
         '
         Me.LblEnfermedad.AutoSize = True
-        Me.LblEnfermedad.Location = New System.Drawing.Point(706, 22)
+        Me.LblEnfermedad.Location = New System.Drawing.Point(406, 22)
         Me.LblEnfermedad.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblEnfermedad.Name = "LblEnfermedad"
         Me.LblEnfermedad.Size = New System.Drawing.Size(203, 20)
@@ -165,11 +187,32 @@ Partial Class Frm_Consultas
         Me.LblMedico.TabIndex = 0
         Me.LblMedico.Text = "Medico a cargo"
         '
+        'LblIndicaciones
+        '
+        Me.LblIndicaciones.AutoSize = True
+        Me.LblIndicaciones.Location = New System.Drawing.Point(51, 9)
+        Me.LblIndicaciones.Name = "LblIndicaciones"
+        Me.LblIndicaciones.Size = New System.Drawing.Size(338, 20)
+        Me.LblIndicaciones.TabIndex = 2
+        Me.LblIndicaciones.Text = "Seleccione un diagnostico para ver los detalles"
+        Me.LblIndicaciones.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'BtnSalir
+        '
+        Me.BtnSalir.Location = New System.Drawing.Point(153, 995)
+        Me.BtnSalir.Name = "BtnSalir"
+        Me.BtnSalir.Size = New System.Drawing.Size(92, 43)
+        Me.BtnSalir.TabIndex = 3
+        Me.BtnSalir.Text = "Salir"
+        Me.BtnSalir.UseVisualStyleBackColor = True
+        '
         'Frm_Consultas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1399, 1050)
+        Me.ClientSize = New System.Drawing.Size(1524, 1050)
+        Me.Controls.Add(Me.BtnSalir)
+        Me.Controls.Add(Me.LblIndicaciones)
         Me.Controls.Add(Me.PnlInformacion)
         Me.Controls.Add(Me.DgvDiagnosticos)
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
@@ -180,6 +223,7 @@ Partial Class Frm_Consultas
         Me.PnlInformacion.PerformLayout()
         CType(Me.DgvSintomas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -194,4 +238,8 @@ Partial Class Frm_Consultas
     Friend WithEvents LblMedico As Label
     Friend WithEvents RtbDescripcion As RichTextBox
     Friend WithEvents RtbChat As RichTextBox
+    Friend WithEvents LblPrioridad As Label
+    Friend WithEvents LblNombre As Label
+    Friend WithEvents LblIndicaciones As Label
+    Friend WithEvents BtnSalir As Button
 End Class

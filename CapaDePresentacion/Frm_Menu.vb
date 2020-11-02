@@ -72,8 +72,16 @@ Public Class Frm_Menu
         End Try
         GuardarPadecimientos()
         ObtenerIdEnfermedadDiagnosticada()
+        VolverACargarSintomas()
         LvSintomas.Clear()
         ListaSintomas.Clear()
+
+    End Sub
+
+    Private Sub VolverACargarSintomas()
+        For x = 0 To ListaSintomas.Count() - 1
+            CmbSintomas.Items.Add(ListaSintomas(x).ToString)
+        Next
 
     End Sub
 

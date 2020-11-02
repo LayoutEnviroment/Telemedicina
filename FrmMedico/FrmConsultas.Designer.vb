@@ -43,214 +43,240 @@ Partial Class FrmConsultas
         Me.LblSintomas = New System.Windows.Forms.Label()
         Me.LblChat = New System.Windows.Forms.Label()
         Me.RtbChat = New System.Windows.Forms.RichTextBox()
+        Me.LblIndicacion = New System.Windows.Forms.Label()
+        Me.BtnSalir = New System.Windows.Forms.Button()
         CType(Me.DgvConsultas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DgvConsultas
         '
         Me.DgvConsultas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvConsultas.Location = New System.Drawing.Point(11, 23)
-        Me.DgvConsultas.Margin = New System.Windows.Forms.Padding(2)
+        Me.DgvConsultas.Location = New System.Drawing.Point(16, 75)
         Me.DgvConsultas.MultiSelect = False
         Me.DgvConsultas.Name = "DgvConsultas"
         Me.DgvConsultas.ReadOnly = True
         Me.DgvConsultas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DgvConsultas.RowTemplate.Height = 28
         Me.DgvConsultas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvConsultas.Size = New System.Drawing.Size(207, 367)
+        Me.DgvConsultas.Size = New System.Drawing.Size(310, 525)
         Me.DgvConsultas.TabIndex = 0
         '
         'LblCedula
         '
         Me.LblCedula.AutoSize = True
-        Me.LblCedula.Location = New System.Drawing.Point(243, 23)
-        Me.LblCedula.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LblCedula.Enabled = False
+        Me.LblCedula.Location = New System.Drawing.Point(364, 35)
         Me.LblCedula.Name = "LblCedula"
-        Me.LblCedula.Size = New System.Drawing.Size(40, 13)
+        Me.LblCedula.Size = New System.Drawing.Size(59, 20)
         Me.LblCedula.TabIndex = 1
         Me.LblCedula.Text = "Cedula"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(414, 23)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Enabled = False
+        Me.Label1.Location = New System.Drawing.Point(621, 35)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(38, 13)
+        Me.Label1.Size = New System.Drawing.Size(57, 20)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Correo"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(518, 23)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label2.Enabled = False
+        Me.Label2.Location = New System.Drawing.Point(777, 35)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(32, 13)
+        Me.Label2.Size = New System.Drawing.Size(47, 20)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Edad"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(610, 23)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label3.Enabled = False
+        Me.Label3.Location = New System.Drawing.Point(915, 35)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(31, 13)
+        Me.Label3.Size = New System.Drawing.Size(45, 20)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Sexo"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(337, 23)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label4.Enabled = False
+        Me.Label4.Location = New System.Drawing.Point(506, 35)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(44, 13)
+        Me.Label4.Size = New System.Drawing.Size(65, 20)
         Me.Label4.TabIndex = 5
         Me.Label4.Text = "Nombre"
         '
         'TxtCedula
         '
-        Me.TxtCedula.Location = New System.Drawing.Point(221, 49)
-        Me.TxtCedula.Margin = New System.Windows.Forms.Padding(2)
+        Me.TxtCedula.Enabled = False
+        Me.TxtCedula.Location = New System.Drawing.Point(332, 75)
         Me.TxtCedula.Name = "TxtCedula"
-        Me.TxtCedula.Size = New System.Drawing.Size(90, 20)
+        Me.TxtCedula.Size = New System.Drawing.Size(133, 26)
         Me.TxtCedula.TabIndex = 6
         '
         'TxtNombre
         '
-        Me.TxtNombre.Location = New System.Drawing.Point(321, 49)
-        Me.TxtNombre.Margin = New System.Windows.Forms.Padding(2)
+        Me.TxtNombre.Enabled = False
+        Me.TxtNombre.Location = New System.Drawing.Point(482, 75)
         Me.TxtNombre.Name = "TxtNombre"
-        Me.TxtNombre.Size = New System.Drawing.Size(90, 20)
+        Me.TxtNombre.Size = New System.Drawing.Size(133, 26)
         Me.TxtNombre.TabIndex = 7
         '
         'TxtCorreo
         '
-        Me.TxtCorreo.Location = New System.Drawing.Point(417, 49)
-        Me.TxtCorreo.Margin = New System.Windows.Forms.Padding(2)
+        Me.TxtCorreo.Enabled = False
+        Me.TxtCorreo.Location = New System.Drawing.Point(626, 75)
         Me.TxtCorreo.Name = "TxtCorreo"
-        Me.TxtCorreo.Size = New System.Drawing.Size(90, 20)
+        Me.TxtCorreo.Size = New System.Drawing.Size(133, 26)
         Me.TxtCorreo.TabIndex = 8
         '
         'TxtEdad
         '
-        Me.TxtEdad.Location = New System.Drawing.Point(509, 49)
-        Me.TxtEdad.Margin = New System.Windows.Forms.Padding(2)
+        Me.TxtEdad.Enabled = False
+        Me.TxtEdad.Location = New System.Drawing.Point(764, 75)
         Me.TxtEdad.Name = "TxtEdad"
-        Me.TxtEdad.Size = New System.Drawing.Size(90, 20)
+        Me.TxtEdad.Size = New System.Drawing.Size(133, 26)
         Me.TxtEdad.TabIndex = 9
         '
         'TxtSexo
         '
-        Me.TxtSexo.Location = New System.Drawing.Point(602, 49)
-        Me.TxtSexo.Margin = New System.Windows.Forms.Padding(2)
+        Me.TxtSexo.Enabled = False
+        Me.TxtSexo.Location = New System.Drawing.Point(903, 75)
         Me.TxtSexo.Name = "TxtSexo"
-        Me.TxtSexo.Size = New System.Drawing.Size(90, 20)
+        Me.TxtSexo.Size = New System.Drawing.Size(133, 26)
         Me.TxtSexo.TabIndex = 10
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(221, 106)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label5.Enabled = False
+        Me.Label5.Location = New System.Drawing.Point(332, 163)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(119, 13)
+        Me.Label5.Size = New System.Drawing.Size(180, 20)
         Me.Label5.TabIndex = 11
         Me.Label5.Text = "Enfermedades Cronicas"
         '
         'LblMedicaciones
         '
         Me.LblMedicaciones.AutoSize = True
-        Me.LblMedicaciones.Location = New System.Drawing.Point(381, 106)
-        Me.LblMedicaciones.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LblMedicaciones.Enabled = False
+        Me.LblMedicaciones.Location = New System.Drawing.Point(572, 163)
         Me.LblMedicaciones.Name = "LblMedicaciones"
-        Me.LblMedicaciones.Size = New System.Drawing.Size(73, 13)
+        Me.LblMedicaciones.Size = New System.Drawing.Size(106, 20)
         Me.LblMedicaciones.TabIndex = 12
         Me.LblMedicaciones.Text = "Medicaciones"
         '
         'LstEnfermedades
         '
+        Me.LstEnfermedades.Enabled = False
         Me.LstEnfermedades.HideSelection = False
-        Me.LstEnfermedades.Location = New System.Drawing.Point(224, 127)
-        Me.LstEnfermedades.Margin = New System.Windows.Forms.Padding(2)
+        Me.LstEnfermedades.Location = New System.Drawing.Point(336, 195)
         Me.LstEnfermedades.Name = "LstEnfermedades"
-        Me.LstEnfermedades.Size = New System.Drawing.Size(119, 118)
+        Me.LstEnfermedades.Size = New System.Drawing.Size(176, 179)
         Me.LstEnfermedades.TabIndex = 13
         Me.LstEnfermedades.UseCompatibleStateImageBehavior = False
+        Me.LstEnfermedades.View = System.Windows.Forms.View.List
         '
         'LstMedicaciones
         '
+        Me.LstMedicaciones.Enabled = False
         Me.LstMedicaciones.HideSelection = False
-        Me.LstMedicaciones.Location = New System.Drawing.Point(357, 127)
-        Me.LstMedicaciones.Margin = New System.Windows.Forms.Padding(2)
+        Me.LstMedicaciones.Location = New System.Drawing.Point(536, 195)
         Me.LstMedicaciones.Name = "LstMedicaciones"
-        Me.LstMedicaciones.Size = New System.Drawing.Size(119, 118)
+        Me.LstMedicaciones.Size = New System.Drawing.Size(176, 179)
         Me.LstMedicaciones.TabIndex = 14
         Me.LstMedicaciones.UseCompatibleStateImageBehavior = False
+        Me.LstMedicaciones.View = System.Windows.Forms.View.List
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(546, 84)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label6.Enabled = False
+        Me.Label6.Location = New System.Drawing.Point(819, 129)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(135, 13)
+        Me.Label6.Size = New System.Drawing.Size(203, 20)
         Me.Label6.TabIndex = 15
         Me.Label6.Text = "Enfermedad Diagnosticada"
         '
         'TxtEnfermedad
         '
-        Me.TxtEnfermedad.Location = New System.Drawing.Point(565, 99)
-        Me.TxtEnfermedad.Margin = New System.Windows.Forms.Padding(2)
+        Me.TxtEnfermedad.Enabled = False
+        Me.TxtEnfermedad.Location = New System.Drawing.Point(823, 152)
         Me.TxtEnfermedad.Name = "TxtEnfermedad"
-        Me.TxtEnfermedad.Size = New System.Drawing.Size(90, 20)
+        Me.TxtEnfermedad.Size = New System.Drawing.Size(199, 26)
         Me.TxtEnfermedad.TabIndex = 16
         '
         'LstSintomas
         '
+        Me.LstSintomas.Enabled = False
         Me.LstSintomas.HideSelection = False
-        Me.LstSintomas.Location = New System.Drawing.Point(549, 146)
-        Me.LstSintomas.Margin = New System.Windows.Forms.Padding(2)
+        Me.LstSintomas.Location = New System.Drawing.Point(824, 215)
         Me.LstSintomas.Name = "LstSintomas"
-        Me.LstSintomas.Size = New System.Drawing.Size(119, 118)
+        Me.LstSintomas.Size = New System.Drawing.Size(198, 179)
         Me.LstSintomas.TabIndex = 18
         Me.LstSintomas.UseCompatibleStateImageBehavior = False
+        Me.LstSintomas.View = System.Windows.Forms.View.List
         '
         'LblSintomas
         '
         Me.LblSintomas.AutoSize = True
-        Me.LblSintomas.Location = New System.Drawing.Point(573, 125)
-        Me.LblSintomas.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LblSintomas.Enabled = False
+        Me.LblSintomas.Location = New System.Drawing.Point(884, 192)
         Me.LblSintomas.Name = "LblSintomas"
-        Me.LblSintomas.Size = New System.Drawing.Size(50, 13)
+        Me.LblSintomas.Size = New System.Drawing.Size(76, 20)
         Me.LblSintomas.TabIndex = 17
         Me.LblSintomas.Text = "Sintomas"
         '
         'LblChat
         '
         Me.LblChat.AutoSize = True
-        Me.LblChat.Location = New System.Drawing.Point(249, 274)
-        Me.LblChat.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LblChat.Enabled = False
+        Me.LblChat.Location = New System.Drawing.Point(374, 422)
         Me.LblChat.Name = "LblChat"
-        Me.LblChat.Size = New System.Drawing.Size(72, 13)
+        Me.LblChat.Size = New System.Drawing.Size(105, 20)
         Me.LblChat.TabIndex = 19
         Me.LblChat.Text = "Conversacion"
         '
         'RtbChat
         '
-        Me.RtbChat.Location = New System.Drawing.Point(224, 293)
+        Me.RtbChat.Enabled = False
+        Me.RtbChat.Location = New System.Drawing.Point(336, 451)
+        Me.RtbChat.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.RtbChat.Name = "RtbChat"
-        Me.RtbChat.Size = New System.Drawing.Size(444, 96)
+        Me.RtbChat.Size = New System.Drawing.Size(664, 146)
         Me.RtbChat.TabIndex = 21
         Me.RtbChat.Text = ""
         '
+        'LblIndicacion
+        '
+        Me.LblIndicacion.AutoSize = True
+        Me.LblIndicacion.Location = New System.Drawing.Point(46, 35)
+        Me.LblIndicacion.Name = "LblIndicacion"
+        Me.LblIndicacion.Size = New System.Drawing.Size(250, 20)
+        Me.LblIndicacion.TabIndex = 22
+        Me.LblIndicacion.Text = "Por favor, seleccione una consulta"
+        '
+        'BtnSalir
+        '
+        Me.BtnSalir.Location = New System.Drawing.Point(1019, 472)
+        Me.BtnSalir.Name = "BtnSalir"
+        Me.BtnSalir.Size = New System.Drawing.Size(75, 47)
+        Me.BtnSalir.TabIndex = 23
+        Me.BtnSalir.Text = "Salir"
+        Me.BtnSalir.UseVisualStyleBackColor = True
+        '
         'FrmConsultas
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(747, 401)
+        Me.ClientSize = New System.Drawing.Size(1120, 617)
+        Me.Controls.Add(Me.BtnSalir)
+        Me.Controls.Add(Me.LblIndicacion)
         Me.Controls.Add(Me.RtbChat)
         Me.Controls.Add(Me.LblChat)
         Me.Controls.Add(Me.LstSintomas)
@@ -272,7 +298,6 @@ Partial Class FrmConsultas
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.LblCedula)
         Me.Controls.Add(Me.DgvConsultas)
-        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "FrmConsultas"
         Me.Text = "FrmConsultas"
         CType(Me.DgvConsultas, System.ComponentModel.ISupportInitialize).EndInit()
@@ -302,4 +327,6 @@ Partial Class FrmConsultas
     Friend WithEvents LblSintomas As Label
     Friend WithEvents LblChat As Label
     Friend WithEvents RtbChat As RichTextBox
+    Friend WithEvents LblIndicacion As Label
+    Friend WithEvents BtnSalir As Button
 End Class

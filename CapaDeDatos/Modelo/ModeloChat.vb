@@ -144,7 +144,7 @@
         Me.Connect.Close()
     End Sub
 
-    Public Sub FinalizarChatPaciente()
+    Public Sub FinalizarChatConMedico()
         Command.CommandText = "
             INSERT INTO
                 atiende(ci_persona_medico, ci_persona_paciente, id_diagnostico, mensaje, leido, destinatario, status)
@@ -155,7 +155,7 @@
 
     End Sub
 
-    Public Sub FinalizarChat(id As String)
+    Public Sub FinalizarChatSinMedico(id As String)
         Command.CommandText = "
             INSERT INTO
                 atiende(ci_persona_paciente, id_diagnostico, mensaje, leido, status)

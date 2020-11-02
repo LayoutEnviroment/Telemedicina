@@ -40,6 +40,7 @@ Partial Class Frm_Menu
         Me.TmrBuscarChats = New System.Windows.Forms.Timer(Me.components)
         Me.WbbConversacion = New System.Windows.Forms.WebBrowser()
         Me.BtnConultas = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.DgvEnEspera, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -68,7 +69,7 @@ Partial Class Frm_Menu
         '
         Me.BtnFinalizarChat.Enabled = False
         Me.BtnFinalizarChat.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnFinalizarChat.Location = New System.Drawing.Point(812, 538)
+        Me.BtnFinalizarChat.Location = New System.Drawing.Point(812, 552)
         Me.BtnFinalizarChat.Name = "BtnFinalizarChat"
         Me.BtnFinalizarChat.Size = New System.Drawing.Size(241, 26)
         Me.BtnFinalizarChat.TabIndex = 6
@@ -115,7 +116,7 @@ Partial Class Frm_Menu
         Me.DgvEnEspera.AllowUserToResizeRows = False
         Me.DgvEnEspera.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DgvEnEspera.GridColor = System.Drawing.SystemColors.ButtonShadow
-        Me.DgvEnEspera.Location = New System.Drawing.Point(812, 195)
+        Me.DgvEnEspera.Location = New System.Drawing.Point(812, 222)
         Me.DgvEnEspera.MultiSelect = False
         Me.DgvEnEspera.Name = "DgvEnEspera"
         Me.DgvEnEspera.ReadOnly = True
@@ -134,7 +135,7 @@ Partial Class Frm_Menu
         Me.LblNombrePaciente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.LblNombrePaciente.Location = New System.Drawing.Point(41, 169)
         Me.LblNombrePaciente.Name = "LblNombrePaciente"
-        Me.LblNombrePaciente.Size = New System.Drawing.Size(0, 13)
+        Me.LblNombrePaciente.Size = New System.Drawing.Size(0, 20)
         Me.LblNombrePaciente.TabIndex = 10
         Me.LblNombrePaciente.Visible = False
         '
@@ -144,7 +145,7 @@ Partial Class Frm_Menu
         Me.LblSexoPaciente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.LblSexoPaciente.Location = New System.Drawing.Point(41, 206)
         Me.LblSexoPaciente.Name = "LblSexoPaciente"
-        Me.LblSexoPaciente.Size = New System.Drawing.Size(0, 13)
+        Me.LblSexoPaciente.Size = New System.Drawing.Size(0, 20)
         Me.LblSexoPaciente.TabIndex = 11
         Me.LblSexoPaciente.Visible = False
         '
@@ -154,7 +155,7 @@ Partial Class Frm_Menu
         Me.LblEdadPaciente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.LblEdadPaciente.Location = New System.Drawing.Point(41, 243)
         Me.LblEdadPaciente.Name = "LblEdadPaciente"
-        Me.LblEdadPaciente.Size = New System.Drawing.Size(0, 13)
+        Me.LblEdadPaciente.Size = New System.Drawing.Size(0, 20)
         Me.LblEdadPaciente.TabIndex = 12
         Me.LblEdadPaciente.Visible = False
         '
@@ -204,14 +205,24 @@ Partial Class Frm_Menu
         Me.BtnConultas.Text = "Consultas"
         Me.BtnConultas.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(832, 195)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(205, 20)
+        Me.Label1.TabIndex = 17
+        Me.Label1.Text = "Seleccione una consulta"
+        '
         'Frm_Menu
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1065, 590)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.BtnConultas)
         Me.Controls.Add(Me.WbbConversacion)
         Me.Controls.Add(Me.LstMedicaciones)
@@ -250,4 +261,5 @@ Partial Class Frm_Menu
     Friend WithEvents TmrBuscarChats As Timer
     Friend WithEvents WbbConversacion As WebBrowser
     Friend WithEvents BtnConultas As Button
+    Friend WithEvents Label1 As Label
 End Class

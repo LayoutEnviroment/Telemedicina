@@ -10,6 +10,7 @@ Public Class Frm_Chat
         AgregarMensaje("<p> Un médico se pondrá en contacto con usted en la brevedad </p>", 0)
         IdDiagnostico = ControladorDiagnostico.ObtenerID()
         TmrMensajesNuevos.Start()
+        RtbMensaje.Enabled = False
 
     End Sub
 
@@ -25,7 +26,6 @@ Public Class Frm_Chat
             If MensajeNuevo.Rows.Count > 0 Then
                 AgregarChat(MensajeNuevo)
             End If
-            RtbMensaje.Enabled = True
         Catch ex As Exception
             MsgBox(ex.ToString)
 
@@ -38,8 +38,8 @@ Public Class Frm_Chat
 
         For Each fila As DataRow In mensaje.Rows
             If fila(5).ToString = "Finalizado" Then
-                MsgBox("El doctor a finalizado el chat, el chat se cerrará automaticamente...", MsgBoxStyle.OkOnly)
-                FinalizarConMedico()
+                MsgBox("El doctor a finalizado el chat", MsgBoxStyle.OkOnly)
+                TerminarChat()
 
             Else
                 AgregarMensaje("<p style ='background-color:Tomato'; align = 'left' > " + fila(4).ToString + " : " + fila(2).ToString + "</p>", 1)
@@ -91,7 +91,8 @@ Public Class Frm_Chat
                 End If
 
                 TerminarChat()
-
+                Me.Close()
+                Frm_Menu.Show()
             Case MsgBoxResult.No
 
         End Select
@@ -99,12 +100,8 @@ Public Class Frm_Chat
 
     Private Sub FinalizarConMedico()
         Try
-            ControladorChat.FinalizarChatPaciente(IdDiagnostico, CiMedico)
-            Try
-                ControladorChat.MarcarComoFinalizado(IdDiagnostico)
-            Catch ex As Exception
-                MsgBox("Error en marcar como finalizado " + ex.ToString)
-            End Try
+            ControladorChat.FinalizarChatConMedico(IdDiagnostico, CiMedico)
+            MarcarChatComoFinalizado()
 
         Catch ex As Exception
             MsgBox("Error finalizar chat paciente" + ex.ToString)
@@ -114,15 +111,20 @@ Public Class Frm_Chat
 
     Private Sub FinalizarSinMedico()
         Try
-            ControladorChat.FinalizarChat(IdDiagnostico)
-            Try
-                ControladorChat.MarcarComoFinalizado(IdDiagnostico)
-            Catch ex As Exception
-                MsgBox("marcar como finalizado" + ex.ToString)
-            End Try
+            ControladorChat.FinalizarChatSinMedico(IdDiagnostico)
+            MarcarChatComoFinalizado()
 
         Catch ex As Exception
             MsgBox("Error en finalizar chat" + ex.ToString)
+        End Try
+
+    End Sub
+
+    Private Sub MarcarChatComoFinalizado()
+        Try
+            ControladorChat.MarcarComoFinalizado(IdDiagnostico)
+        Catch ex As Exception
+            MsgBox("marcar como finalizado" + ex.ToString)
         End Try
 
     End Sub
@@ -131,8 +133,8 @@ Public Class Frm_Chat
         TmrMensajesNuevos.Stop()
         WbbConversacion.DocumentText = ""
         RtbMensaje.Text = ""
-        Me.Close()
-        Frm_Menu.Show()
+        BtnEnviar.Enabled = False
+        RtbMensaje.Enabled = False
 
     End Sub
 
