@@ -64,4 +64,9 @@ Public Class FrmEliminarSintoma
         CmbSintomas.ResetText()
 
     End Sub
+
+    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
+        Me.Close()
+        FrmMenuGestion.Show()
+    End Sub
 End Class

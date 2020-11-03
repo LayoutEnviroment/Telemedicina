@@ -27,10 +27,11 @@ Public Class FrmNuevoSintoma
         If ControladorSintoma.EstaInactivo(TxtNombre.Text) = 1 Then
             BtnReactivar.Enabled = True
             Reactivacion = True
-            LblDisponibilidad.Text = "Este sintoma se encuentra inactiva, pulse reacitvar para volver a activarlo"
+            LblDisponibilidad.Text = "Este sintoma se encuentra inactivo," + vbCrLf + "haga clic en Reacitvar para volver a activarlo"
 
         Else
             Reactivacion = False
+            Nombre = False
             BtnReactivar.Enabled = False
             LblDisponibilidad.Text = "El nombre del sintoma ya esta en uso"
 
@@ -86,6 +87,10 @@ Public Class FrmNuevoSintoma
 
     Private Sub Limpiar()
         TxtNombre.Text = ""
+
+    End Sub
+
+    Private Sub FrmNuevoSintoma_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 

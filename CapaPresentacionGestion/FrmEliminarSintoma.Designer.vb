@@ -26,6 +26,7 @@ Partial Class FrmEliminarSintoma
         Me.LblSintomas = New System.Windows.Forms.Label()
         Me.BtnAceptar = New System.Windows.Forms.Button()
         Me.TxtSintoma = New System.Windows.Forms.TextBox()
+        Me.BtnVolver = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'CmbSintomas
@@ -62,11 +63,21 @@ Partial Class FrmEliminarSintoma
         Me.TxtSintoma.Size = New System.Drawing.Size(121, 20)
         Me.TxtSintoma.TabIndex = 3
         '
+        'BtnVolver
+        '
+        Me.BtnVolver.Location = New System.Drawing.Point(303, 265)
+        Me.BtnVolver.Name = "BtnVolver"
+        Me.BtnVolver.Size = New System.Drawing.Size(75, 23)
+        Me.BtnVolver.TabIndex = 4
+        Me.BtnVolver.Text = "Volver"
+        Me.BtnVolver.UseVisualStyleBackColor = True
+        '
         'FrmEliminarSintoma
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(390, 300)
+        Me.Controls.Add(Me.BtnVolver)
         Me.Controls.Add(Me.TxtSintoma)
         Me.Controls.Add(Me.BtnAceptar)
         Me.Controls.Add(Me.LblSintomas)
@@ -82,4 +93,5 @@ Partial Class FrmEliminarSintoma
     Friend WithEvents LblSintomas As Label
     Friend WithEvents BtnAceptar As Button
     Friend WithEvents TxtSintoma As TextBox
+    Friend WithEvents BtnVolver As Button
 End Class
