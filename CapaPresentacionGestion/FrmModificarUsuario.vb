@@ -8,7 +8,9 @@ Public Class FrmModificarUsuario
     Public Nombre, Apellido, Mail As Boolean
 
     Private Sub FrmModificarUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        DtpFechaNacimiento.MaxDate = Today()
         ObtenerCedulas()
+
     End Sub
 
     Private Sub ObtenerCedulas()
@@ -17,8 +19,9 @@ Public Class FrmModificarUsuario
             LectorCedula = ControladorUsuario.ObtenerTodasLasCedulas()
             CargarCedulas(LectorCedula)
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("No se pudieron obtener los usuarios")
         End Try
+
     End Sub
 
     Private Sub CargarCedulas(lector As IDataReader)
@@ -190,24 +193,41 @@ Public Class FrmModificarUsuario
     End Sub
 
     Private Sub ChbPaciente_CheckedChanged(sender As Object, e As EventArgs) Handles ChbPaciente.CheckedChanged
+        HabilitarDatosPaciente(ChbPaciente.Checked)
         MostrarDatosPaciente(ChbPaciente.Checked)
         HabilitarModificacion()
 
     End Sub
 
-    Private Sub MostrarDatosPaciente(estado As Boolean)
+    Private Sub HabilitarDatosPaciente(estado As Boolean)
         LblFechaNacimiento.Enabled = estado
         DtpFechaNacimiento.Enabled = estado
         RdbH.Enabled = estado
         RdbM.Enabled = estado
         LblEnfermedadCronica.Enabled = estado
         TxtEnfermedadCronica.Enabled = estado
-        BtnAgregarEnfermedad.Enabled = estado
         LstEnfermedades.Enabled = estado
         LblMedicacion.Enabled = estado
         TxtMedicacion.Enabled = estado
-        BtnAgregarMedicacion.Enabled = estado
         LstMedicaciones.Enabled = estado
+
+    End Sub
+
+    Private Sub MostrarDatosPaciente(estado As Boolean)
+        LblFechaNacimiento.Visible = estado
+        DtpFechaNacimiento.Visible = estado
+        RdbH.Visible = estado
+        RdbM.Visible = estado
+        LblEnfermedadCronica.Visible = estado
+        TxtEnfermedadCronica.Visible = estado
+        BtnAgregarEnfermedad.Visible = estado
+        LstEnfermedades.Visible = estado
+        LblMedicacion.Visible = estado
+        TxtMedicacion.Visible = estado
+        BtnAgregarMedicacion.Visible = estado
+        LstMedicaciones.Visible = estado
+        BtnEliminarEnfermedad.Visible = estado
+        BtnEliminarMedicacion.Visible = estado
 
     End Sub
 
@@ -226,7 +246,11 @@ Public Class FrmModificarUsuario
     End Sub
 
     Private Sub LstEnfermedades_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstEnfermedades.SelectedIndexChanged
-        BtnEliminarEnfermedad.Enabled = True
+        If LstEnfermedades.SelectedItems.Count() > 0 Then
+            BtnEliminarEnfermedad.Enabled = True
+        Else
+            BtnEliminarEnfermedad.Enabled = False
+        End If
 
     End Sub
 
@@ -279,7 +303,7 @@ Public Class FrmModificarUsuario
     End Sub
 
     Private Sub TxtApellido_TextChanged(sender As Object, e As EventArgs) Handles TxtApellido.TextChanged
-        If System.Text.RegularExpressions.Regex.IsMatch(TxtApellido.Text, "^[a-zA-Z]+$") Then
+        If System.Text.RegularExpressions.Regex.IsMatch(TxtApellido.Text, "^[a-zA-Z\s]+$") Then
             TxtApellido.ForeColor = Color.Black
             Apellido = True
         Else
@@ -445,8 +469,6 @@ Public Class FrmModificarUsuario
 
     End Function
 
-
-
     Private Sub Limpiar()
         TxtNombre.Text = ""
         TxtApellido.Text = ""
@@ -466,7 +488,12 @@ Public Class FrmModificarUsuario
     End Sub
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
-        Limpiar()
+        HabilitarPersona(True)
+        ObtenerDatosPersona()
+        EsPaciente()
+        EsMedico()
+        EsAdministrativo()
+        HabilitarModificacion()
 
     End Sub
 
