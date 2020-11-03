@@ -10,6 +10,11 @@ Public Class FrmNuevoUsuario
     Dim Contra As String
     Public Ci, Nombre, Apellido, Mail, FoM, Fecha As Boolean
 
+
+    Private Sub FrmNuevoUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        DtpFechaNacimiento.MaxDate = Today()
+    End Sub
+
     Private Sub TxtCI_TextChanged(sender As Object, e As EventArgs) Handles TxtCI.TextChanged
         If System.Text.RegularExpressions.Regex.IsMatch(TxtCI.Text, "^[0-9]+$") Then
             TxtCI.ForeColor = Color.Black
@@ -127,7 +132,8 @@ Public Class FrmNuevoUsuario
         LblSexo.Visible = estado
         BtnAgregarEnfermedad.Visible = estado
         BtnAgregarMedicacion.Visible = estado
-
+        BtnEliminarEnfermedad.Visible = estado
+        BtnEliminarMedicacion.Visible = estado
     End Sub
 
     Private Sub HabilitarAceptar()
@@ -195,15 +201,61 @@ Public Class FrmNuevoUsuario
 
     End Sub
 
+    Private Sub TxtEnfermedadCronica_TextChanged(sender As Object, e As EventArgs) Handles TxtEnfermedadCronica.TextChanged
+        If TxtEnfermedadCronica.Text <> "" Then
+            BtnAgregarEnfermedad.Enabled = True
+        Else
+            BtnAgregarEnfermedad.Enabled = False
+        End If
+
+    End Sub
+
     Private Sub BtnAgregarEnfermedad_Click(sender As Object, e As EventArgs) Handles BtnAgregarEnfermedad.Click
         LstEnfermedadCronica.Items.Add(TxtEnfermedadCronica.Text)
         TxtEnfermedadCronica.Clear()
 
     End Sub
 
+    Private Sub LstEnfermedadCronica_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstEnfermedadCronica.SelectedIndexChanged
+        If LstEnfermedadCronica.SelectedIndices.Count() > 0 Then
+            BtnEliminarEnfermedad.Enabled = True
+        Else
+            BtnEliminarEnfermedad.Enabled = False
+        End If
+
+    End Sub
+
+    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminarEnfermedad.Click
+        LstEnfermedadCronica.Items.Remove(LstEnfermedadCronica.SelectedItems(0))
+
+    End Sub
+
+    Private Sub TxtMedicacion_TextChanged(sender As Object, e As EventArgs) Handles TxtMedicacion.TextChanged
+        If TxtMedicacion.Text <> "" Then
+            BtnAgregarMedicacion.Enabled = True
+        Else
+            BtnAgregarMedicacion.Enabled = False
+        End If
+
+    End Sub
+
     Private Sub BtnAgregarMedicacion_Click(sender As Object, e As EventArgs) Handles BtnAgregarMedicacion.Click
         LstMedicacion.Items.Add(TxtMedicacion.Text)
         TxtMedicacion.Clear()
+
+    End Sub
+
+    Private Sub LstMedicacion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstMedicacion.SelectedIndexChanged
+        If LstMedicacion.SelectedIndices.Count() > 0 Then
+            BtnEliminarMedicacion.Enabled = True
+        Else
+            BtnEliminarMedicacion.Enabled = False
+        End If
+
+    End Sub
+
+    Private Sub BtnEliminarMedicacion_Click(sender As Object, e As EventArgs) Handles BtnEliminarMedicacion.Click
+        LstMedicacion.Items.Remove(LstMedicacion.SelectedItems(0))
 
     End Sub
 
@@ -407,27 +459,6 @@ Public Class FrmNuevoUsuario
 
     End Sub
 
-    Private Sub TxtEnfermedadCronica_TextChanged(sender As Object, e As EventArgs) Handles TxtEnfermedadCronica.TextChanged
-        If TxtEnfermedadCronica.Text <> "" Then
-            BtnAgregarEnfermedad.Enabled = True
-        Else
-            BtnAgregarEnfermedad.Enabled = False
-        End If
-
-    End Sub
-
-    Private Sub TxtMedicacion_TextChanged(sender As Object, e As EventArgs) Handles TxtMedicacion.TextChanged
-        If TxtMedicacion.Text <> "" Then
-            BtnAgregarMedicacion.Enabled = True
-        Else
-            BtnAgregarMedicacion.Enabled = False
-        End If
-    End Sub
-
-    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
-
-    End Sub
-
     Private Sub EnviarMensaje(smtp, correo)
         Try
             smtp.Send(correo)
@@ -478,10 +509,5 @@ Public Class FrmNuevoUsuario
         BtnAceptar.Enabled = True
 
     End Sub
-
-
-
-
-
 
 End Class
