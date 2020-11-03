@@ -50,31 +50,31 @@ CREATE USER '53590226'@'%'
 IDENTIFIED BY 'Pac1234_';
 
 GRANT 
-	SELECT ON bd_led.roles TO '53590226'@'%';
+	SELECT ON bd_led_test.roles TO '53590226'@'%';
 GRANT
-	SELECT ON bd_led.sintoma TO '53590226'@'%';
+	SELECT ON bd_led_test.sintoma TO '53590226'@'%';
 GRANT
-	SELECT ON bd_led.enfermedad TO '53590226'@'%';
+	SELECT ON bd_led_test.enfermedad TO '53590226'@'%';
 GRANT
-	SELECT ON bd_led.compone TO '53590226'@'%';
+	SELECT ON bd_led_test.compone TO '53590226'@'%';
 GRANT
-	SELECT ON bd_led.medico TO '53590226'@'%';
+	SELECT ON bd_led_test.medico TO '53590226'@'%';
 GRANT
-	SELECT, INSERT ON bd_led.genera TO '53590226'@'%';
+	SELECT, INSERT ON bd_led_test.genera TO '53590226'@'%';
 GRANT
-	SELECT, INSERT ON bd_led.diagnostico TO '53590226'@'%';
+	SELECT, INSERT ON bd_led_test.diagnostico TO '53590226'@'%';
 GRANT
-	SELECT, INSERT ON bd_led.padece TO '53590226'@'%';
+	SELECT, INSERT ON bd_led_test.padece TO '53590226'@'%';
 GRANT
-	SELECT, UPDATE ON bd_led.paciente TO '53590226'@'%';
+	SELECT, UPDATE ON bd_led_test.paciente TO '53590226'@'%';
 GRANT
-	SELECT, UPDATE ON bd_led.persona TO '53590226'@'%';
+	SELECT, UPDATE ON bd_led_test.persona TO '53590226'@'%';
 GRANT
-	SELECT, INSERT, DELETE ON bd_led.enfermedades_cronicas TO '53590226'@'%';
+	SELECT, INSERT, DELETE ON bd_led_test.enfermedades_cronicas TO '53590226'@'%';
 GRANT
-	SELECT, INSERT, DELETE ON bd_led.medicaciones TO '53590226'@'%';
+	SELECT, INSERT, DELETE ON bd_led_test.medicaciones TO '53590226'@'%';
 GRANT
-	SELECT, INSERT, UPDATE ON bd_led.atiende TO '53590226'@'%';
+	SELECT, INSERT, UPDATE ON bd_led_test.atiende TO '53590226'@'%';
 
 CREATE USER
 	'49249605'@'%'
@@ -82,29 +82,29 @@ IDENTIFIED BY
 	'Med1234_';
 
 GRANT
-	SELECT ON bd_led.roles TO '49249605'@'%';
+	SELECT ON bd_led_test.roles TO '49249605'@'%';
 GRANT
-	SELECT ON bd_led.sintoma TO '49249605'@'%';
+	SELECT ON bd_led_test.sintoma TO '49249605'@'%';
 GRANT 
-	SELECT ON bd_led.enfermedad TO '49249605'@'%';
+	SELECT ON bd_led_test.enfermedad TO '49249605'@'%';
 GRANT 
-	SELECT ON bd_led.compone TO '49249605'@'%';
+	SELECT ON bd_led_test.compone TO '49249605'@'%';
 GRANT 
-	SELECT ON bd_led.medico TO '49249605'@'%';
+	SELECT ON bd_led_test.medico TO '49249605'@'%';
 GRANT
-	SELECT ON bd_led.paciente TO '49249605'@'%';
+	SELECT ON bd_led_test.paciente TO '49249605'@'%';
 GRANT
-	SELECT ON bd_led.persona TO '49249605'@'%';
+	SELECT ON bd_led_test.persona TO '49249605'@'%';
 GRANT
-	SELECT ON bd_led.enfermedades_cronicas TO '49249605'@'%';
+	SELECT ON bd_led_test.enfermedades_cronicas TO '49249605'@'%';
 GRANT
-	SELECT ON bd_led.medicaciones TO '49249605'@'%';
+	SELECT ON bd_led_test.medicaciones TO '49249605'@'%';
 GRANT
-	SELECT ON bd_led.diagnostico TO '49249605'@'%';
+	SELECT ON bd_led_test.diagnostico TO '49249605'@'%';
 GRANT
-	SELECT ON bd_led.genera TO '49249605'@'%';
+	SELECT ON bd_led_test.genera TO '49249605'@'%';
 GRANT
-	SELECT, INSERT, UPDATE ON bd_led.atiende TO '49249605'@'%';
+	SELECT, INSERT, UPDATE ON bd_led_test.atiende TO '49249605'@'%';
 
 CREATE USER
 	'54083680'@'%'
