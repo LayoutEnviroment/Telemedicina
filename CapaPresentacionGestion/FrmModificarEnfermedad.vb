@@ -31,8 +31,8 @@ Public Class FrmModificarEnfermedad
         Try
             IdEnfermedad = ControladorEnfermedad.ObtenerId(CmbEnfermedades.SelectedItem.ToString)
             ObtenerDatos()
-            If CbxModificarSintomas.Checked Then
-                TraerSintomas()
+            If ChbModificarSintomas.Checked Then
+                TraerSintomas(True)
             End If
         Catch ex As Exception
             MsgBox("No pudimos identificar la enfermedad")
@@ -42,17 +42,27 @@ Public Class FrmModificarEnfermedad
     Private Sub ObtenerDatos()
         Try
             TxtDescripcion.Text = ControladorEnfermedad.ObtenerDescripcion(IdEnfermedad)
-            CmbPrioridad.SelectedText = ControladorEnfermedad.ObtenerPrioridad(IdEnfermedad)
+            CmbPrioridad.Text = ControladorEnfermedad.ObtenerPrioridad(IdEnfermedad)
+            HabilitarCampos()
         Catch ex As Exception
             MsgBox("No pudimos cargar los datos de la enfermedad")
         End Try
 
     End Sub
 
-    Private Sub CbxModificarSintomas_CheckedChanged(sender As Object, e As EventArgs) Handles CbxModificarSintomas.CheckedChanged
-        HabilitarSintomas(CbxModificarSintomas.Checked)
-        TraerSintomas()
+    Private Sub HabilitarCampos()
+        TxtNombre.Enabled = True
+        TxtDescripcion.Enabled = True
+        CmbPrioridad.Enabled = True
+        ChbModificarSintomas.Enabled = True
+
+    End Sub
+
+    Private Sub CbxModificarSintomas_CheckedChanged(sender As Object, e As EventArgs) Handles ChbModificarSintomas.CheckedChanged
+        HabilitarSintomas(ChbModificarSintomas.Checked)
+        TraerSintomas(ChbModificarSintomas.Checked)
         CargarSintomas()
+
     End Sub
 
     Private Sub HabilitarSintomas(estado As Boolean)
@@ -62,16 +72,22 @@ Public Class FrmModificarEnfermedad
 
     End Sub
 
-    Private Sub TraerSintomas()
-        LstSintomas.Clear()
-        Try
-            Dim LectorSintomas As IDataReader = ControladorCompone.ObtenerSintomasEnfermedad(IdEnfermedad)
-            While LectorSintomas.Read
-                LstSintomas.Items.Add(LectorSintomas(0).ToString)
-            End While
-        Catch ex As Exception
+    Private Sub TraerSintomas(estado As Boolean)
+        If estado Then
+            LstSintomas.Clear()
+            Try
+                Dim LectorSintomas As IDataReader = ControladorCompone.ObtenerSintomasEnfermedad(IdEnfermedad)
+                While LectorSintomas.Read
+                    LstSintomas.Items.Add(LectorSintomas(0).ToString)
+                End While
+            Catch ex As Exception
+                MsgBox("error")
+            End Try
+        Else
+            LstSintomas.Clear()
+        End If
 
-        End Try
+
     End Sub
 
     Private Sub CargarSintomas()
@@ -86,9 +102,19 @@ Public Class FrmModificarEnfermedad
     End Sub
 
     Private Sub CargarCmbSintomas(lector)
+        Dim i As Integer = 0
         CmbSintomas.Items.Clear()
         While lector.Read
-            CmbSintomas.Items.Add(lector(0).ToString)
+            i = 0
+            For x = 0 To LstSintomas.Items.Count() - 1
+                If lector(0).ToString = LstSintomas.Items(x).Text Then
+                    i = 1
+                End If
+            Next
+            If i = 0 Then
+                CmbSintomas.Items.Add(lector(0).ToString)
+            End If
+
         End While
 
     End Sub
@@ -119,7 +145,7 @@ Public Class FrmModificarEnfermedad
     End Sub
 
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
-        If CbxModificarSintomas.Checked Then
+        If ChbModificarSintomas.Checked Then
             ValidarEnfermedadYSintoma()
         Else
             ValidarEnfermedad()
@@ -192,12 +218,16 @@ Public Class FrmModificarEnfermedad
     End Sub
 
     Private Sub Limpiar()
-        If CbxModificarSintomas.Checked Then
+        If ChbModificarSintomas.Checked Then
             LimpiarEnfermedad()
             LimpiarSintomas()
         Else
             LimpiarEnfermedad()
         End If
+        CmbPrioridad.Text = ""
+        TxtDescripcion.Enabled = False
+        TxtNombre.Enabled = False
+        CmbPrioridad.Enabled = False
 
     End Sub
 
@@ -214,6 +244,8 @@ Public Class FrmModificarEnfermedad
         LstSintomas.Clear()
         CmbSintomas.Items.Clear()
         CmbSintomas.SelectedItem = -1
-        CbxModificarSintomas.Checked = False
+        ChbModificarSintomas.Checked = False
+
     End Sub
+
 End Class

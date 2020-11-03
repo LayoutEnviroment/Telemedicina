@@ -27,7 +27,8 @@ Public Class FrmNuevaEnfermedad
     End Sub
 
     Private Sub CmbSintomas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbSintomas.SelectedIndexChanged
-        ListaSintomas.Add(CmbSintomas.SelectedItem.ToString())
+        ListaSintomas.Add(CmbSintomas.SelectedItem.ToString)
+        CmbSintomas.Items.RemoveAt(CmbSintomas.SelectedIndex())
         Prioridad = True
         CargarListado()
 
@@ -43,8 +44,16 @@ Public Class FrmNuevaEnfermedad
     End Sub
 
     Private Sub LstSintomasSeleccionados_DoubleClick(sender As Object, e As EventArgs) Handles LstSintomasSeleccionados.DoubleClick
+        CmbSintomas.Items.Add(LstSintomasSeleccionados.Items(LstSintomasSeleccionados.SelectedIndices(0)).Text)
         LstSintomasSeleccionados.Items.RemoveAt(LstSintomasSeleccionados.SelectedIndices(0))
         ActualizarLista()
+
+    End Sub
+
+    Private Sub DevolverSintomasAlCmb()
+        For x = 0 To LstSintomasSeleccionados.Items.Count() - 1
+            CmbSintomas.Items.Add(LstSintomasSeleccionados.Items(x).Text)
+        Next
 
     End Sub
 
@@ -195,6 +204,7 @@ Public Class FrmNuevaEnfermedad
     End Sub
 
     Private Sub Limpiar()
+        DevolverSintomasAlCmb()
         TxtNombre.Clear()
         TxtDescripcion.Clear()
         LstSintomasSeleccionados.Clear()
