@@ -36,6 +36,7 @@ Public Class FrmEliminarUsuario
         EsPaciente()
         EsMedico()
         EsAdministrativo()
+        MostrarDatos()
         HabilitarEliminar()
 
     End Sub
@@ -97,6 +98,15 @@ Public Class FrmEliminarUsuario
             ChbAdministrador.Checked = False
             ChbAdministrador.Enabled = False
         End If
+
+    End Sub
+
+    Private Sub MostrarDatos()
+        LblIndicaciones2.Visible = True
+        LblTipoUsuario.Visible = True
+        ChbPaciente.Visible = True
+        ChbMedico.Visible = True
+        ChbAdministrador.Visible = True
 
     End Sub
 
@@ -193,7 +203,10 @@ Public Class FrmEliminarUsuario
     End Sub
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
-        Limpiar()
+        BtnEliminar.Enabled = False
+        EsPaciente()
+        EsMedico()
+        EsAdministrativo()
 
     End Sub
 
