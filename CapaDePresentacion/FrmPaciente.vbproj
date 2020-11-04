@@ -241,7 +241,25 @@
     <None Include="Resources\Men3n.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Correcto.png" />
+    <None Include="Resources\Error.png" />
+    <Content Include="Resources\CorrectoFondoClaro.png" />
+    <None Include="Resources\CorrectoFondoClaro1.png" />
+    <Content Include="Resources\CorrectoFondoObscuro.png" />
+    <None Include="Resources\EnviarBloqueadoFondoClaro.png" />
+    <None Include="Resources\EnviarFondoClaro.png" />
+    <None Include="Resources\EnviarFondoObscuro.png" />
+    <Content Include="Resources\ErrorFondoClaro.png" />
+    <None Include="Resources\ErrorFondoClaro1.png" />
+    <Content Include="Resources\ErrorFondoObscuro.png" />
     <Content Include="Resources\Historial.png" />
+    <None Include="Resources\Info.png" />
+    <None Include="Resources\LedIcon.png" />
+    <Content Include="Resources\InfoFondoClaro.png" />
+    <None Include="Resources\InfoFondoClaro1.png" />
+    <Content Include="Resources\InfoFondoObscuro.png" />
+    <Content Include="Resources\LedIconFondoClaro.png" />
+    <Content Include="Resources\LedIconFondoObscuro.png" />
     <Content Include="Resources\MenuHistoria.png" />
     <None Include="Resources\MenuHistoria1.png" />
     <None Include="Resources\Historial1.png" />

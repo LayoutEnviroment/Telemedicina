@@ -234,6 +234,7 @@ Partial Class Frm_Menu
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Frm_Menu"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Paciente"
         Me.PnlMenu.ResumeLayout(False)
         Me.PnlMenu.PerformLayout()

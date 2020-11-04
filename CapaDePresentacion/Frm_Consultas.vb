@@ -135,4 +135,8 @@ Public Class Frm_Consultas
         Frm_Menu.Show()
 
     End Sub
+
+    Private Sub PctSalir_Click(sender As Object, e As EventArgs) Handles PctSalir.Click
+
+    End Sub
 End Class

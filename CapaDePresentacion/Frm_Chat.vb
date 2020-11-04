@@ -42,7 +42,7 @@ Public Class Frm_Chat
                 TerminarChat()
 
             Else
-                AgregarMensaje("<p style ='background-color:Tomato'; align = 'left' > " + fila(4).ToString + " : " + fila(2).ToString + "</p>", 1)
+                AgregarMensaje("<p align = 'left' > " + fila(4).ToString + " : " + fila(2).ToString + "</p>", 1)
                 CiMedico = fila(0).ToString
                 RtbMensaje.Enabled = True
 
@@ -54,17 +54,20 @@ Public Class Frm_Chat
 
     Private Sub RtbMensaje_TextChanged(sender As Object, e As EventArgs) Handles RtbMensaje.TextChanged
         If RtbMensaje.Text <> "" Then
-            BtnEnviar.Enabled = True
+            PctEnviar.Enabled = True
+            PctEnviar.Image = My.Resources.EnviarFondoClaro
+
         Else
-            BtnEnviar.Enabled = False
+            PctEnviar.Enabled = False
+            PctEnviar.Image = My.Resources.EnviarBloqueadoFondoClaro
         End If
 
     End Sub
 
-    Private Sub BtnEnviar_Click(sender As Object, e As EventArgs) Handles BtnEnviar.Click
+    Private Sub PctEnviar_Click(sender As Object, e As EventArgs) Handles BtnEnviar.Click
         Try
             ControladorChat.EnviarMensajePaciente(IdDiagnostico, RtbMensaje.Text, CiMedico)
-            AgregarMensaje("<p style ='background-color:Green'; align = 'right'>" + RtbMensaje.Text + "</p>", 0)
+            AgregarMensaje("<p align = 'right'>" + RtbMensaje.Text + "</p>", 0)
             BtnEnviar.Enabled = False
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -79,23 +82,6 @@ Public Class Frm_Chat
             RtbMensaje.Text = ""
         End If
 
-    End Sub
-
-    Private Sub BbtnSalir_Click(sender As Object, e As EventArgs) Handles BbtnSalir.Click
-        Select Case MsgBox("¿Seguro quiere salir del chat?", MsgBoxStyle.YesNo)
-            Case MsgBoxResult.Yes
-                If CiMedico <> "" Then
-                    FinalizarConMedico()
-                Else
-                    FinalizarSinMedico()
-                End If
-
-                TerminarChat()
-                Me.Close()
-                Frm_Menu.Show()
-            Case MsgBoxResult.No
-
-        End Select
     End Sub
 
     Private Sub FinalizarConMedico()
@@ -138,4 +124,31 @@ Public Class Frm_Chat
 
     End Sub
 
+    Private Sub PctSalir_MouseEnter(sender As Object, e As EventArgs) Handles PctSalir.MouseEnter
+        PctSalir.Image = My.Resources.Salir2
+
+    End Sub
+
+    Private Sub PctSalir_MouseLeave(sender As Object, e As EventArgs) Handles PctSalir.MouseLeave
+        PctSalir.Image = My.Resources.Salir1
+
+    End Sub
+
+    Private Sub PctSalir_MouseClick(sender As Object, e As EventArgs) Handles PctSalir.Click
+        Select Case MsgBox("¿Seguro quiere salir del chat?", MsgBoxStyle.YesNo)
+            Case MsgBoxResult.Yes
+                If CiMedico <> "" Then
+                    FinalizarConMedico()
+                Else
+                    FinalizarSinMedico()
+                End If
+
+                TerminarChat()
+                Me.Close()
+                Frm_Menu.Show()
+            Case MsgBoxResult.No
+
+        End Select
+
+    End Sub
 End Class

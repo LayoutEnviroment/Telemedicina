@@ -23,75 +23,114 @@ Partial Class Frm_Chat
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.BtnEnviar = New System.Windows.Forms.Button()
         Me.TmrMensajesNuevos = New System.Windows.Forms.Timer(Me.components)
-        Me.BbtnSalir = New System.Windows.Forms.Button()
         Me.WbbConversacion = New System.Windows.Forms.WebBrowser()
         Me.RtbMensaje = New System.Windows.Forms.RichTextBox()
+        Me.PctSalir = New System.Windows.Forms.PictureBox()
+        Me.LblDescripcion = New System.Windows.Forms.Label()
+        Me.BtnEnviar = New System.Windows.Forms.Button()
+        Me.PctEnviar = New System.Windows.Forms.PictureBox()
+        CType(Me.PctSalir, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PctEnviar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'BtnEnviar
-        '
-        Me.BtnEnviar.Enabled = False
-        Me.BtnEnviar.Location = New System.Drawing.Point(754, 435)
-        Me.BtnEnviar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.BtnEnviar.Name = "BtnEnviar"
-        Me.BtnEnviar.Size = New System.Drawing.Size(98, 40)
-        Me.BtnEnviar.TabIndex = 2
-        Me.BtnEnviar.Text = "Enviar"
-        Me.BtnEnviar.UseVisualStyleBackColor = True
         '
         'TmrMensajesNuevos
         '
         Me.TmrMensajesNuevos.Interval = 1000
         '
-        'BbtnSalir
-        '
-        Me.BbtnSalir.Location = New System.Drawing.Point(20, 20)
-        Me.BbtnSalir.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.BbtnSalir.Name = "BbtnSalir"
-        Me.BbtnSalir.Size = New System.Drawing.Size(112, 35)
-        Me.BbtnSalir.TabIndex = 3
-        Me.BbtnSalir.Text = "Salir"
-        Me.BbtnSalir.UseVisualStyleBackColor = True
-        '
         'WbbConversacion
         '
-        Me.WbbConversacion.Location = New System.Drawing.Point(214, 20)
-        Me.WbbConversacion.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.WbbConversacion.Location = New System.Drawing.Point(62, 103)
+        Me.WbbConversacion.Margin = New System.Windows.Forms.Padding(2)
+        Me.WbbConversacion.MinimumSize = New System.Drawing.Size(13, 13)
         Me.WbbConversacion.Name = "WbbConversacion"
-        Me.WbbConversacion.Size = New System.Drawing.Size(636, 400)
+        Me.WbbConversacion.Size = New System.Drawing.Size(511, 260)
         Me.WbbConversacion.TabIndex = 4
         '
         'RtbMensaje
         '
         Me.RtbMensaje.Enabled = False
-        Me.RtbMensaje.Location = New System.Drawing.Point(214, 435)
-        Me.RtbMensaje.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.RtbMensaje.Location = New System.Drawing.Point(62, 386)
         Me.RtbMensaje.Name = "RtbMensaje"
-        Me.RtbMensaje.Size = New System.Drawing.Size(529, 38)
+        Me.RtbMensaje.Size = New System.Drawing.Size(422, 45)
         Me.RtbMensaje.TabIndex = 6
         Me.RtbMensaje.Text = ""
         '
+        'PctSalir
+        '
+        Me.PctSalir.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PctSalir.Image = Global.CapaDePresentacion.My.Resources.Resources.Salir1
+        Me.PctSalir.Location = New System.Drawing.Point(594, 12)
+        Me.PctSalir.Name = "PctSalir"
+        Me.PctSalir.Size = New System.Drawing.Size(53, 50)
+        Me.PctSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PctSalir.TabIndex = 35
+        Me.PctSalir.TabStop = False
+        '
+        'LblDescripcion
+        '
+        Me.LblDescripcion.AutoSize = True
+        Me.LblDescripcion.BackColor = System.Drawing.Color.Transparent
+        Me.LblDescripcion.Font = New System.Drawing.Font("Libre Franklin", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblDescripcion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(213, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.LblDescripcion.Location = New System.Drawing.Point(238, 12)
+        Me.LblDescripcion.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LblDescripcion.Name = "LblDescripcion"
+        Me.LblDescripcion.Size = New System.Drawing.Size(188, 33)
+        Me.LblDescripcion.TabIndex = 36
+        Me.LblDescripcion.Text = "Conversación"
+        Me.LblDescripcion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'BtnEnviar
+        '
+        Me.BtnEnviar.Enabled = False
+        Me.BtnEnviar.Location = New System.Drawing.Point(349, 386)
+        Me.BtnEnviar.Name = "BtnEnviar"
+        Me.BtnEnviar.Size = New System.Drawing.Size(77, 45)
+        Me.BtnEnviar.TabIndex = 2
+        Me.BtnEnviar.Text = "Enviar"
+        Me.BtnEnviar.UseVisualStyleBackColor = True
+        '
+        'PctEnviar
+        '
+        Me.PctEnviar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.PctEnviar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PctEnviar.Enabled = False
+        Me.PctEnviar.Image = Global.CapaDePresentacion.My.Resources.Resources.EnviarBloqueadoFondoClaro
+        Me.PctEnviar.Location = New System.Drawing.Point(510, 381)
+        Me.PctEnviar.Name = "PctEnviar"
+        Me.PctEnviar.Size = New System.Drawing.Size(63, 50)
+        Me.PctEnviar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PctEnviar.TabIndex = 37
+        Me.PctEnviar.TabStop = False
+        '
         'Frm_Chat
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(183, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(988, 558)
+        Me.BackgroundImage = Global.CapaDePresentacion.My.Resources.Resources.MenuHistoria
+        Me.ClientSize = New System.Drawing.Size(659, 465)
+        Me.Controls.Add(Me.PctEnviar)
+        Me.Controls.Add(Me.LblDescripcion)
+        Me.Controls.Add(Me.PctSalir)
         Me.Controls.Add(Me.RtbMensaje)
         Me.Controls.Add(Me.WbbConversacion)
-        Me.Controls.Add(Me.BbtnSalir)
         Me.Controls.Add(Me.BtnEnviar)
-        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Frm_Chat"
-        Me.Text = "Chat"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        CType(Me.PctSalir, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PctEnviar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
-    Friend WithEvents BtnEnviar As Button
     Friend WithEvents TmrMensajesNuevos As Timer
-    Friend WithEvents BbtnSalir As Button
     Friend WithEvents WbbConversacion As WebBrowser
     Friend WithEvents RtbMensaje As RichTextBox
+    Friend WithEvents PctSalir As PictureBox
+    Friend WithEvents LblDescripcion As Label
+    Friend WithEvents BtnEnviar As Button
+    Friend WithEvents PctEnviar As PictureBox
 End Class

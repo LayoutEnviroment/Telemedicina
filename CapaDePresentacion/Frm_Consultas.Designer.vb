@@ -22,7 +22,7 @@ Partial Class Frm_Consultas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DgvDiagnosticos = New System.Windows.Forms.DataGridView()
         Me.PnlInformacion = New System.Windows.Forms.Panel()
         Me.LblPrioridad = New System.Windows.Forms.Label()
@@ -155,14 +155,14 @@ Partial Class Frm_Consultas
         Me.DgvSintomas.Name = "DgvSintomas"
         Me.DgvSintomas.ReadOnly = True
         Me.DgvSintomas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgvSintomas.RowHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvSintomas.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DgvSintomas.RowHeadersVisible = False
         Me.DgvSintomas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.DgvSintomas.RowTemplate.ReadOnly = True
@@ -238,6 +238,7 @@ Partial Class Frm_Consultas
         'PctSalir
         '
         Me.PctSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.PctSalir.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PctSalir.Image = Global.CapaDePresentacion.My.Resources.Resources.Salir1
         Me.PctSalir.Location = New System.Drawing.Point(1030, 9)
         Me.PctSalir.Name = "PctSalir"

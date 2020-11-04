@@ -10,18 +10,17 @@ Public Class Frm_Iniciar_Chat
             ObtenerDiagnostico()
             CargarTextBoxes(idEnfermedad)
         Catch ex As Exception
-            MsgBox(ex.ToString)
-            'MsgBox("No pudimos guardar el identificador de la enfermedad")
+            MsgBox("No pudimos guardar el identificador de la enfermedad")
         End Try
 
     End Sub
 
-
     Private Sub ObtenerDiagnostico()
         Try
-            TxtIdDiagnostico.Text = ControladorDiagnostico.ObtenerID()
+            LblId.Text = "ID del diagnóstico " + ControladorDiagnostico.ObtenerID()
         Catch ex As Exception
-            MsgBox("Me activaron")
+            MsgBox("No se pudo obtener un identificador para este diagnóstico")
+            BtnIniciarChat.Enabled = False
         End Try
 
     End Sub
@@ -32,36 +31,68 @@ Public Class Frm_Iniciar_Chat
             Lector = ControladorEnfermedad.ObtenerTodo(idEnfermedad)
             While Lector.Read
                 TxtEnfermedad.Text = Lector(0)
-                TxtDescripcion.Text = Lector(1)
-                TxtPrioridad.Text = Lector(2)
+                TxtDescripcion.Text = Lector(2)
+                DecidirImagenSegunPrioridad(Lector(1))
             End While
         Catch ex As Exception
-            'MsgBox("Error cargando text boxes" + ex.ToString)
+            MsgBox("Error cargando los campos")
             TxtDescripcion.Text = "No se pudieron cargar los datos"
         End Try
 
     End Sub
 
+    Private Sub DecidirImagenSegunPrioridad(prioridad As String)
+        If prioridad = "ALTA" Then
+            PctPrioridad.Image = My.Resources.ErrorFondoClaro
+        ElseIf prioridad = "MEDIA" Then
+            PctPrioridad.Image = My.Resources.InfoFondoClaro
+        Else
+            PctPrioridad.Image = My.Resources.CorrectoFondoClaro
+        End If
+    End Sub
+
     Private Sub BtnIniciarChat_Click(sender As Object, e As EventArgs) Handles BtnIniciarChat.Click
         Try
-            ControladorChat.EnviarSolicitud(TxtIdDiagnostico.Text)
+            ControladorChat.EnviarSolicitud(ControladorDiagnostico.ObtenerID())
             Me.Hide()
             Frm_Chat.Show()
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
-            'MsgBox("No pudimos ponerlo en cola de espera")
+            'MsgBox(ex.ToString)
+            MsgBox("No pudimos ponerlo en cola de espera")
 
         End Try
 
     End Sub
 
-    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
+    Private Sub BtnVolver_Click(sender As Object, e As EventArgs)
         Me.Close()
         Frm_Menu.Show()
     End Sub
 
     Private Sub Frm_Iniciar_Chat_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         ObtenerDiagnostico()
+    End Sub
+
+    Private Sub PctSalir_MouseEnter(sender As Object, e As EventArgs) Handles PctSalir.MouseEnter
+        PctSalir.Image = My.Resources.Salir2
+
+    End Sub
+
+    Private Sub PctSalir_MouseLeave(sender As Object, e As EventArgs) Handles PctSalir.MouseLeave
+        PctSalir.Image = My.Resources.Salir1
+
+    End Sub
+
+    Private Sub PctSalir_MouseClick(sender As Object, e As EventArgs) Handles PctSalir.Click
+        Select Case MsgBox("Seguro desea salir, siempre le recomendamos resolver su diagnóstico con un médico", MsgBoxStyle.YesNo)
+            Case DialogResult.Yes
+                Me.Dispose()
+                Frm_Menu.Show()
+
+            Case DialogResult.No
+
+        End Select
+
     End Sub
 End Class

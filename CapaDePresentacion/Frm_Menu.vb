@@ -69,7 +69,7 @@ Public Class Frm_Menu
             Try
                 NombreEnfermedad = ControladorCompone.EnfermedadesPorAproximacion(ListaSintomas)
             Catch ex1 As Exception
-
+                MsgBox("No pudimos encontrar ninguna enfermedad, intente con mas sintomas", MsgBoxStyle.Information)
             End Try
 
         End Try
@@ -78,6 +78,8 @@ Public Class Frm_Menu
         VolverACargarSintomas()
         LvSintomas.Clear()
         ListaSintomas.Clear()
+        'Frm_Iniciar_Chat.Show()
+        'Me.Dispose()
 
     End Sub
 
@@ -92,22 +94,21 @@ Public Class Frm_Menu
         Try
             ControladorPadece.GuardarSintomasPadecidos(ListaSintomas)
         Catch ex As Exception
-            MsgBox(ex.ToString())
-            'MsgBox("No se pudieron registrar los sintomas padecidos")
+            'MsgBox(ex.ToString())
+            MsgBox("No se pudieron registrar los sintomas padecidos")
         End Try
     End Sub
 
     Public Sub ObtenerIdEnfermedadDiagnosticada()
         Dim IdEnfermedad As String
-        'MsgBox(NombreEnfermedad)
         If NombreEnfermedad <> "" Then
             Try
                 IdEnfermedad = ControladorEnfermedad.ObtenerId(NombreEnfermedad)
                 RealizarDiagnostico(IdEnfermedad)
 
             Catch ex As Exception
-                MsgBox("Error obteniendo id enf" + ex.ToString)
-                'MsgBox("No se pudo hallar el identificador de la enfermedad")
+                'MsgBox("Error obteniendo id enf" + ex.ToString)
+                MsgBox("No se pudo hallar el identificador de la enfermedad")
 
             End Try
         End If
@@ -118,9 +119,9 @@ Public Class Frm_Menu
         Try
             ControladorDiagnostico.Nuevo(ListaSintomas, idEnfermedad)
             Frm_Iniciar_Chat.Show()
-            Me.Hide()
+            Me.Dispose()
         Catch ex As Exception
-            MsgBox("No se pudo realizar un diagnostico" + ex.ToString)
+            MsgBox("No se pudo realizar un diagnostico")
         End Try
 
     End Sub

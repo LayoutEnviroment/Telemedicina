@@ -10,12 +10,16 @@ Public Class Frm_Cambiar_Datos_Propios
     Dim FechaNacimiento As String
     Dim Enfermedades As New List(Of String)
     Dim Medicaciones As New List(Of String)
+    Dim ToolTipNombre As New ToolTip()
+    Dim ToolTipApellido As New ToolTip()
+    Dim ToolTipCorreo As New ToolTip()
 
     Private Sub Frm_Cambiar_Datos_Propios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ObtenerDatosPersona()
         ObtenerMedicacionesPaciente()
         ObtenerEnfermedadesCronicas()
         DttFecha.MaxDate = Today
+
 
     End Sub
 
@@ -32,7 +36,7 @@ Public Class Frm_Cambiar_Datos_Propios
 
     Public Sub CargarTextBoxes(Lector As IDataReader)
         While Lector.Read
-            TxtCedula.Text = Lector(0).ToString
+            LblCedula.Text = "Cedula: " + Lector(0).ToString
             TxtNombre.Text = Lector(1).ToString
             TxtApellido.Text = Lector(2).ToString
             TxtCorreo.Text = Lector(3).ToString
@@ -91,31 +95,31 @@ Public Class Frm_Cambiar_Datos_Propios
     End Sub
 
     Private Sub TxtAgregarEnfermedad_TextChanged(sender As Object, e As EventArgs) Handles TxtAgregarEnfermedad.TextChanged
-        If TxtAgregarEnfermedad.Text <> " " Then
-            BtnAgregarEnfermedad.Enabled = True
+        If TxtAgregarEnfermedad.Text <> "" Then
+            PctAgregarEnfermedad.Enabled = True
         Else
-            BtnAgregarEnfermedad.Enabled = False
+            PctAgregarEnfermedad.Enabled = False
         End If
 
     End Sub
 
-    Private Sub BtnAgregarEnfermedad_Click(sender As Object, e As EventArgs) Handles BtnAgregarEnfermedad.Click
+    Private Sub PctAgregarEnfermedad_Click(sender As Object, e As EventArgs) Handles PctAgregarEnfermedad.Click
         LstEnfermedadesCronicas.Items.Add(TxtAgregarEnfermedad.Text)
         TxtAgregarEnfermedad.Text = ""
 
     End Sub
 
     Private Sub TxtAgregarMedicacion_TextChanged(sender As Object, e As EventArgs) Handles TxtAgregarMedicacion.TextChanged
-        If TxtAgregarMedicacion.Text <> " " Then
-            BtnAgregarMedicacion.Enabled = True
+        If TxtAgregarMedicacion.Text <> "" Then
+            PctAgregarMedicacion.Enabled = True
         Else
-            BtnAgregarMedicacion.Enabled = False
+            PctAgregarMedicacion.Enabled = False
 
         End If
 
     End Sub
 
-    Private Sub AgregarMedicacion_Click(sender As Object, e As EventArgs) Handles BtnAgregarMedicacion.Click
+    Private Sub PctAgregarMedicacion_Click(sender As Object, e As EventArgs) Handles PctAgregarMedicacion.Click
         LstMedicaciones.Items.Add(TxtAgregarMedicacion.Text)
         TxtAgregarMedicacion.Text = ""
 
@@ -151,14 +155,14 @@ Public Class Frm_Cambiar_Datos_Propios
 
     Private Sub LstEnfermedadesCronicas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstEnfermedadesCronicas.SelectedIndexChanged
         If LstEnfermedadesCronicas.SelectedItems.Count > 0 Then
-            BtnEliminarEnfermedad.Enabled = True
+            PctEliminarEnfermedad.Enabled = True
         Else
-            BtnEliminarEnfermedad.Enabled = False
+            PctEliminarEnfermedad.Enabled = False
         End If
 
     End Sub
 
-    Private Sub BtnEliminarEnfermedad_Click(sender As Object, e As EventArgs) Handles BtnEliminarEnfermedad.Click
+    Private Sub PctEliminarEnfermedad_Click(sender As Object, e As EventArgs) Handles PctEliminarEnfermedad.Click
         LstEnfermedadesCronicas.Items.Remove(LstEnfermedadesCronicas.SelectedItems(0))
         AsignarListas()
 
@@ -166,26 +170,32 @@ Public Class Frm_Cambiar_Datos_Propios
 
     Private Sub LstMedicaciones_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstMedicaciones.SelectedIndexChanged
         If LstMedicaciones.SelectedItems.Count > 0 Then
-            BtnEliminarMedicacion.Enabled = True
+            PctEliminarMedicacion.Enabled = True
         Else
-            BtnEliminarMedicacion.Enabled = False
+            PctEliminarMedicacion.Enabled = False
         End If
 
     End Sub
 
-    Private Sub BtnEliminarMedicacion_Click(sender As Object, e As EventArgs) Handles BtnEliminarMedicacion.Click
+    Private Sub PctEliminarMedicacion_Click(sender As Object, e As EventArgs) Handles PctEliminarMedicacion.Click
         LstMedicaciones.Items.Remove(LstMedicaciones.SelectedItems(0))
         AsignarListas()
 
     End Sub
 
     Private Sub TxtNombre_TextChanged(sender As Object, e As EventArgs) Handles TxtNombre.TextChanged
+        ToolTipNombre.AutoPopDelay = 3000
+        ToolTipNombre.InitialDelay = 500
+        ToolTipNombre.ReshowDelay = 500
+        ToolTipNombre.ToolTipTitle = "Formato incorrecto"
+        ToolTipNombre.ToolTipIcon = ToolTipIcon.Warning
         If System.Text.RegularExpressions.Regex.IsMatch(TxtNombre.Text, "^[a-zA-Z]+$") Then
             TxtNombre.ForeColor = Color.Black
             Nombre = True
         Else
             TxtNombre.ForeColor = Color.Red
             Nombre = False
+            ToolTipNombre.SetToolTip(Me.TxtNombre, "Este campo no acepta números, espacios o caractéres especiales")
         End If
 
         HabilitarAceptar()
@@ -193,24 +203,37 @@ Public Class Frm_Cambiar_Datos_Propios
     End Sub
 
     Private Sub TxtApellido_TextChanged(sender As Object, e As EventArgs) Handles TxtApellido.TextChanged
+        ToolTipApellido.AutoPopDelay = 3000
+        ToolTipApellido.InitialDelay = 500
+        ToolTipApellido.ReshowDelay = 500
+        ToolTipApellido.ToolTipTitle = "Formato incorrecto"
+        ToolTipApellido.ToolTipIcon = ToolTipIcon.Warning
+
         If System.Text.RegularExpressions.Regex.IsMatch(TxtApellido.Text, "^[a-zA-Z]+$") Then
             TxtApellido.ForeColor = Color.Black
             Apellido = True
         Else
             TxtApellido.ForeColor = Color.Red
             Apellido = False
+            ToolTipApellido.SetToolTip(Me.TxtApellido, "Este campo no acepta números o caractéres especiales")
         End If
         HabilitarAceptar()
 
     End Sub
 
     Private Sub TxtCorreo_TextChanged(sender As Object, e As EventArgs) Handles TxtCorreo.TextChanged
+        ToolTipApellido.AutoPopDelay = 3000
+        ToolTipApellido.InitialDelay = 500
+        ToolTipApellido.ReshowDelay = 500
+        ToolTipApellido.ToolTipTitle = "Formato incorrecto"
+        ToolTipApellido.ToolTipIcon = ToolTipIcon.Warning
         If System.Text.RegularExpressions.Regex.IsMatch(TxtCorreo.Text, "^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$") Then
             TxtCorreo.ForeColor = Color.Black
             Correo = True
         Else
             TxtCorreo.ForeColor = Color.Red
             Correo = False
+            ToolTipCorreo.SetToolTip(Me.TxtCorreo, "El formato esperado es <nombre de usuario>@<organización>.<tipo>")
         End If
 
         HabilitarAceptar()
@@ -219,14 +242,14 @@ Public Class Frm_Cambiar_Datos_Propios
 
     Public Sub HabilitarAceptar()
         If Nombre And Apellido And Correo Then
-            BtnAceptar.Enabled = True
+            PctAceptar.Enabled = True
         Else
-            BtnAceptar.Enabled = False
+            PctAceptar.Enabled = False
         End If
 
     End Sub
 
-    Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
+    Private Sub PctAceptar_Click(sender As Object, e As EventArgs) Handles PctAceptar.Click
         DeterminarSexo()
         AsignarListas()
         DeterminarFecha()
@@ -250,16 +273,55 @@ Public Class Frm_Cambiar_Datos_Propios
 
     End Sub
 
-    Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles BtnSalir.Click
+    Private Sub BtnSalir_Click(sender As Object, e As EventArgs)
         Frm_Menu.Show()
         Me.Dispose()
 
     End Sub
 
-    Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
+    Private Sub PctCancelar_Click(sender As Object, e As EventArgs) Handles PctCancelar.Click
         ObtenerDatosPersona()
         ObtenerMedicacionesPaciente()
         ObtenerEnfermedadesCronicas()
+        TxtAgregarEnfermedad.Text = ""
+        TxtAgregarMedicacion.Text = ""
+
+
+    End Sub
+
+    Private Sub PctAceptar_MouseEnter(sender As Object, e As EventArgs) Handles PctAceptar.MouseEnter
+        PctAceptar.Image = My.Resources.Aceptar2
+
+    End Sub
+
+    Private Sub PctAceptar_MouseLeave(sender As Object, e As EventArgs) Handles PctAceptar.MouseLeave
+        PctAceptar.Image = My.Resources.Aceptar1
+
+    End Sub
+
+    Private Sub PctCancelar_MouseEnter(sender As Object, e As EventArgs) Handles PctCancelar.MouseEnter
+        PctCancelar.Image = My.Resources.Cancelar2
+
+    End Sub
+
+    Private Sub PctCancelar_MouseLeave(sender As Object, e As EventArgs) Handles PctCancelar.MouseLeave
+        PctCancelar.Image = My.Resources.Cancelar1
+
+    End Sub
+
+    Private Sub PctSalir_MouseEnter(sender As Object, e As EventArgs) Handles PctSalir.MouseEnter
+        PctSalir.Image = My.Resources.Salir2
+
+    End Sub
+
+    Private Sub PctSalir_MouseLeave(sender As Object, e As EventArgs) Handles PctSalir.MouseLeave
+        PctSalir.Image = My.Resources.Salir1
+
+    End Sub
+
+    Private Sub PctSalir_MouseClick(sender As Object, e As EventArgs) Handles PctSalir.Click
+        Me.Dispose()
+        Frm_Menu.Show()
 
     End Sub
 
