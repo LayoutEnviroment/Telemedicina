@@ -4,6 +4,7 @@ Imports CapaDeNegocio
 Public Class Frm_Consultas
 
     Private Sub Consultas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LblIndicaciones.Text = "Seleccione un diagnostico " + vbCrLf + "para ver los detalles"
         Dim Diagnosticos As New DataTable
         Try
             Diagnosticos.Load(ControladorDiagnostico.TodosMisDiagnosticos())
@@ -23,6 +24,7 @@ Public Class Frm_Consultas
         CargarEnfermedad(IdDiagnostico)
         CargarSintomas(IdDiagnostico)
         ExistenMensajes(IdDiagnostico)
+        MoverPanel()
 
     End Sub
 
@@ -106,8 +108,31 @@ Public Class Frm_Consultas
         Frm_Menu.Show()
     End Sub
 
-    Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles BtnSalir.Click
-        Me.Close()
+    Private Sub MoverPanel()
+        PnlInformacion.BackColor = Color.FromArgb(217, 213, 233)
+        While PnlInformacion.Width > 40
+            PnlInformacion.Width -= 100
+        End While
+
+        PnlInformacion.BackColor = Color.White
+        While PnlInformacion.Width < 840
+            PnlInformacion.Width += 5
+        End While
+    End Sub
+
+    Private Sub PctSalir_MouseEnter(sender As Object, e As EventArgs) Handles PctSalir.MouseEnter
+        PctSalir.Image = My.Resources.Salir2
+
+    End Sub
+
+    Private Sub PctSalir_MouseLeave(sender As Object, e As EventArgs) Handles PctSalir.MouseLeave
+        PctSalir.Image = My.Resources.Salir1
+
+    End Sub
+
+    Private Sub PctSalir_MouseClick(sender As Object, e As EventArgs) Handles PctSalir.MouseClick
+        Me.Dispose()
         Frm_Menu.Show()
+
     End Sub
 End Class
