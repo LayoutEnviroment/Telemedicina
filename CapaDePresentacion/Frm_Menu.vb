@@ -6,6 +6,9 @@ Public Class Frm_Menu
     Public Cedula As String
     Public ListaSintomas As New List(Of String)
     Dim NombreEnfermedad As String
+    Dim EstadoMenu As Boolean = False
+    Dim Random As New Random()
+    Dim Numero As Integer = Random.Next(1, 4)
 
     Private Sub Frm_Paciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -142,13 +145,13 @@ Public Class Frm_Menu
 
     End Sub
 
-    Private Sub BtnConsultaHistorial_Click(sender As Object, e As EventArgs) Handles BtnConsultaHistorial.Click
+    Private Sub BtnConsultaHistorial_Click(sender As Object, e As EventArgs)
         Frm_Consultas.Show()
         Me.Hide()
 
     End Sub
 
-    Private Sub BtnDatosPriopios_Click(sender As Object, e As EventArgs) Handles BtnDatosPriopios.Click
+    Private Sub BtnDatosPriopios_Click(sender As Object, e As EventArgs)
         Frm_Cambiar_Datos_Propios.Show()
         Me.Hide()
     End Sub
@@ -173,19 +176,119 @@ Public Class Frm_Menu
 
     Private Sub ModificarAdvertencia()
         If LvSintomas.Items.Count() < 3 Then
-            LblAdvertencia.Text = "La cantidad de sintomas es muy baja," + vbCrLf + " la enfermedad resultante será poco precisa"
+            LblAdvertencia.Text = "La cantidad de sintomas es muy baja," + vbCrLf + "la enfermedad resultante será poco precisa"
         Else
             LblAdvertencia.Text = ""
         End If
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        While Panel1.Height < 528
-            Panel1.Height += 1
-            While Panel1.Width < 178
-                Panel1.Width += 1
-            End While
+    Private Sub PctMenu_Click(sender As Object, e As EventArgs) Handles PctMenu.Click
+        EstadoMenu = Not EstadoMenu
+        PctConsultas.Visible = True
+        PctDatosPropios.Visible = True
+        If EstadoMenu Then
+            AbrirMenu()
+        Else
+            CerrarMenu()
+        End If
+
+    End Sub
+
+    Private Sub AbrirMenu()
+        RandomPickImageTrapCardActivatedOver5000()
+        PnlMenu.BackColor = Color.FromArgb(53, 71, 94)
+        While PnlMenu.Height < 410
+            PnlMenu.Height += 1
         End While
 
+    End Sub
+
+    Private Sub CerrarMenu()
+        PnlMenu.BackColor = Color.FromArgb(217, 223, 231)
+        While PnlMenu.Height > 10
+            PnlMenu.Height = 10
+        End While
+
+    End Sub
+
+    Private Sub RandomPickImageTrapCardActivatedOver5000()
+
+        If ControladorPaciente.ObtenerSexo() = 0 Then
+            If Numero = 1 Then
+                PctDatosPropios.Image = My.Resources.Men1
+            ElseIf Numero = 2 Then
+                PctDatosPropios.Image = My.Resources.Men2
+            Else
+                PctDatosPropios.Image = My.Resources.Men3n
+            End If
+
+        Else
+            If Numero = 1 Then
+                PctDatosPropios.Image = My.Resources.Fem1
+            ElseIf Numero = 2 Then
+                PctDatosPropios.Image = My.Resources.Fem2
+            ElseIf Numero = 3 Then
+                PctDatosPropios.Image = My.Resources.Fem3
+            Else
+                PctDatosPropios.Image = My.Resources.Fem4
+            End If
+
+        End If
+
+    End Sub
+
+    Private Sub PctMenu_MouseEnter(sender As Object, e As EventArgs) Handles PctMenu.MouseEnter
+        PctMenu.Image = My.Resources.MenuHamb2
+
+    End Sub
+
+    Private Sub PctMenu_MouseLeave(sender As Object, e As EventArgs) Handles PctMenu.MouseLeave
+        PctMenu.Image = My.Resources.MenuHamb1
+
+    End Sub
+
+    Private Sub PctSalir_MouseMove(sender As Object, e As MouseEventArgs) Handles PctSalir.MouseMove
+        PctSalir.Image = My.Resources.Salir2
+
+    End Sub
+
+    Private Sub PctSalir_MouseLeave(sender As Object, e As EventArgs) Handles PctSalir.MouseLeave
+        PctSalir.Image = My.Resources.Salir1
+
+    End Sub
+
+    Private Sub PctSalir_Click(sender As Object, e As EventArgs) Handles PctSalir.Click
+        Me.Close()
+
+    End Sub
+
+    Private Sub PctDatosPropios_Click(sender As Object, e As EventArgs) Handles PctDatosPropios.Click
+        Me.Dispose()
+        Frm_Cambiar_Datos_Propios.Show()
+    End Sub
+
+    Private Sub PctDatosPropios_MouseEnter(sender As Object, e As EventArgs) Handles PctDatosPropios.MouseEnter
+        LblMisDatos.Visible = True
+
+    End Sub
+
+    Private Sub PctDatosPropios_MouseLeave(sender As Object, e As EventArgs) Handles PctDatosPropios.MouseLeave
+        LblMisDatos.Visible = False
+
+    End Sub
+
+    Private Sub PctConsultas_MouseEnter(sender As Object, e As EventArgs) Handles PctConsultas.MouseEnter
+        LblHistorial.Visible = True
+
+    End Sub
+
+    Private Sub PctConsultas_MouseLeave(sender As Object, e As EventArgs) Handles PctConsultas.MouseLeave
+        LblHistorial.Visible = False
+
+    End Sub
+
+    Private Sub PctConsultas_Click(sender As Object, e As EventArgs) Handles PctConsultas.Click
+        Me.Dispose()
+        Frm_Consultas.Show()
     End Sub
 End Class

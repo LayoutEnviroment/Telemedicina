@@ -186,5 +186,63 @@
   <ItemGroup>
     <None Include="Resources\FrmLogin1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MenuHamb1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Aceptar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Aceptar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Agregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Agregar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancelar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancelar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MenuHamb2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MenuHamb3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fem1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fem2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fem3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fem4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Men1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Men2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Men3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Men3n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Historial.png" />
+    <None Include="Resources\Historial1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

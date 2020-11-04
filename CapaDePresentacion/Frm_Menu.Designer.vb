@@ -22,41 +22,48 @@ Partial Class Frm_Menu
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Menu))
         Me.LblSaludo = New System.Windows.Forms.Label()
         Me.LblSintomas = New System.Windows.Forms.Label()
         Me.CmbSintomas = New System.Windows.Forms.ComboBox()
         Me.Sintomas = New System.Windows.Forms.Label()
         Me.BtnDiagnostico = New System.Windows.Forms.Button()
         Me.LvSintomas = New System.Windows.Forms.ListView()
-        Me.BtnConsultaHistorial = New System.Windows.Forms.Button()
-        Me.BtnDatosPriopios = New System.Windows.Forms.Button()
         Me.LblAdvertencia = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Panel1.SuspendLayout()
+        Me.PnlMenu = New System.Windows.Forms.Panel()
+        Me.LblHistorial = New System.Windows.Forms.Label()
+        Me.LblMisDatos = New System.Windows.Forms.Label()
+        Me.PctConsultas = New System.Windows.Forms.PictureBox()
+        Me.PctDatosPropios = New System.Windows.Forms.PictureBox()
+        Me.PctSalir = New System.Windows.Forms.PictureBox()
+        Me.PctMenu = New System.Windows.Forms.PictureBox()
+        Me.PnlMenu.SuspendLayout()
+        CType(Me.PctConsultas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PctDatosPropios, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PctSalir, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PctMenu, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LblSaludo
         '
         Me.LblSaludo.AutoSize = True
-        Me.LblSaludo.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(183, Byte), Integer))
-        Me.LblSaludo.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.25!)
-        Me.LblSaludo.ForeColor = System.Drawing.Color.White
-        Me.LblSaludo.Location = New System.Drawing.Point(247, 112)
+        Me.LblSaludo.BackColor = System.Drawing.Color.Transparent
+        Me.LblSaludo.Font = New System.Drawing.Font("Libre Franklin", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblSaludo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(223, Byte), Integer), CType(CType(231, Byte), Integer))
+        Me.LblSaludo.Location = New System.Drawing.Point(408, 26)
         Me.LblSaludo.Name = "LblSaludo"
-        Me.LblSaludo.Size = New System.Drawing.Size(240, 29)
+        Me.LblSaludo.Size = New System.Drawing.Size(0, 29)
         Me.LblSaludo.TabIndex = 2
-        Me.LblSaludo.Text = "Buen día, username"
         '
         'LblSintomas
         '
         Me.LblSintomas.AutoSize = True
-        Me.LblSintomas.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(183, Byte), Integer))
-        Me.LblSintomas.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.25!)
-        Me.LblSintomas.ForeColor = System.Drawing.Color.White
-        Me.LblSintomas.Location = New System.Drawing.Point(247, 157)
+        Me.LblSintomas.BackColor = System.Drawing.Color.Transparent
+        Me.LblSintomas.Font = New System.Drawing.Font("Libre Franklin", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblSintomas.ForeColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.LblSintomas.Location = New System.Drawing.Point(404, 136)
         Me.LblSintomas.Name = "LblSintomas"
-        Me.LblSintomas.Size = New System.Drawing.Size(294, 29)
+        Me.LblSintomas.Size = New System.Drawing.Size(286, 29)
         Me.LblSintomas.TabIndex = 4
         Me.LblSintomas.Text = "Cuentenos, ¿que siente?"
         '
@@ -64,10 +71,12 @@ Partial Class Frm_Menu
         '
         Me.CmbSintomas.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.CmbSintomas.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.CmbSintomas.BackColor = System.Drawing.Color.White
+        Me.CmbSintomas.Font = New System.Drawing.Font("Libre Franklin", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmbSintomas.FormattingEnabled = True
-        Me.CmbSintomas.Location = New System.Drawing.Point(340, 224)
+        Me.CmbSintomas.Location = New System.Drawing.Point(371, 195)
         Me.CmbSintomas.Name = "CmbSintomas"
-        Me.CmbSintomas.Size = New System.Drawing.Size(343, 21)
+        Me.CmbSintomas.Size = New System.Drawing.Size(343, 22)
         Me.CmbSintomas.TabIndex = 15
         '
         'Sintomas
@@ -82,79 +91,139 @@ Partial Class Frm_Menu
         '
         'BtnDiagnostico
         '
+        Me.BtnDiagnostico.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.BtnDiagnostico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BtnDiagnostico.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnDiagnostico.Enabled = False
-        Me.BtnDiagnostico.Location = New System.Drawing.Point(593, 456)
+        Me.BtnDiagnostico.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnDiagnostico.Font = New System.Drawing.Font("Libre Franklin", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnDiagnostico.ForeColor = System.Drawing.Color.White
+        Me.BtnDiagnostico.Location = New System.Drawing.Point(663, 437)
         Me.BtnDiagnostico.Name = "BtnDiagnostico"
-        Me.BtnDiagnostico.Size = New System.Drawing.Size(177, 39)
+        Me.BtnDiagnostico.Size = New System.Drawing.Size(177, 56)
         Me.BtnDiagnostico.TabIndex = 18
         Me.BtnDiagnostico.Text = "Realizar Diagnostico"
-        Me.BtnDiagnostico.UseVisualStyleBackColor = True
+        Me.BtnDiagnostico.UseVisualStyleBackColor = False
         '
         'LvSintomas
         '
+        Me.LvSintomas.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.LvSintomas.Font = New System.Drawing.Font("Libre Franklin Medium", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LvSintomas.HideSelection = False
-        Me.LvSintomas.Location = New System.Drawing.Point(233, 268)
+        Me.LvSintomas.Location = New System.Drawing.Point(245, 238)
         Me.LvSintomas.Name = "LvSintomas"
-        Me.LvSintomas.Size = New System.Drawing.Size(539, 166)
+        Me.LvSintomas.Size = New System.Drawing.Size(595, 166)
         Me.LvSintomas.TabIndex = 20
         Me.LvSintomas.UseCompatibleStateImageBehavior = False
         Me.LvSintomas.View = System.Windows.Forms.View.Tile
         '
-        'BtnConsultaHistorial
-        '
-        Me.BtnConsultaHistorial.AutoSize = True
-        Me.BtnConsultaHistorial.Location = New System.Drawing.Point(32, 70)
-        Me.BtnConsultaHistorial.Name = "BtnConsultaHistorial"
-        Me.BtnConsultaHistorial.Size = New System.Drawing.Size(136, 23)
-        Me.BtnConsultaHistorial.TabIndex = 21
-        Me.BtnConsultaHistorial.Text = "Historial Diagnosticos"
-        Me.BtnConsultaHistorial.UseVisualStyleBackColor = True
-        '
-        'BtnDatosPriopios
-        '
-        Me.BtnDatosPriopios.Location = New System.Drawing.Point(32, 131)
-        Me.BtnDatosPriopios.Name = "BtnDatosPriopios"
-        Me.BtnDatosPriopios.Size = New System.Drawing.Size(136, 23)
-        Me.BtnDatosPriopios.TabIndex = 23
-        Me.BtnDatosPriopios.Text = "Mis Datos"
-        Me.BtnDatosPriopios.UseVisualStyleBackColor = True
-        '
         'LblAdvertencia
         '
         Me.LblAdvertencia.AutoSize = True
-        Me.LblAdvertencia.Location = New System.Drawing.Point(231, 456)
+        Me.LblAdvertencia.BackColor = System.Drawing.Color.Transparent
+        Me.LblAdvertencia.Font = New System.Drawing.Font("Libre Franklin", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblAdvertencia.ForeColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.LblAdvertencia.Location = New System.Drawing.Point(242, 439)
         Me.LblAdvertencia.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblAdvertencia.Name = "LblAdvertencia"
-        Me.LblAdvertencia.Size = New System.Drawing.Size(0, 13)
+        Me.LblAdvertencia.Size = New System.Drawing.Size(0, 18)
         Me.LblAdvertencia.TabIndex = 24
         '
-        'Panel1
+        'PnlMenu
         '
-        Me.Panel1.BackColor = System.Drawing.Color.White
-        Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Controls.Add(Me.BtnConsultaHistorial)
-        Me.Panel1.Controls.Add(Me.BtnDatosPriopios)
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(45, 39)
-        Me.Panel1.TabIndex = 25
+        Me.PnlMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(223, Byte), Integer), CType(CType(231, Byte), Integer))
+        Me.PnlMenu.Controls.Add(Me.LblHistorial)
+        Me.PnlMenu.Controls.Add(Me.LblMisDatos)
+        Me.PnlMenu.Controls.Add(Me.PctConsultas)
+        Me.PnlMenu.Controls.Add(Me.PctDatosPropios)
+        Me.PnlMenu.Location = New System.Drawing.Point(22, 85)
+        Me.PnlMenu.Name = "PnlMenu"
+        Me.PnlMenu.Size = New System.Drawing.Size(180, 372)
+        Me.PnlMenu.TabIndex = 25
         '
-        'Button1
+        'LblHistorial
         '
-        Me.Button1.Location = New System.Drawing.Point(0, 0)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(45, 39)
-        Me.Button1.TabIndex = 26
-        Me.Button1.Text = "---"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.LblHistorial.AutoSize = True
+        Me.LblHistorial.BackColor = System.Drawing.Color.Transparent
+        Me.LblHistorial.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblHistorial.ForeColor = System.Drawing.Color.White
+        Me.LblHistorial.Location = New System.Drawing.Point(61, 322)
+        Me.LblHistorial.Name = "LblHistorial"
+        Me.LblHistorial.Size = New System.Drawing.Size(61, 16)
+        Me.LblHistorial.TabIndex = 3
+        Me.LblHistorial.Text = "Historial"
+        Me.LblHistorial.Visible = False
+        '
+        'LblMisDatos
+        '
+        Me.LblMisDatos.AutoSize = True
+        Me.LblMisDatos.BackColor = System.Drawing.Color.Transparent
+        Me.LblMisDatos.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblMisDatos.ForeColor = System.Drawing.Color.White
+        Me.LblMisDatos.Location = New System.Drawing.Point(52, 153)
+        Me.LblMisDatos.Name = "LblMisDatos"
+        Me.LblMisDatos.Size = New System.Drawing.Size(71, 16)
+        Me.LblMisDatos.TabIndex = 2
+        Me.LblMisDatos.Text = "Mis Datos"
+        Me.LblMisDatos.Visible = False
+        '
+        'PctConsultas
+        '
+        Me.PctConsultas.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PctConsultas.Image = Global.CapaDePresentacion.My.Resources.Resources.Historial
+        Me.PctConsultas.Location = New System.Drawing.Point(38, 219)
+        Me.PctConsultas.Name = "PctConsultas"
+        Me.PctConsultas.Size = New System.Drawing.Size(100, 100)
+        Me.PctConsultas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PctConsultas.TabIndex = 1
+        Me.PctConsultas.TabStop = False
+        Me.PctConsultas.Visible = False
+        '
+        'PctDatosPropios
+        '
+        Me.PctDatosPropios.BackColor = System.Drawing.Color.Transparent
+        Me.PctDatosPropios.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PctDatosPropios.Image = Global.CapaDePresentacion.My.Resources.Resources.Men1
+        Me.PctDatosPropios.Location = New System.Drawing.Point(38, 50)
+        Me.PctDatosPropios.Name = "PctDatosPropios"
+        Me.PctDatosPropios.Size = New System.Drawing.Size(100, 100)
+        Me.PctDatosPropios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PctDatosPropios.TabIndex = 0
+        Me.PctDatosPropios.TabStop = False
+        Me.PctDatosPropios.Visible = False
+        '
+        'PctSalir
+        '
+        Me.PctSalir.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PctSalir.Image = Global.CapaDePresentacion.My.Resources.Resources.Salir1
+        Me.PctSalir.Location = New System.Drawing.Point(939, 12)
+        Me.PctSalir.Name = "PctSalir"
+        Me.PctSalir.Size = New System.Drawing.Size(59, 58)
+        Me.PctSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PctSalir.TabIndex = 27
+        Me.PctSalir.TabStop = False
+        '
+        'PctMenu
+        '
+        Me.PctMenu.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PctMenu.Image = Global.CapaDePresentacion.My.Resources.Resources.MenuHamb1
+        Me.PctMenu.Location = New System.Drawing.Point(86, 12)
+        Me.PctMenu.Name = "PctMenu"
+        Me.PctMenu.Size = New System.Drawing.Size(59, 58)
+        Me.PctMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PctMenu.TabIndex = 28
+        Me.PctMenu.TabStop = False
         '
         'Frm_Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(183, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.White
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(1010, 528)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.PctMenu)
+        Me.Controls.Add(Me.PctSalir)
+        Me.Controls.Add(Me.PnlMenu)
         Me.Controls.Add(Me.LblAdvertencia)
         Me.Controls.Add(Me.LvSintomas)
         Me.Controls.Add(Me.BtnDiagnostico)
@@ -163,11 +232,15 @@ Partial Class Frm_Menu
         Me.Controls.Add(Me.LblSaludo)
         Me.Controls.Add(Me.LblSintomas)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Frm_Menu"
         Me.Text = "Paciente"
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        Me.PnlMenu.ResumeLayout(False)
+        Me.PnlMenu.PerformLayout()
+        CType(Me.PctConsultas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PctDatosPropios, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PctSalir, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PctMenu, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -179,9 +252,12 @@ Partial Class Frm_Menu
     Friend WithEvents Sintomas As Label
     Friend WithEvents BtnDiagnostico As Button
     Friend WithEvents LvSintomas As ListView
-    Friend WithEvents BtnConsultaHistorial As Button
-    Friend WithEvents BtnDatosPriopios As Button
     Friend WithEvents LblAdvertencia As Label
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Button1 As Button
+    Friend WithEvents PnlMenu As Panel
+    Friend WithEvents PctSalir As PictureBox
+    Friend WithEvents PctMenu As PictureBox
+    Friend WithEvents PctConsultas As PictureBox
+    Friend WithEvents PctDatosPropios As PictureBox
+    Friend WithEvents LblMisDatos As Label
+    Friend WithEvents LblHistorial As Label
 End Class
