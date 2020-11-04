@@ -179,4 +179,13 @@ Public Class Frm_Menu
         End If
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        While Panel1.Height < 528
+            Panel1.Height += 1
+            While Panel1.Width < 178
+                Panel1.Width += 1
+            End While
+        End While
+
+    End Sub
 End Class

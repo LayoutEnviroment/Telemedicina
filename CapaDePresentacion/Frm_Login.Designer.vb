@@ -40,7 +40,7 @@ Partial Class FrmLogin
         Me.TxtPass.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtPass.Font = New System.Drawing.Font("Libre Franklin", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtPass.Location = New System.Drawing.Point(457, 352)
-        Me.TxtPass.MaxLength = 8
+        Me.TxtPass.MaxLength = 9
         Me.TxtPass.Name = "TxtPass"
         Me.TxtPass.Size = New System.Drawing.Size(288, 30)
         Me.TxtPass.TabIndex = 1
