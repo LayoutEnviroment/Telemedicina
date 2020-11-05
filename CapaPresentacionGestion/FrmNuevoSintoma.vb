@@ -25,14 +25,12 @@ Public Class FrmNuevoSintoma
 
     Private Sub AveriguarInactividad()
         If ControladorSintoma.EstaInactivo(TxtNombre.Text) = 1 Then
-            BtnReactivar.Enabled = True
             Reactivacion = True
             LblDisponibilidad.Text = "Este sintoma se encuentra inactivo," + vbCrLf + "haga clic en Reacitvar para volver a activarlo"
 
         Else
             Reactivacion = False
             Nombre = False
-            BtnReactivar.Enabled = False
             LblDisponibilidad.Text = "El nombre del sintoma ya esta en uso"
 
         End If
@@ -41,22 +39,22 @@ Public Class FrmNuevoSintoma
 
     Private Sub HabilitarCreacion(Reactivacion As Boolean)
         If Reactivacion Then
-            BtnReactivar.Enabled = Reactivacion
-            BtnAceptar.Enabled = False
+            PctAceptar.Image = My.Resources.Reactivar
+            PctAceptar.Enabled = True
 
         ElseIf Nombre Then
-            BtnReactivar.Enabled = Reactivacion
-            BtnAceptar.Enabled = True
+            PctAceptar.Enabled = True
+            PctAceptar.Image = My.Resources.Aceptar1
 
         Else
-            BtnReactivar.Enabled = Reactivacion
-            BtnAceptar.Enabled = False
+            PctAceptar.Enabled = False
+            PctAceptar.Image = My.Resources.Aceptar1
 
         End If
 
     End Sub
 
-    Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
+    Private Sub BtnAceptar_Click(sender As Object, e As EventArgs)
         Try
             ControladorSintoma.CrearSintoma(TxtNombre.Text)
             MsgBox("Sintoma creado con exito")
@@ -67,36 +65,57 @@ Public Class FrmNuevoSintoma
 
     End Sub
 
-    Private Sub BtnReactivar_Click(sender As Object, e As EventArgs) Handles BtnReactivar.Click
-        Try
-            ControladorSintoma.ActivarSintoma(ControladorSintoma.ObtenerId(TxtNombre.Text))
-            Limpiar()
-            MsgBox("Sintoma reactivado con exito!")
-        Catch ex As Exception
-            MsgBox("No se pudo reactivar el sintoma")
-        End Try
-
-    End Sub
-
-    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
-        Limpiar()
-        Me.Hide()
-        FrmMenuGestion.Show()
-
-    End Sub
-
     Private Sub Limpiar()
         TxtNombre.Text = ""
 
     End Sub
 
-    Private Sub FrmNuevoSintoma_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub PctAceptar_Click(sender As Object, e As EventArgs) Handles PctAceptar.Click
+        If Reactivacion Then
+            Try
+                ControladorSintoma.ActivarSintoma(ControladorSintoma.ObtenerId(TxtNombre.Text))
+                Limpiar()
+                MsgBox("Sintoma reactivado con exito!")
+            Catch ex As Exception
+                MsgBox("No se pudo reactivar el sintoma")
+            End Try
+
+        Else
+
+        End If
+    End Sub
+
+    Private Sub PctAceptar_MouseEnter(sender As Object, e As EventArgs) Handles PctAceptar.MouseEnter
+        If Reactivacion Then
+            PctAceptar.Image = My.Resources.ReactivarAceptar
+        Else
+            PctAceptar.Image = My.Resources.Aceptar2
+
+        End If
+    End Sub
+
+    Private Sub PctAceptar_MouseLeave(sender As Object, e As EventArgs) Handles PctAceptar.MouseLeave
+        If Reactivacion Then
+            PctAceptar.Image = My.Resources.Reactivar
+        Else
+            PctAceptar.Image = My.Resources.Aceptar1
+
+        End If
+    End Sub
+
+    Private Sub PctSalir_MouseEnter(sender As Object, e As EventArgs) Handles PctSalir.MouseEnter
+        PctSalir.Image = My.Resources.Salir2
 
     End Sub
 
-    Private Sub FrmNuevoSintoma_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+    Private Sub PctSalir_MouseLeave(sender As Object, e As EventArgs) Handles PctSalir.MouseLeave
+        PctSalir.Image = My.Resources.Salir1
+
+    End Sub
+
+    Private Sub PctSalir_MouseClick(sender As Object, e As EventArgs) Handles PctSalir.Click
         Limpiar()
-        Me.Hide()
+        Me.Dispose()
         FrmMenuGestion.Show()
 
     End Sub

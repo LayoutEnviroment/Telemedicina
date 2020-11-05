@@ -219,47 +219,47 @@ Public Class FrmMenuGestion
 
     Private Sub PctAdd_Click(sender As Object, e As EventArgs) Handles PctAdd.Click
         FrmNuevoSintoma.Show()
-
+        Me.Hide()
     End Sub
 
     Private Sub PctAddEnf_Click(sender As Object, e As EventArgs) Handles PctAddEnf.Click
         FrmNuevaEnfermedad.Show()
-
+        Me.Hide()
     End Sub
 
     Private Sub PctAddUser_Click(sender As Object, e As EventArgs) Handles PctAddUsr.Click
         FrmNuevoUsuario.Show()
-
+        Me.Hide()
     End Sub
 
     Private Sub PctMod_Click(sender As Object, e As EventArgs) Handles PctMod.Click
         FrmModificarSintoma.Show()
-
+        Me.Hide()
     End Sub
 
     Private Sub PctModEnf_Click(sender As Object, e As EventArgs) Handles PctModEnf.Click
         FrmModificarEnfermedad.Show()
-
+        Me.Hide()
     End Sub
 
     Private Sub PctModUser_Click(sender As Object, e As EventArgs) Handles PctModUsr.Click
         FrmModificarUsuario.Show()
-
+        Me.Hide()
     End Sub
 
     Private Sub PctDel_Click(sender As Object, e As EventArgs) Handles PctDel.Click
         FrmEliminarSintoma.Show()
-
+        Me.Hide()
     End Sub
 
     Private Sub PctDelEnf_Click(sender As Object, e As EventArgs) Handles PctDelEnf.Click
         FrmEliminarEnfermedad.Show()
-
+        Me.Hide()
     End Sub
 
     Private Sub PctDelUser_Click(sender As Object, e As EventArgs) Handles PctDelUsr.Click
         FrmEliminarUsuario.Show()
-
+        Me.Hide()
     End Sub
 
     Private Sub PctSalir_MouseEnter(sender As Object, e As EventArgs) Handles PctSalir.MouseEnter

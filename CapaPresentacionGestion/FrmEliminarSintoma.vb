@@ -30,11 +30,11 @@ Public Class FrmEliminarSintoma
     End Sub
     Private Sub CmbSintomas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbSintomas.SelectedIndexChanged
         TxtSintoma.Text = CmbSintomas.SelectedItem.ToString()
-        BtnAceptar.Enabled = True
+        PctAceptar.Enabled = True
 
     End Sub
 
-    Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
+    Private Sub PctAceptar_Click(sender As Object, e As EventArgs) Handles PctAceptar.Click
         Select Case MsgBox("¿Seguro desea eliminar este sintoma? Esta operación NO puede deshacerse", MsgBoxStyle.YesNo)
             Case MsgBoxResult.Yes
                 Try
@@ -42,7 +42,7 @@ Public Class FrmEliminarSintoma
                     MsgBox("Sintoma eliminado con exito")
                     TxtSintoma.Text = ""
                     ObtenerSintomas()
-                    BtnAceptar.Enabled = False
+                    PctAceptar.Enabled = False
                 Catch ex As Exception
                     MsgBox("Error al eliminar el sintoma" + ex.ToString)
                 End Try
@@ -50,6 +50,7 @@ Public Class FrmEliminarSintoma
             Case MsgBoxResult.No
 
         End Select
+
     End Sub
 
     Private Sub FrmEliminarSintoma_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -65,8 +66,31 @@ Public Class FrmEliminarSintoma
 
     End Sub
 
-    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
-        Me.Close()
-        FrmMenuGestion.Show()
+    Private Sub PctSalir_MouseEnter(sender As Object, e As EventArgs) Handles PctSalir.MouseEnter
+        PctSalir.Image = My.Resources.Salir2
+
     End Sub
+
+    Private Sub PctSalir_MouseLeave(sender As Object, e As EventArgs) Handles PctSalir.MouseLeave
+        PctSalir.Image = My.Resources.Salir1
+
+    End Sub
+
+    Private Sub PctSalir_MouseClick(sender As Object, e As EventArgs) Handles PctSalir.Click
+        Limpiar()
+        Me.Dispose()
+        FrmMenuGestion.Show()
+
+    End Sub
+
+    Private Sub PctAceptar_MouseEnter(sender As Object, e As EventArgs) Handles PctAceptar.MouseEnter
+        PctAceptar.Image = My.Resources.Aceptar2
+
+    End Sub
+
+    Private Sub PctAceptar_MouseLeave(sender As Object, e As EventArgs) Handles PctAceptar.MouseLeave
+        PctAceptar.Image = My.Resources.Aceptar1
+
+    End Sub
+
 End Class

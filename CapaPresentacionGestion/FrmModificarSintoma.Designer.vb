@@ -25,74 +25,103 @@ Partial Class FrmModificarSintoma
         Me.CmbSintomas = New System.Windows.Forms.ComboBox()
         Me.LblNombre = New System.Windows.Forms.Label()
         Me.TxtSintoma = New System.Windows.Forms.TextBox()
-        Me.BtnAceptar = New System.Windows.Forms.Button()
-        Me.BtnVolver = New System.Windows.Forms.Button()
+        Me.PctSalir = New System.Windows.Forms.PictureBox()
+        Me.LblDescripcion = New System.Windows.Forms.Label()
+        Me.PctAceptar = New System.Windows.Forms.PictureBox()
+        CType(Me.PctSalir, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PctAceptar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CmbSintomas
         '
         Me.CmbSintomas.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.CmbSintomas.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.CmbSintomas.BackColor = System.Drawing.SystemColors.Control
+        Me.CmbSintomas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CmbSintomas.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmbSintomas.FormattingEnabled = True
-        Me.CmbSintomas.Location = New System.Drawing.Point(126, 158)
-        Me.CmbSintomas.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.CmbSintomas.Location = New System.Drawing.Point(86, 115)
         Me.CmbSintomas.Name = "CmbSintomas"
-        Me.CmbSintomas.Size = New System.Drawing.Size(294, 28)
+        Me.CmbSintomas.Size = New System.Drawing.Size(265, 24)
         Me.CmbSintomas.TabIndex = 0
         '
         'LblNombre
         '
         Me.LblNombre.AutoSize = True
-        Me.LblNombre.Location = New System.Drawing.Point(244, 100)
-        Me.LblNombre.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblNombre.BackColor = System.Drawing.Color.Transparent
+        Me.LblNombre.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblNombre.Location = New System.Drawing.Point(109, 96)
         Me.LblNombre.Name = "LblNombre"
-        Me.LblNombre.Size = New System.Drawing.Size(76, 20)
+        Me.LblNombre.Size = New System.Drawing.Size(214, 16)
         Me.LblNombre.TabIndex = 1
-        Me.LblNombre.Text = "Sintomas"
+        Me.LblNombre.Text = "Seleccione el síntoma a modificar"
         '
         'TxtSintoma
         '
-        Me.TxtSintoma.Location = New System.Drawing.Point(531, 158)
-        Me.TxtSintoma.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TxtSintoma.Font = New System.Drawing.Font("Libre Franklin", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtSintoma.Location = New System.Drawing.Point(86, 163)
         Me.TxtSintoma.MaxLength = 50
+        Me.TxtSintoma.Multiline = True
         Me.TxtSintoma.Name = "TxtSintoma"
-        Me.TxtSintoma.Size = New System.Drawing.Size(310, 26)
+        Me.TxtSintoma.Size = New System.Drawing.Size(265, 35)
         Me.TxtSintoma.TabIndex = 2
+        Me.TxtSintoma.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'BtnAceptar
+        'PctSalir
         '
-        Me.BtnAceptar.Enabled = False
-        Me.BtnAceptar.Location = New System.Drawing.Point(194, 269)
-        Me.BtnAceptar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.BtnAceptar.Name = "BtnAceptar"
-        Me.BtnAceptar.Size = New System.Drawing.Size(282, 35)
-        Me.BtnAceptar.TabIndex = 3
-        Me.BtnAceptar.Text = "Aceptar"
-        Me.BtnAceptar.UseVisualStyleBackColor = True
+        Me.PctSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.PctSalir.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PctSalir.Image = Global.CapaPresentacionGestion.My.Resources.Resources.Salir1
+        Me.PctSalir.Location = New System.Drawing.Point(381, 4)
+        Me.PctSalir.Name = "PctSalir"
+        Me.PctSalir.Size = New System.Drawing.Size(58, 55)
+        Me.PctSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PctSalir.TabIndex = 10
+        Me.PctSalir.TabStop = False
         '
-        'BtnVolver
+        'LblDescripcion
         '
-        Me.BtnVolver.Location = New System.Drawing.Point(500, 269)
-        Me.BtnVolver.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.BtnVolver.Name = "BtnVolver"
-        Me.BtnVolver.Size = New System.Drawing.Size(282, 35)
-        Me.BtnVolver.TabIndex = 4
-        Me.BtnVolver.Text = "Volver"
-        Me.BtnVolver.UseVisualStyleBackColor = True
+        Me.LblDescripcion.AutoSize = True
+        Me.LblDescripcion.BackColor = System.Drawing.Color.Transparent
+        Me.LblDescripcion.Font = New System.Drawing.Font("Libre Franklin", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblDescripcion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(213, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.LblDescripcion.Location = New System.Drawing.Point(92, 14)
+        Me.LblDescripcion.Name = "LblDescripcion"
+        Me.LblDescripcion.Size = New System.Drawing.Size(244, 33)
+        Me.LblDescripcion.TabIndex = 24
+        Me.LblDescripcion.Text = "Modificar Síntoma"
+        Me.LblDescripcion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'PctAceptar
+        '
+        Me.PctAceptar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PctAceptar.Image = Global.CapaPresentacionGestion.My.Resources.Resources.Aceptar1
+        Me.PctAceptar.Location = New System.Drawing.Point(168, 246)
+        Me.PctAceptar.Name = "PctAceptar"
+        Me.PctAceptar.Size = New System.Drawing.Size(93, 87)
+        Me.PctAceptar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PctAceptar.TabIndex = 25
+        Me.PctAceptar.TabStop = False
         '
         'FrmModificarSintoma
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1040, 400)
-        Me.Controls.Add(Me.BtnVolver)
-        Me.Controls.Add(Me.BtnAceptar)
+        Me.BackgroundImage = Global.CapaPresentacionGestion.My.Resources.Resources.MenuHistoria
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.ClientSize = New System.Drawing.Size(444, 345)
+        Me.Controls.Add(Me.PctAceptar)
+        Me.Controls.Add(Me.LblDescripcion)
+        Me.Controls.Add(Me.PctSalir)
         Me.Controls.Add(Me.TxtSintoma)
         Me.Controls.Add(Me.LblNombre)
         Me.Controls.Add(Me.CmbSintomas)
-        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "FrmModificarSintoma"
-        Me.Text = "FrmModificarSintoma"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = " "
+        CType(Me.PctSalir, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PctAceptar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -101,6 +130,7 @@ Partial Class FrmModificarSintoma
     Friend WithEvents CmbSintomas As ComboBox
     Friend WithEvents LblNombre As Label
     Friend WithEvents TxtSintoma As TextBox
-    Friend WithEvents BtnAceptar As Button
-    Friend WithEvents BtnVolver As Button
+    Friend WithEvents PctSalir As PictureBox
+    Friend WithEvents LblDescripcion As Label
+    Friend WithEvents PctAceptar As PictureBox
 End Class

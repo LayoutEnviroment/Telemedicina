@@ -420,5 +420,11 @@
   <ItemGroup>
     <None Include="Resources\ModificarCircular.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reactivar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReactivarAceptar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
