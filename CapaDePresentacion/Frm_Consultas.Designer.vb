@@ -22,7 +22,7 @@ Partial Class Frm_Consultas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DgvDiagnosticos = New System.Windows.Forms.DataGridView()
         Me.PnlInformacion = New System.Windows.Forms.Panel()
         Me.LblPrioridad = New System.Windows.Forms.Label()
@@ -92,7 +92,7 @@ Partial Class Frm_Consultas
         '
         Me.LblPrioridad.AutoSize = True
         Me.LblPrioridad.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblPrioridad.Location = New System.Drawing.Point(318, 147)
+        Me.LblPrioridad.Location = New System.Drawing.Point(266, 140)
         Me.LblPrioridad.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblPrioridad.Name = "LblPrioridad"
         Me.LblPrioridad.Size = New System.Drawing.Size(67, 16)
@@ -103,7 +103,7 @@ Partial Class Frm_Consultas
         '
         Me.LblNombre.AutoSize = True
         Me.LblNombre.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblNombre.Location = New System.Drawing.Point(318, 53)
+        Me.LblNombre.Location = New System.Drawing.Point(266, 46)
         Me.LblNombre.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblNombre.Name = "LblNombre"
         Me.LblNombre.Size = New System.Drawing.Size(62, 16)
@@ -132,7 +132,7 @@ Partial Class Frm_Consultas
         '
         Me.LblPrioridadEnfermedad.AutoSize = True
         Me.LblPrioridadEnfermedad.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblPrioridadEnfermedad.Location = New System.Drawing.Point(318, 174)
+        Me.LblPrioridadEnfermedad.Location = New System.Drawing.Point(266, 167)
         Me.LblPrioridadEnfermedad.Name = "LblPrioridadEnfermedad"
         Me.LblPrioridadEnfermedad.Size = New System.Drawing.Size(0, 16)
         Me.LblPrioridadEnfermedad.TabIndex = 7
@@ -155,14 +155,14 @@ Partial Class Frm_Consultas
         Me.DgvSintomas.Name = "DgvSintomas"
         Me.DgvSintomas.ReadOnly = True
         Me.DgvSintomas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgvSintomas.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvSintomas.RowHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DgvSintomas.RowHeadersVisible = False
         Me.DgvSintomas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.DgvSintomas.RowTemplate.ReadOnly = True
@@ -177,7 +177,7 @@ Partial Class Frm_Consultas
         '
         Me.LblNombreEnfermedad.AutoSize = True
         Me.LblNombreEnfermedad.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblNombreEnfermedad.Location = New System.Drawing.Point(318, 80)
+        Me.LblNombreEnfermedad.Location = New System.Drawing.Point(266, 73)
         Me.LblNombreEnfermedad.Name = "LblNombreEnfermedad"
         Me.LblNombreEnfermedad.Size = New System.Drawing.Size(0, 16)
         Me.LblNombreEnfermedad.TabIndex = 5

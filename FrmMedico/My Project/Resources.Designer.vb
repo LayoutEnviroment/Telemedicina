@@ -253,6 +253,16 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property EnviarCorreoFondoClaro() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("EnviarCorreoFondoClaro", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property EnviarFondoClaro() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("EnviarFondoClaro", resourceCulture)
@@ -266,6 +276,16 @@ Namespace My.Resources
         Friend ReadOnly Property EnviarFondoObscuro() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("EnviarFondoObscuro", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property EnviarMensajeBloqueadoFondoClaro() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("EnviarMensajeBloqueadoFondoClaro", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -526,6 +546,16 @@ Namespace My.Resources
         Friend ReadOnly Property Menu() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Menu", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Menu1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Menu1", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

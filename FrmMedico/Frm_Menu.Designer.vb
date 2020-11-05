@@ -339,7 +339,7 @@ Partial Class Frm_Menu
         Me.PnlConversacion.Controls.Add(Me.LblEdadPaciente)
         Me.PnlConversacion.Location = New System.Drawing.Point(62, 114)
         Me.PnlConversacion.Name = "PnlConversacion"
-        Me.PnlConversacion.Size = New System.Drawing.Size(735, 457)
+        Me.PnlConversacion.Size = New System.Drawing.Size(10, 457)
         Me.PnlConversacion.TabIndex = 31
         '
         'PnlCerrarConversacion

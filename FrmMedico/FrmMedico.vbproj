@@ -325,5 +325,14 @@
   <ItemGroup>
     <None Include="Resources\FinalizarChat.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EnviarCorreoFondoClaro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EnviarMensajeBloqueadoFondoClaro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -88,9 +88,7 @@ Public Class Frm_Enviar_Recomendaciones
 
     End Sub
 
-
-    Private Sub BtnEnviar_Click(sender As Object, e As EventArgs) Handles BtnEnviar.Click
-
+    Private Sub PctEnviarCorreo_Click(sender As Object, e As EventArgs) Handles PctEnviarCorreo.Click
         Dim Correo As New MailMessage()
         Dim smtp As New SmtpClient()
 
@@ -123,6 +121,8 @@ Public Class Frm_Enviar_Recomendaciones
                 MsgBox(ex.ToString)
             End If
         End Try
+        LimpiarCmbItems()
+        RtbMensaje.Text = ""
 
     End Sub
 
@@ -172,9 +172,30 @@ Public Class Frm_Enviar_Recomendaciones
 
     Private Sub RtbMensaje_TextChanged(sender As Object, e As EventArgs) Handles RtbMensaje.TextChanged
         If RtbMensaje.Text <> "" Then
-            BtnEnviar.Enabled = True
+            PctEnviarCorreo.Enabled = True
+            PctEnviarCorreo.Image = My.Resources.EnviarCorreoFondoClaro
+            PctEnviarCorreo.Cursor = Cursors.Hand
         Else
-            BtnEnviar.Enabled = False
+            PctEnviarCorreo.Enabled = False
+            PctEnviarCorreo.Image = My.Resources.EnviarMensajeBloqueadoFondoClaro
+            PctEnviarCorreo.Cursor = Cursors.Arrow
         End If
     End Sub
+
+    Private Sub PctSalir_MouseEnter(sender As Object, e As EventArgs) Handles PctSalir.MouseEnter
+        PctSalir.Image = My.Resources.Salir2
+
+    End Sub
+
+    Private Sub PctSalir_MouseLeave(sender As Object, e As EventArgs) Handles PctSalir.MouseLeave
+        PctSalir.Image = My.Resources.Salir1
+
+    End Sub
+
+    Private Sub PctSalir_MouseClick(sender As Object, e As EventArgs) Handles PctSalir.MouseClick
+        Me.Dispose()
+        Frm_Menu.Show()
+
+    End Sub
+
 End Class
