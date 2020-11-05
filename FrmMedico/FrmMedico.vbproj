@@ -334,5 +334,10 @@
   <ItemGroup>
     <None Include="Resources\Menu1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\RecomendacionMen1.png" />
+    <None Include="Resources\RecomendacionWomen1.png" />
+    <None Include="Resources\RecomendacionMen11.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

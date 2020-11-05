@@ -293,7 +293,7 @@ Partial Class Frm_Menu
         Me.LblHistorial.BackColor = System.Drawing.Color.Transparent
         Me.LblHistorial.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblHistorial.ForeColor = System.Drawing.Color.White
-        Me.LblHistorial.Location = New System.Drawing.Point(61, 322)
+        Me.LblHistorial.Location = New System.Drawing.Point(53, 322)
         Me.LblHistorial.Name = "LblHistorial"
         Me.LblHistorial.Size = New System.Drawing.Size(61, 16)
         Me.LblHistorial.TabIndex = 3
@@ -317,7 +317,7 @@ Partial Class Frm_Menu
         '
         Me.PctRecomendaciones.BackColor = System.Drawing.Color.Transparent
         Me.PctRecomendaciones.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PctRecomendaciones.Image = Global.FrmMedico.My.Resources.Resources.RecomendacionWomen
+        Me.PctRecomendaciones.Image = Global.FrmMedico.My.Resources.Resources.RecomendacionWomen1
         Me.PctRecomendaciones.Location = New System.Drawing.Point(38, 44)
         Me.PctRecomendaciones.Name = "PctRecomendaciones"
         Me.PctRecomendaciones.Size = New System.Drawing.Size(100, 100)

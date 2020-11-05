@@ -388,9 +388,9 @@ Public Class Frm_Menu
 
     Private Sub SeleccionarImagen()
         If Numero = 1 Then
-            PctRecomendaciones.Image = My.Resources.RecomendacionMen
+            PctRecomendaciones.Image = My.Resources.RecomendacionMen1
         Else
-            PctRecomendaciones.Image = My.Resources.RecomendacionWomen
+            PctRecomendaciones.Image = My.Resources.RecomendacionWomen1
         End If
 
     End Sub
