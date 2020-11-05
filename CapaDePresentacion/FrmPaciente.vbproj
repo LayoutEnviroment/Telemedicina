@@ -252,6 +252,7 @@
     <Content Include="Resources\ErrorFondoClaro.png" />
     <None Include="Resources\ErrorFondoClaro1.png" />
     <Content Include="Resources\ErrorFondoObscuro.png" />
+    <None Include="Resources\FrmLogin11.png" />
     <Content Include="Resources\Historial.png" />
     <None Include="Resources\Info.png" />
     <None Include="Resources\LedIcon.png" />

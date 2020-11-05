@@ -50,9 +50,10 @@ Partial Class Frm_Chat
         'RtbMensaje
         '
         Me.RtbMensaje.Enabled = False
-        Me.RtbMensaje.Location = New System.Drawing.Point(62, 386)
+        Me.RtbMensaje.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RtbMensaje.Location = New System.Drawing.Point(62, 381)
         Me.RtbMensaje.Name = "RtbMensaje"
-        Me.RtbMensaje.Size = New System.Drawing.Size(422, 45)
+        Me.RtbMensaje.Size = New System.Drawing.Size(422, 50)
         Me.RtbMensaje.TabIndex = 6
         Me.RtbMensaje.Text = ""
         '

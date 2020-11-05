@@ -64,7 +64,7 @@ Public Class Frm_Chat
 
     End Sub
 
-    Private Sub PctEnviar_Click(sender As Object, e As EventArgs) Handles BtnEnviar.Click
+    Private Sub PctEnviar_Click(sender As Object, e As EventArgs) Handles PctEnviar.Click
         Try
             ControladorChat.EnviarMensajePaciente(IdDiagnostico, RtbMensaje.Text, CiMedico)
             AgregarMensaje("<p align = 'right'>" + RtbMensaje.Text + "</p>", 0)
@@ -151,4 +151,6 @@ Public Class Frm_Chat
         End Select
 
     End Sub
+
+
 End Class

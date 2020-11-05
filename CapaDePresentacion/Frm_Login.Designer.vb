@@ -86,7 +86,7 @@ Partial Class FrmLogin
         '
         'PictureBox1
         '
-        Me.PictureBox1.BackgroundImage = Global.CapaDePresentacion.My.Resources.Resources.BotonIngresar4
+        Me.PictureBox1.BackgroundImage = Global.CapaDePresentacion.My.Resources.Resources.FrmLogin11
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PictureBox1.Enabled = False

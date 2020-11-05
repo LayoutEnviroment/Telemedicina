@@ -136,14 +136,20 @@
   <data name="Agregar2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Agregar2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="EnviarBloqueadoFondoClaro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnviarBloqueadoFondoClaro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnviarFondoObscuro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnviarFondoObscuro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Error" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MenuHamb1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MenuHamb1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Salir2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Salir2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Men2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Men2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Agregar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Agregar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,6 +178,9 @@
   <data name="Men3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Men3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="EnviarFondoClaro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnviarFondoClaro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Correcto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Correcto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -187,14 +196,14 @@
   <data name="LedIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LedIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Fem3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fem3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="CorrectoFondoClaro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CorrectoFondoClaro1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Cancelar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cancelar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BotonIngresar3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BotonIngresar3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Fem2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fem2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,8 +211,8 @@
   <data name="MenuHistoria" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuHistoria1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Men2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Men2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BotonIngresar3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BotonIngresar3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="InfoFondoClaro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\InfoFondoClaro1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,19 +220,13 @@
   <data name="Aceptar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Aceptar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Fem3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fem3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MenuHamb1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuHamb1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Salir1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Salir1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="EnviarBloqueadoFondoClaro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EnviarBloqueadoFondoClaro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="EnviarFondoClaro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EnviarFondoClaro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="EnviarFondoObscuro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EnviarFondoObscuro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FrmLogin11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FrmLogin11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

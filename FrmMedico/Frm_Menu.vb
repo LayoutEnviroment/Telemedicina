@@ -6,8 +6,12 @@ Public Class Frm_Menu
     Dim CiPaciente As String
     Dim Nombre As String
     Dim Apellido As String
+    Dim EstadoMenu As Boolean = False
+    Dim Random As New Random()
+    Dim Numero As Integer = Random.Next(1, 2)
 
     Private Sub MenuMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LblDescripcionVentana.Text = "Buenos días, " + ControladorUsuario.ObtenerNombre()
         TmrBuscarMensajesNuevos.Stop()
         ObtenerMisDatos()
         BusquedaDeChats()
@@ -37,25 +41,53 @@ Public Class Frm_Menu
 
     Private Sub DgvEnEspera_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvEnEspera.CellContentClick
         If DgvEnEspera.SelectedRows.Count() > 0 Then
-            BtnIniciarChat.Enabled = True
+            PnlIniciarChat.Visible = True
         Else
-            BtnIniciarChat.Enabled = False
+            PnlIniciarChat.Visible = False
         End If
 
     End Sub
 
     Private Sub BtnIniciarChat_Click(sender As Object, e As EventArgs) Handles BtnIniciarChat.Click
+        ArreglosVisuales()
         IdDiagnostico = DgvEnEspera.Item(0, DgvEnEspera.CurrentCell.RowIndex).Value
         CiPaciente = DgvEnEspera.Item(1, DgvEnEspera.CurrentCell.RowIndex).Value
         CargarDatosConsulta(IdDiagnostico, CiPaciente)
 
     End Sub
 
+    Private Sub ArreglosVisuales()
+        CerrarMenu()
+        PctMenu.Enabled = False
+        PnlIniciarChat.Visible = False
+        AbrirMenuConversacion()
+        PnlCerrarConversacion.Visible = True
+
+    End Sub
+
+    Private Sub AbrirMenuConversacion()
+        PnlConversacion.BackColor = Color.FromArgb(53, 71, 94)
+        While PnlConversacion.Width < 772
+            PnlConversacion.Width += 4
+
+        End While
+    End Sub
+
+    Private Sub CerrarMenuConversacion()
+        PnlConversacion.BackColor = Color.FromArgb(217, 213, 233)
+        While PnlConversacion.Width > 10
+            PnlConversacion.Width = 10
+
+        End While
+    End Sub
+
+
     Private Sub CargarDatosConsulta(Id, Ci)
 
         Try
             ControladorChat.AceptarSolicitud(Id, Ci, Nombre, Apellido)
             AgregarMensajes("<p>Chat iniciado con el paciente " + ControladorUsuario.ObtenerNombre(Ci) + "</p>", 0)
+            DgvEnEspera.Enabled = False
             EmpezarChat()
             TraerInformacionPaciente(Ci)
             TmrBuscarChats.Stop()
@@ -74,11 +106,8 @@ Public Class Frm_Menu
     Public Sub RealizarCambios(estado As Boolean)
         RtbMensaje.Enabled = estado
         BtnEnviar.Enabled = estado
-        BtnFinalizarChat.Enabled = estado
         BtnIniciarChat.Enabled = estado
         DgvEnEspera.Enabled = Not estado
-        BtnConultas.Enabled = Not estado
-        BtnRecomendaciones.Enabled = Not estado
         LstEnfermedades.Clear()
         LstMedicaciones.Clear()
 
@@ -102,9 +131,9 @@ Public Class Frm_Menu
 
     Private Sub CargarLabelsPaciente(Lector As IDataReader)
         While Lector.Read
-            LblNombrePaciente.Text = Lector(0).ToString + " " + Lector(1).ToString
-            LblSexoPaciente.Text = ObtenerSexo(Lector(3).ToString())
-            LblEdadPaciente.Text = ObtenerEdadPaciente(Lector(4).ToString) + " Años"
+            LblNombrePaciente.Text = "Nombre: " + Lector(0).ToString + " " + Lector(1).ToString
+            LblSexoPaciente.Text = "Sexo: " + ObtenerSexo(Lector(3).ToString())
+            LblEdadPaciente.Text = "Edad: " + ObtenerEdadPaciente(Lector(4).ToString) + " Años"
             MostrarDatosPaciente(True)
         End While
 
@@ -112,9 +141,9 @@ Public Class Frm_Menu
 
     Private Function ObtenerSexo(Sexo As String)
         If Sexo = 0 Then
-            Return "Hombre"
+            Return "Masculino"
         Else
-            Return "Mujer"
+            Return "Femenino"
         End If
 
     End Function
@@ -183,7 +212,7 @@ Public Class Frm_Menu
                 ControladorChat.MarcarComoLeido(IdDiagnostico)
                 For Each fila As DataRow In tabla.Rows
                     If fila(5).ToString = "Iniciado" Then
-                        AgregarMensajes("<p>" + ControladorUsuario.ObtenerNombre(fila(1).ToString) + ": " + fila(2).ToString + "</p>", 1)
+                        AgregarMensajes("<p> align = 'right'" + ControladorUsuario.ObtenerNombre(fila(1).ToString) + ": " + fila(2).ToString + "</p>", 1)
 
                     ElseIf fila(5).ToString = "Finalizado" Then
                         MsgBox("El paciente se ha desconectado")
@@ -205,7 +234,7 @@ Public Class Frm_Menu
     Private Sub BtnEnviar_Click(sender As Object, e As EventArgs) Handles BtnEnviar.Click
         Try
             ControladorChat.EnviarMensajeMedico(IdDiagnostico, RtbMensaje.Text, CiPaciente)
-            AgregarMensajes("<p> Yo: " + RtbMensaje.Text + "</p>", 1)
+            AgregarMensajes("<p align = 'left'> Yo: " + RtbMensaje.Text + "</p>", 1)
             BtnEnviar.Enabled = False
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -220,9 +249,8 @@ Public Class Frm_Menu
 
     End Sub
 
-    Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles BtnSalir.Click
+    Private Sub BtnSalir_Click(sender As Object, e As EventArgs)
         Me.Close()
-        Frm_Login.Close()
 
     End Sub
 
@@ -241,15 +269,23 @@ Public Class Frm_Menu
 
     End Sub
 
-    Private Sub BtnFinalizarChat_Click(sender As Object, e As EventArgs) Handles BtnFinalizarChat.Click
+    Private Sub PctFinalizarChat_Click(sender As Object, e As EventArgs) Handles PctFinalizarChat.Click
         Select Case MsgBox("Seguro desea finalizar el chat?", MsgBoxStyle.YesNo, "caption")
             Case MsgBoxResult.Yes
+                CambiosVisuales()
                 FinalizarConversacion()
 
             Case MsgBoxResult.No
 
         End Select
 
+    End Sub
+
+    Private Sub CambiosVisuales()
+        CerrarMenuConversacion()
+        PctMenu.Enabled = True
+        PctFinalizarChat.Visible = False
+        DgvEnEspera.Enabled = True
     End Sub
 
     Private Sub FinalizarConversacion()
@@ -273,13 +309,13 @@ Public Class Frm_Menu
 
     End Sub
 
-    Private Sub BtnRecomendaciones_Click(sender As Object, e As EventArgs) Handles BtnRecomendaciones.Click
+    Private Sub BtnRecomendaciones_Click(sender As Object, e As EventArgs)
         Me.Hide()
         Frm_Enviar_Recomendaciones.Show()
 
     End Sub
 
-    Private Sub BtnConultas_Click(sender As Object, e As EventArgs) Handles BtnConultas.Click
+    Private Sub BtnConultas_Click(sender As Object, e As EventArgs)
         TmrBuscarChats.Stop()
         Me.Hide()
         FrmConsultas.Show()
@@ -292,6 +328,119 @@ Public Class Frm_Menu
         Else
             BtnEnviar.Enabled = False
         End If
+
+    End Sub
+
+    Private Sub PictureBox1_MouseEnter(sender As Object, e As EventArgs) Handles PictureBox1.MouseEnter
+        Dim i As Integer = PnlIniciarChat.Location.X
+        While PnlIniciarChat.Location.X > 663
+            PnlIniciarChat.Location = New Point(i, PnlIniciarChat.Location.Y)
+            i -= 1
+        End While
+
+    End Sub
+
+    Private Sub Panel1_MouseLeave(sender As Object, e As EventArgs) Handles PnlIniciarChat.MouseLeave
+
+        Dim i As Integer = PnlIniciarChat.Location.X
+        While PnlIniciarChat.Location.X < 773
+            PnlIniciarChat.Location = New Point(i, PnlIniciarChat.Location.Y)
+            i += 1
+        End While
+
+    End Sub
+
+    Private Sub PctSalirLeft_MouseMove(sender As Object, e As MouseEventArgs) Handles PctSalirLeft.MouseMove
+        PctSalirLeft.Image = My.Resources.Salir2
+
+    End Sub
+
+    Private Sub PctSalirLeft_MouseLeave(sender As Object, e As EventArgs) Handles PctSalirLeft.MouseLeave
+        PctSalirLeft.Image = My.Resources.Salir1
+
+    End Sub
+
+    Private Sub PctSalirLeft_Click(sender As Object, e As EventArgs) Handles PctSalirLeft.Click
+        Me.Close()
+        FrmLogin.Close()
+    End Sub
+
+    Private Sub PctMenu_Click(sender As Object, e As EventArgs) Handles PctMenu.Click
+        EstadoMenu = Not EstadoMenu
+        PctHistorial.Visible = True
+        PctRecomendaciones.Visible = True
+        If EstadoMenu Then
+            AbrirMenu()
+        Else
+            CerrarMenu()
+        End If
+
+    End Sub
+
+    Private Sub AbrirMenu()
+        SeleccionarImagen()
+        PnlMenu.BackColor = Color.FromArgb(53, 71, 94)
+        While PnlMenu.Height < 410
+            PnlMenu.Height += 1
+        End While
+
+    End Sub
+
+    Private Sub SeleccionarImagen()
+        If Numero = 1 Then
+            PctRecomendaciones.Image = My.Resources.RecomendacionMen
+        Else
+            PctRecomendaciones.Image = My.Resources.RecomendacionWomen
+        End If
+
+    End Sub
+
+    Private Sub CerrarMenu()
+        PnlMenu.BackColor = Color.FromArgb(217, 223, 231)
+        While PnlMenu.Height > 10
+            PnlMenu.Height = 10
+        End While
+
+    End Sub
+
+    Private Sub PctHistorial_MouseEnter(sender As Object, e As EventArgs) Handles PctHistorial.MouseEnter
+        LblHistorial.Visible = True
+
+    End Sub
+
+    Private Sub PctHistorial_MouseLeave(sender As Object, e As EventArgs) Handles PctHistorial.MouseLeave
+        LblHistorial.Visible = False
+
+    End Sub
+
+    Private Sub PctHistorial_Click(sender As Object, e As EventArgs) Handles PctHistorial.Click
+        Me.Dispose()
+        FrmConsultas.Show()
+
+    End Sub
+
+    Private Sub PctDatosPropios_Click(sender As Object, e As EventArgs) Handles PctRecomendaciones.Click
+        Me.Dispose()
+        Frm_Enviar_Recomendaciones.Show()
+    End Sub
+
+    Private Sub PctRecomendaciones_MouseEnter(sender As Object, e As EventArgs) Handles PctRecomendaciones.MouseEnter
+        LblRecomendaciones.Visible = True
+
+    End Sub
+
+    Private Sub PctRecomendaciones_MouseLeave(sender As Object, e As EventArgs) Handles PctRecomendaciones.MouseLeave
+        LblRecomendaciones.Visible = False
+
+    End Sub
+
+    Private Sub PctMenu_MouseEnter(sender As Object, e As EventArgs) Handles PctMenu.MouseEnter
+        PctMenu.Image = My.Resources.MenuHamb2
+
+    End Sub
+
+    Private Sub PctMenu_MouseLeave(sender As Object, e As EventArgs) Handles PctMenu.MouseLeave
+        PctMenu.Image = My.Resources.MenuHamb1
 
     End Sub
 
