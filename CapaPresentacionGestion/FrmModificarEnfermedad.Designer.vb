@@ -72,17 +72,19 @@ Partial Class FrmModificarEnfermedad
         '
         'TxtNombre
         '
+        Me.TxtNombre.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtNombre.Enabled = False
         Me.TxtNombre.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtNombre.Location = New System.Drawing.Point(11, 39)
         Me.TxtNombre.MaxLength = 50
         Me.TxtNombre.Name = "TxtNombre"
-        Me.TxtNombre.Size = New System.Drawing.Size(159, 23)
+        Me.TxtNombre.Size = New System.Drawing.Size(159, 16)
         Me.TxtNombre.TabIndex = 2
         Me.TxtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'LstSintomas
         '
+        Me.LstSintomas.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.LstSintomas.Enabled = False
         Me.LstSintomas.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LstSintomas.HideSelection = False
@@ -91,9 +93,11 @@ Partial Class FrmModificarEnfermedad
         Me.LstSintomas.Size = New System.Drawing.Size(189, 185)
         Me.LstSintomas.TabIndex = 3
         Me.LstSintomas.UseCompatibleStateImageBehavior = False
+        Me.LstSintomas.View = System.Windows.Forms.View.List
         '
         'TxtDescripcion
         '
+        Me.TxtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtDescripcion.Enabled = False
         Me.TxtDescripcion.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtDescripcion.Location = New System.Drawing.Point(13, 99)
@@ -143,7 +147,7 @@ Partial Class FrmModificarEnfermedad
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(270, 40)
+        Me.Label2.Location = New System.Drawing.Point(292, 39)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(66, 16)
@@ -205,7 +209,7 @@ Partial Class FrmModificarEnfermedad
         Me.PnlContenido.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.PnlContenido.Location = New System.Drawing.Point(23, 119)
         Me.PnlContenido.Name = "PnlContenido"
-        Me.PnlContenido.Size = New System.Drawing.Size(478, 10)
+        Me.PnlContenido.Size = New System.Drawing.Size(478, 324)
         Me.PnlContenido.TabIndex = 22
         '
         'PctAgregarSintoma
@@ -216,7 +220,7 @@ Partial Class FrmModificarEnfermedad
         Me.PctAgregarSintoma.Image = Global.CapaPresentacionGestion.My.Resources.Resources.AddFondoClaro
         Me.PctAgregarSintoma.Location = New System.Drawing.Point(427, 63)
         Me.PctAgregarSintoma.Name = "PctAgregarSintoma"
-        Me.PctAgregarSintoma.Size = New System.Drawing.Size(37, 33)
+        Me.PctAgregarSintoma.Size = New System.Drawing.Size(27, 24)
         Me.PctAgregarSintoma.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PctAgregarSintoma.TabIndex = 23
         Me.PctAgregarSintoma.TabStop = False
@@ -225,10 +229,11 @@ Partial Class FrmModificarEnfermedad
         '
         Me.PctEliminarSintoma.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.PctEliminarSintoma.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PctEliminarSintoma.Enabled = False
         Me.PctEliminarSintoma.Image = Global.CapaPresentacionGestion.My.Resources.Resources.DelCircular
-        Me.PctEliminarSintoma.Location = New System.Drawing.Point(427, 99)
+        Me.PctEliminarSintoma.Location = New System.Drawing.Point(427, 102)
         Me.PctEliminarSintoma.Name = "PctEliminarSintoma"
-        Me.PctEliminarSintoma.Size = New System.Drawing.Size(37, 33)
+        Me.PctEliminarSintoma.Size = New System.Drawing.Size(27, 23)
         Me.PctEliminarSintoma.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PctEliminarSintoma.TabIndex = 22
         Me.PctEliminarSintoma.TabStop = False
@@ -236,6 +241,7 @@ Partial Class FrmModificarEnfermedad
         'PctCancelar
         '
         Me.PctCancelar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PctCancelar.Enabled = False
         Me.PctCancelar.Image = Global.CapaPresentacionGestion.My.Resources.Resources.Cancelar1
         Me.PctCancelar.Location = New System.Drawing.Point(408, 449)
         Me.PctCancelar.Name = "PctCancelar"
@@ -247,7 +253,6 @@ Partial Class FrmModificarEnfermedad
         'PctAceptar
         '
         Me.PctAceptar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PctAceptar.Enabled = False
         Me.PctAceptar.Image = Global.CapaPresentacionGestion.My.Resources.Resources.Aceptar1
         Me.PctAceptar.Location = New System.Drawing.Point(205, 449)
         Me.PctAceptar.Name = "PctAceptar"

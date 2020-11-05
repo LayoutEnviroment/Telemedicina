@@ -27,13 +27,11 @@ Public Class FrmModificarEnfermedad
     End Sub
 
     Private Sub CmbEnfermedades_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbEnfermedades.SelectedIndexChanged
+        MoverPanel()
         TxtNombre.Text = CmbEnfermedades.Text
         Try
             IdEnfermedad = ControladorEnfermedad.ObtenerId(CmbEnfermedades.SelectedItem.ToString)
             ObtenerDatos()
-            If ChbModificarSintomas.Checked Then
-                TraerSintomas(True)
-            End If
         Catch ex As Exception
             MsgBox("No pudimos identificar la enfermedad")
         End Try
@@ -41,9 +39,14 @@ Public Class FrmModificarEnfermedad
 
     Private Sub ObtenerDatos()
         Try
+            TxtNombre.Text = CmbEnfermedades.Text
             TxtDescripcion.Text = ControladorEnfermedad.ObtenerDescripcion(IdEnfermedad)
             CmbPrioridad.Text = ControladorEnfermedad.ObtenerPrioridad(IdEnfermedad)
             HabilitarCampos()
+            PctEliminarSintoma.Enabled = False
+            If ChbModificarSintomas.Checked Then
+                TraerSintomas(True)
+            End If
         Catch ex As Exception
             MsgBox("No pudimos cargar los datos de la enfermedad")
         End Try
@@ -85,7 +88,7 @@ Public Class FrmModificarEnfermedad
         Else
             LstSintomas.Clear()
         End If
-        MoverPanel()
+
     End Sub
 
     Private Sub MoverPanel()
@@ -94,10 +97,9 @@ Public Class FrmModificarEnfermedad
         End While
 
         While PnlContenido.Height < 325
-            PnlContenido.Height += 1
+            PnlContenido.Height += 20
         End While
-
-
+        PctCancelar.Enabled = True
 
     End Sub
 
@@ -135,29 +137,8 @@ Public Class FrmModificarEnfermedad
 
     End Sub
 
-    Private Sub BtnAgregar_Click(sender As Object, e As EventArgs)
-
-
-    End Sub
-
     Private Sub LstSintomas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstSintomas.SelectedIndexChanged
         PctEliminarSintoma.Enabled = True
-
-    End Sub
-
-    Private Sub BtnQuitar_Click(sender As Object, e As EventArgs)
-        CmbSintomas.Items.Add(LstSintomas.Items(LstSintomas.SelectedIndices(0)).Text)
-        LstSintomas.Items.RemoveAt(LstSintomas.SelectedIndices(0))
-        PctEliminarSintoma.Enabled = False
-
-    End Sub
-
-    Private Sub BtnAceptar_Click(sender As Object, e As EventArgs)
-        If ChbModificarSintomas.Checked Then
-            ValidarEnfermedadYSintoma()
-        Else
-            ValidarEnfermedad()
-        End If
 
     End Sub
 
@@ -214,10 +195,6 @@ Public Class FrmModificarEnfermedad
 
     End Sub
 
-    Private Sub BtnLimpiar_Click(sender As Object, e As EventArgs)
-        Limpiar()
-    End Sub
-
     Private Sub Limpiar()
         If ChbModificarSintomas.Checked Then
             LimpiarEnfermedad()
@@ -229,7 +206,13 @@ Public Class FrmModificarEnfermedad
         TxtDescripcion.Enabled = False
         TxtNombre.Enabled = False
         CmbPrioridad.Enabled = False
+        PctAceptar.Enabled = False
+        CerrarPanel()
 
+    End Sub
+
+    Private Sub CerrarPanel()
+        PnlContenido.Height = 10
     End Sub
 
     Private Sub LimpiarEnfermedad()
@@ -272,6 +255,17 @@ Public Class FrmModificarEnfermedad
         End If
 
     End Sub
+
+    Private Sub PctAceptar_MouseEnter(sender As Object, e As EventArgs) Handles PctAceptar.MouseEnter
+        PctAceptar.Image = My.Resources.Aceptar2
+
+    End Sub
+
+    Private Sub PctAceptar_MouseLeave(sender As Object, e As EventArgs) Handles PctAceptar.MouseLeave
+        PctAceptar.Image = My.Resources.Aceptar1
+
+    End Sub
+
 
     Private Sub PctSalir_Click(sender As Object, e As EventArgs) Handles PctSalir.Click
         Limpiar()
