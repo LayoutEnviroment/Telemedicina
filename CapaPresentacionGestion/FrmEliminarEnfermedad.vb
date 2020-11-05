@@ -31,7 +31,7 @@ Public Class FrmEliminarEnfermedad
     Private Sub CmbEnfermedades_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbEnfermedades.SelectedIndexChanged
         Try
             ObtenerDatos(ControladorEnfermedad.ObtenerId(CmbEnfermedades.SelectedItem.ToString))
-            BtnEliminar.Enabled = True
+            PctAceptar.Enabled = True
         Catch ex As Exception
             MsgBox("No se pudo identificar la enfermedad")
         End Try
@@ -68,7 +68,7 @@ Public Class FrmEliminarEnfermedad
 
     End Sub
 
-    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
+    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs)
         Try
             ControladorEnfermedad.EliminarEnfermedad(Id)
             Limpiar()
@@ -78,7 +78,7 @@ Public Class FrmEliminarEnfermedad
         End Try
     End Sub
 
-    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
+    Private Sub BtnVolver_Click(sender As Object, e As EventArgs)
         Limpiar()
         Me.Dispose()
         FrmMenuGestion.Show()
@@ -89,7 +89,46 @@ Public Class FrmEliminarEnfermedad
         TxtDescripcion.Text = ""
         TxtPrioridad.Text = ""
         LstSintomas.Clear()
-        BtnEliminar.Enabled = False
+        PctAceptar.Enabled = False
+
+    End Sub
+
+    Private Sub PctSalir_Click(sender As Object, e As EventArgs) Handles PctSalir.Click
+        Limpiar()
+        Me.Dispose()
+        FrmMenuGestion.Show()
+
+    End Sub
+
+    Private Sub PctSalir_MouseEnter(sender As Object, e As EventArgs) Handles PctSalir.MouseEnter
+        PctSalir.Image = My.Resources.Salir2
+
+    End Sub
+
+    Private Sub PctSalir_MouseLeave(sender As Object, e As EventArgs) Handles PctSalir.MouseLeave
+        PctSalir.Image = My.Resources.Salir1
+
+    End Sub
+
+    Private Sub PctAceptar_Click(sender As Object, e As EventArgs) Handles PctAceptar.Click
+        Try
+            ControladorEnfermedad.EliminarEnfermedad(Id)
+            MsgBox("Enfermedad eliminada con éxito", MsgBoxStyle.Information)
+            Limpiar()
+            TraerDatos()
+        Catch ex As Exception
+            MsgBox("Error al intentar eliminar la enfermedad", MsgBoxStyle.Critical)
+        End Try
+
+    End Sub
+
+    Private Sub PctAceptar_MouseEnter(sender As Object, e As EventArgs) Handles PctAceptar.MouseEnter
+        PctAceptar.Image = My.Resources.Aceptar2
+
+    End Sub
+
+    Private Sub PctAceptar_MouseLeave(sender As Object, e As EventArgs) Handles PctAceptar.MouseLeave
+        PctAceptar.Image = My.Resources.Aceptar1
 
     End Sub
 

@@ -34,20 +34,24 @@ Partial Class FrmEliminarSintoma
         '
         'CmbSintomas
         '
+        Me.CmbSintomas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CmbSintomas.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmbSintomas.FormattingEnabled = True
         Me.CmbSintomas.Location = New System.Drawing.Point(93, 121)
         Me.CmbSintomas.Name = "CmbSintomas"
-        Me.CmbSintomas.Size = New System.Drawing.Size(265, 21)
+        Me.CmbSintomas.Size = New System.Drawing.Size(265, 24)
         Me.CmbSintomas.TabIndex = 0
         '
         'TxtSintoma
         '
         Me.TxtSintoma.Enabled = False
+        Me.TxtSintoma.Font = New System.Drawing.Font("Libre Franklin", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtSintoma.Location = New System.Drawing.Point(93, 167)
         Me.TxtSintoma.Multiline = True
         Me.TxtSintoma.Name = "TxtSintoma"
         Me.TxtSintoma.Size = New System.Drawing.Size(265, 35)
         Me.TxtSintoma.TabIndex = 3
+        Me.TxtSintoma.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'PctSalir
         '
@@ -64,6 +68,7 @@ Partial Class FrmEliminarSintoma
         'PctAceptar
         '
         Me.PctAceptar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PctAceptar.Enabled = False
         Me.PctAceptar.Image = Global.CapaPresentacionGestion.My.Resources.Resources.Aceptar1
         Me.PctAceptar.Location = New System.Drawing.Point(178, 246)
         Me.PctAceptar.Name = "PctAceptar"

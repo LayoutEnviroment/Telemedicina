@@ -3,13 +3,6 @@
 Public Class FrmMenuGestion
 
     Private Sub MenuGestion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Try
-            LblBienvenida.Text = "Bienvenido/a " + ControladorUsuario.ObtenerNombre()
-
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-
-        End Try
         CargarLabels()
 
     End Sub

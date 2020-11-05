@@ -38,11 +38,11 @@ Partial Class FrmModificarSintoma
         Me.CmbSintomas.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.CmbSintomas.BackColor = System.Drawing.SystemColors.Control
         Me.CmbSintomas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CmbSintomas.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmbSintomas.Font = New System.Drawing.Font("Libre Franklin", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmbSintomas.FormattingEnabled = True
         Me.CmbSintomas.Location = New System.Drawing.Point(86, 115)
         Me.CmbSintomas.Name = "CmbSintomas"
-        Me.CmbSintomas.Size = New System.Drawing.Size(265, 24)
+        Me.CmbSintomas.Size = New System.Drawing.Size(265, 27)
         Me.CmbSintomas.TabIndex = 0
         '
         'LblNombre
@@ -58,6 +58,7 @@ Partial Class FrmModificarSintoma
         '
         'TxtSintoma
         '
+        Me.TxtSintoma.Enabled = False
         Me.TxtSintoma.Font = New System.Drawing.Font("Libre Franklin", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtSintoma.Location = New System.Drawing.Point(86, 163)
         Me.TxtSintoma.MaxLength = 50
@@ -95,6 +96,7 @@ Partial Class FrmModificarSintoma
         'PctAceptar
         '
         Me.PctAceptar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PctAceptar.Enabled = False
         Me.PctAceptar.Image = Global.CapaPresentacionGestion.My.Resources.Resources.Aceptar1
         Me.PctAceptar.Location = New System.Drawing.Point(168, 246)
         Me.PctAceptar.Name = "PctAceptar"

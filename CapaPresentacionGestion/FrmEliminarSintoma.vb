@@ -39,12 +39,12 @@ Public Class FrmEliminarSintoma
             Case MsgBoxResult.Yes
                 Try
                     ControladorSintoma.EliminarSintoma(ControladorSintoma.ObtenerId(TxtSintoma.Text))
-                    MsgBox("Sintoma eliminado con exito")
+                    MsgBox("Sintoma eliminado con exito", MsgBoxStyle.Information)
                     TxtSintoma.Text = ""
                     ObtenerSintomas()
                     PctAceptar.Enabled = False
                 Catch ex As Exception
-                    MsgBox("Error al eliminar el sintoma" + ex.ToString)
+                    MsgBox("Error al intenar eliminar el sintoma", MsgBoxStyle.Critical)
                 End Try
 
             Case MsgBoxResult.No

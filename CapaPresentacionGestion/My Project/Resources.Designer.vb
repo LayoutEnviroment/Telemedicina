@@ -93,6 +93,16 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property AddFondoClaro() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("AddFondoClaro", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property Agregar() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Agregar", resourceCulture)
@@ -236,6 +246,16 @@ Namespace My.Resources
         Friend ReadOnly Property CuidarteLogo() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("CuidarteLogo", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property DelCircular() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("DelCircular", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

@@ -22,7 +22,6 @@ Partial Class FrmMenuGestion
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.LblBienvenida = New System.Windows.Forms.Label()
         Me.FlpSintomas = New System.Windows.Forms.FlowLayoutPanel()
         Me.PnlAdd = New System.Windows.Forms.Panel()
         Me.LblAddSin = New System.Windows.Forms.Label()
@@ -60,6 +59,7 @@ Partial Class FrmMenuGestion
         Me.PctModUsr = New System.Windows.Forms.PictureBox()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.LblBienvenida = New System.Windows.Forms.Label()
         Me.LblDescripcionVentana = New System.Windows.Forms.Label()
         Me.FlpSintomas.SuspendLayout()
         Me.PnlAdd.SuspendLayout()
@@ -87,15 +87,6 @@ Partial Class FrmMenuGestion
         CType(Me.PctModUsr, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel9.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'LblBienvenida
-        '
-        Me.LblBienvenida.AutoSize = True
-        Me.LblBienvenida.Location = New System.Drawing.Point(259, 39)
-        Me.LblBienvenida.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.LblBienvenida.Name = "LblBienvenida"
-        Me.LblBienvenida.Size = New System.Drawing.Size(0, 13)
-        Me.LblBienvenida.TabIndex = 4
         '
         'FlpSintomas
         '
@@ -457,16 +448,26 @@ Partial Class FrmMenuGestion
         Me.Label9.TabIndex = 0
         Me.Label9.Text = "Usuarios"
         '
+        'LblBienvenida
+        '
+        Me.LblBienvenida.AutoSize = True
+        Me.LblBienvenida.Font = New System.Drawing.Font("Libre Franklin", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblBienvenida.Location = New System.Drawing.Point(284, 39)
+        Me.LblBienvenida.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LblBienvenida.Name = "LblBienvenida"
+        Me.LblBienvenida.Size = New System.Drawing.Size(0, 29)
+        Me.LblBienvenida.TabIndex = 4
+        '
         'LblDescripcionVentana
         '
         Me.LblDescripcionVentana.AutoSize = True
         Me.LblDescripcionVentana.BackColor = System.Drawing.Color.Transparent
-        Me.LblDescripcionVentana.Font = New System.Drawing.Font("Libre Franklin", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblDescripcionVentana.Font = New System.Drawing.Font("Libre Franklin", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblDescripcionVentana.ForeColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(213, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.LblDescripcionVentana.Location = New System.Drawing.Point(259, 9)
+        Me.LblDescripcionVentana.Location = New System.Drawing.Point(284, 9)
         Me.LblDescripcionVentana.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblDescripcionVentana.Name = "LblDescripcionVentana"
-        Me.LblDescripcionVentana.Size = New System.Drawing.Size(0, 33)
+        Me.LblDescripcionVentana.Size = New System.Drawing.Size(0, 29)
         Me.LblDescripcionVentana.TabIndex = 34
         Me.LblDescripcionVentana.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -530,7 +531,6 @@ Partial Class FrmMenuGestion
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents LblBienvenida As Label
     Friend WithEvents FlpSintomas As FlowLayoutPanel
     Friend WithEvents PnlAdd As Panel
     Friend WithEvents PctAdd As PictureBox
@@ -568,5 +568,6 @@ Partial Class FrmMenuGestion
     Friend WithEvents PctModUsr As PictureBox
     Friend WithEvents Panel9 As Panel
     Friend WithEvents Label9 As Label
+    Friend WithEvents LblBienvenida As Label
     Friend WithEvents LblDescripcionVentana As Label
 End Class

@@ -426,5 +426,11 @@
   <ItemGroup>
     <None Include="Resources\ReactivarAceptar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddFondoClaro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DelCircular.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

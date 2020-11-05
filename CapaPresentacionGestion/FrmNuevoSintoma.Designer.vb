@@ -42,13 +42,14 @@ Partial Class FrmNuevoSintoma
         Me.TxtNombre.Size = New System.Drawing.Size(265, 35)
         Me.TxtNombre.TabIndex = 0
         Me.TxtNombre.Text = " "
+        Me.TxtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'LblDisponibilidad
         '
         Me.LblDisponibilidad.AutoSize = True
         Me.LblDisponibilidad.BackColor = System.Drawing.Color.Transparent
         Me.LblDisponibilidad.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblDisponibilidad.Location = New System.Drawing.Point(139, 192)
+        Me.LblDisponibilidad.Location = New System.Drawing.Point(57, 246)
         Me.LblDisponibilidad.Name = "LblDisponibilidad"
         Me.LblDisponibilidad.Size = New System.Drawing.Size(0, 16)
         Me.LblDisponibilidad.TabIndex = 2
@@ -56,8 +57,10 @@ Partial Class FrmNuevoSintoma
         '
         'PctAceptar
         '
+        Me.PctAceptar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PctAceptar.Enabled = False
         Me.PctAceptar.Image = Global.CapaPresentacionGestion.My.Resources.Resources.Aceptar1
-        Me.PctAceptar.Location = New System.Drawing.Point(174, 246)
+        Me.PctAceptar.Location = New System.Drawing.Point(304, 246)
         Me.PctAceptar.Name = "PctAceptar"
         Me.PctAceptar.Size = New System.Drawing.Size(93, 87)
         Me.PctAceptar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -82,7 +85,7 @@ Partial Class FrmNuevoSintoma
         Me.LblDescripcion.BackColor = System.Drawing.Color.Transparent
         Me.LblDescripcion.Font = New System.Drawing.Font("Libre Franklin", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblDescripcion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(213, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.LblDescripcion.Location = New System.Drawing.Point(111, 11)
+        Me.LblDescripcion.Location = New System.Drawing.Point(110, 14)
         Me.LblDescripcion.Name = "LblDescripcion"
         Me.LblDescripcion.Size = New System.Drawing.Size(207, 33)
         Me.LblDescripcion.TabIndex = 23

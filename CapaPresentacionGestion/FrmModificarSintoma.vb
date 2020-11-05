@@ -29,6 +29,7 @@ Public Class FrmModificarSintoma
     Private Sub CmbSintomas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbSintomas.SelectedIndexChanged
         TxtSintoma.Text = CmbSintomas.SelectedItem.ToString()
         SintomaOriginal = TxtSintoma.Text
+        TxtSintoma.Enabled = True
         PctAceptar.Enabled = False
 
     End Sub
@@ -101,11 +102,11 @@ Public Class FrmModificarSintoma
     Private Sub PctAceptar_Click(sender As Object, e As EventArgs) Handles PctAceptar.Click
         Try
             ControladorSintoma.CambiarNombreDeSintoma(ObtenerId(), TxtSintoma.Text)
-            MsgBox("Sintoma modificado con exito")
+            MsgBox("Sintoma modificado con éxito", MsgBoxStyle.Information)
             TxtSintoma.Text = ""
             RecargarSintomas()
         Catch ex As Exception
-            MsgBox("Error modificando el sintoma seleccionado" + ex.ToString)
+            MsgBox("Error modificando el sintoma seleccionado", MsgBoxStyle.Critical)
         End Try
 
     End Sub

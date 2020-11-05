@@ -66,7 +66,6 @@ Public Class FrmModificarEnfermedad
     End Sub
 
     Private Sub HabilitarSintomas(estado As Boolean)
-        LblSintomas.Enabled = estado
         CmbSintomas.Enabled = estado
         LstSintomas.Enabled = estado
 
@@ -86,6 +85,18 @@ Public Class FrmModificarEnfermedad
         Else
             LstSintomas.Clear()
         End If
+        MoverPanel()
+    End Sub
+
+    Private Sub MoverPanel()
+        While PnlContenido.Height > 10
+            PnlContenido.Height -= 50
+        End While
+
+        While PnlContenido.Height < 325
+            PnlContenido.Height += 1
+        End While
+
 
 
     End Sub
@@ -120,31 +131,28 @@ Public Class FrmModificarEnfermedad
     End Sub
 
     Private Sub CmbSintomas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbSintomas.SelectedIndexChanged
-        BtnAgregar.Enabled = True
+        PctAgregarSintoma.Enabled = True
 
     End Sub
 
-    Private Sub BtnAgregar_Click(sender As Object, e As EventArgs) Handles BtnAgregar.Click
-        Dim index As Integer = CmbSintomas.SelectedIndex
-        LstSintomas.Items.Add(CmbSintomas.Items(index))
-        CmbSintomas.Items.RemoveAt(index)
-        BtnAgregar.Enabled = False
+    Private Sub BtnAgregar_Click(sender As Object, e As EventArgs)
+
 
     End Sub
 
     Private Sub LstSintomas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstSintomas.SelectedIndexChanged
-        BtnQuitar.Enabled = True
+        PctEliminarSintoma.Enabled = True
 
     End Sub
 
-    Private Sub BtnQuitar_Click(sender As Object, e As EventArgs) Handles BtnQuitar.Click
+    Private Sub BtnQuitar_Click(sender As Object, e As EventArgs)
         CmbSintomas.Items.Add(LstSintomas.Items(LstSintomas.SelectedIndices(0)).Text)
         LstSintomas.Items.RemoveAt(LstSintomas.SelectedIndices(0))
-        BtnQuitar.Enabled = False
+        PctEliminarSintoma.Enabled = False
 
     End Sub
 
-    Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
+    Private Sub BtnAceptar_Click(sender As Object, e As EventArgs)
         If ChbModificarSintomas.Checked Then
             ValidarEnfermedadYSintoma()
         Else
@@ -206,15 +214,8 @@ Public Class FrmModificarEnfermedad
 
     End Sub
 
-    Private Sub BtnLimpiar_Click(sender As Object, e As EventArgs) Handles BtnLimpiar.Click
+    Private Sub BtnLimpiar_Click(sender As Object, e As EventArgs)
         Limpiar()
-    End Sub
-
-    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
-        Limpiar()
-        Me.Dispose()
-        FrmMenuGestion.Show()
-
     End Sub
 
     Private Sub Limpiar()
@@ -248,4 +249,49 @@ Public Class FrmModificarEnfermedad
 
     End Sub
 
+    Private Sub PctCancelar_Click(sender As Object, e As EventArgs) Handles PctCancelar.Click
+        ObtenerDatos()
+
+    End Sub
+
+    Private Sub PctCancelar_MouseEnter(sender As Object, e As EventArgs) Handles PctCancelar.MouseEnter
+        PctCancelar.Image = My.Resources.Cancelar2
+
+    End Sub
+
+    Private Sub PctCancelar_MouseLeave(sender As Object, e As EventArgs) Handles PctCancelar.MouseLeave
+        PctCancelar.Image = My.Resources.Cancelar1
+
+    End Sub
+
+    Private Sub PctAceptar_Click(sender As Object, e As EventArgs) Handles PctAceptar.Click
+        If ChbModificarSintomas.Checked Then
+            ValidarEnfermedadYSintoma()
+        Else
+            ValidarEnfermedad()
+        End If
+
+    End Sub
+
+    Private Sub PctSalir_Click(sender As Object, e As EventArgs) Handles PctSalir.Click
+        Limpiar()
+        Me.Dispose()
+        FrmMenuGestion.Show()
+
+    End Sub
+
+    Private Sub PctEliminarSintoma_Click(sender As Object, e As EventArgs) Handles PctEliminarSintoma.Click
+        CmbSintomas.Items.Add(LstSintomas.Items(LstSintomas.SelectedIndices(0)).Text)
+        LstSintomas.Items.RemoveAt(LstSintomas.SelectedIndices(0))
+        PctEliminarSintoma.Enabled = False
+
+    End Sub
+
+    Private Sub PctAgregarSintoma_Click(sender As Object, e As EventArgs) Handles PctAgregarSintoma.Click
+        Dim index As Integer = CmbSintomas.SelectedIndex
+        LstSintomas.Items.Add(CmbSintomas.Items(index))
+        CmbSintomas.Items.RemoveAt(index)
+        PctAgregarSintoma.Enabled = False
+
+    End Sub
 End Class

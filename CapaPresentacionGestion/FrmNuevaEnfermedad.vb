@@ -91,7 +91,7 @@ Public Class FrmNuevaEnfermedad
             AveriguarInactividad()
 
         ElseIf TxtNombre.Text = "" Then
-            LblDisponible.Text = "El nombre no puede estar vacio"
+            LblDisponible.Text = "El nombre no puede " + vbCrLf + "estar vacio"
             Nombre = False
             Reactivacion = False
 
@@ -106,38 +106,58 @@ Public Class FrmNuevaEnfermedad
 
     Private Sub AveriguarInactividad()
         If ControladorEnfermedad.EstaInactivo(TxtNombre.Text) = 1 Then
-            BtnReactivar.Enabled = True
             Reactivacion = True
-            LblDisponible.Text = "Esta enfermedad se encuentra inactiva, pulse reacitvar para volver a activarla"
+            LblDisponible.Text = "Esta enfermedad se " + vbCrLf + "encuentra inactiva, pulse " + vbCrLf + "el botón para que" + vbCrLf + "vuela a esta activa"
 
         Else
             Reactivacion = False
-            BtnReactivar.Enabled = False
-            LblDisponible.Text = "El nombre de esta enfermedad ya esta en uso"
-
+            LblDisponible.Text = "El nombre de esta " + vbCrLf + "enfermedad ya esta " + vbCrLf + "en uso"
+            BloquearCampos()
         End If
 
     End Sub
 
     Private Sub HabilitarCreacion(Reactivacion As Boolean)
         If Reactivacion Then
-            BtnReactivar.Enabled = Reactivacion
-            BtnCrear.Enabled = False
+            PctAceptar.Enabled = Reactivacion
+            PctAceptar.Image = My.Resources.Reactivar
+            TxtDescripcion.Enabled = False
+            CmbPrioridad.Enabled = False
+            CmbSintomas.Enabled = False
+            LstSintomasSeleccionados.Enabled = False
 
         ElseIf Nombre And Descripcion And Prioridad And LstSintomasSeleccionados.Items.Count() > 0 Then
-            BtnReactivar.Enabled = Reactivacion
-            BtnCrear.Enabled = True
+            PctAceptar.Enabled = True
+            PctAceptar.Image = My.Resources.Aceptar1
 
         Else
-            BtnReactivar.Enabled = Reactivacion
-            BtnCrear.Enabled = False
+            PctAceptar.Image = My.Resources.Aceptar1
+            PctAceptar.Enabled = False
 
         End If
 
     End Sub
 
-    Private Sub BtnCrear_Click(sender As Object, e As EventArgs) Handles BtnCrear.Click
-        If BtnCrear.Text = "Activar" Then
+    Private Sub PctAceptar_MouseEnter(sender As Object, e As EventArgs) Handles PctAceptar.MouseEnter
+        If Reactivacion Then
+            PctAceptar.Image = My.Resources.ReactivarAceptar
+        Else
+            PctAceptar.Image = My.Resources.Aceptar2
+        End If
+
+    End Sub
+
+    Private Sub PctAceptar_MouseLeave(sender As Object, e As EventArgs) Handles PctAceptar.MouseLeave
+        If Reactivacion Then
+            PctAceptar.Image = My.Resources.Reactivar
+        Else
+            PctAceptar.Image = My.Resources.Aceptar1
+        End If
+
+    End Sub
+
+    Private Sub PctAceptar_Click(sender As Object, e As EventArgs) Handles PctAceptar.Click
+        If Reactivacion Then
             Actualizar()
         Else
             Crear()
@@ -148,8 +168,10 @@ Public Class FrmNuevaEnfermedad
     Private Sub Actualizar()
         Try
             ControladorEnfermedad.ActivarEnfermedad(TxtNombre.Text)
+            MsgBox("Enfermedad reactivada con éxito", MsgBoxStyle.Information)
+            Limpiar()
         Catch ex As Exception
-            MsgBox("No se pudo actualizar la enfermedad")
+            MsgBox("Error al intentar reactivar la enfermedad", MsgBoxStyle.Critical)
         End Try
     End Sub
 
@@ -162,44 +184,51 @@ Public Class FrmNuevaEnfermedad
             MsgBox("Enfermedad creada exitosamente", MsgBoxStyle.Information)
             Limpiar()
         Catch ex As Exception
-            MsgBox(ex.ToString + "No se pudo ingresar la enfermedad")
+            MsgBox("Error al intentar crear la enfermedad", MsgBoxStyle.Critical)
         End Try
     End Sub
 
-    Private Sub BtnReactivar_EnabledChanged(sender As Object, e As EventArgs) Handles BtnReactivar.EnabledChanged
-        TxtDescripcion.Enabled = Not BtnReactivar.Enabled
-        CmbPrioridad.Enabled = Not BtnReactivar.Enabled
-        CmbSintomas.Enabled = Not BtnReactivar.Enabled
-        LstSintomasSeleccionados.Enabled = Not BtnReactivar.Enabled
+    Private Sub BloquearCampos()
+        TxtDescripcion.Enabled = PctAceptar.Enabled
+        CmbPrioridad.Enabled = PctAceptar.Enabled
+        CmbSintomas.Enabled = PctAceptar.Enabled
+        LstSintomasSeleccionados.Enabled = PctAceptar.Enabled
 
     End Sub
 
-    Private Sub BtnReactivar_Click(sender As Object, e As EventArgs) Handles BtnReactivar.Click
-        Select Case MsgBox("Esto hara que la enfermedad vuelva a estar activa", MsgBoxStyle.YesNo, "caption")
-            Case MsgBoxResult.Yes
-                ReactivarEnfermedad()
-
-            Case MsgBoxResult.No
-
-        End Select
-
-    End Sub
-
-    Private Sub ReactivarEnfermedad()
-        Try
-            ControladorEnfermedad.ReactivarEnfermedad(TxtNombre.Text)
-            MsgBox("Enfermedad reactivada con exito!")
-            Limpiar()
-
-        Catch ex As Exception
-            MsgBox("No se pudo reactivar la enfermedad" + ex.ToString)
-
-        End Try
-
-    End Sub
-
-    Private Sub BtnLimpiar_Click(sender As Object, e As EventArgs) Handles BtnLimpiar.Click
+    Private Sub PctCancelar_Click(sender As Object, e As EventArgs) Handles PctCancelar.Click
         Limpiar()
+
+    End Sub
+
+    Private Sub PctCancelar_MouseEnter(sender As Object, e As EventArgs) Handles PctCancelar.MouseEnter
+        PctCancelar.Image = My.Resources.Cancelar2
+
+    End Sub
+
+    Private Sub PctCancelar_MouseLeave(sender As Object, e As EventArgs) Handles PctCancelar.MouseLeave
+        PctCancelar.Image = My.Resources.Cancelar1
+
+    End Sub
+
+    Private Sub PctSalir_Click(sender As Object, e As EventArgs) Handles PctSalir.Click
+        Limpiar()
+        Me.Dispose()
+        FrmMenuGestion.Show()
+
+    End Sub
+
+    Private Sub PctSalir_MouseEnter(sender As Object, e As EventArgs) Handles PctSalir.MouseEnter
+        PctSalir.Image = My.Resources.Salir2
+
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
+    End Sub
+
+    Private Sub PctSalir_MouseLeave(sender As Object, e As EventArgs) Handles PctSalir.MouseLeave
+        PctSalir.Image = My.Resources.Salir1
 
     End Sub
 
@@ -209,13 +238,6 @@ Public Class FrmNuevaEnfermedad
         TxtDescripcion.Clear()
         LstSintomasSeleccionados.Clear()
         ListaSintomas.Clear()
-
-    End Sub
-
-    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
-        Limpiar()
-        Me.Dispose()
-        FrmMenuGestion.Show()
 
     End Sub
 
