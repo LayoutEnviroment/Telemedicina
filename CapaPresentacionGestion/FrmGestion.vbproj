@@ -432,5 +432,35 @@
   <ItemGroup>
     <None Include="Resources\DelCircular.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refrescar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RefreshEnter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddCircularVerde.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddCircularVerdeEnter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddCircularVerdeEnterOscuro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddCircularVerdeOscuro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DelCircularRojo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DelCircularRojoEnter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DelCircularRojoEnterOscuro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DelCircularRojoOscuro.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
