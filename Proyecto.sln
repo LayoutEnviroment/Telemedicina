@@ -22,6 +22,8 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Instalador Gestor", "Instal
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Instalador Pacientes", "Instalador Pacientes\Instalador Pacientes.vdproj", "{7D44439C-5F83-4DC3-8C63-7C1EF62B3C33}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Instalador Medico", "Instalador Medico\Instalador Medico.vdproj", "{E20A13CD-141B-42EB-B5A1-7CCAE2F0548D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,8 @@ Global
 		{8771435B-4CB4-4C7C-A4CC-FCBDD6A171FD}.Release|Any CPU.ActiveCfg = Release
 		{7D44439C-5F83-4DC3-8C63-7C1EF62B3C33}.Debug|Any CPU.ActiveCfg = Debug
 		{7D44439C-5F83-4DC3-8C63-7C1EF62B3C33}.Release|Any CPU.ActiveCfg = Release
+		{E20A13CD-141B-42EB-B5A1-7CCAE2F0548D}.Debug|Any CPU.ActiveCfg = Debug
+		{E20A13CD-141B-42EB-B5A1-7CCAE2F0548D}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
