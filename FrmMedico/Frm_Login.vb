@@ -13,12 +13,12 @@ Public Class FrmLogin
                 Me.Hide()
                 Frm_Menu.Show()
             Else
-                MsgBox("Usuario invalido")
+                MsgBox("Usuario y/o contraseña invalida")
 
             End If
 
         Catch ex As Exception
-            MsgBox("Usuario Invalido" + ex.ToString)
+            MsgBox("Usuario y/o contraseña invalida")
 
         End Try
 
@@ -36,7 +36,7 @@ Public Class FrmLogin
             ControladorSesion.Cedula = TxtUser.Text
 
         Catch ex As Exception
-            MsgBox("Usuario Invalido")
+            MsgBox("Usuario y/o contraseña invalida")
 
         End Try
 

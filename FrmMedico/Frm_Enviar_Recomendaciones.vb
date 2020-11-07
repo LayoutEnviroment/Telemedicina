@@ -116,9 +116,9 @@ Public Class Frm_Enviar_Recomendaciones
             MsgBox("Mensaje enviado")
         Catch ex As Exception
             If ex.HResult = "-2146233088" Then
-                MsgBox("Usa este link capo: https: //myaccount.google.com/lesssecureapps")
+                MsgBox("No pudimos enviar el mensaje")
             Else
-                MsgBox(ex.ToString)
+
             End If
         End Try
         LimpiarCmbItems()

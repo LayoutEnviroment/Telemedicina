@@ -187,7 +187,7 @@ Public Class Frm_Menu
             DgvEnEspera.DataSource = Tabla
 
         Catch ex As Exception
-            MsgBox("No se pudieron encontrar solicitudes" + ex.ToString)
+            MsgBox("No se pudieron encontrar solicitudes")
         End Try
 
     End Sub
@@ -199,7 +199,7 @@ Public Class Frm_Menu
             AgregarChat(Tabla)
 
         Catch ex As Exception
-            MsgBox("Error buscando mensajes" + ex.ToString)
+            MsgBox("Error buscando mensajes")
 
         End Try
 
@@ -212,12 +212,15 @@ Public Class Frm_Menu
                 ControladorChat.MarcarComoLeido(IdDiagnostico)
                 For Each fila As DataRow In tabla.Rows
                     If fila(5).ToString = "Iniciado" Then
-                        AgregarMensajes("<p> align = 'right'" + ControladorUsuario.ObtenerNombre(fila(1).ToString) + ": " + fila(2).ToString + "</p>", 1)
+                        AgregarMensajes("<p align = 'right'>" + ControladorUsuario.ObtenerNombre(fila(1).ToString) + ": " + fila(2).ToString + "</p>", 1)
 
                     ElseIf fila(5).ToString = "Finalizado" Then
                         MsgBox("El paciente se ha desconectado")
                         Threading.Thread.Sleep(1000)
+                        FinalizarConversacion()
+                        CambiosVisuales()
                         ReinicioDeBusqueda()
+
                     End If
 
                 Next
@@ -286,6 +289,7 @@ Public Class Frm_Menu
         PctMenu.Enabled = True
         PctFinalizarChat.Visible = False
         DgvEnEspera.Enabled = True
+        BtnIniciarChat.Enabled = True
     End Sub
 
     Private Sub FinalizarConversacion()
@@ -302,6 +306,7 @@ Public Class Frm_Menu
     Private Sub ReinicioDeBusqueda()
         MostrarDatosPaciente(False)
         TmrBuscarMensajesNuevos.Stop()
+        BtnIniciarChat.Enabled = True
         IdDiagnostico = ""
         CiPaciente = ""
         BusquedaDeChats()
