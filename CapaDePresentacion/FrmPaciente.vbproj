@@ -243,12 +243,21 @@
   <ItemGroup>
     <None Include="Resources\Correcto.png" />
     <None Include="Resources\Error.png" />
+    <None Include="Resources\AddCircularVerde.png" />
+    <None Include="Resources\AddCircularVerdeEnter.png" />
+    <None Include="Resources\AddCircularVerdeEnterOscuro.png" />
+    <None Include="Resources\AddCircularVerdeOscuro.png" />
     <Content Include="Resources\CorrectoFondoClaro.png" />
     <None Include="Resources\CorrectoFondoClaro1.png" />
     <Content Include="Resources\CorrectoFondoObscuro.png" />
     <None Include="Resources\EnviarBloqueadoFondoClaro.png" />
     <None Include="Resources\EnviarFondoClaro.png" />
     <None Include="Resources\EnviarFondoObscuro.png" />
+    <None Include="Resources\CuidarteIcon1.png" />
+    <None Include="Resources\DelCircularRojo.png" />
+    <None Include="Resources\DelCircularRojoEnter.png" />
+    <None Include="Resources\DelCircularRojoEnterOscuro.png" />
+    <None Include="Resources\DelCircularRojoOscuro.png" />
     <Content Include="Resources\ErrorFondoClaro.png" />
     <None Include="Resources\ErrorFondoClaro1.png" />
     <Content Include="Resources\ErrorFondoObscuro.png" />

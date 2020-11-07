@@ -42,9 +42,10 @@ Partial Class Frm_Iniciar_Chat
         Me.LblId.AutoSize = True
         Me.LblId.BackColor = System.Drawing.Color.Transparent
         Me.LblId.ForeColor = System.Drawing.Color.White
-        Me.LblId.Location = New System.Drawing.Point(28, 28)
+        Me.LblId.Location = New System.Drawing.Point(42, 43)
+        Me.LblId.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblId.Name = "LblId"
-        Me.LblId.Size = New System.Drawing.Size(0, 13)
+        Me.LblId.Size = New System.Drawing.Size(0, 20)
         Me.LblId.TabIndex = 21
         '
         'TxtEnfermedad
@@ -52,11 +53,12 @@ Partial Class Frm_Iniciar_Chat
         Me.TxtEnfermedad.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtEnfermedad.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.TxtEnfermedad.Enabled = False
-        Me.TxtEnfermedad.Font = New System.Drawing.Font("Libre Franklin", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtEnfermedad.Location = New System.Drawing.Point(65, 144)
+        Me.TxtEnfermedad.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtEnfermedad.Location = New System.Drawing.Point(98, 222)
+        Me.TxtEnfermedad.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TxtEnfermedad.Multiline = True
         Me.TxtEnfermedad.Name = "TxtEnfermedad"
-        Me.TxtEnfermedad.Size = New System.Drawing.Size(233, 34)
+        Me.TxtEnfermedad.Size = New System.Drawing.Size(350, 52)
         Me.TxtEnfermedad.TabIndex = 18
         Me.TxtEnfermedad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -65,23 +67,25 @@ Partial Class Frm_Iniciar_Chat
         Me.TxtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtDescripcion.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.TxtDescripcion.Enabled = False
-        Me.TxtDescripcion.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtDescripcion.ForeColor = System.Drawing.Color.Black
-        Me.TxtDescripcion.Location = New System.Drawing.Point(65, 213)
+        Me.TxtDescripcion.Location = New System.Drawing.Point(98, 328)
+        Me.TxtDescripcion.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TxtDescripcion.Multiline = True
         Me.TxtDescripcion.Name = "TxtDescripcion"
-        Me.TxtDescripcion.Size = New System.Drawing.Size(233, 106)
+        Me.TxtDescripcion.Size = New System.Drawing.Size(350, 163)
         Me.TxtDescripcion.TabIndex = 16
         '
         'LblDescripcion
         '
         Me.LblDescripcion.AutoSize = True
         Me.LblDescripcion.BackColor = System.Drawing.Color.Transparent
-        Me.LblDescripcion.Font = New System.Drawing.Font("Libre Franklin", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblDescripcion.ForeColor = System.Drawing.Color.Black
-        Me.LblDescripcion.Location = New System.Drawing.Point(62, 192)
+        Me.LblDescripcion.Location = New System.Drawing.Point(93, 295)
+        Me.LblDescripcion.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblDescripcion.Name = "LblDescripcion"
-        Me.LblDescripcion.Size = New System.Drawing.Size(93, 18)
+        Me.LblDescripcion.Size = New System.Drawing.Size(141, 29)
         Me.LblDescripcion.TabIndex = 15
         Me.LblDescripcion.Text = "Descripcion"
         '
@@ -89,11 +93,12 @@ Partial Class Frm_Iniciar_Chat
         '
         Me.LblPrioridad.AutoSize = True
         Me.LblPrioridad.BackColor = System.Drawing.Color.Transparent
-        Me.LblPrioridad.Font = New System.Drawing.Font("Libre Franklin", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblPrioridad.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblPrioridad.ForeColor = System.Drawing.Color.Black
-        Me.LblPrioridad.Location = New System.Drawing.Point(479, 160)
+        Me.LblPrioridad.Location = New System.Drawing.Point(718, 246)
+        Me.LblPrioridad.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblPrioridad.Name = "LblPrioridad"
-        Me.LblPrioridad.Size = New System.Drawing.Size(76, 18)
+        Me.LblPrioridad.Size = New System.Drawing.Size(118, 29)
         Me.LblPrioridad.TabIndex = 14
         Me.LblPrioridad.Text = "Prioridad:"
         '
@@ -101,11 +106,12 @@ Partial Class Frm_Iniciar_Chat
         '
         Me.LblIniciarChat.AutoSize = True
         Me.LblIniciarChat.BackColor = System.Drawing.Color.Transparent
-        Me.LblIniciarChat.Font = New System.Drawing.Font("Libre Franklin Medium", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblIniciarChat.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblIniciarChat.ForeColor = System.Drawing.Color.Black
-        Me.LblIniciarChat.Location = New System.Drawing.Point(116, 397)
+        Me.LblIniciarChat.Location = New System.Drawing.Point(174, 611)
+        Me.LblIniciarChat.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblIniciarChat.Name = "LblIniciarChat"
-        Me.LblIniciarChat.Size = New System.Drawing.Size(439, 18)
+        Me.LblIniciarChat.Size = New System.Drawing.Size(647, 29)
         Me.LblIniciarChat.TabIndex = 12
         Me.LblIniciarChat.Text = "Si desea conversar con un profesional, haga click aqui"
         '
@@ -115,11 +121,12 @@ Partial Class Frm_Iniciar_Chat
         Me.BtnIniciarChat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.BtnIniciarChat.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnIniciarChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnIniciarChat.Font = New System.Drawing.Font("Libre Franklin", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnIniciarChat.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnIniciarChat.ForeColor = System.Drawing.Color.White
-        Me.BtnIniciarChat.Location = New System.Drawing.Point(242, 444)
+        Me.BtnIniciarChat.Location = New System.Drawing.Point(363, 683)
+        Me.BtnIniciarChat.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnIniciarChat.Name = "BtnIniciarChat"
-        Me.BtnIniciarChat.Size = New System.Drawing.Size(187, 64)
+        Me.BtnIniciarChat.Size = New System.Drawing.Size(280, 98)
         Me.BtnIniciarChat.TabIndex = 11
         Me.BtnIniciarChat.Text = "Iniciar Chat"
         Me.BtnIniciarChat.UseVisualStyleBackColor = False
@@ -128,12 +135,11 @@ Partial Class Frm_Iniciar_Chat
         '
         Me.LblDescripcionVentana.AutoSize = True
         Me.LblDescripcionVentana.BackColor = System.Drawing.Color.Transparent
-        Me.LblDescripcionVentana.Font = New System.Drawing.Font("Libre Franklin", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblDescripcionVentana.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblDescripcionVentana.ForeColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(213, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.LblDescripcionVentana.Location = New System.Drawing.Point(177, 13)
-        Me.LblDescripcionVentana.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LblDescripcionVentana.Location = New System.Drawing.Point(266, 20)
         Me.LblDescripcionVentana.Name = "LblDescripcionVentana"
-        Me.LblDescripcionVentana.Size = New System.Drawing.Size(342, 33)
+        Me.LblDescripcionVentana.Size = New System.Drawing.Size(503, 47)
         Me.LblDescripcionVentana.TabIndex = 32
         Me.LblDescripcionVentana.Text = "Resultado del Diagnostico"
         Me.LblDescripcionVentana.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -142,11 +148,12 @@ Partial Class Frm_Iniciar_Chat
         '
         Me.LblNombre.AutoSize = True
         Me.LblNombre.BackColor = System.Drawing.Color.Transparent
-        Me.LblNombre.Font = New System.Drawing.Font("Libre Franklin", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblNombre.ForeColor = System.Drawing.Color.Black
-        Me.LblNombre.Location = New System.Drawing.Point(62, 123)
+        Me.LblNombre.Location = New System.Drawing.Point(93, 189)
+        Me.LblNombre.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblNombre.Name = "LblNombre"
-        Me.LblNombre.Size = New System.Drawing.Size(66, 18)
+        Me.LblNombre.Size = New System.Drawing.Size(101, 29)
         Me.LblNombre.TabIndex = 33
         Me.LblNombre.Text = "Nombre"
         '
@@ -154,9 +161,10 @@ Partial Class Frm_Iniciar_Chat
         '
         Me.PctSalir.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PctSalir.Image = Global.CapaDePresentacion.My.Resources.Resources.Salir1
-        Me.PctSalir.Location = New System.Drawing.Point(610, 12)
+        Me.PctSalir.Location = New System.Drawing.Point(915, 18)
+        Me.PctSalir.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PctSalir.Name = "PctSalir"
-        Me.PctSalir.Size = New System.Drawing.Size(53, 50)
+        Me.PctSalir.Size = New System.Drawing.Size(80, 77)
         Me.PctSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PctSalir.TabIndex = 34
         Me.PctSalir.TabStop = False
@@ -165,20 +173,22 @@ Partial Class Frm_Iniciar_Chat
         '
         Me.PctPrioridad.BackColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(213, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.PctPrioridad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.PctPrioridad.Location = New System.Drawing.Point(454, 192)
+        Me.PctPrioridad.Location = New System.Drawing.Point(681, 295)
+        Me.PctPrioridad.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PctPrioridad.Name = "PctPrioridad"
-        Me.PctPrioridad.Size = New System.Drawing.Size(124, 112)
+        Me.PctPrioridad.Size = New System.Drawing.Size(186, 172)
         Me.PctPrioridad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PctPrioridad.TabIndex = 35
         Me.PctPrioridad.TabStop = False
         '
         'Frm_Iniciar_Chat
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(183, Byte), Integer))
         Me.BackgroundImage = Global.CapaDePresentacion.My.Resources.Resources.MenuHistoria
-        Me.ClientSize = New System.Drawing.Size(675, 559)
+        Me.ClientSize = New System.Drawing.Size(1012, 860)
         Me.Controls.Add(Me.PctPrioridad)
         Me.Controls.Add(Me.PctSalir)
         Me.Controls.Add(Me.LblNombre)
@@ -191,6 +201,7 @@ Partial Class Frm_Iniciar_Chat
         Me.Controls.Add(Me.LblIniciarChat)
         Me.Controls.Add(Me.BtnIniciarChat)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Frm_Iniciar_Chat"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "a"

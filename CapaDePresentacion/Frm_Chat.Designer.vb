@@ -40,20 +40,20 @@ Partial Class Frm_Chat
         '
         'WbbConversacion
         '
-        Me.WbbConversacion.Location = New System.Drawing.Point(62, 103)
-        Me.WbbConversacion.Margin = New System.Windows.Forms.Padding(2)
-        Me.WbbConversacion.MinimumSize = New System.Drawing.Size(13, 13)
+        Me.WbbConversacion.Location = New System.Drawing.Point(93, 158)
+        Me.WbbConversacion.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WbbConversacion.Name = "WbbConversacion"
-        Me.WbbConversacion.Size = New System.Drawing.Size(511, 260)
+        Me.WbbConversacion.Size = New System.Drawing.Size(766, 400)
         Me.WbbConversacion.TabIndex = 4
         '
         'RtbMensaje
         '
         Me.RtbMensaje.Enabled = False
-        Me.RtbMensaje.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RtbMensaje.Location = New System.Drawing.Point(62, 381)
+        Me.RtbMensaje.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RtbMensaje.Location = New System.Drawing.Point(93, 586)
+        Me.RtbMensaje.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.RtbMensaje.Name = "RtbMensaje"
-        Me.RtbMensaje.Size = New System.Drawing.Size(422, 50)
+        Me.RtbMensaje.Size = New System.Drawing.Size(631, 75)
         Me.RtbMensaje.TabIndex = 6
         Me.RtbMensaje.Text = ""
         '
@@ -61,9 +61,10 @@ Partial Class Frm_Chat
         '
         Me.PctSalir.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PctSalir.Image = Global.CapaDePresentacion.My.Resources.Resources.Salir1
-        Me.PctSalir.Location = New System.Drawing.Point(594, 12)
+        Me.PctSalir.Location = New System.Drawing.Point(891, 18)
+        Me.PctSalir.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PctSalir.Name = "PctSalir"
-        Me.PctSalir.Size = New System.Drawing.Size(53, 50)
+        Me.PctSalir.Size = New System.Drawing.Size(80, 77)
         Me.PctSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PctSalir.TabIndex = 35
         Me.PctSalir.TabStop = False
@@ -72,12 +73,11 @@ Partial Class Frm_Chat
         '
         Me.LblDescripcion.AutoSize = True
         Me.LblDescripcion.BackColor = System.Drawing.Color.Transparent
-        Me.LblDescripcion.Font = New System.Drawing.Font("Libre Franklin", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblDescripcion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(213, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.LblDescripcion.Location = New System.Drawing.Point(238, 12)
-        Me.LblDescripcion.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LblDescripcion.Location = New System.Drawing.Point(357, 18)
         Me.LblDescripcion.Name = "LblDescripcion"
-        Me.LblDescripcion.Size = New System.Drawing.Size(188, 33)
+        Me.LblDescripcion.Size = New System.Drawing.Size(275, 47)
         Me.LblDescripcion.TabIndex = 36
         Me.LblDescripcion.Text = "Conversación"
         Me.LblDescripcion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -85,9 +85,10 @@ Partial Class Frm_Chat
         'BtnEnviar
         '
         Me.BtnEnviar.Enabled = False
-        Me.BtnEnviar.Location = New System.Drawing.Point(349, 386)
+        Me.BtnEnviar.Location = New System.Drawing.Point(524, 594)
+        Me.BtnEnviar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnEnviar.Name = "BtnEnviar"
-        Me.BtnEnviar.Size = New System.Drawing.Size(77, 45)
+        Me.BtnEnviar.Size = New System.Drawing.Size(116, 69)
         Me.BtnEnviar.TabIndex = 2
         Me.BtnEnviar.Text = "Enviar"
         Me.BtnEnviar.UseVisualStyleBackColor = True
@@ -98,20 +99,22 @@ Partial Class Frm_Chat
         Me.PctEnviar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PctEnviar.Enabled = False
         Me.PctEnviar.Image = Global.CapaDePresentacion.My.Resources.Resources.EnviarBloqueadoFondoClaro
-        Me.PctEnviar.Location = New System.Drawing.Point(510, 381)
+        Me.PctEnviar.Location = New System.Drawing.Point(765, 586)
+        Me.PctEnviar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PctEnviar.Name = "PctEnviar"
-        Me.PctEnviar.Size = New System.Drawing.Size(63, 50)
+        Me.PctEnviar.Size = New System.Drawing.Size(94, 77)
         Me.PctEnviar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PctEnviar.TabIndex = 37
         Me.PctEnviar.TabStop = False
         '
         'Frm_Chat
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(183, Byte), Integer))
         Me.BackgroundImage = Global.CapaDePresentacion.My.Resources.Resources.MenuHistoria
-        Me.ClientSize = New System.Drawing.Size(659, 465)
+        Me.ClientSize = New System.Drawing.Size(988, 715)
         Me.Controls.Add(Me.PctEnviar)
         Me.Controls.Add(Me.LblDescripcion)
         Me.Controls.Add(Me.PctSalir)
@@ -119,6 +122,7 @@ Partial Class Frm_Chat
         Me.Controls.Add(Me.WbbConversacion)
         Me.Controls.Add(Me.BtnEnviar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Frm_Chat"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         CType(Me.PctSalir, System.ComponentModel.ISupportInitialize).EndInit()

@@ -48,22 +48,24 @@ Partial Class Frm_Menu
         '
         Me.LblSaludo.AutoSize = True
         Me.LblSaludo.BackColor = System.Drawing.Color.Transparent
-        Me.LblSaludo.Font = New System.Drawing.Font("Libre Franklin", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblSaludo.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblSaludo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(223, Byte), Integer), CType(CType(231, Byte), Integer))
-        Me.LblSaludo.Location = New System.Drawing.Point(408, 26)
+        Me.LblSaludo.Location = New System.Drawing.Point(612, 40)
+        Me.LblSaludo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblSaludo.Name = "LblSaludo"
-        Me.LblSaludo.Size = New System.Drawing.Size(0, 29)
+        Me.LblSaludo.Size = New System.Drawing.Size(0, 40)
         Me.LblSaludo.TabIndex = 2
         '
         'LblSintomas
         '
         Me.LblSintomas.AutoSize = True
         Me.LblSintomas.BackColor = System.Drawing.Color.Transparent
-        Me.LblSintomas.Font = New System.Drawing.Font("Libre Franklin", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblSintomas.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblSintomas.ForeColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.LblSintomas.Location = New System.Drawing.Point(404, 136)
+        Me.LblSintomas.Location = New System.Drawing.Point(606, 209)
+        Me.LblSintomas.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblSintomas.Name = "LblSintomas"
-        Me.LblSintomas.Size = New System.Drawing.Size(286, 29)
+        Me.LblSintomas.Size = New System.Drawing.Size(417, 40)
         Me.LblSintomas.TabIndex = 4
         Me.LblSintomas.Text = "Cuentenos, ¿que siente?"
         '
@@ -72,11 +74,12 @@ Partial Class Frm_Menu
         Me.CmbSintomas.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.CmbSintomas.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.CmbSintomas.BackColor = System.Drawing.Color.White
-        Me.CmbSintomas.Font = New System.Drawing.Font("Libre Franklin", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmbSintomas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmbSintomas.FormattingEnabled = True
-        Me.CmbSintomas.Location = New System.Drawing.Point(371, 195)
+        Me.CmbSintomas.Location = New System.Drawing.Point(556, 300)
+        Me.CmbSintomas.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.CmbSintomas.Name = "CmbSintomas"
-        Me.CmbSintomas.Size = New System.Drawing.Size(343, 22)
+        Me.CmbSintomas.Size = New System.Drawing.Size(512, 28)
         Me.CmbSintomas.TabIndex = 15
         '
         'Sintomas
@@ -84,9 +87,10 @@ Partial Class Frm_Menu
         Me.Sintomas.AutoSize = True
         Me.Sintomas.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.25!)
         Me.Sintomas.ForeColor = System.Drawing.Color.White
-        Me.Sintomas.Location = New System.Drawing.Point(202, 327)
+        Me.Sintomas.Location = New System.Drawing.Point(303, 503)
+        Me.Sintomas.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Sintomas.Name = "Sintomas"
-        Me.Sintomas.Size = New System.Drawing.Size(0, 22)
+        Me.Sintomas.Size = New System.Drawing.Size(0, 31)
         Me.Sintomas.TabIndex = 16
         '
         'BtnDiagnostico
@@ -96,11 +100,12 @@ Partial Class Frm_Menu
         Me.BtnDiagnostico.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnDiagnostico.Enabled = False
         Me.BtnDiagnostico.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnDiagnostico.Font = New System.Drawing.Font("Libre Franklin", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnDiagnostico.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnDiagnostico.ForeColor = System.Drawing.Color.White
-        Me.BtnDiagnostico.Location = New System.Drawing.Point(663, 437)
+        Me.BtnDiagnostico.Location = New System.Drawing.Point(994, 672)
+        Me.BtnDiagnostico.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnDiagnostico.Name = "BtnDiagnostico"
-        Me.BtnDiagnostico.Size = New System.Drawing.Size(177, 56)
+        Me.BtnDiagnostico.Size = New System.Drawing.Size(266, 86)
         Me.BtnDiagnostico.TabIndex = 18
         Me.BtnDiagnostico.Text = "Realizar Diagnostico"
         Me.BtnDiagnostico.UseVisualStyleBackColor = False
@@ -108,11 +113,12 @@ Partial Class Frm_Menu
         'LvSintomas
         '
         Me.LvSintomas.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.LvSintomas.Font = New System.Drawing.Font("Libre Franklin Medium", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LvSintomas.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LvSintomas.HideSelection = False
-        Me.LvSintomas.Location = New System.Drawing.Point(245, 238)
+        Me.LvSintomas.Location = New System.Drawing.Point(368, 366)
+        Me.LvSintomas.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.LvSintomas.Name = "LvSintomas"
-        Me.LvSintomas.Size = New System.Drawing.Size(595, 166)
+        Me.LvSintomas.Size = New System.Drawing.Size(892, 255)
         Me.LvSintomas.TabIndex = 20
         Me.LvSintomas.UseCompatibleStateImageBehavior = False
         Me.LvSintomas.View = System.Windows.Forms.View.Tile
@@ -121,12 +127,11 @@ Partial Class Frm_Menu
         '
         Me.LblAdvertencia.AutoSize = True
         Me.LblAdvertencia.BackColor = System.Drawing.Color.Transparent
-        Me.LblAdvertencia.Font = New System.Drawing.Font("Libre Franklin", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblAdvertencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblAdvertencia.ForeColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.LblAdvertencia.Location = New System.Drawing.Point(242, 439)
-        Me.LblAdvertencia.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LblAdvertencia.Location = New System.Drawing.Point(363, 675)
         Me.LblAdvertencia.Name = "LblAdvertencia"
-        Me.LblAdvertencia.Size = New System.Drawing.Size(0, 18)
+        Me.LblAdvertencia.Size = New System.Drawing.Size(0, 29)
         Me.LblAdvertencia.TabIndex = 24
         '
         'PnlMenu
@@ -136,20 +141,22 @@ Partial Class Frm_Menu
         Me.PnlMenu.Controls.Add(Me.LblMisDatos)
         Me.PnlMenu.Controls.Add(Me.PctConsultas)
         Me.PnlMenu.Controls.Add(Me.PctDatosPropios)
-        Me.PnlMenu.Location = New System.Drawing.Point(22, 85)
+        Me.PnlMenu.Location = New System.Drawing.Point(33, 131)
+        Me.PnlMenu.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PnlMenu.Name = "PnlMenu"
-        Me.PnlMenu.Size = New System.Drawing.Size(180, 372)
+        Me.PnlMenu.Size = New System.Drawing.Size(270, 572)
         Me.PnlMenu.TabIndex = 25
         '
         'LblHistorial
         '
         Me.LblHistorial.AutoSize = True
         Me.LblHistorial.BackColor = System.Drawing.Color.Transparent
-        Me.LblHistorial.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblHistorial.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblHistorial.ForeColor = System.Drawing.Color.White
-        Me.LblHistorial.Location = New System.Drawing.Point(61, 322)
+        Me.LblHistorial.Location = New System.Drawing.Point(92, 495)
+        Me.LblHistorial.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblHistorial.Name = "LblHistorial"
-        Me.LblHistorial.Size = New System.Drawing.Size(61, 16)
+        Me.LblHistorial.Size = New System.Drawing.Size(90, 25)
         Me.LblHistorial.TabIndex = 3
         Me.LblHistorial.Text = "Historial"
         Me.LblHistorial.Visible = False
@@ -158,11 +165,12 @@ Partial Class Frm_Menu
         '
         Me.LblMisDatos.AutoSize = True
         Me.LblMisDatos.BackColor = System.Drawing.Color.Transparent
-        Me.LblMisDatos.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblMisDatos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblMisDatos.ForeColor = System.Drawing.Color.White
-        Me.LblMisDatos.Location = New System.Drawing.Point(52, 153)
+        Me.LblMisDatos.Location = New System.Drawing.Point(78, 235)
+        Me.LblMisDatos.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblMisDatos.Name = "LblMisDatos"
-        Me.LblMisDatos.Size = New System.Drawing.Size(71, 16)
+        Me.LblMisDatos.Size = New System.Drawing.Size(108, 25)
         Me.LblMisDatos.TabIndex = 2
         Me.LblMisDatos.Text = "Mis Datos"
         Me.LblMisDatos.Visible = False
@@ -171,9 +179,10 @@ Partial Class Frm_Menu
         '
         Me.PctConsultas.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PctConsultas.Image = Global.CapaDePresentacion.My.Resources.Resources.Historial
-        Me.PctConsultas.Location = New System.Drawing.Point(38, 219)
+        Me.PctConsultas.Location = New System.Drawing.Point(57, 337)
+        Me.PctConsultas.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PctConsultas.Name = "PctConsultas"
-        Me.PctConsultas.Size = New System.Drawing.Size(100, 100)
+        Me.PctConsultas.Size = New System.Drawing.Size(150, 154)
         Me.PctConsultas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PctConsultas.TabIndex = 1
         Me.PctConsultas.TabStop = False
@@ -184,9 +193,10 @@ Partial Class Frm_Menu
         Me.PctDatosPropios.BackColor = System.Drawing.Color.Transparent
         Me.PctDatosPropios.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PctDatosPropios.Image = Global.CapaDePresentacion.My.Resources.Resources.Men1
-        Me.PctDatosPropios.Location = New System.Drawing.Point(38, 50)
+        Me.PctDatosPropios.Location = New System.Drawing.Point(57, 77)
+        Me.PctDatosPropios.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PctDatosPropios.Name = "PctDatosPropios"
-        Me.PctDatosPropios.Size = New System.Drawing.Size(100, 100)
+        Me.PctDatosPropios.Size = New System.Drawing.Size(150, 154)
         Me.PctDatosPropios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PctDatosPropios.TabIndex = 0
         Me.PctDatosPropios.TabStop = False
@@ -196,9 +206,10 @@ Partial Class Frm_Menu
         '
         Me.PctSalir.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PctSalir.Image = Global.CapaDePresentacion.My.Resources.Resources.Salir1
-        Me.PctSalir.Location = New System.Drawing.Point(939, 12)
+        Me.PctSalir.Location = New System.Drawing.Point(1408, 18)
+        Me.PctSalir.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PctSalir.Name = "PctSalir"
-        Me.PctSalir.Size = New System.Drawing.Size(59, 58)
+        Me.PctSalir.Size = New System.Drawing.Size(88, 89)
         Me.PctSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PctSalir.TabIndex = 27
         Me.PctSalir.TabStop = False
@@ -207,20 +218,22 @@ Partial Class Frm_Menu
         '
         Me.PctMenu.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PctMenu.Image = Global.CapaDePresentacion.My.Resources.Resources.MenuHamb1
-        Me.PctMenu.Location = New System.Drawing.Point(86, 12)
+        Me.PctMenu.Location = New System.Drawing.Point(129, 18)
+        Me.PctMenu.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PctMenu.Name = "PctMenu"
-        Me.PctMenu.Size = New System.Drawing.Size(59, 58)
+        Me.PctMenu.Size = New System.Drawing.Size(88, 89)
         Me.PctMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PctMenu.TabIndex = 28
         Me.PctMenu.TabStop = False
         '
         'Frm_Menu
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.ClientSize = New System.Drawing.Size(1010, 528)
+        Me.ClientSize = New System.Drawing.Size(1515, 812)
         Me.Controls.Add(Me.PctMenu)
         Me.Controls.Add(Me.PctSalir)
         Me.Controls.Add(Me.PnlMenu)
@@ -232,7 +245,6 @@ Partial Class Frm_Menu
         Me.Controls.Add(Me.LblSaludo)
         Me.Controls.Add(Me.LblSintomas)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Frm_Menu"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Paciente"

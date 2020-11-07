@@ -325,4 +325,47 @@ Public Class Frm_Cambiar_Datos_Propios
 
     End Sub
 
+    Private Sub PctAgregarEnfermedad_MouseEnter(sender As Object, e As EventArgs) Handles PctAgregarEnfermedad.MouseEnter
+        PctAgregarEnfermedad.Image = My.Resources.AddCircularVerdeEnterOscuro
+
+    End Sub
+
+    Private Sub PctAgregarMedicacion_MouseEnter(sender As Object, e As EventArgs) Handles PctAgregarMedicacion.MouseEnter
+        PctAgregarMedicacion.Image = My.Resources.AddCircularVerdeEnterOscuro
+
+    End Sub
+
+    Private Sub PctEliminarEnfermedad_MouseEnter(sender As Object, e As EventArgs) Handles PctEliminarEnfermedad.MouseEnter
+        PctEliminarEnfermedad.Image = My.Resources.DelCircularRojoEnterOscuro
+
+    End Sub
+
+    Private Sub PctEliminarMedicacion_MouseEnter(sender As Object, e As EventArgs) Handles PctEliminarMedicacion.MouseEnter
+        PctEliminarMedicacion.Image = My.Resources.DelCircularRojoEnterOscuro
+
+    End Sub
+
+    Private Sub PctEliminarMedicacion_MouseLeave(sender As Object, e As EventArgs) Handles PctEliminarMedicacion.MouseLeave
+        PctEliminarMedicacion.Image = My.Resources.DelCircularRojoOscuro
+
+    End Sub
+
+    Private Sub PctEliminarEnfermedad_MouseLeave(sender As Object, e As EventArgs) Handles PctEliminarEnfermedad.MouseLeave
+        PctEliminarEnfermedad.Image = My.Resources.DelCircularRojoOscuro
+
+    End Sub
+
+    Private Sub PctAgregarEnfermedad_MouseLeave(sender As Object, e As EventArgs) Handles PctAgregarEnfermedad.MouseLeave
+        PctAgregarEnfermedad.Image = My.Resources.AddCircularVerdeOscuro
+
+    End Sub
+
+    Private Sub PctAgregarMedicacion_MouseLeave(sender As Object, e As EventArgs) Handles PctAgregarMedicacion.MouseLeave
+        PctAgregarMedicacion.Image = My.Resources.AddCircularVerdeOscuro
+
+    End Sub
+
+
+
+
 End Class
