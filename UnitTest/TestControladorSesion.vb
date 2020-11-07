@@ -8,9 +8,9 @@ Imports CapaDeNegocio
     <TestMethod()> Public Sub TestSesion()
         Resultado = False
         Try
-            ControladorSesion.User = 1111
-            ControladorSesion.Pass = "Todes123_"
-            ControladorSesion.Cedula = 1111
+            ControladorSesion.User = 54083680
+            ControladorSesion.Pass = "54083680"
+            ControladorSesion.Cedula = 54083680
             Resultado = True
 
         Catch ex As Exception

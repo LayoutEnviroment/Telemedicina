@@ -5,9 +5,9 @@ Imports CapaDeNegocio
 <TestClass()> Public Class TestControladorEnfermedad
 
     Private ReadOnly Admin As String = "54083680"
-    Private ReadOnly AdmPass As String = "Adm1234_"
+    Private ReadOnly AdmPass As String = "54083680"
     Private ReadOnly Paciente As String = "53590226"
-    Private ReadOnly PacPass As String = "Pac1234_"
+    Private ReadOnly PacPass As String = "53590226"
     Dim Resultado As Boolean = False
 
     <TestMethod()> Public Sub TestListarNombreEnfermedadesActivas()

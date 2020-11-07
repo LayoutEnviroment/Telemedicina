@@ -5,8 +5,8 @@ Imports CapaDeNegocio
 
     Private ReadOnly Paciente As String = "53590226"
     Private ReadOnly Medico As String = "49249605"
-    Private ReadOnly PacPass As String = "Pac1234_"
-    Private ReadOnly MedPass As String = "Med1234_"
+    Private ReadOnly PacPass As String = "53590226"
+    Private ReadOnly MedPass As String = "49249605"
     Private ReadOnly Diagnostico As String = "21"
     Dim Resultado As Boolean = False
 

@@ -21,6 +21,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_1FC22850899C872739E71AAADB565DF6"
+        "OwnerKey" = "8:_DE4ABD2D132842B8813D3C34E93C1BBB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_24ACE1B80D234AE09E61CA5F6B846498"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -39,6 +45,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_6DC7015A5369934F26BF464D6A65D3E6"
+        "OwnerKey" = "8:_DE4ABD2D132842B8813D3C34E93C1BBB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_7E9DDBFF64B64F4ABA583A12BD691801"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -51,8 +63,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B8C68C8FD6F4788B4C81E6993AF0FADF"
-        "OwnerKey" = "8:_DE4ABD2D132842B8813D3C34E93C1BBB"
+        "MsmKey" = "8:_954508C4179E82EE7588D444EB3A8178"
+        "OwnerKey" = "8:_10DE1A323D194A929D67B42B44FEC9A8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_954508C4179E82EE7588D444EB3A8178"
+        "OwnerKey" = "8:_1FC22850899C872739E71AAADB565DF6"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -87,24 +105,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D7C363A14DA34D0DB8BF5453CECB1F5B"
-        "OwnerKey" = "8:_10DE1A323D194A929D67B42B44FEC9A8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D7C363A14DA34D0DB8BF5453CECB1F5B"
-        "OwnerKey" = "8:_DB37BF646C44AE0F4C7F739E805C0D83"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_DB37BF646C44AE0F4C7F739E805C0D83"
-        "OwnerKey" = "8:_DE4ABD2D132842B8813D3C34E93C1BBB"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_DE4ABD2D132842B8813D3C34E93C1BBB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -118,7 +118,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C53DFD0EE9182851218EF8F074A8CF6E"
+        "OwnerKey" = "8:_10DE1A323D194A929D67B42B44FEC9A8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -130,13 +130,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DB37BF646C44AE0F4C7F739E805C0D83"
+        "OwnerKey" = "8:_1FC22850899C872739E71AAADB565DF6"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B8C68C8FD6F4788B4C81E6993AF0FADF"
+        "OwnerKey" = "8:_6DC7015A5369934F26BF464D6A65D3E6"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -148,13 +148,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_10DE1A323D194A929D67B42B44FEC9A8"
+        "OwnerKey" = "8:_954508C4179E82EE7588D444EB3A8178"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D7C363A14DA34D0DB8BF5453CECB1F5B"
+        "OwnerKey" = "8:_C53DFD0EE9182851218EF8F074A8CF6E"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -175,6 +175,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -191,6 +199,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -220,6 +236,37 @@
         }
         "File"
         {
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1FC22850899C872739E71AAADB565DF6"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CapaDeNegocio, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_1FC22850899C872739E71AAADB565DF6"
+                    {
+                    "Name" = "8:CapaDeNegocio.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:CapaDeNegocio.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_B63175C6734E4891BBEC83775D43E682"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_24ACE1B80D234AE09E61CA5F6B846498"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Desktop\\New folder\\ADA\\Tercera Entrega\\Manual_del_Gestor.pdf"
@@ -280,6 +327,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6DC7015A5369934F26BF464D6A65D3E6"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CapaDeDatos, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_6DC7015A5369934F26BF464D6A65D3E6"
+                    {
+                    "Name" = "8:CapaDeDatos.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:CapaDeDatos.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_B63175C6734E4891BBEC83775D43E682"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7E9DDBFF64B64F4ABA583A12BD691801"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Desktop\\New folder\\ADA\\Tercera Entrega\\Manual_instalación_software_Cuidarte.pdf"
@@ -320,14 +398,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B8C68C8FD6F4788B4C81E6993AF0FADF"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_954508C4179E82EE7588D444EB3A8178"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:CapaDeDatos, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_B8C68C8FD6F4788B4C81E6993AF0FADF"
+                    "_954508C4179E82EE7588D444EB3A8178"
                     {
                     "Name" = "8:CapaDeDatos.dll"
                     "Attributes" = "3:512"
@@ -385,68 +463,6 @@
                     }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_B63175C6734E4891BBEC83775D43E682"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D7C363A14DA34D0DB8BF5453CECB1F5B"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CapaDeDatos, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_D7C363A14DA34D0DB8BF5453CECB1F5B"
-                    {
-                    "Name" = "8:CapaDeDatos.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:CapaDeDatos.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_B63175C6734E4891BBEC83775D43E682"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DB37BF646C44AE0F4C7F739E805C0D83"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CapaDeNegocio, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_DB37BF646C44AE0F4C7F739E805C0D83"
-                    {
-                    "Name" = "8:CapaDeNegocio.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:CapaDeNegocio.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B63175C6734E4891BBEC83775D43E682"
@@ -729,6 +745,52 @@
             "Attributes" = "3:1"
                 "Dialogs"
                 {
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_068BC1655184485A9AA66235543C6FC6"
+                    {
+                    "Sequence" = "3:210"
+                    "DisplayName" = "8:License Agreement"
+                    "UseDynamicProperties" = "11:TRUE"
+                    "IsDependency" = "11:FALSE"
+                    "SourcePath" = "8:<VsdDialogDir>\\VsdLicenseDlg.wid"
+                        "Properties"
+                        {
+                            "BannerBitmap"
+                            {
+                            "Name" = "8:BannerBitmap"
+                            "DisplayName" = "8:#1001"
+                            "Description" = "8:#1101"
+                            "Type" = "3:8"
+                            "ContextData" = "8:Bitmap"
+                            "Attributes" = "3:4"
+                            "Setting" = "3:1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "EulaText"
+                            {
+                            "Name" = "8:EulaText"
+                            "DisplayName" = "8:#1008"
+                            "Description" = "8:#1108"
+                            "Type" = "3:6"
+                            "ContextData" = "8:"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:0"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Sunken"
+                            {
+                            "Name" = "8:Sunken"
+                            "DisplayName" = "8:#1007"
+                            "Description" = "8:#1107"
+                            "Type" = "3:5"
+                            "ContextData" = "8:4;True=4;False=0"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:0"
+                            "Value" = "3:4"
+                            "DefaultValue" = "3:4"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                        }
+                    }
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_611C68422F324C73BABC2E4950E37EA2"
                     {
                     "Sequence" = "3:300"
@@ -1002,7 +1064,7 @@
                 {
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_1349667725C24646AFFC537D0AEDBACD"
                     {
-                    "Sequence" = "3:100"
+                    "Sequence" = "3:110"
                     "DisplayName" = "8:Progress"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
@@ -1076,7 +1138,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_10DE1A323D194A929D67B42B44FEC9A8"
             {
-            "SourcePath" = "8:..\\CapaDeNegocio\\obj\\Release\\CapaDeNegocio.dll"
+            "SourcePath" = "8:..\\CapaDeNegocio\\obj\\Debug\\CapaDeNegocio.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B63175C6734E4891BBEC83775D43E682"
@@ -1104,7 +1166,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_C01D0C6199EA42408E4E387A83D52F7D"
             {
-            "SourcePath" = "8:..\\CapaDeDatos\\obj\\Release\\CapaDeDatos.dll"
+            "SourcePath" = "8:..\\CapaDeDatos\\obj\\Debug\\CapaDeDatos.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B63175C6734E4891BBEC83775D43E682"
@@ -1132,7 +1194,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_DE4ABD2D132842B8813D3C34E93C1BBB"
             {
-            "SourcePath" = "8:..\\CapaPresentacionGestion\\obj\\Release\\CapaPresentacionGestion.exe"
+            "SourcePath" = "8:..\\CapaPresentacionGestion\\obj\\Debug\\CapaPresentacionGestion.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B63175C6734E4891BBEC83775D43E682"

@@ -4,7 +4,7 @@ Imports CapaDeNegocio
 <TestClass()> Public Class TestControladorSintoma
 
     Private ReadOnly Admin As String = "54083680"
-    Private ReadOnly AdmPass As String = "Adm1234_"
+    Private ReadOnly AdmPass As String = "54083680"
     ReadOnly Existe As String = "1"
     Dim Resultado As Boolean = False
 

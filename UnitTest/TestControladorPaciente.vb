@@ -5,7 +5,7 @@ Imports CapaDeNegocio
 <TestClass()> Public Class TestControladorPaciente
 
     Private ReadOnly Paciente As String = "53590226"
-    Private ReadOnly PacPass As String = "Pac1234_"
+    Private ReadOnly PacPass As String = "53590226"
     Private ReadOnly Sexo As String = "0"
     Dim Resultado As Boolean = False
 

@@ -5,7 +5,7 @@ Imports CapaDeNegocio
 <TestClass()> Public Class TestControladorDiagnostico
 
     Private ReadOnly Paciente As String = "53590226"
-    Private ReadOnly PacPass As String = "Pac1234_"
+    Private ReadOnly PacPass As String = "53590226"
     Private ReadOnly Diagnostico As String = "21"
     Private ReadOnly Existe As String = "0"
     Dim listaTest As New List(Of String) From {
