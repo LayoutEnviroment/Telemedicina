@@ -13,14 +13,14 @@ Public Class FrmSintomasCsv
 
     Private Sub TxtRuta_TextChanged(sender As Object, e As EventArgs) Handles TxtRuta.TextChanged
         If TxtRuta.Text <> "" Then
-            BtnAceptar.Enabled = True
+            PctAceptar.Enabled = True
         Else
-            BtnAceptar.Enabled = False
+            PctAceptar.Enabled = False
         End If
 
     End Sub
 
-    Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
+    Private Sub PctAceptar_Click(sender As Object, e As EventArgs) Handles PctAceptar.Click
         Using Archivo As New Microsoft.VisualBasic.FileIO.TextFieldParser(TxtRuta.Text)
             Archivo.TextFieldType = FileIO.FieldType.Delimited
             Archivo.SetDelimiters(",")
@@ -73,7 +73,7 @@ Public Class FrmSintomasCsv
 
     End Sub
 
-    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
+    Private Sub BtnVolver_Click(sender As Object, e As EventArgs)
         Limpiar()
         Me.Hide()
         FrmMenuGestion.Show()
@@ -89,5 +89,31 @@ Public Class FrmSintomasCsv
         Limpiar()
         Me.Hide()
         FrmMenuGestion.Show()
+    End Sub
+
+    Private Sub PctAceptar_MouseEnter(sender As Object, e As EventArgs) Handles PctAceptar.MouseEnter
+        PctAceptar.Image = My.Resources.Aceptar2
+
+    End Sub
+
+    Private Sub PctAceptar_MouseLeave(sender As Object, e As EventArgs) Handles PctAceptar.MouseLeave
+        PctAceptar.Image = My.Resources.Aceptar1
+
+    End Sub
+
+    Private Sub PctSalir_Click(sender As Object, e As EventArgs) Handles PctSalir.Click
+        Me.Dispose()
+        FrmMenuGestion.Show()
+
+    End Sub
+
+    Private Sub PctSalir_MouseEnter(sender As Object, e As EventArgs) Handles PctSalir.MouseEnter
+        PctSalir.Image = My.Resources.Salir2
+
+    End Sub
+
+    Private Sub PctSalir_MouseLeave(sender As Object, e As EventArgs) Handles PctSalir.MouseLeave
+        PctSalir.Image = My.Resources.Salir1
+
     End Sub
 End Class

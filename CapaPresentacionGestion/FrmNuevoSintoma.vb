@@ -54,17 +54,6 @@ Public Class FrmNuevoSintoma
 
     End Sub
 
-    Private Sub BtnAceptar_Click(sender As Object, e As EventArgs)
-        Try
-            ControladorSintoma.CrearSintoma(TxtNombre.Text)
-            MsgBox("Sintoma creado con exito")
-            Limpiar()
-        Catch ex As Exception
-            MsgBox("No se pudo crear el sintoma" + ex.ToString)
-        End Try
-
-    End Sub
-
     Private Sub Limpiar()
         TxtNombre.Text = ""
 
@@ -81,7 +70,13 @@ Public Class FrmNuevoSintoma
             End Try
 
         Else
-
+            Try
+                ControladorSintoma.CrearSintoma(TxtNombre.Text)
+                MsgBox("Sintoma creado con exito")
+                Limpiar()
+            Catch ex As Exception
+                MsgBox("No se pudo crear el sintoma")
+            End Try
         End If
     End Sub
 

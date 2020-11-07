@@ -64,6 +64,7 @@ Public Class FrmModificarSintoma
     Private Sub RecargarSintomas()
         CmbSintomas.Items.Clear()
         CargarSintoma()
+        PctAceptar.Enabled = False
 
     End Sub
 

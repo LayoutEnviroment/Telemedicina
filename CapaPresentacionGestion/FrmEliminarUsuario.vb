@@ -47,7 +47,7 @@ Public Class FrmEliminarUsuario
             DatosPersona = ControladorUsuario.ObtenerNombreApellidoMail(CmbCI.SelectedItem.ToString())
             CargarDatos(DatosPersona)
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("No se pudieron obtener los datos")
         End Try
 
     End Sub
@@ -103,7 +103,7 @@ Public Class FrmEliminarUsuario
 
     Private Sub MostrarDatos()
         LblIndicaciones2.Visible = True
-        LblTipoUsuario.Visible = True
+        LblTipoDeUsuario.Visible = True
         ChbPaciente.Visible = True
         ChbMedico.Visible = True
         ChbAdministrador.Visible = True
@@ -129,14 +129,14 @@ Public Class FrmEliminarUsuario
 
     Private Sub HabilitarEliminar()
         If ChbAdministrador.Checked = Not rol(2) Or ChbMedico.Checked = Not rol(1) Or ChbPaciente.Checked = Not rol(0) Then
-            BtnEliminar.Enabled = True
+            PctAceptar.Enabled = True
         Else
-            BtnEliminar.Enabled = False
+            PctAceptar.Enabled = False
         End If
 
     End Sub
 
-    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
+    Private Sub PctAceptar_Click(sender As Object, e As EventArgs) Handles PctAceptar.Click
         Try
             Select Case MsgBox(MensajeDeConfirmacion(), MsgBoxStyle.YesNo)
                 Case DialogResult.Yes
@@ -202,19 +202,48 @@ Public Class FrmEliminarUsuario
 
     End Sub
 
-    Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
-        BtnEliminar.Enabled = False
+    Private Sub PctRefrescar_Click(sender As Object, e As EventArgs) Handles PctRefrescar.Click
+        PctAceptar.Enabled = False
         EsPaciente()
         EsMedico()
         EsAdministrativo()
 
     End Sub
 
-    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
+    Private Sub PctSalir_Click(sender As Object, e As EventArgs) Handles PctSalir.Click
         FrmMenuGestion.Show()
         Me.Dispose()
 
     End Sub
 
+    Private Sub PctSalir_MouseEnter(sender As Object, e As EventArgs) Handles PctSalir.MouseEnter
+        PctSalir.Image = My.Resources.Salir2
+
+    End Sub
+
+    Private Sub PctSalir_MouseLeave(sender As Object, e As EventArgs) Handles PctSalir.MouseLeave
+        PctSalir.Image = My.Resources.Salir1
+
+    End Sub
+
+    Private Sub PctAceptar_MouseEnter(sender As Object, e As EventArgs) Handles PctAceptar.MouseEnter
+        PctAceptar.Image = My.Resources.Aceptar2
+
+    End Sub
+
+    Private Sub PctAceptar_MouseLeave(sender As Object, e As EventArgs) Handles PctAceptar.MouseLeave
+        PctAceptar.Image = My.Resources.Aceptar1
+
+    End Sub
+
+    Private Sub PctRefrescar_MouseEnter(sender As Object, e As EventArgs) Handles PctRefrescar.MouseEnter
+        PctRefrescar.Image = My.Resources.RefreshEnter
+
+    End Sub
+
+    Private Sub PctRefrescar_MouseLeave(sender As Object, e As EventArgs) Handles PctRefrescar.MouseLeave
+        PctRefrescar.Image = My.Resources.Refresh
+
+    End Sub
 
 End Class

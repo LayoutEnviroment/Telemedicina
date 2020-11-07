@@ -22,201 +22,58 @@ Partial Class FrmEliminarUsuario
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.BtnEliminar = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.LblTipoUsuario = New System.Windows.Forms.Label()
         Me.CmbCI = New System.Windows.Forms.ComboBox()
-        Me.TxtNombre = New System.Windows.Forms.TextBox()
-        Me.TxtApellido = New System.Windows.Forms.TextBox()
-        Me.TxtMail = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.BtnVolver = New System.Windows.Forms.Button()
-        Me.ChbPaciente = New System.Windows.Forms.CheckBox()
-        Me.ChbMedico = New System.Windows.Forms.CheckBox()
-        Me.ChbAdministrador = New System.Windows.Forms.CheckBox()
-        Me.BtnCancelar = New System.Windows.Forms.Button()
         Me.LblIndicaciones2 = New System.Windows.Forms.Label()
         Me.LblIndicaciones = New System.Windows.Forms.Label()
+        Me.PnlBarra = New System.Windows.Forms.Panel()
+        Me.LblDescripcion = New System.Windows.Forms.Label()
+        Me.PctSalir = New System.Windows.Forms.PictureBox()
+        Me.TxtMail = New System.Windows.Forms.TextBox()
+        Me.LblNombre = New System.Windows.Forms.Label()
+        Me.LblApellido = New System.Windows.Forms.Label()
+        Me.LblMail = New System.Windows.Forms.Label()
+        Me.TxtNombre = New System.Windows.Forms.TextBox()
+        Me.TxtApellido = New System.Windows.Forms.TextBox()
+        Me.LblTipoDeUsuario = New System.Windows.Forms.Label()
+        Me.ChbAdministrador = New System.Windows.Forms.CheckBox()
+        Me.ChbMedico = New System.Windows.Forms.CheckBox()
+        Me.ChbPaciente = New System.Windows.Forms.CheckBox()
+        Me.PctAceptar = New System.Windows.Forms.PictureBox()
+        Me.PctRefrescar = New System.Windows.Forms.PictureBox()
+        Me.PnlBarra.SuspendLayout()
+        CType(Me.PctSalir, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PctAceptar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PctRefrescar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'BtnEliminar
-        '
-        Me.BtnEliminar.Enabled = False
-        Me.BtnEliminar.Location = New System.Drawing.Point(286, 293)
-        Me.BtnEliminar.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.BtnEliminar.Name = "BtnEliminar"
-        Me.BtnEliminar.Size = New System.Drawing.Size(87, 60)
-        Me.BtnEliminar.TabIndex = 0
-        Me.BtnEliminar.Text = "Eliminar"
-        Me.BtnEliminar.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Calibri", 28.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.CornflowerBlue
-        Me.Label1.Location = New System.Drawing.Point(153, 7)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(326, 46)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "BAJA DE USUARIOS"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(40, 173)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(44, 13)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Nombre"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(40, 232)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(44, 13)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Apellido"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(40, 293)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(26, 13)
-        Me.Label4.TabIndex = 5
-        Me.Label4.Text = "Mail"
-        '
-        'LblTipoUsuario
-        '
-        Me.LblTipoUsuario.AutoSize = True
-        Me.LblTipoUsuario.Location = New System.Drawing.Point(326, 134)
-        Me.LblTipoUsuario.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.LblTipoUsuario.Name = "LblTipoUsuario"
-        Me.LblTipoUsuario.Size = New System.Drawing.Size(80, 13)
-        Me.LblTipoUsuario.TabIndex = 6
-        Me.LblTipoUsuario.Text = "Tipo de usuario"
-        Me.LblTipoUsuario.Visible = False
         '
         'CmbCI
         '
+        Me.CmbCI.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmbCI.FormattingEnabled = True
-        Me.CmbCI.Location = New System.Drawing.Point(108, 99)
-        Me.CmbCI.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.CmbCI.Location = New System.Drawing.Point(110, 179)
+        Me.CmbCI.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.CmbCI.Name = "CmbCI"
-        Me.CmbCI.Size = New System.Drawing.Size(108, 21)
+        Me.CmbCI.Size = New System.Drawing.Size(496, 37)
         Me.CmbCI.TabIndex = 7
-        '
-        'TxtNombre
-        '
-        Me.TxtNombre.Enabled = False
-        Me.TxtNombre.Location = New System.Drawing.Point(108, 173)
-        Me.TxtNombre.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.TxtNombre.Name = "TxtNombre"
-        Me.TxtNombre.Size = New System.Drawing.Size(108, 20)
-        Me.TxtNombre.TabIndex = 8
-        '
-        'TxtApellido
-        '
-        Me.TxtApellido.Enabled = False
-        Me.TxtApellido.Location = New System.Drawing.Point(108, 230)
-        Me.TxtApellido.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.TxtApellido.Name = "TxtApellido"
-        Me.TxtApellido.Size = New System.Drawing.Size(108, 20)
-        Me.TxtApellido.TabIndex = 9
-        '
-        'TxtMail
-        '
-        Me.TxtMail.Enabled = False
-        Me.TxtMail.Location = New System.Drawing.Point(108, 293)
-        Me.TxtMail.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.TxtMail.Name = "TxtMail"
-        Me.TxtMail.Size = New System.Drawing.Size(108, 20)
-        Me.TxtMail.TabIndex = 10
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(40, 99)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label6.Location = New System.Drawing.Point(38, 187)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(17, 13)
+        Me.Label6.Size = New System.Drawing.Size(25, 20)
         Me.Label6.TabIndex = 11
         Me.Label6.Text = "CI"
-        '
-        'BtnVolver
-        '
-        Me.BtnVolver.Location = New System.Drawing.Point(378, 293)
-        Me.BtnVolver.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.BtnVolver.Name = "BtnVolver"
-        Me.BtnVolver.Size = New System.Drawing.Size(90, 60)
-        Me.BtnVolver.TabIndex = 12
-        Me.BtnVolver.Text = "Volver"
-        Me.BtnVolver.UseVisualStyleBackColor = True
-        '
-        'ChbPaciente
-        '
-        Me.ChbPaciente.AutoSize = True
-        Me.ChbPaciente.Enabled = False
-        Me.ChbPaciente.Location = New System.Drawing.Point(458, 133)
-        Me.ChbPaciente.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.ChbPaciente.Name = "ChbPaciente"
-        Me.ChbPaciente.Size = New System.Drawing.Size(68, 17)
-        Me.ChbPaciente.TabIndex = 13
-        Me.ChbPaciente.Text = "Paciente"
-        Me.ChbPaciente.UseVisualStyleBackColor = True
-        Me.ChbPaciente.Visible = False
-        '
-        'ChbMedico
-        '
-        Me.ChbMedico.AutoSize = True
-        Me.ChbMedico.Enabled = False
-        Me.ChbMedico.Location = New System.Drawing.Point(458, 162)
-        Me.ChbMedico.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.ChbMedico.Name = "ChbMedico"
-        Me.ChbMedico.Size = New System.Drawing.Size(61, 17)
-        Me.ChbMedico.TabIndex = 14
-        Me.ChbMedico.Text = "Médico"
-        Me.ChbMedico.UseVisualStyleBackColor = True
-        Me.ChbMedico.Visible = False
-        '
-        'ChbAdministrador
-        '
-        Me.ChbAdministrador.AutoSize = True
-        Me.ChbAdministrador.Enabled = False
-        Me.ChbAdministrador.Location = New System.Drawing.Point(458, 190)
-        Me.ChbAdministrador.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.ChbAdministrador.Name = "ChbAdministrador"
-        Me.ChbAdministrador.Size = New System.Drawing.Size(91, 17)
-        Me.ChbAdministrador.TabIndex = 15
-        Me.ChbAdministrador.Text = "Administrativo"
-        Me.ChbAdministrador.UseVisualStyleBackColor = True
-        Me.ChbAdministrador.Visible = False
-        '
-        'BtnCancelar
-        '
-        Me.BtnCancelar.Location = New System.Drawing.Point(474, 293)
-        Me.BtnCancelar.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.BtnCancelar.Name = "BtnCancelar"
-        Me.BtnCancelar.Size = New System.Drawing.Size(90, 60)
-        Me.BtnCancelar.TabIndex = 16
-        Me.BtnCancelar.Text = "Cancelar"
-        Me.BtnCancelar.UseVisualStyleBackColor = True
         '
         'LblIndicaciones2
         '
         Me.LblIndicaciones2.AutoSize = True
-        Me.LblIndicaciones2.Location = New System.Drawing.Point(314, 99)
+        Me.LblIndicaciones2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblIndicaciones2.Location = New System.Drawing.Point(620, 97)
+        Me.LblIndicaciones2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblIndicaciones2.Name = "LblIndicaciones2"
-        Me.LblIndicaciones2.Size = New System.Drawing.Size(235, 13)
+        Me.LblIndicaciones2.Size = New System.Drawing.Size(481, 26)
         Me.LblIndicaciones2.TabIndex = 17
         Me.LblIndicaciones2.Text = "Deseleccione el rol que quiere quitarle al usuario"
         Me.LblIndicaciones2.Visible = False
@@ -224,59 +81,268 @@ Partial Class FrmEliminarUsuario
         'LblIndicaciones
         '
         Me.LblIndicaciones.AutoSize = True
-        Me.LblIndicaciones.Location = New System.Drawing.Point(40, 72)
+        Me.LblIndicaciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblIndicaciones.Location = New System.Drawing.Point(126, 102)
+        Me.LblIndicaciones.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblIndicaciones.Name = "LblIndicaciones"
-        Me.LblIndicaciones.Size = New System.Drawing.Size(197, 13)
+        Me.LblIndicaciones.Size = New System.Drawing.Size(403, 26)
         Me.LblIndicaciones.TabIndex = 18
         Me.LblIndicaciones.Text = "Seleccione cédula de usuario a eliminar:"
         '
+        'PnlBarra
+        '
+        Me.PnlBarra.BackColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.PnlBarra.Controls.Add(Me.LblDescripcion)
+        Me.PnlBarra.Controls.Add(Me.PctSalir)
+        Me.PnlBarra.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PnlBarra.Location = New System.Drawing.Point(0, 0)
+        Me.PnlBarra.Name = "PnlBarra"
+        Me.PnlBarra.Size = New System.Drawing.Size(1125, 76)
+        Me.PnlBarra.TabIndex = 27
+        '
+        'LblDescripcion
+        '
+        Me.LblDescripcion.AutoSize = True
+        Me.LblDescripcion.BackColor = System.Drawing.Color.Transparent
+        Me.LblDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblDescripcion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(213, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.LblDescripcion.Location = New System.Drawing.Point(415, 9)
+        Me.LblDescripcion.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblDescripcion.Name = "LblDescripcion"
+        Me.LblDescripcion.Size = New System.Drawing.Size(326, 47)
+        Me.LblDescripcion.TabIndex = 70
+        Me.LblDescripcion.Text = "Eliminar Usuario"
+        Me.LblDescripcion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'PctSalir
+        '
+        Me.PctSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.PctSalir.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PctSalir.Image = Global.CapaPresentacionGestion.My.Resources.Resources.Salir1
+        Me.PctSalir.Location = New System.Drawing.Point(1045, 0)
+        Me.PctSalir.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PctSalir.Name = "PctSalir"
+        Me.PctSalir.Size = New System.Drawing.Size(80, 76)
+        Me.PctSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PctSalir.TabIndex = 23
+        Me.PctSalir.TabStop = False
+        '
+        'TxtMail
+        '
+        Me.TxtMail.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtMail.Enabled = False
+        Me.TxtMail.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtMail.Location = New System.Drawing.Point(110, 420)
+        Me.TxtMail.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TxtMail.MaxLength = 25
+        Me.TxtMail.Multiline = True
+        Me.TxtMail.Name = "TxtMail"
+        Me.TxtMail.Size = New System.Drawing.Size(496, 63)
+        Me.TxtMail.TabIndex = 56
+        Me.TxtMail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.TxtMail.WordWrap = False
+        '
+        'LblNombre
+        '
+        Me.LblNombre.AutoSize = True
+        Me.LblNombre.BackColor = System.Drawing.Color.Transparent
+        Me.LblNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.749999!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblNombre.ForeColor = System.Drawing.Color.Black
+        Me.LblNombre.Location = New System.Drawing.Point(2, 246)
+        Me.LblNombre.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblNombre.Name = "LblNombre"
+        Me.LblNombre.Size = New System.Drawing.Size(81, 25)
+        Me.LblNombre.TabIndex = 52
+        Me.LblNombre.Text = "Nombre"
+        '
+        'LblApellido
+        '
+        Me.LblApellido.AutoSize = True
+        Me.LblApellido.BackColor = System.Drawing.Color.Transparent
+        Me.LblApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.749999!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblApellido.ForeColor = System.Drawing.Color.Black
+        Me.LblApellido.Location = New System.Drawing.Point(4, 332)
+        Me.LblApellido.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblApellido.Name = "LblApellido"
+        Me.LblApellido.Size = New System.Drawing.Size(82, 25)
+        Me.LblApellido.TabIndex = 54
+        Me.LblApellido.Text = "Apellido"
+        '
+        'LblMail
+        '
+        Me.LblMail.AutoSize = True
+        Me.LblMail.BackColor = System.Drawing.Color.Transparent
+        Me.LblMail.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.749999!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblMail.ForeColor = System.Drawing.Color.Black
+        Me.LblMail.Location = New System.Drawing.Point(2, 420)
+        Me.LblMail.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblMail.Name = "LblMail"
+        Me.LblMail.Size = New System.Drawing.Size(72, 25)
+        Me.LblMail.TabIndex = 55
+        Me.LblMail.Text = "Correo"
+        '
+        'TxtNombre
+        '
+        Me.TxtNombre.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtNombre.Enabled = False
+        Me.TxtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtNombre.Location = New System.Drawing.Point(110, 243)
+        Me.TxtNombre.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TxtNombre.MaxLength = 25
+        Me.TxtNombre.Multiline = True
+        Me.TxtNombre.Name = "TxtNombre"
+        Me.TxtNombre.Size = New System.Drawing.Size(496, 62)
+        Me.TxtNombre.TabIndex = 51
+        Me.TxtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.TxtNombre.WordWrap = False
+        '
+        'TxtApellido
+        '
+        Me.TxtApellido.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtApellido.Enabled = False
+        Me.TxtApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtApellido.Location = New System.Drawing.Point(110, 332)
+        Me.TxtApellido.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TxtApellido.MaxLength = 25
+        Me.TxtApellido.Multiline = True
+        Me.TxtApellido.Name = "TxtApellido"
+        Me.TxtApellido.Size = New System.Drawing.Size(496, 63)
+        Me.TxtApellido.TabIndex = 53
+        Me.TxtApellido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.TxtApellido.WordWrap = False
+        '
+        'LblTipoDeUsuario
+        '
+        Me.LblTipoDeUsuario.AutoSize = True
+        Me.LblTipoDeUsuario.BackColor = System.Drawing.Color.Transparent
+        Me.LblTipoDeUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.749999!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblTipoDeUsuario.ForeColor = System.Drawing.Color.Black
+        Me.LblTipoDeUsuario.Location = New System.Drawing.Point(826, 179)
+        Me.LblTipoDeUsuario.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblTipoDeUsuario.Name = "LblTipoDeUsuario"
+        Me.LblTipoDeUsuario.Size = New System.Drawing.Size(153, 25)
+        Me.LblTipoDeUsuario.TabIndex = 60
+        Me.LblTipoDeUsuario.Text = "Tipo De Usuario"
+        '
+        'ChbAdministrador
+        '
+        Me.ChbAdministrador.AutoSize = True
+        Me.ChbAdministrador.BackColor = System.Drawing.Color.Transparent
+        Me.ChbAdministrador.Enabled = False
+        Me.ChbAdministrador.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ChbAdministrador.Location = New System.Drawing.Point(830, 296)
+        Me.ChbAdministrador.Name = "ChbAdministrador"
+        Me.ChbAdministrador.Size = New System.Drawing.Size(160, 29)
+        Me.ChbAdministrador.TabIndex = 59
+        Me.ChbAdministrador.Text = "Administrativo"
+        Me.ChbAdministrador.UseVisualStyleBackColor = False
+        '
+        'ChbMedico
+        '
+        Me.ChbMedico.AutoSize = True
+        Me.ChbMedico.BackColor = System.Drawing.Color.Transparent
+        Me.ChbMedico.Enabled = False
+        Me.ChbMedico.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ChbMedico.Location = New System.Drawing.Point(830, 262)
+        Me.ChbMedico.Name = "ChbMedico"
+        Me.ChbMedico.Size = New System.Drawing.Size(102, 29)
+        Me.ChbMedico.TabIndex = 58
+        Me.ChbMedico.Text = "Medico"
+        Me.ChbMedico.UseVisualStyleBackColor = False
+        '
+        'ChbPaciente
+        '
+        Me.ChbPaciente.AutoSize = True
+        Me.ChbPaciente.BackColor = System.Drawing.Color.Transparent
+        Me.ChbPaciente.Enabled = False
+        Me.ChbPaciente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ChbPaciente.Location = New System.Drawing.Point(830, 228)
+        Me.ChbPaciente.Name = "ChbPaciente"
+        Me.ChbPaciente.Size = New System.Drawing.Size(114, 29)
+        Me.ChbPaciente.TabIndex = 57
+        Me.ChbPaciente.Text = "Paciente"
+        Me.ChbPaciente.UseVisualStyleBackColor = False
+        '
+        'PctAceptar
+        '
+        Me.PctAceptar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PctAceptar.Enabled = False
+        Me.PctAceptar.Image = Global.CapaPresentacionGestion.My.Resources.Resources.Aceptar1
+        Me.PctAceptar.Location = New System.Drawing.Point(733, 349)
+        Me.PctAceptar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PctAceptar.Name = "PctAceptar"
+        Me.PctAceptar.Size = New System.Drawing.Size(140, 134)
+        Me.PctAceptar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PctAceptar.TabIndex = 61
+        Me.PctAceptar.TabStop = False
+        '
+        'PctRefrescar
+        '
+        Me.PctRefrescar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PctRefrescar.Enabled = False
+        Me.PctRefrescar.Image = Global.CapaPresentacionGestion.My.Resources.Resources.Refrescar
+        Me.PctRefrescar.Location = New System.Drawing.Point(914, 349)
+        Me.PctRefrescar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PctRefrescar.Name = "PctRefrescar"
+        Me.PctRefrescar.Size = New System.Drawing.Size(140, 134)
+        Me.PctRefrescar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PctRefrescar.TabIndex = 69
+        Me.PctRefrescar.TabStop = False
+        '
         'FrmEliminarUsuario
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(600, 365)
-        Me.Controls.Add(Me.LblIndicaciones)
-        Me.Controls.Add(Me.LblIndicaciones2)
-        Me.Controls.Add(Me.BtnCancelar)
+        Me.AutoSize = True
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(213, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(1125, 614)
+        Me.Controls.Add(Me.PctRefrescar)
+        Me.Controls.Add(Me.PctAceptar)
+        Me.Controls.Add(Me.LblTipoDeUsuario)
         Me.Controls.Add(Me.ChbAdministrador)
         Me.Controls.Add(Me.ChbMedico)
         Me.Controls.Add(Me.ChbPaciente)
-        Me.Controls.Add(Me.BtnVolver)
-        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.TxtMail)
-        Me.Controls.Add(Me.TxtApellido)
+        Me.Controls.Add(Me.LblNombre)
+        Me.Controls.Add(Me.LblApellido)
+        Me.Controls.Add(Me.LblMail)
         Me.Controls.Add(Me.TxtNombre)
+        Me.Controls.Add(Me.TxtApellido)
+        Me.Controls.Add(Me.LblIndicaciones)
+        Me.Controls.Add(Me.LblIndicaciones2)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.CmbCI)
-        Me.Controls.Add(Me.LblTipoUsuario)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.BtnEliminar)
-        Me.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.Controls.Add(Me.PnlBarra)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.Name = "FrmEliminarUsuario"
-        Me.Text = "Baja Usuario"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.PnlBarra.ResumeLayout(False)
+        Me.PnlBarra.PerformLayout()
+        CType(Me.PctSalir, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PctAceptar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PctRefrescar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents BtnEliminar As Button
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents LblTipoUsuario As Label
     Friend WithEvents CmbCI As ComboBox
-    Friend WithEvents TxtNombre As TextBox
-    Friend WithEvents TxtApellido As TextBox
-    Friend WithEvents TxtMail As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents BtnVolver As Button
-    Friend WithEvents ChbPaciente As CheckBox
-    Friend WithEvents ChbMedico As CheckBox
-    Friend WithEvents ChbAdministrador As CheckBox
-    Friend WithEvents BtnCancelar As Button
     Friend WithEvents LblIndicaciones2 As Label
     Friend WithEvents LblIndicaciones As Label
+    Friend WithEvents PnlBarra As Panel
+    Friend WithEvents PctSalir As PictureBox
+    Friend WithEvents TxtMail As TextBox
+    Friend WithEvents LblNombre As Label
+    Friend WithEvents LblApellido As Label
+    Friend WithEvents LblMail As Label
+    Friend WithEvents TxtNombre As TextBox
+    Friend WithEvents TxtApellido As TextBox
+    Friend WithEvents LblTipoDeUsuario As Label
+    Friend WithEvents ChbAdministrador As CheckBox
+    Friend WithEvents ChbMedico As CheckBox
+    Friend WithEvents ChbPaciente As CheckBox
+    Friend WithEvents PctAceptar As PictureBox
+    Friend WithEvents PctRefrescar As PictureBox
+    Friend WithEvents LblDescripcion As Label
 End Class

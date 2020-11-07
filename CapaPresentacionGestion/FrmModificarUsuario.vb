@@ -34,6 +34,7 @@ Public Class FrmModificarUsuario
 
     Private Sub CmbCi_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbCi.SelectedIndexChanged
         Limpiar()
+        PctRefrescar.Enabled = True
         HabilitarPersona(True)
         ObtenerDatosPersona()
         EsPaciente()
@@ -46,14 +47,14 @@ Public Class FrmModificarUsuario
     Private Sub HabilitarPersona(estado As Boolean)
         TxtNombre.Enabled = estado
         TxtApellido.Enabled = estado
-        TxtMail.Enabled = estado
+        TxtCorreo.Enabled = estado
         ChbPaciente.Enabled = estado
         ChbMedico.Enabled = estado
         ChbAdministrador.Enabled = estado
         LblNombre.Enabled = estado
         LblApellido.Enabled = estado
         LblMail.Enabled = estado
-        LblUsuario.Enabled = estado
+        LblSexo.Enabled = estado
 
     End Sub
 
@@ -72,7 +73,7 @@ Public Class FrmModificarUsuario
         While lector.Read
             TxtNombre.Text = lector(0).ToString
             TxtApellido.Text = lector(1).ToString
-            TxtMail.Text = lector(2).ToString
+            TxtCorreo.Text = lector(2).ToString
 
         End While
     End Sub
@@ -80,7 +81,6 @@ Public Class FrmModificarUsuario
     Private Sub EsPaciente()
         Try
             If ControladorUsuario.ExisteRol(CmbCi.SelectedItem.ToString(), 1) = 1 Then
-                MsgBox("Soy paciente")
                 rol(0) = True
                 ChbPaciente.Checked = True
                 ChbPaciente.Enabled = False
@@ -220,56 +220,57 @@ Public Class FrmModificarUsuario
         RdbM.Visible = estado
         LblEnfermedadCronica.Visible = estado
         TxtEnfermedadCronica.Visible = estado
-        BtnAgregarEnfermedad.Visible = estado
+        PctAgregarEnfermedad.Visible = estado
         LstEnfermedades.Visible = estado
         LblMedicacion.Visible = estado
         TxtMedicacion.Visible = estado
-        BtnAgregarMedicacion.Visible = estado
+        PctAgregarMedicacion.Visible = estado
         LstMedicaciones.Visible = estado
-        BtnEliminarEnfermedad.Visible = estado
-        BtnEliminarMedicacion.Visible = estado
+        PctEliminarEnfermedad.Visible = estado
+        PctEliminarMedicacion.Visible = estado
 
     End Sub
 
     Private Sub TxtEnfermedadCronica_TextChanged(sender As Object, e As EventArgs) Handles TxtEnfermedadCronica.TextChanged
+
         If TxtEnfermedadCronica.Text <> "" Then
-            BtnAgregarEnfermedad.Enabled = True
+            PctAgregarEnfermedad.Enabled = True
         Else
-            BtnAgregarEnfermedad.Enabled = False
+            PctAgregarEnfermedad.Enabled = False
         End If
 
     End Sub
 
-    Private Sub BtnAgregarEnfermedad_Click(sender As Object, e As EventArgs) Handles BtnAgregarEnfermedad.Click
+    Private Sub BtnAgregarEnfermedad_Click(sender As Object, e As EventArgs) Handles PctAgregarEnfermedad.Click
         LstEnfermedades.Items.Add(TxtEnfermedadCronica.Text)
         TxtEnfermedadCronica.Text = ""
     End Sub
 
     Private Sub LstEnfermedades_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstEnfermedades.SelectedIndexChanged
         If LstEnfermedades.SelectedItems.Count() > 0 Then
-            BtnEliminarEnfermedad.Enabled = True
+            PctEliminarEnfermedad.Enabled = True
         Else
-            BtnEliminarEnfermedad.Enabled = False
+            PctEliminarEnfermedad.Enabled = False
         End If
 
     End Sub
 
-    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminarEnfermedad.Click
+    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles PctEliminarEnfermedad.Click
         LstEnfermedades.Items.Remove(LstEnfermedades.SelectedItems(0))
-        BtnEliminarEnfermedad.Enabled = False
+        PctEliminarEnfermedad.Enabled = False
 
     End Sub
 
     Private Sub TxtMedicacion_TextChanged(sender As Object, e As EventArgs) Handles TxtMedicacion.TextChanged
         If TxtMedicacion.Text <> "" Then
-            BtnAgregarMedicacion.Enabled = True
+            PctAgregarMedicacion.Enabled = True
         Else
-            BtnAgregarMedicacion.Enabled = False
+            PctAgregarMedicacion.Enabled = False
         End If
 
     End Sub
 
-    Private Sub BtnAgregarMedicacion_Click(sender As Object, e As EventArgs) Handles BtnAgregarMedicacion.Click
+    Private Sub BtnAgregarMedicacion_Click(sender As Object, e As EventArgs) Handles PctAgregarMedicacion.Click
         LstMedicaciones.Items.Add(TxtMedicacion.Text)
         TxtMedicacion.Text = ""
 
@@ -277,16 +278,16 @@ Public Class FrmModificarUsuario
 
     Private Sub LstMedicaciones_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstMedicaciones.SelectedIndexChanged
         If LstMedicaciones.SelectedItems.Count() > 0 Then
-            BtnEliminarMedicacion.Enabled = True
+            PctEliminarMedicacion.Enabled = True
         Else
-            BtnEliminarMedicacion.Enabled = False
+            PctEliminarMedicacion.Enabled = False
         End If
 
     End Sub
 
-    Private Sub BtnEliminarMedicacion_Click(sender As Object, e As EventArgs) Handles BtnEliminarMedicacion.Click
+    Private Sub BtnEliminarMedicacion_Click(sender As Object, e As EventArgs) Handles PctEliminarMedicacion.Click
         LstMedicaciones.Items.Remove(LstMedicaciones.SelectedItems(0))
-        BtnEliminarMedicacion.Enabled = False
+        PctEliminarMedicacion.Enabled = False
 
     End Sub
 
@@ -314,12 +315,12 @@ Public Class FrmModificarUsuario
 
     End Sub
 
-    Private Sub TxtMail_TextChanged(sender As Object, e As EventArgs) Handles TxtMail.TextChanged
-        If System.Text.RegularExpressions.Regex.IsMatch(TxtMail.Text, "^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$") Then
-            TxtMail.ForeColor = Color.Black
+    Private Sub TxtMail_TextChanged(sender As Object, e As EventArgs) Handles TxtCorreo.TextChanged
+        If System.Text.RegularExpressions.Regex.IsMatch(TxtCorreo.Text, "^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$") Then
+            TxtCorreo.ForeColor = Color.Black
             Mail = True
         Else
-            TxtMail.ForeColor = Color.Red
+            TxtCorreo.ForeColor = Color.Red
             Mail = False
         End If
         HabilitarModificacion()
@@ -328,19 +329,19 @@ Public Class FrmModificarUsuario
 
     Private Sub HabilitarModificacion()
         If ChbPaciente.Checked = False And ChbMedico.Checked = False And ChbAdministrador.Checked = False Then
-            BtnAceptar.Enabled = False
+            PctAceptar.Enabled = False
         Else
             If Nombre And Apellido And Mail Then
-                BtnAceptar.Enabled = True
+                PctAceptar.Enabled = True
             Else
-                BtnAceptar.Enabled = False
+                PctAceptar.Enabled = False
             End If
 
         End If
 
     End Sub
 
-    Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
+    Private Sub PctAceptar_Click(sender As Object, e As EventArgs) Handles PctAceptar.Click
         If ChbPaciente.Checked And rol(0) = True Then
             ModificarPersonaYPaciente()
         ElseIf ChbPaciente.Checked And rol(0) = False Then
@@ -367,7 +368,7 @@ Public Class FrmModificarUsuario
         Try
             ControladorPaciente.CambiarDatos(TxtNombre.Text,
                                              TxtApellido.Text,
-                                             TxtMail.Text,
+                                             TxtCorreo.Text,
                                              ObtenerSexo(),
                                              ObtenerFecha(),
                                              CargarListaEnfermedades(),
@@ -416,7 +417,7 @@ Public Class FrmModificarUsuario
         Try
             ControladorUsuario.ModificarPersona(TxtNombre.Text,
                                                 TxtApellido.Text,
-                                                TxtMail.Text,
+                                                TxtCorreo.Text,
                                                 CmbCi.SelectedItem)
             If Usuario = 2 Then
                 MsgBox("Medico actualizado con exito!")
@@ -472,7 +473,7 @@ Public Class FrmModificarUsuario
     Private Sub Limpiar()
         TxtNombre.Text = ""
         TxtApellido.Text = ""
-        TxtMail.Text = ""
+        TxtCorreo.Text = ""
         ChbPaciente.Checked = False
         ChbMedico.Checked = False
         ChbAdministrador.Checked = False
@@ -487,20 +488,51 @@ Public Class FrmModificarUsuario
 
     End Sub
 
-    Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
+    Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles PctRefrescar.Click
         HabilitarPersona(True)
         ObtenerDatosPersona()
         EsPaciente()
         EsMedico()
         EsAdministrativo()
         HabilitarModificacion()
+        PctRefrescar.Enabled = False
 
     End Sub
 
-    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
+    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles PctSalir.Click
         Limpiar()
         Me.Dispose()
         FrmMenuGestion.Show()
+
+    End Sub
+
+    Private Sub PctRefrescar_MouseEnter(sender As Object, e As EventArgs) Handles PctRefrescar.MouseEnter
+        PctRefrescar.Image = My.Resources.RefreshEnter
+
+    End Sub
+
+    Private Sub PctRefrescar_MoseLeave(sender As Object, e As EventArgs) Handles PctRefrescar.MouseLeave
+        PctRefrescar.Image = My.Resources.Refrescar
+
+    End Sub
+
+    Private Sub PctSalir_MouseEnter(sender As Object, e As EventArgs) Handles PctSalir.MouseEnter
+        PctSalir.Image = My.Resources.Salir1
+
+    End Sub
+
+    Private Sub PctSalir_MouseLeave(sender As Object, e As EventArgs) Handles PctSalir.MouseLeave
+        PctSalir.Image = My.Resources.Salir2
+
+    End Sub
+
+    Private Sub PctAceptar_MouseEnter(sender As Object, e As EventArgs) Handles PctAceptar.MouseEnter
+        PctAceptar.Image = My.Resources.Aceptar2
+
+    End Sub
+
+    Private Sub PctAceptar_MouseLeave(sender As Object, e As EventArgs) Handles PctAceptar.MouseLeave
+        PctAceptar.Image = My.Resources.Aceptar1
 
     End Sub
 

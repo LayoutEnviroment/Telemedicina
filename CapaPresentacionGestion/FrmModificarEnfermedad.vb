@@ -27,11 +27,12 @@ Public Class FrmModificarEnfermedad
     End Sub
 
     Private Sub CmbEnfermedades_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbEnfermedades.SelectedIndexChanged
-        MoverPanel()
         TxtNombre.Text = CmbEnfermedades.Text
         Try
             IdEnfermedad = ControladorEnfermedad.ObtenerId(CmbEnfermedades.SelectedItem.ToString)
             ObtenerDatos()
+            PctAceptar.Enabled = True
+            PctCancelar.Enabled = True
         Catch ex As Exception
             MsgBox("No pudimos identificar la enfermedad")
         End Try
@@ -47,6 +48,7 @@ Public Class FrmModificarEnfermedad
             If ChbModificarSintomas.Checked Then
                 TraerSintomas(True)
             End If
+            PctAceptar.Enabled = True
         Catch ex As Exception
             MsgBox("No pudimos cargar los datos de la enfermedad")
         End Try
@@ -61,7 +63,7 @@ Public Class FrmModificarEnfermedad
 
     End Sub
 
-    Private Sub CbxModificarSintomas_CheckedChanged(sender As Object, e As EventArgs) Handles ChbModificarSintomas.CheckedChanged
+    Private Sub CbxModificarSintomas_CheckedChanged(sender As Object, e As EventArgs)
         HabilitarSintomas(ChbModificarSintomas.Checked)
         TraerSintomas(ChbModificarSintomas.Checked)
         CargarSintomas()
@@ -88,18 +90,6 @@ Public Class FrmModificarEnfermedad
         Else
             LstSintomas.Clear()
         End If
-
-    End Sub
-
-    Private Sub MoverPanel()
-        While PnlContenido.Height > 10
-            PnlContenido.Height -= 50
-        End While
-
-        While PnlContenido.Height < 325
-            PnlContenido.Height += 20
-        End While
-        PctCancelar.Enabled = True
 
     End Sub
 
@@ -132,12 +122,12 @@ Public Class FrmModificarEnfermedad
 
     End Sub
 
-    Private Sub CmbSintomas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbSintomas.SelectedIndexChanged
+    Private Sub CmbSintomas_SelectedIndexChanged(sender As Object, e As EventArgs)
         PctAgregarSintoma.Enabled = True
 
     End Sub
 
-    Private Sub LstSintomas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstSintomas.SelectedIndexChanged
+    Private Sub LstSintomas_SelectedIndexChanged(sender As Object, e As EventArgs)
         PctEliminarSintoma.Enabled = True
 
     End Sub
@@ -207,12 +197,7 @@ Public Class FrmModificarEnfermedad
         TxtNombre.Enabled = False
         CmbPrioridad.Enabled = False
         PctAceptar.Enabled = False
-        CerrarPanel()
 
-    End Sub
-
-    Private Sub CerrarPanel()
-        PnlContenido.Height = 10
     End Sub
 
     Private Sub LimpiarEnfermedad()
@@ -274,14 +259,14 @@ Public Class FrmModificarEnfermedad
 
     End Sub
 
-    Private Sub PctEliminarSintoma_Click(sender As Object, e As EventArgs) Handles PctEliminarSintoma.Click
+    Private Sub PctEliminarSintoma_Click(sender As Object, e As EventArgs)
         CmbSintomas.Items.Add(LstSintomas.Items(LstSintomas.SelectedIndices(0)).Text)
         LstSintomas.Items.RemoveAt(LstSintomas.SelectedIndices(0))
         PctEliminarSintoma.Enabled = False
 
     End Sub
 
-    Private Sub PctAgregarSintoma_Click(sender As Object, e As EventArgs) Handles PctAgregarSintoma.Click
+    Private Sub PctAgregarSintoma_Click(sender As Object, e As EventArgs)
         Dim index As Integer = CmbSintomas.SelectedIndex
         LstSintomas.Items.Add(CmbSintomas.Items(index))
         CmbSintomas.Items.RemoveAt(index)
