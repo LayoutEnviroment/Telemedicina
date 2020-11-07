@@ -237,12 +237,12 @@ Public Class FrmEliminarUsuario
     End Sub
 
     Private Sub PctRefrescar_MouseEnter(sender As Object, e As EventArgs) Handles PctRefrescar.MouseEnter
-        PctRefrescar.Image = My.Resources.RefreshEnter
+        PctRefrescar.Image = My.Resources.Refrescar
 
     End Sub
 
     Private Sub PctRefrescar_MouseLeave(sender As Object, e As EventArgs) Handles PctRefrescar.MouseLeave
-        PctRefrescar.Image = My.Resources.Refresh
+        PctRefrescar.Image = My.Resources.Refrescar
 
     End Sub
 
