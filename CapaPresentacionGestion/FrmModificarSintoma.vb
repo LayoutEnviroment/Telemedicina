@@ -19,8 +19,7 @@ Public Class FrmModificarSintoma
             End While
 
         Catch ex As Exception
-            'MsgBox(ex.ToString)
-            MsgBox("No pudimos cargar los sintomas, intente reiniciar la aplicacion", MsgBoxStyle.Critical)
+            MsgBox("No pudimos cargar los síntomas, intente reiniciar la aplicación", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
 
         End Try
 
@@ -52,11 +51,11 @@ Public Class FrmModificarSintoma
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs)
         Try
             ControladorSintoma.CambiarNombreDeSintoma(ObtenerId(), TxtSintoma.Text)
-            MsgBox("Sintoma modificado con exito")
+            MsgBox("Síntoma modificado con éxito!", MsgBoxStyle.Information, "Síntoma modificado")
             TxtSintoma.Text = ""
             RecargarSintomas()
         Catch ex As Exception
-            MsgBox("Error modificando el sintoma seleccionado" + ex.ToString)
+            MsgBox("Error modificando el sintoma seleccionado", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -103,14 +102,13 @@ Public Class FrmModificarSintoma
     Private Sub PctAceptar_Click(sender As Object, e As EventArgs) Handles PctAceptar.Click
         Try
             ControladorSintoma.CambiarNombreDeSintoma(ObtenerId(), TxtSintoma.Text)
-            MsgBox("Sintoma modificado con éxito", MsgBoxStyle.Information)
+            MsgBox("Síntoma modificado con éxito", MsgBoxStyle.Information, "Modificación de síntoma")
             TxtSintoma.Text = ""
             RecargarSintomas()
         Catch ex As Exception
-            MsgBox("Error modificando el sintoma seleccionado", MsgBoxStyle.Critical)
+            MsgBox("Error modificando el síntoma seleccionado", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
-
 
 End Class

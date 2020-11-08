@@ -15,7 +15,7 @@ Public Class FrmEliminarSintoma
             CargarSintomas(LectorSintomas)
 
         Catch ex As Exception
-            MsgBox("No pudimos cargar los sintomas, intente reiniciar la aplicacion", MsgBoxStyle.Critical)
+            MsgBox("No pudimos cargar los síntomas, intente reiniciar la aplicación", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
 
         End Try
 
@@ -35,16 +35,16 @@ Public Class FrmEliminarSintoma
     End Sub
 
     Private Sub PctAceptar_Click(sender As Object, e As EventArgs) Handles PctAceptar.Click
-        Select Case MsgBox("¿Seguro desea eliminar este sintoma? Esta operación NO puede deshacerse", MsgBoxStyle.YesNo)
+        Select Case MsgBox("¿Seguro desea eliminar este síntoma? Esta operación NO puede deshacerse", MsgBoxStyle.YesNo, "Confirmación")
             Case MsgBoxResult.Yes
                 Try
                     ControladorSintoma.EliminarSintoma(ControladorSintoma.ObtenerId(TxtSintoma.Text))
-                    MsgBox("Sintoma eliminado con exito", MsgBoxStyle.Information)
+                    MsgBox("Síntoma eliminado con éxito!", MsgBoxStyle.Information, "Eliminación de síntoma")
                     TxtSintoma.Text = ""
                     ObtenerSintomas()
                     PctAceptar.Enabled = False
                 Catch ex As Exception
-                    MsgBox("Error al intenar eliminar el sintoma", MsgBoxStyle.Critical)
+                    MsgBox("Error al intenar eliminar el síntoma", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
                 End Try
 
             Case MsgBoxResult.No

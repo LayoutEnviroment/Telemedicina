@@ -22,6 +22,7 @@ Partial Class FrmEliminarSintoma
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmEliminarSintoma))
         Me.CmbSintomas = New System.Windows.Forms.ComboBox()
         Me.TxtSintoma = New System.Windows.Forms.TextBox()
         Me.PctSalir = New System.Windows.Forms.PictureBox()
@@ -45,6 +46,7 @@ Partial Class FrmEliminarSintoma
         Me.CmbSintomas.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.CmbSintomas.Name = "CmbSintomas"
         Me.CmbSintomas.Size = New System.Drawing.Size(396, 32)
+        Me.CmbSintomas.Sorted = True
         Me.CmbSintomas.TabIndex = 0
         '
         'TxtSintoma
@@ -149,10 +151,11 @@ Partial Class FrmEliminarSintoma
         Me.Controls.Add(Me.CmbSintomas)
         Me.Controls.Add(Me.PnlBarra)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "FrmEliminarSintoma"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmEliminarSintoma"
+        Me.Text = "Eliminar Síntoma"
         CType(Me.PctSalir, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PctAceptar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PnlBarra.ResumeLayout(False)

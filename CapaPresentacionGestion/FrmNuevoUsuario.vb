@@ -13,9 +13,14 @@ Public Class FrmNuevoUsuario
     Dim ToolTipNombre As New ToolTip()
     Dim ToolTipApellido As New ToolTip()
     Dim ToolTipCorreo As New ToolTip()
+    Dim ToolTipAgregarEnfermedad As New ToolTip()
 
     Private Sub FrmNuevoUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DtpFechaNacimiento.MaxDate = Today()
+        TxtCedula.TextAlign = HorizontalAlignment.Center
+        TxtNombre.TextAlign = HorizontalAlignment.Center
+        TxtApellido.TextAlign = HorizontalAlignment.Center
+        TxtCorreo.TextAlign = HorizontalAlignment.Center
     End Sub
 
     Private Sub TxtCedula_TextChanged(sender As Object, e As EventArgs) Handles TxtCedula.TextChanged
@@ -222,7 +227,6 @@ Public Class FrmNuevoUsuario
         TipoUsuario(0) = True
 
         FechaNacimiento = DtpFechaNacimiento.Value.Year.ToString() + "-" + DtpFechaNacimiento.Value.Month.ToString() + "-" + DtpFechaNacimiento.Value.Day.ToString()
-        MsgBox(FechaNacimiento)
         For x = 0 To LstEnfermedadCronica.Items.Count - 1
             EnfermedadesCronicas.Add(LstEnfermedadCronica.Items(x).ToString)
         Next
@@ -232,9 +236,9 @@ Public Class FrmNuevoUsuario
         Next
 
         If RdbF.Checked() Then
-            Sexo = "0"
-        Else
             Sexo = "1"
+        Else
+            Sexo = "0"
         End If
 
     End Sub
@@ -328,10 +332,10 @@ Public Class FrmNuevoUsuario
                                              EnfermedadesCronicas,
                                              Medicamentos,
                                              Contra)
-            MsgBox("paciente creado con exito!")
+            MsgBox("Paciente creado con éxito!", MsgBoxStyle.Information, "Nuevo Paciente")
             EnviarMail()
         Catch ex As Exception
-            MsgBox("Error al crear al paciente" + ex.ToString)
+            MsgBox("Error al crear al paciente", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
     End Sub
 
@@ -342,11 +346,11 @@ Public Class FrmNuevoUsuario
                                             TxtApellido.Text,
                                             TxtCorreo.Text,
                                             Contra)
-            MsgBox("medico creado con exito!")
+            MsgBox("Médico creado con éxito!", MsgBoxStyle.Information, "Nuevo Médico")
             EnviarMail()
 
         Catch ex As Exception
-            MsgBox("Error al crear al medico")
+            MsgBox("Error al crear al medico", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -358,10 +362,10 @@ Public Class FrmNuevoUsuario
                                                    TxtApellido.Text,
                                                    TxtCorreo.Text,
                                                    Contra)
-            MsgBox("Administrativo creado con exito!")
+            MsgBox("Administrativo creado con éxito!", MsgBoxStyle.Information, "Nuevo Administrativo")
             EnviarMail()
         Catch ex As Exception
-            MsgBox("Error al crear al administrativo" + ex.ToString())
+            MsgBox("Error al crear al administrativo", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
 
         End Try
     End Sub
@@ -377,10 +381,10 @@ Public Class FrmNuevoUsuario
                                              EnfermedadesCronicas,
                                              Medicamentos,
                                              Contra)
-            MsgBox("Paciente medico creado con exito")
+            MsgBox("Paciente medico creado con éxito", MsgBoxStyle.Information, "Nuevo paciente y médico")
             EnviarMail()
         Catch ex As Exception
-            MsgBox("Error creando al usuario " + TxtNombre.Text + " " + ex.ToString)
+            MsgBox("Error creando al usuario " + TxtNombre.Text, MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
     End Sub
 
@@ -395,10 +399,10 @@ Public Class FrmNuevoUsuario
                                              EnfermedadesCronicas,
                                              Medicamentos,
                                              Contra)
-            MsgBox("El usuario se creo como paciente y administrativo")
+            MsgBox("El usuario se creó como paciente y administrativo", MsgBoxStyle.Information, "Nuevo paciente y administrador")
             EnviarMail()
         Catch ex As Exception
-            MsgBox("Error al crear al usuario " + ex.ToString)
+            MsgBox("Error al crear al usuario ", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -410,10 +414,10 @@ Public Class FrmNuevoUsuario
                                                 TxtApellido.Text,
                                                 TxtCorreo.Text,
                                                 Contra)
-            MsgBox("El usuario " + TxtNombre.Text + " fue creado con exito!")
+            MsgBox("El usuario " + TxtNombre.Text + " fue creado con éxito!", MsgBoxStyle.Information, "Nuevo médico y administrador")
             EnviarMail()
         Catch ex As Exception
-            MsgBox("Error al crear al administrativo, medico" + ex.ToString())
+            MsgBox("Error al crear al administrativo, médico", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
 
         End Try
     End Sub
@@ -429,10 +433,10 @@ Public Class FrmNuevoUsuario
                                             EnfermedadesCronicas,
                                             Medicamentos,
                                             Contra)
-            MsgBox("Persona creada con exito")
+            MsgBox("Persona creada con éxito", MsgBoxStyle.Information, "Nuevo paciente, médico y administrativo")
             EnviarMail()
         Catch ex As Exception
-            MsgBox("Error al crear usuario")
+            MsgBox("Error al crear usuario", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
     End Sub
 
@@ -442,7 +446,7 @@ Public Class FrmNuevoUsuario
         Dim Numeros() As Char = "0123456789".ToCharArray()
         Dim Especiales() As Char = "*_/".ToCharArray()
         Dim Caracteres() As Char = "abcdefghijklmnopqrstuvwxyz".ToCharArray()
-
+        Contra = ""
         For i As Integer = 0 To 8
             If i < 6 Then
                 Contra += Caracteres(rdm.Next(0, Caracteres.Length))
@@ -483,14 +487,17 @@ Public Class FrmNuevoUsuario
             Try
                 .To.Add(TxtCorreo.Text)
             Catch ex As Exception
-                If ex.HResult = -2146233033 Then
-                    MsgBox("La direccion de correo no tiene un formato valido")
-                End If
+                MsgBox("No existe una dirección de correo", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
             End Try
 
             .Subject = "Credenciales De Cuidarte"
             .SubjectEncoding = System.Text.Encoding.UTF8
-            .Body = "Estimado/a usuario/a. Gracias por utilizar Cuidarte. su usuario es: " + TxtCedula.Text + " y su password es: " + Contra
+            If Sexo = 0 Then
+                .Body = "Estimado usuario, gracias por utilizar Cuidarte. su usuario es: " + TxtCedula.Text + " y su password es: " + Contra
+            Else
+                .Body = "Estimada usuaria, Gracias por utilizar Cuidarte. su usuario es: " + TxtCedula.Text + " y su password es: " + Contra
+            End If
+
             .BodyEncoding = System.Text.Encoding.UTF8
             .IsBodyHtml = False
         End With
@@ -500,13 +507,12 @@ Public Class FrmNuevoUsuario
     Private Sub EnviarMensaje(smtp, correo)
         Try
             smtp.Send(correo)
-            MsgBox("Mensaje enviado")
+            MsgBox("Mensaje enviado con éxito!", MsgBoxStyle.Information, "Mensaje enviado")
         Catch ex As Exception
             If ex.HResult = "-2146233088" Then
-                MsgBox(ex.ToString)
-                'MsgBox("Usa este link capo: https: //myaccount.google.com/lesssecureapps")
+                MsgBox("No se pudó enviar el mensaje", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
             Else
-                MsgBox(ex.ToString)
+                MsgBox("No se pudó enviar el mensaje", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
             End If
         End Try
         Limpiar()

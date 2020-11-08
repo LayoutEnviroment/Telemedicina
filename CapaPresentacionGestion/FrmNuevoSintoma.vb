@@ -26,12 +26,12 @@ Public Class FrmNuevoSintoma
     Private Sub AveriguarInactividad()
         If ControladorSintoma.EstaInactivo(TxtNombre.Text) = 1 Then
             Reactivacion = True
-            LblDisponibilidad.Text = "Este sintoma se encuentra inactivo," + vbCrLf + "haga clic en Reacitvar para volver a activarlo"
+            LblDisponibilidad.Text = "Este síntoma se encuentra inactivo," + vbCrLf + "haga clic en Reacitvar para volver a activarlo"
 
         Else
             Reactivacion = False
             Nombre = False
-            LblDisponibilidad.Text = "El nombre del sintoma ya esta en uso"
+            LblDisponibilidad.Text = "El nombre del síntoma ya esta en uso"
 
         End If
 
@@ -63,19 +63,19 @@ Public Class FrmNuevoSintoma
         If Reactivacion Then
             Try
                 ControladorSintoma.ActivarSintoma(ControladorSintoma.ObtenerId(TxtNombre.Text))
+                MsgBox("Sintoma reactivado con éxito!", MsgBoxStyle.Information, "Activación de síntoma")
                 Limpiar()
-                MsgBox("Sintoma reactivado con exito!")
             Catch ex As Exception
-                MsgBox("No se pudo reactivar el sintoma")
+                MsgBox("No se pudo reactivar el síntoma", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
             End Try
 
         Else
             Try
                 ControladorSintoma.CrearSintoma(TxtNombre.Text)
-                MsgBox("Sintoma creado con exito")
+                MsgBox("Sintoma creado con éxito!", MsgBoxStyle.Information, "Creación de síntoma")
                 Limpiar()
             Catch ex As Exception
-                MsgBox("No se pudo crear el sintoma")
+                MsgBox("No se pudo crear el síntoma", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
             End Try
         End If
     End Sub

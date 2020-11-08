@@ -19,7 +19,7 @@ Public Class FrmModificarUsuario
             LectorCedula = ControladorUsuario.ObtenerTodasLasCedulas()
             CargarCedulas(LectorCedula)
         Catch ex As Exception
-            MsgBox("No se pudieron obtener los usuarios")
+            MsgBox("No se pudieron obtener los usuarios", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -64,7 +64,7 @@ Public Class FrmModificarUsuario
             LectorDatos = ControladorUsuario.ObtenerNombreApellidoMail(CmbCi.SelectedItem.ToString())
             CargarDatos(LectorDatos)
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("No se pudieron obtener los datos de la persona", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -94,7 +94,7 @@ Public Class FrmModificarUsuario
 
             End If
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("No conseguimos saber si el usuario es paciente", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -105,7 +105,7 @@ Public Class FrmModificarUsuario
             LectorPaciente = ControladorPaciente.ObtenerTodo(CmbCi.SelectedItem.ToString)
             CargarDatosPaciente(LectorPaciente)
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("No pudimos obtener los datos del paciente", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -134,7 +134,7 @@ Public Class FrmModificarUsuario
             LectorEnfermedades = ControladorPaciente.ObtenerEnfermedades(CmbCi.SelectedItem)
             CargarEnfermedades(LectorEnfermedades)
         Catch ex As Exception
-            MsgBox(ex.ToString())
+            MsgBox("No pudimos obtener las enfemredad del paciente", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -153,7 +153,7 @@ Public Class FrmModificarUsuario
             LectorMedicaciones = ControladorPaciente.ObtenerMedicaciones(CmbCi.SelectedItem)
             CargarMedicaciones(LectorMedicaciones)
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("Error al intentar cargar las medicacion", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -374,9 +374,9 @@ Public Class FrmModificarUsuario
                                              CargarListaEnfermedades(),
                                              CargarListaMedicinas(),
                                              CmbCi.SelectedItem())
-            MsgBox("Paciente modificado")
+            MsgBox("Paciente modificado con éxito!", MsgBoxStyle.Information, "Modificación paciente")
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("Error al intentar modificar al paciente", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -388,18 +388,18 @@ Public Class FrmModificarUsuario
                                                     ObtenerFecha(),
                                                     CargarListaEnfermedades(),
                                                     CargarListaMedicinas())
-            MsgBox("Usuario actualizado como paciente")
+            MsgBox("El usuario " + TxtNombre.Text + " es ahora paciente", MsgBoxStyle.Information, "Nuevo rol")
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("Error al intentar añadir el rol", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
     End Sub
 
     Private Sub AgregarAMedico()
         Try
             ControladorUsuario.AgregarNuevoMedico(CmbCi.SelectedItem)
-            MsgBox("Usuario agregado como medico")
+            MsgBox("El usuario " + TxtNombre.Text + " es ahora médico", MsgBoxStyle.Information, "Nuevo rol")
         Catch ex As Exception
-            MsgBox(ex.ToString())
+            MsgBox("Error al intentar añadir el rol", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -407,9 +407,9 @@ Public Class FrmModificarUsuario
     Private Sub AgregarAAdministrador()
         Try
             ControladorUsuario.AgregarNuevoAdministrativo(CmbCi.SelectedItem)
-            MsgBox("Usuario agregado como administrador")
+            MsgBox("El usuario " + TxtNombre.Text + " es ahora administrador", MsgBoxStyle.Information, "Nuevo rol")
         Catch ex As Exception
-            MsgBox(ex.ToString())
+            MsgBox("Error al intentar añadir el rol", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
     End Sub
 
@@ -420,16 +420,16 @@ Public Class FrmModificarUsuario
                                                 TxtCorreo.Text,
                                                 CmbCi.SelectedItem)
             If Usuario = 2 Then
-                MsgBox("Medico actualizado con exito!")
+                MsgBox("Médico actualizado con éxito!", MsgBoxStyle.Information, "Modificación médico")
             Else
-                MsgBox("Administrador actualizado con exito!")
+                MsgBox("Administrador actualizado con éxito!", MsgBoxStyle.Information, "Modificación administrador")
             End If
 
         Catch ex As Exception
             If Usuario = 2 Then
-                MsgBox("Error al acutalizar al medico")
+                MsgBox("Error al intentar acutalizar al médico", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
             Else
-                MsgBox("Error al acutalizar al adminsitrador")
+                MsgBox("Error al intentar acutalizar al adminsitrador", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
             End If
 
         End Try

@@ -15,7 +15,7 @@ Public Class FrmEliminarEnfermedad
             LectorEnfermedades = ControladorEnfermedad.ListarNombreEnfermedadesActivas()
             CargarCmbEnfermedades(LectorEnfermedades)
         Catch ex As Exception
-            MsgBox(ex.ToString + "Error al cargar enfermedades")
+            MsgBox("Error al intentar cargar las enfermedades", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -33,7 +33,7 @@ Public Class FrmEliminarEnfermedad
             ObtenerDatos(ControladorEnfermedad.ObtenerId(CmbEnfermedades.SelectedItem.ToString))
             PctAceptar.Enabled = True
         Catch ex As Exception
-            MsgBox("No se pudo identificar la enfermedad")
+            MsgBox("No se pudo identificar la enfermedad", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
     End Sub
 
@@ -43,7 +43,7 @@ Public Class FrmEliminarEnfermedad
             TxtPrioridad.Text = ControladorEnfermedad.ObtenerPrioridad(id)
             ObtenerSintomas(id)
         Catch ex As Exception
-            MsgBox("No se pudieron Obtener los datos")
+            MsgBox("No se pudieron obtener los datos", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -74,7 +74,7 @@ Public Class FrmEliminarEnfermedad
             Limpiar()
             TraerDatos()
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("Error al intentar de eliminar la enfermedad", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
     End Sub
 
@@ -113,11 +113,11 @@ Public Class FrmEliminarEnfermedad
     Private Sub PctAceptar_Click(sender As Object, e As EventArgs) Handles PctAceptar.Click
         Try
             ControladorEnfermedad.EliminarEnfermedad(Id)
-            MsgBox("Enfermedad eliminada con éxito", MsgBoxStyle.Information)
+            MsgBox("Enfermedad eliminada con éxito!", MsgBoxStyle.Information, "Eliminación de Enfermedad")
             Limpiar()
             TraerDatos()
         Catch ex As Exception
-            MsgBox("Error al intentar eliminar la enfermedad", MsgBoxStyle.Critical)
+            MsgBox("Error al intentar eliminar la enfermedad", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub

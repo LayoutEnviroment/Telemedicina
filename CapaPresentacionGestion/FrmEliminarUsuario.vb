@@ -199,6 +199,7 @@ Public Class FrmEliminarUsuario
         ChbPaciente.Enabled = False
         ChbMedico.Enabled = False
         ChbAdministrador.Enabled = False
+        PctAceptar.Enabled = False
 
     End Sub
 

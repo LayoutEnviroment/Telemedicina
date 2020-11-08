@@ -3,7 +3,7 @@
 Public Class FrmNuevaEnfermedad
 
     Public ListaSintomas As New List(Of String)
-    Public Nombre, Descripcion, Prioridad, Sintomas, Reactivacion As Boolean
+    Public Nombre, Prioridad, Sintomas, Reactivacion As Boolean
 
     Private Sub FrmNuevaEnfermedad_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarSintomas()
@@ -15,7 +15,7 @@ Public Class FrmNuevaEnfermedad
             LectorSintomas = ControladorSintoma.ListarNombreSintomaActivo()
             CargarCmbSintomas(LectorSintomas)
         Catch ex As Exception
-            MsgBox(ex.ToString + "No se pudieron cargar los sintomas")
+            MsgBox("No se pudieron cargar los sintomas", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
     End Sub
 
@@ -75,11 +75,6 @@ Public Class FrmNuevaEnfermedad
     End Sub
 
     Private Sub TxtDescripcion_TextChanged(sender As Object, e As EventArgs) Handles TxtDescripcion.TextChanged
-        If TxtDescripcion.Text <> "" Then
-            Descripcion = True
-        Else
-            Descripcion = False
-        End If
 
         HabilitarCreacion(False)
     End Sub
@@ -126,7 +121,7 @@ Public Class FrmNuevaEnfermedad
             CmbSintomas.Enabled = False
             LstSintomasSeleccionados.Enabled = False
 
-        ElseIf Nombre And Descripcion And Prioridad And LstSintomasSeleccionados.Items.Count() > 0 Then
+        ElseIf Nombre And Prioridad And LstSintomasSeleccionados.Items.Count() > 0 Then
             PctAceptar.Enabled = True
             PctAceptar.Image = My.Resources.Aceptar1
 
@@ -168,10 +163,10 @@ Public Class FrmNuevaEnfermedad
     Private Sub Actualizar()
         Try
             ControladorEnfermedad.ActivarEnfermedad(TxtNombre.Text)
-            MsgBox("Enfermedad reactivada con éxito", MsgBoxStyle.Information)
+            MsgBox("Enfermedad reactivada con éxito!", MsgBoxStyle.Information, "Reactivación de enfermedad")
             Limpiar()
         Catch ex As Exception
-            MsgBox("Error al intentar reactivar la enfermedad", MsgBoxStyle.Critical)
+            MsgBox("Error al intentar reactivar la enfermedad", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
     End Sub
 
@@ -181,10 +176,10 @@ Public Class FrmNuevaEnfermedad
                                                   TxtDescripcion.Text,
                                                   CmbPrioridad.SelectedItem.ToString,
                                                   ListaSintomas)
-            MsgBox("Enfermedad creada exitosamente", MsgBoxStyle.Information)
+            MsgBox("Enfermedad creada con éxito!", MsgBoxStyle.Information, "Creación de enfermedad")
             Limpiar()
         Catch ex As Exception
-            MsgBox("Error al intentar crear la enfermedad", MsgBoxStyle.Critical)
+            MsgBox("Error al intentar crear la enfermedad", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
     End Sub
 
@@ -220,10 +215,6 @@ Public Class FrmNuevaEnfermedad
 
     Private Sub PctSalir_MouseEnter(sender As Object, e As EventArgs) Handles PctSalir.MouseEnter
         PctSalir.Image = My.Resources.Salir2
-
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
 
     End Sub
 

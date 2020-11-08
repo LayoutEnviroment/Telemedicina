@@ -22,6 +22,7 @@ Partial Class FrmModificarUsuario
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmModificarUsuario))
         Me.TxtCI = New System.Windows.Forms.TextBox()
         Me.LblCI = New System.Windows.Forms.Label()
         Me.LblCedula = New System.Windows.Forms.Label()
@@ -579,8 +580,9 @@ Partial Class FrmModificarUsuario
         Me.Controls.Add(Me.TxtCI)
         Me.Controls.Add(Me.LblCI)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmModificarUsuario"
-        Me.Text = "FrmModificarUsuario"
+        Me.Text = "Modificar Usuario"
         Me.PnlBarra.ResumeLayout(False)
         Me.PnlBarra.PerformLayout()
         CType(Me.PctSalir, System.ComponentModel.ISupportInitialize).EndInit()

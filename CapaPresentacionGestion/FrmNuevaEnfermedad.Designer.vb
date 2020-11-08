@@ -22,6 +22,7 @@ Partial Class FrmNuevaEnfermedad
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmNuevaEnfermedad))
         Me.TxtNombre = New System.Windows.Forms.TextBox()
         Me.TxtDescripcion = New System.Windows.Forms.TextBox()
         Me.CmbPrioridad = New System.Windows.Forms.ComboBox()
@@ -96,6 +97,7 @@ Partial Class FrmNuevaEnfermedad
         Me.CmbSintomas.Location = New System.Drawing.Point(448, 118)
         Me.CmbSintomas.Name = "CmbSintomas"
         Me.CmbSintomas.Size = New System.Drawing.Size(254, 37)
+        Me.CmbSintomas.Sorted = True
         Me.CmbSintomas.TabIndex = 4
         '
         'LstSintomasSeleccionados
@@ -250,9 +252,10 @@ Partial Class FrmNuevaEnfermedad
         Me.Controls.Add(Me.TxtNombre)
         Me.Controls.Add(Me.PnlBarra)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmNuevaEnfermedad"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "-"
+        Me.Text = "Nueva Enfermedad"
         CType(Me.PctAceptar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PctCancelar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PctSalir, System.ComponentModel.ISupportInitialize).EndInit()

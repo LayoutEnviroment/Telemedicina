@@ -22,6 +22,7 @@ Partial Class FrmEliminarUsuario
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmEliminarUsuario))
         Me.CmbCI = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.LblIndicaciones2 = New System.Windows.Forms.Label()
@@ -314,9 +315,11 @@ Partial Class FrmEliminarUsuario
         Me.Controls.Add(Me.CmbCI)
         Me.Controls.Add(Me.PnlBarra)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.Name = "FrmEliminarUsuario"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.Text = "Eliminar Usuario"
         Me.PnlBarra.ResumeLayout(False)
         Me.PnlBarra.PerformLayout()
         CType(Me.PctSalir, System.ComponentModel.ISupportInitialize).EndInit()

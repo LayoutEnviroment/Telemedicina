@@ -22,6 +22,7 @@ Partial Class FrmNuevoUsuario
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmNuevoUsuario))
         Me.ChbPaciente = New System.Windows.Forms.CheckBox()
         Me.ChbMedico = New System.Windows.Forms.CheckBox()
         Me.ChbAdministrador = New System.Windows.Forms.CheckBox()
@@ -159,7 +160,7 @@ Partial Class FrmNuevoUsuario
         Me.LstMedicacion.MultiSelect = False
         Me.LstMedicacion.Name = "LstMedicacion"
         Me.LstMedicacion.Size = New System.Drawing.Size(274, 298)
-        Me.LstMedicacion.TabIndex = 10
+        Me.LstMedicacion.TabIndex = 13
         Me.LstMedicacion.UseCompatibleStateImageBehavior = False
         Me.LstMedicacion.View = System.Windows.Forms.View.List
         Me.LstMedicacion.Visible = False
@@ -217,7 +218,7 @@ Partial Class FrmNuevoUsuario
         Me.LstEnfermedadCronica.MultiSelect = False
         Me.LstEnfermedadCronica.Name = "LstEnfermedadCronica"
         Me.LstEnfermedadCronica.Size = New System.Drawing.Size(274, 298)
-        Me.LstEnfermedadCronica.TabIndex = 8
+        Me.LstEnfermedadCronica.TabIndex = 12
         Me.LstEnfermedadCronica.UseCompatibleStateImageBehavior = False
         Me.LstEnfermedadCronica.View = System.Windows.Forms.View.List
         Me.LstEnfermedadCronica.Visible = False
@@ -231,7 +232,7 @@ Partial Class FrmNuevoUsuario
         Me.TxtEnfermedadCronica.Multiline = True
         Me.TxtEnfermedadCronica.Name = "TxtEnfermedadCronica"
         Me.TxtEnfermedadCronica.Size = New System.Drawing.Size(274, 58)
-        Me.TxtEnfermedadCronica.TabIndex = 6
+        Me.TxtEnfermedadCronica.TabIndex = 10
         Me.TxtEnfermedadCronica.Visible = False
         '
         'TxtMedicacion
@@ -243,7 +244,7 @@ Partial Class FrmNuevoUsuario
         Me.TxtMedicacion.Multiline = True
         Me.TxtMedicacion.Name = "TxtMedicacion"
         Me.TxtMedicacion.Size = New System.Drawing.Size(274, 58)
-        Me.TxtMedicacion.TabIndex = 9
+        Me.TxtMedicacion.TabIndex = 11
         Me.TxtMedicacion.Visible = False
         '
         'LblNombre
@@ -309,7 +310,7 @@ Partial Class FrmNuevoUsuario
         Me.TxtNombre.Multiline = True
         Me.TxtNombre.Name = "TxtNombre"
         Me.TxtNombre.Size = New System.Drawing.Size(496, 62)
-        Me.TxtNombre.TabIndex = 39
+        Me.TxtNombre.TabIndex = 1
         Me.TxtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.TxtNombre.WordWrap = False
         '
@@ -323,7 +324,7 @@ Partial Class FrmNuevoUsuario
         Me.TxtApellido.Multiline = True
         Me.TxtApellido.Name = "TxtApellido"
         Me.TxtApellido.Size = New System.Drawing.Size(496, 63)
-        Me.TxtApellido.TabIndex = 41
+        Me.TxtApellido.TabIndex = 2
         Me.TxtApellido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.TxtApellido.WordWrap = False
         '
@@ -336,7 +337,7 @@ Partial Class FrmNuevoUsuario
         Me.RdbH.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.RdbH.Name = "RdbH"
         Me.RdbH.Size = New System.Drawing.Size(112, 29)
-        Me.RdbH.TabIndex = 45
+        Me.RdbH.TabIndex = 8
         Me.RdbH.Text = "Hombre"
         Me.RdbH.UseVisualStyleBackColor = False
         Me.RdbH.Visible = False
@@ -351,7 +352,7 @@ Partial Class FrmNuevoUsuario
         Me.RdbF.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.RdbF.Name = "RdbF"
         Me.RdbF.Size = New System.Drawing.Size(91, 29)
-        Me.RdbF.TabIndex = 46
+        Me.RdbF.TabIndex = 7
         Me.RdbF.TabStop = True
         Me.RdbF.Text = "Mujer"
         Me.RdbF.UseVisualStyleBackColor = False
@@ -364,7 +365,7 @@ Partial Class FrmNuevoUsuario
         Me.DtpFechaNacimiento.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DtpFechaNacimiento.Name = "DtpFechaNacimiento"
         Me.DtpFechaNacimiento.Size = New System.Drawing.Size(258, 26)
-        Me.DtpFechaNacimiento.TabIndex = 48
+        Me.DtpFechaNacimiento.TabIndex = 9
         Me.DtpFechaNacimiento.Visible = False
         '
         'LblFechaNacimiento
@@ -387,11 +388,11 @@ Partial Class FrmNuevoUsuario
         Me.TxtCorreo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtCorreo.Location = New System.Drawing.Point(142, 400)
         Me.TxtCorreo.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.TxtCorreo.MaxLength = 25
+        Me.TxtCorreo.MaxLength = 50
         Me.TxtCorreo.Multiline = True
         Me.TxtCorreo.Name = "TxtCorreo"
         Me.TxtCorreo.Size = New System.Drawing.Size(496, 63)
-        Me.TxtCorreo.TabIndex = 50
+        Me.TxtCorreo.TabIndex = 3
         Me.TxtCorreo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.TxtCorreo.WordWrap = False
         '
@@ -405,9 +406,8 @@ Partial Class FrmNuevoUsuario
         Me.TxtCedula.Multiline = True
         Me.TxtCedula.Name = "TxtCedula"
         Me.TxtCedula.Size = New System.Drawing.Size(496, 62)
-        Me.TxtCedula.TabIndex = 51
+        Me.TxtCedula.TabIndex = 0
         Me.TxtCedula.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.TxtCedula.WordWrap = False
         '
         'LblCedula
         '
@@ -550,9 +550,10 @@ Partial Class FrmNuevoUsuario
         Me.Controls.Add(Me.ChbMedico)
         Me.Controls.Add(Me.ChbPaciente)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmNuevoUsuario"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "AltaUsuario"
+        Me.Text = "Nuevo Usuario"
         CType(Me.PctAgregarMedicacion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PctAgregarEnfermedad, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PctEliminarMedicacion, System.ComponentModel.ISupportInitialize).EndInit()

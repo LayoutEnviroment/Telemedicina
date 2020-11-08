@@ -22,6 +22,7 @@ Partial Class FrmModificarEnfermedad
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmModificarEnfermedad))
         Me.CmbEnfermedades = New System.Windows.Forms.ComboBox()
         Me.LblEnfermedad = New System.Windows.Forms.Label()
         Me.PctCancelar = New System.Windows.Forms.PictureBox()
@@ -327,9 +328,11 @@ Partial Class FrmModificarEnfermedad
         Me.Controls.Add(Me.CmbEnfermedades)
         Me.Controls.Add(Me.PnlBarra)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "FrmModificarEnfermedad"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Modificar Enfermedad"
         CType(Me.PctCancelar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PctAceptar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PctSalir, System.ComponentModel.ISupportInitialize).EndInit()

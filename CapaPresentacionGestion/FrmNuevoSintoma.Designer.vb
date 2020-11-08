@@ -22,6 +22,7 @@ Partial Class FrmNuevoSintoma
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmNuevoSintoma))
         Me.TxtNombre = New System.Windows.Forms.TextBox()
         Me.LblDisponibilidad = New System.Windows.Forms.Label()
         Me.PctAceptar = New System.Windows.Forms.PictureBox()
@@ -152,9 +153,11 @@ Partial Class FrmNuevoSintoma
         Me.Controls.Add(Me.TxtNombre)
         Me.Controls.Add(Me.PnlBarra)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "FrmNuevoSintoma"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Nuevo Síntoma"
         CType(Me.PctAceptar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PctSalir, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PnlBarra.ResumeLayout(False)

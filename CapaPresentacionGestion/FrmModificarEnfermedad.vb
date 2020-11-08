@@ -3,6 +3,7 @@
 Public Class FrmModificarEnfermedad
 
     Public IdEnfermedad As String
+    Dim ToolTipNombre As New ToolTip()
 
     Private Sub FrmModificarEnfermedad_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ObtenerEnfermedades()
@@ -14,7 +15,7 @@ Public Class FrmModificarEnfermedad
             LectorEnfermedades = ControladorEnfermedad.ListarNombreEnfermedadesActivas()
             CargarEnfermedades(LectorEnfermedades)
         Catch ex As Exception
-            MsgBox("No se pudieron traer las enfermedades")
+            MsgBox("No se pudieron obtener las enfermedades", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
     End Sub
 
@@ -34,7 +35,7 @@ Public Class FrmModificarEnfermedad
             PctAceptar.Enabled = True
             PctCancelar.Enabled = True
         Catch ex As Exception
-            MsgBox("No pudimos identificar la enfermedad")
+            MsgBox("No pudimos identificar la enfermedad", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
     End Sub
 
@@ -50,7 +51,7 @@ Public Class FrmModificarEnfermedad
             End If
             PctAceptar.Enabled = True
         Catch ex As Exception
-            MsgBox("No pudimos cargar los datos de la enfermedad")
+            MsgBox("No pudimos cargar los datos de la enfermedad", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -63,7 +64,7 @@ Public Class FrmModificarEnfermedad
 
     End Sub
 
-    Private Sub CbxModificarSintomas_CheckedChanged(sender As Object, e As EventArgs)
+    Private Sub CbxModificarSintomas_CheckedChanged(sender As Object, e As EventArgs) Handles ChbModificarSintomas.CheckedChanged
         HabilitarSintomas(ChbModificarSintomas.Checked)
         TraerSintomas(ChbModificarSintomas.Checked)
         CargarSintomas()
@@ -85,7 +86,7 @@ Public Class FrmModificarEnfermedad
                     LstSintomas.Items.Add(LectorSintomas(0).ToString)
                 End While
             Catch ex As Exception
-                MsgBox("error")
+                MsgBox("No se pudieron traer los síntomas de la enfermedad", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
             End Try
         Else
             LstSintomas.Clear()
@@ -99,7 +100,7 @@ Public Class FrmModificarEnfermedad
             LectorSintomas = ControladorSintoma.ListarNombreSintomaActivo()
             CargarCmbSintomas(LectorSintomas)
         Catch ex As Exception
-            MsgBox("No se pudieron cargar los sintomas para la enfermedad")
+            MsgBox("No se pudieron cargar los síntomas para la enfermedad", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -133,11 +134,16 @@ Public Class FrmModificarEnfermedad
     End Sub
 
     Private Sub ValidarEnfermedadYSintoma()
-        If TxtNombre.Text = "" Or TxtDescripcion.Text = "" Then
-            MsgBox("Ninguno de los campos pueden estar vacios")
+        If TxtNombre.Text = "" Then
+            ToolTipNombre.AutoPopDelay = 2000
+            ToolTipNombre.InitialDelay = 500
+            ToolTipNombre.ReshowDelay = 500
+            ToolTipNombre.ToolTipTitle = "Formato incorrecto"
+            ToolTipNombre.ToolTipIcon = ToolTipIcon.Warning
+            ToolTipNombre.SetToolTip(Me.TxtNombre, "El nombre de la enfermedad no puede estar vacio")
 
         ElseIf LstSintomas.Items.Count() <= 0 Then
-            MsgBox("Debe existir por lo menos un sintoma")
+            MsgBox("Debe existir por lo menos un síntoma")
         Else
             Dim Sintomas As New List(Of String)
             For x = 0 To LstSintomas.Items.Count() - 1
@@ -155,16 +161,21 @@ Public Class FrmModificarEnfermedad
                                                              TxtDescripcion.Text,
                                                              CmbPrioridad.SelectedItem.ToString,
                                                              sintomas)
-            MsgBox("Se modifico la enfermedad y su composicion con exito!")
+            MsgBox("Se modificó la enfermedad y su composicion con éxito!", MsgBoxStyle.Information, "Modificación de Enfermedad")
             Limpiar()
         Catch ex As Exception
-            MsgBox("No se pudieron actualizar los datos" + ex.ToString)
+            MsgBox("Error al intentar actualizar la enfermedad y sus síntomas", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
     End Sub
 
     Private Sub ValidarEnfermedad()
-        If TxtNombre.Text = "" Or TxtDescripcion.Text = "" Then
-            MsgBox("Ninguno de los campos pueden estar vacios")
+        If TxtNombre.Text = "" Then
+            ToolTipNombre.AutoPopDelay = 2000
+            ToolTipNombre.InitialDelay = 500
+            ToolTipNombre.ReshowDelay = 500
+            ToolTipNombre.ToolTipTitle = "Formato incorrecto"
+            ToolTipNombre.ToolTipIcon = ToolTipIcon.Warning
+            ToolTipNombre.SetToolTip(Me.TxtNombre, "El nombre de la enfermedad no puede estar vacio")
         Else
             CambiarEnfermedad()
         End If
@@ -177,10 +188,10 @@ Public Class FrmModificarEnfermedad
                                                     TxtNombre.Text,
                                                     TxtDescripcion.Text,
                                                     CmbPrioridad.SelectedItem.ToString)
-            MsgBox("enfermedad modificada con exito!")
+            MsgBox("Enfermedad modificada con éxito!", MsgBoxStyle.Information, "Modifcación de Enfermedad")
             Limpiar()
         Catch ex As Exception
-            MsgBox("No se pudieron modificar los datos de la enfermedad")
+            MsgBox("Error al intentar modificar la enfermedad", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -273,4 +284,5 @@ Public Class FrmModificarEnfermedad
         PctAgregarSintoma.Enabled = False
 
     End Sub
+
 End Class
