@@ -1,6 +1,4 @@
-CREATE DATABASE bd_led;
-
-use bd_led;
+use led;
 
 CREATE TABLE persona (
   ci INT(9) NOT NULL,
@@ -118,5 +116,3 @@ CREATE TABLE atiende(
   CONSTRAINT ci_persona_paciente_ati_fk FOREIGN KEY (ci_persona_paciente) REFERENCES paciente (ci_persona),
   CONSTRAINT id_diagnostico_ati_fk FOREIGN KEY (id_diagnostico) REFERENCES diagnostico (id)
 );
-
- SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));

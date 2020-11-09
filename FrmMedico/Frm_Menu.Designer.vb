@@ -50,6 +50,10 @@ Partial Class Frm_Menu
         Me.PnlCerrarConversacion = New System.Windows.Forms.Panel()
         Me.PctFinalizarChat = New System.Windows.Forms.PictureBox()
         Me.LblDescripcionVentana = New System.Windows.Forms.Label()
+        Me.LstSintomas = New System.Windows.Forms.ListView()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.DgvEnEspera, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PnlIniciarChat.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -114,33 +118,33 @@ Partial Class Frm_Menu
         'LblNombrePaciente
         '
         Me.LblNombrePaciente.AutoSize = True
-        Me.LblNombrePaciente.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblNombrePaciente.Font = New System.Drawing.Font("Libre Franklin", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblNombrePaciente.ForeColor = System.Drawing.Color.White
-        Me.LblNombrePaciente.Location = New System.Drawing.Point(41, 45)
+        Me.LblNombrePaciente.Location = New System.Drawing.Point(27, 13)
         Me.LblNombrePaciente.Name = "LblNombrePaciente"
-        Me.LblNombrePaciente.Size = New System.Drawing.Size(0, 33)
+        Me.LblNombrePaciente.Size = New System.Drawing.Size(0, 23)
         Me.LblNombrePaciente.TabIndex = 10
         Me.LblNombrePaciente.Visible = False
         '
         'LblSexoPaciente
         '
         Me.LblSexoPaciente.AutoSize = True
-        Me.LblSexoPaciente.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblSexoPaciente.Font = New System.Drawing.Font("Libre Franklin", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblSexoPaciente.ForeColor = System.Drawing.Color.White
-        Me.LblSexoPaciente.Location = New System.Drawing.Point(41, 101)
+        Me.LblSexoPaciente.Location = New System.Drawing.Point(27, 39)
         Me.LblSexoPaciente.Name = "LblSexoPaciente"
-        Me.LblSexoPaciente.Size = New System.Drawing.Size(0, 33)
+        Me.LblSexoPaciente.Size = New System.Drawing.Size(0, 23)
         Me.LblSexoPaciente.TabIndex = 11
         Me.LblSexoPaciente.Visible = False
         '
         'LblEdadPaciente
         '
         Me.LblEdadPaciente.AutoSize = True
-        Me.LblEdadPaciente.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblEdadPaciente.Font = New System.Drawing.Font("Libre Franklin", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblEdadPaciente.ForeColor = System.Drawing.Color.White
-        Me.LblEdadPaciente.Location = New System.Drawing.Point(41, 150)
+        Me.LblEdadPaciente.Location = New System.Drawing.Point(27, 64)
         Me.LblEdadPaciente.Name = "LblEdadPaciente"
-        Me.LblEdadPaciente.Size = New System.Drawing.Size(0, 33)
+        Me.LblEdadPaciente.Size = New System.Drawing.Size(0, 23)
         Me.LblEdadPaciente.TabIndex = 12
         Me.LblEdadPaciente.Visible = False
         '
@@ -149,15 +153,15 @@ Partial Class Frm_Menu
         Me.LstEnfermedades.AllowColumnReorder = True
         Me.LstEnfermedades.AllowDrop = True
         Me.LstEnfermedades.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.LstEnfermedades.Enabled = False
         Me.LstEnfermedades.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LstEnfermedades.ForeColor = System.Drawing.Color.Black
         Me.LstEnfermedades.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None
         Me.LstEnfermedades.HideSelection = False
-        Me.LstEnfermedades.Location = New System.Drawing.Point(29, 347)
+        Me.LstEnfermedades.Location = New System.Drawing.Point(28, 347)
         Me.LstEnfermedades.MultiSelect = False
         Me.LstEnfermedades.Name = "LstEnfermedades"
         Me.LstEnfermedades.Size = New System.Drawing.Size(210, 91)
+        Me.LstEnfermedades.Sorting = System.Windows.Forms.SortOrder.Ascending
         Me.LstEnfermedades.TabIndex = 13
         Me.LstEnfermedades.UseCompatibleStateImageBehavior = False
         Me.LstEnfermedades.View = System.Windows.Forms.View.List
@@ -168,15 +172,15 @@ Partial Class Frm_Menu
         Me.LstMedicaciones.AllowColumnReorder = True
         Me.LstMedicaciones.AllowDrop = True
         Me.LstMedicaciones.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.LstMedicaciones.Enabled = False
         Me.LstMedicaciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LstMedicaciones.ForeColor = System.Drawing.Color.Black
         Me.LstMedicaciones.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None
         Me.LstMedicaciones.HideSelection = False
-        Me.LstMedicaciones.Location = New System.Drawing.Point(29, 231)
+        Me.LstMedicaciones.Location = New System.Drawing.Point(28, 235)
         Me.LstMedicaciones.MultiSelect = False
         Me.LstMedicaciones.Name = "LstMedicaciones"
         Me.LstMedicaciones.Size = New System.Drawing.Size(210, 91)
+        Me.LstMedicaciones.Sorting = System.Windows.Forms.SortOrder.Ascending
         Me.LstMedicaciones.TabIndex = 14
         Me.LstMedicaciones.UseCompatibleStateImageBehavior = False
         Me.LstMedicaciones.View = System.Windows.Forms.View.List
@@ -188,10 +192,10 @@ Partial Class Frm_Menu
         '
         'WbbConversacion
         '
-        Me.WbbConversacion.Location = New System.Drawing.Point(300, 40)
+        Me.WbbConversacion.Location = New System.Drawing.Point(300, 14)
         Me.WbbConversacion.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WbbConversacion.Name = "WbbConversacion"
-        Me.WbbConversacion.Size = New System.Drawing.Size(461, 322)
+        Me.WbbConversacion.Size = New System.Drawing.Size(461, 348)
         Me.WbbConversacion.TabIndex = 15
         '
         'Label1
@@ -201,15 +205,15 @@ Partial Class Frm_Menu
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(864, 80)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(274, 29)
+        Me.Label1.Size = New System.Drawing.Size(169, 18)
         Me.Label1.TabIndex = 17
         Me.Label1.Text = "Seleccione una consulta"
         '
         'PnlIniciarChat
         '
         Me.PnlIniciarChat.BackColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(213, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.PnlIniciarChat.Controls.Add(Me.PictureBox1)
         Me.PnlIniciarChat.Controls.Add(Me.BtnIniciarChat)
+        Me.PnlIniciarChat.Controls.Add(Me.PictureBox1)
         Me.PnlIniciarChat.Location = New System.Drawing.Point(772, 128)
         Me.PnlIniciarChat.Name = "PnlIniciarChat"
         Me.PnlIniciarChat.Size = New System.Drawing.Size(170, 54)
@@ -295,7 +299,7 @@ Partial Class Frm_Menu
         Me.LblHistorial.ForeColor = System.Drawing.Color.White
         Me.LblHistorial.Location = New System.Drawing.Point(53, 322)
         Me.LblHistorial.Name = "LblHistorial"
-        Me.LblHistorial.Size = New System.Drawing.Size(90, 25)
+        Me.LblHistorial.Size = New System.Drawing.Size(66, 16)
         Me.LblHistorial.TabIndex = 3
         Me.LblHistorial.Text = "Historial"
         Me.LblHistorial.Visible = False
@@ -308,7 +312,7 @@ Partial Class Frm_Menu
         Me.LblRecomendaciones.ForeColor = System.Drawing.Color.White
         Me.LblRecomendaciones.Location = New System.Drawing.Point(26, 147)
         Me.LblRecomendaciones.Name = "LblRecomendaciones"
-        Me.LblRecomendaciones.Size = New System.Drawing.Size(189, 25)
+        Me.LblRecomendaciones.Size = New System.Drawing.Size(138, 16)
         Me.LblRecomendaciones.TabIndex = 2
         Me.LblRecomendaciones.Text = "Recomendaciones"
         Me.LblRecomendaciones.Visible = False
@@ -329,6 +333,10 @@ Partial Class Frm_Menu
         'PnlConversacion
         '
         Me.PnlConversacion.BackColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(213, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.PnlConversacion.Controls.Add(Me.Label4)
+        Me.PnlConversacion.Controls.Add(Me.Label3)
+        Me.PnlConversacion.Controls.Add(Me.Label2)
+        Me.PnlConversacion.Controls.Add(Me.LstSintomas)
         Me.PnlConversacion.Controls.Add(Me.WbbConversacion)
         Me.PnlConversacion.Controls.Add(Me.RtbMensaje)
         Me.PnlConversacion.Controls.Add(Me.BtnEnviar)
@@ -359,7 +367,7 @@ Partial Class Frm_Menu
         Me.PctFinalizarChat.Image = Global.FrmMedico.My.Resources.Resources.FinalizarChat
         Me.PctFinalizarChat.Location = New System.Drawing.Point(0, 0)
         Me.PctFinalizarChat.Name = "PctFinalizarChat"
-        Me.PctFinalizarChat.Size = New System.Drawing.Size(52, 47)
+        Me.PctFinalizarChat.Size = New System.Drawing.Size(52, 50)
         Me.PctFinalizarChat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PctFinalizarChat.TabIndex = 0
         Me.PctFinalizarChat.TabStop = False
@@ -370,24 +378,75 @@ Partial Class Frm_Menu
         Me.LblDescripcionVentana.BackColor = System.Drawing.Color.Transparent
         Me.LblDescripcionVentana.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblDescripcionVentana.ForeColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(213, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.LblDescripcionVentana.Location = New System.Drawing.Point(376, 18)
+        Me.LblDescripcionVentana.Location = New System.Drawing.Point(523, 9)
         Me.LblDescripcionVentana.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblDescripcionVentana.Name = "LblDescripcionVentana"
-        Me.LblDescripcionVentana.Size = New System.Drawing.Size(0, 47)
+        Me.LblDescripcionVentana.Size = New System.Drawing.Size(0, 31)
         Me.LblDescripcionVentana.TabIndex = 33
         Me.LblDescripcionVentana.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'LstSintomas
+        '
+        Me.LstSintomas.AllowColumnReorder = True
+        Me.LstSintomas.AllowDrop = True
+        Me.LstSintomas.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.LstSintomas.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LstSintomas.ForeColor = System.Drawing.Color.Black
+        Me.LstSintomas.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None
+        Me.LstSintomas.HideSelection = False
+        Me.LstSintomas.Location = New System.Drawing.Point(28, 122)
+        Me.LstSintomas.MultiSelect = False
+        Me.LstSintomas.Name = "LstSintomas"
+        Me.LstSintomas.Size = New System.Drawing.Size(210, 91)
+        Me.LstSintomas.Sorting = System.Windows.Forms.SortOrder.Ascending
+        Me.LstSintomas.TabIndex = 16
+        Me.LstSintomas.UseCompatibleStateImageBehavior = False
+        Me.LstSintomas.View = System.Windows.Forms.View.List
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Libre Franklin", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(28, 103)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(126, 15)
+        Me.Label2.TabIndex = 17
+        Me.Label2.Text = "Sintomas ingresados"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Libre Franklin", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(28, 219)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(142, 15)
+        Me.Label3.TabIndex = 18
+        Me.Label3.Text = "Enfermedades cronicas"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Libre Franklin", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Location = New System.Drawing.Point(28, 331)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(86, 15)
+        Me.Label4.TabIndex = 19
+        Me.Label4.Text = "Medicaciones"
+        '
         'Frm_Menu
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.BackgroundImage = Global.FrmMedico.My.Resources.Resources.MenuHistoria
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1102, 612)
         Me.ControlBox = False
-        Me.Controls.Add(Me.LblDescripcionVentana)
         Me.Controls.Add(Me.DgvEnEspera)
+        Me.Controls.Add(Me.LblDescripcionVentana)
         Me.Controls.Add(Me.PctMenu)
         Me.Controls.Add(Me.PnlCerrarConversacion)
         Me.Controls.Add(Me.PnlMenu)
@@ -398,8 +457,9 @@ Partial Class Frm_Menu
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frm_Menu"
-        Me.Text = "Menu Medico"
+        Me.Text = "Menu principal"
         CType(Me.DgvEnEspera, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PnlIniciarChat.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -443,4 +503,8 @@ Partial Class Frm_Menu
     Friend WithEvents PnlCerrarConversacion As Panel
     Friend WithEvents PctFinalizarChat As PictureBox
     Friend WithEvents LblDescripcionVentana As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents LstSintomas As ListView
 End Class

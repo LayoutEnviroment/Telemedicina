@@ -115,6 +115,7 @@ Partial Class Frm_Enviar_Recomendaciones
         '
         'RtbMensaje
         '
+        Me.RtbMensaje.Enabled = False
         Me.RtbMensaje.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RtbMensaje.Location = New System.Drawing.Point(96, 265)
         Me.RtbMensaje.Margin = New System.Windows.Forms.Padding(4)
@@ -134,7 +135,6 @@ Partial Class Frm_Enviar_Recomendaciones
         Me.CmbItem.Name = "CmbItem"
         Me.CmbItem.Size = New System.Drawing.Size(160, 24)
         Me.CmbItem.TabIndex = 8
-        Me.CmbItem.Visible = False
         '
         'LblItem
         '
@@ -191,6 +191,7 @@ Partial Class Frm_Enviar_Recomendaciones
         'PctEnviarCorreo
         '
         Me.PctEnviarCorreo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.PctEnviarCorreo.Enabled = False
         Me.PctEnviarCorreo.Image = Global.FrmMedico.My.Resources.Resources.EnviarMensajeBloqueadoFondoClaro
         Me.PctEnviarCorreo.Location = New System.Drawing.Point(440, 452)
         Me.PctEnviarCorreo.Margin = New System.Windows.Forms.Padding(4)
@@ -223,9 +224,11 @@ Partial Class Frm_Enviar_Recomendaciones
         Me.Controls.Add(Me.LblCorreo1)
         Me.Font = New System.Drawing.Font("Libre Franklin", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Frm_Enviar_Recomendaciones"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = " Enviar recomendaciones"
         CType(Me.PctSalir, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PctEnviarCorreo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

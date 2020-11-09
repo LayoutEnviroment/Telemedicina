@@ -10,7 +10,7 @@ Public Class Frm_Iniciar_Chat
             ObtenerDiagnostico()
             CargarTextBoxes(idEnfermedad)
         Catch ex As Exception
-            MsgBox("No pudimos guardar el identificador de la enfermedad")
+            MsgBox("No pudimos guardar el identificador de la enfermedad", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -19,7 +19,7 @@ Public Class Frm_Iniciar_Chat
         Try
             LblId.Text = "ID del diagnóstico " + ControladorDiagnostico.ObtenerID()
         Catch ex As Exception
-            MsgBox("No se pudo obtener un identificador para este diagnóstico")
+            MsgBox("No se pudo obtener un identificador para este diagnóstico", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
             BtnIniciarChat.Enabled = False
         End Try
 
@@ -35,7 +35,7 @@ Public Class Frm_Iniciar_Chat
                 DecidirImagenSegunPrioridad(Lector(1))
             End While
         Catch ex As Exception
-            MsgBox("Error cargando los campos")
+            MsgBox("Error al intentar cargar los campos", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
             TxtDescripcion.Text = "No se pudieron cargar los datos"
         End Try
 
@@ -58,8 +58,7 @@ Public Class Frm_Iniciar_Chat
             Frm_Chat.Show()
 
         Catch ex As Exception
-            'MsgBox(ex.ToString)
-            MsgBox("No pudimos ponerlo en cola de espera")
+            MsgBox("No pudimos ponerlo en cola de espera", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
 
         End Try
 
@@ -85,7 +84,7 @@ Public Class Frm_Iniciar_Chat
     End Sub
 
     Private Sub PctSalir_MouseClick(sender As Object, e As EventArgs) Handles PctSalir.Click
-        Select Case MsgBox("Seguro desea salir, siempre le recomendamos resolver su diagnóstico con un médico", MsgBoxStyle.YesNo)
+        Select Case MsgBox("Seguro desea salir, siempre le recomendamos resolver su diagnóstico con un médico", MsgBoxStyle.YesNo, "Confirmación...")
             Case DialogResult.Yes
                 Me.Dispose()
                 Frm_Menu.Show()

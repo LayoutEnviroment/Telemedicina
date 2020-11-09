@@ -38,9 +38,10 @@ Public Class Frm_Chat
 
         For Each fila As DataRow In mensaje.Rows
             If fila(5).ToString = "Finalizado" Then
-                MsgBox("El doctor a finalizado el chat", MsgBoxStyle.OkOnly)
+                MsgBox("El doctor a finalizado el chat", MsgBoxStyle.OkOnly, "Confirmación...")
                 TerminarChat()
-
+                Me.Close()
+                Frm_Menu.Show()
             Else
                 AgregarMensaje("<p align = 'left' > " + fila(4).ToString + " : " + fila(2).ToString + "</p>", 1)
                 CiMedico = fila(0).ToString
@@ -70,7 +71,7 @@ Public Class Frm_Chat
             AgregarMensaje("<p align = 'right'>" + RtbMensaje.Text + "</p>", 0)
             BtnEnviar.Enabled = False
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("No se pudo enviar el mensaje", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
 
         End Try
 
@@ -90,7 +91,7 @@ Public Class Frm_Chat
             MarcarChatComoFinalizado()
 
         Catch ex As Exception
-            MsgBox("Error finalizar chat paciente" + ex.ToString)
+            MsgBox("Error finalizar chat paciente", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -101,7 +102,7 @@ Public Class Frm_Chat
             MarcarChatComoFinalizado()
 
         Catch ex As Exception
-            MsgBox("Error en finalizar chat" + ex.ToString)
+            MsgBox("Error intentando finalizar el chat", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -110,7 +111,7 @@ Public Class Frm_Chat
         Try
             ControladorChat.MarcarComoFinalizado(IdDiagnostico)
         Catch ex As Exception
-            MsgBox("marcar como finalizado" + ex.ToString)
+            MsgBox("Error al intentar finalizar el chat", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -135,7 +136,7 @@ Public Class Frm_Chat
     End Sub
 
     Private Sub PctSalir_MouseClick(sender As Object, e As EventArgs) Handles PctSalir.Click
-        Select Case MsgBox("¿Seguro quiere salir del chat?", MsgBoxStyle.YesNo)
+        Select Case MsgBox("¿Seguro quiere salir del chat?", MsgBoxStyle.YesNo, "Confirmación...")
             Case MsgBoxResult.Yes
                 If CiMedico <> "" Then
                     FinalizarConMedico()

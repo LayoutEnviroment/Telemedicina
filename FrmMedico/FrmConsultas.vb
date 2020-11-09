@@ -9,7 +9,7 @@ Public Class FrmConsultas
             TablaConsultas.Load(ControladorChat.ObtenerIdFechaMisChat())
             DgvConsultas.DataSource = TablaConsultas
         Catch ex As Exception
-            MsgBox("No se pudo obtener las consultas" + ex.ToString)
+            MsgBox("Error al intentar obtener las consultas", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -83,7 +83,7 @@ Public Class FrmConsultas
             Dim LectorEnfermedades As IDataReader = ControladorPaciente.ObtenerEnfermedades(cedula)
             CargarEnfermedadesCronicas(LectorEnfermedades)
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("Error intentando obtener las enfermedades del paciente", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -101,7 +101,7 @@ Public Class FrmConsultas
             Dim LectorMedicaciones As IDataReader = ControladorPaciente.ObtenerMedicaciones(cedula)
             CargarMedicaciones(LectorMedicaciones)
         Catch ex As Exception
-            MsgBox("No se pudieron obtener las medicaciones")
+            MsgBox("Error intentando obtener las medicaciones del paciente", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -121,7 +121,7 @@ Public Class FrmConsultas
             CargarEnfermedadDiagnosticada(LectorEnfermedad)
             CargarSintomasConsultados(LectorSintomas)
         Catch ex As Exception
-            MsgBox("Error obteniendo datos del diagnostico " + ex.ToString)
+            MsgBox("Error intentando obtener el diagnóstico del paciente", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -147,10 +147,10 @@ Public Class FrmConsultas
         Try
             Lector = ControladorChat.ObtenerMensajesDelDiagnostico(idDiagnostico)
             While Lector.Read
-                RtbChat.Text += Lector(1).ToString + Environment.NewLine
+                RtbChat.Text += Lector(0).ToString + "/ " + Lector(2).ToString + "/ " + Lector(1).ToString + Environment.NewLine
             End While
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("Error al intentar mostrar los mensajes", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub

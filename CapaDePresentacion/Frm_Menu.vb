@@ -38,7 +38,7 @@ Public Class Frm_Menu
             End While
 
         Catch ex As Exception
-            MsgBox("No pudimos cargar los sintomas, intente reiniciar la aplicacion", MsgBoxStyle.Critical)
+            MsgBox("No pudimos cargar los sintomas, intente reiniciar la aplicacion", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
 
         End Try
 
@@ -65,11 +65,11 @@ Public Class Frm_Menu
         Try
             NombreEnfermedad = ControladorCompone.EnfermedadesPosibles(ListaSintomas)
         Catch ex As Exception
-            MsgBox("No se encontró una enfermedad que coincida de manera exacta, se buscará la mas probable", MsgBoxStyle.Information)
+            MsgBox("No se encontró una enfermedad que coincida de manera exacta, se buscará la mas probable", MsgBoxStyle.Information, "Busqueda...")
             Try
                 NombreEnfermedad = ControladorCompone.EnfermedadesPorAproximacion(ListaSintomas)
             Catch ex1 As Exception
-                MsgBox("No pudimos encontrar ninguna enfermedad, intente con mas sintomas", MsgBoxStyle.Information)
+                MsgBox("No pudimos encontrar ninguna enfermedad, intente con mas sintomas", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
             End Try
 
         End Try
@@ -78,8 +78,6 @@ Public Class Frm_Menu
         VolverACargarSintomas()
         LvSintomas.Clear()
         ListaSintomas.Clear()
-        'Frm_Iniciar_Chat.Show()
-        'Me.Dispose()
 
     End Sub
 
@@ -94,8 +92,7 @@ Public Class Frm_Menu
         Try
             ControladorPadece.GuardarSintomasPadecidos(ListaSintomas)
         Catch ex As Exception
-            'MsgBox(ex.ToString())
-            MsgBox("No se pudieron registrar los sintomas padecidos")
+            MsgBox("Error al intentar guardar los síntomas", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
     End Sub
 
@@ -107,8 +104,7 @@ Public Class Frm_Menu
                 RealizarDiagnostico(IdEnfermedad)
 
             Catch ex As Exception
-                'MsgBox("Error obteniendo id enf" + ex.ToString)
-                MsgBox("No se pudo hallar el identificador de la enfermedad")
+                MsgBox("No se pudo hallar el identificador de la enfermedad", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
 
             End Try
         End If
@@ -121,7 +117,7 @@ Public Class Frm_Menu
             Frm_Iniciar_Chat.Show()
             Me.Dispose()
         Catch ex As Exception
-            MsgBox("No se pudo realizar un diagnostico")
+            MsgBox("No se pudo realizar un diagnóstico", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -177,7 +173,7 @@ Public Class Frm_Menu
 
     Private Sub ModificarAdvertencia()
         If LvSintomas.Items.Count() < 3 Then
-            LblAdvertencia.Text = "La cantidad de sintomas es muy baja," + vbCrLf + "la enfermedad resultante será poco precisa"
+            LblAdvertencia.Text = "La cantidad de síntomas es muy baja," + vbCrLf + "la enfermedad resultante será poco precisa"
         Else
             LblAdvertencia.Text = ""
         End If

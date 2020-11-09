@@ -21,55 +21,60 @@ Public Class FrmSintomasCsv
     End Sub
 
     Private Sub PctAceptar_Click(sender As Object, e As EventArgs) Handles PctAceptar.Click
-        Using Archivo As New Microsoft.VisualBasic.FileIO.TextFieldParser(TxtRuta.Text)
-            Archivo.TextFieldType = FileIO.FieldType.Delimited
-            Archivo.SetDelimiters(",")
+        Try
+            Using Archivo As New Microsoft.VisualBasic.FileIO.TextFieldParser(TxtRuta.Text)
+                Archivo.TextFieldType = FileIO.FieldType.Delimited
+                Archivo.SetDelimiters(",")
 
-            Dim Fila As String()
-            Sintomas.Clear()
+                Dim Fila As String()
+                Sintomas.Clear()
 
-            If CbxHeader.Checked = False Then
-                Using Archivo
+                If CbxHeader.Checked = False Then
+                    Using Archivo
+                        While Not Archivo.EndOfData
+                            Fila = Archivo.ReadFields()
+                            Dim Campo As String
+                            For Each Campo In Fila
+                                Try
+                                    ControladorSintoma.CrearSintoma(Campo)
+                                Catch ex As Exception
+
+                                End Try
+                            Next
+
+                        End While
+
+                    End Using
+
+                Else
+                    Dim Pos As Integer = 0
+
                     While Not Archivo.EndOfData
+
                         Fila = Archivo.ReadFields()
                         Dim Campo As String
                         For Each Campo In Fila
-                            Try
-                                ControladorSintoma.CrearSintoma(Campo)
-                            Catch ex As Exception
+                            If Pos = 0 Then
+                                Pos = 1
+                            Else
+                                Try
+                                    ControladorSintoma.CrearSintoma(Campo)
+                                Catch ex As Exception
 
-                            End Try
+                                End Try
+                            End If
                         Next
 
                     End While
 
-                End Using
+                End If
+                MsgBox("Fin del archivo!", MsgBoxStyle.Information, "Finalizado")
+                Limpiar()
+            End Using
+        Catch ex As Exception
+            MsgBox("No se pudo cargar el archivo", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
+        End Try
 
-            Else
-                Dim Pos As Integer = 0
-
-                While Not Archivo.EndOfData
-
-                    Fila = Archivo.ReadFields()
-                    Dim Campo As String
-                    For Each Campo In Fila
-                        If Pos = 0 Then
-                            Pos = 1
-                        Else
-                            Try
-                                ControladorSintoma.CrearSintoma(Campo)
-                            Catch ex As Exception
-
-                            End Try
-                        End If
-                    Next
-
-                End While
-
-            End If
-            MsgBox("Fin del archivo!")
-            Limpiar()
-        End Using
 
     End Sub
 
@@ -116,4 +121,5 @@ Public Class FrmSintomasCsv
         PctSalir.Image = My.Resources.Salir1
 
     End Sub
+
 End Class

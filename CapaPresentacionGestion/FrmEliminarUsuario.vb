@@ -18,7 +18,7 @@ Public Class FrmEliminarUsuario
             LectorCedula = ControladorUsuario.ObtenerTodasLasCedulas()
             CargarCedulas(LectorCedula)
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("Error al intentar cargar las cedulas", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
     End Sub
 
@@ -31,7 +31,6 @@ Public Class FrmEliminarUsuario
     End Sub
 
     Private Sub CmbCI_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbCI.SelectedIndexChanged
-        Limpiar()
         ObtenerDatosPersona()
         EsPaciente()
         EsMedico()
@@ -47,7 +46,7 @@ Public Class FrmEliminarUsuario
             DatosPersona = ControladorUsuario.ObtenerNombreApellidoMail(CmbCI.SelectedItem.ToString())
             CargarDatos(DatosPersona)
         Catch ex As Exception
-            MsgBox("No se pudieron obtener los datos")
+            MsgBox("Error al intentar obtener los datos", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -63,41 +62,57 @@ Public Class FrmEliminarUsuario
     End Sub
 
     Private Sub EsPaciente()
-        If ControladorUsuario.ExisteRol(CmbCI.SelectedItem.ToString, 1) = 1 Then
-            rol(0) = True
-            ChbPaciente.Checked = True
-            ChbPaciente.Enabled = True
-        Else
-            rol(0) = False
-            ChbPaciente.Checked = False
-            ChbPaciente.Enabled = False
-        End If
+        Try
+            If ControladorUsuario.ExisteRol(CmbCI.SelectedItem.ToString, 1) = 1 Then
+                rol(0) = True
+                ChbPaciente.Checked = True
+                ChbPaciente.Enabled = True
+            Else
+                rol(0) = False
+                ChbPaciente.Checked = False
+                ChbPaciente.Enabled = False
+            End If
+        Catch ex As Exception
+            MsgBox("No pudimos resolver si el usuario es paciente", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
+        End Try
+
 
     End Sub
 
     Private Sub EsMedico()
-        If ControladorUsuario.ExisteRol(CmbCI.SelectedItem.ToString, 2) = 1 Then
-            rol(1) = True
-            ChbMedico.Checked = True
-            ChbMedico.Enabled = True
-        Else
-            rol(1) = False
-            ChbMedico.Checked = False
-            ChbMedico.Enabled = False
-        End If
+        Try
+            If ControladorUsuario.ExisteRol(CmbCI.SelectedItem.ToString, 2) = 1 Then
+                rol(1) = True
+                ChbMedico.Checked = True
+                ChbMedico.Enabled = True
+            Else
+                rol(1) = False
+                ChbMedico.Checked = False
+                ChbMedico.Enabled = False
+            End If
+        Catch ex As Exception
+            MsgBox("No pudimos resolver si el usuario es médico", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
+        End Try
+
 
     End Sub
 
     Private Sub EsAdministrativo()
-        If ControladorUsuario.ExisteRol(CmbCI.SelectedItem.ToString, 3) = 1 Then
-            rol(2) = True
-            ChbAdministrador.Checked = True
-            ChbAdministrador.Enabled = True
-        Else
-            rol(2) = False
-            ChbAdministrador.Checked = False
-            ChbAdministrador.Enabled = False
-        End If
+        Try
+            If ControladorUsuario.ExisteRol(CmbCI.SelectedItem.ToString, 3) = 1 Then
+                rol(2) = True
+                ChbAdministrador.Checked = True
+                ChbAdministrador.Enabled = True
+            Else
+                rol(2) = False
+                ChbAdministrador.Checked = False
+                ChbAdministrador.Enabled = False
+            End If
+        Catch ex As Exception
+            MsgBox("No pudimos resolver si el usuario es administrativo", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
+        End Try
+
+
 
     End Sub
 
@@ -130,21 +145,24 @@ Public Class FrmEliminarUsuario
     Private Sub HabilitarEliminar()
         If ChbAdministrador.Checked = Not rol(2) Or ChbMedico.Checked = Not rol(1) Or ChbPaciente.Checked = Not rol(0) Then
             PctAceptar.Enabled = True
+            PctRefrescar.Enabled = True
         Else
             PctAceptar.Enabled = False
+            PctRefrescar.Enabled = False
         End If
 
     End Sub
 
     Private Sub PctAceptar_Click(sender As Object, e As EventArgs) Handles PctAceptar.Click
         Try
-            Select Case MsgBox(MensajeDeConfirmacion(), MsgBoxStyle.YesNo)
+            Select Case MsgBox(MensajeDeConfirmacion(), MsgBoxStyle.YesNo, "Confirmación")
                 Case DialogResult.Yes
                     Try
                         ControladorUsuario.EliminarPersona(CmbCI.SelectedItem, RolesAEliminar, EliminarPersona)
+                        MsgBox("Eliminación exitosa!", MsgBoxStyle.Information, "Elimincación usuario")
                         Limpiar()
                     Catch ex As Exception
-                        MsgBox("No se puede eliminar al usuario", MsgBoxStyle.Critical)
+                        MsgBox("Error al intentar eliminar al usuario", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
                     End Try
 
                 Case DialogResult.No
@@ -200,6 +218,8 @@ Public Class FrmEliminarUsuario
         ChbMedico.Enabled = False
         ChbAdministrador.Enabled = False
         PctAceptar.Enabled = False
+        PctRefrescar.Enabled = False
+        'ObtenerCedulas()
 
     End Sub
 
@@ -238,7 +258,7 @@ Public Class FrmEliminarUsuario
     End Sub
 
     Private Sub PctRefrescar_MouseEnter(sender As Object, e As EventArgs) Handles PctRefrescar.MouseEnter
-        PctRefrescar.Image = My.Resources.Refrescar
+        PctRefrescar.Image = My.Resources.RefreshEnter
 
     End Sub
 

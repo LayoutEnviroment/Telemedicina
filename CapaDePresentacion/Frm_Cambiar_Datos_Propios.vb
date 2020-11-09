@@ -29,7 +29,7 @@ Public Class Frm_Cambiar_Datos_Propios
             Lector = ControladorPaciente.ObtenerTodo()
             CargarTextBoxes(Lector)
         Catch ex As Exception
-            MsgBox("No se pudieron obtener sus datos")
+            MsgBox("Error al intentar obtener sus datos", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -62,7 +62,7 @@ Public Class Frm_Cambiar_Datos_Propios
             Lector = ControladorPaciente.ObtenerMedicaciones()
             CargarListaMedicaciones(Lector)
         Catch ex As Exception
-            MsgBox("No se pudieron obtener sus medicaciones")
+            MsgBox("Error al intentar obtener sus medicaciónes", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -81,7 +81,7 @@ Public Class Frm_Cambiar_Datos_Propios
             Lector = ControladorPaciente.ObtenerEnfermedades()
             CargarListaEnfermedades(Lector)
         Catch ex As Exception
-            MsgBox("No se pudieron obtene sus enfermedades")
+            MsgBox("Error al intentar obtener sus enfermedades", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -268,7 +268,7 @@ Public Class Frm_Cambiar_Datos_Propios
                                              Medicaciones)
             MsgBox("Cambios realizados con exito!", MsgBoxStyle.Information, "Cambio de usuario")
         Catch ex As Exception
-            MsgBox("No se pudieron actualizar sus datos")
+            MsgBox("Error al intentar actualizar sus datos", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -364,8 +364,5 @@ Public Class Frm_Cambiar_Datos_Propios
         PctAgregarMedicacion.Image = My.Resources.AddCircularVerdeOscuro
 
     End Sub
-
-
-
 
 End Class

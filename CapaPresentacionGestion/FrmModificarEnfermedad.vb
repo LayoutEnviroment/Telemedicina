@@ -123,12 +123,12 @@ Public Class FrmModificarEnfermedad
 
     End Sub
 
-    Private Sub CmbSintomas_SelectedIndexChanged(sender As Object, e As EventArgs)
+    Private Sub CmbSintomas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbSintomas.SelectedIndexChanged
         PctAgregarSintoma.Enabled = True
 
     End Sub
 
-    Private Sub LstSintomas_SelectedIndexChanged(sender As Object, e As EventArgs)
+    Private Sub LstSintomas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstSintomas.SelectedIndexChanged
         PctEliminarSintoma.Enabled = True
 
     End Sub
@@ -204,6 +204,7 @@ Public Class FrmModificarEnfermedad
             LimpiarEnfermedad()
         End If
         CmbPrioridad.Text = ""
+        PctCancelar.Enabled = False
         TxtDescripcion.Enabled = False
         TxtNombre.Enabled = False
         CmbPrioridad.Enabled = False
@@ -270,14 +271,14 @@ Public Class FrmModificarEnfermedad
 
     End Sub
 
-    Private Sub PctEliminarSintoma_Click(sender As Object, e As EventArgs)
+    Private Sub PctEliminarSintoma_Click(sender As Object, e As EventArgs) Handles PctEliminarSintoma.Click
         CmbSintomas.Items.Add(LstSintomas.Items(LstSintomas.SelectedIndices(0)).Text)
         LstSintomas.Items.RemoveAt(LstSintomas.SelectedIndices(0))
         PctEliminarSintoma.Enabled = False
 
     End Sub
 
-    Private Sub PctAgregarSintoma_Click(sender As Object, e As EventArgs)
+    Private Sub PctAgregarSintoma_Click(sender As Object, e As EventArgs) Handles PctAgregarSintoma.Click
         Dim index As Integer = CmbSintomas.SelectedIndex
         LstSintomas.Items.Add(CmbSintomas.Items(index))
         CmbSintomas.Items.RemoveAt(index)

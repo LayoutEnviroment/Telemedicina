@@ -10,8 +10,7 @@ Public Class Frm_Consultas
             Diagnosticos.Load(ControladorDiagnostico.TodosMisDiagnosticos())
             DgvDiagnosticos.DataSource = Diagnosticos
         Catch ex As Exception
-            'MsgBox(ex.ToString)
-            MsgBox("No pudimos cargar sus diagnosticos")
+            MsgBox("No pudimos obtener sus diagnósticos", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
     End Sub
 
@@ -40,7 +39,7 @@ Public Class Frm_Consultas
             End While
 
         Catch ex As Exception
-            MsgBox("No se pudo obtener la enfermedad para este diagnostico" + ex.ToString)
+            MsgBox("No se pudo obtener la enfermedad para este diagnóstico", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
 
         End Try
 
@@ -53,7 +52,7 @@ Public Class Frm_Consultas
             DgvSintomas.DataSource = Sintomas
 
         Catch ex As Exception
-            MsgBox("No se pudieron obtener los sintomas para este diagnostico" + ex.ToString)
+            MsgBox("No se pudieron obtener los síntomas para este diagnóstico", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
 
         End Try
 
@@ -72,7 +71,7 @@ Public Class Frm_Consultas
             End If
 
         Catch ex As Exception
-            MsgBox("Error en el existen mensajes" + ex.ToString)
+            MsgBox("No pudimos averiguar si existen mensajes para este diagnóstico", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
     End Sub
 
@@ -86,7 +85,7 @@ Public Class Frm_Consultas
             End While
 
         Catch ex As Exception
-            MsgBox("No se pudo cargar al medico" + ex.ToString)
+            MsgBox("No se pudo cargar al médico", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -96,8 +95,7 @@ Public Class Frm_Consultas
         Try
             Lector = ControladorChat.ObtenerMensajesDelDiagnostico(idDiagnostico)
             While Lector.Read
-
-                RtbChat.Text += Lector(1).ToString + Environment.NewLine
+                RtbChat.Text += Lector(0).ToString + "/ " + Lector(0).ToString + "/ " + Lector(1).ToString + Environment.NewLine
             End While
         Catch ex As Exception
 

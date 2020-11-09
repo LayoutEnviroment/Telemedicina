@@ -25,7 +25,7 @@ Public Class Frm_Menu
             TmrBuscarChats.Start()
             GuardarMisDatos(LectorDatos)
         Catch ex As Exception
-            MsgBox("Error al setear las credenciales" + ex.ToString)
+            MsgBox("Error al intentar obtener mis datos", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
 
         End Try
 
@@ -89,10 +89,10 @@ Public Class Frm_Menu
             AgregarMensajes("<p>Chat iniciado con el paciente " + ControladorUsuario.ObtenerNombre(Ci) + "</p>", 0)
             DgvEnEspera.Enabled = False
             EmpezarChat()
-            TraerInformacionPaciente(Ci)
+            ObtenerDatosPaciente(Id, Ci)
             TmrBuscarChats.Stop()
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("No se pudo aceptar está solicitud, si el error persiste comuniquese con su administrador", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -108,25 +108,75 @@ Public Class Frm_Menu
         BtnEnviar.Enabled = estado
         BtnIniciarChat.Enabled = estado
         DgvEnEspera.Enabled = Not estado
+        LstSintomas.Clear()
         LstEnfermedades.Clear()
         LstMedicaciones.Clear()
 
     End Sub
 
-    Private Sub TraerInformacionPaciente(CedulaPaciente As String)
-        Dim LectorDatos, LectorEnfermedades, LectorMedicaciones As IDataReader
+    Private Sub ObtenerDatosPaciente(Identificador As String, CedulaPaciente As String)
         Try
-            LectorDatos = ControladorPaciente.ObtenerTodo(CedulaPaciente)
-            LectorEnfermedades = ControladorPaciente.ObtenerEnfermedades(CedulaPaciente)
-            LectorMedicaciones = ControladorPaciente.ObtenerMedicaciones(CedulaPaciente)
-            CargarLabelsPaciente(LectorDatos)
-            CargarListaEnfermedades(LectorEnfermedades)
-            CargarListaMedicaciones(LectorMedicaciones)
+            ObtenerDatosPersonales(CedulaPaciente)
+            ObtenerEnfermedadesPaciente(CedulaPaciente)
+            ObtenerMedicacionesPaciente(CedulaPaciente)
+            ObtenerSintomasIngresados(Identificador)
+            ObtenerEnfermedadDiagnosticada(Identificador)
             MostrarDatosPaciente(True)
+        Catch ex As Exception
+            MsgBox("Error al intentar obtener los datos del paciente", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
+        End Try
+
+    End Sub
+
+    Private Sub ObtenerDatosPersonales(cedula As String)
+        Dim LectorDatos As IDataReader
+        Try
+            LectorDatos = ControladorPaciente.ObtenerTodo(cedula)
+            CargarLabelsPaciente(LectorDatos)
+        Catch ex As Exception
+            MsgBox("Error al intentar obtener los datos personales del paciente", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
+        End Try
+
+    End Sub
+
+    Private Sub ObtenerEnfermedadesPaciente(cedula As String)
+        Dim LectorEnfermedades As IDataReader
+        Try
+            LectorEnfermedades = ControladorPaciente.ObtenerEnfermedades(cedula)
+            CargarListaEnfermedades(LectorEnfermedades)
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
 
+    End Sub
+
+    Private Sub ObtenerMedicacionesPaciente(cedula As String)
+        Dim LectorMedicaciones As IDataReader
+        Try
+            LectorMedicaciones = ControladorPaciente.ObtenerMedicaciones(cedula)
+            CargarListaMedicaciones(LectorMedicaciones)
+        Catch ex As Exception
+            MsgBox("Error al intentar obtener las medicaciones del paciente", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
+        End Try
+
+    End Sub
+
+    Private Sub ObtenerSintomasIngresados(cedula As String)
+        Dim LectorSintomas As IDataReader
+        Try
+            LectorSintomas = ControladorGenera.ObtenerNombreSintomas(cedula)
+            CargarListaSintomasIngresados(LectorSintomas)
+        Catch ex As Exception
+            MsgBox("Error al intentar obtener los sintomas ingresados por el paciente", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
+        End Try
+    End Sub
+
+    Private Sub ObtenerEnfermedadDiagnosticada(id As String)
+        Try
+            LblDescripcionVentana.Text = ControladorGenera.ObtenerNombreEnfermedad(IdDiagnostico)
+        Catch ex As Exception
+            MsgBox("Error al intentar obtener la enfermedad del diagnostico", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
+        End Try
     End Sub
 
     Private Sub CargarLabelsPaciente(Lector As IDataReader)
@@ -157,11 +207,19 @@ Public Class Frm_Menu
         While Enfermedades.Read
             LstEnfermedades.Items.Add(Enfermedades(0).ToString)
         End While
+
     End Sub
 
     Private Sub CargarListaMedicaciones(Medicaciones As IDataReader)
         While Medicaciones.Read
             LstMedicaciones.Items.Add(Medicaciones(0).ToString)
+        End While
+
+    End Sub
+
+    Private Sub CargarListaSintomasIngresados(Sintomas As IDataReader)
+        While Sintomas.Read
+            LstSintomas.Items.Add(Sintomas(0).ToString)
         End While
 
     End Sub
@@ -187,7 +245,7 @@ Public Class Frm_Menu
             DgvEnEspera.DataSource = Tabla
 
         Catch ex As Exception
-            MsgBox("No se pudieron encontrar solicitudes")
+            MsgBox("Error al intentar buscar solicitudes", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
@@ -199,7 +257,7 @@ Public Class Frm_Menu
             AgregarChat(Tabla)
 
         Catch ex As Exception
-            MsgBox("Error buscando mensajes")
+            MsgBox("Error al intentar buscar mensajes", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
 
         End Try
 
@@ -215,7 +273,7 @@ Public Class Frm_Menu
                         AgregarMensajes("<p align = 'right'>" + ControladorUsuario.ObtenerNombre(fila(1).ToString) + ": " + fila(2).ToString + "</p>", 1)
 
                     ElseIf fila(5).ToString = "Finalizado" Then
-                        MsgBox("El paciente se ha desconectado")
+                        MsgBox("El paciente se ha desconectado", MsgBoxStyle.Information, "Fin de la conversación")
                         Threading.Thread.Sleep(1000)
                         FinalizarConversacion()
                         CambiosVisuales()
@@ -228,7 +286,7 @@ Public Class Frm_Menu
             End If
 
         Catch ex As Exception
-            MsgBox("Error en la conexion del chat" + ex.ToString)
+            MsgBox("Error al intentar recibir los mensajes", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
 
         End Try
 
@@ -240,7 +298,7 @@ Public Class Frm_Menu
             AgregarMensajes("<p align = 'left'> Yo: " + RtbMensaje.Text + "</p>", 1)
             BtnEnviar.Enabled = False
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("No se puede enviar el mensaje", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
 
         End Try
 
@@ -273,7 +331,7 @@ Public Class Frm_Menu
     End Sub
 
     Private Sub PctFinalizarChat_Click(sender As Object, e As EventArgs) Handles PctFinalizarChat.Click
-        Select Case MsgBox("Seguro desea finalizar el chat?", MsgBoxStyle.YesNo, "caption")
+        Select Case MsgBox("Seguro desea finalizar el chat?", MsgBoxStyle.YesNo, "Fin de la conversación")
             Case MsgBoxResult.Yes
                 CambiosVisuales()
                 FinalizarConversacion()
@@ -297,7 +355,7 @@ Public Class Frm_Menu
             ControladorChat.FinalizarChatMedico(IdDiagnostico, CiPaciente)
             ControladorChat.MarcarComoFinalizado(IdDiagnostico)
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("Error al intentar terminar la conversación", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
         ReinicioDeBusqueda()
 

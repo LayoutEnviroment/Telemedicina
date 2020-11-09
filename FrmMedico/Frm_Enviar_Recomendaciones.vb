@@ -15,36 +15,39 @@ Public Class Frm_Enviar_Recomendaciones
         Try
             Correo = ControladorUsuario.ObtenerCorreo()
         Catch ex As Exception
-            MsgBox("No se pudo obtener el correo")
+            MsgBox("Error al intentar obtener su correo", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
         End Try
 
     End Sub
 
     Private Sub CmbAcciones_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbAcciones.SelectedIndexChanged
-        If CmbAcciones.SelectedItem = "Agregar" Then
-            CmbItem.Visible = False
-            LblItem.Visible = False
-        Else
-            CmbItem.Visible = True
-            LblItem.Visible = True
-        End If
         CmbSobre.Enabled = True
         VerificarCmb()
     End Sub
 
     Private Sub CmbSobre_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbSobre.SelectedIndexChanged
-        VerificarCmb()
+        If CmbAcciones.Text = "Agregar" Then
+            RtbMensaje.Enabled = True
+        Else
+            RtbMensaje.Enabled = False
+        End If
+
     End Sub
 
     Private Sub VerificarCmb()
         If CmbAcciones.Text = "Modificar" Or CmbAcciones.Text = "Eliminar" Then
+            CmbItem.Enabled = True
             If CmbSobre.Text = "Sintoma" Then
                 CargarSintomas()
             ElseIf CmbSobre.Text = "Enfermedad" Then
                 CargarEnfermedades()
-
             End If
+        Else
+            CmbItem.Enabled = False
+            RtbMensaje.Enabled = False
+
         End If
+
     End Sub
 
     Private Sub HabilitarCmbItems()
@@ -113,10 +116,10 @@ Public Class Frm_Enviar_Recomendaciones
 
         Try
             smtp.Send(Correo)
-            MsgBox("Mensaje enviado")
+            MsgBox("Mensaje enviado con éxito!", MsgBoxStyle.Information, "Enviado...")
         Catch ex As Exception
             If ex.HResult = "-2146233088" Then
-                MsgBox("No pudimos enviar el mensaje")
+                MsgBox("No pudimos enviar el correo", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
             Else
 
             End If
@@ -133,7 +136,6 @@ Public Class Frm_Enviar_Recomendaciones
         Else
             Asunto = CmbAcciones.Text + " " + CmbSobre.Text + " " + CmbItem.Text
         End If
-        MsgBox(Asunto)
         Return Asunto
     End Function
 
@@ -144,7 +146,7 @@ Public Class Frm_Enviar_Recomendaciones
             CargarDatosMedico(LectorDatos)
 
         Catch ex As Exception
-            MsgBox("Error al obtener los datos del medico" + ex.ToString)
+            MsgBox("Error al intentar obtener sus datos", MsgBoxStyle.Critical, "Algo salió mal (✖╭╮✖)")
 
         End Try
 
@@ -198,4 +200,8 @@ Public Class Frm_Enviar_Recomendaciones
 
     End Sub
 
+    Private Sub CmbItem_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbItem.SelectedIndexChanged
+        RtbMensaje.Enabled = True
+
+    End Sub
 End Class

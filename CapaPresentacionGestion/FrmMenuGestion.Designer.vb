@@ -22,6 +22,7 @@ Partial Class FrmMenuGestion
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMenuGestion))
         Me.FlpSintomas = New System.Windows.Forms.FlowLayoutPanel()
         Me.PnlAdd = New System.Windows.Forms.Panel()
         Me.LblAddSin = New System.Windows.Forms.Label()
@@ -98,39 +99,35 @@ Partial Class FrmMenuGestion
         Me.FlpSintomas.Controls.Add(Me.PnlDel)
         Me.FlpSintomas.Controls.Add(Me.PnlMod)
         Me.FlpSintomas.Controls.Add(Me.Panel1)
-        Me.FlpSintomas.Location = New System.Drawing.Point(64, 151)
-        Me.FlpSintomas.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.FlpSintomas.Location = New System.Drawing.Point(43, 98)
         Me.FlpSintomas.Name = "FlpSintomas"
-        Me.FlpSintomas.Size = New System.Drawing.Size(603, 128)
+        Me.FlpSintomas.Size = New System.Drawing.Size(402, 83)
         Me.FlpSintomas.TabIndex = 7
         '
         'PnlAdd
         '
         Me.PnlAdd.Controls.Add(Me.LblAddSin)
         Me.PnlAdd.Controls.Add(Me.PctAdd)
-        Me.PnlAdd.Location = New System.Drawing.Point(4, 5)
-        Me.PnlAdd.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PnlAdd.Location = New System.Drawing.Point(3, 3)
         Me.PnlAdd.Name = "PnlAdd"
-        Me.PnlAdd.Size = New System.Drawing.Size(110, 111)
+        Me.PnlAdd.Size = New System.Drawing.Size(73, 72)
         Me.PnlAdd.TabIndex = 0
         '
         'LblAddSin
         '
         Me.LblAddSin.AutoSize = True
         Me.LblAddSin.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblAddSin.Location = New System.Drawing.Point(112, 31)
-        Me.LblAddSin.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblAddSin.Location = New System.Drawing.Point(75, 20)
         Me.LblAddSin.Name = "LblAddSin"
-        Me.LblAddSin.Size = New System.Drawing.Size(0, 25)
+        Me.LblAddSin.Size = New System.Drawing.Size(0, 16)
         Me.LblAddSin.TabIndex = 1
         '
         'PctAdd
         '
         Me.PctAdd.Image = Global.CapaPresentacionGestion.My.Resources.Resources.AgregarCircular
-        Me.PctAdd.Location = New System.Drawing.Point(4, 5)
-        Me.PctAdd.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PctAdd.Location = New System.Drawing.Point(3, 3)
         Me.PctAdd.Name = "PctAdd"
-        Me.PctAdd.Size = New System.Drawing.Size(99, 102)
+        Me.PctAdd.Size = New System.Drawing.Size(66, 66)
         Me.PctAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PctAdd.TabIndex = 0
         Me.PctAdd.TabStop = False
@@ -139,29 +136,26 @@ Partial Class FrmMenuGestion
         '
         Me.PnlDel.Controls.Add(Me.LblDelSin)
         Me.PnlDel.Controls.Add(Me.PctDel)
-        Me.PnlDel.Location = New System.Drawing.Point(122, 5)
-        Me.PnlDel.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PnlDel.Location = New System.Drawing.Point(82, 3)
         Me.PnlDel.Name = "PnlDel"
-        Me.PnlDel.Size = New System.Drawing.Size(114, 111)
+        Me.PnlDel.Size = New System.Drawing.Size(76, 72)
         Me.PnlDel.TabIndex = 1
         '
         'LblDelSin
         '
         Me.LblDelSin.AutoSize = True
         Me.LblDelSin.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblDelSin.Location = New System.Drawing.Point(114, 31)
-        Me.LblDelSin.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblDelSin.Location = New System.Drawing.Point(76, 20)
         Me.LblDelSin.Name = "LblDelSin"
-        Me.LblDelSin.Size = New System.Drawing.Size(0, 25)
+        Me.LblDelSin.Size = New System.Drawing.Size(0, 16)
         Me.LblDelSin.TabIndex = 2
         '
         'PctDel
         '
         Me.PctDel.Image = Global.CapaPresentacionGestion.My.Resources.Resources.EliminarCircular
-        Me.PctDel.Location = New System.Drawing.Point(4, 5)
-        Me.PctDel.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PctDel.Location = New System.Drawing.Point(3, 3)
         Me.PctDel.Name = "PctDel"
-        Me.PctDel.Size = New System.Drawing.Size(104, 103)
+        Me.PctDel.Size = New System.Drawing.Size(69, 67)
         Me.PctDel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PctDel.TabIndex = 0
         Me.PctDel.TabStop = False
@@ -170,29 +164,26 @@ Partial Class FrmMenuGestion
         '
         Me.PnlMod.Controls.Add(Me.LblModSin)
         Me.PnlMod.Controls.Add(Me.PctMod)
-        Me.PnlMod.Location = New System.Drawing.Point(244, 5)
-        Me.PnlMod.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PnlMod.Location = New System.Drawing.Point(164, 3)
         Me.PnlMod.Name = "PnlMod"
-        Me.PnlMod.Size = New System.Drawing.Size(114, 111)
+        Me.PnlMod.Size = New System.Drawing.Size(76, 72)
         Me.PnlMod.TabIndex = 1
         '
         'LblModSin
         '
         Me.LblModSin.AutoSize = True
         Me.LblModSin.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblModSin.Location = New System.Drawing.Point(116, 31)
-        Me.LblModSin.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblModSin.Location = New System.Drawing.Point(77, 20)
         Me.LblModSin.Name = "LblModSin"
-        Me.LblModSin.Size = New System.Drawing.Size(0, 25)
+        Me.LblModSin.Size = New System.Drawing.Size(0, 16)
         Me.LblModSin.TabIndex = 2
         '
         'PctMod
         '
         Me.PctMod.Image = Global.CapaPresentacionGestion.My.Resources.Resources.ModificarCircular
-        Me.PctMod.Location = New System.Drawing.Point(4, 5)
-        Me.PctMod.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PctMod.Location = New System.Drawing.Point(3, 3)
         Me.PctMod.Name = "PctMod"
-        Me.PctMod.Size = New System.Drawing.Size(104, 103)
+        Me.PctMod.Size = New System.Drawing.Size(69, 67)
         Me.PctMod.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PctMod.TabIndex = 0
         Me.PctMod.TabStop = False
@@ -200,10 +191,9 @@ Partial Class FrmMenuGestion
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Location = New System.Drawing.Point(366, 5)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Panel1.Location = New System.Drawing.Point(246, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(226, 111)
+        Me.Panel1.Size = New System.Drawing.Size(151, 72)
         Me.Panel1.TabIndex = 2
         '
         'Label1
@@ -212,10 +202,9 @@ Partial Class FrmMenuGestion
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(16, 42)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(11, 27)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(137, 33)
+        Me.Label1.Size = New System.Drawing.Size(87, 24)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Sintomas"
         '
@@ -224,10 +213,9 @@ Partial Class FrmMenuGestion
         Me.PctSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.PctSalir.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PctSalir.Image = Global.CapaPresentacionGestion.My.Resources.Resources.Salir1
-        Me.PctSalir.Location = New System.Drawing.Point(1117, 0)
-        Me.PctSalir.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PctSalir.Location = New System.Drawing.Point(526, 0)
         Me.PctSalir.Name = "PctSalir"
-        Me.PctSalir.Size = New System.Drawing.Size(80, 76)
+        Me.PctSalir.Size = New System.Drawing.Size(53, 49)
         Me.PctSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PctSalir.TabIndex = 8
         Me.PctSalir.TabStop = False
@@ -239,39 +227,35 @@ Partial Class FrmMenuGestion
         Me.FlpEnfermedades.Controls.Add(Me.PnlDelEnf)
         Me.FlpEnfermedades.Controls.Add(Me.PnlModEnf)
         Me.FlpEnfermedades.Controls.Add(Me.Panel5)
-        Me.FlpEnfermedades.Location = New System.Drawing.Point(64, 317)
-        Me.FlpEnfermedades.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.FlpEnfermedades.Location = New System.Drawing.Point(43, 206)
         Me.FlpEnfermedades.Name = "FlpEnfermedades"
-        Me.FlpEnfermedades.Size = New System.Drawing.Size(603, 128)
+        Me.FlpEnfermedades.Size = New System.Drawing.Size(402, 83)
         Me.FlpEnfermedades.TabIndex = 8
         '
         'PnlAddEnf
         '
         Me.PnlAddEnf.Controls.Add(Me.LblAddEnf)
         Me.PnlAddEnf.Controls.Add(Me.PctAddEnf)
-        Me.PnlAddEnf.Location = New System.Drawing.Point(4, 5)
-        Me.PnlAddEnf.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PnlAddEnf.Location = New System.Drawing.Point(3, 3)
         Me.PnlAddEnf.Name = "PnlAddEnf"
-        Me.PnlAddEnf.Size = New System.Drawing.Size(110, 111)
+        Me.PnlAddEnf.Size = New System.Drawing.Size(73, 72)
         Me.PnlAddEnf.TabIndex = 0
         '
         'LblAddEnf
         '
         Me.LblAddEnf.AutoSize = True
         Me.LblAddEnf.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblAddEnf.Location = New System.Drawing.Point(112, 31)
-        Me.LblAddEnf.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblAddEnf.Location = New System.Drawing.Point(75, 20)
         Me.LblAddEnf.Name = "LblAddEnf"
-        Me.LblAddEnf.Size = New System.Drawing.Size(0, 25)
+        Me.LblAddEnf.Size = New System.Drawing.Size(0, 16)
         Me.LblAddEnf.TabIndex = 1
         '
         'PctAddEnf
         '
         Me.PctAddEnf.Image = Global.CapaPresentacionGestion.My.Resources.Resources.AgregarCircular
-        Me.PctAddEnf.Location = New System.Drawing.Point(4, 5)
-        Me.PctAddEnf.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PctAddEnf.Location = New System.Drawing.Point(3, 3)
         Me.PctAddEnf.Name = "PctAddEnf"
-        Me.PctAddEnf.Size = New System.Drawing.Size(99, 102)
+        Me.PctAddEnf.Size = New System.Drawing.Size(66, 66)
         Me.PctAddEnf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PctAddEnf.TabIndex = 0
         Me.PctAddEnf.TabStop = False
@@ -280,29 +264,26 @@ Partial Class FrmMenuGestion
         '
         Me.PnlDelEnf.Controls.Add(Me.LblDelEnf)
         Me.PnlDelEnf.Controls.Add(Me.PctDelEnf)
-        Me.PnlDelEnf.Location = New System.Drawing.Point(122, 5)
-        Me.PnlDelEnf.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PnlDelEnf.Location = New System.Drawing.Point(82, 3)
         Me.PnlDelEnf.Name = "PnlDelEnf"
-        Me.PnlDelEnf.Size = New System.Drawing.Size(114, 111)
+        Me.PnlDelEnf.Size = New System.Drawing.Size(76, 72)
         Me.PnlDelEnf.TabIndex = 1
         '
         'LblDelEnf
         '
         Me.LblDelEnf.AutoSize = True
         Me.LblDelEnf.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblDelEnf.Location = New System.Drawing.Point(114, 31)
-        Me.LblDelEnf.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblDelEnf.Location = New System.Drawing.Point(76, 20)
         Me.LblDelEnf.Name = "LblDelEnf"
-        Me.LblDelEnf.Size = New System.Drawing.Size(0, 25)
+        Me.LblDelEnf.Size = New System.Drawing.Size(0, 16)
         Me.LblDelEnf.TabIndex = 2
         '
         'PctDelEnf
         '
         Me.PctDelEnf.Image = Global.CapaPresentacionGestion.My.Resources.Resources.EliminarCircular
-        Me.PctDelEnf.Location = New System.Drawing.Point(4, 5)
-        Me.PctDelEnf.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PctDelEnf.Location = New System.Drawing.Point(3, 3)
         Me.PctDelEnf.Name = "PctDelEnf"
-        Me.PctDelEnf.Size = New System.Drawing.Size(104, 103)
+        Me.PctDelEnf.Size = New System.Drawing.Size(69, 67)
         Me.PctDelEnf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PctDelEnf.TabIndex = 0
         Me.PctDelEnf.TabStop = False
@@ -311,29 +292,26 @@ Partial Class FrmMenuGestion
         '
         Me.PnlModEnf.Controls.Add(Me.LblModEnf)
         Me.PnlModEnf.Controls.Add(Me.PctModEnf)
-        Me.PnlModEnf.Location = New System.Drawing.Point(244, 5)
-        Me.PnlModEnf.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PnlModEnf.Location = New System.Drawing.Point(164, 3)
         Me.PnlModEnf.Name = "PnlModEnf"
-        Me.PnlModEnf.Size = New System.Drawing.Size(116, 111)
+        Me.PnlModEnf.Size = New System.Drawing.Size(77, 72)
         Me.PnlModEnf.TabIndex = 1
         '
         'LblModEnf
         '
         Me.LblModEnf.AutoSize = True
         Me.LblModEnf.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblModEnf.Location = New System.Drawing.Point(116, 31)
-        Me.LblModEnf.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblModEnf.Location = New System.Drawing.Point(77, 20)
         Me.LblModEnf.Name = "LblModEnf"
-        Me.LblModEnf.Size = New System.Drawing.Size(0, 25)
+        Me.LblModEnf.Size = New System.Drawing.Size(0, 16)
         Me.LblModEnf.TabIndex = 2
         '
         'PctModEnf
         '
         Me.PctModEnf.Image = Global.CapaPresentacionGestion.My.Resources.Resources.ModificarCircular
-        Me.PctModEnf.Location = New System.Drawing.Point(4, 5)
-        Me.PctModEnf.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PctModEnf.Location = New System.Drawing.Point(3, 3)
         Me.PctModEnf.Name = "PctModEnf"
-        Me.PctModEnf.Size = New System.Drawing.Size(104, 103)
+        Me.PctModEnf.Size = New System.Drawing.Size(69, 67)
         Me.PctModEnf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PctModEnf.TabIndex = 0
         Me.PctModEnf.TabStop = False
@@ -341,10 +319,9 @@ Partial Class FrmMenuGestion
         'Panel5
         '
         Me.Panel5.Controls.Add(Me.Label5)
-        Me.Panel5.Location = New System.Drawing.Point(368, 5)
-        Me.Panel5.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Panel5.Location = New System.Drawing.Point(247, 3)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(226, 111)
+        Me.Panel5.Size = New System.Drawing.Size(151, 72)
         Me.Panel5.TabIndex = 2
         '
         'Label5
@@ -353,10 +330,9 @@ Partial Class FrmMenuGestion
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(18, 38)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Location = New System.Drawing.Point(12, 25)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(204, 33)
+        Me.Label5.Size = New System.Drawing.Size(134, 24)
         Me.Label5.TabIndex = 0
         Me.Label5.Text = "Enfermedades"
         '
@@ -367,39 +343,35 @@ Partial Class FrmMenuGestion
         Me.FlpUsuarios.Controls.Add(Me.PnlDelUsr)
         Me.FlpUsuarios.Controls.Add(Me.PnlModUsr)
         Me.FlpUsuarios.Controls.Add(Me.Panel9)
-        Me.FlpUsuarios.Location = New System.Drawing.Point(64, 478)
-        Me.FlpUsuarios.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.FlpUsuarios.Location = New System.Drawing.Point(43, 311)
         Me.FlpUsuarios.Name = "FlpUsuarios"
-        Me.FlpUsuarios.Size = New System.Drawing.Size(603, 128)
+        Me.FlpUsuarios.Size = New System.Drawing.Size(402, 83)
         Me.FlpUsuarios.TabIndex = 8
         '
         'PnlAddUsr
         '
         Me.PnlAddUsr.Controls.Add(Me.LblAddUsr)
         Me.PnlAddUsr.Controls.Add(Me.PctAddUsr)
-        Me.PnlAddUsr.Location = New System.Drawing.Point(4, 5)
-        Me.PnlAddUsr.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PnlAddUsr.Location = New System.Drawing.Point(3, 3)
         Me.PnlAddUsr.Name = "PnlAddUsr"
-        Me.PnlAddUsr.Size = New System.Drawing.Size(112, 111)
+        Me.PnlAddUsr.Size = New System.Drawing.Size(75, 72)
         Me.PnlAddUsr.TabIndex = 0
         '
         'LblAddUsr
         '
         Me.LblAddUsr.AutoSize = True
         Me.LblAddUsr.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblAddUsr.Location = New System.Drawing.Point(112, 31)
-        Me.LblAddUsr.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblAddUsr.Location = New System.Drawing.Point(75, 20)
         Me.LblAddUsr.Name = "LblAddUsr"
-        Me.LblAddUsr.Size = New System.Drawing.Size(0, 25)
+        Me.LblAddUsr.Size = New System.Drawing.Size(0, 16)
         Me.LblAddUsr.TabIndex = 1
         '
         'PctAddUsr
         '
         Me.PctAddUsr.Image = Global.CapaPresentacionGestion.My.Resources.Resources.AgregarCircular
-        Me.PctAddUsr.Location = New System.Drawing.Point(4, 5)
-        Me.PctAddUsr.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PctAddUsr.Location = New System.Drawing.Point(3, 3)
         Me.PctAddUsr.Name = "PctAddUsr"
-        Me.PctAddUsr.Size = New System.Drawing.Size(104, 102)
+        Me.PctAddUsr.Size = New System.Drawing.Size(69, 66)
         Me.PctAddUsr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PctAddUsr.TabIndex = 0
         Me.PctAddUsr.TabStop = False
@@ -408,29 +380,26 @@ Partial Class FrmMenuGestion
         '
         Me.PnlDelUsr.Controls.Add(Me.LblDelUsr)
         Me.PnlDelUsr.Controls.Add(Me.PctDelUsr)
-        Me.PnlDelUsr.Location = New System.Drawing.Point(124, 5)
-        Me.PnlDelUsr.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PnlDelUsr.Location = New System.Drawing.Point(84, 3)
         Me.PnlDelUsr.Name = "PnlDelUsr"
-        Me.PnlDelUsr.Size = New System.Drawing.Size(111, 111)
+        Me.PnlDelUsr.Size = New System.Drawing.Size(74, 72)
         Me.PnlDelUsr.TabIndex = 1
         '
         'LblDelUsr
         '
         Me.LblDelUsr.AutoSize = True
         Me.LblDelUsr.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblDelUsr.Location = New System.Drawing.Point(114, 31)
-        Me.LblDelUsr.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblDelUsr.Location = New System.Drawing.Point(76, 20)
         Me.LblDelUsr.Name = "LblDelUsr"
-        Me.LblDelUsr.Size = New System.Drawing.Size(0, 25)
+        Me.LblDelUsr.Size = New System.Drawing.Size(0, 16)
         Me.LblDelUsr.TabIndex = 2
         '
         'PctDelUsr
         '
         Me.PctDelUsr.Image = Global.CapaPresentacionGestion.My.Resources.Resources.EliminarCircular
-        Me.PctDelUsr.Location = New System.Drawing.Point(4, 5)
-        Me.PctDelUsr.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PctDelUsr.Location = New System.Drawing.Point(3, 3)
         Me.PctDelUsr.Name = "PctDelUsr"
-        Me.PctDelUsr.Size = New System.Drawing.Size(104, 103)
+        Me.PctDelUsr.Size = New System.Drawing.Size(69, 67)
         Me.PctDelUsr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PctDelUsr.TabIndex = 0
         Me.PctDelUsr.TabStop = False
@@ -439,29 +408,26 @@ Partial Class FrmMenuGestion
         '
         Me.PnlModUsr.Controls.Add(Me.LblModUsr)
         Me.PnlModUsr.Controls.Add(Me.PctModUsr)
-        Me.PnlModUsr.Location = New System.Drawing.Point(243, 5)
-        Me.PnlModUsr.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PnlModUsr.Location = New System.Drawing.Point(164, 3)
         Me.PnlModUsr.Name = "PnlModUsr"
-        Me.PnlModUsr.Size = New System.Drawing.Size(116, 111)
+        Me.PnlModUsr.Size = New System.Drawing.Size(77, 72)
         Me.PnlModUsr.TabIndex = 1
         '
         'LblModUsr
         '
         Me.LblModUsr.AutoSize = True
         Me.LblModUsr.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblModUsr.Location = New System.Drawing.Point(116, 31)
-        Me.LblModUsr.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblModUsr.Location = New System.Drawing.Point(77, 20)
         Me.LblModUsr.Name = "LblModUsr"
-        Me.LblModUsr.Size = New System.Drawing.Size(0, 25)
+        Me.LblModUsr.Size = New System.Drawing.Size(0, 16)
         Me.LblModUsr.TabIndex = 2
         '
         'PctModUsr
         '
         Me.PctModUsr.Image = Global.CapaPresentacionGestion.My.Resources.Resources.ModificarCircular
-        Me.PctModUsr.Location = New System.Drawing.Point(4, 5)
-        Me.PctModUsr.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PctModUsr.Location = New System.Drawing.Point(3, 3)
         Me.PctModUsr.Name = "PctModUsr"
-        Me.PctModUsr.Size = New System.Drawing.Size(104, 103)
+        Me.PctModUsr.Size = New System.Drawing.Size(69, 67)
         Me.PctModUsr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PctModUsr.TabIndex = 0
         Me.PctModUsr.TabStop = False
@@ -469,10 +435,9 @@ Partial Class FrmMenuGestion
         'Panel9
         '
         Me.Panel9.Controls.Add(Me.Label9)
-        Me.Panel9.Location = New System.Drawing.Point(367, 5)
-        Me.Panel9.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Panel9.Location = New System.Drawing.Point(247, 3)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(226, 111)
+        Me.Panel9.Size = New System.Drawing.Size(151, 72)
         Me.Panel9.TabIndex = 2
         '
         'Label9
@@ -481,10 +446,9 @@ Partial Class FrmMenuGestion
         Me.Label9.BackColor = System.Drawing.Color.Transparent
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.White
-        Me.Label9.Location = New System.Drawing.Point(18, 38)
-        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label9.Location = New System.Drawing.Point(12, 25)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(131, 33)
+        Me.Label9.Size = New System.Drawing.Size(83, 24)
         Me.Label9.TabIndex = 0
         Me.Label9.Text = "Usuarios"
         '
@@ -492,9 +456,10 @@ Partial Class FrmMenuGestion
         '
         Me.LblBienvenida.AutoSize = True
         Me.LblBienvenida.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblBienvenida.Location = New System.Drawing.Point(426, 60)
+        Me.LblBienvenida.Location = New System.Drawing.Point(284, 39)
+        Me.LblBienvenida.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblBienvenida.Name = "LblBienvenida"
-        Me.LblBienvenida.Size = New System.Drawing.Size(0, 40)
+        Me.LblBienvenida.Size = New System.Drawing.Size(0, 29)
         Me.LblBienvenida.TabIndex = 4
         '
         'LblDescripcionVentana
@@ -503,9 +468,10 @@ Partial Class FrmMenuGestion
         Me.LblDescripcionVentana.BackColor = System.Drawing.Color.Transparent
         Me.LblDescripcionVentana.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblDescripcionVentana.ForeColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(213, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.LblDescripcionVentana.Location = New System.Drawing.Point(426, 14)
+        Me.LblDescripcionVentana.Location = New System.Drawing.Point(284, 9)
+        Me.LblDescripcionVentana.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblDescripcionVentana.Name = "LblDescripcionVentana"
-        Me.LblDescripcionVentana.Size = New System.Drawing.Size(0, 40)
+        Me.LblDescripcionVentana.Size = New System.Drawing.Size(0, 29)
         Me.LblDescripcionVentana.TabIndex = 34
         Me.LblDescripcionVentana.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -516,8 +482,9 @@ Partial Class FrmMenuGestion
         Me.PnlBarra.Controls.Add(Me.PctSalir)
         Me.PnlBarra.Dock = System.Windows.Forms.DockStyle.Top
         Me.PnlBarra.Location = New System.Drawing.Point(0, 0)
+        Me.PnlBarra.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PnlBarra.Name = "PnlBarra"
-        Me.PnlBarra.Size = New System.Drawing.Size(1197, 76)
+        Me.PnlBarra.Size = New System.Drawing.Size(581, 49)
         Me.PnlBarra.TabIndex = 35
         '
         'BtnCSV
@@ -525,19 +492,20 @@ Partial Class FrmMenuGestion
         Me.BtnCSV.BackColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(213, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.BtnCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnCSV.ForeColor = System.Drawing.Color.Black
-        Me.BtnCSV.Location = New System.Drawing.Point(12, 12)
+        Me.BtnCSV.Location = New System.Drawing.Point(8, 8)
+        Me.BtnCSV.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.BtnCSV.Name = "BtnCSV"
-        Me.BtnCSV.Size = New System.Drawing.Size(196, 50)
+        Me.BtnCSV.Size = New System.Drawing.Size(131, 32)
         Me.BtnCSV.TabIndex = 36
         Me.BtnCSV.Text = "Ingreso por CSV"
         Me.BtnCSV.UseVisualStyleBackColor = False
         '
         'FrmMenuGestion
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(245, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1197, 648)
+        Me.ClientSize = New System.Drawing.Size(581, 438)
         Me.Controls.Add(Me.PnlBarra)
         Me.Controls.Add(Me.LblDescripcionVentana)
         Me.Controls.Add(Me.FlpSintomas)
@@ -546,6 +514,8 @@ Partial Class FrmMenuGestion
         Me.Controls.Add(Me.FlpEnfermedades)
         Me.ForeColor = System.Drawing.Color.Transparent
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "FrmMenuGestion"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Menu"
