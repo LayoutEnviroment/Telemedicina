@@ -21,14 +21,20 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_2AAEB20466DC4D488EDCEA1DAB3B8D63"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_39B38176602D46D5A8FAEE3BC4EEE65A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_48F1396F016144CEB74298286B176871"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_3EDE6AC5CF3BECD4FE58E3BC04CABCAC"
+        "OwnerKey" = "8:_39B38176602D46D5A8FAEE3BC4EEE65A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -63,7 +69,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_669C90C2034D4A6781EBFCA214E40476"
+        "MsmKey" = "8:_866D30F96A194903BE9A1225F4586AD7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -81,14 +87,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_CBB16F66F1970CEE730852A4357583C7"
-        "OwnerKey" = "8:_20900C04742F4071BBF835E66C4E4D53"
+        "MsmKey" = "8:_BBCEFD95A6A940CEA8A0D9C3D8CCC775"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_FA8E5D24F7F8442DA33C760104C8D8BC"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_CBB16F66F1970CEE730852A4357583C7"
+        "OwnerKey" = "8:_20900C04742F4071BBF835E66C4E4D53"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -100,7 +106,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_20900C04742F4071BBF835E66C4E4D53"
+        "OwnerKey" = "8:_3EDE6AC5CF3BECD4FE58E3BC04CABCAC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -113,6 +119,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_59DFEBE60A2C53A833B4780E3C7566D2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_20900C04742F4071BBF835E66C4E4D53"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -190,10 +202,10 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_48F1396F016144CEB74298286B176871"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2AAEB20466DC4D488EDCEA1DAB3B8D63"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\Downloads\\Manual_del_Gestor.pdf"
-            "TargetName" = "8:Manual_del_Gestor.pdf"
+            "SourcePath" = "8:..\\..\\..\\..\\Downloads\\Manual instalación software Cuidarte.pdf"
+            "TargetName" = "8:Manual instalación software Cuidarte.pdf"
             "Tag" = "8:"
             "Folder" = "8:_A990728137AA488DB7442B70B05653BA"
             "Condition" = "8:"
@@ -208,6 +220,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3EDE6AC5CF3BECD4FE58E3BC04CABCAC"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CapaDeDatos, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_3EDE6AC5CF3BECD4FE58E3BC04CABCAC"
+                    {
+                    "Name" = "8:CapaDeDatos.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:CapaDeDatos.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_A990728137AA488DB7442B70B05653BA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_51AD542CF272573F43B6625D29F6BFFC"
@@ -272,10 +315,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_669C90C2034D4A6781EBFCA214E40476"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_866D30F96A194903BE9A1225F4586AD7"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\Downloads\\Manual_instalación_software_Cuidarte.pdf"
-            "TargetName" = "8:Manual_instalación_software_Cuidarte.pdf"
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\Proyecto\\CuidarteIconoMedico.ico.ico"
+            "TargetName" = "8:CuidarteIconoMedico.ico.ico"
             "Tag" = "8:"
             "Folder" = "8:_A990728137AA488DB7442B70B05653BA"
             "Condition" = "8:"
@@ -296,6 +339,26 @@
             {
             "SourcePath" = "8:..\\..\\..\\..\\Desktop\\Proyecto\\License.rtf"
             "TargetName" = "8:License.rtf"
+            "Tag" = "8:"
+            "Folder" = "8:_A990728137AA488DB7442B70B05653BA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BBCEFD95A6A940CEA8A0D9C3D8CCC775"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Downloads\\Manual de usuario Gestor.pdf"
+            "TargetName" = "8:Manual de usuario Gestor.pdf"
             "Tag" = "8:"
             "Folder" = "8:_A990728137AA488DB7442B70B05653BA"
             "Condition" = "8:"
@@ -341,26 +404,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FA8E5D24F7F8442DA33C760104C8D8BC"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\Proyecto\\CuidarteIconoGestor.ico.ico"
-            "TargetName" = "8:CuidarteIconoGestor.ico.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_A990728137AA488DB7442B70B05653BA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
         }
@@ -431,11 +474,11 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Instalador Gestores"
         "ProductCode" = "8:{AF954A00-FC7A-4D7A-BCC5-9E3E42A3DB46}"
-        "PackageCode" = "8:{26A6DCF3-C8CB-45FB-B0AF-F212C14BCE89}"
+        "PackageCode" = "8:{EDAEBE9D-A6ED-4E98-BC12-762C5266073A}"
         "UpgradeCode" = "8:{19B47727-F02E-4146-A30B-289036C1E6DF}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
@@ -562,7 +605,7 @@
             "Target" = "8:_20900C04742F4071BBF835E66C4E4D53"
             "Folder" = "8:_2EED44C440FC4E9FB621FF8F792EA18B"
             "WorkingFolder" = "8:_A990728137AA488DB7442B70B05653BA"
-            "Icon" = "8:_FA8E5D24F7F8442DA33C760104C8D8BC"
+            "Icon" = "8:_866D30F96A194903BE9A1225F4586AD7"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_CBE2FDE9E60D4DCC8E376DC7E91F2D59"
@@ -576,7 +619,7 @@
             "Target" = "8:_20900C04742F4071BBF835E66C4E4D53"
             "Folder" = "8:_7C427064B2B74D63A9B8FD5B3749E3A6"
             "WorkingFolder" = "8:_A990728137AA488DB7442B70B05653BA"
-            "Icon" = "8:"
+            "Icon" = "8:_866D30F96A194903BE9A1225F4586AD7"
             "Feature" = "8:"
             }
         }
