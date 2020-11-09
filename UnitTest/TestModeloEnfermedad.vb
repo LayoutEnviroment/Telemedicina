@@ -10,7 +10,7 @@ Imports CapaDeDatos
     Private ReadOnly PacPass As String = "53590226"
     Private ReadOnly MedPass As String = "49249605"
     Private ReadOnly AdmPass As String = "54083680"
-    Private ReadOnly Diagnostico As String = "5"
+    Private ReadOnly Diagnostico As String = "1"
     Dim Resultado As Boolean = True
 
     <TestMethod()> Public Sub TestInsertar()
@@ -122,7 +122,7 @@ Imports CapaDeDatos
            .Nombre = "Bronquitis",
            .Descripcion = "Inflamacion de los conductos bronquiales, las vias respiratorias que llevan oxigeno a sus pulmones.",
            .Prioridad = "ALTA",
-           .Id = "5"
+           .Id = "3"
         }
         Resultado = False
 

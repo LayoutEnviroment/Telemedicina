@@ -465,5 +465,11 @@
   <ItemGroup>
     <None Include="Resources\ErrorFondoObscuro.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CuidarteIconoPaciente.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CuidarteIconoPaciente.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

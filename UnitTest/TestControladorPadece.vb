@@ -4,7 +4,7 @@ Imports CapaDeNegocio
 
 <TestClass()> Public Class TestControladorPadece
     Dim sintomasPadecidosTest As New List(Of String) From {
-        "Sintoma de prueba"
+        "Dolor"
     }
     Dim Resultado As Boolean = False
 

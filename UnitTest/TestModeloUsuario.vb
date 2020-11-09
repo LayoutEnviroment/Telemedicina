@@ -11,7 +11,7 @@ Imports CapaDeDatos
     Private ReadOnly PacPass As String = "53590226"
     Private ReadOnly MedPass As String = "49249605"
     Private ReadOnly AdmPass As String = "54083680"
-    Private ReadOnly Diagnostico As String = "5"
+    Private ReadOnly Diagnostico As String = "1"
     Private ReadOnly Enfermedades As New List(Of String)
     Private ReadOnly Medicaciones As New List(Of String)
     Private ReadOnly Roles(3) As Boolean

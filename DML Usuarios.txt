@@ -2,7 +2,7 @@ INSERT INTO
 	persona(ci, nombre, apellido, mail)
 VALUES
 	(53590226, 'Alejandro','Nunez','nunezalejandro019@gmail.com'),
-	(49249605, 'Edurado', 'Fabre', 'egufabre@hotmail.com'),
+	(49249605, 'Gregory','House', 'egufabre@hotmail.com'),
 	(54083680, 'Leonardo','Santos','leonardosantosbran@gmail.com');
 
 INSERT INTO 

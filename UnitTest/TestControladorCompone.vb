@@ -11,8 +11,12 @@ Imports CapaDeNegocio
     <TestMethod()> Public Sub TestEnfermedadesPosibles()
 
         Resultado = False
-        Dim sintomasDeTest As New List(Of String)
-        sintomasDeTest.Add("Sintoma de prueba")
+        Dim sintomasDeTest As New List(Of String) From {
+            ("Quistes"),
+            ("Fiebre"),
+            ("Tos"),
+            ("Fiebre Alta")
+        }
 
         Try
             ControladorCompone.EnfermedadesPosibles(sintomasDeTest)

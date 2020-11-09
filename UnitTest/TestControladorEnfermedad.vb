@@ -89,7 +89,7 @@ Imports CapaDeNegocio
         Resultado = False
 
         Try
-            ControladorEnfermedad.CambiarEnfermedad("5", "Bronquitis", "Inflamacion de los conductos bronquiales, las vias respiratorias que llevan oxigeno a sus pulmones.", "ALTA")
+            ControladorEnfermedad.CambiarEnfermedad("3", "Bronquitis", "Inflamacion de los conductos bronquiales, las vias respiratorias que llevan oxigeno a sus pulmones.", "ALTA")
             Resultado = True
         Catch ex As Exception
 

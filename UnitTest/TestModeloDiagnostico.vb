@@ -10,16 +10,16 @@ Imports CapaDeDatos
     Private ReadOnly PacPass As String = "53590226"
     Private ReadOnly MedPass As String = "49249605"
     Private ReadOnly AdmPass As String = "54083680"
-    Private ReadOnly Diagnostico As String = "21"
+    Private ReadOnly Diagnostico As String = "1"
     Dim Resultado As Boolean = False
 
     <TestMethod()> Public Sub TestNuevo()
         Dim sintomaPrueba As New List(Of String) From {
-            "Sintoma de prueba"
+            "Dolor"
         }
         Dim d As New ModeloDiagnostico(Paciente, PacPass) With {
             .IdSintomas = sintomaPrueba,
-            .IdEnfermedad = "8"
+            .IdEnfermedad = "18"
         }
         Resultado = False
 

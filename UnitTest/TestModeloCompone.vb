@@ -10,12 +10,15 @@ Imports CapaDeDatos
     Private ReadOnly PacPass As String = "53590226"
     Private ReadOnly MedPass As String = "49249605"
     Private ReadOnly AdmPass As String = "54083680"
-    Private ReadOnly Diagnostico As String = "5"
+    Private ReadOnly Diagnostico As String = "1"
     Dim Resultado As Boolean = False
 
     <TestMethod()> Public Sub TestEnfermedadesPosibles()
         Dim sintomaPrueba As New List(Of String) From {
-        ("Sintoma de prueba")
+        ("Quistes"),
+        ("Fiebre"),
+        ("Tos"),
+        ("Fiebre Alta")
         }
         Dim c As New ModeloCompone(Paciente, PacPass) With {
             .IdSintomas = sintomaPrueba}
